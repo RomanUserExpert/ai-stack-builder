@@ -23,7 +23,7 @@ exception — it is a local CLI install, no account at all.
 |---|---|---|
 | ~~**Figma**~~ — **done 2026-08-31** | 05, 09 | Captured in the owner's own file, and the library-updates modal supplied by the owner from a paid-team file. Flow closed. |
 | **Linear** — any workspace | 02, 08, 10 | The marketing site runs product UI, but not the real thing: no ⌘K palette in a populated workspace, no genuine empty state, no real density under load. |
-| **Vercel** — any account with one deployed project | 04, 07 | The build log is our single best reference for the validation pass, and it is behind the dashboard. Env-variable UI likewise. |
+| ~~**Vercel**~~ — **done 2026-08-31** | 04, 07 | Build log, deployment stage list, deployments list, env-variable drawer and env empty state all captured. Read-only; nothing deployed or saved. |
 | ~~**Notion**~~ — **done 2026-08-31** | 09, 12 | Share dialog, Publish-to-web tab, page menu and move-destination picker all captured. Nothing published, nothing duplicated. |
 | ~~**GitHub**~~ — **done 2026-08-31** | 09, 12 | Fork form, Danger Zone visibility row and the owner's profile captured. The fork form was opened and abandoned, not submitted. |
 | ~~**Terraform CLI**~~ — **done 2026-08-31** | 04, 11 | Run from a scratch directory, nothing installed system-wide. Output captured in `04-.../terraform-plan-output.md` and `11-.../dependency-conflict-copy.md`. |
@@ -134,7 +134,7 @@ catalog), Agentman (permission tiers). Feeds our item card and states 1–7.
 
 ---
 
-## 04 — Validation: pass, warn, block ◐ P1
+## 04 — Validation: pass, warn, block ● P1 — see [Terraform](04-validation-check-results/terraform-plan-output.md) and [Vercel](04-validation-check-results/NOTES-vercel.md) notes
 
 **Serves.** Port (scorecards), Terraform (`plan`), Vercel (build log). This is the wow moment, and
 it is the thinnest folder relative to its importance.
@@ -180,7 +180,7 @@ This is the single biggest gap in the research.
 
 ---
 
-## 07 — Env variables and secrets ◐ P2
+## 07 — Env variables and secrets ● P2 — see [NOTES](07-env-and-secrets/NOTES.md)
 
 **Serves.** Smithery (how required config is presented), and our `needsEnv` plus `.env.example`.
 
@@ -289,14 +289,29 @@ unquantified in both directions, so *"used in 3 projects"* stays unclaimed.
 
 ---
 
+## Collected 2026-08-31 — the Vercel pass
+
+Owner's signed-in Vercel (`portfolio-react`). Read-only: no deployment triggered, no rollback, no
+setting saved; the add-variable drawer was opened and closed.
+
+| Flow | Added |
+|---|---|
+| 04 | Deployments list with per-run duration; the deployment page as a **stack of collapsed stages each carrying its own glyph and duration** — the structural model for our validation pass; the build log with its "66 lines" header, in-log search, ASCII route tree with a counted `[+9 more paths]` truncation, and a timestamp tooltip giving **relative to start** and **relative to previous**. See [NOTES-vercel](04-validation-check-results/NOTES-vercel.md). |
+| 07 | The Add Environment Variable drawer: **Secret vs Config** as two explained radio cards with the irreversible one as default, a Note field whose placeholder is *"Where to rotate, or who to contact"*, a value reveal toggle, and two bulk paths (`Import .env`, paste a whole `.env` into the Key field). See [NOTES](07-env-and-secrets/NOTES.md). |
+| 08 | Two genuine empty states at last — the env-variables empty state, and the project overview's `Production Checklist 4/5`. |
+
+---
+
 ## What is left, now that the no-account pass is done
 
 Everything reachable without an account has been taken. What remains splits in two.
 
-**Needs access.** Only two accounts are still missing, and neither blocks a P1 decision: **Linear**
-for real density and a populated command palette (flows 02, 08, 10) and **Vercel** for the
-env-variable screen and the build log (flows 04, 07) — and GitHub Actions logs may already cover the
-build log well enough.
+**Needs access.** One account: **Linear**, for real density, a populated command palette and a
+genuine first-run empty state (flows 02, 08, 10). Nothing it would give us blocks a P1 decision.
+
+**Needs no access at all:** a *failing* run. Every deployment in the owner's Vercel account
+succeeded, so failure-state copy is still uncaptured — GitHub Actions on a public repository is the
+place to take it.
 
 **Needs a decision, not access.** Raycast is installable here but grabs a global hotkey and wants a
 sign-in, so it should be a deliberate step rather than part of a sweep. Port's failing-scorecard
