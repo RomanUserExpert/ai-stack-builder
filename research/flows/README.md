@@ -21,11 +21,11 @@ exception — it is a local CLI install, no account at all.
 
 | What | For which flows | Why it cannot be substituted |
 |---|---|---|
-| **Figma** — editor access to any file with a component library | 05, 09 | The linked/detached instance model exists nowhere else. Community file pages show the published artifact, not the instance panel, the detach action or the library-update dialog. This is our own data model, and we currently have **zero** captures of it. |
+| ~~**Figma**~~ — **done 2026-08-31** | 05, 09 | Captured in the owner's own file. One gap remains and it is a *plan* limit, not access: the library-update blast-radius dialog is a paid feature. |
 | **Linear** — any workspace | 02, 08, 10 | The marketing site runs product UI, but not the real thing: no ⌘K palette in a populated workspace, no genuine empty state, no real density under load. |
 | **Vercel** — any account with one deployed project | 04, 07 | The build log is our single best reference for the validation pass, and it is behind the dashboard. Env-variable UI likewise. |
-| **Notion** — any workspace | 09, 12 | The duplicate-into-workspace flow and the share/publish dialog only exist once signed in. |
-| **GitHub** — signed-in session | 09, 12 | Fork dialog, repo visibility settings and the profile-as-portfolio view need a session. Public repos alone give us the dependency graph and nothing else. |
+| ~~**Notion**~~ — **done 2026-08-31** | 09, 12 | Share dialog, Publish-to-web tab, page menu and move-destination picker all captured. Nothing published, nothing duplicated. |
+| ~~**GitHub**~~ — **done 2026-08-31** | 09, 12 | Fork form, Danger Zone visibility row and the owner's profile captured. The fork form was opened and abandoned, not submitted. |
 | ~~**Terraform CLI**~~ — **done 2026-08-31** | 04, 11 | Run from a scratch directory, nothing installed system-wide. Output captured in `04-.../terraform-plan-output.md` and `11-.../dependency-conflict-copy.md`. |
 | **Mobbin** — only if a subscription already exists | reference | It 403s unauthenticated and redirects to sign-in. Do not buy one for this; the flows below cover the same ground from the products themselves. |
 
@@ -150,7 +150,7 @@ it is the thinnest folder relative to its importance.
 
 ---
 
-## 05 — Linked vs detached, and blast radius ○ P1
+## 05 — Linked vs detached, and blast radius ● P1 — see [NOTES](05-linked-vs-detached/NOTES.md)
 
 **Serves.** Figma, one for one with our `ProjectItem.detached` and `overrides`. **Zero coverage.**
 This is the single biggest gap in the research.
@@ -209,7 +209,7 @@ and our known cold-start problem.
 
 ---
 
-## 09 — Duplicate and fork ○ P2
+## 09 — Duplicate and fork ● P2 — see [NOTES](09-duplicate-and-fork/NOTES.md)
 
 **Serves.** Notion (duplication as distribution), GitHub (fork), and our "duplicate a project"
 moment. **Zero coverage.**
@@ -252,7 +252,7 @@ Feeds every message our validation pass will need to write.
 
 ---
 
-## 12 — Visibility and portfolio ◐ P3
+## 12 — Visibility and portfolio ● P3 — see [NOTES](12-visibility-and-portfolio/NOTES.md)
 
 **Serves.** GitHub (public/private as a low-ceremony decision, profile as portfolio), Agentman
 (permission tiers), and our `visibility` field. **Zero coverage.**
@@ -264,14 +264,36 @@ Feeds every message our validation pass will need to write.
 
 ---
 
+## Collected 2026-08-31 — the account pass
+
+The owner granted access to their signed-in browser: Figma, Notion and GitHub. 15 further captures
+and three written notes. **Nothing was created, published, submitted or left changed.**
+
+| Flow | Added | Handling |
+|---|---|---|
+| 05 | The whole linked/detached model from a real component library: instance selected and linked, the right-panel provenance line "From this file", the context menu with Reset / Detach / Main component, the detached result, and the restored state. See [NOTES](05-linked-vs-detached/NOTES.md). | The detach was undone immediately with Ctrl+Z and the restored state photographed as proof. |
+| 09 | GitHub's "Create a new fork" form and Notion's duplicate menu item and move-destination picker. See [NOTES](09-duplicate-and-fork/NOTES.md). | The fork form was opened and abandoned; the picker was cancelled with Escape. |
+| 12 | Notion's Share and Publish-to-web dialogs, GitHub's Danger Zone visibility row, and the owner's own profile beside a heavily used public one. See [NOTES](12-visibility-and-portfolio/NOTES.md). | Read-only. Nothing in the Danger Zone was clicked. |
+
+**The one finding worth carrying into design:** Figma keeps *no* record of where a detached instance
+came from. Title reverts to "Frame", the provenance line and the component properties vanish, and
+there is no way back. Our model — a detached `ProjectItem` that keeps `itemId`, shows "modified from
+library version" and offers a return path — is therefore a **correction of Figma, not a copy of it**.
+Design it deliberately; there is no prior art to follow.
+
+**Still blocked, and it is a plan limit rather than an access one:** the "publish library update to
+N files" dialog. This file sits on a Free team plan, where cross-file library publishing is paid.
+
+---
+
 ## What is left, now that the no-account pass is done
 
 Everything reachable without an account has been taken. What remains splits in two.
 
-**Needs access.** Flow 05 (linked vs detached) and flow 09 (duplicate and fork) are still at zero,
-and 05 is the one our data model depends on most — Figma is the only source. Beyond those: Linear
-for real density and a populated command palette, Vercel for the env-variable screen, Notion and a
-GitHub session for the sharing and forking dialogs.
+**Needs access.** Only two accounts are still missing, and neither blocks a P1 decision: **Linear**
+for real density and a populated command palette (flows 02, 08, 10) and **Vercel** for the
+env-variable screen and the build log (flows 04, 07) — and GitHub Actions logs may already cover the
+build log well enough.
 
 **Needs a decision, not access.** Raycast is installable here but grabs a global hotkey and wants a
 sign-in, so it should be a deliberate step rather than part of a sweep. Port's failing-scorecard
