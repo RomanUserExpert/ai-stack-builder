@@ -61,11 +61,44 @@ then "UI kits — iOS and iPadOS 27 UI Kit — 173 components", then "Add more l
 counts are shown per library and nothing else — no quality signal, no last-updated. Compare with
 Tessl and Smithery, where the count is the least important number on the card.
 
-## Not captured, and why
+## Library updates — the receiving end
 
-**The "publish library update to N files" dialog — the blast-radius UI — could not be reached.**
-This file is on a Free team plan, where publishing a library across files is a paid feature; the
-Assets panel shows the upsell instead ("Reuse components across files … upgrade to a Professional
-plan"). This is a plan limit, not an access limit. Options, in order of cost: check whether another
-file of the owner's sits on a paid team; or accept the gap and design blast radius from the
-Backstage and GitHub-dependents material in flow 03, which we already hold.
+`figma-manage-libraries-updates.png` — **supplied by the owner from a file on a paid team**, not
+captured in this session. It fills the gap the Free-plan file left.
+
+The "Manage libraries" modal, Updates tab. Its structure:
+
+- **Grouped by publish event, not by component.** Each group header is *"Updates from UIR - LIB -
+  Design System"* with a sub-line *"Published by Roman 11 days ago"*. Provenance — which library,
+  who published, how long ago — sits on the group, and the components sit under it. Four groups are
+  visible from two source libraries at two different times.
+- **Per-item accept plus bulk accept.** Every component row has its own `Update` button, and the
+  footer carries a primary `Update all`. Granularity at both levels, with the bulk action as the
+  primary and the individual ones as secondary.
+- **A thumbnail per component**, which is a preview rather than a diff — and one of them (`header`)
+  renders as an empty grey box, so the preview is not dependable.
+- **Structural changes get a sentence.** Under `handler-dropdown`: *"Moved from UIR - LIB - Design
+  System"*. When something more than pixels changed, it is stated in words.
+- **Scope defaults to the current page**, with a footer toggle *"Show updates for all pages"* that
+  is off. The default answer to "what changed" is narrowed to what you are looking at.
+
+### The finding that survives
+
+**Nowhere does it say how many instances the update will touch.** Not per component, not in the
+bulk action. You are told a new version exists and asked to accept it; you are never told the size
+of what you are accepting. Combined with what we already found — that a detached instance keeps no
+memory of its origin — the picture is consistent: **Figma never quantifies impact, in either
+direction.**
+
+So blast radius remains genuinely unclaimed. Our *"used in 3 projects"* has no prior art in the
+tool whose linking model we are otherwise borrowing. The closest working examples stay the ones in
+flow 03: Backstage's Catalog Graph with its depth control, and GitHub's dependents view.
+
+### What this changes for our design
+
+- Group our update feed by **source and publish event**, not by item — provenance belongs on the
+  header.
+- Offer accept-one and accept-all, with accept-all primary.
+- Say in words what kind of change it is; a thumbnail is not a diff and sometimes renders empty.
+- Default the scope to the current project, with an explicit switch to the whole library.
+- And then do the thing Figma does not: **state the count before the user commits.**

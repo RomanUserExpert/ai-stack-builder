@@ -21,7 +21,7 @@ exception — it is a local CLI install, no account at all.
 
 | What | For which flows | Why it cannot be substituted |
 |---|---|---|
-| ~~**Figma**~~ — **done 2026-08-31** | 05, 09 | Captured in the owner's own file. One gap remains and it is a *plan* limit, not access: the library-update blast-radius dialog is a paid feature. |
+| ~~**Figma**~~ — **done 2026-08-31** | 05, 09 | Captured in the owner's own file, and the library-updates modal supplied by the owner from a paid-team file. Flow closed. |
 | **Linear** — any workspace | 02, 08, 10 | The marketing site runs product UI, but not the real thing: no ⌘K palette in a populated workspace, no genuine empty state, no real density under load. |
 | **Vercel** — any account with one deployed project | 04, 07 | The build log is our single best reference for the validation pass, and it is behind the dashboard. Env-variable UI likewise. |
 | ~~**Notion**~~ — **done 2026-08-31** | 09, 12 | Share dialog, Publish-to-web tab, page menu and move-destination picker all captured. Nothing published, nothing duplicated. |
@@ -150,7 +150,7 @@ it is the thinnest folder relative to its importance.
 
 ---
 
-## 05 — Linked vs detached, and blast radius ● P1 — see [NOTES](05-linked-vs-detached/NOTES.md)
+## 05 — Linked vs detached, and blast radius ● P1 — CLOSED, see [NOTES](05-linked-vs-detached/NOTES.md)
 
 **Serves.** Figma, one for one with our `ProjectItem.detached` and `overrides`. **Zero coverage.**
 This is the single biggest gap in the research.
@@ -281,8 +281,11 @@ there is no way back. Our model — a detached `ProjectItem` that keeps `itemId`
 library version" and offers a return path — is therefore a **correction of Figma, not a copy of it**.
 Design it deliberately; there is no prior art to follow.
 
-**Still blocked, and it is a plan limit rather than an access one:** the "publish library update to
-N files" dialog. This file sits on a Free team plan, where cross-file library publishing is paid.
+**The library-updates modal is now covered too** — the owner supplied it from a file on a paid team,
+which the Free-plan file could not show. It confirms rather than closes the blast-radius question:
+Figma groups updates by publish event, offers accept-one and accept-all, and explains structural
+changes in words — but **never says how many instances an update will touch**. Impact is
+unquantified in both directions, so *"used in 3 projects"* stays unclaimed.
 
 ---
 
