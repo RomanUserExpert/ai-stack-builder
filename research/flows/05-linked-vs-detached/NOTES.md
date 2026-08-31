@@ -82,17 +82,39 @@ The "Manage libraries" modal, Updates tab. Its structure:
 - **Scope defaults to the current page**, with a footer toggle *"Show updates for all pages"* that
   is off. The default answer to "what changed" is narrowed to what you are looking at.
 
-### The finding that survives
+### The counts are there — they are tied to the scope toggle
 
-**Nowhere does it say how many instances the update will touch.** Not per component, not in the
-bulk action. You are told a new version exists and asked to accept it; you are never told the size
-of what you are accepting. Combined with what we already found — that a detached instance keeps no
-memory of its origin — the picture is consistent: **Figma never quantifies impact, in either
-direction.**
+`figma-library-updates-instance-counts.png`
 
-So blast radius remains genuinely unclaimed. Our *"used in 3 projects"* has no prior art in the
-tool whose linking model we are otherwise borrowing. The closest working examples stay the ones in
-flow 03: Backstage's Catalog Graph with its depth control, and GitHub's dependents view.
+An earlier draft of this note claimed Figma never states how many instances an update will touch.
+That was wrong, and the mistake was mine: I read the panel with *"Show updates for all pages"*
+**off**, where no counts appear. Switch the toggle **on** and every component row grows a third
+line with the number:
+
+| Component | Change | Instances |
+|---|---|---|
+| `chatting-window-chat` | Moved from UIR - LIB - Design System | **5** |
+| `handler-dropdown` | Moved from UIR - LIB - Design System | **2** |
+| `dropdown-detailed-item` | — | **70** |
+| `tag-ghost` | — | **423** |
+
+So blast radius **is** quantified, and the design decision worth copying is the coupling: the count
+appears exactly when the scope widens beyond what you can see. While you are looking at one page,
+Figma assumes you can judge the damage yourself; once the action reaches the whole file, it tells
+you the size first.
+
+The spread in that table is the argument for the whole feature. `Update all` on this file means
+touching two objects in one place and 423 in another, and without the numbers those two rows look
+identical. Any bulk accept in our UI has to state its total before it runs, not after.
+
+**What is still not shown is the cross-container number.** These counts are instances *within this
+file*. Nothing here says how many other files use `tag-ghost`. That is the shape of our *"used in
+3 projects"* — one item, many containers — and it stays uncovered by this panel. Figma's
+cross-file usage lives in library analytics on the paid tiers, which we have not seen and should
+not describe from memory.
+
+The other half of the finding stands unchanged: a **detached** instance keeps no memory of its
+origin. Figma counts what is still linked and forgets what is not.
 
 ### What this changes for our design
 

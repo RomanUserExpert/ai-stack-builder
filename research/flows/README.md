@@ -279,13 +279,20 @@ and three written notes. **Nothing was created, published, submitted or left cha
 came from. Title reverts to "Frame", the provenance line and the component properties vanish, and
 there is no way back. Our model — a detached `ProjectItem` that keeps `itemId`, shows "modified from
 library version" and offers a return path — is therefore a **correction of Figma, not a copy of it**.
-Design it deliberately; there is no prior art to follow.
+Design it deliberately; there is no prior art for the *return path*. Blast-radius counting, by
+contrast, does have prior art — see the correction below.
 
 **The library-updates modal is now covered too** — the owner supplied it from a file on a paid team,
-which the Free-plan file could not show. It confirms rather than closes the blast-radius question:
-Figma groups updates by publish event, offers accept-one and accept-all, and explains structural
-changes in words — but **never says how many instances an update will touch**. Impact is
-unquantified in both directions, so *"used in 3 projects"* stays unclaimed.
+which the Free-plan file could not show. Figma groups updates by publish event, offers accept-one
+and accept-all, and explains structural changes in words.
+
+**Correction, made 2026-08-31 after the owner sent a second capture:** an earlier version of this
+line said Figma never states how many instances an update will touch. It does — the count sits on
+each row (5, 2, 70, **423 instances**), and it appears when the *"Show updates for all pages"*
+toggle is on. Read with the toggle off, the panel shows no numbers, which is what I had seen. The
+coupling is the lesson: the count appears exactly when the action reaches beyond what you can see.
+What remains uncovered here is the **cross-container** number — how many other *files* use a
+component — which is the shape of our *"used in 3 projects"*.
 
 ---
 
