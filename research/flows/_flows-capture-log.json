@@ -1,0 +1,285 @@
+[
+  {
+    "flow": "01-item-detail-and-trust",
+    "slug": "tessl-skill-quality-tab",
+    "url": "https://tessl.io/registry/skills/github/anthropics/skills/docx",
+    "steps": [
+      "clickText:Quality=true"
+    ],
+    "finalUrl": "https://tessl.io/registry/skills/github/anthropics/skills/docx",
+    "title": "docx • skills • anthropics • Skills • Registry • Tessl",
+    "bodyHead": "CtrlK Blog Docs Log in Get started Registry Skills anthropics skills docx docx Use this sk",
+    "is404": false
+  },
+  {
+    "flow": "01-item-detail-and-trust",
+    "slug": "tessl-skill-evals-tab",
+    "url": "https://tessl.io/registry/skills/github/anthropics/skills/docx",
+    "steps": [
+      "clickText:Evals=true"
+    ],
+    "finalUrl": "https://tessl.io/registry/skills/github/anthropics/skills/docx/evals",
+    "title": "docx • skills • anthropics • Skills • Registry • Tessl",
+    "bodyHead": "CtrlK Blog Docs Log in Get started Registry Skills anthropics skills docx docx Use this sk",
+    "is404": false
+  },
+  {
+    "flow": "01-item-detail-and-trust",
+    "slug": "tessl-skill-security-tab",
+    "url": "https://tessl.io/registry/skills/github/anthropics/skills/docx",
+    "steps": [
+      "clickText:Security=true"
+    ],
+    "finalUrl": "https://tessl.io/registry/skills/github/anthropics/skills/docx/security",
+    "title": "docx • skills • anthropics • Skills • Registry • Tessl",
+    "bodyHead": "CtrlK Blog Docs Log in Get started Registry Skills anthropics skills docx docx Use this sk",
+    "is404": false
+  },
+  {
+    "flow": "01-item-detail-and-trust",
+    "slug": "smithery-server-github-config",
+    "url": "https://smithery.ai/servers/@smithery-ai/github",
+    "steps": [],
+    "finalUrl": "https://smithery.ai/servers/smithery-ai/github",
+    "title": "Smithery - Connect agents to services in minutes",
+    "bodyHead": "MCPs Skills Docs Pricing Publish Toolbox Login 🎉 Smithery is now a part of Arcade.dev! Re",
+    "is404": false
+  },
+  {
+    "flow": "01-item-detail-and-trust",
+    "slug": "smithery-server-context7",
+    "url": "https://smithery.ai/servers/@upstash/context7-mcp",
+    "steps": [],
+    "finalUrl": "https://smithery.ai/servers/upstash/context7-mcp",
+    "title": "Context7 - MCP | Smithery",
+    "bodyHead": "MCPs Skills Docs Pricing Publish Toolbox Login 🎉 Smithery is now a part of Arcade.dev! Re",
+    "is404": false
+  },
+  {
+    "flow": "01-item-detail-and-trust",
+    "slug": "terraform-module-versions",
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest?tab=readme",
+    "steps": [
+      "clickText:Versions=false"
+    ],
+    "finalUrl": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest?tab=readme",
+    "title": "terraform-aws-modules/vpc/aws | Terraform Registry",
+    "bodyHead": "The page navigation is complete. You may now navigate the page content as you wish. Skip t",
+    "is404": false
+  },
+  {
+    "flow": "02-library-browse-filter-search",
+    "slug": "backstage-catalog-filtered-library",
+    "url": "https://demo.backstage.io/catalog?filters%5Bkind%5D=component&filters%5Btype%5D=library&filters%5Buser%5D=all",
+    "steps": [],
+    "finalUrl": "https://demo.backstage.io/catalog?filters%5Bkind%5D=component&filters%5Btype%5D=library&filters%5Buser%5D=all&limit=20",
+    "title": "Backstage Demo",
+    "bodyHead": "Search Home Catalog My Group APIs Docs Create Explore Tech Radar MUI to BUI Visualizer Not",
+    "is404": false
+  },
+  {
+    "flow": "02-library-browse-filter-search",
+    "slug": "backstage-catalog-no-results",
+    "url": "https://demo.backstage.io/catalog",
+    "steps": [
+      "type:input[placeholder=\"Search\"], input[type=\"search\"]=true"
+    ],
+    "finalUrl": "https://demo.backstage.io/catalog?filters%5Bkind%5D=component&filters%5Buser%5D=all&filters%5Btext%5D=zzzznothing&limit=20",
+    "title": "Backstage Demo",
+    "bodyHead": "Search Home Catalog My Group APIs Docs Create Explore Tech Radar MUI to BUI Visualizer Not",
+    "is404": false
+  },
+  {
+    "flow": "02-library-browse-filter-search",
+    "slug": "tessl-command-palette",
+    "url": "https://tessl.io/registry",
+    "steps": [
+      "key:Control+k=true"
+    ],
+    "finalUrl": "https://tessl.io/registry",
+    "title": "Tessl • The package manager for agent skills",
+    "bodyHead": "CtrlK Blog Docs Log in Get started SKILLS REGISTRY Find skills that make AI agents work co",
+    "is404": false
+  },
+  {
+    "flow": "02-library-browse-filter-search",
+    "slug": "smithery-search-results",
+    "url": "https://smithery.ai/",
+    "steps": [
+      "type:input=true",
+      "key:Enter=true"
+    ],
+    "finalUrl": "https://smithery.ai/servers?q=postgres",
+    "title": "MCPs | Smithery",
+    "bodyHead": "MCPs Skills Docs Pricing Publish Toolbox Login 🎉 Smithery is now a part of Arcade.dev! Re",
+    "is404": false
+  },
+  {
+    "flow": "02-library-browse-filter-search",
+    "slug": "raycast-store-search-no-results",
+    "url": "https://www.raycast.com/store",
+    "steps": [
+      "type:input=true"
+    ],
+    "finalUrl": "https://www.raycast.com/store",
+    "title": "Raycast - Store",
+    "bodyHead": "Store Pro AI iOS Windows Teams Enterprise Blog Pricing Log in Download Store Sprinkle a li",
+    "is404": false
+  },
+  {
+    "flow": "03-relations-without-canvas",
+    "slug": "backstage-graph-depth-1",
+    "url": "https://demo.backstage.io/catalog-graph?rootEntityRefs%5B%5D=component%3Adefault%2Fplayback-order&maxDepth=1&unidirectional=false&mergeRelations=true&direction=LR",
+    "steps": [],
+    "finalUrl": "https://demo.backstage.io/catalog-graph?rootEntityRefs%5B%5D=component%3Adefault%2Fplayback-order&maxDepth=1&unidirectional=false&mergeRelations=true&direction=LR&showFilters=true&curve=curveMonotoneX",
+    "title": "Catalog Graph | Backstage Demo",
+    "bodyHead": "Search Home Catalog My Group APIs Docs Create Explore Tech Radar MUI to BUI Visualizer Not",
+    "is404": false
+  },
+  {
+    "flow": "03-relations-without-canvas",
+    "slug": "backstage-graph-depth-3",
+    "url": "https://demo.backstage.io/catalog-graph?rootEntityRefs%5B%5D=component%3Adefault%2Fplayback-order&maxDepth=3&unidirectional=false&mergeRelations=true&direction=LR",
+    "steps": [],
+    "finalUrl": "https://demo.backstage.io/catalog-graph?rootEntityRefs%5B%5D=component%3Adefault%2Fplayback-order&maxDepth=3&unidirectional=false&mergeRelations=true&direction=LR&showFilters=true&curve=curveMonotoneX",
+    "title": "Catalog Graph | Backstage Demo",
+    "bodyHead": "Search Home Catalog My Group APIs Docs Create Explore Tech Radar MUI to BUI Visualizer Not",
+    "is404": false
+  },
+  {
+    "flow": "03-relations-without-canvas",
+    "slug": "github-dependents-blast-radius",
+    "url": "https://github.com/vercel/next.js/network/dependents",
+    "steps": [],
+    "finalUrl": "https://github.com/vercel/next.js/network/dependents",
+    "title": "Network Dependents · vercel/next.js · next repositories · GitHub",
+    "bodyHead": "Skip to content Navigation Menu Platform Solutions Resources Open Source Enterprise Pricin",
+    "is404": false
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "github-actions-workflow-runs",
+    "url": "https://github.com/vercel/next.js/actions/workflows/build_and_deploy.yml",
+    "steps": [],
+    "finalUrl": "https://github.com/vercel/next.js/actions/workflows/build_and_deploy.yml",
+    "title": "build-and-deploy · Workflow runs · vercel/next.js · GitHub",
+    "bodyHead": "Skip to content Navigation Menu Platform Solutions Resources Open Source Enterprise Pricin",
+    "is404": false
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "github-actions-run-detail",
+    "url": "https://github.com/vercel/next.js/actions/workflows/build_and_deploy.yml",
+    "steps": [
+      "click:a[href*=\"/actions/runs/\"]=true"
+    ],
+    "finalUrl": "https://github.com/vercel/next.js/actions/runs/33425678675",
+    "title": "example: add with-aws-fargate template · vercel/next.js@8eb380b · GitHub",
+    "bodyHead": "Skip to content Navigation Menu Platform Solutions Resources Open Source Enterprise Pricin",
+    "is404": false
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-governance-standards",
+    "url": "https://demo.port.io/",
+    "steps": [
+      "click:a[href=\"/~/governance\"]=true"
+    ],
+    "finalUrl": "https://demo.port.io/~/governance/users",
+    "title": "Governance - Port Public Demo / Port",
+    "bodyHead": "Skip to: Top Navigation Main Content Support Button Set a meeting with our platform engine",
+    "is404": false
+  },
+  {
+    "flow": "06-export-and-target-adaptation",
+    "slug": "backstage-scaffolder-template-form",
+    "url": "https://demo.backstage.io/create",
+    "steps": [
+      "clickText:Choose=true"
+    ],
+    "finalUrl": "https://demo.backstage.io/create/templates/default/demo-template",
+    "title": "Templates",
+    "bodyHead": "Search Home Catalog My Group APIs Docs Create Explore Tech Radar MUI to BUI Visualizer Not",
+    "is404": false
+  },
+  {
+    "flow": "07-env-and-secrets",
+    "slug": "doppler-product",
+    "url": "https://www.doppler.com/",
+    "steps": [],
+    "finalUrl": "https://www.doppler.com/",
+    "title": "Doppler | Secrets management for humans and AI agents",
+    "bodyHead": "Platform Solutions Resources Doppler for Agents Customers Pricing Get Demo Start for Free ",
+    "is404": false
+  },
+  {
+    "flow": "07-env-and-secrets",
+    "slug": "infisical-product",
+    "url": "https://infisical.com/",
+    "steps": [],
+    "finalUrl": "https://infisical.com/",
+    "title": "Infisical | The modern security platform for developers and agents",
+    "bodyHead": "Live webinar: Prepare for 47-day TLS certificates with a strategy that scales. Save your s",
+    "is404": false
+  },
+  {
+    "flow": "10-dark-design-language",
+    "slug": "geist-typography",
+    "url": "https://vercel.com/geist/typography",
+    "steps": [],
+    "finalUrl": "https://vercel.com/geist/typography",
+    "title": "Typography",
+    "bodyHead": "Geist Design System Search Geist Ctrl K Select a display theme: system light dark Typograp",
+    "is404": false
+  },
+  {
+    "flow": "10-dark-design-language",
+    "slug": "geist-materials",
+    "url": "https://vercel.com/geist/materials",
+    "steps": [],
+    "finalUrl": "https://vercel.com/geist/materials",
+    "title": "Materials",
+    "bodyHead": "Geist Design System Search Geist Ctrl K Select a display theme: system light dark Material",
+    "is404": false
+  },
+  {
+    "flow": "10-dark-design-language",
+    "slug": "geist-grid",
+    "url": "https://vercel.com/geist/grid",
+    "steps": [],
+    "finalUrl": "https://vercel.com/geist/grid",
+    "title": "Grid",
+    "bodyHead": "Geist Design System Search Geist Ctrl K Select a display theme: system light dark Grid Dis",
+    "is404": false
+  },
+  {
+    "flow": "11-copy-and-error-language",
+    "slug": "stripe-error-codes",
+    "url": "https://docs.stripe.com/error-codes",
+    "steps": [],
+    "finalUrl": "https://docs.stripe.com/error-codes",
+    "title": "Error codes | Stripe Documentation",
+    "bodyHead": "Skip to content Search / Ask AI Create account Sign in Get started Payments Revenue Platfo",
+    "is404": false
+  },
+  {
+    "flow": "12-visibility-and-portfolio",
+    "slug": "github-template-repo-use-button",
+    "url": "https://github.com/actions/typescript-action",
+    "steps": [],
+    "finalUrl": "https://github.com/actions/typescript-action",
+    "title": "GitHub - actions/typescript-action: Create a TypeScript Action with tests, linting, workflow, publishing, and versioning · GitHub",
+    "bodyHead": "Skip to content Navigation Menu Platform Solutions Resources Open Source Enterprise Pricin",
+    "is404": false
+  },
+  {
+    "flow": "12-visibility-and-portfolio",
+    "slug": "github-profile-as-portfolio",
+    "url": "https://github.com/sindresorhus",
+    "steps": [],
+    "finalUrl": "https://github.com/sindresorhus",
+    "title": "sindresorhus (Sindre Sorhus) · GitHub",
+    "bodyHead": "Skip to content Navigation Menu Platform Solutions Resources Open Source Enterprise Pricin",
+    "is404": false
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "n": "25",
+    "slug": "tessl-registry-clean",
+    "url": "https://tessl.io/registry",
+    "clicked": false,
+    "finalUrl": "https://tessl.io/registry",
+    "title": "Tessl • The package manager for agent skills",
+    "restricted": false,
+    "file": "25-tessl-registry-clean.png"
+  },
+  {
+    "n": "26",
+    "slug": "tessl-skill-detail",
+    "url": "https://tessl.io/registry",
+    "clicked": true,
+    "finalUrl": "https://tessl.io/registry/skills/submit",
+    "title": "Evaluate a skill • Skills • Registry • Tessl",
+    "restricted": false,
+    "file": "26-tessl-skill-detail.png"
+  },
+  {
+    "n": "27",
+    "slug": "smithery-skills",
+    "url": "https://smithery.ai/skills",
+    "clicked": false,
+    "finalUrl": "https://smithery.ai/skills",
+    "title": "Skills | Smithery",
+    "restricted": false,
+    "file": "27-smithery-skills.png"
+  },
+  {
+    "n": "28",
+    "slug": "backstage-entity",
+    "url": "https://demo.backstage.io/catalog/default/component/playback-order",
+    "clicked": false,
+    "finalUrl": "https://demo.backstage.io/catalog/default/component/playback-order",
+    "title": "playback-order | Overview | Backstage Demo",
+    "restricted": false,
+    "file": "28-backstage-entity.png"
+  },
+  {
+    "n": "29",
+    "slug": "backstage-entity-deps",
+    "url": "https://demo.backstage.io/catalog/default/component/playback-order",
+    "clicked": false,
+    "finalUrl": "https://demo.backstage.io/catalog/default/component/playback-order",
+    "title": "playback-order | Overview | Backstage Demo",
+    "restricted": false,
+    "file": "29-backstage-entity-deps.png"
+  },
+  {
+    "n": "30",
+    "slug": "port-catalog",
+    "url": "https://demo.port.io/",
+    "clicked": false,
+    "finalUrl": "https://demo.port.io/~/workflows/workflows-management",
+    "title": "workflows-management - Port Public Demo / Port",
+    "restricted": false,
+    "file": "30-port-catalog.png"
+  },
+  {
+    "n": "31",
+    "slug": "terraform-module-deps",
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest/dependencies",
+    "clicked": false,
+    "finalUrl": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest/dependencies",
+    "title": "Terraform Registry",
+    "restricted": false,
+    "file": "31-terraform-module-deps.png"
+  },
+  {
+    "n": "32",
+    "slug": "notion-template-detail",
+    "url": "https://www.notion.com/templates",
+    "clicked": true,
+    "finalUrl": "https://www.notion.com/templates/collections/safe-yourself-the-prompt",
+    "title": "Save yourself the prompt | Notion Template Marketplace",
+    "restricted": false,
+    "file": "32-notion-template-detail.png"
+  },
+  {
+    "n": "33",
+    "slug": "raycast-extension-detail",
+    "url": "https://www.raycast.com/store",
+    "clicked": true,
+    "finalUrl": "https://www.raycast.com/yalishanda/kaomoji-search",
+    "title": "Raycast Store: Kaomoji Search",
+    "restricted": false,
+    "file": "33-raycast-extension-detail.png"
+  },
+  {
+    "n": "34",
+    "slug": "figma-community-file",
+    "url": "https://www.figma.com/community",
+    "clicked": true,
+    "finalUrl": "https://www.figma.com/community/file/1529932739396860076/fortune-cookie",
+    "title": "Fortune Cookie! | Figma",
+    "restricted": false,
+    "file": "34-figma-community-file.png"
+  }
+]

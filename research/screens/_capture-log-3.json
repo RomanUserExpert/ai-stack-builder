@@ -1,0 +1,53 @@
+[
+  {
+    "n": "35",
+    "slug": "tessl-skill-detail",
+    "url": "https://tessl.io/registry/skills/github/anthropics/skills/docx",
+    "finalUrl": "https://tessl.io/registry/skills/github/anthropics/skills/docx",
+    "title": "docx • skills • anthropics • Skills • Registry • Tessl",
+    "file": "35-tessl-skill-detail.png"
+  },
+  {
+    "n": "36",
+    "slug": "tessl-discover",
+    "url": "https://tessl.io/registry/discover",
+    "finalUrl": "https://tessl.io/registry/discover",
+    "title": "Discover • Registry • Tessl",
+    "file": "36-tessl-discover.png"
+  },
+  {
+    "n": "37",
+    "slug": "backstage-relations-graph",
+    "url": "https://demo.backstage.io/catalog-graph?rootEntityRefs%5B%5D=component%3Adefault%2Fplayback-order&maxDepth=2&unidirectional=false&mergeRelations=true&direction=LR",
+    "finalUrl": "https://demo.backstage.io/catalog-graph?rootEntityRefs%5B%5D=component%3Adefault%2Fplayback-order&maxDepth=2&unidirectional=false&mergeRelations=true&direction=LR&showFilters=true&curve=curveMonotoneX",
+    "title": "Catalog Graph | Backstage Demo",
+    "file": "37-backstage-relations-graph.png"
+  },
+  {
+    "n": "38",
+    "slug": "port-context-lake",
+    "url": "https://demo.port.io/",
+    "navClicked": true,
+    "finalUrl": "https://demo.port.io/~/context-lake/data-model",
+    "title": "Data model - Port Public Demo / Port",
+    "file": "38-port-context-lake.png"
+  },
+  {
+    "n": "39",
+    "slug": "port-governance",
+    "url": "https://demo.port.io/",
+    "navClicked": true,
+    "finalUrl": "https://demo.port.io/~/governance/users",
+    "title": "Governance - Port Public Demo / Port",
+    "file": "39-port-governance.png"
+  },
+  {
+    "n": "40",
+    "slug": "port-self-serve",
+    "url": "https://demo.port.io/",
+    "navClicked": true,
+    "finalUrl": "https://demo.port.io/~/self-serve",
+    "title": "Self-Service - Port Public Demo / Port",
+    "file": "40-port-self-serve.png"
+  }
+]

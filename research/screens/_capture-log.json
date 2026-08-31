@@ -1,0 +1,242 @@
+[
+  {
+    "n": "01",
+    "slug": "tessl-registry",
+    "url": "https://tessl.io/registry",
+    "status": 200,
+    "finalUrl": "https://tessl.io/registry",
+    "title": "Tessl • The package manager for agent skills",
+    "restricted": false,
+    "file": "01-tessl-registry.png"
+  },
+  {
+    "n": "02",
+    "slug": "tessl-home",
+    "url": "https://tessl.io/",
+    "status": 200,
+    "finalUrl": "https://tessl.io/",
+    "title": "Tessl - Agent Enablement Platform",
+    "restricted": false,
+    "file": "02-tessl-home.png"
+  },
+  {
+    "n": "03",
+    "slug": "packmind-home",
+    "url": "https://packmind.com/",
+    "status": 200,
+    "finalUrl": "https://packmind.com/",
+    "title": "Packmind – Context engineering & governance for AI coding agents",
+    "restricted": false,
+    "file": "03-packmind-home.png"
+  },
+  {
+    "n": "04",
+    "slug": "agentman-skills",
+    "url": "https://agentman.ai/agentskills",
+    "status": 200,
+    "finalUrl": "https://agentman.ai/agentskills",
+    "title": "Agent Skills — Production-Ready AI Skills Library | Agentman",
+    "restricted": false,
+    "file": "04-agentman-skills.png"
+  },
+  {
+    "n": "05",
+    "slug": "smithery-registry",
+    "url": "https://smithery.ai/",
+    "status": 200,
+    "finalUrl": "https://smithery.ai/",
+    "title": "Smithery - Connect agents to services in minutes",
+    "restricted": false,
+    "file": "05-smithery-registry.png"
+  },
+  {
+    "n": "06",
+    "slug": "smithery-server-page",
+    "url": "https://smithery.ai/servers/exa",
+    "status": 200,
+    "finalUrl": "https://smithery.ai/servers/exa",
+    "title": "Exa Search - MCP | Smithery",
+    "restricted": false,
+    "file": "06-smithery-server-page.png"
+  },
+  {
+    "n": "07",
+    "slug": "continue-notice",
+    "url": "https://continue.dev/",
+    "status": 200,
+    "finalUrl": "https://continue.dev/",
+    "title": "Continue (acquired by Cursor)",
+    "restricted": false,
+    "file": "07-continue-notice.png"
+  },
+  {
+    "n": "08",
+    "slug": "continue-repo",
+    "url": "https://github.com/continuedev/continue",
+    "status": 200,
+    "finalUrl": "https://github.com/continuedev/continue",
+    "title": "GitHub - continuedev/continue: open-source coding agent · GitHub",
+    "restricted": false,
+    "file": "08-continue-repo.png"
+  },
+  {
+    "n": "09",
+    "slug": "backstage-catalog",
+    "url": "https://demo.backstage.io/catalog",
+    "status": 200,
+    "finalUrl": "https://demo.backstage.io/catalog?filters%5Bkind%5D=component&filters%5Buser%5D=all&limit=20",
+    "title": "Backstage Demo",
+    "restricted": false,
+    "file": "09-backstage-catalog.png"
+  },
+  {
+    "n": "10",
+    "slug": "backstage-scaffolder",
+    "url": "https://demo.backstage.io/create",
+    "status": 200,
+    "finalUrl": "https://demo.backstage.io/create/templates?filters%5Bkind%5D=template&filters%5Buser%5D=all",
+    "title": "Templates",
+    "restricted": false,
+    "file": "10-backstage-scaffolder.png"
+  },
+  {
+    "n": "11",
+    "slug": "port-demo",
+    "url": "https://demo.port.io/",
+    "status": 200,
+    "finalUrl": "https://demo.port.io/~/workflows/workflows-management",
+    "title": "workflows-management - Port Public Demo / Port",
+    "restricted": false,
+    "file": "11-port-demo.png"
+  },
+  {
+    "n": "12",
+    "slug": "terraform-modules",
+    "url": "https://registry.terraform.io/browse/modules",
+    "status": 200,
+    "finalUrl": "https://registry.terraform.io/browse/modules",
+    "title": "Browse Modules | Terraform Registry",
+    "restricted": false,
+    "file": "12-terraform-modules.png"
+  },
+  {
+    "n": "13",
+    "slug": "terraform-module-page",
+    "url": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest",
+    "status": 200,
+    "finalUrl": "https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest",
+    "title": "terraform-aws-modules/vpc/aws | Terraform Registry",
+    "restricted": false,
+    "file": "13-terraform-module-page.png"
+  },
+  {
+    "n": "14",
+    "slug": "figma-community",
+    "url": "https://www.figma.com/community",
+    "status": 200,
+    "finalUrl": "https://www.figma.com/community",
+    "title": "Figma Community | Explore Free Design Files, Plugins & More – Figma",
+    "restricted": false,
+    "file": "14-figma-community.png"
+  },
+  {
+    "n": "15",
+    "slug": "notion-templates",
+    "url": "https://www.notion.com/templates",
+    "status": 200,
+    "finalUrl": "https://www.notion.com/templates",
+    "title": "Choose from 30,000+ Notion templates | Notion Marketplace",
+    "restricted": false,
+    "file": "15-notion-templates.png"
+  },
+  {
+    "n": "16",
+    "slug": "linear-home",
+    "url": "https://linear.app/",
+    "status": 200,
+    "finalUrl": "https://linear.app/",
+    "title": "Linear – The system for product development",
+    "restricted": false,
+    "file": "16-linear-home.png"
+  },
+  {
+    "n": "17",
+    "slug": "linear-app",
+    "url": "https://linear.app/login",
+    "status": 200,
+    "finalUrl": "https://linear.app/login",
+    "title": "Linear",
+    "restricted": true,
+    "file": "17-linear-app-restricted.png"
+  },
+  {
+    "n": "18",
+    "slug": "raycast-store",
+    "url": "https://www.raycast.com/store",
+    "status": 200,
+    "finalUrl": "https://www.raycast.com/store",
+    "title": "Raycast - Store",
+    "restricted": false,
+    "file": "18-raycast-store.png"
+  },
+  {
+    "n": "19",
+    "slug": "vercel-geist-colors",
+    "url": "https://vercel.com/geist/colors",
+    "status": 200,
+    "finalUrl": "https://vercel.com/geist/colors",
+    "title": "Colors",
+    "restricted": false,
+    "file": "19-vercel-geist-colors.png"
+  },
+  {
+    "n": "20",
+    "slug": "vercel-dashboard",
+    "url": "https://vercel.com/login",
+    "status": 200,
+    "finalUrl": "https://vercel.com/login",
+    "title": "Login – Vercel",
+    "restricted": true,
+    "file": "20-vercel-dashboard-restricted.png"
+  },
+  {
+    "n": "21",
+    "slug": "stripe-api-docs",
+    "url": "https://docs.stripe.com/api",
+    "status": 200,
+    "finalUrl": "https://docs.stripe.com/api",
+    "title": "Stripe API Reference",
+    "restricted": false,
+    "file": "21-stripe-api-docs.png"
+  },
+  {
+    "n": "22",
+    "slug": "stripe-dashboard",
+    "url": "https://dashboard.stripe.com/login",
+    "status": 200,
+    "finalUrl": "https://dashboard.stripe.com/login",
+    "title": "Stripe Login | Sign in to the Stripe Dashboard",
+    "restricted": true,
+    "file": "22-stripe-dashboard-restricted.png"
+  },
+  {
+    "n": "23",
+    "slug": "github-dependency-graph",
+    "url": "https://github.com/vercel/next.js/network/dependencies",
+    "status": 200,
+    "finalUrl": "https://github.com/vercel/next.js/network/dependencies",
+    "title": "Dependencies · vercel/next.js · GitHub",
+    "restricted": false,
+    "file": "23-github-dependency-graph.png"
+  },
+  {
+    "n": "24",
+    "slug": "mobbin",
+    "url": "https://mobbin.com/browse/web/apps",
+    "status": 200,
+    "finalUrl": "https://mobbin.com/?redirect_to=%2Fdiscover%2Fapps%2Fweb",
+    "title": "Mobbin — UI & UX design inspiration for mobile & web apps",
+    "restricted": true,
+    "file": "24-mobbin-restricted.png"
+  }
+]
