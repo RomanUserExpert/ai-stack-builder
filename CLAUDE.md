@@ -288,6 +288,12 @@ rejected variants and what each donated are in [`research/patterns.md`](research
 The result is a hybrid, stated as a choice: **command-first assembly, and a run-centric check that
 ends in the export.** Three surfaces in the flow, plus Projects.
 
+**This section is provisional until the open-question register is closed.** Q1, Q2 and Q4 all land
+inside this flow, and Q2 may add a surface no variant has — see the finalisation section of
+[`research/benchmark.md`](research/benchmark.md), which records that the rubric grades craft rather
+than weight, and that the pain evidence sits in the check-and-export end of the flow. Do not build
+against this yet.
+
 - **Library** — the full collection. Filters by kind and tag, search, add/edit form, and the
   per-item usage facts of §5. It is where you keep things, and **it is not part of the builder
   flow**. (This is the change: an earlier draft put a filtered library sidebar inside the builder and

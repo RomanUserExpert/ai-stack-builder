@@ -367,6 +367,13 @@ second and third thirds of the spine.
 
 # The choice
 
+> **Provisional, deliberately.** The shape below is what the rubric chooses. It is **not final until
+> the open-question register is worked through** — Q1, Q2 and Q4 all land inside this flow, and Q2 in
+> particular may add a surface that none of the five variants has. Read the finalisation section of
+> [`benchmark.md`](benchmark.md) before treating any of this as settled: the rubric grades craft, not
+> weight, and the five variants differ most in the third of the flow where the pain evidence is
+> thinnest.
+
 **A hybrid, and it is stated as a choice rather than a failure to choose — as the plan required.**
 
 > **P2 wins the spine. P5 becomes the check-and-export surface. P3 donates one mechanism.**

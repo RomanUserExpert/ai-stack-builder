@@ -481,3 +481,55 @@ This is what stage 5 spends.
 
 Every cell is scored, and the two dropped candidates are recorded above with their reasons. The five
 categories carry into stage 5 unchanged, which is what the plan's *done when* asks for.
+
+---
+
+# Finalisation — what this rubric measures, and what it does not
+
+Added after stage 5, when the rubric had been spent once and its shape was visible. It belongs here
+rather than in [`patterns.md`](patterns.md), because it is a fact about the instrument.
+
+## The rubric grades craft, not weight
+
+The five categories were lifted from stages 1–3, and those stages surveyed **products**. So every
+score in this document answers *did this interface tell me the thing* — and none of them answers
+*does anyone bleed here*. A cell scoring 5 means a vendor solved a problem beautifully. It does not
+mean the problem mattered.
+
+Read the four flows against [`user-pain.md`](user-pain.md) instead, and the weights come out uneven:
+
+| | Flow | What the pain evidence says |
+|---|---|---|
+| **B1** | Find | An issue tracker is **structurally blind** here — nobody files *I cannot find what I wrote in March*. No evidence of pain, and none of its absence either. |
+| **B2** | Assemble | Same blindness, plus finding 4: **nobody is asking for a composition layer**, in a 6,677-issue tracker belonging to a product that shipped one. |
+| **B3** | Check | Where our thesis is actually sighted — the duplicate `server-postgres` key, *"the chat always chooses the first one specified"*, 13 reactions — and where env and secrets sit, which rank near the top of **both** trackers. |
+| **B4** | Produce | Where the **loudest pain in the ecosystem** lives: 182 reactions on *MCP Servers Don't Work with NVM*, and a top-of-tracker made of PATH, node versions, platform paths and processes dying at startup. The archive lands on a machine and does not run. |
+
+**So the value is concentrated in B3 and B4, and the craft is concentrated in B1 and B2.** Linear,
+GitHub and Obsidian are exemplary at a flow nobody files issues about; the flow people shout about is
+the one where no candidate scored above 4.
+
+## The consequence for how a rubric score may be used
+
+Stage 5 compared five shapes of *assemble → check → export*. Four of the five differ from each other
+mainly in **assembly** — P1, P2, P3 and P4 are four ways to put items into a set — and barely at all
+in check-and-export.
+
+> **The variants differ most where the pain is least.**
+
+A category score is therefore **not sufficient to choose a shape**. It has to be read next to which
+third of the flow the shape owns. P5 scored 5 on four categories *and* owns the two thirds that carry
+the pain; P2 won its half on economy and cold start, which are real and cheap. That is a different
+sentence from *P2 and P5 both scored well*, and it is the sentence stage 5's scores alone could not
+produce.
+
+## The gap neither instrument covers
+
+Every cell in this matrix scores what a product says **about its own state**. Not one scores what a
+product says about **the machine its artefact lands on** — and no candidate offered anything to
+score, because none of them has such a surface.
+
+That is the single square where our weakest-flow finding and the ecosystem's loudest pain point at
+the same thing. It is **Q2** in the register, it was raised by stage 3, and stage 4 could only
+confirm that nobody solves it. Whatever the final shape is, the answer lives in the last stages of
+the run and in what `SETUP.md` is allowed to become.
