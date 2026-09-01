@@ -181,16 +181,31 @@ Vercel's.
 
 ## 05 — Linked vs detached, and blast radius ● P1 — CLOSED, see [NOTES](05-linked-vs-detached/NOTES.md)
 
-**Serves.** Figma, one for one with our `ProjectItem.detached` and `overrides`. **Zero coverage.**
-This is the single biggest gap in the research.
+**Serves.** Figma, one for one with our `ProjectItem.detached` and `overrides`.
 
-**Missing — everything.**
-- The instance panel showing a live link to a main component.
-- The detach action, and what the object looks like afterwards.
-- The "publish library update" dialog listing how many files are affected — the solved blast-radius UI we want to learn from.
-- The override indicator, and whatever return path from detached to linked exists.
+**Have — all three states.** Clean instance (glyph, purple name, the `From this file` / library
+provenance line, component properties); **linked but locally modified**, added 2026-09-01; and
+detached. Plus the context menu vocabulary, the library-updates modal, and its per-row instance counts
+(5, 2, 70, **423**).
 
-**Access.** Figma editor. No substitute: this behaviour has no public page.
+**The finding, corrected twice and now settled.** Figma models drift precisely — the reset menu names
+the exact overridden property, `Reset fill`, not a generic "reset overrides" — and then **never shows
+it**. A modified instance is pixel-identical to a clean one in the layers tree, the properties panel
+and the canvas. The only evidence is two rows appearing in a `…` menu you have to open on an object
+you have to select. **The failure is display, not modelling**, and it is the exact trap our state 7
+(*detached, locally modified*) is waiting to fall into.
+
+Two things to take whole: **revert at two granularities** (whole instance, single property), and
+**Reset next to Detach** as the two halves of one axis — one discards the overrides and keeps the
+link, the other discards the link and keeps the overrides.
+
+**Missing — and it stays missing.** The **cross-container** count: how many other *files* use a
+component. That is the shape of our *"used in 3 projects"*, and it lives in Figma's library analytics
+on a paid tier. Declined.
+
+**And the part with no prior art at all:** a path back from detached to linked. Figma can undo
+overrides while still linked, and offers nothing once the link is cut. Our return path is an
+invention, not a copy.
 
 ---
 
@@ -434,11 +449,32 @@ wow moment, delivered on first launch.
 
 ---
 
+## Collected 2026-09-01 — the Figma override state
+
+Supplied by the owner from their own file, closing the last gap that needed no new access: an
+instance **linked but locally modified**, beside a clean one, and the `…` menu on each.
+
+| Flow | Added | Status |
+|---|---|---|
+| 05 | The third instance state. Clean and overridden are **indistinguishable** in the layers tree, the properties panel and on the canvas; the only evidence of drift is two rows appearing in the `…` menu — **`Reset instance`** and **`Reset fill`**. Figma therefore knows exactly which property differs and simply never displays it. See [NOTES](05-linked-vs-detached/NOTES.md). | ● fully closed |
+
+**Why it matters more than it looks.** Our state 7 — *detached, locally modified* — is the state
+CLAUDE.md §7 warns is easiest to forget. Figma models it correctly and draws it nowhere, which is the
+precise failure mode to design against: the diff is already computed, so putting it on the card costs
+nothing. Also worth taking: **revert at two granularities** (whole item, single field), and Reset kept
+adjacent to Detach as the two halves of one axis.
+
+**A rule now confirmed three times to one.** The reset rows are *absent* on a clean instance, not
+greyed out — same instinct as Linear recomputing its keyboard-hint bar and suppressing the toolbar over
+an empty screen, against Vercel keeping four filter dropdowns over an empty list. Treat it as settled:
+**an action that cannot do anything is not shown.**
+
+---
+
 ## What is left
 
-**Needs no access — one item.** An instance that is **linked but locally modified** — the state
-between clean and detached — from the owner's Figma, access already granted, reversible with Ctrl+Z
-as before. Flow 05 is otherwise closed.
+**Needs no access — nothing.** The last item, an instance **linked but locally modified**, was supplied
+by the owner on 2026-09-01. Flow 05 is fully closed.
 
 **Needs a decision, not access.** **Raycast** is installable here (`winget install raycast`) but takes
 a global hotkey and wants a sign-in, so it belongs in a deliberate step rather than a sweep (flow 10).

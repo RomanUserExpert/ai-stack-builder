@@ -21,7 +21,7 @@ Status of the research phase. Updated 2026-09-01.
 | 02 | Library browse, filter, search | ● | [Linear](flows/02-library-browse-filter-search/NOTES-linear.md) |
 | 03 | Relations without a canvas | ● | — |
 | 04 | Validation: pass, warn, block | ● | [Terraform](flows/04-validation-check-results/terraform-plan-output.md) · [Vercel](flows/04-validation-check-results/NOTES-vercel.md) · [GitHub Actions](flows/04-validation-check-results/NOTES-github-actions.md) · [Port](flows/04-validation-check-results/NOTES-port.md) |
-| 05 | Linked vs detached, blast radius | ● | [NOTES](flows/05-linked-vs-detached/NOTES.md) |
+| 05 | Linked vs detached, blast radius | ● | [NOTES](flows/05-linked-vs-detached/NOTES.md) — all three instance states captured |
 | 06 | Export and target adaptation | ● | [Ruler output](flows/06-export-and-target-adaptation/ruler-per-agent-output.md) |
 | 07 | Env variables and secrets | ● | [NOTES](flows/07-env-and-secrets/NOTES.md) |
 | 08 | Empty state and cold start | ● | [Linear](flows/08-empty-state-and-cold-start/NOTES-linear.md) |
@@ -32,11 +32,10 @@ Status of the research phase. Updated 2026-09-01.
 
 ## What is left
 
-### Needs no access — one item
+### Needs no access — nothing left
 
-| What | For | Where from |
-|---|---|---|
-| An instance that is linked **but locally modified** — the state between clean and detached | 05 | The owner's Figma, access already granted. Reversible with Ctrl+Z, as before |
+The last item, an instance **linked but locally modified**, was supplied by the owner on 2026-09-01.
+Flow 05 is fully closed.
 
 ### Needs a decision, not access
 
@@ -55,11 +54,12 @@ Status of the research phase. Updated 2026-09-01.
 | Agentman skill page and permission tiers | 01 | Behind login. Lesson is legible from their marketing; three open skill catalogs already captured. |
 | Cross-file component usage count | 05 | Figma library analytics, paid tier. The in-file instance count is captured; the cross-container number is not, and it is the shape of our "used in 3 projects". |
 | Packmind product, Continue Hub | 06 | Sales-gated and switched off. Both substituted — Ruler and the Continue repository. |
+| ~~An instance linked but locally modified~~ | 05 | **Done 2026-09-01.** The state exists in the model and is drawn nowhere — the only evidence is two rows appearing in a context menu. |
 | Mobbin | reference | 403s without a subscription. Not worth buying; we capture products directly. |
 
-## The three findings the design system has to answer to
+## The four findings the design system has to answer to
 
-All three landed on 2026-09-01, and each changes a decision that would otherwise be made by default.
+All four landed on 2026-09-01, and each changes a decision that would otherwise be made by default.
 
 1. **The failure line.** Port writes `where "Open Critical Vulnerabilities" = 0 · Value: 1` — the
    condition required and the value found. GitHub writes `Process completed with exit code 1`, and a
@@ -79,15 +79,23 @@ All three landed on 2026-09-01, and each changes a decision that would otherwise
    validation pass runs before the user types anything. That puts the wow moment on first launch
    instead of after an evening of data entry.
 
+4. **The drift indicator is a display problem, not a modelling one.** Figma tracks overrides precisely
+   enough to offer `Reset fill` by name, then shows a modified instance as pixel-identical to a clean
+   one everywhere except a context menu. Our state 7 — *detached, locally modified* — is the state
+   CLAUDE.md §7 flags as easiest to forget, and this is exactly how it gets forgotten. The diff is
+   already computed; putting it on the card costs nothing. Revert needs two granularities, whole item
+   and single field, with Reset kept next to Detach as the two halves of one axis.
+
 ## Definition of done
 
-Every flow is ● or explicitly declined above, except flow 01 (Agentman, login-walled — declined) and
-flow 10 (Raycast, a decision rather than an access problem). Collection is effectively finished.
+**Collection is finished.** Eleven flows are ●. Flow 01 is held open only by Agentman's login-walled
+skill page (declined), and flow 10 only by the Raycast install, which is a decision rather than an
+access problem. Nothing outstanding requires access we do not have.
 
-What still gates the design system is not material but answers: `comparison.md`'s **three open
-questions for the PM** — what our answer is to Continue Hub dying, which trust signal we ship without
-a network or an eval harness, and whether a personal library has a business. They decide what
-`visibility`, `Workspace` and `version` have to mean. Add to them the **block-or-grade** question in
-finding 2 above, which is ours to settle rather than the market's.
+What gates the design system now is answers, not material: [`comparison.md`](comparison.md)'s **three
+open questions for the PM** — what our answer is to Continue Hub dying, which trust signal we ship
+without a network or an eval harness, and whether a personal library has a business. They decide what
+`visibility`, `Workspace` and `version` have to mean. Beside them sits the **block-or-grade** question
+in finding 2, which is ours to settle rather than the market's.
 
 Next stage after sign-off: design system. Not started, per CLAUDE.md section 1.
