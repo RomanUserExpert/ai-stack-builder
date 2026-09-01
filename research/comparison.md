@@ -83,42 +83,80 @@ from a pricing page in this pass.
    treats "does this set actually hold together" as the product. The validation pass — dependency
    walk, conflict, collision, missing env — is genuinely unclaimed.
 
-## Three open questions for the PM
+## Three decisions the design system needs
 
-1. **Continue Hub was this product, and the half that needed a business is the half that died. What
-   is our answer?** Same object model, same audience, open source, 34k stars. Cursor acqui-hired the
-   team in June 2026 and **`hub.continue.dev` and `api.continue.dev` stopped resolving; all user data
-   was deleted.** What survives is Apache-2.0 source frozen at 2026-07-20, live docs, and an
-   extension with 1.58M downloads that still installs and runs. See
-   [`continue-postmortem.md`](continue-postmortem.md).
+Rewritten 2026-09-01. An earlier version of this section asked three strategic questions —
+*is there a business, what is our answer to Continue, is single-user only a wedge*. Those were the
+wrong shape: CLAUDE.md §9 has already made the scope decisions, and research does not answer whether
+a project is worth doing. What is genuinely undecided is narrower, and each item below has a concrete
+cost if it is decided late.
 
-   That cuts two ways and the PM has to pick a side.
+**The strategic context, recorded but not blocking.** Every live hard competitor sells to an
+organisation — Tessl to security and platform leadership, Packmind to engineering managers, Agentman
+to business teams, Port to platform engineering. The individual practitioner is unoccupied ground.
+Continue is the single data point on whether that ground pays, and it reads both ways: its hosted,
+monetised half was switched off and erased, and its free, local, open half is still installed on 1.58M
+machines. See [`continue-postmortem.md`](continue-postmortem.md). **None of this changes what the MVP
+is.** It is the same product under either answer, which is why it is context here and not a question.
 
-   **For us:** the dead half — hosted registry, accounts, subscriptions — is precisely what CLAUDE.md
-   §9 puts out of scope. The surviving half — a local client reading an open file format — is exactly
-   our MVP. The part of Continue that maps onto what we are building is the part that is still
-   running.
+---
 
-   **Against us:** it survives because it is free, open-source and unowned. Nobody runs it as a
-   company. "The surviving half needs no business" and "the surviving half **is** no business" are
-   the same sentence read twice, which folds this question into question 3.
+### Decision 1 — does `visibility` appear in the MVP interface?
 
-   And the specific thing they never built is worth weighing: they resolved a set in order to *run*
-   it, and told the user nothing about whether it held together — their own
-   `BlockDuplicationDetector` finds duplicate names and the merge silently discards the loser. Our
-   thesis was sitting unclaimed in their source. But "we surface what they discarded" is a feature.
-   The question asks why it is a business.
+**The field is settled; the control is not.** CLAUDE.md §9 says `visibility` "exists in the model and
+in the UI's vocabulary" and is "designed for, not wired up". That leaves the actual screen ambiguous.
 
-2. **Which trust signal do we ship, given we have no network and no eval harness?** The market has
-   converged on measured trust — scores, evals, security scans. We have neither reviews nor a way
-   to run a skill. Is our validation pass itself the trust signal (this *set* is coherent), or do
-   we need per-item quality signals, and if so where do they come from?
+| Option | Consequence |
+|---|---|
+| **Hide it. Keep the field.** | Nothing in the UI lies. Retrofitting the control later means finding a home for it in a finished layout. |
+| **Show it with an honest empty state** — a private/public control that says there is nowhere to publish yet | Teaches the vocabulary early and reserves the space. Costs a control that cannot act. |
+| Show it as a working toggle | Rejected. It would be a lie. |
 
-3. **Does a personal library have a business at all, or is single-user only the wedge?** Every
-   company in the hard group monetises the organisation. If our MVP is deliberately single-user
-   and local, we should decide now whether the eventual charge is for hosting the portfolio, for
-   the public catalog, or for a team tier — because that answer changes what `visibility` and
-   `Workspace` have to mean in the data model, and the model is being designed this month.
+**Recommendation: hide it, keep the field.** Three products in this survey against one settled the
+principle — Linear recomputes its keyboard hints and suppresses the toolbar over an empty screen,
+Figma shows `Reset` only once there is something to reset, against Vercel keeping four filter
+dropdowns over an empty list. A control that cannot act is not shown. A dead visibility toggle is
+that same mistake on the most load-bearing word in the model.
+
+### Decision 2 — what evidence does an item card carry that the item is worth using?
+
+The market has converged on **measured** trust: Tessl's composite score with an uplift multiplier over
+*n* eval scenarios plus a Snyk scan, Smithery's score out of 100 and verified badge, Port's
+pass/warn/block. We have no network, no reviews and no way to run a skill, so none of that is
+available to us.
+
+| Option | Consequence |
+|---|---|
+| **The validation pass is the whole trust signal** — trust is a property of the *set*, never of an item | Honest and cheap. An item card carries no quality claim at all. |
+| **Add facts derived from the user's own library** — *used in 3 projects*, *last exported 12 days ago*, *2 items depend on this* | Computable locally, no network, and it is the blast-radius number flow 05 spent the whole research chasing. Not a quality judgement — a usage fact. |
+| Import signals from the source for external items — stars, last commit, licence | Needs the network at exactly the moment we said we would not. Cheap to add later. |
+
+**Recommendation: the first two together.** Trust in the *set* comes from the validation pass; the
+only per-item claim we can honestly make is how the user's own library uses the item. Both are derived
+from data we already hold, which keeps CLAUDE.md §10's client-only commitment intact.
+
+### Decision 3 — does the validation pass read `version`? (a contradiction in §9)
+
+**CLAUDE.md contradicts itself here and the design system cannot proceed past it.**
+
+> §9: "No history, no diffs, no rollback, no version pinning in projects. The `version` field is
+> reserved and **nothing reads it yet**."
+>
+> §9: "Automatic version conflict resolution. **A version mismatch is shown as a conflict.**"
+
+If nothing reads `version`, there is no mismatch to show. One of the two lines has to go.
+
+| Option | Consequence |
+|---|---|
+| **Nothing reads it. Drop version conflicts from the MVP.** | The validation pass has five checks, not six: requires, cycles, conflicts, duplicate commands, target-path collisions, missing env. No version anywhere in the UI. |
+| **The validation pass reads it** — a version mismatch between two items becomes a conflict row | One field is read, so the item form needs a version input, the card needs to show it, and "what is a version of *my own* item" needs an answer. |
+| Cut the field entirely | Cleanest MVP, most expensive to reverse — every stored item would need migrating. |
+
+**Recommendation: nothing reads it, drop version conflicts from the MVP, keep the field.** `requires`
+and `conflicts` are filled in by hand (§5); a hand-entered version on a hand-entered item is a number
+the user invents and then has to keep true against itself. Every other check in the pass is derived
+from structure the user already declared. Version would be the only one that depends on a discipline
+we have no way to enforce.
 
 ---
 

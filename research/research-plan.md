@@ -7,7 +7,7 @@ Status of the research phase. Updated 2026-09-01.
 | File | What it holds |
 |---|---|
 | [`competitors.md`](competitors.md) | 15 companies in three groups — hard, soft, aspirational. Why each is there, what to take from it, a verified link per entry. |
-| [`comparison.md`](comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, three open questions for the PM. |
+| [`comparison.md`](comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, and **three decisions the design system needs**, each with a recommendation. |
 | [`screens-index.md`](screens-index.md) | 38 product captures in [`screens/`](screens/), sorted group / competitor. Sign-in walls labelled. |
 | [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the uses/with/override composition primitive, its identity and secret schemes, and the three things its resolver never did. Feeds open question 1. |
 | [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needs. |
@@ -96,11 +96,23 @@ emptiness, how a modified object announces that it has drifted. Visual direction
 CLAUDE.md §12 and belongs to the design system, which is the next stage. Flow 10 collected reference
 for that stage; it was never a research question.
 
-**What now gates the design system is answers, not material.**
-[`comparison.md`](comparison.md)'s **three open questions for the PM** — what our answer is to
-Continue Hub dying, which trust signal we ship without a network or an eval harness, and whether a
-personal library has a business. They decide what `visibility`, `Workspace` and `version` have to
-mean. Beside them sits the **block-or-grade** question in finding 2, which is ours to settle rather
-than the market's.
+**What now gates the design system is decisions, not material.**
+[`comparison.md`](comparison.md) closes with **three decisions the design system needs**, each scoped
+to a concrete consequence and each carrying a recommendation:
+
+1. Does `visibility` appear in the MVP interface, or only in the model?
+2. What evidence does an item card carry — is the validation pass the whole trust signal, or does an
+   item also show how the user's own library uses it?
+3. Does the validation pass read `version`? **This one resolves a contradiction inside CLAUDE.md §9**,
+   which says both that nothing reads the field and that a version mismatch is shown as a conflict.
+
+Beside them sits the **block-or-grade** question in finding 2, which is ours to settle rather than the
+market's.
+
+An earlier version of this page said the phase was gated on three *strategic* questions — what our
+answer is to Continue, and whether a personal library has a business. That was the wrong shape.
+Research does not decide whether a project is worth doing, and CLAUDE.md §9 had already made the scope
+calls those questions were re-asking. The strategic context is recorded in `comparison.md` as context;
+it does not block, because the MVP is the same product under either answer.
 
 Next stage after sign-off: design system. Not started, per CLAUDE.md section 1.
