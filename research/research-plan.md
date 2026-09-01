@@ -1,13 +1,13 @@
 # Research plan
 
-Updated 2026-09-01. The phase runs in five stages. **Three are done, two are not started.**
+Updated 2026-09-01. The phase runs in five stages. **Three are done, stage 4 is under way, stage 5 is not started.**
 
 | # | Stage | What it produces | Status |
 |---|---|---|---|
 | 1 | **Landscape** | Who else is in this space, what they sell, and to whom | ● done |
 | 2 | **Flows** | Twelve mechanisms captured from live products | ● done |
 | 3 | **Pain** | The first evidence about users rather than vendors | ● done |
-| 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ○ not started |
+| 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ◐ under way — 9 of 16 cells scored |
 | 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ○ not started |
 
 Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
@@ -28,7 +28,7 @@ Sign-off comes after stage 5. Next phase: design system, per CLAUDE.md §1.
 | [`user-pain.md`](user-pain.md) | What actually hurts, from two public issue trackers — the first evidence here about users rather than vendors. States plainly what the instrument cannot see. |
 | [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the `uses`/`with`/`override` composition primitive, its identity and secret schemes, and the three things its resolver never did. |
 | [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
-| `benchmark.md` | **Stage 4 — not written yet.** |
+| [`benchmark.md`](benchmark.md) | **Stage 4, in progress.** The scored matrix, the three rules the scoring follows, and what each score below or above 4 is argued from. Ends with what is still to capture, and two candidates proposed for removal. |
 | `patterns.md` | **Stage 5 — not written yet.** |
 
 ---
