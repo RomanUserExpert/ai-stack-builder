@@ -6,7 +6,7 @@ Every capture we have is of a full system."* Taken in the owner's own signed-in 
 
 Read-only. Nothing was created, edited, assigned, completed or deleted. One account setting — the
 interface theme — was changed to capture flow 10 and restored to its original value
-(`System preference`); see [`../10-dark-design-language/NOTES-linear.md`](../10-dark-design-language/NOTES-linear.md).
+(`System preference`); see [`10-dark-design-language/NOTES-linear.md`](../10-dark-design-language/NOTES-linear.md).
 
 **The trade.** An empty workspace cannot show density under load, so flow 10 loses that. In exchange
 it hands us the one thing no populated system could: the real first five minutes.
@@ -85,7 +85,7 @@ This is how a keyboard-first product bootstraps its own keyboard use, and it cos
 ## 4. The toolbar disappears when it cannot do anything
 
 The Projects empty state carries **one tab and two icons** — nothing else. Compare the flaw recorded
-in [`../07-env-and-secrets/NOTES.md`](../07-env-and-secrets/NOTES.md): Vercel's env-variables empty
+in [`07-env-and-secrets/NOTES.md`](../07-env-and-secrets/NOTES.md): Vercel's env-variables empty
 state keeps a search box and four filter dropdowns on screen, all filtering nothing.
 
 Same situation, opposite decision. Linear is right. Our Library empty state suppresses search,

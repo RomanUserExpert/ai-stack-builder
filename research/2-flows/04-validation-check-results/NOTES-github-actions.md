@@ -78,7 +78,7 @@ Process completed with exit code 1.
 
 This is the whole failure report for six different jobs. It names no test, no file, no assertion —
 the annotation slot exists, is surfaced prominently, is counted in the header, and is filled with
-nothing. Copy analysis is in [`../11-copy-and-error-language/ci-failure-copy.md`](../11-copy-and-error-language/ci-failure-copy.md),
+nothing. Copy analysis is in [`11-copy-and-error-language/ci-failure-copy.md`](../11-copy-and-error-language/ci-failure-copy.md),
 including the check that this is industry-wide rather than one repository's sloppiness.
 
 ## 5. The check summary on a PR

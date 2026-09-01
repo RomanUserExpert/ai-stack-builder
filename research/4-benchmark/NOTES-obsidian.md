@@ -10,7 +10,7 @@ That substitution is the point, not a workaround. The plan's B1 question is *fin
 large personal collection*, and a vault holding one `Welcome.md` cannot answer it. A vault holding
 `research/flows/04-validation-check-results/NOTES-vercel.md` next to nine other `NOTES` files can.
 
-Five frames, in [`.`](.): `obsidian-*.png`.
+Five frames, beside this file: `obsidian-*.png`.
 
 ---
 

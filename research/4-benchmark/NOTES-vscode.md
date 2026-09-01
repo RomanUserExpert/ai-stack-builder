@@ -11,7 +11,7 @@ capture, outside the repo, carrying our three findings on purpose:
 | A field that is not in the model | `detached: true` on an object typed as `Item` |
 | A required item that is not in the set | a reference to `local_file`-style `collectTargets`, undeclared |
 
-Eleven frames, in [`.`](.): `vscode-*.png`.
+Eleven frames, beside this file: `vscode-*.png`.
 
 ---
 
@@ -28,7 +28,7 @@ segmented control, so switching mode is editing text.
 Opened cold on a fresh install it is **the entire command list, alphabetically, from
 `Accounts: Manage Accounts`**. No grouping by object, no counts, no context chip. Linear's palette
 opens on actions grouped and labelled by object type
-([`../flows/02-library-browse-filter-search/NOTES-linear.md`](../flows/02-library-browse-filter-search/NOTES-linear.md));
+([`2-flows/02-library-browse-filter-search/NOTES-linear.md`](../2-flows/02-library-browse-filter-search/NOTES-linear.md));
 VS Code opens on an index. Keybindings render as key caps down the right in both.
 
 Typing narrows, and **the matched substrings are bold inside each row** — `toggle secondary` bolds

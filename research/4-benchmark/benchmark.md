@@ -1,13 +1,13 @@
 # Benchmark — stage 4
 
 Written 2026-09-01. **All 15 cells scored.** Status and design in
-[`research-plan.md`](research-plan.md); this file is the scoring itself.
+[`research-plan.md`](../research-plan.md); this file is the scoring itself.
 
 The question: **for each of our four core flows, who does it best, how well, and against what
 standard?** Stages 1–3 produced observations. This turns them into a scale, and stage 5 spends it.
 
-Captures are in [`benchmark/`](benchmark/), and several cells are scored from
-[`flows/`](flows/) captures that were already good enough. Every cell says which.
+The captures sit beside this file in the same folder; several cells are scored from
+[`2-flows/`](../2-flows/) captures that were already good enough. Every cell says which.
 
 ---
 
@@ -73,7 +73,7 @@ The plan noted availability per candidate. Three of those notes were wrong on th
 | VS Code ✓ free | **Was not installed** | Installed by the owner. Carries three cells and no substitute is as close to our mechanics. All three captured. |
 | Obsidian ✓ free | **Was not installed** | Installed by the owner. Captured against a substituted vault, as above. |
 | Compose ✓ CLI | **Docker not installed** | **Dropped**, and the reason recorded: `npm install` already covers *assemble a set under constraints*, does it on a tool that is installed, and can be made to fail. Compose would have been a fourth opinion on a question already answered three ways. The matrix is **15 cells, not 16**. |
-| Brewfile — read format only, macOS | Unchanged, and a format we can only read is not a benchmark | **Substituted with `npm install`** — [`benchmark/npm-eresolve.md`](benchmark/npm-eresolve.md). |
+| Brewfile — read format only, macOS | Unchanged, and a format we can only read is not a benchmark | **Substituted with `npm install`** — [`npm-eresolve.md`](npm-eresolve.md). |
 
 ---
 
@@ -126,8 +126,8 @@ Our screen: **Library**.
 
 ### Linear — ⌘K, filters, empty states
 
-[`flows/02-library-browse-filter-search/NOTES-linear.md`](flows/02-library-browse-filter-search/NOTES-linear.md) ·
-[`flows/08-empty-state-and-cold-start/NOTES-linear.md`](flows/08-empty-state-and-cold-start/NOTES-linear.md)
+[`2-flows/02-library-browse-filter-search/NOTES-linear.md`](../2-flows/02-library-browse-filter-search/NOTES-linear.md) ·
+[`2-flows/08-empty-state-and-cold-start/NOTES-linear.md`](../2-flows/08-empty-state-and-cold-start/NOTES-linear.md)
 
 - **C1 = 5.** A filter is a sentence with its own ✕, the state is in the URL, the keyboard-hint bar
   recomputes from what is currently possible, and a filter matching nothing prints **"4 issues hidden
@@ -144,7 +144,7 @@ Our screen: **Library**.
 
 ### GitHub code search
 
-[`benchmark/NOTES-github-code-search.md`](benchmark/NOTES-github-code-search.md)
+[`NOTES-github-code-search.md`](NOTES-github-code-search.md)
 
 - **C1 = 5.** `10 files (324 ms) in [repo ✕]` — count, cost and scope in one line, the scope as a
   removable chip. The left rail counts **every other result type for the same query, including the
@@ -162,7 +162,7 @@ Our screen: **Library**.
 
 ### Obsidian quick switcher
 
-[`benchmark/NOTES-obsidian.md`](benchmark/NOTES-obsidian.md)
+[`NOTES-obsidian.md`](NOTES-obsidian.md)
 
 - **C1 = 4.** Rows are full paths with **every matched character bolded across the path**, so the
   ranking explains itself and the tail is visibly the tail. The search pane adds `6 results`,
@@ -182,7 +182,7 @@ Our screen: **Library**.
 
 ### VS Code — palette and Extensions search
 
-[`benchmark/NOTES-vscode.md`](benchmark/NOTES-vscode.md)
+[`NOTES-vscode.md`](NOTES-vscode.md)
 
 - **C1 = 4.** The mode is a visible prefix character in the input (`>` commands, `@` symbols, `:` a
   line), the view title states the active filter (*Extensions: Marketplace*, *Extensions: Builtin*),
@@ -209,7 +209,7 @@ Our screen: **Project Builder**.
 
 ### VS Code — per-workspace extensions, recommendations, Workspace Trust
 
-[`benchmark/NOTES-vscode.md`](benchmark/NOTES-vscode.md)
+[`NOTES-vscode.md`](NOTES-vscode.md)
 
 - **C1 = 5.** `@recommended` splits into **Workspace Recommendations (3)** and **Other
   Recommendations (4)**, each counted in its header, with a pencil beside the first that opens
@@ -233,7 +233,7 @@ Our screen: **Project Builder**.
 
 ### `npm install` — a declared set resolved against constraints
 
-[`benchmark/npm-eresolve.md`](benchmark/npm-eresolve.md)
+[`npm-eresolve.md`](npm-eresolve.md)
 
 - **C1 = 3.** The resolved set is knowable — `npm ls`, the lockfile — but only by running something
   and reading a wall of text.
@@ -253,7 +253,7 @@ Our screen: **Project Builder**.
 
 ### Figma — instances, overrides, library updates
 
-[`flows/05-linked-vs-detached/NOTES.md`](flows/05-linked-vs-detached/NOTES.md)
+[`2-flows/05-linked-vs-detached/NOTES.md`](../2-flows/05-linked-vs-detached/NOTES.md)
 
 - **C1 = 2.** Figma says *"this is an instance"* three times — glyph, colour, and a sentence naming
   the library — and nothing at all about *"this instance no longer matches its main"*. A modified
@@ -278,8 +278,8 @@ Our screen: **the validation pass**.
 
 ### `terraform` — a successful plan, and validate against a broken config
 
-[`flows/04-validation-check-results/terraform-plan-output.md`](flows/04-validation-check-results/terraform-plan-output.md) ·
-[`benchmark/terraform-validate-errors.md`](benchmark/terraform-validate-errors.md)
+[`2-flows/04-validation-check-results/terraform-plan-output.md`](../2-flows/04-validation-check-results/terraform-plan-output.md) ·
+[`terraform-validate-errors.md`](terraform-validate-errors.md)
 
 - **C1 = 5.** One summary line that is a count — `Plan: 2 to add, 0 to change, 0 to destroy`. Every
   resource named before it is described, a symbol per operation in the left margin, and `(known after
@@ -301,7 +301,7 @@ Our screen: **the validation pass**.
 
 ### VS Code Problems panel
 
-[`benchmark/NOTES-vscode.md`](benchmark/NOTES-vscode.md)
+[`NOTES-vscode.md`](NOTES-vscode.md)
 
 - **C1 = 5.** The same count at four altitudes that agree: status bar `⊗4 ⚠2`, panel badge `6`,
   per-file badge `3`, and the number on the editor tab. Severity glyphs distinct, errors sorted above
@@ -319,7 +319,7 @@ Our screen: **the validation pass**.
 
 ### Vercel build log
 
-[`flows/04-validation-check-results/NOTES-vercel.md`](flows/04-validation-check-results/NOTES-vercel.md)
+[`2-flows/04-validation-check-results/NOTES-vercel.md`](../2-flows/04-validation-check-results/NOTES-vercel.md)
 
 - **C1 = 5.** A deployment is a stack of collapsed stages, each with its own verdict and duration; a
   stage that did not run gets a clock, not a failure. `66 lines` before you read, `Find in logs`, and
@@ -333,7 +333,7 @@ Our screen: **the validation pass**.
 
 ### GitHub Actions run
 
-[`flows/04-validation-check-results/NOTES-github-actions.md`](flows/04-validation-check-results/NOTES-github-actions.md)
+[`2-flows/04-validation-check-results/NOTES-github-actions.md`](../2-flows/04-validation-check-results/NOTES-github-actions.md)
 
 - **C1 = 5.** Four verdicts, four glyphs, colour redundant; **skipped** and **cancelled** each
   distinct from failure; a mixed commit gets a partially-filled ring rather than being flattened to
@@ -367,7 +367,7 @@ Our screen: **Result / Export**. **The weakest flow in the benchmark; the highes
 
 ### `create-next-app`
 
-[`benchmark/create-next-app-output.md`](benchmark/create-next-app-output.md)
+[`create-next-app-output.md`](create-next-app-output.md)
 
 - **C1 = 4.** The manifest is printed before the work, split by role, by name, before a single package
   is fetched; side effects are stated as completed facts, including `Initialized a git repository.`
@@ -382,7 +382,7 @@ Our screen: **Result / Export**. **The weakest flow in the benchmark; the highes
 
 ### Figma export dialog
 
-[`benchmark/NOTES-figma-export.md`](benchmark/NOTES-figma-export.md)
+[`NOTES-figma-export.md`](NOTES-figma-export.md)
 
 - **C1 = 4.** `0 of 0 selected` states the state exactly, in the same grammar as VS Code's `Showing 0
   of 6`. Not 5: it never says what *would* be exportable.
@@ -399,7 +399,7 @@ Our screen: **Result / Export**. **The weakest flow in the benchmark; the highes
 
 ### Ruler — one source, six agent targets
 
-[`flows/06-export-and-target-adaptation/ruler-per-agent-output.md`](flows/06-export-and-target-adaptation/ruler-per-agent-output.md)
+[`2-flows/06-export-and-target-adaptation/ruler-per-agent-output.md`](../2-flows/06-export-and-target-adaptation/ruler-per-agent-output.md)
 
 - **C1 = 3.** Six log lines for six targets and a fenced managed block in `.gitignore` naming what was
   generated — but the mapping from target to artefact is knowable only by listing the directory
@@ -487,7 +487,7 @@ categories carry into stage 5 unchanged, which is what the plan's *done when* as
 # Finalisation — what this rubric measures, and what it does not
 
 Added after stage 5, when the rubric had been spent once and its shape was visible. It belongs here
-rather than in [`patterns.md`](patterns.md), because it is a fact about the instrument.
+rather than in [`5-patterns/patterns.md`](../5-patterns/patterns.md), because it is a fact about the instrument.
 
 ## The rubric grades craft, not weight
 
@@ -496,7 +496,7 @@ score in this document answers *did this interface tell me the thing* — and no
 *does anyone bleed here*. A cell scoring 5 means a vendor solved a problem beautifully. It does not
 mean the problem mattered.
 
-Read the four flows against [`user-pain.md`](user-pain.md) instead, and the weights come out uneven:
+Read the four flows against [`3-pain/user-pain.md`](../3-pain/user-pain.md) instead, and the weights come out uneven:
 
 | | Flow | What the pain evidence says |
 |---|---|---|

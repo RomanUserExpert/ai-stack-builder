@@ -1,10 +1,17 @@
-# Flows to study
+# Stage 2 — Flows
+
+Twelve mechanisms captured from live products. Status per flow is in
+[`research-plan.md`](../research-plan.md); this file is the brief each capture was made against.
+
+---
+
+## Flows to study
 
 Twelve flows, derived from the "what to take" line of every entry in
-[`../competitors.md`](../competitors.md). Each one is a folder in here. This file says what the
+[`1-landscape/competitors.md`](../1-landscape/competitors.md). Each one is a folder in here. This file says what the
 flow is, why we want it, what we already captured, what is still missing, and what access it needs.
 
-Screenshot paths are relative to [`../screens/`](../screens-index.md).
+Screenshot paths are relative to [`1-landscape/screens-index.md`](../1-landscape/screens-index.md).
 
 **Status key.** ● covered · ◐ partially covered · ○ nothing yet · → handed forward to the next phase.
 
@@ -46,7 +53,7 @@ Not every gap needs filling, and two of the substitutes are better than the orig
 | Closed | Verdict | Substitute |
 |---|---|---|
 | **Packmind** — sales-gated | Replace | **Ruler**, the open-source CLI that syncs one `.ruler/` directory into 20+ agent formats. Run locally, it produces the actual per-target output — which is the thing we wanted Packmind for. A real format mapping beats a sales-demo screenshot. |
-| **Continue Hub** — switched off | **Replaced, and done 2026-09-01** | Read from its Apache-2.0 repository: block schema, the `uses`/`with`/`override` composition primitive, identity and secret schemes, and the resolver. Written up in [`../continue-postmortem.md`](../continue-postmortem.md). Only the visual design is lost. |
+| **Continue Hub** — switched off | **Replaced, and done 2026-09-01** | Read from its Apache-2.0 repository: block schema, the `uses`/`with`/`override` composition primitive, identity and secret schemes, and the resolver. Written up in [`1-landscape/continue-postmortem.md`](../1-landscape/continue-postmortem.md). Only the visual design is lost. |
 | **Vercel build log** — account | Replace, and it may be enough on its own | **GitHub Actions run logs on any public repository.** Fully open, no account: ordered steps, timings, collapsible groups, failure annotations. The lesson — a process running visibly and legibly instead of behind a spinner — is identical and available right now. |
 | **Linear app** — *access granted, workspace empty* | Substitute only if flow 10 still wants density | Access arrived and closed flows 02 and 08. What it could **not** give is density, because the workspace holds four issues. If real rows are ever needed: **play.grafana.org** and **sandbox.sentry.io**, both open without login. P3. |
 | **Figma editor** — account | **No substitute. Access needed.** | The nearest equivalent is **Penpot** (open source, browser-based, has components and detach), but it also requires a free account, so if a Figma login already exists that is the shorter path. Conceptual analogues for base-plus-local-override — Kustomize overlays, `patch-package` — inform the logic but teach us nothing about the interface language. |
@@ -153,10 +160,10 @@ half-worked). This is the wow moment, and it is now the best-covered flow in the
 
 | Note | Teaches |
 |---|---|
-| [`terraform-plan-output.md`](04-validation-check-results/terraform-plan-output.md) | What a *result* should read like |
-| [`NOTES-vercel.md`](04-validation-check-results/NOTES-vercel.md) | What a *process* should read like |
-| [`NOTES-github-actions.md`](04-validation-check-results/NOTES-github-actions.md) | What *partial failure* should read like |
-| [`NOTES-port.md`](04-validation-check-results/NOTES-port.md) | What a *grade* should read like |
+| [`04-validation-check-results/terraform-plan-output.md`](04-validation-check-results/terraform-plan-output.md) | What a *result* should read like |
+| [`04-validation-check-results/NOTES-vercel.md`](04-validation-check-results/NOTES-vercel.md) | What a *process* should read like |
+| [`04-validation-check-results/NOTES-github-actions.md`](04-validation-check-results/NOTES-github-actions.md) | What *partial failure* should read like |
+| [`04-validation-check-results/NOTES-port.md`](04-validation-check-results/NOTES-port.md) | What a *grade* should read like |
 
 **Have.** Vercel's stage stack and build log; real `terraform plan` output; a GitHub Actions run of
 102 jobs with 7 failed, 4 skipped and 1 cancelled, plus its counted Annotations digest and the PR
@@ -265,7 +272,7 @@ need one written definition per object — `Item`, `Project`, and each of the si
 
 **Third.** Linear suppresses the toolbar over an empty screen; Vercel keeps a search box and four
 filter dropdowns filtering nothing. Same situation, opposite decision — see
-[`../07-env-and-secrets/NOTES.md`](07-env-and-secrets/NOTES.md).
+[`07-env-and-secrets/NOTES.md`](07-env-and-secrets/NOTES.md).
 
 ---
 
@@ -295,7 +302,7 @@ material already gathered.
   of lightness rather than a shadow ramp, three foreground tones with the accent reserved for meaning,
   key caps as a real component with a two-cap form for chords, and unset properties written as
   imperatives.
-- **Raycast's tokens**, extracted and recorded in [`../comparison.md`](../comparison.md): background
+- **Raycast's tokens**, extracted and recorded in [`1-landscape/comparison.md`](../1-landscape/comparison.md): background
   `#07080a`, surface `#101111`, accent `#FF6363`, Inter + GeistMono, 8px spacing base, radius 2→20px.
 - Plus every dark product surface captured across the other eleven flows.
 
@@ -319,10 +326,10 @@ ever wants real rows.
 copy, good and bad). Feeds every message our validation pass will write.
 
 **Have.**
-- [`dependency-conflict-copy.md`](11-copy-and-error-language/dependency-conflict-copy.md) — real
+- [`11-copy-and-error-language/dependency-conflict-copy.md`](11-copy-and-error-language/dependency-conflict-copy.md) — real
   Terraform version-clash, a Terraform attribute error and npm `ERESOLVE`, with what to steal and
   what to avoid in each.
-- [`ci-failure-copy.md`](11-copy-and-error-language/ci-failure-copy.md) — the failure channel:
+- [`11-copy-and-error-language/ci-failure-copy.md`](11-copy-and-error-language/ci-failure-copy.md) — the failure channel:
   GitHub's empty annotation as the anti-reference, the three annotations that do work, and the bot
   comment that is the best failure copy in the survey.
 - `stripe-error-codes.png`.
@@ -343,7 +350,7 @@ and `rust-lang/rust-clippy` found the same in every one. The failure channel car
 than the deprecation channel.
 
 **Missing.** Port's block-vs-warn wording, because **Port has no blocking state** — see
-[`NOTES-port.md`](04-validation-check-results/NOTES-port.md). The item is answered, not outstanding.
+[`04-validation-check-results/NOTES-port.md`](04-validation-check-results/NOTES-port.md). The item is answered, not outstanding.
 
 ---
 
@@ -498,7 +505,7 @@ Linear's `Ctrl K` and Tessl's ⌘K. Tone, not mechanism, for the price of a glob
 **Also declined and settled:** Figma's cross-file usage count (paid tier), Linear's density under load
 (the workspace granted is new), Packmind and Continue Hub (substituted by Ruler and the Continue
 repository), Mobbin (not worth a subscription). Full reasoning in
-[`../research-plan.md`](../research-plan.md).
+[`research-plan.md`](../research-plan.md).
 
 ---
 

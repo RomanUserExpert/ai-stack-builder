@@ -21,17 +21,27 @@ Sign-off comes after stage 5. Next phase: design system, per CLAUDE.md §1.
 
 ## Documents
 
+The folder is organised by stage. Each stage folder has a short README that says what it produced
+and where to start; this table says what each document holds.
+
+```
+research/
+  research-plan.md      the spine — stages, status, the register of open questions
+  FINAL.md              the closing document — decisions, what is open, what cuts across stages
+  1-landscape/  2-flows/  3-pain/  4-benchmark/  5-patterns/
+```
+
 | File | What it holds |
 |---|---|
-| [`competitors.md`](competitors.md) | 15 companies in three groups — hard, soft, aspirational. Why each is there, what to take from it, a verified link per entry. |
-| [`comparison.md`](comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, and the three decisions the design system needed, each with its reasoning. |
-| [`screens-index.md`](screens-index.md) | 38 product captures in [`screens/`](screens/), sorted group / competitor. Sign-in walls labelled. |
-| [`user-pain.md`](user-pain.md) | What actually hurts, from two public issue trackers — the first evidence here about users rather than vendors. States plainly what the instrument cannot see. |
-| [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the `uses`/`with`/`override` composition primitive, its identity and secret schemes, and the three things its resolver never did. |
-| [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
-| [`benchmark.md`](benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`benchmark/`](benchmark/). |
-| [`open-questions.md`](open-questions.md) | **The working sheet for the closing sitting.** Six questions, and per question: where to read before deciding, the options on the table, and a recommendation. Status stays in the register at the end of this file. |
-| [`patterns.md`](patterns.md) | **Stage 5.** Five shapes for *assemble → check → export*, each answering the same five questions, each scored on the stage-4 rubric read as *does the shape give this a home*. The choice, what each rejected variant donates, and what the choice costs. |
+| [`FINAL.md`](FINAL.md) | **Read before sign-off.** What the phase produced, the decisions taken, the six open questions with what to read before deciding each, and the documents that are read from more than one stage. |
+| [`1-landscape/competitors.md`](1-landscape/competitors.md) | 15 companies in three groups — hard, soft, aspirational. Why each is there, what to take from it, a verified link per entry. |
+| [`1-landscape/comparison.md`](1-landscape/comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, and the three decisions the design system needed, each with its reasoning. |
+| [`1-landscape/screens-index.md`](1-landscape/screens-index.md) | 38 product captures in [`1-landscape/screens/`](1-landscape/screens/), sorted group / competitor. Sign-in walls labelled. |
+| [`3-pain/user-pain.md`](3-pain/user-pain.md) | What actually hurts, from two public issue trackers — the first evidence here about users rather than vendors. States plainly what the instrument cannot see. |
+| [`1-landscape/continue-postmortem.md`](1-landscape/continue-postmortem.md) | The closest competitor read from source: its block model, the `uses`/`with`/`override` composition primitive, its identity and secret schemes, and the three things its resolver never did. |
+| [`2-flows/README.md`](2-flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
+| [`4-benchmark/benchmark.md`](4-benchmark/benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`4-benchmark/`](4-benchmark/). |
+| [`5-patterns/patterns.md`](5-patterns/patterns.md) | **Stage 5.** Five shapes for *assemble → check → export*, each answering the same five questions, each scored on the stage-4 rubric read as *does the shape give this a home*. The choice, what each rejected variant donates, and what the choice costs. |
 
 ---
 
@@ -48,17 +58,17 @@ appearance rather than behaviour, and CLAUDE.md §12 postpones visual direction 
 | # | Flow | Status | Notes |
 |---|---|---|---|
 | 01 | Item detail and trust | ◐ | Declined — Agentman is login-walled; version history is out of MVP scope (§9) |
-| 02 | Library browse, filter, search | ● | [Linear](flows/02-library-browse-filter-search/NOTES-linear.md) |
+| 02 | Library browse, filter, search | ● | [Linear](2-flows/02-library-browse-filter-search/NOTES-linear.md) |
 | 03 | Relations without a canvas | ● | — |
-| 04 | Validation: pass, warn, block | ● | [Terraform](flows/04-validation-check-results/terraform-plan-output.md) · [Vercel](flows/04-validation-check-results/NOTES-vercel.md) · [GitHub Actions](flows/04-validation-check-results/NOTES-github-actions.md) · [Port](flows/04-validation-check-results/NOTES-port.md) |
-| 05 | Linked vs detached, blast radius | ● | [NOTES](flows/05-linked-vs-detached/NOTES.md) — all three instance states |
-| 06 | Export and target adaptation | ● | [Ruler output](flows/06-export-and-target-adaptation/ruler-per-agent-output.md) |
-| 07 | Env variables and secrets | ● | [NOTES](flows/07-env-and-secrets/NOTES.md) |
-| 08 | Empty state and cold start | ● | [Linear](flows/08-empty-state-and-cold-start/NOTES-linear.md) |
-| 09 | Duplicate and fork | ● | [NOTES](flows/09-duplicate-and-fork/NOTES.md) |
-| 10 | Dark design language | → | [Material for the next phase](flows/10-dark-design-language/NOTES-linear.md) |
-| 11 | Copy: errors, warnings, refusals | ● | [Conflict copy](flows/11-copy-and-error-language/dependency-conflict-copy.md) · [CI failure copy](flows/11-copy-and-error-language/ci-failure-copy.md) |
-| 12 | Visibility and portfolio | ● | [NOTES](flows/12-visibility-and-portfolio/NOTES.md) |
+| 04 | Validation: pass, warn, block | ● | [Terraform](2-flows/04-validation-check-results/terraform-plan-output.md) · [Vercel](2-flows/04-validation-check-results/NOTES-vercel.md) · [GitHub Actions](2-flows/04-validation-check-results/NOTES-github-actions.md) · [Port](2-flows/04-validation-check-results/NOTES-port.md) |
+| 05 | Linked vs detached, blast radius | ● | [NOTES](2-flows/05-linked-vs-detached/NOTES.md) — all three instance states |
+| 06 | Export and target adaptation | ● | [Ruler output](2-flows/06-export-and-target-adaptation/ruler-per-agent-output.md) |
+| 07 | Env variables and secrets | ● | [NOTES](2-flows/07-env-and-secrets/NOTES.md) |
+| 08 | Empty state and cold start | ● | [Linear](2-flows/08-empty-state-and-cold-start/NOTES-linear.md) |
+| 09 | Duplicate and fork | ● | [NOTES](2-flows/09-duplicate-and-fork/NOTES.md) |
+| 10 | Dark design language | → | [Material for the next phase](2-flows/10-dark-design-language/NOTES-linear.md) |
+| 11 | Copy: errors, warnings, refusals | ● | [Conflict copy](2-flows/11-copy-and-error-language/dependency-conflict-copy.md) · [CI failure copy](2-flows/11-copy-and-error-language/ci-failure-copy.md) |
+| 12 | Visibility and portfolio | ● | [NOTES](2-flows/12-visibility-and-portfolio/NOTES.md) |
 
 ### Nothing left to collect in stages 1–3
 
@@ -119,7 +129,7 @@ Best-in-class, competitors allowed but not required. Availability on this machin
 benchmark we cannot capture is a benchmark we cannot defend.
 
 **As planned, and as it ended up.** Two candidates were replaced and one dropped; the reasoning is
-recorded in [`benchmark.md`](benchmark.md) rather than repeated here.
+recorded in [`4-benchmark/benchmark.md`](4-benchmark/benchmark.md) rather than repeated here.
 
 | Flow | Candidates, final | Change from the plan |
 |---|---|---|
@@ -212,7 +222,7 @@ CLAUDE.md §8 is rewritten to three surfaces plus Projects, and the change of su
 library is no longer inside the builder and drag is no longer the mechanism**: it does not survive
 300 items, and a pane that cannot act during a check is the mistake §6 and §9 refuse elsewhere.
 
-The four rejected variants, and the reason each lost, are in [`patterns.md`](patterns.md). So is what
+The four rejected variants, and the reason each lost, are in [`5-patterns/patterns.md`](5-patterns/patterns.md). So is what
 the choice costs — with no library pane you cannot see what you are not using, and three things now
 carry that weight.
 
@@ -221,7 +231,7 @@ carry that weight.
 ## Decisions already taken
 
 All four landed on 2026-09-01 and are recorded in CLAUDE.md, which is the source of truth.
-[`comparison.md`](comparison.md) keeps the reasoning and the rejected alternatives.
+[`1-landscape/comparison.md`](1-landscape/comparison.md) keeps the reasoning and the rejected alternatives.
 
 | Decision | Answer | Where |
 |---|---|---|
@@ -258,7 +268,7 @@ at all, because a project is a set and not an execution order.
    instance identically to a clean one everywhere except a context menu.
 
 5. **The pain we bet on is real but quiet; the loud pain is environmental.** *(added 2026-09-01 — see
-   [`user-pain.md`](user-pain.md))* A user reports that two `server-postgres` entries in one
+   [`3-pain/user-pain.md`](3-pain/user-pain.md))* A user reports that two `server-postgres` entries in one
    `mcp.json` end with *"the chat always chooses the first one specified"* — our duplicate-key
    collision, in the file we generate, failing exactly as predicted and telling nobody. That is the
    thesis, sighted in the wild. But it carries 13 reactions against **182** for *MCP Servers Don't
@@ -302,12 +312,12 @@ sign-off.
 **Adding an entry.** Give it the next ID, say which stage raised it, and — the part that matters —
 say **what would answer it**. A question with no named instrument is not a question, it is a worry.
 
-**The prep sheet for the sitting is [`open-questions.md`](open-questions.md)** — per question, where
-to read before deciding, the options actually on the table, and a recommendation. It holds the
+**The prep sheet for the sitting is section 3 of [`FINAL.md`](FINAL.md)** — per question, where to
+read before deciding, the options actually on the table, and a recommendation. It holds the
 reasoning; this register holds the status. Neither is a copy of the other.
 
 **The evidence is now in.** Stage 5 was the named instrument for Q1, Q3 and Q4, and stage 4's B4 work
-for Q2. What each turned up is recorded at the end of [`patterns.md`](patterns.md) as *evidence, not
+for Q2. What each turned up is recorded at the end of [`5-patterns/patterns.md`](5-patterns/patterns.md) as *evidence, not
 answers* — the sitting that closes these entries has not happened yet, and this is the material it
 will use.
 
@@ -316,7 +326,7 @@ will use.
 | ID | Question | Raised by | What would answer it | What it blocks |
 |---|---|---|---|---|
 | **Q1** | **Cold start: demo problem or product decision?** CLAUDE.md §11 plans *~30 realistic items for any mockup*. Linear seeds a new workspace with four **real**, editable objects, so the product is never empty and the validation pass has something to run on before the user types anything. | Stage 2, flow 08 | **Stage 5.** Every variant must show itself with an empty library and with a seeded one — the cheapest possible resolution, since it falls out of work we are doing anyway. | CLAUDE.md §11, and the whole first-run experience |
-| **Q2** | **How much weight does `SETUP.md` carry?** §6 gives it one line, while [`user-pain.md`](user-pain.md) finds the loudest pain in the ecosystem lives exactly there — the archive lands on a machine and does not run. Either we own that problem or we say plainly it is not our war. | Stage 3, finding 5 | **Stage 4, flow B4** (produce and hand over), plus the export end of stage 5. | The real scope of CLAUDE.md §6 |
+| **Q2** | **How much weight does `SETUP.md` carry?** §6 gives it one line, while [`3-pain/user-pain.md`](3-pain/user-pain.md) finds the loudest pain in the ecosystem lives exactly there — the archive lands on a machine and does not run. Either we own that problem or we say plainly it is not our war. | Stage 3, finding 5 | **Stage 4, flow B4** (produce and hand over), plus the export end of stage 5. | The real scope of CLAUDE.md §6 |
 | **Q3** | **Can a project contain another project**, or only items? | CLAUDE.md §12, from the start | **Stage 5** — whether any of the five variants needs composition in order to work. If none does, it is out. | The data model, later. Not the MVP |
 | **Q4** | **Can a detached item be promoted back into the library** as a new item? | CLAUDE.md §12, sharpened by flow 05 | **Stage 5** — the variant that renders state 6, *detached and locally modified*, will show whether a return path has anywhere to live. Flow 05 established there is **no prior art** for it, so this one we invent rather than copy. | CLAUDE.md §5, later |
 | **Q5** | **Loss or reassembly cost — which actually drives adoption?** *I cannot find what I wrote three months ago* versus *I re-copy the same four files into every new project*. CLAUDE.md §2 bets on neither; it bets on silent breakage. | Stage 3 | **Nothing we have used so far.** Issue trackers are blind to both by construction — neither ever becomes an issue. This needs asking people. | Positioning and the pitch. **Not** the MVP build, which is the same product under any answer |
@@ -335,4 +345,4 @@ reason that stage has a fixed list of questions every variant must answer.
 ### Answered and closed
 
 Nothing yet. Four decisions were taken on 2026-09-01, before this register existed, and are recorded
-under *Decisions already taken* above with their reasoning in [`comparison.md`](comparison.md).
+under *Decisions already taken* above with their reasoning in [`1-landscape/comparison.md`](1-landscape/comparison.md).

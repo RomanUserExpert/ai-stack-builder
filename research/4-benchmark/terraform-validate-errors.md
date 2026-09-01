@@ -2,7 +2,7 @@
 
 Collected 2026-09-01, Terraform v1.16.0, downloaded to a scratch directory outside the repo, nothing
 installed system-wide. Same method as
-[`../flows/04-validation-check-results/terraform-plan-output.md`](../flows/04-validation-check-results/terraform-plan-output.md),
+[`2-flows/04-validation-check-results/terraform-plan-output.md`](../2-flows/04-validation-check-results/terraform-plan-output.md),
 which captured a **successful** plan and left failure copy unobserved.
 
 The config was written to produce our three findings, deliberately, in one file:

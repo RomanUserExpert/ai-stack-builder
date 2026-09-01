@@ -96,7 +96,7 @@ re-creates the uncommitted change; committing it with your work keeps the tree c
 ```
 
 That is exactly the pair Ruler produced from a completely different codebase and vendor
-([`../flows/06-export-and-target-adaptation/ruler-per-agent-output.md`](../flows/06-export-and-target-adaptation/ruler-per-agent-output.md)):
+([`2-flows/06-export-and-target-adaptation/ruler-per-agent-output.md`](../2-flows/06-export-and-target-adaptation/ruler-per-agent-output.md)):
 **copy the content with provenance, or point at the canonical file.** Two independent
 implementations, same two mechanics, same managed-block-with-markers for the copy. Flow 06 called
 this "at most two mechanics plus a naming convention per agent" from a single sample. It now has two.

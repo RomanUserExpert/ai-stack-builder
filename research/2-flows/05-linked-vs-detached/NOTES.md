@@ -202,9 +202,9 @@ a click, in a menu. The failure is display, not modelling.
 The reset rows do not sit greyed out on a clean instance; they are absent. That is the third product
 in this research doing the same thing — Linear's keyboard-hint bar recomputing itself when a search
 returns nothing, Linear's empty Projects screen suppressing its toolbar
-([`../08-empty-state-and-cold-start/NOTES-linear.md`](../08-empty-state-and-cold-start/NOTES-linear.md)),
+([`08-empty-state-and-cold-start/NOTES-linear.md`](../08-empty-state-and-cold-start/NOTES-linear.md)),
 and Figma hiding a reset that has nothing to reset. Against it stands Vercel, keeping four filter
-dropdowns over an empty list ([`../07-env-and-secrets/NOTES.md`](../07-env-and-secrets/NOTES.md)).
+dropdowns over an empty list ([`07-env-and-secrets/NOTES.md`](../07-env-and-secrets/NOTES.md)).
 
 Three to one. Treat it as settled: **an action that cannot do anything is not shown.**
 

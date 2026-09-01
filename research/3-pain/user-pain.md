@@ -1,7 +1,7 @@
 # What actually hurts — evidence from issue trackers
 
 Collected 2026-09-01. The gap this closes: **nothing in the research had ever established what hurts
-the user.** [`comparison.md`](comparison.md) compares fifteen vendors on audience, product base, key
+the user.** [`1-landscape/comparison.md`](../1-landscape/comparison.md) compares fifteen vendors on audience, product base, key
 mechanism, trust and monetisation — five axes about *companies*, none about *pain*. The word "pain"
 appeared in zero files. CLAUDE.md §2 asserts the pain and the whole product rests on it:
 
@@ -77,7 +77,7 @@ It is there. It is just not loud.
 That is our duplicate-key collision, reported by a user, in the exact file we generate, with the exact
 failure mode we predicted: **the first one wins and nobody is told.** It is the same behaviour we
 found in Continue's own source, where `BlockDuplicationDetector` correctly identifies the duplicate
-and the merge silently discards the loser — see [`continue-postmortem.md`](continue-postmortem.md).
+and the merge silently discards the loser — see [`1-landscape/continue-postmortem.md`](../1-landscape/continue-postmortem.md).
 Two independent sightings of one bug: once in the code, once in a user's words.
 
 Two more of the same family, smaller:
@@ -112,7 +112,7 @@ Not a hypothesis we had, and it sits near the top of both trackers:
 Our §6 already collects `needsEnv` across the set and writes `.env.example`, and keys never enter the
 archive. That was designed as hygiene. **It turns out to be aimed at a top-ranked pain**, which also
 raises the value of the Vercel env-drawer findings in
-[`flows/07-env-and-secrets/NOTES.md`](flows/07-env-and-secrets/NOTES.md) — asking for the type before
+[`2-flows/07-env-and-secrets/NOTES.md`](../2-flows/07-env-and-secrets/NOTES.md) — asking for the type before
 the value, defaulting to the irreversible option, and a note field that asks *where to rotate, or who
 to contact*.
 

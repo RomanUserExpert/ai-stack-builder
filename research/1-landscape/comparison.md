@@ -1,7 +1,7 @@
 # Comparison — fifteen products on five axes
 
 Companion to [`competitors.md`](competitors.md). Built 2026-08-31 from the products themselves:
-38 screen captures in [`screens/`](screens-index.md), plus page reads of the sites.
+38 screen captures in [`screens-index.md`](screens-index.md), plus page reads of the sites.
 
 **Axes.** *Audience* — who it is sold to. *Product base* — what the product is actually made of,
 its atomic asset. *Key mechanism* — the thing it does that nothing else does. *Trust* — how it

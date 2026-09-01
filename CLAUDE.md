@@ -21,13 +21,18 @@ The agreed order of work:
 
 **All five research stages are done.** Landscape, flows and pain; then **benchmark** — 15
 product-and-flow cells scored against five categories lifted from stages 1–3
-([`research/benchmark.md`](research/benchmark.md)); then **patterns** — five shapes for the key flow
+([`research/4-benchmark/benchmark.md`](research/4-benchmark/benchmark.md)); then **patterns** — five shapes for the key flow
 compared on that rubric, with the chosen one written into §8 below and the four rejected kept in
-[`research/patterns.md`](research/patterns.md).
+[`research/5-patterns/patterns.md`](research/5-patterns/patterns.md).
 
-**One thing stands between here and sign-off**: the open-question register at the end of
-[`research/research-plan.md`](research/research-plan.md), worked through in a single sitting. Until
-that is done the phase is not signed off, and the design system does not start.
+**One thing stands between here and sign-off**: six open questions, worked through in a single
+sitting. Until that is done the phase is not signed off, and the design system does not start.
+
+**The research folder is organised by stage**, and two files govern it:
+[`research/FINAL.md`](research/FINAL.md) is the closing document — what the phase produced, the
+decisions taken, the six open questions with what to read before deciding each, and the documents
+that are read from more than one stage. [`research/research-plan.md`](research/research-plan.md) is
+the spine and holds the register with each question's status. **Start at `FINAL.md`.**
 
 Do not skip ahead. If a request seems to jump to a later stage, confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is
@@ -195,7 +200,7 @@ export and written to `.env.example`.
 visibly — an animated sweep across dependencies, collisions and missing keys. This is a
 designed moment, not a spinner. Structurally it is a stack of stages, each carrying its own
 verdict and its own duration, each expandable — the model is Vercel's deployment page, written up
-in `research/flows/04-validation-check-results/NOTES-vercel.md`.
+in `research/2-flows/04-validation-check-results/NOTES-vercel.md`.
 
 ### Three severities, and nothing blocks
 
@@ -220,7 +225,7 @@ Figma's export dialog does exactly what we are refusing — `0 of 0 selected` be
 — and the benchmark records why it gets away with it: the blocker is one named action away, it is a
 property of this second's selection rather than of the document, and re-exporting costs nothing. Our
 Problems are properties of the project, the fix may be four items away, and the archive is the whole
-point of the product. See `research/benchmark/NOTES-figma-export.md`.
+point of the product. See `research/4-benchmark/NOTES-figma-export.md`.
 
 **Instead, an unclean export is confirmed.** Pressing Export on a set with Problems opens a
 confirmation that names the consequence in the present tense, in GitHub's mergebox register:
@@ -271,7 +276,7 @@ models overrides precisely enough to offer `Reset fill` by name, and then draws 
 identically to a clean one everywhere except a context menu. The diff is already computed, so the
 card carries it — and names the fields that differ, not just the fact that some do. Revert needs two
 granularities, the whole item and a single field, with Reset kept next to Detach as the two halves
-of one axis. See `research/flows/05-linked-vs-detached/NOTES.md`.
+of one axis. See `research/2-flows/05-linked-vs-detached/NOTES.md`.
 
 **A former state, "blocked because of a conflict", is gone** (2026-09-01). Nothing blocks — see
 section 6 — so no item is ever unselectable. A conflicting item reads as state 4, and the Problem
@@ -283,14 +288,14 @@ is carried by the project, not by the card.
 
 Chosen 2026-09-01 at the end of the research phase. Five shapes for the key flow — **assemble a set
 → check it → export** — were compared on the benchmark's five categories; the reasoning, the four
-rejected variants and what each donated are in [`research/patterns.md`](research/patterns.md).
+rejected variants and what each donated are in [`research/5-patterns/patterns.md`](research/5-patterns/patterns.md).
 
 The result is a hybrid, stated as a choice: **command-first assembly, and a run-centric check that
 ends in the export.** Three surfaces in the flow, plus Projects.
 
 **This section is provisional until the open-question register is closed.** Q1, Q2 and Q4 all land
 inside this flow, and Q2 may add a surface no variant has — see the finalisation section of
-[`research/benchmark.md`](research/benchmark.md), which records that the rubric grades craft rather
+[`research/4-benchmark/benchmark.md`](research/4-benchmark/benchmark.md), which records that the rubric grades craft rather
 than weight, and that the pain evidence sits in the check-and-export end of the flow. Do not build
 against this yet.
 
@@ -335,7 +340,7 @@ Kept in the architecture's line of sight, not built:
   an action there until it has something to do. Do not ship a dead toggle on the most load-bearing
   word in the model. (The rule has one documented exception and it does not apply here — **context
   menus grey rather than hide**, because a stable item order is worth more than a short list. See
-  finding 7 in `research/benchmark.md`.)
+  finding 7 in `research/4-benchmark/benchmark.md`.)
 - **Accounts, sync, teams.** Single user, one workspace.
 - **Automatic metadata parsing** from item content.
 
@@ -376,7 +381,9 @@ Later, not now: a starter catalog, and public items flowing into a shared catalo
 
 **The open ones live in one place, and it is not here.**
 [`research/research-plan.md`](research/research-plan.md) ends with a register — every open question
-with an ID, which stage raised it, **what would answer it**, and what it blocks. Questions are added
+with an ID, which stage raised it, **what would answer it**, and what it blocks. Section 3 of
+[`research/FINAL.md`](research/FINAL.md) holds the other half: what to read before deciding each,
+the options actually on the table, and a recommendation. Questions are added
 there as stages turn them up and answered together at the end, once the picture is whole, rather than
 one at a time on partial evidence. Do not keep a second list in this file; two lists drift, and this
 document has already been bitten by that twice.
@@ -388,11 +395,11 @@ composition (Q3), promoting a detached item back into the library (Q4), what act
 **Closed, and recorded here because the answers are part of the spec.**
 
 - ~~Competitors and references to position against~~ — surveyed. 15 companies, 12 flows, ~70 captures,
-  two issue trackers and the source of the nearest dead competitor, in [`research/`](research/). Start
-  at [`research/research-plan.md`](research/research-plan.md).
+  two issue trackers and the source of the nearest dead competitor, in [`research/`](research/), one
+  folder per stage. Start at [`research/FINAL.md`](research/FINAL.md).
 - ~~Visual direction and tone~~ — still not chosen, but no longer a question *here*: it is the first
   task of the design-system phase, with its reference material already gathered in
-  `research/flows/10-dark-design-language/`.
+  `research/2-flows/10-dark-design-language/`.
 - ~~Does `visibility` appear in the MVP interface~~ — no. Section 9.
 - ~~Does anything read `version`~~ — the field is gone; external references are pinned instead.
   Sections 5 and 9.

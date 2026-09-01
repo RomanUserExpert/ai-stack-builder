@@ -242,7 +242,7 @@ Problems panel over a file.
 - **C5 = 4.** Text is economical by nature; the assistant panel is the only thing that can go idle.
 
 **Where it dies, and it is not on the scores.** Two things kill P3. The post-mortem
-([`continue-postmortem.md`](continue-postmortem.md)) established that the composition layer is the
+([`1-landscape/continue-postmortem.md`](../1-landscape/continue-postmortem.md)) established that the composition layer is the
 half of Continue that died, and stage 3 found **nobody asking for one**. And CLAUDE.md §3 puts the
 craft bar at Linear and Raycast with a custom design system as part of the product's value — a
 product whose main surface is a text editor makes that value invisible. P3 is the right answer to a
@@ -370,7 +370,7 @@ second and third thirds of the spine.
 > **Provisional, deliberately.** The shape below is what the rubric chooses. It is **not final until
 > the open-question register is worked through** — Q1, Q2 and Q4 all land inside this flow, and Q2 in
 > particular may add a surface that none of the five variants has. Read the finalisation section of
-> [`benchmark.md`](benchmark.md) before treating any of this as settled: the rubric grades craft, not
+> [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md) before treating any of this as settled: the rubric grades craft, not
 > weight, and the five variants differ most in the third of the flow where the pain evidence is
 > thinnest.
 
@@ -439,7 +439,7 @@ using. Three things carry that weight, and if all three fail, this choice was wr
 # What this stage found for the open register
 
 Recorded as **evidence, not answers** — the register is worked through in one sitting once stage 5 is
-in, per the protocol in [`research-plan.md`](research-plan.md).
+in, per the protocol in [`research-plan.md`](../research-plan.md).
 
 - **Q1 — cold start.** Every one of the five needs a seeded library to be demonstrable, and three of
   them (P1, P3, P5) are actively broken without one. P2 is the only shape where the empty case has a

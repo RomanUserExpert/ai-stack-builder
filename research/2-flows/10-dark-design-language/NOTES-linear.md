@@ -15,7 +15,7 @@ light. That was the only setting touched, and it was touched with the owner's ex
 **Real density under load.** The workspace holds four issues. No theme change fixes that. Linear's
 famous list density — dozens of rows, grouped, with inline metadata and hover affordances — needs a
 workspace with real work in it. If we still want it, the substitutes named in
-[`../README.md`](../README.md) stand: `play.grafana.org` and `sandbox.sentry.io`, both open without a
+[`README.md`](../README.md) stand: `play.grafana.org` and `sandbox.sentry.io`, both open without a
 login. Neither has Linear's craft; both have real rows.
 
 **What we did get** is arguably the more useful half for a design system: the palette, the elevation

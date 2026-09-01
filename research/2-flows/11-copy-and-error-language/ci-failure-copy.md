@@ -3,7 +3,7 @@
 Captured 2026-09-01 from public GitHub, no account. Companion to
 [`dependency-conflict-copy.md`](dependency-conflict-copy.md), which covers *conflict* wording;
 this one covers *failure* wording. Structural findings from the same run are in
-[`../04-validation-check-results/NOTES-github-actions.md`](../04-validation-check-results/NOTES-github-actions.md).
+[`04-validation-check-results/NOTES-github-actions.md`](../04-validation-check-results/NOTES-github-actions.md).
 
 Source: [`vercel/next.js` PR #98129](https://github.com/vercel/next.js/pull/98129), commit `357605a`,
 run `33473495683` — 102 jobs, 7 failed.

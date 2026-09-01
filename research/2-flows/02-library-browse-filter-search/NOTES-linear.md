@@ -8,7 +8,7 @@ encoded in the URL.
 of browsing — the palette, the filter grammar, the empty results — and none of it is about behaviour
 at scale. Density under load remains uncaptured, and no longer looks likely to be.
 
-Companion: [`../08-empty-state-and-cold-start/NOTES-linear.md`](../08-empty-state-and-cold-start/NOTES-linear.md).
+Companion: [`08-empty-state-and-cold-start/NOTES-linear.md`](../08-empty-state-and-cold-start/NOTES-linear.md).
 
 ---
 

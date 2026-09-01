@@ -169,7 +169,7 @@ without a message.
 CLAUDE.md's opening argument is that nothing tells you *"that two items register the same command
 name"*. Continue **computed exactly that** and then dropped it on the floor. Not a missing feature —
 a surfacing failure, the same shape as the Figma override finding in
-[`flows/05-linked-vs-detached/NOTES.md`](flows/05-linked-vs-detached/NOTES.md): the data existed and
+[`2-flows/05-linked-vs-detached/NOTES.md`](../2-flows/05-linked-vs-detached/NOTES.md): the data existed and
 was correct, and no one was told.
 
 ### Severity is a boolean
@@ -185,7 +185,7 @@ export interface ConfigValidationError {
 `fatal: true | false` — our hard-block / soft-warn binary, already built by someone else. And a block
 that failed to resolve is filed as `fatal: false`, so a missing dependency degrades the assistant
 quietly rather than stopping it. Set against Port's level ladder
-([`flows/04-validation-check-results/NOTES-port.md`](flows/04-validation-check-results/NOTES-port.md)),
+([`2-flows/04-validation-check-results/NOTES-port.md`](../2-flows/04-validation-check-results/NOTES-port.md)),
 this is the other pole of the **block-or-grade** question, and it is a data point *for* the binary
 being too coarse.
 
