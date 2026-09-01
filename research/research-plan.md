@@ -10,6 +10,7 @@ taken.** The spec that carries them is [`../CLAUDE.md`](../CLAUDE.md).
 | [`competitors.md`](competitors.md) | 15 companies in three groups — hard, soft, aspirational. Why each is there, what to take from it, a verified link per entry. |
 | [`comparison.md`](comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, and **three decisions the design system needs**, each with a recommendation. |
 | [`screens-index.md`](screens-index.md) | 38 product captures in [`screens/`](screens/), sorted group / competitor. Sign-in walls labelled. |
+| [`user-pain.md`](user-pain.md) | What actually hurts, from two public issue trackers — the first evidence in this research about users rather than vendors. States plainly what the instrument cannot see. |
 | [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the uses/with/override composition primitive, its identity and secret schemes, and the three things its resolver never did. Feeds open question 1. |
 | [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needs. |
 
@@ -56,10 +57,10 @@ deferred.
 | Continue Hub | 06, and question 1 | Switched off. **Read from source instead** — see [`continue-postmortem.md`](continue-postmortem.md). |
 | Mobbin | reference | 403s without a subscription. Not worth buying; we capture products directly. |
 
-## The four findings that changed the spec
+## The five findings that changed the spec
 
-All four landed on 2026-09-01. Three have been acted on and are now in CLAUDE.md; the fourth is
-recorded and left open.
+Findings 1-4 landed on 2026-09-01 from the product survey; finding 5 came later the same day from
+issue trackers. Three have been acted on and are in CLAUDE.md; two are recorded and left open.
 
 1. **The failure line.** *(standing guidance for every message the validation pass writes)* Port writes `where "Open Critical Vulnerabilities" = 0 · Value: 1` — the
    condition required and the value found. GitHub writes `Process completed with exit code 1`, and a
@@ -85,6 +86,19 @@ recorded and left open.
    CLAUDE.md §7 flags as easiest to forget, and this is exactly how it gets forgotten. The diff is
    already computed; putting it on the card costs nothing. Revert needs two granularities, whole item
    and single field, with Reset kept next to Detach as the two halves of one axis.
+
+5. **The pain we bet on is real but quiet; the loud pain is environmental.** *(added 2026-09-01 —
+   see [`user-pain.md`](user-pain.md))* A user reports that two `server-postgres` entries in one
+   `mcp.json` end with *"the chat always chooses the first one specified"* — our duplicate-key
+   collision, in the file we generate, failing exactly as predicted and telling nobody. That is the
+   thesis, sighted in the wild. But it carries 13 reactions against **182** for *MCP Servers Don't
+   Work with NVM*, and the whole top of that tracker is PATH, node versions, platform paths and
+   processes dying at startup — *the config is correct and it still does not run*. Most of that is
+   out of our reach, except at the one place our output meets their machine: `SETUP.md`, the pinned
+   `ref`, and the generated config. CLAUDE.md §6 gives `SETUP.md` a single line; the evidence says
+   it deserves more. Two further readings: env and secrets rank higher than we assumed, which our
+   `needsEnv` work already serves; and nobody is asking for a composition layer, which agrees with
+   the post-mortem about which half of Continue died.
 
 ## Definition of done
 
