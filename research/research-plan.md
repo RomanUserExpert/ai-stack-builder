@@ -1,6 +1,7 @@
 # Research plan
 
-Updated 2026-09-01. The phase runs in five stages. **Four are done, stage 5 is not started.**
+Updated 2026-09-01. The phase runs in five stages. **All five are done.** What remains before
+sign-off is the register at the end of this file, worked through in one sitting.
 
 | # | Stage | What it produces | Status |
 |---|---|---|---|
@@ -8,7 +9,7 @@ Updated 2026-09-01. The phase runs in five stages. **Four are done, stage 5 is n
 | 2 | **Flows** | Twelve mechanisms captured from live products | ● done |
 | 3 | **Pain** | The first evidence about users rather than vendors | ● done |
 | 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ● done — 15 cells scored |
-| 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ○ not started |
+| 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ● done — hybrid chosen, CLAUDE.md §8 rewritten |
 
 Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
 by taste; with one, it is settled by argument. And the rubric is not invented — its five categories
@@ -29,7 +30,7 @@ Sign-off comes after stage 5. Next phase: design system, per CLAUDE.md §1.
 | [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the `uses`/`with`/`override` composition primitive, its identity and secret schemes, and the three things its resolver never did. |
 | [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
 | [`benchmark.md`](benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`benchmark/`](benchmark/). |
-| `patterns.md` | **Stage 5 — not written yet.** |
+| [`patterns.md`](patterns.md) | **Stage 5.** Five shapes for *assemble → check → export*, each answering the same five questions, each scored on the stage-4 rubric read as *does the shape give this a home*. The choice, what each rejected variant donates, and what the choice costs. |
 
 ---
 
@@ -202,10 +203,17 @@ the spine and another donates a mechanism — P2's palette inside P1's two panes
 P1's Result. That is a legitimate result as long as it is stated as a choice and not as a failure to
 choose.
 
-### Done when
+### Done — 2026-09-01
 
-One pattern is chosen and written into CLAUDE.md §8, replacing the current one-line screen list, with
-the four rejected variants kept in `patterns.md` and the reason each lost recorded.
+**A hybrid, stated as a choice.** P2 (command-first) wins the spine; P5 (run-centric) becomes the
+check-and-export surface; P3 donates one mechanism — a detached item naming the fields that differ.
+CLAUDE.md §8 is rewritten to three surfaces plus Projects, and the change of substance is that **the
+library is no longer inside the builder and drag is no longer the mechanism**: it does not survive
+300 items, and a pane that cannot act during a check is the mistake §6 and §9 refuse elsewhere.
+
+The four rejected variants, and the reason each lost, are in [`patterns.md`](patterns.md). So is what
+the choice costs — with no library pane you cannot see what you are not using, and three things now
+carry that weight.
 
 ---
 
@@ -269,11 +277,12 @@ The research phase is finished when:
 - [x] Stage 2 — flows captured, every one closed or declined with reasoning
 - [x] Stage 3 — pain evidenced, with the instrument's blind spots stated
 - [x] Stage 4 — fifteen benchmark cells scored against five grounded categories
-- [ ] Stage 5 — five patterns compared on that rubric, one chosen and written into CLAUDE.md §8
+- [x] Stage 5 — five patterns compared on that rubric, one chosen and written into CLAUDE.md §8
 - [ ] Every question in the register below marked **answered** or **deferred with a stated reason** —
       in one sitting, once stages 4 and 5 are in, not one at a time along the way
 
-Next phase after sign-off: design system. Not started, per CLAUDE.md §1.
+Next phase after sign-off: design system. Not started, per CLAUDE.md §1. **Sign-off is one
+sitting away** — the register below is the last thing this phase does.
 
 ---
 
@@ -291,6 +300,11 @@ sign-off.
 
 **Adding an entry.** Give it the next ID, say which stage raised it, and — the part that matters —
 say **what would answer it**. A question with no named instrument is not a question, it is a worry.
+
+**The evidence is now in.** Stage 5 was the named instrument for Q1, Q3 and Q4, and stage 4's B4 work
+for Q2. What each turned up is recorded at the end of [`patterns.md`](patterns.md) as *evidence, not
+answers* — the sitting that closes these entries has not happened yet, and this is the material it
+will use.
 
 ### Live
 

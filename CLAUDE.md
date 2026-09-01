@@ -19,12 +19,15 @@ The agreed order of work:
 4. Static frontend implementation (markup only, no business logic)
 5. Logic (state, storage, validation, export)
 
-**Research itself runs in five stages, and one is left.** Landscape, flows, pain and **benchmark**
-are done — the last of those scored 15 product-and-flow cells against five categories lifted from
-stages 1–3, in [`research/benchmark.md`](research/benchmark.md). What remains is **patterns**: five
-radically different shapes for the key flow — assemble a set, check it, export — scored on that
-rubric, one chosen. Status and the full design of the stage:
-[`research/research-plan.md`](research/research-plan.md).
+**All five research stages are done.** Landscape, flows and pain; then **benchmark** — 15
+product-and-flow cells scored against five categories lifted from stages 1–3
+([`research/benchmark.md`](research/benchmark.md)); then **patterns** — five shapes for the key flow
+compared on that rubric, with the chosen one written into §8 below and the four rejected kept in
+[`research/patterns.md`](research/patterns.md).
+
+**One thing stands between here and sign-off**: the open-question register at the end of
+[`research/research-plan.md`](research/research-plan.md), worked through in a single sitting. Until
+that is done the phase is not signed off, and the design system does not start.
 
 Do not skip ahead. If a request seems to jump to a later stage, confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is
@@ -276,17 +279,37 @@ is carried by the project, not by the card.
 
 ---
 
-## 8. Screens (planned)
+## 8. Screens
 
-- **Library** — the full collection. Filters by kind and tag, search, add/edit form.
-- **Project Builder** — a filtered sidebar of the library on the left; items are dragged
-  into the project area to assemble the stack. Live validation as the set changes.
-  This is *not* a node canvas: no hand-drawn edges, no execution order. The set is a set;
-  relations come from the items themselves and are surfaced here, not authored here.
-- **Result** — the file tree of the future archive, the env variable list, agent target
-  selector, and an export button that is **always live**, with the project's derived state beside
-  it rather than a disabled control.
+Chosen 2026-09-01 at the end of the research phase. Five shapes for the key flow — **assemble a set
+→ check it → export** — were compared on the benchmark's five categories; the reasoning, the four
+rejected variants and what each donated are in [`research/patterns.md`](research/patterns.md).
+
+The result is a hybrid, stated as a choice: **command-first assembly, and a run-centric check that
+ends in the export.** Three surfaces in the flow, plus Projects.
+
+- **Library** — the full collection. Filters by kind and tag, search, add/edit form, and the
+  per-item usage facts of §5. It is where you keep things, and **it is not part of the builder
+  flow**. (This is the change: an earlier draft put a filtered library sidebar inside the builder and
+  made drag the mechanism. Drag does not survive 300 items, and a pane that cannot act during a check
+  is the mistake §6 and §9 already refuse elsewhere.)
+- **Project** — the set as a **list**, not a canvas and not a pane pair. `⌘K` adds items by name; the
+  palette is the only way the library reaches this screen, and it opens cold on **related** items —
+  the ones that require, or are required by, what is already in the set. Every row carries its own
+  state, including *detached* with the differing fields named (§7), and a finding annotates the row
+  that owns it. Still *not* a node canvas: no hand-drawn edges, no execution order. The set is a set;
+  relations come from the items and are surfaced here, not authored here.
+- **Run** — entered by **Check**, and it takes the whole surface: a stack of stages, each with its
+  own verdict, duration and expansion, in the shape of a Vercel deployment page. The file tree of the
+  future archive, the env variable list and the agent target selector live here, and **Export is the
+  final stage** rather than a button beside the check. Export is always live (§6); an unclean set is
+  confirmed in the row below the finding that caused it.
 - **Projects** — saved projects, duplication, visibility.
+
+**The known cost of this choice.** With no library pane in the builder, you cannot see what you are
+not using. Three things carry that weight and are therefore load-bearing, not decorative: the
+palette opening on related items, the Library being one keystroke away and remembering where you
+were, and per-item usage facts doing the work a visible pane would otherwise do.
 
 ---
 
