@@ -6,7 +6,7 @@ flow is, why we want it, what we already captured, what is still missing, and wh
 
 Screenshot paths are relative to [`../screens/`](../screens-index.md).
 
-**Status key.** ● covered · ◐ partially covered · ○ nothing yet.
+**Status key.** ● covered · ◐ partially covered · ○ nothing yet · → handed forward to the next phase.
 
 **Priority.** P1 — blocks a design decision we are about to make. P2 — needed before mockups.
 P3 — useful, not blocking.
@@ -281,25 +281,35 @@ moment. **Zero coverage.**
 
 ---
 
-## 10 — Dark design language ◐ P3 — see [NOTES-linear](10-dark-design-language/NOTES-linear.md)
+## 10 — Dark design language → handed to the design-system phase
 
-**Serves.** Vercel Geist (token structure), Linear (palette, elevation, typography), Raycast (tone).
+**Not an open research gap.** This is the one flow in the twelve that is about *appearance* rather
+than *behaviour*, and CLAUDE.md §12 postpones visual direction until after research, with §1 putting
+the design system next. So flow 10 does not close here — it **opens the next phase**, with its
+material already gathered.
 
-**Have.**
-- Geist colour, typography, materials and grid.
-- **Linear's dark theme at close range** — captured by switching the interface theme with the owner's
-  agreement and restoring it afterwards. Few surfaces (ground shared by sidebar and content, one
-  raised surface, one selected fill), **hairlines instead of a shadow ramp**, three foreground tones
-  plus a sparing accent, key caps as a real component with a two-cap form for chords, and unset
-  property rows written as imperatives rather than em-dashes.
-- A documented extraction of Raycast's tokens, recorded in [`../comparison.md`](../comparison.md).
+**What is already in hand for that phase.**
+- **Geist** — colour, typography, materials and grid: the token structure to argue against.
+- **Linear's dark theme at close range** ([NOTES-linear](10-dark-design-language/NOTES-linear.md)) —
+  few surfaces with the sidebar sharing the content ground, elevation as a hairline plus a few percent
+  of lightness rather than a shadow ramp, three foreground tones with the accent reserved for meaning,
+  key caps as a real component with a two-cap form for chords, and unset properties written as
+  imperatives.
+- **Raycast's tokens**, extracted and recorded in [`../comparison.md`](../comparison.md): background
+  `#07080a`, surface `#101111`, accent `#FF6363`, Inter + GeistMono, 8px spacing base, radius 2→20px.
+- Plus every dark product surface captured across the other eleven flows.
 
-**Missing — and one of the two is now judged unobtainable.**
-- **Linear's real density under load.** The owner's workspace holds four issues; no theme change fixes
-  that. If we still want density, the open substitutes stand: `play.grafana.org` and
-  `sandbox.sentry.io`. Neither has Linear's craft. **P3, and not worth an account hunt.**
-- **Raycast's desktop app** — installable here (`winget install raycast`) but it takes a global hotkey
-  and wants a sign-in. A deliberate step, still undecided.
+**Raycast desktop — declined.** The install was left as an open decision for a fortnight; it is now
+closed as *not worth it*. The reasoning that matters is behavioural, not visual: Raycast's one UX idea
+is **the launcher instead of a screen** — no windows, no navigation, everything a command, every
+destination one keystroke away. The question it would answer for us is whether the Library is a screen
+or a palette. **We already have that answer from elsewhere**: Linear's `Ctrl K` doing commands and
+content in one field, and Tessl's ⌘K over a typed catalog. Installing Raycast would add tone, not
+mechanism, and it costs a global hotkey and a sign-in on the owner's machine.
+
+**Density under load — declined**, and unobtainable regardless: the Linear workspace we were given is
+new. `play.grafana.org` and `sandbox.sentry.io` remain open without a login if the design-system phase
+ever wants real rows.
 
 ---
 
@@ -473,16 +483,41 @@ an empty screen, against Vercel keeping four filter dropdowns over an empty list
 
 ## What is left
 
-**Needs no access — nothing.** The last item, an instance **linked but locally modified**, was supplied
-by the owner on 2026-09-01. Flow 05 is fully closed.
+**Nothing that needs access, and nothing that needs collecting.**
 
-**Needs a decision, not access.** **Raycast** is installable here (`winget install raycast`) but takes
-a global hotkey and wants a sign-in, so it belongs in a deliberate step rather than a sweep (flow 10).
+| | |
+|---|---|
+| **Flows 02–09, 11, 12** | ● closed |
+| **Flow 01** | ◐ — held open only by Agentman's login-walled skill page. **Declined.** Its lesson (permission tiers) is legible from their marketing, three open skill catalogs are already captured, and the other gap — a version-history surface — is out of MVP scope per CLAUDE.md §9 |
+| **Flow 10** | → **handed to the design-system phase**, not outstanding. It is the one flow about appearance rather than behaviour, and CLAUDE.md §12 postpones visual direction until after research |
 
-**Judged not worth pursuing.** Linear's density under load — the workspace is empty and no access
-fixes it. `play.grafana.org` and `sandbox.sentry.io` remain open substitutes if flow 10 ever needs
-real rows, but it is P3.
+**Raycast: declined**, on behavioural grounds. Its one UX idea is the launcher instead of a screen,
+and the question it would answer — *is the Library a screen or a palette?* — is already answered by
+Linear's `Ctrl K` and Tessl's ⌘K. Tone, not mechanism, for the price of a global hotkey and a sign-in.
 
-**Out of reach, and settled.** Agentman's skill page and Figma's cross-file usage count (both paid or
-walled); Packmind and Continue Hub (substituted); Mobbin (not worth a subscription). Full reasoning in
+**Also declined and settled:** Figma's cross-file usage count (paid tier), Linear's density under load
+(the workspace granted is new), Packmind and Continue Hub (substituted by Ruler and the Continue
+repository), Mobbin (not worth a subscription). Full reasoning in
 [`../research-plan.md`](../research-plan.md).
+
+---
+
+## What the twelve flows actually produced
+
+The phase was about **behaviour, not appearance**. The mechanisms worth carrying forward, one line
+each:
+
+| Flow | The mechanism |
+|---|---|
+| 01 | Trust has moved from social proof to measurement — a number derived from *running* the thing |
+| 02 | Typing flattens a filter tree into a path; a filter chip is a sentence; **name how many items are hidden**, never claim there are none |
+| 03 | Nobody authors a graph. It is derived from declared relations and made legible with a depth filter |
+| 04 | A check is a stack of stages, each with its own verdict and duration — and Port gates a *level* rather than blocking anything |
+| 05 | Drift is computed precisely and displayed nowhere; revert belongs at two granularities; the return path has no prior art |
+| 06 | One source, many targets; external repos are always instructions, never vendored |
+| 07 | Ask the type before the value, default to the irreversible one, and let the placeholder pose the real question |
+| 08 | Answer an empty product with **real objects**, not an empty state; scale the explanation to how new the concept is |
+| 09 | Duplication is a distribution primitive, and the copy dialog states what will and will not come along |
+| 10 | *(appearance — next phase)* |
+| 11 | Cause and consequence are two rows; group by the action that fixes it, not the check that found it |
+| 12 | Public/private is a low-ceremony decision, and the profile is the portfolio |
