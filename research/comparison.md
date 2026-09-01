@@ -20,7 +20,7 @@ from a pricing page in this pass.
 | **Packmind** | Tech leads and engineering managers in enterprises. | A "living, versioned engineering playbook" of standards. | One source distributed into each agent's native format, plus drift detection back. | Governance and compliance framing; pre-commit violation blocking. | Sales-led SaaS. No self-serve product surface at all. *(unverified)* |
 | **Agentman** | Business teams, not developers — marketing, M&A, healthcare, legal. | A skill as an executable, shareable unit of "how our people do this". | Visual assembly of skills into a working agent. | Compliance badges (HIPAA, SOC2, ISO 27001) plus four permission tiers: use-only / read / edit / admin. Trust = *you cannot see inside*. | Freemium: "Start Building Free" plus plan tiers. |
 | **Smithery** | Developers wiring agents to tools. | An MCP server as a hosted, connectable endpoint. | Connect once, reuse everywhere: it holds auth, credentials and sessions. | Quality score /100, verified badge, usage counts, licence, last-deployed date. Trust = popularity + a number. | Registry free; hosting and Toolbox paid. **Now part of Arcade.dev.** |
-| **Continue Hub** | Individual developers, then teams. | A block: model, context, docs, MCP server, rule, prompt, data. | Compose blocks into a custom assistant. | Open source and forkable — trust by inspection. | Free OSS core plus hub tiers. **Dead: acquired by Cursor, June 2026.** |
+| **Continue Hub** | Individual developers, then teams. | A block: model, context, docs, MCP server, rule, prompt, data. | Compose blocks into a custom assistant. | Open source and forkable — trust by inspection. | Free OSS core plus hub tiers. **Acquired by Cursor, June 2026: the hosted hub is switched off and user data deleted; the Apache-2.0 client survives, frozen.** |
 
 ## Soft — different product, same job
 
@@ -46,11 +46,13 @@ from a pricing page in this pass.
 
 ## Three market patterns
 
-1. **The composition layer is consolidating, fast.** Of five hard competitors, one is dead
-   (Continue, acquired by Cursor in June 2026) and one has been acquired mid-survey (Smithery is
-   now part of Arcade.dev — we found the banner on their own server page, it was not in any
-   article we read). Standalone "assemble your AI building blocks" businesses are being absorbed
-   by the agent vendors and the tool-infrastructure players on either side.
+1. **The composition layer is consolidating, fast.** Of five hard competitors, one has had its hosted
+   layer switched off (Continue, acquired by Cursor in June 2026 — the Apache-2.0 client survives,
+   frozen) and one has been acquired mid-survey (Smithery is now part of Arcade.dev — we found the
+   banner on their own server page, it was not in any article we read). Standalone "assemble your AI
+   building blocks" businesses are being absorbed by the agent vendors and the tool-infrastructure
+   players on either side. **Note precisely what got absorbed in Continue's case: the registry, the
+   accounts and the subscriptions. The local client and the open format were left standing.**
 
 2. **Trust has moved from social proof to measurement.** Tessl scores every skill on quality,
    impact across eval scenarios and a Snyk security scan, then shows a composite number and an
@@ -83,11 +85,29 @@ from a pricing page in this pass.
 
 ## Three open questions for the PM
 
-1. **Continue Hub was this product and it died. What is our answer?** Same object model, same
-   audience, open source, 34k stars, and it was acqui-hired and switched off within a year. If the
-   answer is "local ownership and vendor-neutral export", we should be able to say why that is a
-   business and not a feature Cursor ships next quarter. This is the question the whole survey
-   points at.
+1. **Continue Hub was this product, and the half that needed a business is the half that died. What
+   is our answer?** Same object model, same audience, open source, 34k stars. Cursor acqui-hired the
+   team in June 2026 and **`hub.continue.dev` and `api.continue.dev` stopped resolving; all user data
+   was deleted.** What survives is Apache-2.0 source frozen at 2026-07-20, live docs, and an
+   extension with 1.58M downloads that still installs and runs. See
+   [`continue-postmortem.md`](continue-postmortem.md).
+
+   That cuts two ways and the PM has to pick a side.
+
+   **For us:** the dead half — hosted registry, accounts, subscriptions — is precisely what CLAUDE.md
+   §9 puts out of scope. The surviving half — a local client reading an open file format — is exactly
+   our MVP. The part of Continue that maps onto what we are building is the part that is still
+   running.
+
+   **Against us:** it survives because it is free, open-source and unowned. Nobody runs it as a
+   company. "The surviving half needs no business" and "the surviving half **is** no business" are
+   the same sentence read twice, which folds this question into question 3.
+
+   And the specific thing they never built is worth weighing: they resolved a set in order to *run*
+   it, and told the user nothing about whether it held together — their own
+   `BlockDuplicationDetector` finds duplicate names and the merge silently discards the loser. Our
+   thesis was sitting unclaimed in their source. But "we surface what they discarded" is a feature.
+   The question asks why it is a business.
 
 2. **Which trust signal do we ship, given we have no network and no eval harness?** The market has
    converged on measured trust — scores, evals, security scans. We have neither reviews nor a way

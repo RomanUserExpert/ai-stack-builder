@@ -95,12 +95,19 @@ the field has sorted into a canonical registry plus marketplaces competing on cu
 - Install flows and quality signals inside a very large catalog (usage counts as the trust signal).
 - The strategic read: these registries compete on curation, not storage. Same thesis as ours.
 
-### 5. Continue Hub — US (acquired by Cursor ~16 Jun 2026, shut down; cloud data deleted after 15 Jul 2026)
+### 5. Continue Hub — US (acquired by Cursor ~16 Jun 2026; hosted hub switched off, open source frozen)
 
-**Product.** Gone. [continue.dev](https://continue.dev/) is now an acquisition notice — "Continue
-has joined Cursor". The product survives only as source:
-[github.com/continuedev/continue](https://github.com/continuedev/continue) (Apache-2.0). **To study
-the hub we have to read the repository, or run it locally.**
+**Product.** Split in two by the acquisition, and the split is the whole lesson. **The hosted layer is
+gone**: `hub.continue.dev` and `api.continue.dev` no longer resolve, and
+[continue.dev](https://continue.dev/) is an acquisition notice saying *"All user data has been
+deleted"*. **The open source is alive**: Apache-2.0,
+[github.com/continuedev/continue](https://github.com/continuedev/continue), frozen at 2026-07-20 — the
+last commit is literally *"docs: remove Sign in link (login flow retired)"* — with
+[docs.continue.dev](https://docs.continue.dev/) still up and the extension still installable
+(open-vsx v2.1.0, 1.58M downloads).
+
+So "dead" is the wrong word. **The half that needed a business died; the half that needed none did
+not.** Read from source in [`continue-postmortem.md`](continue-postmortem.md).
 
 **Why here.** Continue Hub let you publish blocks — models, context, docs, MCP servers, rules,
 prompts, data — and compose them into custom assistants. That is our product, close to one for

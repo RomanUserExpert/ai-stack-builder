@@ -1,11 +1,12 @@
 # Continue Hub — post-mortem from source
 
 The closest hard competitor: same object model, same audience, 34k stars, Apache-2.0 — acqui-hired by
-Cursor around 16 June 2026 and switched off, cloud data deleted after 15 July 2026.
+Cursor around 16 June 2026. **"Dead" is the wrong word, and the precise status is the finding** (see
+status check below).
 [`competitors.md`](competitors.md) calls this post-mortem the highest-value item in the survey, and
 [`comparison.md`](comparison.md)'s **first open question for the PM** is *"Continue Hub was this
-product and it died. What is our answer?"* — which cannot be answered without knowing precisely what
-it did.
+product, and the half that needed a business is the half that died. What is our answer?"* — which
+cannot be answered without knowing precisely what it did, or precisely what happened to it.
 
 Read from [`github.com/continuedev/continue`](https://github.com/continuedev/continue), package
 `packages/config-yaml`, on 2026-09-01.
@@ -15,6 +16,29 @@ survives because the config format is still used locally; the *hub* surfaces —
 versioning on `hub.continue.dev` — have been stripped from the docs. So what follows is an accurate
 account of the **format and the resolver**, and a thinner one of the marketplace around them. Where
 this note describes the product rather than the code, it is inference from the format, and says so.
+
+---
+
+## 0. What actually happened — verified 2026-09-01
+
+| Checked | Result |
+|---|---|
+| `hub.continue.dev` | **does not resolve** — the registry is gone |
+| `api.continue.dev` | **does not resolve** — the hosted layer is gone |
+| `continue.dev` | 200 — an acquisition notice, titled *"Continue (acquired by Cursor)"* |
+| Their FAQ, *what happened to my data* | *"All user data has been deleted in accordance with the privacy notice, except to the extent retention is required for legal, regulatory, tax, accounting, security, or other legitimate business purposes."* |
+| Their FAQ, *is the open source still available* | *"Yes. Continue is Apache 2.0 licensed. The source code and documentation remain available on GitHub."* |
+| The repository | Public and **frozen** — last commit 2026-07-20 by co-founder Nate Sesti: *"docs: remove Sign in link (login flow retired)"* |
+| `docs.continue.dev` | 200 — still documents the working product: `config.yaml`, MCP servers, Rules, Prompts |
+| The extension | open-vsx v2.1.0, published 2026-06-19, **1,582,464 downloads** — still installable |
+
+**So the product split in two, and the split is the lesson.** The hosted half — registry, accounts,
+subscriptions, user data — was switched off and erased. The local half — an open format, a resolver
+and a client reading files on your machine — is untouched and still works.
+
+**The half that needed a business is the half that died.** CLAUDE.md §9 already puts the first half
+out of scope and §10 already commits to the second. Whether that is reassurance or an indictment is
+exactly [`comparison.md`](comparison.md)'s open question 1.
 
 ---
 
