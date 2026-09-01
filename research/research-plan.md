@@ -9,6 +9,7 @@ Status of the research phase. Updated 2026-09-01.
 | [`competitors.md`](competitors.md) | 15 companies in three groups — hard, soft, aspirational. Why each is there, what to take from it, a verified link per entry. |
 | [`comparison.md`](comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, three open questions for the PM. |
 | [`screens-index.md`](screens-index.md) | 38 product captures in [`screens/`](screens/), sorted group / competitor. Sign-in walls labelled. |
+| [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the uses/with/override composition primitive, its identity and secret schemes, and the three things its resolver never did. Feeds open question 1. |
 | [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needs. |
 
 ## Flows
@@ -50,7 +51,8 @@ deferred.
 | ~~A scorecard in a blocking state~~ | 04 | **Answered 2026-09-01 — there isn't one.** Port gates a level rather than forbidding an action. |
 | ~~A Linear workspace~~ | 02, 08 | **Done 2026-09-01.** Closed both flows outright. |
 | ~~An instance linked but locally modified~~ | 05 | **Done 2026-09-01.** The state exists in the model and is drawn nowhere. |
-| Packmind product, Continue Hub | 06 | Sales-gated and switched off. Substituted by Ruler and the Continue repository. |
+| Packmind product | 06 | Sales-gated. Substituted by Ruler, run locally. |
+| Continue Hub | 06, and question 1 | Switched off. **Read from source instead** — see [`continue-postmortem.md`](continue-postmortem.md). |
 | Mobbin | reference | 403s without a subscription. Not worth buying; we capture products directly. |
 
 ## The four findings the design system has to answer to
