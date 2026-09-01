@@ -336,17 +336,22 @@ Later, not now: a starter catalog, and public items flowing into a shared catalo
 
 ## 12. Open questions
 
-**Still open.**
+**The open ones live in one place, and it is not here.**
+[`research/research-plan.md`](research/research-plan.md) ends with a register — every open question
+with an ID, which stage raised it, **what would answer it**, and what it blocks. Questions are added
+there as stages turn them up and answered together at the end, once the picture is whole, rather than
+one at a time on partial evidence. Do not keep a second list in this file; two lists drift, and this
+document has already been bitten by that twice.
 
-- Styling engine: Tailwind vs CSS Modules vs vanilla-extract. Not decided.
-- Whether a project can contain another project (composition), or only items.
-- Whether detached items should be promotable back into the library as new items.
+Live at the time of writing: cold start (Q1), how much weight `SETUP.md` carries (Q2), project
+composition (Q3), promoting a detached item back into the library (Q4), what actually drives adoption
+(Q5), and the styling engine (Q6).
 
-**Closed.**
+**Closed, and recorded here because the answers are part of the spec.**
 
-- ~~Competitors and references to position against~~ — surveyed. 15 companies, 12 flows, ~70 captures
-  and the source of the nearest dead competitor, in [`research/`](research/). Start at
-  [`research/research-plan.md`](research/research-plan.md).
+- ~~Competitors and references to position against~~ — surveyed. 15 companies, 12 flows, ~70 captures,
+  two issue trackers and the source of the nearest dead competitor, in [`research/`](research/). Start
+  at [`research/research-plan.md`](research/research-plan.md).
 - ~~Visual direction and tone~~ — still not chosen, but no longer a question *here*: it is the first
   task of the design-system phase, with its reference material already gathered in
   `research/flows/10-dark-design-language/`.

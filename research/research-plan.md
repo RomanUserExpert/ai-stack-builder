@@ -223,31 +223,6 @@ at all, because a project is a set and not an execution order.
 
 ---
 
-## Open questions
-
-Left open deliberately. Stage 5 will sharpen the first two.
-
-1. **Cold start.** CLAUDE.md §11 still treats it as a demo problem — *~30 realistic items for any
-   mockup*. Linear argues it is a product decision: seed the workspace with a few **real**, editable
-   objects so the product is never empty and the validation pass has something to run on before the
-   user types anything. Each stage-5 variant must show what it looks like empty, which is the cheapest
-   way to settle this.
-2. **How much weight `SETUP.md` carries.** CLAUDE.md §6 gives it one line, while
-   [`user-pain.md`](user-pain.md) finds the loudest pain in the whole ecosystem lives exactly there —
-   the archive lands on a machine and does not run. Either we own that problem or we say plainly it is
-   not our war.
-3. Styling engine: Tailwind vs CSS Modules vs vanilla-extract.
-4. Whether a project can contain another project, or only items.
-5. Whether detached items can be promoted back into the library as new items.
-
-**And one we cannot answer with the instruments used so far.** Whether *loss* (I cannot find what I
-wrote) or *reassembly cost* (I re-copy the same set every time) is what would actually make someone
-adopt this. Issue trackers are blind to both by construction. Answering it needs a different
-instrument — asking people. Either plan that, or record it as an accepted risk; do not let it stay
-unmarked.
-
----
-
 ## The five findings that changed the spec
 
 1. **The failure line.** *(standing guidance for every message the validation pass writes)* Port
@@ -290,9 +265,50 @@ The research phase is finished when:
 - [x] Stage 3 — pain evidenced, with the instrument's blind spots stated
 - [ ] Stage 4 — sixteen benchmark cells scored against five grounded categories
 - [ ] Stage 5 — five patterns compared on that rubric, one chosen and written into CLAUDE.md §8
-- [ ] The two open questions stage 5 sharpens — cold start, and the weight of `SETUP.md` — either
-      answered or explicitly deferred with a reason
-
-Everything else on the open list is a later decision and does not gate sign-off.
+- [ ] Every question in the register below marked **answered** or **deferred with a stated reason** —
+      in one sitting, once stages 4 and 5 are in, not one at a time along the way
 
 Next phase after sign-off: design system. Not started, per CLAUDE.md §1.
+
+---
+
+## Open questions — the register
+
+**This is the last section on purpose, and it is a running list.** Questions land here as stages
+raise them. They are **not** answered as they arrive.
+
+**The protocol.** When a stage turns up something we cannot settle yet, it gets an entry here and the
+stage carries on. Nothing is answered mid-flight, because a question answered on partial evidence has
+to be re-opened later, and re-opening costs more than waiting. When stages 4 and 5 are done and the
+picture is whole, the register is worked through **in one sitting**, and every entry leaves as either
+*answered* or *deferred with a stated reason*. That is the last thing the research phase does before
+sign-off.
+
+**Adding an entry.** Give it the next ID, say which stage raised it, and — the part that matters —
+say **what would answer it**. A question with no named instrument is not a question, it is a worry.
+
+### Live
+
+| ID | Question | Raised by | What would answer it | What it blocks |
+|---|---|---|---|---|
+| **Q1** | **Cold start: demo problem or product decision?** CLAUDE.md §11 plans *~30 realistic items for any mockup*. Linear seeds a new workspace with four **real**, editable objects, so the product is never empty and the validation pass has something to run on before the user types anything. | Stage 2, flow 08 | **Stage 5.** Every variant must show itself with an empty library and with a seeded one — the cheapest possible resolution, since it falls out of work we are doing anyway. | CLAUDE.md §11, and the whole first-run experience |
+| **Q2** | **How much weight does `SETUP.md` carry?** §6 gives it one line, while [`user-pain.md`](user-pain.md) finds the loudest pain in the ecosystem lives exactly there — the archive lands on a machine and does not run. Either we own that problem or we say plainly it is not our war. | Stage 3, finding 5 | **Stage 4, flow B4** (produce and hand over), plus the export end of stage 5. | The real scope of CLAUDE.md §6 |
+| **Q3** | **Can a project contain another project**, or only items? | CLAUDE.md §12, from the start | **Stage 5** — whether any of the five variants needs composition in order to work. If none does, it is out. | The data model, later. Not the MVP |
+| **Q4** | **Can a detached item be promoted back into the library** as a new item? | CLAUDE.md §12, sharpened by flow 05 | **Stage 5** — the variant that renders state 6, *detached and locally modified*, will show whether a return path has anywhere to live. Flow 05 established there is **no prior art** for it, so this one we invent rather than copy. | CLAUDE.md §5, later |
+| **Q5** | **Loss or reassembly cost — which actually drives adoption?** *I cannot find what I wrote three months ago* versus *I re-copy the same four files into every new project*. CLAUDE.md §2 bets on neither; it bets on silent breakage. | Stage 3 | **Nothing we have used so far.** Issue trackers are blind to both by construction — neither ever becomes an issue. This needs asking people. | Positioning and the pitch. **Not** the MVP build, which is the same product under any answer |
+| **Q6** | **Styling engine** — Tailwind vs CSS Modules vs vanilla-extract. | CLAUDE.md §12, from the start | Not research. A design-system decision, best made with a component or two actually built. | Nothing in this phase |
+
+### Notes on two of them
+
+**Q5 is the one to be honest about.** It is the only entry here that no planned stage will touch.
+Stage 4 benchmarks products and stage 5 compares shapes; neither asks a human anything. So Q5 leaves
+the register as *deferred — accepted risk* unless we deliberately add a stage that asks people. Saying
+that out loud is the whole point: an unmarked unknown is the dangerous kind.
+
+**Q1 and Q2 are pending rather than open.** Both are already scheduled into stage 5, and they are the
+reason that stage has a fixed list of questions every variant must answer.
+
+### Answered and closed
+
+Nothing yet. Four decisions were taken on 2026-09-01, before this register existed, and are recorded
+under *Decisions already taken* above with their reasoning in [`comparison.md`](comparison.md).
