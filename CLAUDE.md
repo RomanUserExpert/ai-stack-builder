@@ -164,19 +164,57 @@ Parsing metadata automatically is out of scope.
 Everything found is added and marked auto-added. An auto-added item cannot be removed
 while the item that pulled it in is still in the project.
 
-**Cycle detection.** Same walk, three node states (untouched / in progress / done).
-Hitting an "in progress" node means a cycle; show the chain.
+**Cycles are information, not errors** (decided 2026-09-01). The walk still tracks three node
+states (untouched / in progress / done), because it has to terminate. But a project is a **set**,
+not an execution order — we never ask what runs first — so if A requires B and B requires A, both
+are added and the set is complete and correct. A cycle is a hazard for our traversal, not a defect
+in the user's work. Report it as a fact — *"these three always travel together"* — never as a
+failure. An earlier draft said "show the chain", which was right, next to a heading that implied
+something was wrong.
 
-**Conflicts.** Run the resolved set against `conflicts`. A hard conflict blocks export, a
-soft one warns. Also check for **duplicate command names** and for items writing to the
-**same target path**.
+**Conflicts and collisions.** Run the resolved set against `conflicts`. Also check for **duplicate
+command names** and for items writing to the **same target path**. Every one of these is a
+*Problem* in the sense below — `conflicts` stays a flat `[itemId]` list with no hard/soft flag,
+because nothing here blocks and the distinction therefore has no work to do. An earlier draft said
+a hard conflict blocks and a soft one warns, which the data model had no way to express.
 
 **Env variables.** Collect `needsEnv` across the set; missing ones are surfaced before
 export and written to `.env.example`.
 
 **Validation pass.** When the set is complete the user triggers a check that runs
 visibly — an animated sweep across dependencies, collisions and missing keys. This is a
-designed moment, not a spinner.
+designed moment, not a spinner. Structurally it is a stack of stages, each carrying its own
+verdict and its own duration, each expandable — the model is Vercel's deployment page, written up
+in `research/flows/04-validation-check-results/NOTES-vercel.md`.
+
+### Three severities, and nothing blocks
+
+Decided 2026-09-01. Every finding is one of:
+
+- **Problem** — the archive will be wrong. A duplicate command name, a target-path collision, a
+  declared conflict, an unresolvable requirement.
+- **Note** — the archive is correct but incomplete. Missing env keys, an external item with no
+  pinned `ref`.
+- **Skipped** — the check had nothing to check. It gets its own neutral glyph: not a green tick it
+  did not earn, and not a red one it does not deserve.
+
+**Export is never disabled.** Almost nothing makes an archive impossible to produce — a missing env
+key still zips, a duplicate command still zips, it is simply wrong inside. Blocking is therefore
+almost always a choice, and we do not make it, for three reasons. It is the user's own library on
+their own machine. A permanently disabled export button is a dead end, and the research is
+unanimous that an action which cannot act is not shown — a greyed-out primary action is that same
+mistake on the most important control in the product. And the promise is *the system checked*, not
+*the system forbade*.
+
+**Instead, an unclean export is confirmed.** Pressing Export on a set with Problems opens a
+confirmation that names the consequence in the present tense, in GitHub's mergebox register:
+
+> Two items write to `.mcp.json`. The archive will contain only one of them — `db-tools`.
+
+This is `terraform apply`: never refuse, always make the cost legible before the irreversible step.
+A grade — Port's `Basic → Low → Good → Great` — was considered and rejected: a ladder is for
+comparing many entities against one standard, and we check one set against itself, where there is
+no *better*, only *coherent* or *not*.
 
 ### Export
 
@@ -209,11 +247,19 @@ This is the heart of the UI. A card must read unambiguously in each state:
 2. selected manually
 3. auto-added as a dependency (showing what pulled it in)
 4. conflicts with something already selected
-5. blocked because of a conflict
-6. selected but missing an env variable
-7. detached — locally modified inside this project
+5. selected but missing an env variable
+6. **detached — locally modified inside this project**
 
-State 7 is new relative to the original brief and is easy to forget.
+State 6 is new relative to the original brief and is the easiest to forget. Figma proves how: it
+models overrides precisely enough to offer `Reset fill` by name, and then draws a modified instance
+identically to a clean one everywhere except a context menu. The diff is already computed, so the
+card carries it — and names the fields that differ, not just the fact that some do. Revert needs two
+granularities, the whole item and a single field, with Reset kept next to Detach as the two halves
+of one axis. See `research/flows/05-linked-vs-detached/NOTES.md`.
+
+**A former state, "blocked because of a conflict", is gone** (2026-09-01). Nothing blocks — see
+section 6 — so no item is ever unselectable. A conflicting item reads as state 4, and the Problem
+is carried by the project, not by the card.
 
 ---
 
@@ -225,7 +271,8 @@ State 7 is new relative to the original brief and is easy to forget.
   This is *not* a node canvas: no hand-drawn edges, no execution order. The set is a set;
   relations come from the items themselves and are surfaced here, not authored here.
 - **Result** — the file tree of the future archive, the env variable list, agent target
-  selector, export button.
+  selector, and an export button that is **always live**, with the project's derived state beside
+  it rather than a disabled control.
 - **Projects** — saved projects, duplication, visibility.
 
 ---
@@ -285,11 +332,6 @@ Later, not now: a starter catalog, and public items flowing into a shared catalo
 
 **Still open.**
 
-- **Does the validation pass block, or grade?** The spec says hard-block and soft-warn, a binary.
-  Port does neither: a failed rule stops an entity climbing `Basic → Low → Good → Great` and forbids
-  nothing, while Continue used the same `fatal: true | false` binary we specified and filed a missing
-  dependency as non-fatal. Both poles have shipped. This decides what the result screen *is*, so it
-  is the next thing to settle. See `research/flows/04-validation-check-results/NOTES-port.md`.
 - Styling engine: Tailwind vs CSS Modules vs vanilla-extract. Not decided.
 - Whether a project can contain another project (composition), or only items.
 - Whether detached items should be promotable back into the library as new items.
@@ -306,6 +348,8 @@ Later, not now: a starter catalog, and public items flowing into a shared catalo
 - ~~Does anything read `version`~~ — the field is gone; external references are pinned instead.
   Sections 5 and 9.
 - ~~What per-item trust signal do we ship~~ — usage facts from the library, never a score. Section 5.
+- ~~Does the validation pass block, or grade?~~ — neither. Three severities, and export is never
+  disabled; an unclean set is confirmed rather than refused. Section 6.
 
 ---
 
