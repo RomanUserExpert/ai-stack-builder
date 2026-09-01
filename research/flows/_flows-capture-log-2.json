@@ -1,0 +1,114 @@
+[
+  {
+    "pass": "failing-state",
+    "date": "2026-09-01",
+    "method": "Playwright headless Chromium, 1440x900 (GitHub) / 1600x1000 (Port), 2x DPR, dark colour scheme, signed out",
+    "sideEffects": "none — read-only, nothing signed into, re-run, commented on or saved"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "github-actions-run-failed-summary",
+    "url": "https://github.com/vercel/next.js/actions/runs/33473495683",
+    "shows": "run header, job dependency graph, job rail with success / failure / skipped glyphs",
+    "note": "run #124424 of workflow build-and-test; 102 jobs, 7 failed, 4 skipped, 1 cancelled"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "github-actions-run-failed-annotations",
+    "url": "https://github.com/vercel/next.js/actions/runs/33473495683",
+    "steps": ["scrollTo:Annotations=true"],
+    "shows": "Annotations panel headed '11 errors and 6 warnings', job name over message per row"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "github-actions-failed-job-steps",
+    "url": "https://github.com/vercel/next.js/actions/runs/33473495683/job/99748172818",
+    "shows": "failed job 'test prod (1/10) / build — failed 4 hours ago in 14m 6s', collapsed 'Annotations 1 error', full step list with per-step glyphs and a BACKGROUND badge",
+    "gated": "log bodies — 'Sign in to view logs'"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "github-pr-checks-failed-check-detail",
+    "url": "https://github.com/vercel/next.js/pull/98129/checks?check_run_id=99748172818",
+    "shows": "Checks tree grouped by workflow and trigger, deep-linked failed check selected, partially-filled ring on the commit selector",
+    "gated": "log bodies — 'Sign in for the full log view'"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-scorecards-list",
+    "url": "https://demo.port.io/~/governance/scorecards",
+    "shows": "14 scorecards with Rules tested / Rules passed / % of rules passed and their level ladders; Security & Compliance at 36.11%"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-scorecard-rules-list",
+    "url": "https://demo.port.io/~/governance/scorecards-rules",
+    "shows": "the transpose — 31 rules with Entities tested / Entities passed / % of entities passed"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-scorecard-security-compliance",
+    "url": "https://demo.port.io/~/_scorecardEntity?identifier=security_compliance",
+    "shows": "scorecard as a stored metric: 36.11 headline, passed/not-passed donut, trend line Mar-Aug, rule results by level and by team"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-service-entity-scorecards",
+    "url": "https://demo.port.io/~/serviceEntity?identifier=payment-003",
+    "shows": "service entity overview; 'Scorecard Rules — the percentage of the passing rules across all scorecards: 45%'"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-service-scorecards-tab",
+    "url": "https://demo.port.io/~/serviceEntity?identifier=payment-003",
+    "steps": ["clickTab:Scorecards=true"],
+    "shows": "THE failing state — scorecard chips with per-scorecard level vocabularies, the Basic-Low-Good-Great rail, tiers at 0/2 and 0/3 with orange unmet counts, every rule named as a satisfiable condition"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-scorecard-rule-expanded",
+    "url": "https://demo.port.io/~/serviceEntity?identifier=payment-003",
+    "steps": ["clickTab:Scorecards=true", "clickRule:No open critical vulnerabilities=true"],
+    "shows": "the key line of the pass — 'where \"Open Critical Vulnerabilities\" = 0' with 'Value: 1' right-aligned"
+  },
+  {
+    "flow": "04-validation-check-results",
+    "slug": "port-scorecard-ai-coding-standards",
+    "url": "https://demo.port.io/~/serviceEntity?identifier=payment-003",
+    "steps": ["clickTab:Scorecards=true", "clickChip:AI Coding Security Standards=true"],
+    "shows": "a fifth level vocabulary — Critical / Compliant / Elite — where 'Critical' is the bottom rung, not an emergency"
+  },
+  {
+    "flow": "11-copy-and-error-language",
+    "slug": "github-pr-bot-failing-test-suites",
+    "url": "https://github.com/vercel/next.js/pull/98129",
+    "steps": ["scrollTo:Failing test suites=true"],
+    "shows": "the reference failure report — bot comment grouped by reproducing command, commit-stamped, full test names, (job) and (DD) links, collapsed 'Expand output'"
+  },
+  {
+    "flow": "11-copy-and-error-language",
+    "slug": "github-pr-bot-suggested-change",
+    "url": "https://github.com/vercel/next.js/pull/98129",
+    "steps": ["scrollTo:short-circuits and drops=true"],
+    "shows": "automated review: an applyable suggestion diff plus one mechanism-condition-consequence sentence"
+  },
+  {
+    "flow": "11-copy-and-error-language",
+    "slug": "github-pr-checks-tab",
+    "url": "https://github.com/vercel/next.js/pull/98129/checks",
+    "shows": "127 checks grouped by workflow, each labelled with its trigger"
+  },
+  {
+    "flow": "11-copy-and-error-language",
+    "slug": "github-pr-conversation-failing",
+    "url": "https://github.com/vercel/next.js/pull/98129",
+    "shows": "'At least 1 approving review is required to merge this pull request.' filed under Reviewers; per-commit check glyph on the head commit only",
+    "note": "draft PR — the 'Some checks were not successful' merge box does not render for signed-out visitors"
+  },
+  {
+    "probe": "annotation-quality-sweep",
+    "method": "GitHub REST API, unauthenticated",
+    "repos": ["vercel/next.js", "denoland/deno", "withastro/astro", "vitejs/vite", "rust-lang/rust-clippy"],
+    "finding": "every failure annotation was of the form 'Process completed with exit code N' (1, 2, 101). The only long-form annotation found in the sweep was a Node.js 20 deprecation warning."
+  }
+]

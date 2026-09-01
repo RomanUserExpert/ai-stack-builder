@@ -134,19 +134,38 @@ catalog), Agentman (permission tiers). Feeds our item card and states 1–7.
 
 ---
 
-## 04 — Validation: pass, warn, block ● P1 — see [Terraform](04-validation-check-results/terraform-plan-output.md) and [Vercel](04-validation-check-results/NOTES-vercel.md) notes
+## 04 — Validation: pass, warn, block ● P1 — CLOSED
 
-**Serves.** Port (scorecards), Terraform (`plan`), Vercel (build log). This is the wow moment, and
-it is the thinnest folder relative to its importance.
+**Serves.** Port (scorecards), Terraform (`plan`), Vercel (build log), GitHub Actions (a run that
+half-worked). This is the wow moment, and it is now the best-covered flow in the research.
 
-**Have.**
-- `soft/port/governance-users.png` — governance section, but not a scorecard result.
+**Four notes, four different lessons:**
 
-**Missing — all of it.**
-- A Port scorecard with a **failing** check: the wording, what it offers you to do next. *(demo is open, needs deeper navigation)*
-- Real `terraform plan` output, and separately a real version-conflict error. *(local CLI)*
-- A build log, success and failure. *(Vercel needs an account; **GitHub Actions run logs on a public repo are open and teach the same thing** — capture those first)*
-- A failing GitHub Actions check with its annotation. *(capturable on a public repo)*
+| Note | Teaches |
+|---|---|
+| [`terraform-plan-output.md`](04-validation-check-results/terraform-plan-output.md) | What a *result* should read like |
+| [`NOTES-vercel.md`](04-validation-check-results/NOTES-vercel.md) | What a *process* should read like |
+| [`NOTES-github-actions.md`](04-validation-check-results/NOTES-github-actions.md) | What *partial failure* should read like |
+| [`NOTES-port.md`](04-validation-check-results/NOTES-port.md) | What a *grade* should read like |
+
+**Have.** Vercel's stage stack and build log; real `terraform plan` output; a GitHub Actions run of
+102 jobs with 7 failed, 4 skipped and 1 cancelled, plus its counted Annotations digest and the PR
+Checks tree; Port's scorecard ladder with a failing rule expanded to its predicate and observed value.
+
+**The two findings that decide our design.**
+
+- **Port's `where "Open Critical Vulnerabilities" = 0 · Value: 1`** against **GitHub's
+  `Process completed with exit code 1`**. The same event — a check failed — written by someone who
+  knew what was required and by someone who did not. Every row of our validation pass takes the
+  first form.
+- **Port does not block; it gates a level.** The demo has no blocking surface at all. A failed rule
+  stops the entity climbing a cumulative `Basic → Low → Good → Great` ladder rather than forbidding
+  anything. That is a live alternative to our hard-block / soft-warn binary, and it should be
+  settled before the design system, not after.
+
+**Missing.** Nothing blocking. Log *bodies* on GitHub need a sign-in even on a public repository —
+the structure, glyphs, timings and annotations are all public, and the deep log reference stays
+Vercel's.
 
 ---
 
@@ -236,19 +255,37 @@ moment. **Zero coverage.**
 
 ---
 
-## 11 — Copy: errors, warnings, refusals ● P3
+## 11 — Copy: errors, warnings, refusals ● P3 — CLOSED
 
-**Serves.** Terraform (version-clash copy), Port (block vs warn language), Stripe (error copy).
-Feeds every message our validation pass will need to write.
+**Serves.** Terraform (version-clash copy), Port (rule wording), Stripe (error copy), GitHub (failure
+copy, good and bad). Feeds every message our validation pass will write.
 
 **Have.**
-- `aspirational/stripe/api-reference.png`.
+- [`dependency-conflict-copy.md`](11-copy-and-error-language/dependency-conflict-copy.md) — real
+  Terraform version-clash, a Terraform attribute error and npm `ERESOLVE`, with what to steal and
+  what to avoid in each.
+- [`ci-failure-copy.md`](11-copy-and-error-language/ci-failure-copy.md) — the failure channel:
+  GitHub's empty annotation as the anti-reference, the three annotations that do work, and the bot
+  comment that is the best failure copy in the survey.
+- `stripe-error-codes.png`.
 
-**Missing.**
-- Stripe's error-codes reference. *(capturable)*
-- A real Terraform conflict message. *(local CLI)*
-- npm's `ERESOLVE` peer-dependency output — the most familiar dependency-conflict text in existence, and a useful anti-reference. *(reproducible locally)*
-- Port's exact wording where a check blocks rather than warns. *(capturable)*
+**The reference to copy.** A bot posts a distilled failure report *into the PR*, grouped by the
+command that reproduces each failure, stamped with the commit, naming each failing test in full, with
+`(job)` and `(DD)` links out and the raw output collapsed. Nobody opens a 102-job run to find seven
+red squares — so the report goes to the reader instead.
+
+**The sentence to copy.** An automated reviewer's one-line explanation:
+*"`baseHints ||=` short-circuits and drops the `ShouldAttemptStaticPrefetch` bit when both
+static-attempt flags are true, so PPR-strategy prefetches of fully-static routes deopt to runtime."*
+Mechanism, condition, consequence — no severity word, attached to the four lines it is about.
+
+**The anti-reference, and it is industry-wide.** Fourteen of seventeen annotations on the run read
+`Process completed with exit code 1`, and a sweep of `denoland/deno`, `withastro/astro`, `vitejs/vite`
+and `rust-lang/rust-clippy` found the same in every one. The failure channel carries less information
+than the deprecation channel.
+
+**Missing.** Port's block-vs-warn wording, because **Port has no blocking state** — see
+[`NOTES-port.md`](04-validation-check-results/NOTES-port.md). The item is answered, not outstanding.
 
 ---
 
@@ -309,17 +346,45 @@ setting saved; the add-variable drawer was opened and closed.
 
 ---
 
-## What is left, now that the no-account pass is done
+## Collected 2026-09-01 — the failing-state pass
 
-Everything reachable without an account has been taken. What remains splits in two.
+Everything the plan listed as *needs no access* except the Figma item. Anonymous, read-only: nothing
+signed into, nothing re-run, nothing commented on, nothing saved.
 
-**Needs access.** One account: **Linear**, for real density, a populated command palette and a
-genuine first-run empty state (flows 02, 08, 10). Nothing it would give us blocks a P1 decision.
+| Flow | Added | Source |
+|---|---|---|
+| 04 | A GitHub Actions run of **102 jobs — 7 failed, 4 skipped, 1 cancelled** — with four distinct glyphs, a counted **"11 errors and 6 warnings"** annotations digest, a failed job reporting `failed … in 14m 6s`, its full step list (including a `BACKGROUND` step badge), and the PR Checks tree grouped by workflow *and trigger*. See [NOTES-github-actions](04-validation-check-results/NOTES-github-actions.md). | `vercel/next.js` run 33473495683, public |
+| 04 | Port's scorecards in a **failing** state: the cumulative `Basic → Low → Good → Great` rail, tiers showing `0/2` beside an orange count of what is unmet, and a rule expanded to `where "Open Critical Vulnerabilities" = 0 · Value: 1`. Plus the by-scorecard and by-rule projections of the same data. See [NOTES-port](04-validation-check-results/NOTES-port.md). | `demo.port.io`, open |
+| 11 | The failure channel: GitHub's empty annotation as an anti-reference **verified across five repositories**, the three annotations that carry real information, the bot comment that is the best failure copy in the survey, and an automated reviewer's mechanism-condition-consequence sentence. See [ci-failure-copy](11-copy-and-error-language/ci-failure-copy.md). | same PR, public |
 
-**Needs no access at all:** a *failing* run. Every deployment in the owner's Vercel account
-succeeded, so failure-state copy is still uncaptured — GitHub Actions on a public repository is the
-place to take it.
+**Two answers, not just captures.**
 
-**Needs a decision, not access.** Raycast is installable here but grabs a global hotkey and wants a
-sign-in, so it should be a deliberate step rather than part of a sweep. Port's failing-scorecard
-state may be reachable by navigating the open demo further; it was not found in this pass.
+- *"A scorecard in a blocking state, and its wording"* — **Port has no blocking state.** A failed rule
+  gates a level, it does not forbid an action. The item is answered rather than outstanding, and it
+  hands us a real alternative to our hard-block / soft-warn binary.
+- *"Log annotations"* — GitHub's are content-free by construction, because the annotation is emitted
+  by the process that noticed the failure, not the one that caused it. That is a trap our validation
+  pass can fall into verbatim.
+
+**One thing turned out to be gated.** Log *bodies* on GitHub Actions require a sign-in even on a fully
+public repository (*"Sign in to view logs"*). Step structure, glyphs, timings and annotations are all
+public. The deep log reference therefore stays Vercel's.
+
+---
+
+## What is left
+
+**Needs no access — one item.** An instance that is **linked but locally modified** — the state
+between clean and detached — from the owner's Figma, access already granted, reversible with Ctrl+Z
+as before. Flow 05 is otherwise closed.
+
+**Needs an account — one.** **Linear**, for real density under load, a command palette over populated
+data and a genuine first-run empty state (flows 02, 08, 10). Nothing it would give us blocks a P1
+decision. Substitute if declined: `play.grafana.org` and `sandbox.sentry.io`, both open without login.
+
+**Needs a decision, not access.** **Raycast** is installable here (`winget install raycast`) but takes
+a global hotkey and wants a sign-in, so it belongs in a deliberate step rather than a sweep (flow 10).
+
+**Out of reach, and settled.** Agentman's skill page and Figma's cross-file usage count (both paid or
+walled); Packmind and Continue Hub (substituted); Mobbin (not worth a subscription). Full reasoning in
+[`../research-plan.md`](../research-plan.md).

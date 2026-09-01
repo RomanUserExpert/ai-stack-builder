@@ -1,6 +1,6 @@
 # Research plan
 
-Status of the research phase. Updated 2026-08-31.
+Status of the research phase. Updated 2026-09-01.
 
 ## Documents
 
@@ -13,48 +13,71 @@ Status of the research phase. Updated 2026-08-31.
 
 ## Flows
 
-8 of 12 closed.
+**9 of 12 closed.**
 
 | # | Flow | Status | Notes |
 |---|---|---|---|
 | 01 | Item detail and trust | ◐ | — |
 | 02 | Library browse, filter, search | ◐ | — |
 | 03 | Relations without a canvas | ● | — |
-| 04 | Validation: pass, warn, block | ● | [Terraform](flows/04-validation-check-results/terraform-plan-output.md) · [Vercel](flows/04-validation-check-results/NOTES-vercel.md) |
+| 04 | Validation: pass, warn, block | ● | [Terraform](flows/04-validation-check-results/terraform-plan-output.md) · [Vercel](flows/04-validation-check-results/NOTES-vercel.md) · [GitHub Actions](flows/04-validation-check-results/NOTES-github-actions.md) · [Port](flows/04-validation-check-results/NOTES-port.md) |
 | 05 | Linked vs detached, blast radius | ● | [NOTES](flows/05-linked-vs-detached/NOTES.md) |
 | 06 | Export and target adaptation | ● | [Ruler output](flows/06-export-and-target-adaptation/ruler-per-agent-output.md) |
 | 07 | Env variables and secrets | ● | [NOTES](flows/07-env-and-secrets/NOTES.md) |
 | 08 | Empty state and cold start | ◐ | — |
 | 09 | Duplicate and fork | ● | [NOTES](flows/09-duplicate-and-fork/NOTES.md) |
 | 10 | Dark design language | ◐ | — |
-| 11 | Copy: errors, warnings, refusals | ● | [Conflict copy](flows/11-copy-and-error-language/dependency-conflict-copy.md) |
+| 11 | Copy: errors, warnings, refusals | ● | [Conflict copy](flows/11-copy-and-error-language/dependency-conflict-copy.md) · [CI failure copy](flows/11-copy-and-error-language/ci-failure-copy.md) |
 | 12 | Visibility and portfolio | ● | [NOTES](flows/12-visibility-and-portfolio/NOTES.md) |
+
+The three that remain partial — 01, 02, 08, plus 10 — are all held open by the same single item: a
+populated **Linear** workspace. None of them blocks a P1 decision.
 
 ## What is left
 
-### Needs no access — can run on request
+### Needs no access — one item
 
 | What | For | Where from |
 |---|---|---|
-| A failing run: failed job, log annotations, the check summary on a PR | 04, 11 | GitHub Actions on a public repository |
-| A scorecard in a blocking state, and its wording | 04 | demo.port.io, navigating deeper |
 | An instance that is linked **but locally modified** — the state between clean and detached | 05 | The owner's Figma, access already granted. Reversible with Ctrl+Z, as before |
 
-### Needs an account
+### Needs an account — one
 
 | What | For | Note |
 |---|---|---|
 | Linear workspace | 02, 08, 10 | Command palette over populated data, a genuine first-run empty state, real density under load. Not self-hostable — cloud only, account required. Substitute if declined: `play.grafana.org` and `sandbox.sentry.io`, both open without login. |
 
-### Declined or out of reach
+### Needs a decision, not access
+
+| What | For | Note |
+|---|---|---|
+| Raycast desktop app | 10 | Installable here (`winget install raycast`), but wants a sign-in and takes a global hotkey. A deliberate step, not part of a sweep. |
+
+### Declined, out of reach, or answered
 
 | What | For | Why |
 |---|---|---|
+| ~~A failing GitHub Actions run~~ | 04, 11 | **Done 2026-09-01.** 102 jobs, 7 failed, 4 skipped, 1 cancelled, with its annotations digest and PR Checks tree. Log *bodies* need a sign-in even on a public repo; structure, glyphs and timings do not. |
+| ~~A scorecard in a blocking state~~ | 04 | **Answered 2026-09-01, and the answer is that there isn't one.** Port does not block — a failed rule gates a cumulative level ladder rather than forbidding an action. |
 | Agentman skill page and permission tiers | 01 | Behind login. Lesson is legible from their marketing; three open skill catalogs already captured. |
 | Cross-file component usage count | 05 | Figma library analytics, paid tier. The in-file instance count is captured; the cross-container number is not, and it is the shape of our "used in 3 projects". |
-| Raycast desktop app | 10 | Installable here (`winget install raycast`), but wants a sign-in and takes a global hotkey. Needs a deliberate decision, not a sweep. |
 | Packmind product, Continue Hub | 06 | Sales-gated and switched off. Both substituted — Ruler and the Continue repository. |
 | Mobbin | reference | 403s without a subscription. Not worth buying; we capture products directly. |
+
+## The two findings the design system has to answer to
+
+Both landed on 2026-09-01 and both change a decision that is otherwise about to be made by default.
+
+1. **The failure line.** Port writes `where "Open Critical Vulnerabilities" = 0 · Value: 1` — the
+   condition required and the value found. GitHub writes `Process completed with exit code 1`, and a
+   sweep of five major repositories found it writes nothing else. The difference is not polish; it is
+   whether the message is emitted at the altitude that knows what was required. Every row our
+   validation pass produces takes Port's form.
+
+2. **Blocking may be the wrong primitive.** Our spec has hard-block and soft-warn, a binary. Port has
+   neither: a failed rule stops an entity climbing `Basic → Low → Good → Great` and forbids nothing.
+   That is a third shape for the validation result, and it needs deciding before the design system
+   fixes the vocabulary — because a grade and a verdict do not look alike.
 
 ## Definition of done
 
