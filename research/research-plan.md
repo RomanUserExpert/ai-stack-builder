@@ -1,23 +1,44 @@
 # Research plan
 
-Status of the research phase. Updated 2026-09-01. **Collection complete; the decisions it gated are
-taken.** The spec that carries them is [`../CLAUDE.md`](../CLAUDE.md).
+Updated 2026-09-01. The phase runs in five stages. **Three are done, two are not started.**
+
+| # | Stage | What it produces | Status |
+|---|---|---|---|
+| 1 | **Landscape** | Who else is in this space, what they sell, and to whom | ● done |
+| 2 | **Flows** | Twelve mechanisms captured from live products | ● done |
+| 3 | **Pain** | The first evidence about users rather than vendors | ● done |
+| 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ○ not started |
+| 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ○ not started |
+
+Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
+by taste; with one, it is settled by argument. And the rubric is not invented — its five categories
+are lifted from what stages 1–3 actually found.
+
+Sign-off comes after stage 5. Next phase: design system, per CLAUDE.md §1.
+
+---
 
 ## Documents
 
 | File | What it holds |
 |---|---|
 | [`competitors.md`](competitors.md) | 15 companies in three groups — hard, soft, aspirational. Why each is there, what to take from it, a verified link per entry. |
-| [`comparison.md`](comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, and **three decisions the design system needs**, each with a recommendation. |
+| [`comparison.md`](comparison.md) | All 15 compared on audience, product base, key mechanism, trust, monetisation. Three market patterns, three differences we can hold, and the three decisions the design system needed, each with its reasoning. |
 | [`screens-index.md`](screens-index.md) | 38 product captures in [`screens/`](screens/), sorted group / competitor. Sign-in walls labelled. |
-| [`user-pain.md`](user-pain.md) | What actually hurts, from two public issue trackers — the first evidence in this research about users rather than vendors. States plainly what the instrument cannot see. |
-| [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the uses/with/override composition primitive, its identity and secret schemes, and the three things its resolver never did. Feeds open question 1. |
-| [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needs. |
+| [`user-pain.md`](user-pain.md) | What actually hurts, from two public issue trackers — the first evidence here about users rather than vendors. States plainly what the instrument cannot see. |
+| [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the `uses`/`with`/`override` composition primitive, its identity and secret schemes, and the three things its resolver never did. |
+| [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
+| `benchmark.md` | **Stage 4 — not written yet.** |
+| `patterns.md` | **Stage 5 — not written yet.** |
 
-## Flows
+---
+
+## Stages 1–3 — done
+
+### Flows
 
 **10 of 12 closed.** Flow 01 is declined (login-walled, and its other gap is out of MVP scope).
-Flow 10 is **handed to the design-system phase** rather than left open — it is the one flow about
+Flow 10 is handed to the design-system phase rather than left open — it is the one flow about
 appearance rather than behaviour, and CLAUDE.md §12 postpones visual direction until after research.
 
 **Status key.** ● closed · ◐ partially covered · → handed forward to the next phase.
@@ -33,88 +54,160 @@ appearance rather than behaviour, and CLAUDE.md §12 postpones visual direction 
 | 07 | Env variables and secrets | ● | [NOTES](flows/07-env-and-secrets/NOTES.md) |
 | 08 | Empty state and cold start | ● | [Linear](flows/08-empty-state-and-cold-start/NOTES-linear.md) |
 | 09 | Duplicate and fork | ● | [NOTES](flows/09-duplicate-and-fork/NOTES.md) |
-| 10 | Dark design language | → | [Material for the next phase](flows/10-dark-design-language/NOTES-linear.md) — Geist, Linear's dark theme at close range, Raycast's tokens |
+| 10 | Dark design language | → | [Material for the next phase](flows/10-dark-design-language/NOTES-linear.md) |
 | 11 | Copy: errors, warnings, refusals | ● | [Conflict copy](flows/11-copy-and-error-language/dependency-conflict-copy.md) · [CI failure copy](flows/11-copy-and-error-language/ci-failure-copy.md) |
 | 12 | Visibility and portfolio | ● | [NOTES](flows/12-visibility-and-portfolio/NOTES.md) |
 
-## What is left
+### Nothing left to collect in stages 1–3
 
-**Nothing to collect.** Every remaining item is declined, and the reasoning is recorded rather than
-deferred.
+Every remaining item is declined with the reasoning recorded: Raycast desktop (its one UX idea, the
+launcher instead of a screen, is already answered by Linear and Tessl), Linear's density under load
+(the workspace granted is new), Agentman (login-walled), a version/history surface (out of MVP scope),
+Figma's cross-file usage count (paid tier), Packmind and Continue Hub (substituted), Mobbin (not worth
+a subscription).
 
-| What | For | Why it is closed |
+---
+
+## Stage 4 — Benchmark
+
+**Question it answers.** For each of our four core flows, who in the world does it best, how well, and
+against what standard?
+
+**Why it comes now.** Stages 1–3 produced observations — *Linear counts what its filter hides*, *Port
+prints the condition and the observed value*, *Figma computes drift and never draws it*. Those are
+anecdotes until they are turned into a **scale**. Stage 4 turns them into one, and stage 5 spends it.
+
+**Deliverable.** `benchmark.md`: a scored matrix, one row per app-and-flow, five columns, plus the
+reasoning behind every score below 4 and above 4. Captures go in `benchmark/` alongside `flows/`.
+
+### The four flows benchmarked
+
+Not all twelve. Only the spine of the product — the path a user actually walks.
+
+| | Flow | Our screen |
 |---|---|---|
-| Raycast desktop app | 10 | **Declined on behavioural grounds.** Its one UX idea is the launcher instead of a screen; the question it would answer — *is the Library a screen or a palette?* — is already answered by Linear's `Ctrl K` and Tessl's ⌘K. Tone, not mechanism, for a global hotkey and a sign-in. |
-| Linear's density under load | 10 | Unobtainable — the workspace granted is new. `play.grafana.org` and `sandbox.sentry.io` stay available if the design-system phase wants real rows. |
-| Agentman skill page and permission tiers | 01 | Behind login. Lesson legible from their marketing; three open skill catalogs already captured. |
-| A version / history surface | 01 | Out of MVP scope per CLAUDE.md §9 — `version` is reserved and nothing reads it. |
-| Cross-file component usage count | 05 | Figma library analytics, paid tier. The in-file count is captured; the cross-container number — the shape of our *"used in 3 projects"* — is not. |
-| ~~A failing GitHub Actions run~~ | 04, 11 | **Done 2026-09-01.** Log *bodies* need a sign-in even on a public repo; structure, glyphs and timings do not. |
-| ~~A scorecard in a blocking state~~ | 04 | **Answered 2026-09-01 — there isn't one.** Port gates a level rather than forbidding an action. |
-| ~~A Linear workspace~~ | 02, 08 | **Done 2026-09-01.** Closed both flows outright. |
-| ~~An instance linked but locally modified~~ | 05 | **Done 2026-09-01.** The state exists in the model and is drawn nowhere. |
-| Packmind product | 06 | Sales-gated. Substituted by Ruler, run locally. |
-| Continue Hub | 06, and question 1 | Switched off. **Read from source instead** — see [`continue-postmortem.md`](continue-postmortem.md). |
-| Mobbin | reference | 403s without a subscription. Not worth buying; we capture products directly. |
+| **B1** | Find one thing in a large personal collection | Library |
+| **B2** | Assemble a set from that collection, with constraints | Project Builder |
+| **B3** | Check a set and report what is wrong | Validation pass |
+| **B4** | Produce an artefact and hand it over to another machine | Result / Export |
 
-## The five findings that changed the spec
+### The five categories
 
-Findings 1-4 landed on 2026-09-01 from the product survey; finding 5 came later the same day from
-issue trackers. Three have been acted on and are in CLAUDE.md; two are recorded and left open.
+Each is lifted from a finding in stages 1–3, so the rubric is grounded rather than invented.
 
-1. **The failure line.** *(standing guidance for every message the validation pass writes)* Port writes `where "Open Critical Vulnerabilities" = 0 · Value: 1` — the
-   condition required and the value found. GitHub writes `Process completed with exit code 1`, and a
-   sweep of five major repositories found it writes nothing else. The difference is not polish; it is
-   whether the message is emitted at the altitude that knows what was required. Every row our
-   validation pass produces takes Port's form.
+| # | Category | The question | Where it came from |
+|---|---|---|---|
+| **C1** | **State legibility** | Can you read the current state without acting on it? | Figma draws a modified instance identically to a clean one; Linear says *"4 issues hidden by filters"* |
+| **C2** | **Consequence disclosure** | Before an irreversible step, is the cost stated in advance? | `terraform apply` asks you to type `yes`; Figma's library modal shows **423 instances** before you accept |
+| **C3** | **Failure copy** | Does a message name the item, the rule and the observed value? | Port: `where "Open Critical Vulnerabilities" = 0 · Value: 1`. GitHub: `Process completed with exit code 1` |
+| **C4** | **Recovery** | Is there a way back, offered where the problem is? | Figma puts `Reset` next to `Detach` — and offers nothing at all once detached |
+| **C5** | **Economy** | Is anything on screen that cannot act, or missing that must be? | Linear suppresses its toolbar over an empty list; Vercel keeps four filter dropdowns over nothing |
 
-2. **Blocking may be the wrong primitive.** *(acted on — CLAUDE.md §6)* Our spec has hard-block and soft-warn, a binary. Port has
-   neither: a failed rule stops an entity climbing `Basic → Low → Good → Great` and forbids nothing.
-   That is a third shape for the validation result, and it needs deciding before the design system
-   fixes the vocabulary — because a grade and a verdict do not look alike.
+**Score anchors**, so a number means something:
 
-3. **Cold start is a product decision, not a demo problem.** *(open — CLAUDE.md §11 unchanged)* CLAUDE.md §11 plans ~30 realistic items
-   *for mockups*. Linear ships a new workspace with four **real** issues — editable, completable,
-   deletable — so the product is never empty and the model is learned by holding four instances of it.
-   Our equivalent: a small starter set of genuine Items in a genuine Project on first launch, so the
-   validation pass runs before the user types anything. That puts the wow moment on first launch
-   instead of after an evening of data entry.
+- **1** — actively misleads. The interface implies something untrue.
+- **2** — the information does not exist in the product.
+- **3** — correct, but you must go looking for it.
+- **4** — present where you need it, in the right words.
+- **5** — you could not miss it, and it changed what you did next.
 
-4. **The drift indicator is a display problem, not a modelling one.** *(acted on — CLAUDE.md §7)* Figma tracks overrides precisely
-   enough to offer `Reset fill` by name, then shows a modified instance as pixel-identical to a clean
-   one everywhere except a context menu. Our state 7 — *detached, locally modified* — is the state
-   CLAUDE.md §7 flags as easiest to forget, and this is exactly how it gets forgotten. The diff is
-   already computed; putting it on the card costs nothing. Revert needs two granularities, whole item
-   and single field, with Reset kept next to Detach as the two halves of one axis.
+### Candidates
 
-5. **The pain we bet on is real but quiet; the loud pain is environmental.** *(added 2026-09-01 —
-   see [`user-pain.md`](user-pain.md))* A user reports that two `server-postgres` entries in one
-   `mcp.json` end with *"the chat always chooses the first one specified"* — our duplicate-key
-   collision, in the file we generate, failing exactly as predicted and telling nobody. That is the
-   thesis, sighted in the wild. But it carries 13 reactions against **182** for *MCP Servers Don't
-   Work with NVM*, and the whole top of that tracker is PATH, node versions, platform paths and
-   processes dying at startup — *the config is correct and it still does not run*. Most of that is
-   out of our reach, except at the one place our output meets their machine: `SETUP.md`, the pinned
-   `ref`, and the generated config. CLAUDE.md §6 gives `SETUP.md` a single line; the evidence says
-   it deserves more. Two further readings: env and secrets rank higher than we assumed, which our
-   `needsEnv` work already serves; and nobody is asking for a composition layer, which agrees with
-   the post-mortem about which half of Continue died.
+Best-in-class, competitors allowed but not required. Availability on this machine noted, because a
+benchmark we cannot capture is a benchmark we cannot defend.
 
-## Definition of done
+| Flow | Candidates | Availability |
+|---|---|---|
+| **B1** Find | **Linear** ⌘K · **VS Code** command palette + Extensions search · **GitHub** code search · **Obsidian** quick switcher | Linear ✓ (owner's) · VS Code ✓ free · GitHub ✓ · Obsidian ✓ free |
+| **B2** Assemble | **Figma** instance swap and library panel · **VS Code** extension enable/disable per workspace + Recommended Extensions · **Docker Compose** service set · **Homebrew** `Brewfile` | Figma ✓ (owner's) · VS Code ✓ · Compose ✓ CLI · Brewfile — read format only, macOS |
+| **B3** Check | **Terraform** `plan` · **VS Code** Problems panel with ESLint/tsc · **GitHub Actions** run · **Vercel** build log | All ✓ — already partly captured in flow 04 |
+| **B4** Produce | **Vercel** deploy · **`create-next-app`** scaffold output · **Figma** export dialog · **Ruler** per-agent output | All ✓ — Ruler already run locally in flow 06 |
 
-**Collection is finished.** Ten flows are ●, flow 01 is declined, and flow 10 is handed to the next
-phase rather than left open. Nothing outstanding requires access we do not have, and every gap that
-remains is closed by a recorded decision rather than deferred.
+**VS Code earns its place three times over.** Free, installed, and it is the closest thing in
+existence to our product's mechanics: an extension list that is browsed and filtered, a set enabled
+per workspace with recommendations resolved from a file, and a Problems panel that reports what is
+wrong with file, line and rule. Not a competitor, best-in-class at our flows — exactly the brief.
 
-**What the phase was for, and what it deliberately was not.** These twelve flows studied **behaviour**
-— how a check reports a failure, how a filter says it is hiding things, how a product answers its own
-emptiness, how a modified object announces that it has drifted. Visual direction is postponed by
-CLAUDE.md §12 and belongs to the design system, which is the next stage. Flow 10 collected reference
-for that stage; it was never a research question.
+**Substitutes for what cannot be run here.** Ableton's *Collect All and Save* would be the ideal B4 —
+it gathers every referenced sample into one folder and reports what it could not find, which is our
+export with missing-dependency reporting, note for note. No licence here. Xcode's Archive/Organizer,
+same story. Both are described from documentation if needed, and clearly labelled as unseen.
 
-**The decisions are taken.** All four landed on 2026-09-01 and are recorded in CLAUDE.md, which
-is the source of truth. [`comparison.md`](comparison.md) keeps the reasoning and the alternatives
-that were rejected.
+### Method
+
+Same discipline as stage 2. Playwright for anything public, Claude in Chrome for anything behind the
+owner's session, local CLI for anything installable without side effects. Read-only. Every capture
+logged. **Scores are written before the reasoning, then the reasoning is written and the score
+revisited once** — so the number is argued, not rationalised.
+
+### Done when
+
+All sixteen cells scored, every score justified in a sentence, and the rubric's five categories
+carried forward into stage 5 unchanged.
+
+---
+
+## Stage 5 — Patterns
+
+**Question it answers.** What shape does our key flow take?
+
+**The key flow, named precisely.** Not "the app". The spine: **assemble a set → check it → export**.
+Library to archive. It contains the wow moment (CLAUDE.md §2) and both supporting moments.
+
+**Deliverable.** `patterns.md`: five variants, each described structurally, each scored on C1–C5 plus
+fit to the fixed constraints, and one chosen with the reasoning for the rejection of the other four.
+
+**Boundary, and it matters.** These are **flow structures, not screens**. Described in prose and
+plain-text diagrams — boxes, order, what is on screen at each step. No visual design, no layout
+grids, no colour, no components. CLAUDE.md §1 puts the design system and mockups after this phase and
+this stage must not quietly become them.
+
+### The five variants
+
+Radically different framings, not five layouts of one idea. Each carries prior art from stages 1–3, so
+the comparison is between things that exist rather than between guesses.
+
+| | Variant | The idea | Prior art |
+|---|---|---|---|
+| **P1** | **Two-pane drag** | Library on the left, project area on the right, items dragged in, validation live as the set changes. The current §8 spec. | Backstage catalog; Figma assets panel |
+| **P2** | **Command-first** | No persistent library pane. ⌘K adds items by name, the project is a growing list, checking is another command. The library is a search index, not a screen. | Linear ⌘K; Tessl ⌘K; Raycast's launcher-instead-of-a-screen |
+| **P3** | **Document** | The project *is* an editable manifest. The UI is an assistant over the text and validation is inline diagnostics, like a linter. | Continue's `config.yaml` with `uses`/`with`/`override`; Terraform HCL; VS Code Problems panel |
+| **P4** | **Staged wizard** | Target first, then one step per kind, then resolution, then review, then export. Linear, finite, no free-form assembly. | Backstage scaffolder; GitHub's fork form |
+| **P5** | **Run-centric** | Assembly is small and secondary. Pressing **Check** turns the whole surface into the stage list with verdicts and durations, and Export is its final stage. The validation pass is the product's main screen, not a modal. | Vercel's deployment page; a GitHub Actions run |
+
+### What each variant must answer, in the same words
+
+So they can be compared rather than admired:
+
+1. Where does the **cold start** land — what does this look like with an empty library, and with a
+   seeded one? (Bears directly on the open question below.)
+2. Where does the **validation pass** live — inline and continuous, or triggered and full-screen?
+3. Where do the **six item states** (§7) render, especially *detached, locally modified*?
+4. How does an **unclean export** get confirmed (§6), and where does that confirmation appear?
+5. What does it cost when the library has **300 items** rather than 30?
+
+### Choosing
+
+Score C1–C5 from stage 4's rubric, then check against the constraints that are already fixed and not
+up for negotiation: desktop-first, dark from day one, **not a node canvas**, single user, local only,
+custom design system. A variant that scores well and violates a fixed constraint loses.
+
+**Expect a hybrid, and say so honestly if it happens.** The likely outcome is that one variant wins
+the spine and another donates a mechanism — P2's palette inside P1's two panes, or P5's run screen as
+P1's Result. That is a legitimate result as long as it is stated as a choice and not as a failure to
+choose.
+
+### Done when
+
+One pattern is chosen and written into CLAUDE.md §8, replacing the current one-line screen list, with
+the four rejected variants kept in `patterns.md` and the reason each lost recorded.
+
+---
+
+## Decisions already taken
+
+All four landed on 2026-09-01 and are recorded in CLAUDE.md, which is the source of truth.
+[`comparison.md`](comparison.md) keeps the reasoning and the rejected alternatives.
 
 | Decision | Answer | Where |
 |---|---|---|
@@ -124,18 +217,82 @@ that were rejected.
 | Does the validation pass block, or grade? | Neither. Three severities — Problem / Note / Skipped — and export is never disabled; an unclean set is confirmed, not refused. | CLAUDE.md §6 |
 
 Two contradictions inside the spec surfaced while answering these and are now closed: `version` was
-both reserved-and-unread and expected to produce conflicts; `conflicts` was to be hard or soft with
-no field able to say which. A third correction went the other way — a cycle in `requires` is not a
-defect at all, because a project is a set and not an execution order.
+both reserved-and-unread and expected to produce conflicts; `conflicts` was to be hard or soft with no
+field able to say which. A third correction went the other way — a cycle in `requires` is not a defect
+at all, because a project is a set and not an execution order.
 
-**One finding is recorded but not decided:** cold start (finding 3 below). CLAUDE.md §11 still
-treats it as a demo problem — *~30 realistic items for any mockup* — where Linear argues it is a
-product decision. Left open deliberately.
+---
 
-An earlier version of this page said the phase was gated on three *strategic* questions — what our
-answer is to Continue, and whether a personal library has a business. That was the wrong shape.
-Research does not decide whether a project is worth doing, and CLAUDE.md §9 had already made the
-scope calls those questions were re-asking. The strategic context is recorded in `comparison.md` as
-context; it does not block, because the MVP is the same product under either answer.
+## Open questions
 
-Next stage after sign-off: design system. Not started, per CLAUDE.md section 1.
+Left open deliberately. Stage 5 will sharpen the first two.
+
+1. **Cold start.** CLAUDE.md §11 still treats it as a demo problem — *~30 realistic items for any
+   mockup*. Linear argues it is a product decision: seed the workspace with a few **real**, editable
+   objects so the product is never empty and the validation pass has something to run on before the
+   user types anything. Each stage-5 variant must show what it looks like empty, which is the cheapest
+   way to settle this.
+2. **How much weight `SETUP.md` carries.** CLAUDE.md §6 gives it one line, while
+   [`user-pain.md`](user-pain.md) finds the loudest pain in the whole ecosystem lives exactly there —
+   the archive lands on a machine and does not run. Either we own that problem or we say plainly it is
+   not our war.
+3. Styling engine: Tailwind vs CSS Modules vs vanilla-extract.
+4. Whether a project can contain another project, or only items.
+5. Whether detached items can be promoted back into the library as new items.
+
+**And one we cannot answer with the instruments used so far.** Whether *loss* (I cannot find what I
+wrote) or *reassembly cost* (I re-copy the same set every time) is what would actually make someone
+adopt this. Issue trackers are blind to both by construction. Answering it needs a different
+instrument — asking people. Either plan that, or record it as an accepted risk; do not let it stay
+unmarked.
+
+---
+
+## The five findings that changed the spec
+
+1. **The failure line.** *(standing guidance for every message the validation pass writes)* Port
+   writes `where "Open Critical Vulnerabilities" = 0 · Value: 1` — the condition required and the
+   value found. GitHub writes `Process completed with exit code 1`, and a sweep of five major
+   repositories found it writes nothing else. The difference is whether the message is emitted at the
+   altitude that knows what was required.
+
+2. **Blocking may be the wrong primitive.** *(acted on — CLAUDE.md §6)* Port gates a level and forbids
+   nothing; Continue used the same `fatal: true | false` binary we had specified and filed a missing
+   dependency as non-fatal. Both poles have shipped. We chose neither.
+
+3. **Cold start is a product decision, not a demo problem.** *(open — CLAUDE.md §11 unchanged)* Linear
+   ships a new workspace with four **real** issues — editable, completable, deletable — so the product
+   is never empty and the model is learned by holding four instances of it.
+
+4. **The drift indicator is a display problem, not a modelling one.** *(acted on — CLAUDE.md §7)*
+   Figma tracks overrides precisely enough to offer `Reset fill` by name, then draws a modified
+   instance identically to a clean one everywhere except a context menu.
+
+5. **The pain we bet on is real but quiet; the loud pain is environmental.** *(added 2026-09-01 — see
+   [`user-pain.md`](user-pain.md))* A user reports that two `server-postgres` entries in one
+   `mcp.json` end with *"the chat always chooses the first one specified"* — our duplicate-key
+   collision, in the file we generate, failing exactly as predicted and telling nobody. That is the
+   thesis, sighted in the wild. But it carries 13 reactions against **182** for *MCP Servers Don't
+   Work with NVM*, and the top of that tracker is PATH, node versions, platform paths and processes
+   dying at startup. Most of that is out of our reach, except at the one place our output meets their
+   machine: `SETUP.md`, the pinned `ref`, and the generated config. Two further readings: env and
+   secrets rank higher than we assumed, which our `needsEnv` work already serves; and nobody is asking
+   for a composition layer, which agrees with the post-mortem about which half of Continue died.
+
+---
+
+## Definition of done
+
+The research phase is finished when:
+
+- [x] Stage 1 — landscape surveyed
+- [x] Stage 2 — flows captured, every one closed or declined with reasoning
+- [x] Stage 3 — pain evidenced, with the instrument's blind spots stated
+- [ ] Stage 4 — sixteen benchmark cells scored against five grounded categories
+- [ ] Stage 5 — five patterns compared on that rubric, one chosen and written into CLAUDE.md §8
+- [ ] The two open questions stage 5 sharpens — cold start, and the weight of `SETUP.md` — either
+      answered or explicitly deferred with a reason
+
+Everything else on the open list is a later decision and does not gate sign-off.
+
+Next phase after sign-off: design system. Not started, per CLAUDE.md §1.

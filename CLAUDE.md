@@ -19,6 +19,12 @@ The agreed order of work:
 4. Static frontend implementation (markup only, no business logic)
 5. Logic (state, storage, validation, export)
 
+**Research itself runs in five stages, and two are not started.** Landscape, flows and pain are
+done; **benchmark** (a scoring rubric built from what stages 1-3 found, applied to the best product
+in the world at each of our four core flows) and **patterns** (five radically different shapes for
+the key flow — assemble a set, check it, export — scored on that rubric, one chosen) are not.
+Status and the full design of both stages: [`research/research-plan.md`](research/research-plan.md).
+
 Do not skip ahead. If a request seems to jump to a later stage, confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is
 written down so design decisions are made with the real mechanics in view.
