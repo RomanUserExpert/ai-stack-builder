@@ -22,7 +22,7 @@ exception — it is a local CLI install, no account at all.
 | What | For which flows | Why it cannot be substituted |
 |---|---|---|
 | ~~**Figma**~~ — **done 2026-08-31** | 05, 09 | Captured in the owner's own file, and the library-updates modal supplied by the owner from a paid-team file. Flow closed. |
-| **Linear** — any workspace | 02, 08, 10 | The marketing site runs product UI, but not the real thing: no ⌘K palette in a populated workspace, no genuine empty state, no real density under load. |
+| ~~**Linear**~~ — **done 2026-09-01** | 02, 08, 10 | Palette, filter grammar and a genuine first-run state all captured in the owner's workspace. The workspace is new, so density under load was not obtainable and is no longer being chased. |
 | ~~**Vercel**~~ — **done 2026-08-31** | 04, 07 | Build log, deployment stage list, deployments list, env-variable drawer and env empty state all captured. Read-only; nothing deployed or saved. |
 | ~~**Notion**~~ — **done 2026-08-31** | 09, 12 | Share dialog, Publish-to-web tab, page menu and move-destination picker all captured. Nothing published, nothing duplicated. |
 | ~~**GitHub**~~ — **done 2026-08-31** | 09, 12 | Fork form, Danger Zone visibility row and the owner's profile captured. The fork form was opened and abandoned, not submitted. |
@@ -48,7 +48,7 @@ Not every gap needs filling, and two of the substitutes are better than the orig
 | **Packmind** — sales-gated | Replace | **Ruler**, the open-source CLI that syncs one `.ruler/` directory into 20+ agent formats. Run locally, it produces the actual per-target output — which is the thing we wanted Packmind for. A real format mapping beats a sales-demo screenshot. |
 | **Continue Hub** — switched off | Replace | Its own Apache-2.0 repository. The block schema and the assistant composition format are readable from source; nothing is lost but the visual design. |
 | **Vercel build log** — account | Replace, and it may be enough on its own | **GitHub Actions run logs on any public repository.** Fully open, no account: ordered steps, timings, collapsible groups, failure annotations. The lesson — a process running visibly and legibly instead of behind a spinner — is identical and available right now. |
-| **Linear app** — account | Replace only if access does not arrive | Dense dark product UIs that are open without login: **play.grafana.org** and **sandbox.sentry.io** (both verified reachable). Neither matches Linear's craft, but both show real density under real data. Granting Linear access is cheaper than this workaround. |
+| **Linear app** — *access granted, workspace empty* | Substitute only if flow 10 still wants density | Access arrived and closed flows 02 and 08. What it could **not** give is density, because the workspace holds four issues. If real rows are ever needed: **play.grafana.org** and **sandbox.sentry.io**, both open without login. P3. |
 | **Figma editor** — account | **No substitute. Access needed.** | The nearest equivalent is **Penpot** (open source, browser-based, has components and detach), but it also requires a free account, so if a Figma login already exists that is the shorter path. Conceptual analogues for base-plus-local-override — Kustomize overlays, `patch-package` — inform the logic but teach us nothing about the interface language. |
 | **Notion duplicate / GitHub fork** — session | Partially replaceable | GitHub's **"Use this template"** button is visible on public template repos without a session, and it is the same primitive. The dialog itself, and its warnings, still need a login. |
 | **Mobbin** — subscription | **Do not replace.** | We are capturing the products themselves, which is the primary source; Mobbin would be a secondary one. No pattern-library subscription is worth buying for this. |
@@ -103,19 +103,29 @@ catalog), Agentman (permission tiers). Feeds our item card and states 1–7.
 
 ---
 
-## 02 — Library browse, filter, search ◐ P1
+## 02 — Library browse, filter, search ● P1 — CLOSED, see [NOTES-linear](02-library-browse-filter-search/NOTES-linear.md)
 
-**Serves.** Backstage (typed catalog at scale), Tessl and Smithery (registry browse), Raycast
-(browsing small units with no chrome), Notion (gallery). Feeds the Library screen.
+**Serves.** Backstage (typed catalog at scale), Tessl and Smithery (registry browse), Linear (the
+benchmark), Raycast, Notion. Feeds the Library screen.
 
 **Have.**
-- `soft/backstage/catalog-table.png` — the closest thing to our Library that exists: Name / System / Owner / Type / Lifecycle / Tags with a filter rail.
-- `hard/tessl/registry-discover-categories.png`, `hard/smithery/registry-home.png`, `aspirational/raycast/store-browse.png`, `soft/notion/template-gallery.png`, `soft/terraform/module-browse.png`.
+- `soft/backstage/catalog-table.png` — the closest thing to our Library that exists: Name / System /
+  Owner / Type / Lifecycle / Tags with a filter rail, plus a filtered state and a no-results state.
+- **Linear's whole browsing grammar** — the `Ctrl K` palette doing commands and content in one field,
+  a state-dependent keyboard-hint bar, the no-results row that *is* the next action, the filter picker
+  as a typeahead that flattens its hierarchy into breadcrumbs, filter chips written as sentences with
+  `Clear` and `Save` side by side, and the filtered-to-zero state that names **how many items are
+  hidden**.
+- `hard/tessl/registry-discover-categories.png`, `hard/smithery/registry-home.png`,
+  `aspirational/raycast/store-browse.png`, `soft/notion/template-gallery.png`.
 
-**Missing.**
-- Filters actually applied — every capture is the default unfiltered view. We need the narrowed state and the "clear filters" affordance. *(capturable)*
-- A no-results state. *(capturable)*
-- A command palette open over a populated library — Tessl advertises ⌘K, Linear is the benchmark. *(Tessl capturable; Linear needs an account)*
+**The two to copy.** *Typing flattens the filter tree into breadcrumbs* — the path is shown, not
+traversed, which is how two leaves with the same name stay distinguishable; our `mcp` kind and an
+`mcp` tag will collide exactly like that. And *"4 issues hidden by filters · Clear Filters"* — the
+difference between "there is nothing" and "you are not looking at it", stated as a number.
+
+**Not captured, and not expected to be.** Behaviour at scale. The owner's workspace holds four issues,
+so everything above is mechanics rather than density. See flow 10.
 
 ---
 
@@ -213,18 +223,34 @@ This is the single biggest gap in the research.
 
 ---
 
-## 08 — Empty state and cold start ◐ P2
+## 08 — Empty state and cold start ● P2 — CLOSED, see [NOTES-linear](08-empty-state-and-cold-start/NOTES-linear.md)
 
-**Serves.** Notion (template gallery as the answer to an empty workspace), Raycast (empty states),
-and our known cold-start problem.
+**Serves.** Notion (template gallery as the answer to an empty workspace), Linear (a real first run),
+Vercel (two honest empty states), and our known cold-start problem in CLAUDE.md §11.
 
 **Have.**
-- `soft/notion/template-gallery.png`, `soft/notion/template-collection-detail.png`.
+- **A genuine first-run workspace at last.** The owner's Linear turned out to be new, so this is the
+  real first five minutes rather than a reconstruction.
+- Linear's **three registers of emptiness** — a never-used concept that defines itself, routine
+  emptiness that says one line, and filtered-to-zero that counts what is hidden.
+- `vercel-env-vars-empty-state.jpg`, `vercel-project-overview-checklist.jpg`,
+  `soft/notion/template-gallery.png`.
 
-**Missing.**
-- A genuine first-run empty state from anyone. Every capture we have is of a full system.
-- Backstage or Port with an empty catalog — approximable by filtering to zero results. *(capturable)*
-- A brand-new Linear workspace. *(account)*
+**The finding that changes our plan.** Linear does not answer an empty workspace with an empty state.
+It answers it with **four real issues** — `Get familiar with Linear`, `Set up your teams`,
+`Connect your tools`, `Import your data` — ordinary objects you can edit, complete or delete. The
+onboarding checklist *is* the data model, exercised on itself, and the product is never empty at any
+point. CLAUDE.md §11 currently plans ~30 demo items for mockups; this argues for shipping a small
+number of **real** Items in a real Project on first run, so the validation pass has something to run
+on before the user types anything.
+
+**Second finding.** Verbosity scales with the chance the reader does not know what the object is.
+`Projects` defines itself in a sentence; `My issues` says *"No issues assigned to you"* and stops. We
+need one written definition per object — `Item`, `Project`, and each of the six kinds.
+
+**Third.** Linear suppresses the toolbar over an empty screen; Vercel keeps a search box and four
+filter dropdowns filtering nothing. Same situation, opposite decision — see
+[`../07-env-and-secrets/NOTES.md`](07-env-and-secrets/NOTES.md).
 
 ---
 
@@ -240,18 +266,25 @@ moment. **Zero coverage.**
 
 ---
 
-## 10 — Dark design language ◐ P3
+## 10 — Dark design language ◐ P3 — see [NOTES-linear](10-dark-design-language/NOTES-linear.md)
 
-**Serves.** Vercel Geist (token structure), Linear (density and typography), Raycast (tone).
+**Serves.** Vercel Geist (token structure), Linear (palette, elevation, typography), Raycast (tone).
 
 **Have.**
-- `aspirational/vercel/geist-colors.png`, `hard/tessl/registry-landing.png`, `aspirational/linear/marketing-home.png`, `aspirational/raycast/store-browse.png`.
-- Plus a documented extraction of Raycast's tokens (background `#07080a`, surface `#101111`, accent `#FF6363`, Inter + GeistMono, 8px spacing base, radius 2→20px), recorded in [`../comparison.md`](../comparison.md).
+- Geist colour, typography, materials and grid.
+- **Linear's dark theme at close range** — captured by switching the interface theme with the owner's
+  agreement and restoring it afterwards. Few surfaces (ground shared by sidebar and content, one
+  raised surface, one selected fill), **hairlines instead of a shadow ramp**, three foreground tones
+  plus a sparing accent, key caps as a real component with a two-cap form for chords, and unset
+  property rows written as imperatives rather than em-dashes.
+- A documented extraction of Raycast's tokens, recorded in [`../comparison.md`](../comparison.md).
 
-**Missing.**
-- Geist's typography, materials and grid pages — we only took colour. *(capturable)*
-- Linear's real application density under load. *(account, or substitute with Grafana Play / Sentry sandbox)*
-- Raycast's desktop app — **obtainable after all**: `winget install raycast` (Windows build, stable since 25 August 2026).
+**Missing — and one of the two is now judged unobtainable.**
+- **Linear's real density under load.** The owner's workspace holds four issues; no theme change fixes
+  that. If we still want density, the open substitutes stand: `play.grafana.org` and
+  `sandbox.sentry.io`. Neither has Linear's craft. **P3, and not worth an account hunt.**
+- **Raycast's desktop app** — installable here (`winget install raycast`) but it takes a global hotkey
+  and wants a sign-in. A deliberate step, still undecided.
 
 ---
 
@@ -372,18 +405,47 @@ public. The deep log reference therefore stays Vercel's.
 
 ---
 
+## Collected 2026-09-01 — the Linear pass
+
+The owner granted their signed-in Linear (`romanovcharenko`, team ROM). 16 captures and three notes.
+**Nothing was created, edited, assigned, completed or deleted.** One account setting — the interface
+theme — was changed with explicit agreement to capture flow 10, then restored to its original value
+(`System preference`) and verified.
+
+**The workspace turned out to be brand new: four onboarding issues and nothing else.** That inverted
+what this pass could deliver.
+
+| Flow | Added | Status |
+|---|---|---|
+| 02 | The `Ctrl K` palette running commands and content search in one field, with a *"Search entire workspace"* escalation row; a keyboard-hint bar computed from the current state; a no-results row that **is** the next action; the filter picker as a typeahead that flattens its tree into **breadcrumbs**; filter chips written as sentences with `Clear` and `Save` in the same corner; and the filtered-to-zero state naming **"4 issues hidden by filters"**. See [NOTES-linear](02-library-browse-filter-search/NOTES-linear.md). | ● closed |
+| 08 | A **genuine first-run workspace** — the gap this research has carried from the beginning. Linear answers an empty product with four *real* issues rather than an empty state, and carries three distinct registers of emptiness. See [NOTES-linear](08-empty-state-and-cold-start/NOTES-linear.md). | ● closed |
+| 10 | Linear's dark language at close range: few surfaces, hairlines instead of a shadow ramp, three foreground tones, key caps as a component, unset properties as imperatives. See [NOTES-linear](10-dark-design-language/NOTES-linear.md). | ◐ |
+
+**The trade, stated plainly.** An empty workspace cannot show density under load, so flow 10 does not
+get the thing it most wanted from Linear and is not going to. In exchange flow 08 got something no
+populated system could have given: the real first five minutes.
+
+**The finding that reaches back into the product spec.** CLAUDE.md §11 treats cold start as a demo
+problem — "~30 realistic items for any mockup". Linear treats it as a product decision: seed the
+workspace with real, editable objects so the system is never empty and the user learns the model by
+holding four instances of it. For us that means shipping a small starter set of genuine Items in a
+genuine Project, so the **validation pass runs before the user has typed anything** — which is the
+wow moment, delivered on first launch.
+
+---
+
 ## What is left
 
 **Needs no access — one item.** An instance that is **linked but locally modified** — the state
 between clean and detached — from the owner's Figma, access already granted, reversible with Ctrl+Z
 as before. Flow 05 is otherwise closed.
 
-**Needs an account — one.** **Linear**, for real density under load, a command palette over populated
-data and a genuine first-run empty state (flows 02, 08, 10). Nothing it would give us blocks a P1
-decision. Substitute if declined: `play.grafana.org` and `sandbox.sentry.io`, both open without login.
-
 **Needs a decision, not access.** **Raycast** is installable here (`winget install raycast`) but takes
 a global hotkey and wants a sign-in, so it belongs in a deliberate step rather than a sweep (flow 10).
+
+**Judged not worth pursuing.** Linear's density under load — the workspace is empty and no access
+fixes it. `play.grafana.org` and `sandbox.sentry.io` remain open substitutes if flow 10 ever needs
+real rows, but it is P3.
 
 **Out of reach, and settled.** Agentman's skill page and Figma's cross-file usage count (both paid or
 walled); Packmind and Continue Hub (substituted); Mobbin (not worth a subscription). Full reasoning in

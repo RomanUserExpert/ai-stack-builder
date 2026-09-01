@@ -13,25 +13,22 @@ Status of the research phase. Updated 2026-09-01.
 
 ## Flows
 
-**9 of 12 closed.**
+**11 of 12 closed.**
 
 | # | Flow | Status | Notes |
 |---|---|---|---|
-| 01 | Item detail and trust | ◐ | — |
-| 02 | Library browse, filter, search | ◐ | — |
+| 01 | Item detail and trust | ◐ | Held open only by Agentman's login-walled skill page |
+| 02 | Library browse, filter, search | ● | [Linear](flows/02-library-browse-filter-search/NOTES-linear.md) |
 | 03 | Relations without a canvas | ● | — |
 | 04 | Validation: pass, warn, block | ● | [Terraform](flows/04-validation-check-results/terraform-plan-output.md) · [Vercel](flows/04-validation-check-results/NOTES-vercel.md) · [GitHub Actions](flows/04-validation-check-results/NOTES-github-actions.md) · [Port](flows/04-validation-check-results/NOTES-port.md) |
 | 05 | Linked vs detached, blast radius | ● | [NOTES](flows/05-linked-vs-detached/NOTES.md) |
 | 06 | Export and target adaptation | ● | [Ruler output](flows/06-export-and-target-adaptation/ruler-per-agent-output.md) |
 | 07 | Env variables and secrets | ● | [NOTES](flows/07-env-and-secrets/NOTES.md) |
-| 08 | Empty state and cold start | ◐ | — |
+| 08 | Empty state and cold start | ● | [Linear](flows/08-empty-state-and-cold-start/NOTES-linear.md) |
 | 09 | Duplicate and fork | ● | [NOTES](flows/09-duplicate-and-fork/NOTES.md) |
-| 10 | Dark design language | ◐ | — |
+| 10 | Dark design language | ◐ | [Linear](flows/10-dark-design-language/NOTES-linear.md) — palette captured; density judged unobtainable |
 | 11 | Copy: errors, warnings, refusals | ● | [Conflict copy](flows/11-copy-and-error-language/dependency-conflict-copy.md) · [CI failure copy](flows/11-copy-and-error-language/ci-failure-copy.md) |
 | 12 | Visibility and portfolio | ● | [NOTES](flows/12-visibility-and-portfolio/NOTES.md) |
-
-The three that remain partial — 01, 02, 08, plus 10 — are all held open by the same single item: a
-populated **Linear** workspace. None of them blocks a P1 decision.
 
 ## What is left
 
@@ -40,12 +37,6 @@ populated **Linear** workspace. None of them blocks a P1 decision.
 | What | For | Where from |
 |---|---|---|
 | An instance that is linked **but locally modified** — the state between clean and detached | 05 | The owner's Figma, access already granted. Reversible with Ctrl+Z, as before |
-
-### Needs an account — one
-
-| What | For | Note |
-|---|---|---|
-| Linear workspace | 02, 08, 10 | Command palette over populated data, a genuine first-run empty state, real density under load. Not self-hostable — cloud only, account required. Substitute if declined: `play.grafana.org` and `sandbox.sentry.io`, both open without login. |
 
 ### Needs a decision, not access
 
@@ -59,14 +50,16 @@ populated **Linear** workspace. None of them blocks a P1 decision.
 |---|---|---|
 | ~~A failing GitHub Actions run~~ | 04, 11 | **Done 2026-09-01.** 102 jobs, 7 failed, 4 skipped, 1 cancelled, with its annotations digest and PR Checks tree. Log *bodies* need a sign-in even on a public repo; structure, glyphs and timings do not. |
 | ~~A scorecard in a blocking state~~ | 04 | **Answered 2026-09-01, and the answer is that there isn't one.** Port does not block — a failed rule gates a cumulative level ladder rather than forbidding an action. |
+| ~~A Linear workspace~~ | 02, 08, 10 | **Done 2026-09-01.** Closed flows 02 and 08 outright. |
+| Linear's density under load | 10 | **Not pursued.** The workspace granted is new — four issues — so density is not there to capture at any access level. `play.grafana.org` and `sandbox.sentry.io` remain open substitutes if P3 ever becomes P1. |
 | Agentman skill page and permission tiers | 01 | Behind login. Lesson is legible from their marketing; three open skill catalogs already captured. |
 | Cross-file component usage count | 05 | Figma library analytics, paid tier. The in-file instance count is captured; the cross-container number is not, and it is the shape of our "used in 3 projects". |
 | Packmind product, Continue Hub | 06 | Sales-gated and switched off. Both substituted — Ruler and the Continue repository. |
 | Mobbin | reference | 403s without a subscription. Not worth buying; we capture products directly. |
 
-## The two findings the design system has to answer to
+## The three findings the design system has to answer to
 
-Both landed on 2026-09-01 and both change a decision that is otherwise about to be made by default.
+All three landed on 2026-09-01, and each changes a decision that would otherwise be made by default.
 
 1. **The failure line.** Port writes `where "Open Critical Vulnerabilities" = 0 · Value: 1` — the
    condition required and the value found. GitHub writes `Process completed with exit code 1`, and a
@@ -79,12 +72,22 @@ Both landed on 2026-09-01 and both change a decision that is otherwise about to 
    That is a third shape for the validation result, and it needs deciding before the design system
    fixes the vocabulary — because a grade and a verdict do not look alike.
 
+3. **Cold start is a product decision, not a demo problem.** CLAUDE.md §11 plans ~30 realistic items
+   *for mockups*. Linear ships a new workspace with four **real** issues — editable, completable,
+   deletable — so the product is never empty and the model is learned by holding four instances of it.
+   Our equivalent: a small starter set of genuine Items in a genuine Project on first launch, so the
+   validation pass runs before the user types anything. That puts the wow moment on first launch
+   instead of after an evening of data entry.
+
 ## Definition of done
 
-The research phase is finished when every flow is either ● or explicitly declined above, and
-`comparison.md`'s three open questions have been answered by the PM. Those three questions —
-what our answer is to Continue Hub dying, which trust signal we ship without a network or an eval
-harness, and whether a personal library has a business — gate the design system, because they
-decide what `visibility`, `Workspace` and `version` have to mean.
+Every flow is ● or explicitly declined above, except flow 01 (Agentman, login-walled — declined) and
+flow 10 (Raycast, a decision rather than an access problem). Collection is effectively finished.
+
+What still gates the design system is not material but answers: `comparison.md`'s **three open
+questions for the PM** — what our answer is to Continue Hub dying, which trust signal we ship without
+a network or an eval harness, and whether a personal library has a business. They decide what
+`visibility`, `Workspace` and `version` have to mean. Add to them the **block-or-grade** question in
+finding 2 above, which is ours to settle rather than the market's.
 
 Next stage after sign-off: design system. Not started, per CLAUDE.md section 1.
