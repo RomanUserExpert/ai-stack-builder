@@ -96,12 +96,11 @@ Item
   visibility    private | public        // public = eligible for the shared catalog (later)
   source        inline | external
   content                               // if inline
-  repoUrl, path                         // if external (a GitHub repo)
+  repoUrl, path, ref                    // if external: repo, file, and a pinned commit/tag/version
   requires: [itemId]
   conflicts: [itemId]
   needsEnv: [string]
   targetPath                            // where it lands on export
-  version                               // reserved, see section 9
 
 Project
   id
@@ -145,6 +144,13 @@ Consequences the design must handle:
   ("modified from library version"), with a way back
 - editing a linked item needs to communicate blast radius: *"used in 3 projects"*
 
+**What an item card claims, and what it never claims** (decided 2026-09-01). Trust in a *set* comes
+from the validation pass. The only per-item evidence we show is derived from the library itself —
+*used in 3 projects*, *2 items require this*, *last exported 12 days ago*. Those are usage facts, not
+quality judgements, and they need no network. We ship **no score, no rating, no eval result and no
+badge**: the market has converged on measured trust (Tessl scores every skill, Smithery every server),
+and we have no way to run an item, so any number we invented would be decoration.
+
 ### Relations
 
 `requires` and `conflicts` are filled in **manually** when adding or editing an item.
@@ -177,8 +183,10 @@ designed moment, not a spinner.
 More than a zip of files:
 
 - inline items are placed by `targetPath`, per kind
-- external items become instructions in `SETUP.md` (repo link, clone command, placement)
-- all MCP servers merge into a single config, with key collisions checked separately
+- external items become instructions in `SETUP.md` — repo link, clone command **at the pinned `ref`**, placement
+- all MCP servers merge into a single config. A key collision is checked separately, and **two
+  items declaring the same server key at different `ref`s is a collision too** — one of them will
+  not be in the exported config, so say which and say both refs
 - missing env variables are collected into `.env.example`
 
 **Agent target.** The user picks the target before exporting, and naming and paths in the
@@ -226,14 +234,19 @@ State 7 is new relative to the original brief and is easy to forget.
 
 Kept in the architecture's line of sight, not built:
 
-- **Versioning.** No history, no diffs, no rollback, no version pinning in projects. The
-  `version` field is reserved and nothing reads it yet.
-- **Sharing and the public catalog.** `visibility` exists in the model and in the UI's
-  vocabulary; there is no server to publish to. Public/private is designed for, not wired
-  up.
+- **Versioning of your own items.** No history, no diffs, no rollback, and **no `version` field on
+  the item** — decided 2026-09-01. An item lives in the library once and projects link to it live,
+  so `detached` plus `overrides` already does the job a version number would: it is how a project
+  says *I do not want the current one*. A second, parallel mechanism for the same thing is not
+  built. **External references are a different matter and are pinned** — see `ref` in section 5.
+  If real versioning is ever wanted, both the field and the history are additive.
+- **Sharing and the public catalog.** `visibility` stays in the model, and there is no server to
+  publish to — so **the control is not shown in the MVP interface at all** (decided 2026-09-01).
+  A switch that cannot act is the one thing the research is unanimous about: Linear, Figma and
+  GitHub all hide an action until it has something to do. Do not ship a dead toggle on the most
+  load-bearing word in the model.
 - **Accounts, sync, teams.** Single user, one workspace.
 - **Automatic metadata parsing** from item content.
-- **Automatic version conflict resolution.** A version mismatch is shown as a conflict.
 
 Do not build these. Do not design a screen that only makes sense once they exist.
 
@@ -270,11 +283,29 @@ Later, not now: a starter catalog, and public items flowing into a shared catalo
 
 ## 12. Open questions
 
+**Still open.**
+
+- **Does the validation pass block, or grade?** The spec says hard-block and soft-warn, a binary.
+  Port does neither: a failed rule stops an entity climbing `Basic → Low → Good → Great` and forbids
+  nothing, while Continue used the same `fatal: true | false` binary we specified and filed a missing
+  dependency as non-fatal. Both poles have shipped. This decides what the result screen *is*, so it
+  is the next thing to settle. See `research/flows/04-validation-check-results/NOTES-port.md`.
 - Styling engine: Tailwind vs CSS Modules vs vanilla-extract. Not decided.
-- Visual direction and tone. Deliberately postponed until after research.
-- Competitors and references to position against — not yet surveyed.
 - Whether a project can contain another project (composition), or only items.
 - Whether detached items should be promotable back into the library as new items.
+
+**Closed.**
+
+- ~~Competitors and references to position against~~ — surveyed. 15 companies, 12 flows, ~70 captures
+  and the source of the nearest dead competitor, in [`research/`](research/). Start at
+  [`research/research-plan.md`](research/research-plan.md).
+- ~~Visual direction and tone~~ — still not chosen, but no longer a question *here*: it is the first
+  task of the design-system phase, with its reference material already gathered in
+  `research/flows/10-dark-design-language/`.
+- ~~Does `visibility` appear in the MVP interface~~ — no. Section 9.
+- ~~Does anything read `version`~~ — the field is gone; external references are pinned instead.
+  Sections 5 and 9.
+- ~~What per-item trust signal do we ship~~ — usage facts from the library, never a score. Section 5.
 
 ---
 

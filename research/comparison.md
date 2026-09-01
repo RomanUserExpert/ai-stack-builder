@@ -85,6 +85,12 @@ from a pricing page in this pass.
 
 ## Three decisions the design system needs
 
+> **Answered 2026-09-01.** All three are now recorded in CLAUDE.md. `visibility` keeps its field and
+> loses its control (§9). An item card carries usage facts from the library and never a score (§5).
+> The `version` field is cut entirely, and external references gain a pinned `ref` instead (§5, §9) —
+> see *A late correction* at the end of this section. The remaining live question is **block or
+> grade**, now recorded in CLAUDE.md §12.
+
 Rewritten 2026-09-01. An earlier version of this section asked three strategic questions —
 *is there a business, what is our answer to Continue, is single-user only a wedge*. Those were the
 wrong shape: CLAUDE.md §9 has already made the scope decisions, and research does not answer whether
@@ -157,6 +163,34 @@ and `conflicts` are filled in by hand (§5); a hand-entered version on a hand-en
 the user invents and then has to keep true against itself. Every other check in the pass is derived
 from structure the user already declared. Version would be the only one that depends on a discipline
 we have no way to enforce.
+
+
+### A late correction on decision 3 — cut the field, pin the reference
+
+The first answer to decision 3 was *cut `version` entirely*. Re-examined against what competitors
+actually do, that is right for half the problem and wrong for the other half. Four models are in
+evidence and they are not solving the same thing:
+
+| Product | Model |
+|---|---|
+| **Terraform** | Full semver. `v6.7.2` in the URL, a version picker, **243 versions** listed, and constraint syntax (`~> 2.4.0`) in the code. Conflicts come from *constraints colliding* — the source of the best error copy we captured. |
+| **Tessl** | **No version number at all.** Identity is `repo + path + commit` — `anthropics/skills` · `skills/docx/SKILL.md` · `3b3fad9`. A pin, not a version, so a version clash is impossible by construction. |
+| **Continue** | `owner/package@versionSlug`, defaulting to the virtual tag `latest`. The pin is optional. |
+| **Figma** | No numbers anywhere. A library either has pending updates or does not; they are grouped by publish event and accepted one at a time or all at once. Versioning replaced by *propagation state*. |
+
+**Our model is Figma's, not Terraform's.** An item lives in the library once and projects link to it
+live, so there are never two coexisting versions of one item to disagree about. `detached` plus
+`overrides` is already how a project says *I do not want the current one*.
+
+**But external items are not ours to link to.** `repoUrl` + `path` with no revision means `SETUP.md`
+says *clone this repo* and hands the user whatever HEAD is that day. The sharpest case is `mcp`: MCP
+servers are versioned packages and the version lands physically in the generated `.mcp.json`. Merging
+every server into one config without recording versions produces an archive that installs something
+different on each machine — which contradicts the whole promise.
+
+**So: no `version` on the item, and a `ref` on the external reference** — Tessl's answer, not
+Terraform's. No new check is added either; the MCP key-collision check §6 already requires simply
+stops lying: *the same server key at two different refs is a collision*, and the message names both.
 
 ---
 
