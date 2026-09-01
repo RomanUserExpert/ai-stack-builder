@@ -1,13 +1,13 @@
 # Research plan
 
-Updated 2026-09-01. The phase runs in five stages. **Three are done, stage 4 is under way, stage 5 is not started.**
+Updated 2026-09-01. The phase runs in five stages. **Four are done, stage 5 is not started.**
 
 | # | Stage | What it produces | Status |
 |---|---|---|---|
 | 1 | **Landscape** | Who else is in this space, what they sell, and to whom | ● done |
 | 2 | **Flows** | Twelve mechanisms captured from live products | ● done |
 | 3 | **Pain** | The first evidence about users rather than vendors | ● done |
-| 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ◐ under way — 9 of 16 cells scored |
+| 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ● done — 15 cells scored |
 | 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ○ not started |
 
 Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
@@ -28,7 +28,7 @@ Sign-off comes after stage 5. Next phase: design system, per CLAUDE.md §1.
 | [`user-pain.md`](user-pain.md) | What actually hurts, from two public issue trackers — the first evidence here about users rather than vendors. States plainly what the instrument cannot see. |
 | [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the `uses`/`with`/`override` composition primitive, its identity and secret schemes, and the three things its resolver never did. |
 | [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
-| [`benchmark.md`](benchmark.md) | **Stage 4, in progress.** The scored matrix, the three rules the scoring follows, and what each score below or above 4 is argued from. Ends with what is still to capture, and two candidates proposed for removal. |
+| [`benchmark.md`](benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`benchmark/`](benchmark/). |
 | `patterns.md` | **Stage 5 — not written yet.** |
 
 ---
@@ -116,12 +116,15 @@ Each is lifted from a finding in stages 1–3, so the rubric is grounded rather 
 Best-in-class, competitors allowed but not required. Availability on this machine noted, because a
 benchmark we cannot capture is a benchmark we cannot defend.
 
-| Flow | Candidates | Availability |
+**As planned, and as it ended up.** Two candidates were replaced and one dropped; the reasoning is
+recorded in [`benchmark.md`](benchmark.md) rather than repeated here.
+
+| Flow | Candidates, final | Change from the plan |
 |---|---|---|
-| **B1** Find | **Linear** ⌘K · **VS Code** command palette + Extensions search · **GitHub** code search · **Obsidian** quick switcher | Linear ✓ (owner's) · VS Code ✓ free · GitHub ✓ · Obsidian ✓ free |
-| **B2** Assemble | **Figma** instance swap and library panel · **VS Code** extension enable/disable per workspace + Recommended Extensions · **Docker Compose** service set · **Homebrew** `Brewfile` | Figma ✓ (owner's) · VS Code ✓ · Compose ✓ CLI · Brewfile — read format only, macOS |
-| **B3** Check | **Terraform** `plan` · **VS Code** Problems panel with ESLint/tsc · **GitHub Actions** run · **Vercel** build log | All ✓ — already partly captured in flow 04 |
-| **B4** Produce | **Vercel** deploy · **`create-next-app`** scaffold output · **Figma** export dialog · **Ruler** per-agent output | All ✓ — Ruler already run locally in flow 06 |
+| **B1** Find | **Linear** ⌘K · **GitHub** code search · **Obsidian** quick switcher · **VS Code** palette + Extensions | none — all four captured |
+| **B2** Assemble | **VS Code** per-workspace extensions + Workspace Trust · **`npm install`** · **Figma** instances and library | `Brewfile` → `npm` (a format we can only read is not a benchmark); **Docker Compose dropped** (not installed, and the question was answered three ways already) |
+| **B3** Check | **Terraform** `plan` + `validate` · **VS Code** Problems panel · **Vercel** build log · **GitHub Actions** run | `validate` against a deliberately broken config was added, to capture the failure copy the successful plan could not |
+| **B4** Produce | **Vercel** deploy · **`create-next-app`** · **Figma** export dialog · **Ruler** | none |
 
 **VS Code earns its place three times over.** Free, installed, and it is the closest thing in
 existence to our product's mechanics: an extension list that is browsed and filtered, a set enabled
@@ -140,10 +143,12 @@ owner's session, local CLI for anything installable without side effects. Read-o
 logged. **Scores are written before the reasoning, then the reasoning is written and the score
 revisited once** — so the number is argued, not rationalised.
 
-### Done when
+### Done — 2026-09-01
 
-All sixteen cells scored, every score justified in a sentence, and the rubric's five categories
-carried forward into stage 5 unchanged.
+All fifteen cells scored, every score justified, the five categories carried into stage 5 unchanged.
+Eight findings came out of it; two of them corrected this research rather than the products —
+**the "an action that cannot act is not shown" rule holds on primary surfaces and reverses in context
+menus**, and **B4 is the weakest flow in the industry**, which is where our wow moment is aimed.
 
 ---
 
@@ -263,7 +268,7 @@ The research phase is finished when:
 - [x] Stage 1 — landscape surveyed
 - [x] Stage 2 — flows captured, every one closed or declined with reasoning
 - [x] Stage 3 — pain evidenced, with the instrument's blind spots stated
-- [ ] Stage 4 — sixteen benchmark cells scored against five grounded categories
+- [x] Stage 4 — fifteen benchmark cells scored against five grounded categories
 - [ ] Stage 5 — five patterns compared on that rubric, one chosen and written into CLAUDE.md §8
 - [ ] Every question in the register below marked **answered** or **deferred with a stated reason** —
       in one sitting, once stages 4 and 5 are in, not one at a time along the way

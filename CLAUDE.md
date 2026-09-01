@@ -19,11 +19,12 @@ The agreed order of work:
 4. Static frontend implementation (markup only, no business logic)
 5. Logic (state, storage, validation, export)
 
-**Research itself runs in five stages, and two are not started.** Landscape, flows and pain are
-done; **benchmark** (a scoring rubric built from what stages 1-3 found, applied to the best product
-in the world at each of our four core flows) and **patterns** (five radically different shapes for
-the key flow — assemble a set, check it, export — scored on that rubric, one chosen) are not.
-Status and the full design of both stages: [`research/research-plan.md`](research/research-plan.md).
+**Research itself runs in five stages, and one is left.** Landscape, flows, pain and **benchmark**
+are done — the last of those scored 15 product-and-flow cells against five categories lifted from
+stages 1–3, in [`research/benchmark.md`](research/benchmark.md). What remains is **patterns**: five
+radically different shapes for the key flow — assemble a set, check it, export — scored on that
+rubric, one chosen. Status and the full design of the stage:
+[`research/research-plan.md`](research/research-plan.md).
 
 Do not skip ahead. If a request seems to jump to a later stage, confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is
@@ -207,10 +208,16 @@ Decided 2026-09-01. Every finding is one of:
 **Export is never disabled.** Almost nothing makes an archive impossible to produce — a missing env
 key still zips, a duplicate command still zips, it is simply wrong inside. Blocking is therefore
 almost always a choice, and we do not make it, for three reasons. It is the user's own library on
-their own machine. A permanently disabled export button is a dead end, and the research is
-unanimous that an action which cannot act is not shown — a greyed-out primary action is that same
-mistake on the most important control in the product. And the promise is *the system checked*, not
-*the system forbade*.
+their own machine. A permanently disabled export button is a dead end, and on **primary surfaces**
+the research is consistent that an action which cannot act is not shown — a greyed-out primary
+action is that same mistake on the most important control in the product. And the promise is
+*the system checked*, not *the system forbade*.
+
+Figma's export dialog does exactly what we are refusing — `0 of 0 selected` beside a greyed `Export`
+— and the benchmark records why it gets away with it: the blocker is one named action away, it is a
+property of this second's selection rather than of the document, and re-exporting costs nothing. Our
+Problems are properties of the project, the fix may be four items away, and the archive is the whole
+point of the product. See `research/benchmark/NOTES-figma-export.md`.
 
 **Instead, an unclean export is confirmed.** Pressing Export on a set with Problems opens a
 confirmation that names the consequence in the present tense, in GitHub's mergebox register:
@@ -295,9 +302,11 @@ Kept in the architecture's line of sight, not built:
   If real versioning is ever wanted, both the field and the history are additive.
 - **Sharing and the public catalog.** `visibility` stays in the model, and there is no server to
   publish to — so **the control is not shown in the MVP interface at all** (decided 2026-09-01).
-  A switch that cannot act is the one thing the research is unanimous about: Linear, Figma and
-  GitHub all hide an action until it has something to do. Do not ship a dead toggle on the most
-  load-bearing word in the model.
+  A switch that cannot act does not belong on a primary surface: Linear, Figma and GitHub all hide
+  an action there until it has something to do. Do not ship a dead toggle on the most load-bearing
+  word in the model. (The rule has one documented exception and it does not apply here — **context
+  menus grey rather than hide**, because a stable item order is worth more than a short list. See
+  finding 7 in `research/benchmark.md`.)
 - **Accounts, sync, teams.** Single user, one workspace.
 - **Automatic metadata parsing** from item content.
 
