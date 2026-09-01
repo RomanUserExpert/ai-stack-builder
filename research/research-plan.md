@@ -30,6 +30,7 @@ Sign-off comes after stage 5. Next phase: design system, per CLAUDE.md §1.
 | [`continue-postmortem.md`](continue-postmortem.md) | The closest competitor read from source: its block model, the `uses`/`with`/`override` composition primitive, its identity and secret schemes, and the three things its resolver never did. |
 | [`flows/README.md`](flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
 | [`benchmark.md`](benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`benchmark/`](benchmark/). |
+| [`open-questions.md`](open-questions.md) | **The working sheet for the closing sitting.** Six questions, and per question: where to read before deciding, the options on the table, and a recommendation. Status stays in the register at the end of this file. |
 | [`patterns.md`](patterns.md) | **Stage 5.** Five shapes for *assemble → check → export*, each answering the same five questions, each scored on the stage-4 rubric read as *does the shape give this a home*. The choice, what each rejected variant donates, and what the choice costs. |
 
 ---
@@ -300,6 +301,10 @@ sign-off.
 
 **Adding an entry.** Give it the next ID, say which stage raised it, and — the part that matters —
 say **what would answer it**. A question with no named instrument is not a question, it is a worry.
+
+**The prep sheet for the sitting is [`open-questions.md`](open-questions.md)** — per question, where
+to read before deciding, the options actually on the table, and a recommendation. It holds the
+reasoning; this register holds the status. Neither is a copy of the other.
 
 **The evidence is now in.** Stage 5 was the named instrument for Q1, Q3 and Q4, and stage 4's B4 work
 for Q2. What each turned up is recorded at the end of [`patterns.md`](patterns.md) as *evidence, not
