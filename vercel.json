@@ -3,7 +3,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "destination": "/research/research.html" }
+    { "source": "/", "destination": "/research/research" }
   ],
   "headers": [
     {

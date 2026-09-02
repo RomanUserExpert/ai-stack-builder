@@ -39,3 +39,6 @@ tools/_research-page.build.html
 
 # vercel
 .vercel
+
+.vercel
+.env*
