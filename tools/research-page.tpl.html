@@ -1,0 +1,968 @@
+<title>AI Stack Builder Research</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+
+<style>
+:root{
+  --paper:#EDF1F0;
+  --surface:#FBFCFC;
+  --sunken:#E3E9E8;
+  --ink:#141F1E;
+  --ink-2:#475654;
+  --ink-3:#778785;
+  --rule:#CFD8D6;
+  --rule-soft:#DFE6E5;
+  --accent:#0E6B60;
+  --accent-soft:#D6E7E4;
+  --problem:#A8281F;
+  --problem-soft:#F2DCD9;
+  --note:#8A5B00;
+  --note-soft:#F4E6CC;
+  --skipped:#6E7D7B;
+  --skipped-soft:#E1E7E6;
+  --shadow:0 1px 2px rgba(20,31,30,.07),0 8px 24px -14px rgba(20,31,30,.22);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1413;
+    --surface:#151E1D;
+    --sunken:#0A100F;
+    --ink:#E3EAE8;
+    --ink-2:#A2B0AE;
+    --ink-3:#75837F;
+    --rule:#2A3634;
+    --rule-soft:#212B2A;
+    --accent:#4CBBAA;
+    --accent-soft:#173733;
+    --problem:#EE8F86;
+    --problem-soft:#3A1F1C;
+    --note:#DCA847;
+    --note-soft:#352A14;
+    --skipped:#8B9997;
+    --skipped-soft:#1D2726;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1413;
+  --surface:#151E1D;
+  --sunken:#0A100F;
+  --ink:#E3EAE8;
+  --ink-2:#A2B0AE;
+  --ink-3:#75837F;
+  --rule:#2A3634;
+  --rule-soft:#212B2A;
+  --accent:#4CBBAA;
+  --accent-soft:#173733;
+  --problem:#EE8F86;
+  --problem-soft:#3A1F1C;
+  --note:#DCA847;
+  --note-soft:#352A14;
+  --skipped:#8B9997;
+  --skipped-soft:#1D2726;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Literata,Georgia,"Times New Roman","Segoe UI Symbol",serif;
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.ui{font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Symbol",sans-serif}
+code,.mono,.num{font-family:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace}
+a{color:var(--accent);text-underline-offset:3px;text-decoration-thickness:1px}
+a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* ---------- shell ---------- */
+.shell{max-width:1240px;margin:0 auto;padding:0 24px 100px}
+@media (min-width:1080px){
+  .shell{display:grid;grid-template-columns:184px minmax(0,1fr);gap:56px;padding:0 40px 120px}
+}
+.col{max-width:70ch}
+.wide{max-width:100%}
+
+/* ---------- masthead ---------- */
+.mast{grid-column:1/-1;padding:56px 0 40px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent);margin:0 0 18px
+}
+.mast h1{
+  font-size:clamp(38px,6.2vw,64px);line-height:1.02;letter-spacing:-.022em;
+  font-weight:700;margin:0 0 22px;text-wrap:balance;max-width:16ch
+}
+.standfirst{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:60ch;margin:0 0 34px}
+.standfirst strong{color:var(--ink);font-weight:400;box-shadow:inset 0 -.5em 0 var(--accent-soft)}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:4px;overflow:hidden
+}
+.facts div{background:var(--paper);padding:13px 14px}
+.facts dt{
+  font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 5px;font-weight:600
+}
+.facts dd{
+  margin:0;font-family:"IBM Plex Mono",monospace;font-size:21px;
+  font-variant-numeric:tabular-nums;color:var(--ink);line-height:1
+}
+.facts dd small{font-size:11px;color:var(--ink-3);display:block;margin-top:5px;letter-spacing:.02em}
+
+/* ---------- rail ---------- */
+.rail{display:none}
+@media (min-width:1080px){
+  .rail{display:block;position:sticky;top:0;align-self:start;padding-top:44px;max-height:100vh;overflow-y:auto}
+  .rail ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--rule)}
+  .rail li{margin:0}
+  .rail a{
+    display:block;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;
+    font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:13px;line-height:1.32;
+    color:var(--ink-3);text-decoration:none
+  }
+  .rail a:hover{color:var(--ink)}
+  .rail a.on{color:var(--ink);border-left-color:var(--accent);font-weight:600}
+  .rail a b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;color:var(--accent);font-weight:400;margin-bottom:1px}
+}
+.railhead{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 12px;padding-left:16px
+}
+
+/* ---------- sections ---------- */
+section{padding:64px 0 8px;scroll-margin-top:20px}
+section+section{border-top:1px solid var(--rule-soft)}
+.stagehead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
+.stagenum{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;color:var(--accent);
+  border:1px solid var(--accent);border-radius:3px;padding:2px 7px;white-space:nowrap
+}
+h2{font-size:clamp(27px,3.4vw,36px);line-height:1.14;letter-spacing:-.017em;font-weight:700;margin:0;text-wrap:balance}
+.qline{color:var(--ink-2);font-size:16px;margin:12px 0 30px;max-width:62ch;font-style:italic}
+h3{font-size:20px;line-height:1.28;letter-spacing:-.008em;font-weight:600;margin:44px 0 12px;text-wrap:balance}
+h4{
+  font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;margin:36px 0 12px
+}
+p{margin:0 0 17px}
+.col>p,.col>ul,.col>ol{max-width:70ch}
+ul,ol{margin:0 0 17px;padding-left:22px}
+li{margin-bottom:9px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+em{font-style:italic}
+
+/* ---------- verdict block (per-stage conclusion) ---------- */
+.verdict{
+  margin:44px 0 8px;padding:24px 26px 22px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:0 5px 5px 0;box-shadow:var(--shadow)
+}
+.verdict .vh{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px
+}
+.verdict p{margin:0 0 12px;font-size:16.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict ul{margin:0;font-size:16px}
+.verdict li:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 22px;border:1px solid var(--rule);border-radius:5px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:13.5px;line-height:1.45}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap;position:sticky;top:0
+}
+tbody tr:last-child td{border-bottom:none}
+td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
+.band td{
+  background:var(--sunken);font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);padding:7px 12px
+}
+.tnote{font-size:13px;color:var(--ink-3);margin:-12px 0 26px;font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif}
+
+/* score cells */
+td.s{
+  text-align:center;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+  width:52px;font-size:14px;color:var(--ink)
+}
+td.s5{background:var(--accent);color:#fff;font-weight:500}
+td.s4{background:var(--accent-soft)}
+td.s3{background:var(--skipped-soft)}
+td.s2{background:var(--note-soft)}
+td.s1{background:var(--problem-soft);color:var(--problem);font-weight:500}
+td.sx{color:var(--ink-3)}
+:root[data-theme="dark"] td.s5,
+:root:not([data-theme="light"]) td.s5{color:#08201D}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) td.s5{color:#fff}}
+
+.legend{
+  display:flex;flex-wrap:wrap;gap:14px;margin:0 0 26px;
+  font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:12.5px;color:var(--ink-2)
+}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.chip{width:22px;height:15px;border-radius:2px;border:1px solid var(--rule);display:inline-block}
+
+/* ---------- flow collapses ---------- */
+.flows{margin:26px 0 0;border:1px solid var(--rule);border-radius:5px;overflow:hidden;background:var(--surface)}
+details{border-bottom:1px solid var(--rule-soft)}
+details:last-child{border-bottom:none}
+summary{
+  list-style:none;cursor:pointer;padding:15px 18px;display:grid;
+  grid-template-columns:44px 1fr auto;gap:14px;align-items:baseline
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--sunken)}
+.fnum{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);
+  font-variant-numeric:tabular-nums;letter-spacing:.04em
+}
+.ftitle{font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+.ftitle span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:3px;font-family:Literata,Georgia,serif;line-height:1.5}
+.fstat{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 7px;border-radius:3px;white-space:nowrap;border:1px solid transparent
+}
+.st-closed{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
+.st-part{background:var(--note-soft);color:var(--note);border-color:var(--note)}
+.st-fwd{background:var(--skipped-soft);color:var(--skipped);border-color:var(--skipped)}
+.fbody{padding:4px 18px 22px 76px}
+@media (max-width:640px){
+  summary{grid-template-columns:36px 1fr;grid-template-rows:auto auto;gap:8px 12px}
+  .fstat{grid-column:2;justify-self:start}
+  .fbody{padding:4px 16px 20px 16px}
+}
+.fbody p{font-size:16px;margin:0 0 14px}
+.fbody .src{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-3);line-height:1.7}
+.fbody .src a{color:var(--ink-2)}
+
+/* ---------- evidence scroller ---------- */
+.shots{
+  max-height:480px;overflow-y:auto;background:var(--sunken);border:1px solid var(--rule);
+  border-radius:5px;padding:14px;display:flex;flex-direction:column;gap:16px;margin:0 0 16px
+}
+.shots figure{margin:0}
+.shots img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;background:var(--surface)
+}
+.shots figcaption{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
+  margin-top:7px;line-height:1.55
+}
+.scrollhint{
+  font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;display:flex;align-items:center;gap:7px
+}
+.scrollhint::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+
+/* ---------- pain bars ---------- */
+.bars{margin:8px 0 26px;display:flex;flex-direction:column;gap:9px;max-width:64ch}
+.bar{display:grid;grid-template-columns:1fr 48px;gap:14px;align-items:center}
+.bar .lbl{font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:13.5px;line-height:1.35;color:var(--ink-2)}
+.bar .lbl b{color:var(--ink);font-weight:600}
+.bar .track{grid-column:1/-1;height:9px;background:var(--sunken);border-radius:2px;overflow:hidden;border:1px solid var(--rule-soft)}
+.bar .fill{height:100%;background:var(--skipped);border-radius:1px}
+.bar .fill.loud{background:var(--problem)}
+.bar .fill.ours{background:var(--accent)}
+.bar .n{
+  font-family:"IBM Plex Mono",monospace;font-size:14px;font-variant-numeric:tabular-nums;
+  text-align:right;color:var(--ink)
+}
+.barlegend{font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:12.5px;color:var(--ink-3);margin:-14px 0 26px}
+
+/* ---------- pull quote ---------- */
+blockquote{
+  margin:26px 0;padding:0 0 0 20px;border-left:2px solid var(--accent);
+  font-size:18.5px;line-height:1.5;color:var(--ink)
+}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote cite{
+  display:block;font-style:normal;font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;color:var(--ink-3);margin-top:10px;letter-spacing:.03em
+}
+
+/* ---------- shape diagram ---------- */
+.shape{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule);border-radius:5px;overflow:hidden;margin:24px 0
+}
+.shape div{background:var(--surface);padding:16px 16px 18px}
+.shape h5{
+  font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:13px;font-weight:600;margin:0 0 4px;
+  letter-spacing:.02em;color:var(--ink)
+}
+.shape .k{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+.shape p{font-size:13.5px;line-height:1.5;color:var(--ink-2);margin:0;font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif}
+
+/* ---------- decisions ---------- */
+.decisions{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:5px;overflow:hidden;margin:24px 0 8px}
+.dec{background:var(--surface);padding:17px 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:22px}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:9px}}
+.dec .what{font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:14.5px;font-weight:600;line-height:1.4;color:var(--ink)}
+.dec .what b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:400;margin-bottom:5px}
+.dec .why{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.dec .why em{color:var(--ink);font-style:italic}
+
+/* ---------- gaps ---------- */
+.gaps{display:flex;flex-direction:column;gap:14px;margin:24px 0 8px}
+.gap{
+  background:var(--surface);border:1px solid var(--rule);border-radius:5px;padding:18px 20px;
+  border-top:2px solid var(--note)
+}
+.gap.unverified{border-top-color:var(--problem)}
+.gaphead{display:flex;align-items:baseline;gap:11px;margin-bottom:9px;flex-wrap:wrap}
+.gid{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);letter-spacing:.06em}
+.gaphead h5{font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:15.5px;font-weight:600;margin:0;line-height:1.35;color:var(--ink)}
+.gap p{font-size:15.5px;margin:0 0 11px;color:var(--ink-2)}
+.gap p:last-child{margin:0}
+.gap .hyp{color:var(--ink);padding:11px 14px;background:var(--sunken);border-radius:4px;font-size:15px}
+.gap .hyp b{font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:5px;font-weight:600}
+.gap .from{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);margin-top:11px}
+.nd{
+  font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--problem);background:var(--problem-soft);padding:2px 6px;border-radius:3px;white-space:nowrap
+}
+
+/* ---------- footer ---------- */
+.foot{
+  grid-column:1/-1;margin-top:70px;padding-top:26px;border-top:1px solid var(--rule);
+  font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:13px;color:var(--ink-3);
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="shell">
+
+<header class="mast">
+  <p class="eyebrow">Research phase · 30 Aug – 2 Sep 2026 · signed off</p>
+  <h1>What we learned before drawing anything</h1>
+  <p class="standfirst">Five stages of research for <strong>AI Stack Builder</strong> — a workspace where an AI practitioner keeps their own building blocks and assembles them into projects that export as a working archive. We surveyed the market, captured how live products behave, went looking for what actually hurts, scored the best of them against a rubric, then compared five shapes for our key flow and chose one.</p>
+  <dl class="facts">
+    <div><dt>Stages</dt><dd>5<small>all closed</small></dd></div>
+    <div><dt>Products</dt><dd>15<small>on five axes</small></dd></div>
+    <div><dt>Flows</dt><dd>12<small>10 closed</small></dd></div>
+    <div><dt>Captures</dt><dd>143<small>screens &amp; logs</small></dd></div>
+    <div><dt>Cells scored</dt><dd>15<small>4 flows × rubric</small></dd></div>
+    <div><dt>Issues read</dt><dd>7863<small>two trackers</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="Stages">
+  <p class="railhead">Contents</p>
+  <ol>
+    <li><a href="#s1"><b>Stage 01</b>Competitors</a></li>
+    <li><a href="#s2"><b>Stage 02</b>Flows</a></li>
+    <li><a href="#s3"><b>Stage 03</b>Pain</a></li>
+    <li><a href="#s4"><b>Stage 04</b>Benchmark</a></li>
+    <li><a href="#s5"><b>Stage 05</b>Patterns</a></li>
+    <li><a href="#end"><b>Close</b>Decisions</a></li>
+    <li><a href="#gaps"><b>Close</b>Open gaps</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ============ STAGE 1 ============ -->
+<section id="s1" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 01</span><h2>Competitors</h2></div>
+  <p class="qline">Who else is in this space, what do they sell, and to whom?</p>
+
+  <p>Fifteen products in three groups. <strong>Hard</strong> — aiming at the same job as ours. <strong>Soft</strong> — a different product doing the same work somewhere else. <strong>Aspirational</strong> — the craft bar. Each read on five axes: who it is sold to, what its atomic asset is, the mechanism nothing else has, how it earns trust, and how it charges.</p>
+
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Product</th><th>Product base</th><th>Key mechanism</th><th>Trust</th></tr></thead>
+      <tbody>
+        <tr class="band"><td colspan="4">Hard — same product, same audience</td></tr>
+        <tr><td class="name">Tessl</td><td>Skill as a registry artifact pinned to repo + path + commit</td><td>Publishing gated by evaluation — a skill ships only after it scores</td><td>Composite 93, uplift 1.40×, Quality / Impact %, Snyk scan</td></tr>
+        <tr><td class="name">Packmind</td><td>A versioned engineering playbook of standards</td><td>One source distributed into each agent's format, drift detected back</td><td>Governance framing, pre-commit blocking</td></tr>
+        <tr><td class="name">Agentman</td><td>Skill as an executable, shareable unit</td><td>Visual assembly of skills into a working agent</td><td>Compliance badges + four permission tiers</td></tr>
+        <tr><td class="name">Smithery</td><td>MCP server as a hosted, connectable endpoint</td><td>Connect once, reuse everywhere — it holds auth and sessions</td><td>Score /100, verified badge, usage counts</td></tr>
+        <tr><td class="name">Continue Hub</td><td>A block: model, context, docs, MCP, rule, prompt</td><td>Compose blocks into a custom assistant</td><td>Open source and forkable — trust by inspection</td></tr>
+        <tr class="band"><td colspan="4">Soft — different product, same job</td></tr>
+        <tr><td class="name">Backstage</td><td>A typed entity declared in YAML beside the code</td><td>Relations derived and filtered, <em>never drawn</em></td><td>Ownership: owner, lifecycle, source file on every entity</td></tr>
+        <tr><td class="name">Port</td><td>Entity in a Context Lake, plus scorecards</td><td>Standards applied as scorecards over the catalog</td><td>Pass, warn or block — with the reason attached</td></tr>
+        <tr><td class="name">Terraform</td><td>A versioned module with declared constraints</td><td><code>plan</code> — a legible dry run before the irreversible step</td><td>Version constraints, provider signing, download counts</td></tr>
+        <tr><td class="name">Figma</td><td>A component in a library, and its instances</td><td>Live link with a deliberate <em>detach</em>, plus propagation</td><td>An instance always names its main component</td></tr>
+        <tr><td class="name">Notion</td><td>A page, and a template as a duplicatable page</td><td><em>Duplicate</em> as the distribution primitive</td><td>Creator profiles, usage counts, official gallery</td></tr>
+        <tr class="band"><td colspan="4">Aspirational — the craft bar</td></tr>
+        <tr><td class="name">Linear</td><td>An issue in an opinionated workflow</td><td>Speed as a feature — keyboard-first, command menu</td><td>Opinion: the product tells you how to work</td></tr>
+        <tr><td class="name">Raycast</td><td>A command; an extension is a bundle of them</td><td>Launcher-first — everything one keystroke away</td><td>Open source, author identity, install counts</td></tr>
+        <tr><td class="name">Vercel</td><td>A deployment</td><td>The deploy as a designed event with a log you actually read</td><td>The log itself — nothing hidden behind a spinner</td></tr>
+        <tr><td class="name">Stripe</td><td>An API object with explicit relationships</td><td>Documentation as interface — the reference <em>is</em> the product</td><td>Precision: versioned docs, errors that name the cause</td></tr>
+        <tr><td class="name">GitHub</td><td>A repository</td><td>Fork and pull request — copying is a first-class social act</td><td>Stars, contributors, visible history, dependency graph</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote">Monetisation is the fifth axis and is omitted here for width; it is in the source document. Packmind's is marked <em>unverified</em> — <span class="nd">no source</span> — because <code>app.packmind.com</code> does not resolve and the product is sales-gated.</p>
+
+  <p class="scrollhint">Evidence</p>
+  <div class="shots">
+    <figure><img src="{{IMG:c-tessl}}" alt="Tessl skill detail page showing a composite score of 93 and an uplift multiplier"><figcaption>tessl · skill-detail-scored — the reference screen of the survey: composite 93, uplift 1.40×, Quality / Impact / Security bars, and identity as repo + path + commit.</figcaption></figure>
+    <figure><img src="{{IMG:c-smithery}}" alt="Smithery registry home listing MCP servers with scores"><figcaption>smithery · registry-home — a catalog solving cold start with volume, every server carrying a number.</figcaption></figure>
+    <figure><img src="{{IMG:c-backstage}}" alt="Backstage catalog table with name, system, owner, type, lifecycle and tags"><figcaption>backstage · catalog-table — the closest thing to our Library that exists today.</figcaption></figure>
+  </div>
+
+  <h3>Three market patterns</h3>
+  <ol>
+    <li><strong>The composition layer is consolidating, fast.</strong> Of five hard competitors, one had its hosted layer switched off (Continue, acquired by Cursor in June 2026 — the open client survives, frozen) and one was acquired <em>mid-survey</em> (Smithery is now part of Arcade.dev; we found the banner on their own page, not in any article). Note precisely what was absorbed in Continue's case: the registry, the accounts and the subscriptions. <strong>The local client and the open format were left standing.</strong></li>
+    <li><strong>Trust has moved from social proof to measurement.</strong> Tessl scores every skill on quality, impact across <em>n</em> eval scenarios and a security scan, then shows a composite and a multiplier. Smithery shows a score out of 100. Port shows pass / warn / block. A number derived from <em>running</em> the thing has replaced stars and downloads.</li>
+    <li><strong>Nobody authors a graph; everybody derives one.</strong> Backstage's graph is read-only and filtered by depth. Terraform resolves its graph from declared constraints. GitHub derives dependents. Not one product asks a human to draw an edge.</li>
+  </ol>
+
+  <h3>Three differences we can hold</h3>
+  <ol>
+    <li><strong>Every live hard competitor sells to an organisation; the practitioner is not the buyer.</strong> The value proposition is always control over <em>other people's</em> work — governance, drift, compliance. A personal library that answers to nobody is unoccupied ground.</li>
+    <li><strong>They all trust the network; we can trust the file.</strong> Every catalog solves cold start with curation and volume — 17,500 MCP servers, 3,000 skills. None of them makes <em>your own accumulated material</em> better.</li>
+    <li><strong>Assembly is a side effect for them and the whole product for us.</strong> Smithery composes so it can host, Tessl so it can govern, Backstage so it can scaffold. Nobody treats <em>does this set actually hold together</em> as the product.</li>
+  </ol>
+
+  <div class="verdict">
+    <p class="vh">Stage 1 — conclusion</p>
+    <p>The market has converged on <strong>measured trust</strong>, and we cannot measure anything — we have no way to run a skill. So the honest move is to claim nothing per item: an item card carries <strong>usage facts from the user's own library</strong> (<em>used in 3 projects</em>, <em>2 items require this</em>) and never a score, rating or badge.</p>
+    <p>Rejecting the node canvas turns out to be the market consensus rather than a compromise — fifteen products, none of which asks a human to draw an edge.</p>
+    <p>And the unoccupied ground is real but unproven. Continue is the only data point on whether an individual practitioner pays, and it reads both ways: the monetised hosted half was switched off and erased; the free local half is still on 1.58M machines.</p>
+  </div>
+</section>
+
+<!-- ============ STAGE 2 ============ -->
+<section id="s2" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 02</span><h2>Flows</h2></div>
+  <p class="qline">Twelve mechanisms, captured from products that are actually running — behaviour, not appearance.</p>
+
+  <p>Each flow was captured from live software: public web where possible, the owner's own signed-in sessions where a product needed one, local CLIs in scratch directories. Read-only throughout — nothing was created, published or left changed. <strong>Ten closed, one declined, one deliberately handed forward</strong> to the design phase.</p>
+  <p>Open any row for what it taught and the captures behind it.</p>
+
+  <div class="flows wide">
+
+    <details>
+      <summary><span class="fnum">01</span><span class="ftitle">Item detail and trust<span>What evidence does a catalog put on a single item?</span></span><span class="fstat st-part">declined</span></summary>
+      <div class="fbody">
+        <p>Trust has moved from social proof to <strong>measurement</strong> — a number derived from running the thing. Tessl scores per eval scenario with a delta; Smithery shows a score out of 100 and a verified badge. <strong>We can run nothing, so we ship none of it.</strong> Held open only by Agentman's login-walled page, then declined: its lesson is legible from their marketing, and version history is out of scope.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f01a}}" alt="Tessl Evals tab showing per-scenario scores"><figcaption>tessl-skill-evals-tab — per-scenario results, 84% with a ↑34% delta, each with a Details affordance.</figcaption></figure>
+          <figure><img src="{{IMG:f01b}}" alt="Smithery server configuration requirements"><figcaption>smithery-server-github-config — a server that actually requires configuration, and how it asks.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/01-item-detail-and-trust/</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">02</span><span class="ftitle">Library browse, filter, search<span>Finding one thing in a large personal collection</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>Typing flattens a filter tree into breadcrumbs</strong> — the path is shown rather than traversed, which is how two leaves with the same name stay distinguishable. Our <code>mcp</code> kind and an <code>mcp</code> tag will collide in exactly that way. A filter chip is written as a sentence, with <code>Clear</code> and <code>Save</code> in the same corner.</p>
+        <p>And the one to copy outright: when a filter empties the list, Linear says <strong>“4 issues hidden by filters · Clear Filters ✕”</strong>. That is the difference between <em>there is nothing</em> and <em>you are not looking at it</em>, stated as a number you can act on.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f02a}}" alt="Linear command palette running commands and content search in one field"><figcaption>linear-command-palette-default — one field doing commands and content, with a keyboard-hint bar computed from the current state.</figcaption></figure>
+          <figure><img src="{{IMG:f02b}}" alt="Linear filter typeahead flattening its hierarchy into breadcrumbs"><figcaption>linear-filter-typeahead-breadcrumbs — the filter tree flattened into a path as you type.</figcaption></figure>
+          <figure><img src="{{IMG:f02c}}" alt="Linear filtered to zero results naming how many issues are hidden"><figcaption>linear-filtered-to-zero-hidden-count — the count of what is hidden, and the remedy beside it.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/02-library-browse-filter-search/NOTES-linear.md</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">03</span><span class="ftitle">Relations without a canvas<span>Showing dependencies nobody drew by hand</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>Nobody authors a graph.</strong> It is derived from declared relations and made legible with a <em>depth filter</em> — the same graph at depth 1 and depth 3 is the whole legibility mechanism. GitHub's <em>Dependents</em> view is the reverse direction: blast radius rather than dependencies, which is the shape of our <em>used in 3 projects</em>.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f03a}}" alt="Backstage catalog graph at depth 1"><figcaption>backstage-graph-depth-1 — legible, because it is shallow.</figcaption></figure>
+          <figure><img src="{{IMG:f03b}}" alt="Backstage catalog graph at depth 3, much denser"><figcaption>backstage-graph-depth-3 — the same data three hops out. The control is the design.</figcaption></figure>
+          <figure><img src="{{IMG:f03c}}" alt="GitHub dependents view showing blast radius"><figcaption>github-dependents-blast-radius — who depends on <em>me</em>, not what I depend on.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/03-relations-without-canvas/</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">04</span><span class="ftitle">Validation — pass, warn, block<span>Our wow moment, and the best-covered flow in the research</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p>Four products, four different lessons: Terraform on what a <em>result</em> reads like, Vercel on what a <em>process</em> reads like, GitHub Actions on <em>partial failure</em>, Port on a <em>grade</em>.</p>
+        <p>The structural find is Vercel's: a deployment is a <strong>stack of collapsed stages, each carrying its own glyph, verdict and duration</strong>, each expandable. A stage that did not run gets a clock, not a failure.</p>
+        <p>The second find decided our severity model. <strong>Port does not block — it gates a level.</strong> A failed rule stops an entity climbing a cumulative <code>Basic → Low → Good → Great</code> ladder rather than forbidding anything; the demo has no blocking surface at all.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f04a}}" alt="Vercel deployment page showing collapsed build stages with durations"><figcaption>vercel-deployment-stages — the structural model for our validation pass.</figcaption></figure>
+          <figure><img src="{{IMG:f04b}}" alt="Port scorecard rule expanded to its predicate and observed value"><figcaption>port-scorecard-rule-expanded — <code>where "Open Critical Vulnerabilities" = 0 · Value: 1</code>. The condition required and the value found.</figcaption></figure>
+          <figure><img src="{{IMG:f04c}}" alt="GitHub Actions run annotations reading process completed with exit code 1"><figcaption>github-actions-run-failed-annotations — the anti-reference. A header counting “11 errors and 6 warnings”, over a slot that says nothing.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/04-validation-check-results/ — NOTES-vercel, NOTES-port, NOTES-github-actions, terraform-plan-output</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">05</span><span class="ftitle">Linked vs detached, and blast radius<span>The single most spec-bearing capture in the folder</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>Drift is computed precisely and displayed nowhere.</strong> Figma's context menu names the exact overridden property — <code>Reset fill</code>, not a generic “reset overrides” — so the diff is already computed. And yet a modified instance is <em>pixel-identical</em> to a clean one in the layers tree, the properties panel and on the canvas. The only evidence is two rows appearing in a menu you must open on an object you must first select.</p>
+        <p><strong>The failure is display, not modelling</strong> — which is exactly the trap our <em>detached, locally modified</em> state is waiting to fall into. Two things to take whole: revert at two granularities (whole item, single field), and <code>Reset</code> kept next to <code>Detach</code> as the two halves of one axis.</p>
+        <p>And the part with no prior art at all: <strong>a path back.</strong> Figma erases the origin at detach and offers nothing afterwards.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f05a}}" alt="Figma context menu on a clean component instance"><figcaption>figma-context-menu-clean — no reset rows. They are <em>absent</em>, not greyed.</figcaption></figure>
+          <figure><img src="{{IMG:f05b}}" alt="Figma context menu on an overridden instance showing Reset instance and Reset fill"><figcaption>figma-context-menu-overridden-reset — <code>Reset fill</code> names the exact property that differs. The product knows; the canvas never says.</figcaption></figure>
+          <figure><img src="{{IMG:f05c}}" alt="Figma library updates modal showing per-row instance counts including 423"><figcaption>figma-library-updates-instance-counts — 5, 2, 70, <strong>423 instances</strong> before you accept. The count appears exactly when the action reaches beyond what you can see.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/05-linked-vs-detached/NOTES.md</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">06</span><span class="ftitle">Export and target adaptation<span>One source, many agent formats</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>External repos are always instructions, never vendored.</strong> Ruler — an open-source CLI that syncs one directory into 20+ agent formats — was run locally as a substitute for the sales-gated competitor, and it supplies two mechanics: a managed <code>START/END</code> fenced block so a re-run finds and replaces exactly what it wrote, and a <code>.bak</code> beside every overwritten file. <code>create-next-app</code> arrived at the same two mechanics independently, which collapses our four export targets into two mechanics plus a naming convention.</p>
+        <p>What neither does: <strong>say what it is about to overwrite.</strong></p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f06a}}" alt="Backstage scaffolder template parameter form"><figcaption>backstage-scaffolder-template-form — parameter form → review → artefact, which is our export flow in another domain.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/06-export-and-target-adaptation/ruler-per-agent-output.md</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">07</span><span class="ftitle">Env variables and secrets<span>How to ask for a key without leaking it</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>Ask the type before the value</strong>, and default to the irreversible option. Vercel's drawer offers <em>Secret</em> and <em>Config</em> as two explained radio cards with Secret — the one you cannot read back — as the default. The Note field's placeholder poses the real question: <em>“Where to rotate, or who to contact”</em>. Two bulk paths exist, including pasting a whole <code>.env</code> into the Key field.</p>
+        <p>The counter-example sits one screen away and is this research's standing example of waste: the env-variables <em>empty</em> state keeps a search box, four filter dropdowns and a sort control on screen, all filtering nothing.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f07a}}" alt="Vercel add environment variable drawer with Secret and Config radio cards"><figcaption>vercel-add-env-variable-drawer — type before value, irreversible by default.</figcaption></figure>
+          <figure><img src="{{IMG:f07b}}" alt="Vercel environment variables empty state still showing filters"><figcaption>vercel-env-vars-empty-state — four dropdowns filtering nothing.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/07-env-and-secrets/NOTES.md</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">08</span><span class="ftitle">Empty state and cold start<span>The gap the research carried from the beginning</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p>A brand-new Linear workspace does not open on an illustration inviting you to create your first issue. It opens on the Issues list, <strong>already populated with four real issues</strong> — <em>Get familiar with Linear</em>, <em>Set up your teams</em>, <em>Connect your tools</em>, <em>Import your data</em> — ordinary objects you can edit, complete or delete. The onboarding checklist <em>is</em> the data model, exercised on itself, and the product is never empty at any point.</p>
+        <p>Second: <strong>three registers of emptiness</strong>, and a rule that picks between them. A concept you may never have used defines itself in a sentence. Routine emptiness says one line. Filtered to zero counts what is hidden. <em>Verbosity scales with the chance the reader does not know what the object is.</em></p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f08a}}" alt="A brand new Linear workspace opening on four real seeded issues"><figcaption>linear-first-run-seeded-issues — the real first five minutes, which no populated system could have shown us.</figcaption></figure>
+          <figure><img src="{{IMG:f08b}}" alt="Linear Projects empty state defining what a project is"><figcaption>linear-projects-empty-state — the object's name as the heading, then a <em>definition</em> rather than an apology, with the shortcut inside the button.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/08-empty-state-and-cold-start/NOTES-linear.md</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">09</span><span class="ftitle">Duplicate and fork<span>Copying as a first-class act</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>Duplication is a distribution primitive</strong>, and the copy dialog states what will and will not come along. This is the mechanism behind our second supporting moment — duplicating a project to re-tune it for a new context.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f09a}}" alt="GitHub create a new fork form"><figcaption>github-create-fork-form — opened and abandoned; nothing was forked.</figcaption></figure>
+          <figure><img src="{{IMG:f09b}}" alt="Notion page menu with Duplicate"><figcaption>notion-page-menu-duplicate — duplication offered where the object lives.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/09-duplicate-and-fork/NOTES.md</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">10</span><span class="ftitle">Dark design language<span>Deliberately not spent in this phase</span></span><span class="fstat st-fwd">handed forward</span></summary>
+      <div class="fbody">
+        <p>The one flow about <em>appearance</em> rather than behaviour, so it does not close here — <strong>it opens the next phase</strong>, with its material already gathered. Linear at close range: few surfaces, with the sidebar sharing the content ground; elevation as a hairline plus a few percent of lightness rather than a shadow ramp; three foreground tones with the accent reserved for meaning; key caps as a real component with a two-cap form for chords; unset properties written as imperatives.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f10a}}" alt="Linear issues list in dark theme"><figcaption>linear-issues-list-dark — few surfaces; the sidebar shares the content ground.</figcaption></figure>
+          <figure><img src="{{IMG:f10b}}" alt="Linear command palette in dark theme, detail of key caps"><figcaption>linear-command-palette-dark-detail — key caps as a component, not a text hint.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/10-dark-design-language/NOTES-linear.md</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">11</span><span class="ftitle">Copy — errors, warnings, refusals<span>Every sentence the validation pass will ever write</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>Cause and consequence are two rows</strong>, and you group by the action that fixes a failure rather than the check that found it. Nobody opens a 102-job run to find seven red squares — so the best example in the survey sends the report to the reader instead: a bot posts a distilled failure summary into the pull request, grouped by the command that reproduces each failure, stamped with the commit, with raw output collapsed.</p>
+        <p>The anti-reference is industry-wide. Fourteen of seventeen annotations on one run read, in full, <code>Process completed with exit code 1</code> — and the same was found in <code>denoland/deno</code>, <code>withastro/astro</code>, <code>vitejs/vite</code> and <code>rust-lang/rust-clippy</code>. <strong>The failure channel carries less information than the deprecation channel.</strong></p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f11a}}" alt="GitHub pull request bot comment listing failing test suites grouped by reproduction command"><figcaption>github-pr-bot-failing-test-suites — the best failure copy in the survey.</figcaption></figure>
+          <figure><img src="{{IMG:f11b}}" alt="Stripe error codes reference"><figcaption>stripe-error-codes — error copy that names the cause, as documentation.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/11-copy-and-error-language/ — ci-failure-copy, dependency-conflict-copy</p>
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="fnum">12</span><span class="ftitle">Visibility and portfolio<span>Public or private, and what a profile says about you</span></span><span class="fstat st-closed">closed</span></summary>
+      <div class="fbody">
+        <p><strong>Public/private is a low-ceremony decision</strong>, and the profile is the portfolio. GitHub puts the visibility flip in a Danger Zone with a typed confirmation; Notion separates sharing with people from publishing to the web entirely.</p>
+        <p class="scrollhint">Captures</p>
+        <div class="shots">
+          <figure><img src="{{IMG:f12a}}" alt="GitHub danger zone repository visibility row"><figcaption>github-danger-zone-visibility — read-only; nothing was clicked.</figcaption></figure>
+          <figure><img src="{{IMG:f12b}}" alt="Notion publish to web dialog"><figcaption>notion-publish-to-web — publishing kept separate from sharing.</figcaption></figure>
+        </div>
+        <p class="src">research/2-flows/12-visibility-and-portfolio/NOTES.md</p>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="verdict">
+    <p class="vh">Stage 2 — conclusion</p>
+    <p>Four findings reached back into the specification and changed it.</p>
+    <ul>
+      <li><strong>Cold start is a product decision, not a demo problem.</strong> Ship real objects, not an empty state — so the validation pass has something to run on before the user has typed anything.</li>
+      <li><strong>The drift indicator is a display problem, not a modelling one.</strong> The diff is already computed, so putting it on the card costs nothing. Figma proves it can be computed and still never shown.</li>
+      <li><strong>There is no prior art for the return path.</strong> Every product either keeps the link or erases the origin. Bringing a locally modified item back into the library is something we invent, not copy.</li>
+      <li><strong>An action that cannot act is not shown</strong> — on primary surfaces. Linear suppresses its toolbar over an empty list; Figma hides a reset with nothing to reset; Vercel keeps four dropdowns over nothing and is simply wrong.</li>
+    </ul>
+    <p>What the flows could <em>not</em> see: <strong>density.</strong> Every browsing mechanic was captured in a workspace holding four issues. All of it is mechanics; none of it is scale. <span class="nd">not established</span></p>
+  </div>
+</section>
+
+<!-- ============ STAGE 3 ============ -->
+<section id="s3" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 03</span><h2>Pain</h2></div>
+  <p class="qline">The first evidence in this research about users rather than vendors — and the first that argues with us.</p>
+
+  <p>Everything up to here compared companies. Nothing had established what actually <em>hurts</em>. Our whole product rests on one asserted pain: <em>nothing tells you that a skill needs a particular MCP server, that two items write to the same file, or that a key is missing — you find out at runtime.</em> That claim had never been checked.</p>
+  <p>Two public issue trackers, queried through the GitHub API: <strong>continuedev/continue</strong> (6,677 issues — the closest dead competitor, same object model) and <strong>modelcontextprotocol/servers</strong> (1,186 issues — the ecosystem our <code>mcp</code> kind lives in), ranked by reactions.</p>
+
+  <h4>What this instrument cannot see</h4>
+  <p>An issue tracker records <strong>breakage, not friction</strong>. People file an issue when something is broken, not when something is tedious. This is not a caveat at the bottom of the page — it governs every number below.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Candidate pain</th><th>Visible here?</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="name">A · Loss</td><td><strong>No</strong></td><td><em>“I can't find the prompt I wrote three months ago”</em> never becomes an issue</td></tr>
+        <tr><td class="name">B · Reassembly cost</td><td><strong>No</strong></td><td><em>“I copied the same four files into a new project again”</em> produces silent tedium</td></tr>
+        <tr><td class="name">C · Silent breakage</td><td><strong>Yes</strong></td><td>This is what trackers are made of</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The loud pain is environmental, not compositional</h3>
+  <p>The single most-reacted issue in either repository, by a factor of eight over anything configuration-related, is <em>MCP Servers Don't Work with NVM</em> — the app tries to use the wrong Node and fails. The top of that tracker is almost entirely <em>it will not start on my machine</em>.</p>
+
+  <div class="bars">
+    <div class="bar"><span class="lbl"><b>MCP Servers Don't Work with NVM</b> — node version managers</span><span class="n">182</span><span class="track"><span class="fill loud" style="width:100%"></span></span></div>
+    <div class="bar"><span class="lbl">Storing API keys in plain text <span style="color:var(--ink-3)">(Continue)</span></span><span class="n">32</span><span class="track"><span class="fill" style="width:17.6%"></span></span></div>
+    <div class="bar"><span class="lbl">Environment variables not respected in <code>server-memory</code></span><span class="n">23</span><span class="track"><span class="fill" style="width:12.6%"></span></span></div>
+    <div class="bar"><span class="lbl">Security proposal: credential management</span><span class="n">22</span><span class="track"><span class="fill" style="width:12.1%"></span></span></div>
+    <div class="bar"><span class="lbl">GitHub MCP server fails to start — <code>npx</code> error</span><span class="n">19</span><span class="track"><span class="fill" style="width:10.4%"></span></span></div>
+    <div class="bar"><span class="lbl"><b>Two <code>server-postgres</code> entries in one config</b> — our own thesis</span><span class="n">13</span><span class="track"><span class="fill ours" style="width:7.1%"></span></span></div>
+  </div>
+  <p class="barlegend">Reactions per issue, scaled to the largest. Red — environmental failure. Teal — the failure our product exists to catch.</p>
+
+  <h3>Our thesis is observed, but quietly</h3>
+  <p>It is there. It is just not loud:</p>
+  <blockquote>
+    <p>“It's not possible to run multiple instances to connect to different databases. When doing this, <strong>the chat always chooses the first one specified</strong> in order of <code>mcp.json</code>.”</p>
+    <cite>modelcontextprotocol/servers #1219 — 13 reactions</cite>
+  </blockquote>
+  <p>That is our duplicate-key collision, reported by a user, <strong>in the exact file we generate</strong>, with the exact failure mode we predicted: the first one wins and nobody is told. The same behaviour sits in Continue's own source, where a duplication detector correctly identifies the clash and the merge silently discards the loser. Two independent sightings of one bug — once in code, once in a user's words.</p>
+
+  <h3>And nobody is asking for a composition layer</h3>
+  <p>The uncomfortable one. In a 6,677-issue tracker belonging to a product that <em>shipped a hub for exactly this</em>, a search for <code>reuse blocks assistant</code> returns <strong>0 results</strong>. Set beside the post-mortem — the hosted hub is the half that was switched off, the local client is the half still running on 1.58M machines — that is two independent signals pointing the same way.</p>
+
+  <div class="verdict">
+    <p class="vh">Stage 3 — conclusion</p>
+    <p><strong>Keep the validation pass.</strong> The failure is real, currently silent, and sighted in the wild. Nothing here says stop.</p>
+    <p><strong>Re-weight the export.</strong> Our specification gave the generated setup instructions a single line, while the loudest pain in the ecosystem lives exactly there: the archive lands on a machine and does not run. Most of that is beyond our reach — we validate a set, we cannot fix someone's <code>PATH</code> — except at the one place our output meets their machine.</p>
+    <p><strong>Do not lead with sharing.</strong> Two independent signals against it.</p>
+    <p><strong>And say plainly what is still unknown.</strong> Whether <em>loss</em> or <em>reassembly cost</em> is what would make someone adopt this is invisible to trackers by construction. It needs a different instrument — asking people — and we have not done it. <span class="nd">not established</span></p>
+  </div>
+</section>
+
+<!-- ============ STAGE 4 ============ -->
+<section id="s4" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 04</span><h2>Benchmark</h2></div>
+  <p class="qline">For each of our four core flows: who does it best in the world, how well, and against what standard?</p>
+
+  <p>Stages 1–3 produced observations — <em>Linear counts what its filter hides</em>, <em>Port prints the condition and the observed value</em>, <em>Figma computes drift and never draws it</em>. Those are anecdotes until they are turned into a scale. This stage builds the scale, and stage 5 spends it. <strong>The five categories are lifted from findings in stages 1–3</strong>, so the rubric is grounded rather than invented.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Category</th><th>The question it asks</th></tr></thead>
+      <tbody>
+        <tr><td class="name">C1 · State legibility</td><td>Can you read the current state without acting on it?</td></tr>
+        <tr><td class="name">C2 · Consequence</td><td>Before an irreversible step, is the cost stated in advance?</td></tr>
+        <tr><td class="name">C3 · Failure copy</td><td>Does a message name the item, the rule and the observed value?</td></tr>
+        <tr><td class="name">C4 · Recovery</td><td>Is there a way back, offered where the problem is?</td></tr>
+        <tr><td class="name">C5 · Economy</td><td>Is anything on screen that cannot act, or missing that must be?</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote"><strong>Anchors.</strong> 1 — actively misleads. 2 — the information does not exist. 3 — correct, but you must go looking. 4 — present where you need it. 5 — you could not miss it, and it changed what you did next. <strong>A dash is not a zero:</strong> it means the flow contains no instance of what the category grades, and the cell always says whether that is the product's fault or the method's.</p>
+
+  <div class="legend">
+    <span><i class="chip" style="background:var(--accent)"></i> 5</span>
+    <span><i class="chip" style="background:var(--accent-soft)"></i> 4</span>
+    <span><i class="chip" style="background:var(--skipped-soft)"></i> 3</span>
+    <span><i class="chip" style="background:var(--note-soft)"></i> 2</span>
+    <span><i class="chip" style="background:var(--problem-soft)"></i> 1</span>
+    <span><i class="chip" style="background:var(--surface)"></i> — no instance</span>
+  </div>
+
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Candidate</th><th class="s">C1</th><th class="s">C2</th><th class="s">C3</th><th class="s">C4</th><th class="s">C5</th></tr></thead>
+      <tbody>
+        <tr class="band"><td colspan="6">B1 — Find one thing in a large personal collection · our Library</td></tr>
+        <tr><td class="name">Linear ⌘K + filters</td><td class="s s5">5</td><td class="s sx">—</td><td class="s s4">4</td><td class="s s5">5</td><td class="s s5">5</td></tr>
+        <tr><td class="name">GitHub code search</td><td class="s s5">5</td><td class="s sx">—</td><td class="s s3">3</td><td class="s s3">3</td><td class="s s4">4</td></tr>
+        <tr><td class="name">Obsidian quick switcher</td><td class="s s4">4</td><td class="s s2">2</td><td class="s s2">2</td><td class="s s5">5</td><td class="s s4">4</td></tr>
+        <tr><td class="name">VS Code palette</td><td class="s s4">4</td><td class="s sx">—</td><td class="s s2">2</td><td class="s s2">2</td><td class="s s4">4</td></tr>
+        <tr class="band"><td colspan="6">B2 — Assemble a set under constraints · our Project</td></tr>
+        <tr><td class="name">VS Code workspace + trust</td><td class="s s5">5</td><td class="s s5">5</td><td class="s sx">—</td><td class="s s4">4</td><td class="s s3">3</td></tr>
+        <tr><td class="name"><code>npm install</code></td><td class="s s3">3</td><td class="s s4">4</td><td class="s s5">5</td><td class="s s4">4</td><td class="s s4">4</td></tr>
+        <tr><td class="name">Figma instances + library</td><td class="s s2">2</td><td class="s s4">4</td><td class="s sx">—</td><td class="s s3">3</td><td class="s s5">5</td></tr>
+        <tr class="band"><td colspan="6">B3 — Check a set and report what is wrong · our validation pass</td></tr>
+        <tr><td class="name"><code>terraform</code> plan + validate</td><td class="s s5">5</td><td class="s s5">5</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s5">5</td></tr>
+        <tr><td class="name">VS Code Problems panel</td><td class="s s5">5</td><td class="s sx">—</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s5">5</td></tr>
+        <tr><td class="name">Vercel build log</td><td class="s s5">5</td><td class="s sx">—</td><td class="s sx">—</td><td class="s sx">—</td><td class="s s4">4</td></tr>
+        <tr><td class="name">GitHub Actions run</td><td class="s s5">5</td><td class="s sx">—</td><td class="s s1">1</td><td class="s s2">2</td><td class="s s3">3</td></tr>
+        <tr class="band"><td colspan="6">B4 — Produce an artefact and hand it to another machine · our Export</td></tr>
+        <tr><td class="name">Vercel deploy</td><td class="s s5">5</td><td class="s sx">—</td><td class="s sx">—</td><td class="s sx">—</td><td class="s s3">3</td></tr>
+        <tr><td class="name"><code>create-next-app</code></td><td class="s s4">4</td><td class="s s4">4</td><td class="s sx">—</td><td class="s s2">2</td><td class="s s3">3</td></tr>
+        <tr><td class="name">Figma export dialog</td><td class="s s4">4</td><td class="s sx">—</td><td class="s s4">4</td><td class="s s3">3</td><td class="s s3">3</td></tr>
+        <tr><td class="name">Ruler per-agent output</td><td class="s s3">3</td><td class="s s2">2</td><td class="s sx">—</td><td class="s s4">4</td><td class="s s4">4</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote"><strong>Who wins.</strong> B1 — Linear, and not narrowly. B2 — VS Code, on Workspace Trust. B3 — <code>terraform</code>, with VS Code's Problems panel level on everything but the summary line. <strong>B4 — nobody. The highest cell in the whole flow is a 4.</strong></p>
+
+  <h3>Three mechanisms we are taking into the MVP</h3>
+
+  <h4>01 — The run as a stack of stages <span style="text-transform:none;letter-spacing:0;color:var(--ink-3)">· Vercel</span></h4>
+  <p>A deployment is a stack of <strong>collapsed stages, each carrying its own glyph, verdict and duration</strong>, each expandable. A stage that did not run gets a clock, not a failure. The log header states <code>66 lines</code> before you read it, and a timestamp hover gives <em>relative to start</em> and <em>relative to previous</em> — which is how you find the step that hung without doing arithmetic.</p>
+  <p><strong>Why it fits.</strong> Our validation pass is specified as a designed, legible moment rather than a spinner, and this is that moment's structure, already proven. It also gives a home to two things nobody else has a place for: our <em>Skipped</em> severity maps onto Vercel's clock glyph, and the handover disclosure becomes two more stages rather than a new surface. Terraform reinforces it from the other side — <strong>no progress theatre</strong>; text that appears when ready and reads correctly frozen.</p>
+
+  <h4>02 — <span style="text-transform:none;letter-spacing:0;font-family:'IBM Plex Mono',monospace">N of M</span>, and a count that is a link <span style="text-transform:none;letter-spacing:0;color:var(--ink-3)">· VS Code</span></h4>
+  <p>Workspace Trust shows two columns — <em>In a Trusted Folder</em> against <em>In Restricted Mode</em> — with the current one outlined. Two of its lines are counted <strong>and hyperlinked</strong>: <em>“95 workspace settings are not applied”</em>, <em>“10 extensions are disabled or have limited functionality”</em>. It is the best consequence disclosure in the entire benchmark, and it beats Figma's <em>423 instances</em> on the one axis Figma leaves open: <strong>the number is a link to the list.</strong></p>
+  <p><strong>Why it fits.</strong> We refuse to block an unclean export and confirm it instead, which puts the whole weight on the confirmation sentence. This is the shape that sentence takes: name the count, and let the user open it. The same grammar showed up in four unrelated products — <em>4 issues hidden by filters</em>, <em>Showing 0 of 6</em> placed inside the filter input, <em>0 of 0 selected</em>, <em>10 files (324 ms) in <code>repo ✕</code></em>. <strong>The number you can act on, next to the control that produced it</strong> — and never the word “none”.</p>
+  <div class="shots">
+    <figure><img src="{{IMG:b-trust}}" alt="VS Code Workspace Trust dialog with counted, hyperlinked consequences"><figcaption>vscode-workspace-trust — the cost of each state, counted and clickable, before you choose.</figcaption></figure>
+    <figure><img src="{{IMG:b-problems}}" alt="VS Code Problems panel filtered to zero showing Showing 0 of 6 inside the input"><figcaption>vscode-problems-filtered-zero — <code>Showing 0 of 6</code> inside the input, and the remedy as a link.</figcaption></figure>
+  </div>
+
+  <h4>03 — The failure line, written where the rule is known <span style="text-transform:none;letter-spacing:0;color:var(--ink-3)">· npm and Port</span></h4>
+  <p>npm's <code>ERESOLVE</code> answers all four questions a conflict message owes: what was <strong>required</strong>, what was <strong>found</strong>, <strong>who required it</strong>, and <strong>who asked for what was found</strong> — which is precisely our <em>added manually</em> versus <em>added as a dependency</em>. Then both escape hatches, with the cost in the same sentence: <em>“to accept an incorrect (and potentially broken) dependency resolution.”</em></p>
+  <p><strong>Why it fits, and it is not a copywriting decision.</strong> Compare the 1-grade message: <code>Process completed with exit code 1</code>, under a header counting <em>“11 errors and 6 warnings”</em>. The difference is <strong>architecture</strong>. The 5-grade messages are emitted where the requirement is known; the 1-grade one is emitted by a process that only knows it stopped. So: <em>the check that knows the rule must be the thing that writes the sentence.</em></p>
+  <p>Two refinements ride along. <strong>Count problems the way the user counts them</strong> — Terraform emitted four diagnostics for one defect, and VS Code reported a duplicate key as two unjoined rows that never mention each other. And <strong>a check that could not run must say so</strong>, which is why <em>Skipped</em> exists as a third severity rather than a silently missing row.</p>
+
+  <h3>One mechanism that will not work for us</h3>
+  <p>Figma's export dialog with nothing selected reads <code>0 of 0 selected</code> beside a <strong>greyed Export button</strong>, explained by one good sentence: <em>“No selected layers have export settings. Click + in the export section of the properties panel to add one.”</em> It scores respectably — the state and the remedy are both stated precisely.</p>
+  <p>It works there for three reasons, and <strong>we have none of the three</strong>:</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">In Figma</th><th>For us</th></tr></thead>
+      <tbody>
+        <tr><td class="name">The blocker is one named action away</td><td>Our problem may be four items away, on another surface</td></tr>
+        <tr><td class="name">The condition belongs to this second's selection</td><td>Our problems are properties of the <strong>project</strong></td></tr>
+        <tr><td class="name">Re-exporting costs nothing</td><td>The archive <strong>is</strong> the product's whole point</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>A greyed primary action is a dead end on the most important control in the product, and our promise is <em>the system checked</em>, not <em>the system forbade</em>. So the mechanism is refused outright: <strong>export is never disabled; an unclean set is confirmed, not blocked.</strong></p>
+  <div class="shots">
+    <figure><img src="{{IMG:b-figma}}" alt="Figma export dialog showing 0 of 0 selected with a disabled Export button"><figcaption>figma-export-empty-selection — precise, well-written, and exactly what we cannot do.</figcaption></figure>
+    <figure><img src="{{IMG:b-obsidian}}" alt="Obsidian quick switcher with no match, offering to create the note"><figcaption>obsidian-quick-switcher-no-match — the opposite failure: zero results <em>is</em> the create row, so a typo and an absence look identical. We take the offer and keep the message.</figcaption></figure>
+  </div>
+
+  <div class="verdict">
+    <p class="vh">Stage 4 — conclusion</p>
+    <p><strong>Handover is the industry's weakest flow, and it is ours to win.</strong> No cell in B4 scores above 4. Ruler overwrites without warning; <code>create-next-app</code> ends on the word <em>Success!</em> and lists nothing; Figma's dialog disables its own primary action. Our thirty-second archive is aimed at the least-well-served flow of the four, and the specific gap is <strong>disclosure before the write</strong>.</p>
+    <p><strong>But this rubric grades craft, not weight.</strong> The categories came from surveying <em>products</em>, so every score answers <em>did this interface tell me the thing</em> — never <em>does anyone bleed here</em>. Read against the pain evidence, the weights come out uneven: B1 and B2 are where the craft is, and a tracker is structurally blind to both. B3 and B4 are where the value is — one carries the only sighting of our own thesis, the other carries the loudest pain in the ecosystem.</p>
+    <p><strong>So a category score alone cannot choose a shape.</strong> It has to be read next to which third of the flow that shape owns.</p>
+  </div>
+</section>
+
+<!-- ============ STAGE 5 ============ -->
+<section id="s5" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 05</span><h2>Patterns</h2></div>
+  <p class="qline">Five radically different shapes for the key flow — assemble a set, check it, export — scored on the rubric stage 4 built.</p>
+
+  <p>Not five layouts of one idea. Five framings, each carrying prior art from the earlier stages, so the comparison is between things that exist rather than between guesses. Each answers the same five questions in the same words, and each is scored on <em>does this shape give the category a natural home</em>.</p>
+
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Shape</th><th class="s">C1</th><th class="s">C2</th><th class="s">C3</th><th class="s">C4</th><th class="s">C5</th><th>The idea</th></tr></thead>
+      <tbody>
+        <tr><td class="name">P1 · Two-pane drag</td><td class="s s4">4</td><td class="s s3">3</td><td class="s s3">3</td><td class="s s4">4</td><td class="s s2">2</td><td>Library left, project right, items dragged in</td></tr>
+        <tr><td class="name">P2 · Command-first</td><td class="s s3">3</td><td class="s s4">4</td><td class="s s5">5</td><td class="s s4">4</td><td class="s s5">5</td><td>No library pane; ⌘K adds by name, the project is a list</td></tr>
+        <tr><td class="name">P3 · Document</td><td class="s s4">4</td><td class="s s5">5</td><td class="s s5">5</td><td class="s s3">3</td><td class="s s4">4</td><td>The project <em>is</em> an editable manifest, validated like a linter</td></tr>
+        <tr><td class="name">P4 · Staged wizard</td><td class="s s3">3</td><td class="s s4">4</td><td class="s s4">4</td><td class="s s2">2</td><td class="s s2">2</td><td>Target first, one step per kind, then resolve and export</td></tr>
+        <tr><td class="name">P5 · Run-centric</td><td class="s s5">5</td><td class="s s5">5</td><td class="s s5">5</td><td class="s s4">4</td><td class="s s5">5</td><td>Check takes the whole surface; export is its final stage</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote">P5 takes straight fives on four categories and still cannot be the answer alone, because <strong>it does not assemble anything</strong>. P3 scores best on assembly and dies outside the scores. The constraints that were never up for negotiation: desktop-first, dark from day one, <strong>not a node canvas</strong>, single user, local only, custom design system.</p>
+
+  <h3>The choice — a hybrid, stated as a choice</h3>
+  <blockquote>
+    <p>P2 wins the spine. P5 becomes the check-and-export surface. P3 donates one mechanism.</p>
+    <cite>Neither half is a compromise — the two shapes win different thirds of the same flow, and the seam between them is a single control: <strong>Check</strong>.</cite>
+  </blockquote>
+
+  <div class="shape">
+    <div><p class="k">Surface 1</p><h5>Library</h5><p>Browse, filter, add, edit. Two scopes — your own items and a curated read-only public shelf. Usage facts per item. <strong>Not part of the builder flow.</strong></p></div>
+    <div><p class="k">Surface 2</p><h5>Project</h5><p>The set as a list, not a canvas. ⌘K adds by name and opens on <em>related</em> items. Every row carries its own state, including <em>detached</em> with the differing fields named.</p></div>
+    <div><p class="k">Surface 3</p><h5>Run</h5><p>Entered by Check, takes the whole screen. Stages with verdicts and durations. <strong>Export is the final stage</strong>, not a button beside the check.</p></div>
+  </div>
+
+  <h4>Why this one, for our context specifically</h4>
+  <ol>
+    <li><strong>It is the only shape that gets better as the library grows.</strong> A palette is indifferent to list length; a pane is not. Drag fails the concrete test — item #250 dragged to a target scrolled out of view — and every mitigation for that is click-to-add, at which point the two-pane shape has quietly become the command-first one with an extra pane.</li>
+    <li><strong>It obeys our own economy rule instead of breaking it.</strong> We refuse controls that cannot act — that is why the visibility toggle is not shipped. <em>A library pane cannot act while a validation pass is running.</em> Applying our own rule to our own design is what removed the pane.</li>
+    <li><strong>It puts the wow moment on a whole surface.</strong> Export as the <em>final stage</em> makes the unclean-export confirmation the next row in a list the user is already reading, rather than a dialog interrupting a flow.</li>
+    <li><strong>It renders the six item states once, not twice.</strong> In a two-pane shape every item renders as a library row <em>and</em> as a member, so <em>detached</em> — a per-project fact — is invisible in the pane where you browse.</li>
+  </ol>
+
+  <div class="verdict">
+    <p class="vh">Stage 5 — conclusion</p>
+    <p>The substantive change: <strong>the library leaves the builder, and drag stops being the verb.</strong> The earlier specification put a filtered library sidebar inside the builder and made drag the mechanism. It does not survive 300 items, and a pane that cannot act during a check is the mistake we refuse everywhere else.</p>
+    <p><strong>The cost, stated plainly.</strong> With no library pane you cannot see what you are not using. Three things now carry that weight, and if all three fail this choice was wrong: the palette opening cold on <em>related</em> items rather than an alphabetical index; the Library one keystroke away and remembering where you were; and per-item usage facts doing the work a visible pane would otherwise do.</p>
+  </div>
+</section>
+
+<!-- ============ DECISIONS ============ -->
+<section id="end" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What we decided, and why</h2></div>
+  <p class="qline">Ten decisions came out of the phase. Each is a product commitment with evidence behind it, not a preference.</p>
+
+  <div class="decisions wide">
+    <div class="dec"><div class="what"><b>Trust signal</b>An item card carries usage facts, never a score</div><div class="why">The market converged on <em>measured</em> trust — and we have no way to run an item, so any number we invented would be decoration. <em>Used in 3 projects</em> is a usage fact, computable locally, and it is also the blast-radius number the research spent a whole flow chasing.</div></div>
+    <div class="dec"><div class="what"><b>Validation</b>Three severities, and nothing blocks</div><div class="why">Problem, Note, Skipped. Port gates a level and forbids nothing; Continue shipped the same fatal/non-fatal binary we had specified and filed a missing dependency as non-fatal. <em>Both poles have shipped, and we chose neither.</em></div></div>
+    <div class="dec"><div class="what"><b>Export</b>Never disabled — an unclean set is confirmed</div><div class="why">Almost nothing makes an archive impossible to produce; a duplicate command still zips, it is simply wrong inside. So blocking is a choice, and we do not make it. Pressing Export on a set with problems names the consequence in the present tense: <em>“Two items write to <code>.mcp.json</code>. The archive will contain only one of them.”</em></div></div>
+    <div class="dec"><div class="what"><b>Cycles</b>Information, not errors</div><div class="why">A project is a <em>set</em>, not an execution order — we never ask what runs first. If two items require each other, both are added and the set is correct. Report it as a fact: <em>“these three always travel together.”</em></div></div>
+    <div class="dec"><div class="what"><b>Versioning</b>The field is cut; external references are pinned</div><div class="why">Our model is Figma's, not Terraform's: an item lives in the library once and projects link to it live, so there are never two versions to disagree about. But external repos are not ours — without a pinned commit, the setup instructions hand the user whatever HEAD is that day.</div></div>
+    <div class="dec"><div class="what"><b>Shape</b>Command-first assembly, run-centric check</div><div class="why">Three surfaces plus Projects, with the seam at Check. The library leaves the builder because drag does not survive 300 items and an idle pane during a check breaks our own economy rule.</div></div>
+    <div class="dec"><div class="what"><b>Cold start</b>A curated public library ships with the product</div><div class="why">The Library gains a scope switch — your own items, and a read-only public shelf — so there is material from the first second while your own library starts honestly empty. Plus one example project composed to contain a real problem and a real note, because a first run showing six green ticks teaches nothing about what the product is for.</div></div>
+    <div class="dec"><div class="what"><b>Handover</b>The setup document is written for an agent</div><div class="why">Not for a human who reads it. It states, per item, what that item requires — dependencies, servers, keys, repos at their pinned commit, target paths — so the agent that opens the project performs the setup. That aims at the 182-reaction pain without a platform matrix and without a new artefact.</div></div>
+    <div class="dec"><div class="what"><b>Detached items</b>Edited in the project, promoted as a new item</div><div class="why">Editing in place is what makes detaching a feature rather than a toggle. Promotion creates a <em>new</em> library item and re-links the row — updating the original would change every other project that links to it, which is blast radius spent on an action taken inside one project.</div></div>
+    <div class="dec"><div class="what"><b>Composition</b>Deferred, not refused</div><div class="why">A project inside a project is out of the MVP. No pattern variant needed it, nobody is filing for it — and it risks unbounded recursion, so the depth rule gets decided before the feature, not after.</div></div>
+  </div>
+</section>
+
+<!-- ============ GAPS ============ -->
+<section id="gaps" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What we still have to find out</h2></div>
+  <p class="qline">Nine gaps, each with a hypothesis written so it could be shown false. Where nothing in the research supports a claim in either direction, it says so rather than filling the space.</p>
+
+  <div class="gaps wide">
+
+    <div class="gap unverified">
+      <div class="gaphead"><span class="gid">G1</span><h5>Nobody was ever asked anything</h5><span class="nd">not established</span></div>
+      <p>Both trackers are structurally blind to <em>loss</em> and to <em>reassembly cost</em>; the phase read vendors and artefacts, never users.</p>
+      <p class="hyp"><b>Hypothesis</b>Reassembly cost, not loss, is what converts — a practitioner adopts to stop re-copying the same four files, and finds <em>searching my own corpus</em> valuable only afterwards. Falsifiable in five conversations.</p>
+      <p class="from">from Stage 03 Pain · Stage 04 Benchmark</p>
+    </div>
+
+    <div class="gap">
+      <div class="gaphead"><span class="gid">G2</span><h5>Handover has no prior art to copy</h5></div>
+      <p>No candidate scored above 4, and not one cell in the matrix scores what a product says about <em>the machine its artefact lands on</em> — because no candidate has such a surface.</p>
+      <p class="hyp"><b>Hypothesis</b>Disclosure before the write is the whole opportunity. If the last stages of the run state what the archive contains and what the receiving machine must still do, the archive-does-not-run pain drops without us running anything there. Falsifiable: if users hit environment failures at the same rate, the disclosure was theatre.</p>
+      <p class="from">from Stage 04 Benchmark</p>
+    </div>
+
+    <div class="gap">
+      <div class="gaphead"><span class="gid">G3</span><h5>The return path has no prior art</h5></div>
+      <p>Figma erases the origin at detach and offers nothing afterwards. No product in the survey lets a local override become a first-class object again.</p>
+      <p class="hyp"><b>Hypothesis</b>Promotion as a <em>new</em> item is safe and <em>update the original</em> is not, because the second spends blast radius on an action taken inside one project. Falsifiable: if users routinely promote and then immediately delete the original, they wanted a merge and we built the wrong verb.</p>
+      <p class="from">from Stage 02 Flows, flow 05</p>
+    </div>
+
+    <div class="gap unverified">
+      <div class="gaphead"><span class="gid">G4</span><h5>Density was never observed</h5><span class="nd">not established</span></div>
+      <p>The whole browsing grammar was captured against a workspace of <strong>four</strong> issues, and the benchmark's Obsidian cell against a vault of <strong>27</strong> notes. The 300-item claim behind the chosen shape is reasoned, not measured.</p>
+      <p class="hyp"><b>Hypothesis</b>The palette holds at 300 items and the failure mode is discovery, not search — people find what they can name and stay blind to what they cannot. That is precisely the cost already accepted, so it is testable the moment a seeded library exists.</p>
+      <p class="from">from Stage 02 Flows · Stage 05 Patterns</p>
+    </div>
+
+    <div class="gap">
+      <div class="gaphead"><span class="gid">G5</span><h5>The public library does not exist yet</h5></div>
+      <p>It is a decision with no content behind it: no items, no verified sources, no composed example project.</p>
+      <p class="hyp"><b>Hypothesis</b>A seed of 8–12 items that produces at least one problem and one note teaches the product better than 30 clean ones. Falsifiable on first use: if six green ticks leave people unable to say what the product is for, the seed was decorative.</p>
+      <p class="from">from Stage 01 Competitors · Stage 02 Flows, flow 08</p>
+    </div>
+
+    <div class="gap unverified">
+      <div class="gaphead"><span class="gid">G6</span><h5>Licensing for redistributed items</h5><span class="nd">not established</span></div>
+      <p>Nothing in the research covers the terms under which someone else's skill may ship inside our public library.</p>
+      <p class="hyp"><b>Hypothesis</b>A pinned reference plus visible provenance is necessary but may not be sufficient. This needs a licence review before the shelf is built — it is not a design decision.</p>
+      <p class="from">from Stage 01 Competitors · Stage 05 Patterns</p>
+    </div>
+
+    <div class="gap unverified">
+      <div class="gaphead"><span class="gid">G7</span><h5>Two of five hard competitors were never seen</h5><span class="nd">not established</span></div>
+      <p>Agentman is login-walled, Packmind sales-gated. Their mechanisms and Packmind's monetisation are read from marketing, not observed.</p>
+      <p class="hyp"><b>Hypothesis</b>Neither changes the picture, because both sell to organisations and that difference already covers the whole group. Falsifiable if either turns out to sell to individuals.</p>
+      <p class="from">from Stage 01 Competitors</p>
+    </div>
+
+    <div class="gap">
+      <div class="gaphead"><span class="gid">G8</span><h5>Item versioning and history were never observed</h5></div>
+      <p>Flow 01 was declined. Tessl pins a commit, but a version <em>change</em> was never seen anywhere.</p>
+      <p class="hyp"><b>Hypothesis</b>Not needed: detach plus overrides does the job for our own items, and a pinned reference does it for external ones. Falsifiable the first time someone asks <em>what did this item look like last month</em>.</p>
+      <p class="from">from Stage 02 Flows, flow 01</p>
+    </div>
+
+    <div class="gap">
+      <div class="gaphead"><span class="gid">G9</span><h5>Our own thesis is real but quiet</h5></div>
+      <p>The duplicate-key collision is sighted in the wild with <strong>13 reactions</strong>, against <strong>182</strong> for an environmental failure.</p>
+      <p class="hyp"><b>Hypothesis</b>Silent breakage is a retention argument, not an acquisition one — it is what makes the product trusted once adopted, not what makes anyone try it. A positioning claim; the product is the same either way.</p>
+      <p class="from">from Stage 03 Pain</p>
+    </div>
+
+  </div>
+
+  <h3>What is settled, so it does not get re-opened</h3>
+  <ul>
+    <li><strong>The node canvas.</strong> Rejected on market consensus, not taste — not one of fifteen products asks a human to draw an edge.</li>
+    <li><strong>Blocking.</strong> Three severities, export never disabled, an unclean set confirmed.</li>
+    <li><strong>A composition layer.</strong> Two independent signals against it, plus the recursion risk.</li>
+    <li><strong>Per-item scores or badges.</strong> The market converged on measured trust and we can measure nothing.</li>
+    <li><strong>Visual direction.</strong> Deliberately not decided here. The material is gathered and the design-system phase spends it.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="foot">
+  <span>AI Stack Builder · research phase closed 2 September 2026</span>
+  <span>143 captures · 36 documents · 15 scored cells</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    if(el) map[el.id] = a;
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('on'); });
+        if(map[e.target.id]) map[e.target.id].classList.add('on');
+      }
+    });
+  }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
+  Object.keys(map).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) io.observe(el);
+  });
+})();
+</script>
