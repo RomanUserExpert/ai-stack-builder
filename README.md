@@ -25,6 +25,10 @@ repos written up as setup instructions, all MCP servers merged into one config, 
 missing env variable collected into `.env.example`. You pick the agent target first —
 Claude Code, Cursor, Codex or Universal — and the paths and naming adapt.
 
+The `SETUP.md` inside is written **for the agent that opens the project**, not for you to
+read. It states what each item in the set requires — its dependencies, servers, env keys
+and repos at their pinned versions — so the agent can set the project up on init.
+
 ## Who it's for
 
 Design engineers and AI engineers who use AI daily and have accumulated more material
@@ -32,9 +36,14 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research phase.** No code, no design system, no mockups yet.
+**Research is done and signed off. The design system is next and has not started.** No
+code, no design system, no mockups yet.
 
-Roadmap: research → design system → mockups → static frontend → logic.
+Roadmap: ~~research~~ → **design system** → mockups → static frontend → logic.
+
+The library is not empty on first run: a curated, read-only **public library** ships with
+the app beside your own, along with one example project that deliberately contains a real
+problem to find.
 
 Planned stack: Next.js + React + TypeScript, client-side only, IndexedDB for storage,
 JSZip for the archive. Custom design system, no UI kits.
@@ -43,3 +52,5 @@ JSZip for the archive. Custom design system, no UI kits.
 
 - `CLAUDE.md` — full working context: data model, product logic, scope boundaries,
   conventions. The source of truth. Start here.
+- `research/` — the closed research phase, one folder per stage. `research/FINAL.md` is
+  the closing document: what it produced, what it decided, and why.

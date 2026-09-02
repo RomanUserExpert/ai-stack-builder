@@ -1,7 +1,8 @@
 # Research plan
 
-Updated 2026-09-01. The phase runs in five stages. **All five are done.** What remains before
-sign-off is the register at the end of this file, worked through in one sitting.
+Updated 2026-09-02. The phase runs in five stages. **All five are done, and the register at the end
+of this file was worked through in one sitting on 2026-09-02.** The research phase is signed off.
+Next phase: design system, per CLAUDE.md §1.
 
 | # | Stage | What it produces | Status |
 |---|---|---|---|
@@ -289,18 +290,18 @@ The research phase is finished when:
 - [x] Stage 3 — pain evidenced, with the instrument's blind spots stated
 - [x] Stage 4 — fifteen benchmark cells scored against five grounded categories
 - [x] Stage 5 — five patterns compared on that rubric, one chosen and written into CLAUDE.md §8
-- [ ] Every question in the register below marked **answered** or **deferred with a stated reason** —
-      in one sitting, once stages 4 and 5 are in, not one at a time along the way
+- [x] Every question in the register below marked **answered** or **deferred with a stated reason** —
+      in one sitting, once stages 4 and 5 were in, not one at a time along the way
 
-Next phase after sign-off: design system. Not started, per CLAUDE.md §1. **Sign-off is one
-sitting away** — the register below is the last thing this phase does.
+**Signed off 2026-09-02.** Next phase: design system — not started, per CLAUDE.md §1.
 
 ---
 
 ## Open questions — the register
 
 **This is the last section on purpose, and it is a running list.** Questions land here as stages
-raise them. They are **not** answered as they arrive.
+raise them. They are **not** answered as they arrive. **The list is currently empty** — the six that
+stood here were closed on 2026-09-02 and are recorded below with their dispositions.
 
 **The protocol.** When a stage turns up something we cannot settle yet, it gets an entry here and the
 stage carries on. Nothing is answered mid-flight, because a question answered on partial evidence has
@@ -316,33 +317,44 @@ say **what would answer it**. A question with no named instrument is not a quest
 read before deciding, the options actually on the table, and a recommendation. It holds the
 reasoning; this register holds the status. Neither is a copy of the other.
 
-**The evidence is now in.** Stage 5 was the named instrument for Q1, Q3 and Q4, and stage 4's B4 work
-for Q2. What each turned up is recorded at the end of [`5-patterns/patterns.md`](5-patterns/patterns.md) as *evidence, not
-answers* — the sitting that closes these entries has not happened yet, and this is the material it
-will use.
+**The evidence was in, and the sitting used it.** Stage 5 was the named instrument for Q1, Q3 and
+Q4, and stage 4's B4 work for Q2. What each turned up is recorded at the end of
+[`5-patterns/patterns.md`](5-patterns/patterns.md) as *evidence, not answers*; the sitting on
+2026-09-02 turned it into the dispositions below. Q5 had no instrument and left the register
+deferred, exactly as this section warned it would.
 
-### Live
+### Closed — the sitting, 2026-09-02
 
-| ID | Question | Raised by | What would answer it | What it blocks |
-|---|---|---|---|---|
-| **Q1** | **Cold start: demo problem or product decision?** CLAUDE.md §11 plans *~30 realistic items for any mockup*. Linear seeds a new workspace with four **real**, editable objects, so the product is never empty and the validation pass has something to run on before the user types anything. | Stage 2, flow 08 | **Stage 5.** Every variant must show itself with an empty library and with a seeded one — the cheapest possible resolution, since it falls out of work we are doing anyway. | CLAUDE.md §11, and the whole first-run experience |
-| **Q2** | **How much weight does `SETUP.md` carry?** §6 gives it one line, while [`3-pain/user-pain.md`](3-pain/user-pain.md) finds the loudest pain in the ecosystem lives exactly there — the archive lands on a machine and does not run. Either we own that problem or we say plainly it is not our war. | Stage 3, finding 5 | **Stage 4, flow B4** (produce and hand over), plus the export end of stage 5. | The real scope of CLAUDE.md §6 |
-| **Q3** | **Can a project contain another project**, or only items? | CLAUDE.md §12, from the start | **Stage 5** — whether any of the five variants needs composition in order to work. If none does, it is out. | The data model, later. Not the MVP |
-| **Q4** | **Can a detached item be promoted back into the library** as a new item? | CLAUDE.md §12, sharpened by flow 05 | **Stage 5** — the variant that renders state 6, *detached and locally modified*, will show whether a return path has anywhere to live. Flow 05 established there is **no prior art** for it, so this one we invent rather than copy. | CLAUDE.md §5, later |
-| **Q5** | **Loss or reassembly cost — which actually drives adoption?** *I cannot find what I wrote three months ago* versus *I re-copy the same four files into every new project*. CLAUDE.md §2 bets on neither; it bets on silent breakage. | Stage 3 | **Nothing we have used so far.** Issue trackers are blind to both by construction — neither ever becomes an issue. This needs asking people. | Positioning and the pitch. **Not** the MVP build, which is the same product under any answer |
-| **Q6** | **Styling engine** — Tailwind vs CSS Modules vs vanilla-extract. | CLAUDE.md §12, from the start | Not research. A design-system decision, best made with a component or two actually built. | Nothing in this phase |
+**All six left the register in one sitting, as the protocol required.** Four *answered*, two
+*deferred with a stated reason*. The reasoning and what was read before each is in section 3 of
+[`FINAL.md`](FINAL.md); this table is the status.
 
-### Notes on two of them
+| ID | Question | Disposition | Where it landed |
+|---|---|---|---|
+| **Q1** | Cold start: demo problem or product decision? | **Answered — a product decision.** Library gains a **scope switch**, `My library` / `Public library`. Public is a curated set that ships with the app, **read-only**, so there is material from the first second. One **example project** ships alongside it, built from public items and containing at least one Problem and one Note. `My library` starts genuinely empty. | CLAUDE.md §8, §9, §11 |
+| **Q2** | How much weight does `SETUP.md` carry? | **Answered — more than §6 implied, and the recipient changed.** `SETUP.md` is addressed to **the agent that opens the project**, not to a human reader. It carries what each item in the resolved set requires — dependencies, servers, env keys, external repos at their pinned `ref`, target paths for the chosen agent — so that on init the agent reads it and performs the setup. No verify script in the MVP; it stays additive. | CLAUDE.md §6, §8 |
+| **Q3** | Can a project contain another project? | **Deferred — not refused.** Out of the MVP. Two reasons, and the second is the owner's: no variant needed composition to work, **and composition risks unbounded recursion**. Worth revisiting post-MVP, with a depth rule decided before the feature. | CLAUDE.md §9 |
+| **Q4** | Can a detached item be promoted back into the library? | **Answered — as a new item**, with the project's row re-linking to it. *Push my changes to the original* is a different action with a different confirmation and is not built. **And the consequence is now explicit:** promotion only has value if a detached item can be **edited inside the project** — otherwise detach is merely unlink. In-project editing is therefore in the MVP. | CLAUDE.md §5, §7, §8 |
+| **Q5** | Loss or reassembly cost — which drives adoption? | **Deferred — accepted risk, with the trigger written down.** Nothing in this repository can answer it; trackers are blind to both candidates by construction. Ask five practitioners **before the first feature that only pays off under one answer** — a *reassemble from a previous project* flow versus serious investment in library-wide search. The MVP is the same product under either answer. | Positioning. Nothing in the build |
+| **Q6** | Styling engine | **Deferred to the design-system phase**, with the criterion recorded now: tokens and two real themes first-class, and the engine must not push utility classes into components that are themselves the product's value. Decide on two built components. | CLAUDE.md §10, §12 |
 
-**Q5 is the one to be honest about.** It is the only entry here that no planned stage will touch.
-Stage 4 benchmarks products and stage 5 compares shapes; neither asks a human anything. So Q5 leaves
-the register as *deferred — accepted risk* unless we deliberately add a stage that asks people. Saying
-that out loud is the whole point: an unmarked unknown is the dangerous kind.
+**What the sitting did not change.** No answer added a surface. Q2 lands as two more stages inside
+Run, which is already a stage list; Q1 lands as a scope switch inside Library, which is already a
+browse screen; Q4 lands as a command on a project row, exactly where stage 5 predicted. **CLAUDE.md
+§8 therefore stands as written** — three surfaces plus Projects — and the *provisional* marks are
+gone from it and from [`5-patterns/patterns.md`](5-patterns/patterns.md).
 
-**Q1 and Q2 are pending rather than open.** Both are already scheduled into stage 5, and they are the
-reason that stage has a fixed list of questions every variant must answer.
+**Two answers widened the MVP**, and both are recorded as scope rather than smuggled in as detail:
+a curated public library ships with the product (Q1), and `SETUP.md` becomes a real artefact written
+for an agent rather than a one-line courtesy (Q2). Both were the owner's calls, taken with the
+evidence in view.
 
-### Answered and closed
+### Nothing is live
 
-Nothing yet. Four decisions were taken on 2026-09-01, before this register existed, and are recorded
-under *Decisions already taken* above with their reasoning in [`1-landscape/comparison.md`](1-landscape/comparison.md).
+The register is empty. New questions get the next ID and the same protocol: say which stage or
+sitting raised it, and say what would answer it.
+
+### Earlier decisions
+
+Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions
+already taken* above with their reasoning in [`1-landscape/comparison.md`](1-landscape/comparison.md).

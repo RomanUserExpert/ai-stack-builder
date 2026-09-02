@@ -367,12 +367,15 @@ second and third thirds of the spine.
 
 # The choice
 
-> **Provisional, deliberately.** The shape below is what the rubric chooses. It is **not final until
-> the open-question register is worked through** — Q1, Q2 and Q4 all land inside this flow, and Q2 in
-> particular may add a surface that none of the five variants has. Read the finalisation section of
-> [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md) before treating any of this as settled: the rubric grades craft, not
-> weight, and the five variants differ most in the third of the flow where the pain evidence is
-> thinnest.
+> **Settled 2026-09-02, when the open-question register was closed.** The banner that stood here said
+> this shape was provisional because Q1, Q2 and Q4 land inside the flow and Q2 might add a surface no
+> variant had. It did not. Q2's answer — `SETUP.md` is addressed to the agent that opens the archive
+> — lands as two more stages inside Run, and Run is already a stage list. Q1's answer — a
+> `My library` / `Public library` scope switch — lands inside Library, which is already a browse
+> screen. Q4's answer lands as a command on a project row, where stage 5 predicted it would.
+> **Three surfaces still, and the seam is still Check.** The finalisation section of
+> [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md) still governs how to read the scores: the
+> rubric grades craft, not weight.
 
 **A hybrid, and it is stated as a choice rather than a failure to choose — as the plan required.**
 

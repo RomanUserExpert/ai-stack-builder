@@ -3,8 +3,9 @@
 Five radically different shapes for the key flow — **assemble a set → check it → export** — each
 answering the same five questions, each scored on stage 4's rubric, one chosen.
 
-**Start with** [`patterns.md`](patterns.md), and note the banner on *The choice*: it is
-**provisional** until the open questions are closed, because three of them land inside this flow.
+**Start with** [`patterns.md`](patterns.md). The banner on *The choice* used to say the shape was
+provisional until the open questions closed; they closed on 2026-09-02 and **the shape survived
+unchanged** — three surfaces, seam at Check. The banner now records why.
 
 These are **flow structures, not screens**. No visual design, no layout grid, no components — that
 is the next phase, and this stage was written not to become it.
