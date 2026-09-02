@@ -2,7 +2,7 @@ import io, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "_research-page.build.html")
-DST = os.path.join(os.path.dirname(HERE), "research.html")
+DST = os.path.join(os.path.dirname(HERE), "research", "research.html")
 
 s = io.open(SRC, encoding="utf-8").read()
 
