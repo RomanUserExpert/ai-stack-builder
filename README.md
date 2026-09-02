@@ -52,5 +52,8 @@ JSZip for the archive. Custom design system, no UI kits.
 
 - `CLAUDE.md` — full working context: data model, product logic, scope boundaries,
   conventions. The source of truth. Start here.
+- `research.md` — the consolidated read of the research phase in five sections:
+  competitors, flows, benchmark, patterns, conclusions. Every fact links to its source
+  or capture, and what was never established says so. A digest, not a spec.
 - `research/` — the closed research phase, one folder per stage. `research/FINAL.md` is
   the closing document: what it produced, what it decided, and why.

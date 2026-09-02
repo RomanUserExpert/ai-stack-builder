@@ -32,6 +32,13 @@ before each decision, is in section 3 of [`research/FINAL.md`](research/FINAL.md
 answers widened the MVP and are marked as such below: a **curated public library ships with the
 product** (§8, §11), and **`SETUP.md` is written for the agent that opens the archive** (§6).
 
+**For a single consolidated read of the whole phase**, see [`research.md`](research.md) — competitors,
+flows, benchmark, patterns and conclusions in five sections, every fact linked to its source or
+capture, and every unestablished claim marked as such. **It is a digest and never a source of
+truth**: this file is the spec, [`research/FINAL.md`](research/FINAL.md) is the close, and the
+register in [`research/research-plan.md`](research/research-plan.md) is the only list of open
+questions. Do not answer a question from the digest that these three answer differently.
+
 **The research folder is organised by stage**, and two files govern it:
 [`research/FINAL.md`](research/FINAL.md) is the closing document — what the phase produced, the
 decisions taken, how the six questions were settled, and the documents that are read from more than
