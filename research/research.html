@@ -23,7 +23,7 @@ img{max-width:100%}
   --sunken:#E3E9E8;
   --ink:#141F1E;
   --ink-2:#475654;
-  --ink-3:#778785;
+  --ink-3:#5E6D6A;
   --rule:#CFD8D6;
   --rule-soft:#DFE6E5;
   --accent:#0E6B60;
@@ -53,7 +53,7 @@ img{max-width:100%}
     --note:#DCA847;
     --note-soft:#352A14;
     --skipped:#8B9997;
-    --skipped-soft:#1D2726;
+    --skipped-soft:#2B3937;
     --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -18px rgba(0,0,0,.8);
   }
 }
@@ -73,7 +73,7 @@ img{max-width:100%}
   --note:#DCA847;
   --note-soft:#352A14;
   --skipped:#8B9997;
-  --skipped-soft:#1D2726;
+  --skipped-soft:#2B3937;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -18px rgba(0,0,0,.8);
 }
 
@@ -95,12 +95,18 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var
 .shell{max-width:1240px;margin:0 auto;padding:0 24px 100px}
 @media (min-width:1080px){
   .shell{display:grid;grid-template-columns:184px minmax(0,1fr);gap:56px;padding:0 40px 120px}
+  /* masthead sits in the content column, so the page has one left edge */
+  .mast{grid-column:2;grid-row:1}
+  .rail{grid-column:1;grid-row:2}
+  main{grid-column:2;grid-row:2}
+  .foot{grid-row:3}
 }
-.col{max-width:70ch}
-.wide{max-width:100%}
+.col{max-width:100%}
+.col>*{max-width:70ch}          /* the reading measure, per block */
+.col>.wide{max-width:100%}      /* data breaks out of it */
 
 /* ---------- masthead ---------- */
-.mast{grid-column:1/-1;padding:56px 0 40px;border-bottom:1px solid var(--rule)}
+.mast{padding:56px 0 40px;border-bottom:1px solid var(--rule)}
 .eyebrow{
   font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--accent);margin:0 0 18px
@@ -128,13 +134,31 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var
 .facts dd small{font-size:11px;color:var(--ink-3);display:block;margin-top:5px;letter-spacing:.02em}
 
 /* ---------- rail ---------- */
-.rail{display:none}
+.rail{
+  position:sticky;top:0;z-index:20;margin:0 -24px 4px;padding:9px 24px;
+  background:var(--paper);border-bottom:1px solid var(--rule)
+}
+.rail ol{display:flex;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail ol::-webkit-scrollbar{display:none}
+.rail li{flex:0 0 auto;margin:0}
+.rail a{
+  display:block;white-space:nowrap;padding:5px 11px;border:1px solid var(--rule);border-radius:999px;
+  font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:12px;color:var(--ink-2);text-decoration:none
+}
+.rail a.on{border-color:var(--accent);color:var(--accent);font-weight:600}
+.rail a b{display:none}
+.railhead{display:none}
+
 @media (min-width:1080px){
-  .rail{display:block;position:sticky;top:0;align-self:start;padding-top:44px;max-height:100vh;overflow-y:auto}
-  .rail ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--rule)}
-  .rail li{margin:0}
+  .rail{
+    display:block;position:sticky;top:0;align-self:start;padding:44px 0 0;max-height:100vh;
+    overflow-y:auto;margin:0;background:none;border-bottom:0;z-index:auto
+  }
+  .railhead{display:block}
+  .rail ol{display:block;overflow:visible;border-left:1px solid var(--rule)}
   .rail a{
-    display:block;padding:7px 0 7px 14px;margin-left:-1px;border-left:2px solid transparent;
+    display:block;padding:7px 0 7px 14px;margin-left:-1px;border:0;border-radius:0;
+    border-left:2px solid transparent;white-space:normal;
     font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif;font-size:13px;line-height:1.32;
     color:var(--ink-3);text-decoration:none
   }
@@ -148,7 +172,8 @@ a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var
 }
 
 /* ---------- sections ---------- */
-section{padding:64px 0 8px;scroll-margin-top:20px}
+section{padding:64px 0 8px;scroll-margin-top:64px}
+@media (min-width:1080px){section{scroll-margin-top:20px}}
 section+section{border-top:1px solid var(--rule-soft)}
 .stagehead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;flex-wrap:wrap}
 .stagenum{
@@ -163,7 +188,6 @@ h4{
   color:var(--ink-3);font-weight:600;margin:36px 0 12px
 }
 p{margin:0 0 17px}
-.col>p,.col>ul,.col>ol{max-width:70ch}
 ul,ol{margin:0 0 17px;padding-left:22px}
 li{margin-bottom:9px}
 li::marker{color:var(--ink-3)}
@@ -190,7 +214,7 @@ table{border-collapse:collapse;width:100%;font-family:"IBM Plex Sans","Segoe UI 
 th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
 thead th{
   font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
-  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap;position:sticky;top:0
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap
 }
 tbody tr:last-child td{border-bottom:none}
 td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
@@ -201,9 +225,9 @@ td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
 .tnote{font-size:13px;color:var(--ink-3);margin:-12px 0 26px;font-family:"IBM Plex Sans","Segoe UI Symbol",sans-serif}
 
 /* score cells */
-td.s{
+td.s,th.s{
   text-align:center;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
-  width:52px;font-size:14px;color:var(--ink)
+  width:10%;min-width:58px;font-size:14px;color:var(--ink)
 }
 td.s5{background:var(--accent);color:#fff;font-weight:500}
 td.s4{background:var(--accent-soft)}
@@ -305,7 +329,7 @@ details[open] summary{background:var(--sunken)}
 }
 .lb-close:hover{background:rgba(0,0,0,.8);border-color:rgba(255,255,255,.5)}
 .shots figcaption{
-  font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-2);
   margin-top:7px;line-height:1.55
 }
 .scrollhint{
@@ -868,7 +892,7 @@ blockquote cite{
     <cite>Neither half is a compromise — the two shapes win different thirds of the same flow, and the seam between them is a single control: <strong>Check</strong>.</cite>
   </blockquote>
 
-  <div class="shape">
+  <div class="shape wide">
     <div><p class="k">Surface 1</p><h5>Library</h5><p>Browse, filter, add, edit. Two scopes — your own items and a curated read-only public shelf. Usage facts per item. <strong>Not part of the builder flow.</strong></p></div>
     <div><p class="k">Surface 2</p><h5>Project</h5><p>The set as a list, not a canvas. ⌘K adds by name and opens on <em>related</em> items. Every row carries its own state, including <em>detached</em> with the differing fields named.</p></div>
     <div><p class="k">Surface 3</p><h5>Run</h5><p>Entered by Check, takes the whole screen. Stages with verdicts and durations. <strong>Export is the final stage</strong>, not a button beside the check.</p></div>
