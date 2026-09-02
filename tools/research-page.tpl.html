@@ -214,11 +214,25 @@ td.sx{color:var(--ink-3)}
 details{border-bottom:1px solid var(--rule-soft)}
 details:last-child{border-bottom:none}
 summary{
-  list-style:none;cursor:pointer;padding:15px 18px;display:grid;
-  grid-template-columns:44px 1fr auto;gap:14px;align-items:baseline
+  list-style:none;cursor:pointer;padding:15px 44px 15px 18px;display:grid;
+  grid-template-columns:44px 1fr auto;gap:14px;align-items:baseline;position:relative
 }
 summary::-webkit-details-marker{display:none}
 summary:hover{background:var(--sunken)}
+summary:hover .chev::before{border-color:var(--accent)}
+
+/* chevron — the only thing saying these rows open */
+.chev{
+  position:absolute;right:17px;top:50%;width:16px;height:16px;
+  transform:translateY(-50%);pointer-events:none
+}
+.chev::before{
+  content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;
+  margin:-5px 0 0 -4px;border-right:1.7px solid var(--ink-3);border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(45deg);transform-origin:center;transition:transform .18s ease,border-color .18s ease
+}
+details[open] .chev::before{transform:rotate(-135deg);margin:-2px 0 0 -4px;border-color:var(--accent)}
+details[open] summary{background:var(--sunken)}
 .fnum{
   font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent);
   font-variant-numeric:tabular-nums;letter-spacing:.04em
@@ -249,8 +263,34 @@ summary:hover{background:var(--sunken)}
 }
 .shots figure{margin:0}
 .shots img{
-  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;background:var(--surface)
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:3px;
+  background:var(--surface);cursor:zoom-in;transition:border-color .15s ease
 }
+.shots img:hover,.shots img:focus-visible{border-color:var(--accent)}
+.shots img:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.scrollhint em{font-style:normal;color:var(--ink-3);opacity:.75;text-transform:none;letter-spacing:.02em}
+
+/* lightbox */
+.lb{
+  position:fixed;inset:0;z-index:100;background:rgba(8,13,12,.94);
+  overflow:auto;padding:60px 24px 48px;display:flex
+}
+.lb[hidden]{display:none}
+.lb-inner{width:min(1360px,94vw);margin:auto}
+.lb-inner img{
+  display:block;width:100%;height:auto;border-radius:4px;
+  border:1px solid rgba(255,255,255,.16);background:#fff
+}
+.lb-cap{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.65;
+  color:#C6D1CF;margin:14px 0 0;max-width:96ch
+}
+.lb-close{
+  position:fixed;top:16px;right:20px;width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.45);color:#EDF1F0;
+  font:500 15px/1 "IBM Plex Sans",sans-serif;cursor:pointer
+}
+.lb-close:hover{background:rgba(0,0,0,.8);border-color:rgba(255,255,255,.5)}
 .shots figcaption{
   font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-3);
   margin-top:7px;line-height:1.55
@@ -405,7 +445,7 @@ blockquote cite{
   </div>
   <p class="tnote">Monetisation is the fifth axis and is omitted here for width; it is in the source document. Packmind's is marked <em>unverified</em> — <span class="nd">no source</span> — because <code>app.packmind.com</code> does not resolve and the product is sales-gated.</p>
 
-  <p class="scrollhint">Evidence</p>
+  <p class="scrollhint">Evidence <em>· click to enlarge</em></p>
   <div class="shots">
     <figure><img src="{{IMG:c-tessl}}" alt="Tessl skill detail page showing a composite score of 93 and an uplift multiplier"><figcaption>tessl · skill-detail-scored — the reference screen of the survey: composite 93, uplift 1.40×, Quality / Impact / Security bars, and identity as repo + path + commit.</figcaption></figure>
     <figure><img src="{{IMG:c-smithery}}" alt="Smithery registry home listing MCP servers with scores"><figcaption>smithery · registry-home — a catalog solving cold start with volume, every server carrying a number.</figcaption></figure>
@@ -445,10 +485,10 @@ blockquote cite{
   <div class="flows wide">
 
     <details>
-      <summary><span class="fnum">01</span><span class="ftitle">Item detail and trust<span>What evidence does a catalog put on a single item?</span></span><span class="fstat st-part">declined</span></summary>
+      <summary><span class="fnum">01</span><span class="ftitle">Item detail and trust<span>What evidence does a catalog put on a single item?</span></span><span class="fstat st-part">declined</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p>Trust has moved from social proof to <strong>measurement</strong> — a number derived from running the thing. Tessl scores per eval scenario with a delta; Smithery shows a score out of 100 and a verified badge. <strong>We can run nothing, so we ship none of it.</strong> Held open only by Agentman's login-walled page, then declined: its lesson is legible from their marketing, and version history is out of scope.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f01a}}" alt="Tessl Evals tab showing per-scenario scores"><figcaption>tessl-skill-evals-tab — per-scenario results, 84% with a ↑34% delta, each with a Details affordance.</figcaption></figure>
           <figure><img src="{{IMG:f01b}}" alt="Smithery server configuration requirements"><figcaption>smithery-server-github-config — a server that actually requires configuration, and how it asks.</figcaption></figure>
@@ -458,11 +498,11 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">02</span><span class="ftitle">Library browse, filter, search<span>Finding one thing in a large personal collection</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">02</span><span class="ftitle">Library browse, filter, search<span>Finding one thing in a large personal collection</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>Typing flattens a filter tree into breadcrumbs</strong> — the path is shown rather than traversed, which is how two leaves with the same name stay distinguishable. Our <code>mcp</code> kind and an <code>mcp</code> tag will collide in exactly that way. A filter chip is written as a sentence, with <code>Clear</code> and <code>Save</code> in the same corner.</p>
         <p>And the one to copy outright: when a filter empties the list, Linear says <strong>“4 issues hidden by filters · Clear Filters ✕”</strong>. That is the difference between <em>there is nothing</em> and <em>you are not looking at it</em>, stated as a number you can act on.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f02a}}" alt="Linear command palette running commands and content search in one field"><figcaption>linear-command-palette-default — one field doing commands and content, with a keyboard-hint bar computed from the current state.</figcaption></figure>
           <figure><img src="{{IMG:f02b}}" alt="Linear filter typeahead flattening its hierarchy into breadcrumbs"><figcaption>linear-filter-typeahead-breadcrumbs — the filter tree flattened into a path as you type.</figcaption></figure>
@@ -473,10 +513,10 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">03</span><span class="ftitle">Relations without a canvas<span>Showing dependencies nobody drew by hand</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">03</span><span class="ftitle">Relations without a canvas<span>Showing dependencies nobody drew by hand</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>Nobody authors a graph.</strong> It is derived from declared relations and made legible with a <em>depth filter</em> — the same graph at depth 1 and depth 3 is the whole legibility mechanism. GitHub's <em>Dependents</em> view is the reverse direction: blast radius rather than dependencies, which is the shape of our <em>used in 3 projects</em>.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f03a}}" alt="Backstage catalog graph at depth 1"><figcaption>backstage-graph-depth-1 — legible, because it is shallow.</figcaption></figure>
           <figure><img src="{{IMG:f03b}}" alt="Backstage catalog graph at depth 3, much denser"><figcaption>backstage-graph-depth-3 — the same data three hops out. The control is the design.</figcaption></figure>
@@ -487,12 +527,12 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">04</span><span class="ftitle">Validation — pass, warn, block<span>Our wow moment, and the best-covered flow in the research</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">04</span><span class="ftitle">Validation — pass, warn, block<span>Our wow moment, and the best-covered flow in the research</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p>Four products, four different lessons: Terraform on what a <em>result</em> reads like, Vercel on what a <em>process</em> reads like, GitHub Actions on <em>partial failure</em>, Port on a <em>grade</em>.</p>
         <p>The structural find is Vercel's: a deployment is a <strong>stack of collapsed stages, each carrying its own glyph, verdict and duration</strong>, each expandable. A stage that did not run gets a clock, not a failure.</p>
         <p>The second find decided our severity model. <strong>Port does not block — it gates a level.</strong> A failed rule stops an entity climbing a cumulative <code>Basic → Low → Good → Great</code> ladder rather than forbidding anything; the demo has no blocking surface at all.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f04a}}" alt="Vercel deployment page showing collapsed build stages with durations"><figcaption>vercel-deployment-stages — the structural model for our validation pass.</figcaption></figure>
           <figure><img src="{{IMG:f04b}}" alt="Port scorecard rule expanded to its predicate and observed value"><figcaption>port-scorecard-rule-expanded — <code>where "Open Critical Vulnerabilities" = 0 · Value: 1</code>. The condition required and the value found.</figcaption></figure>
@@ -503,12 +543,12 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">05</span><span class="ftitle">Linked vs detached, and blast radius<span>The single most spec-bearing capture in the folder</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">05</span><span class="ftitle">Linked vs detached, and blast radius<span>The single most spec-bearing capture in the folder</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>Drift is computed precisely and displayed nowhere.</strong> Figma's context menu names the exact overridden property — <code>Reset fill</code>, not a generic “reset overrides” — so the diff is already computed. And yet a modified instance is <em>pixel-identical</em> to a clean one in the layers tree, the properties panel and on the canvas. The only evidence is two rows appearing in a menu you must open on an object you must first select.</p>
         <p><strong>The failure is display, not modelling</strong> — which is exactly the trap our <em>detached, locally modified</em> state is waiting to fall into. Two things to take whole: revert at two granularities (whole item, single field), and <code>Reset</code> kept next to <code>Detach</code> as the two halves of one axis.</p>
         <p>And the part with no prior art at all: <strong>a path back.</strong> Figma erases the origin at detach and offers nothing afterwards.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f05a}}" alt="Figma context menu on a clean component instance"><figcaption>figma-context-menu-clean — no reset rows. They are <em>absent</em>, not greyed.</figcaption></figure>
           <figure><img src="{{IMG:f05b}}" alt="Figma context menu on an overridden instance showing Reset instance and Reset fill"><figcaption>figma-context-menu-overridden-reset — <code>Reset fill</code> names the exact property that differs. The product knows; the canvas never says.</figcaption></figure>
@@ -519,11 +559,11 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">06</span><span class="ftitle">Export and target adaptation<span>One source, many agent formats</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">06</span><span class="ftitle">Export and target adaptation<span>One source, many agent formats</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>External repos are always instructions, never vendored.</strong> Ruler — an open-source CLI that syncs one directory into 20+ agent formats — was run locally as a substitute for the sales-gated competitor, and it supplies two mechanics: a managed <code>START/END</code> fenced block so a re-run finds and replaces exactly what it wrote, and a <code>.bak</code> beside every overwritten file. <code>create-next-app</code> arrived at the same two mechanics independently, which collapses our four export targets into two mechanics plus a naming convention.</p>
         <p>What neither does: <strong>say what it is about to overwrite.</strong></p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f06a}}" alt="Backstage scaffolder template parameter form"><figcaption>backstage-scaffolder-template-form — parameter form → review → artefact, which is our export flow in another domain.</figcaption></figure>
         </div>
@@ -532,11 +572,11 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">07</span><span class="ftitle">Env variables and secrets<span>How to ask for a key without leaking it</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">07</span><span class="ftitle">Env variables and secrets<span>How to ask for a key without leaking it</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>Ask the type before the value</strong>, and default to the irreversible option. Vercel's drawer offers <em>Secret</em> and <em>Config</em> as two explained radio cards with Secret — the one you cannot read back — as the default. The Note field's placeholder poses the real question: <em>“Where to rotate, or who to contact”</em>. Two bulk paths exist, including pasting a whole <code>.env</code> into the Key field.</p>
         <p>The counter-example sits one screen away and is this research's standing example of waste: the env-variables <em>empty</em> state keeps a search box, four filter dropdowns and a sort control on screen, all filtering nothing.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f07a}}" alt="Vercel add environment variable drawer with Secret and Config radio cards"><figcaption>vercel-add-env-variable-drawer — type before value, irreversible by default.</figcaption></figure>
           <figure><img src="{{IMG:f07b}}" alt="Vercel environment variables empty state still showing filters"><figcaption>vercel-env-vars-empty-state — four dropdowns filtering nothing.</figcaption></figure>
@@ -546,11 +586,11 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">08</span><span class="ftitle">Empty state and cold start<span>The gap the research carried from the beginning</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">08</span><span class="ftitle">Empty state and cold start<span>The gap the research carried from the beginning</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p>A brand-new Linear workspace does not open on an illustration inviting you to create your first issue. It opens on the Issues list, <strong>already populated with four real issues</strong> — <em>Get familiar with Linear</em>, <em>Set up your teams</em>, <em>Connect your tools</em>, <em>Import your data</em> — ordinary objects you can edit, complete or delete. The onboarding checklist <em>is</em> the data model, exercised on itself, and the product is never empty at any point.</p>
         <p>Second: <strong>three registers of emptiness</strong>, and a rule that picks between them. A concept you may never have used defines itself in a sentence. Routine emptiness says one line. Filtered to zero counts what is hidden. <em>Verbosity scales with the chance the reader does not know what the object is.</em></p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f08a}}" alt="A brand new Linear workspace opening on four real seeded issues"><figcaption>linear-first-run-seeded-issues — the real first five minutes, which no populated system could have shown us.</figcaption></figure>
           <figure><img src="{{IMG:f08b}}" alt="Linear Projects empty state defining what a project is"><figcaption>linear-projects-empty-state — the object's name as the heading, then a <em>definition</em> rather than an apology, with the shortcut inside the button.</figcaption></figure>
@@ -560,10 +600,10 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">09</span><span class="ftitle">Duplicate and fork<span>Copying as a first-class act</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">09</span><span class="ftitle">Duplicate and fork<span>Copying as a first-class act</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>Duplication is a distribution primitive</strong>, and the copy dialog states what will and will not come along. This is the mechanism behind our second supporting moment — duplicating a project to re-tune it for a new context.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f09a}}" alt="GitHub create a new fork form"><figcaption>github-create-fork-form — opened and abandoned; nothing was forked.</figcaption></figure>
           <figure><img src="{{IMG:f09b}}" alt="Notion page menu with Duplicate"><figcaption>notion-page-menu-duplicate — duplication offered where the object lives.</figcaption></figure>
@@ -573,10 +613,10 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">10</span><span class="ftitle">Dark design language<span>Deliberately not spent in this phase</span></span><span class="fstat st-fwd">handed forward</span></summary>
+      <summary><span class="fnum">10</span><span class="ftitle">Dark design language<span>Deliberately not spent in this phase</span></span><span class="fstat st-fwd">handed forward</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p>The one flow about <em>appearance</em> rather than behaviour, so it does not close here — <strong>it opens the next phase</strong>, with its material already gathered. Linear at close range: few surfaces, with the sidebar sharing the content ground; elevation as a hairline plus a few percent of lightness rather than a shadow ramp; three foreground tones with the accent reserved for meaning; key caps as a real component with a two-cap form for chords; unset properties written as imperatives.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f10a}}" alt="Linear issues list in dark theme"><figcaption>linear-issues-list-dark — few surfaces; the sidebar shares the content ground.</figcaption></figure>
           <figure><img src="{{IMG:f10b}}" alt="Linear command palette in dark theme, detail of key caps"><figcaption>linear-command-palette-dark-detail — key caps as a component, not a text hint.</figcaption></figure>
@@ -586,11 +626,11 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">11</span><span class="ftitle">Copy — errors, warnings, refusals<span>Every sentence the validation pass will ever write</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">11</span><span class="ftitle">Copy — errors, warnings, refusals<span>Every sentence the validation pass will ever write</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>Cause and consequence are two rows</strong>, and you group by the action that fixes a failure rather than the check that found it. Nobody opens a 102-job run to find seven red squares — so the best example in the survey sends the report to the reader instead: a bot posts a distilled failure summary into the pull request, grouped by the command that reproduces each failure, stamped with the commit, with raw output collapsed.</p>
         <p>The anti-reference is industry-wide. Fourteen of seventeen annotations on one run read, in full, <code>Process completed with exit code 1</code> — and the same was found in <code>denoland/deno</code>, <code>withastro/astro</code>, <code>vitejs/vite</code> and <code>rust-lang/rust-clippy</code>. <strong>The failure channel carries less information than the deprecation channel.</strong></p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f11a}}" alt="GitHub pull request bot comment listing failing test suites grouped by reproduction command"><figcaption>github-pr-bot-failing-test-suites — the best failure copy in the survey.</figcaption></figure>
           <figure><img src="{{IMG:f11b}}" alt="Stripe error codes reference"><figcaption>stripe-error-codes — error copy that names the cause, as documentation.</figcaption></figure>
@@ -600,10 +640,10 @@ blockquote cite{
     </details>
 
     <details>
-      <summary><span class="fnum">12</span><span class="ftitle">Visibility and portfolio<span>Public or private, and what a profile says about you</span></span><span class="fstat st-closed">closed</span></summary>
+      <summary><span class="fnum">12</span><span class="ftitle">Visibility and portfolio<span>Public or private, and what a profile says about you</span></span><span class="fstat st-closed">closed</span><span class="chev" aria-hidden="true"></span></summary>
       <div class="fbody">
         <p><strong>Public/private is a low-ceremony decision</strong>, and the profile is the portfolio. GitHub puts the visibility flip in a Danger Zone with a typed confirmation; Notion separates sharing with people from publishing to the web entirely.</p>
-        <p class="scrollhint">Captures</p>
+        <p class="scrollhint">Captures <em>· click to enlarge</em></p>
         <div class="shots">
           <figure><img src="{{IMG:f12a}}" alt="GitHub danger zone repository visibility row"><figcaption>github-danger-zone-visibility — read-only; nothing was clicked.</figcaption></figure>
           <figure><img src="{{IMG:f12b}}" alt="Notion publish to web dialog"><figcaption>notion-publish-to-web — publishing kept separate from sharing.</figcaption></figure>
@@ -748,6 +788,7 @@ blockquote cite{
   <h4>02 — <span style="text-transform:none;letter-spacing:0;font-family:'IBM Plex Mono',monospace">N of M</span>, and a count that is a link <span style="text-transform:none;letter-spacing:0;color:var(--ink-3)">· VS Code</span></h4>
   <p>Workspace Trust shows two columns — <em>In a Trusted Folder</em> against <em>In Restricted Mode</em> — with the current one outlined. Two of its lines are counted <strong>and hyperlinked</strong>: <em>“95 workspace settings are not applied”</em>, <em>“10 extensions are disabled or have limited functionality”</em>. It is the best consequence disclosure in the entire benchmark, and it beats Figma's <em>423 instances</em> on the one axis Figma leaves open: <strong>the number is a link to the list.</strong></p>
   <p><strong>Why it fits.</strong> We refuse to block an unclean export and confirm it instead, which puts the whole weight on the confirmation sentence. This is the shape that sentence takes: name the count, and let the user open it. The same grammar showed up in four unrelated products — <em>4 issues hidden by filters</em>, <em>Showing 0 of 6</em> placed inside the filter input, <em>0 of 0 selected</em>, <em>10 files (324 ms) in <code>repo ✕</code></em>. <strong>The number you can act on, next to the control that produced it</strong> — and never the word “none”.</p>
+  <p class="scrollhint">Captures <em>· click to enlarge</em></p>
   <div class="shots">
     <figure><img src="{{IMG:b-trust}}" alt="VS Code Workspace Trust dialog with counted, hyperlinked consequences"><figcaption>vscode-workspace-trust — the cost of each state, counted and clickable, before you choose.</figcaption></figure>
     <figure><img src="{{IMG:b-problems}}" alt="VS Code Problems panel filtered to zero showing Showing 0 of 6 inside the input"><figcaption>vscode-problems-filtered-zero — <code>Showing 0 of 6</code> inside the input, and the remedy as a link.</figcaption></figure>
@@ -772,6 +813,7 @@ blockquote cite{
     </table>
   </div>
   <p>A greyed primary action is a dead end on the most important control in the product, and our promise is <em>the system checked</em>, not <em>the system forbade</em>. So the mechanism is refused outright: <strong>export is never disabled; an unclean set is confirmed, not blocked.</strong></p>
+  <p class="scrollhint">Captures <em>· click to enlarge</em></p>
   <div class="shots">
     <figure><img src="{{IMG:b-figma}}" alt="Figma export dialog showing 0 of 0 selected with a disabled Export button"><figcaption>figma-export-empty-selection — precise, well-written, and exactly what we cannot do.</figcaption></figure>
     <figure><img src="{{IMG:b-obsidian}}" alt="Obsidian quick switcher with no match, offering to create the note"><figcaption>obsidian-quick-switcher-no-match — the opposite failure: zero results <em>is</em> the create row, so a typo and an absence look identical. We take the offer and keep the message.</figcaption></figure>
@@ -936,6 +978,14 @@ blockquote cite{
 
 </main>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Capture, enlarged" hidden>
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close">&#10005;</button>
+  <div class="lb-inner">
+    <img id="lbImg" alt="">
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</div>
+
 <footer class="foot">
   <span>AI Stack Builder · research phase closed 2 September 2026</span>
   <span>143 captures · 36 source documents · 15 scored cells</span>
@@ -944,6 +994,64 @@ blockquote cite{
 </div>
 
 <script>
+/* Lightbox — the captures are 1360px wide, so this is real magnification. */
+(function(){
+  var lb = document.getElementById('lb'),
+      lbImg = document.getElementById('lbImg'),
+      lbCap = document.getElementById('lbCap'),
+      lbClose = document.getElementById('lbClose'),
+      opener = null;
+  if(!lb) return;
+
+  var shots = Array.prototype.slice.call(document.querySelectorAll('.shots img'));
+  shots.forEach(function(img){
+    img.tabIndex = 0;
+    img.setAttribute('role', 'button');
+    img.title = 'Click to enlarge';
+  });
+
+  function open(img){
+    var fig = img.parentNode,
+        cap = fig ? fig.querySelector('figcaption') : null;
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt || '';
+    lbCap.textContent = cap ? cap.textContent.replace(/\s+/g, ' ').trim() : '';
+    lb.hidden = false;
+    document.documentElement.style.overflow = 'hidden';
+    opener = img;
+    lbClose.focus();
+  }
+  function shut(){
+    lb.hidden = true;
+    lbImg.removeAttribute('src');
+    document.documentElement.style.overflow = '';
+    if(opener && opener.focus) opener.focus();
+    opener = null;
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target;
+    if(!t) return;
+    if(t.tagName === 'IMG' && t.parentNode && t.parentNode.parentNode &&
+       t.parentNode.parentNode.className === 'shots'){
+      open(t);
+      return;
+    }
+    if(t === lb || t === lbClose) shut();
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !lb.hidden){ shut(); return; }
+    if(lb.hidden && (e.key === 'Enter' || e.key === ' ')){
+      var a = document.activeElement;
+      if(a && a.tagName === 'IMG' && shots.indexOf(a) !== -1){
+        e.preventDefault();
+        open(a);
+      }
+    }
+  });
+})();
+
 (function(){
   var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
   if(!links.length || !('IntersectionObserver' in window)) return;
