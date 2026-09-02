@@ -36,3 +36,6 @@ yarn-error.log*
 
 # Intermediate build of the research page (research.html is the committed output)
 tools/_research-page.build.html
+
+# vercel
+.vercel

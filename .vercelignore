@@ -1,0 +1,8 @@
+# The deployed site is one self-contained file: every capture is embedded in it
+# as a data URI, so none of the source material needs to be served. Upload only
+# the page (and vercel.json, which Vercel reads from the root).
+*
+!research
+research/*
+!research/research.html
+!vercel.json
