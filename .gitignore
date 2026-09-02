@@ -34,10 +34,8 @@ yarn-error.log*
 # vercel
 .vercel
 
-# The research page is generated, not committed. Rebuild it with:
-#   python tools/build_page.py && python tools/make_standalone.py
+# Intermediate build of the research page (research.html is the committed output)
 tools/_research-page.build.html
-research/research.html
 
 # vercel
 .vercel

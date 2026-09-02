@@ -4,10 +4,6 @@
 screen captures embedded as data URIs, so it opens from disk and can be sent to someone as a single
 file with nothing to fetch. Do not hand-edit it — edit the template and rebuild.
 
-**It is not in git.** Three megabytes per commit, and fully derivable from this folder plus the
-captures, which are. So a fresh clone has no page until it builds one — run both commands below
-before opening, sending or deploying it.
-
 ```
 python tools/build_page.py        # compress + embed the captures  -> tools/_research-page.build.html
 python tools/make_standalone.py   # wrap in a full HTML document   -> research/research.html
@@ -28,7 +24,3 @@ The build reports anything encoded but unused.
 
 **Size.** ~3 MB at the current settings, against a 16 MB ceiling for a published artifact. There is
 room to raise `QUALITY` or `MAXW` if a capture needs to be more legible.
-
-**Deploy.** `vercel --prod` from the repo root. `.vercelignore` uploads exactly one file —
-`research/research.html`, built and sitting on disk — and `vercel.json` serves it at `/`. The
-captures stay behind: they are already inside the page.

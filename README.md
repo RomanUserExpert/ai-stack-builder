@@ -57,7 +57,6 @@ JSZip for the archive. Custom design system, no UI kits.
     flows, benchmark, patterns, conclusions. Every fact links to its source or capture,
     and what was never established says so. A digest, not a spec.
   - `research/research.html` — the same research as one self-contained page, with 34
-    captures embedded. Opens from disk, sends as a single file. Generated, and not in git —
-    build it with `python tools/build_page.py && python tools/make_standalone.py`. See `tools/`.
+    captures embedded. Opens from disk, sends as a single file. Generated — see `tools/`.
   - `research/FINAL.md` — the closing document: what the phase produced, what it
     decided, and why.
