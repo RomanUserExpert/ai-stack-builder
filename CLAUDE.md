@@ -7,20 +7,34 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 
 ## 1. Current phase — read this first
 
-**Phase: Research is signed off (2026-09-02). The design system is next and has not started.**
+**Phase: research was signed off on 2026-09-02 in five stages, and was re-opened on 2026-09-06 with
+two more — personas and jobs to be done. They run before the design system.**
 
-There is still no application code, no design system, no mockups. The design system may now begin;
-nothing after it may.
+There is still no application code, no design system, no mockups.
+
+**Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
+the key flow takes. None of them established **who the person is** or **what they hire this product
+for**. Stages 6 and 7 do that, and they are planned rather than begun:
+[`research/6-personas/README.md`](research/6-personas/README.md) and
+[`research/7-jobs-to-be-done/README.md`](research/7-jobs-to-be-done/README.md). **The five-stage
+sign-off stands as written** — nothing below is retracted; the two new stages *audit* this file and
+raise register entries rather than editing it.
 
 The agreed order of work:
 
-1. ~~Research~~ — **done, signed off 2026-09-02**
-2. **Design system** (tokens, typography, color, components) ← next, not started
-3. Mockups / screen design (static, no logic)
-4. Static frontend implementation (markup only, no business logic)
-5. Logic (state, storage, validation, export)
+1. ~~Research, stages 1–5~~ — **done, signed off 2026-09-02**
+2. **Research, stages 6–7** — personas, then jobs to be done ← next, planned not started
+3. Design system (tokens, typography, color, components)
+4. Mockups / screen design (static, no logic)
+5. Static frontend implementation (markup only, no business logic)
+6. Logic (state, storage, validation, export)
 
-**All five research stages are done.** Landscape, flows and pain; then **benchmark** — 15
+**Both new stages ship marked `provisional`.** We have no interviews, no analytics and no users, and
+stage 3 recorded that a tracker sees breakage, not friction. Roughly half of every persona card, and
+all of the adoption story, will be hypothesis marked `[?]`. The label lifts on the event Q5 already
+names — five practitioner conversations — for which stage 6 builds the instrument.
+
+**All five of the original research stages are done.** Landscape, flows and pain; then **benchmark** — 15
 product-and-flow cells scored against five categories lifted from stages 1–3
 ([`research/4-benchmark/benchmark.md`](research/4-benchmark/benchmark.md)); then **patterns** — five shapes for the key flow
 compared on that rubric, with the chosen one written into §8 below and the four rejected kept in
@@ -519,8 +533,12 @@ together in a sitting, once the picture is whole, rather than one at a time on p
 not keep a second list in this file; two lists drift, and this document has already been bitten by
 that twice. **The protocol outlived the research phase** — the design system uses the same register.
 
-**The register is empty.** All six were closed in one sitting on 2026-09-02 — four answered, two
-deferred with a stated reason. Their dispositions are below; the reasoning, and what was read before
+**Three questions are live.** All six of the original ones were closed in one sitting on 2026-09-02 —
+four answered, two deferred with a stated reason. **Q7, Q8 and Q9 were raised on 2026-09-06 by the
+planning of stages 6 and 7** — who the primary persona is, what the main job is, and which specified
+features close no evidenced job. They are not answered now: the protocol batches them into one
+sitting once both stages are in. Q5 was **re-pointed rather than re-opened** — its instrument is now
+named. Their dispositions are below; the reasoning, and what was read before
 each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
 
 **Closed, and recorded here because the answers are part of the spec.**
@@ -563,7 +581,8 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
 ## 13. Working agreements
 
 - Docs, code and UI copy in English. Conversation with the user may be in Russian.
-- The research phase is signed off (2026-09-02) and the design system may start. Do not scaffold
-  the app or generate mockups before the design system exists.
+- Research stages 1–5 are signed off (2026-09-02). **Stages 6 and 7 — personas and jobs to be done —
+  were added on 2026-09-06 and run before the design system.** Do not start the design system, scaffold
+  the app or generate mockups before they close.
 - This file is the single source of truth for the product. The original brief has been
   folded into it and deleted; there is no other spec to reconcile against.

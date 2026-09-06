@@ -279,8 +279,15 @@ read from several, which is exactly how a folder becomes confusing. Filed here s
 - [x] The **provisional** marks removed from [`5-patterns/patterns.md`](5-patterns/patterns.md) and
       CLAUDE.md §8 — the shape needed no revision, because Q2 added no surface
 
-**The research phase is closed.** Next phase: the design system, whose first task is the visual
-direction, with its reference material already gathered in
+> **Re-opened 2026-09-06 with two more stages** — [personas](6-personas/README.md) and
+> [jobs to be done](7-jobs-to-be-done/README.md) — because everything above establishes what vendors
+> sell and what breaks, and nothing establishes who the person is or what they hire the product for.
+> **Nothing in this document is retracted**; the five-stage sign-off stands and the two new stages
+> audit the spec rather than edit it. This close will need a second half once they finish. The status
+> and the three questions they raised are in [`research-plan.md`](research-plan.md).
+
+**The five-stage research phase is closed.** Next: stages 6 and 7. Then the design system, whose
+first task is the visual direction, with its reference material already gathered in
 [`2-flows/10-dark-design-language/`](2-flows/10-dark-design-language/).
 
 Two things this phase deliberately hands forward as work rather than as decisions: **the curated

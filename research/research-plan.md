@@ -1,8 +1,11 @@
 # Research plan
 
-Updated 2026-09-02. The phase runs in five stages. **All five are done, and the register at the end
-of this file was worked through in one sitting on 2026-09-02.** The research phase is signed off.
-Next phase: design system, per CLAUDE.md §1.
+Updated 2026-09-06. The phase ran in five stages and was **signed off on 2026-09-02**; the register
+was worked through in one sitting that day. **On 2026-09-06 the phase was re-opened with two more
+stages, 6 and 7** — personas and jobs to be done — because the sign-off had established what vendors
+sell and what breaks, and never who the person is or what they hire the product for. The five-stage
+sign-off stands as written; stages 6–7 are an addition to it, not a correction, and the design system
+remains next once they close.
 
 | # | Stage | What it produces | Status |
 |---|---|---|---|
@@ -11,12 +14,16 @@ Next phase: design system, per CLAUDE.md §1.
 | 3 | **Pain** | The first evidence about users rather than vendors | ● done |
 | 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ● done — 15 cells scored |
 | 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ● done — hybrid chosen, CLAUDE.md §8 rewritten |
+| 6 | **Personas** | 2–4 behavioural personas, one primary, every block sourced or `[?]` — **provisional** until five practitioners are asked | ○ planned — [`6-personas/README.md`](6-personas/README.md) |
+| 7 | **Jobs to be done** | One main job, related, emotional and social jobs, and a jobs × personas matrix that says what to build first and what not to build | ○ planned, blocked on 6 — [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) |
 
 Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
 by taste; with one, it is settled by argument. And the rubric is not invented — its five categories
 are lifted from what stages 1–3 actually found.
 
-Sign-off comes after stage 5. Next phase: design system, per CLAUDE.md §1.
+Sign-off came after stage 5. Stages 6 and 7 read stage 3 more than anything else, and inherit its
+limit: a tracker sees breakage, not friction. Both ship **provisional**; the label lifts on the Q5
+trigger — five practitioner conversations, filed as a source document.
 
 ---
 
@@ -43,6 +50,13 @@ research/
 | [`2-flows/README.md`](2-flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
 | [`4-benchmark/benchmark.md`](4-benchmark/benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`4-benchmark/`](4-benchmark/). |
 | [`5-patterns/patterns.md`](5-patterns/patterns.md) | **Stage 5.** Five shapes for *assemble → check → export*, each answering the same five questions, each scored on the stage-4 rubric read as *does the shape give this a home*. The choice, what each rejected variant donates, and what the choice costs. |
+| [`6-personas/README.md`](6-personas/README.md) | **Stage 6 — the plan.** What the stage is for, the way it goes wrong here, the inputs classified by kind of evidence, seven steps with a done-bar each, the evidence rule and the honest problem. |
+| [`6-personas/personas.md`](6-personas/personas.md) | **Stage 6.** Personas with attachment, primary marked, hypotheses separate. Provisional. |
+| [`6-personas/audit.md`](6-personas/audit.md) | Confirmed / hypothesis / invented, the dangerous list, and the proposals for CLAUDE.md, the digest and the register. |
+| [`6-personas/interview-guide.md`](6-personas/interview-guide.md) | The instrument for lifting *provisional* — the Q5 conversations, ready before they are scheduled. |
+| [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) | **Stage 7 — the plan.** The canonical job form, the hierarchy, the feature-name test, the matrix, and what each of its two answers is worth. |
+| [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) | **Stage 7.** Main-job candidates and the choice, the hierarchy, the matrix with feature and competitor columns, the two conclusions. Provisional. |
+| [`7-jobs-to-be-done/audit.md`](7-jobs-to-be-done/audit.md) | The audit and the reconciliation table against CLAUDE.md §2, §8, §9. |
 
 ---
 
@@ -293,15 +307,28 @@ The research phase is finished when:
 - [x] Every question in the register below marked **answered** or **deferred with a stated reason** —
       in one sitting, once stages 4 and 5 were in, not one at a time along the way
 
-**Signed off 2026-09-02.** Next phase: design system — not started, per CLAUDE.md §1.
+**Signed off 2026-09-02.**
+
+**Re-opened 2026-09-06.** The six items above stand. Two more before the phase closes again:
+
+- [ ] Stage 6 — personas built from the inventory, audited, one question re-researched at point
+      scale, `personas.html` published, proposals handed back
+- [ ] Stage 7 — jobs in canonical form, feature test passed, matrix with no averaged cell, three core
+      jobs and the orphan list named, reconciliation against the spec handed back
+- [ ] Every register entry raised by stages 6–7 marked **answered** or **deferred with a stated
+      reason**, in one sitting, once both stages are in
+
+Next phase after that: design system — not started, per CLAUDE.md §1.
 
 ---
 
 ## Open questions — the register
 
 **This is the last section on purpose, and it is a running list.** Questions land here as stages
-raise them. They are **not** answered as they arrive. **The list is currently empty** — the six that
-stood here were closed on 2026-09-02 and are recorded below with their dispositions.
+raise them. They are **not** answered as they arrive. The six that stood here were closed on
+2026-09-02 and are recorded below with their dispositions. **Three more are live** — Q7, Q8 and Q9,
+raised on 2026-09-06 by the planning of stages 6 and 7, and answered in one sitting once both stages
+are in.
 
 **The protocol.** When a stage turns up something we cannot settle yet, it gets an entry here and the
 stage carries on. Nothing is answered mid-flight, because a question answered on partial evidence has
@@ -335,7 +362,7 @@ deferred, exactly as this section warned it would.
 | **Q2** | How much weight does `SETUP.md` carry? | **Answered — more than §6 implied, and the recipient changed.** `SETUP.md` is addressed to **the agent that opens the project**, not to a human reader. It carries what each item in the resolved set requires — dependencies, servers, env keys, external repos at their pinned `ref`, target paths for the chosen agent — so that on init the agent reads it and performs the setup. No verify script in the MVP; it stays additive. | CLAUDE.md §6, §8 |
 | **Q3** | Can a project contain another project? | **Deferred — not refused.** Out of the MVP. Two reasons, and the second is the owner's: no variant needed composition to work, **and composition risks unbounded recursion**. Worth revisiting post-MVP, with a depth rule decided before the feature. | CLAUDE.md §9 |
 | **Q4** | Can a detached item be promoted back into the library? | **Answered — as a new item**, with the project's row re-linking to it. *Push my changes to the original* is a different action with a different confirmation and is not built. **And the consequence is now explicit:** promotion only has value if a detached item can be **edited inside the project** — otherwise detach is merely unlink. In-project editing is therefore in the MVP. | CLAUDE.md §5, §7, §8 |
-| **Q5** | Loss or reassembly cost — which drives adoption? | **Deferred — accepted risk, with the trigger written down.** Nothing in this repository can answer it; trackers are blind to both candidates by construction. Ask five practitioners **before the first feature that only pays off under one answer** — a *reassemble from a previous project* flow versus serious investment in library-wide search. The MVP is the same product under either answer. | Positioning. Nothing in the build |
+| **Q5** | Loss or reassembly cost — which drives adoption? | **Deferred — accepted risk, with the trigger written down.** Nothing in this repository can answer it; trackers are blind to both candidates by construction. Ask five practitioners **before the first feature that only pays off under one answer** — a *reassemble from a previous project* flow versus serious investment in library-wide search. The MVP is the same product under either answer. **Instrument named 2026-09-06: [`6-personas/interview-guide.md`](6-personas/interview-guide.md). The same event also lifts the provisional label on stages 6 and 7.** | Positioning, and the provisional label on stages 6–7. Nothing in the build |
 | **Q6** | Styling engine | **Deferred to the design-system phase**, with the criterion recorded now: tokens and two real themes first-class, and the engine must not push utility classes into components that are themselves the product's value. Decide on two built components. | CLAUDE.md §10, §12 |
 
 **What the sitting did not change.** No answer added a surface. Q2 lands as two more stages inside
@@ -349,10 +376,23 @@ a curated public library ships with the product (Q1), and `SETUP.md` becomes a r
 for an agent rather than a one-line courtesy (Q2). Both were the owner's calls, taken with the
 evidence in view.
 
-### Nothing is live
+### Live — raised 2026-09-06 by the planning of stages 6–7
 
-The register is empty. New questions get the next ID and the same protocol: say which stage or
-sitting raised it, and say what would answer it.
+**Not answered now.** The protocol holds: they leave the register in one sitting, once stages 6 and 7
+are done and the picture is whole. Each carries a named instrument, which is what makes it a question
+rather than a worry.
+
+| ID | Question | Raised by | What would answer it | Blocks |
+|---|---|---|---|---|
+| **Q7** | Who is the primary persona — the practitioner whose pain is *sighted* (an archive that lands and does not run; a key that silently wins) or the collector §3 describes (large corpus, wants to find and reuse)? | Stage 6, step 3 | The five practitioner conversations Q5 names, run against [`6-personas/interview-guide.md`](6-personas/interview-guide.md); plus a GitHub search for repositories carrying `.claude/`, `CLAUDE.md`, `.cursor/rules`, `AGENTS.md`, which observes where material lives and how many targets one person keeps | Which persona wins design conflicts — empty states, what a card carries, the register of validation copy |
+| **Q8** | Is the main job *assemble a set that holds together* (§2, owner's assertion) or *hand a set to a machine and have it run first time* (stage 3, observed)? If both survive, the lesson's rule says two products. | Stage 7, step 1 | The same conversations, asked as situations (*what did you last do with a skill you already had; what happened the last time you moved a setup to another machine*), never as pitches; the matrix's main-job row with sourced cells | Positioning; the relative weight of the Project screen and Run in mockups |
+| **Q9** | Which specified features close no evidenced job — candidates: the public library switch and example project, duplicate project, promote, the target selector, library-wide search? | Stage 7, step 5 | The matrix's *feature* column, then Q7/Q8's conversations for the `[?]` rows. Absence in the trackers is not evidence of no job, so this closes only with people asked | Mockup scope. Not the design system |
+
+**Q5 is re-pointed, not re-opened.** Its disposition stands — deferred, accepted risk — but its
+instrument was unnamed beyond *five practitioners*. Stage 6 makes
+[`6-personas/interview-guide.md`](6-personas/interview-guide.md) that instrument and stage 7 gives it
+the questions. Its *blocks* line widens accordingly: **positioning, and the provisional label on
+stages 6 and 7**, because the label lifts on the same event.
 
 ### Earlier decisions
 
