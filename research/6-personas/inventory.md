@@ -1,8 +1,16 @@
 # Inventory — what this repository actually says about people
 
-**Stage 6, step 1.** Written 2026-09-07, per [`README.md`](README.md). This file extracts every
-statement about *people* that exists anywhere in the research folder, records where each one came
-from, and then — separately and at the same length — lists what nobody here knows.
+**Stage 6, step 1 — revalidated 2026-09-07.** Written per [`README.md`](README.md). This file
+extracts every statement about *people* that exists anywhere in the research folder, records where
+each one came from, and then — separately and at the same length — accounts for what nobody here
+knows.
+
+**Section C is no longer a list of unknowns; it is a register.** Every one of the twenty questions
+now carries the answer we have, **the data that answer rests on with a link**, and **a mark saying
+how true it is** — `✓` confirmed · `*` practitioner-reported · `?` unknown, per
+[`research.md`](../research.md), *The three marks*. Three more questions arrived with the first
+interview and are recorded at the end as NK-21 to NK-23. **Section B now carries the same marks
+against the owner's fourteen assertions.**
 
 It establishes nothing new. It is a stocktake, and its value is that it is honest about how small
 the stock is.
@@ -184,65 +192,588 @@ and is listed here so that stage 6 cannot cite it as evidence and then cite the 
 | **A-13** | **~30 realistic items** is the right order of magnitude for the shelf. | §11 | Against OBS-46 (8–12, composed to produce a Problem and a Note) and OBS-43 (density never observed at any size). The two numbers answer different questions — *enough to browse* and *enough to teach* — and the spec does not say which governs. |
 | **A-14** | The known cost of dropping the library pane is carried by three things: the palette opening on **related** items, Library one keystroke away, per-item usage facts. | §8 | Testable the moment a seeded library exists (OBS-42). Not testable now. |
 
----
 
-# C. Not known
+## Standing of the owner's assertions, 2026-09-07
 
-> **Updated 2026-09-07 — eleven of these twenty rows moved the same day.**
-> [`re-research.md`](re-research.md) took four instruments to the public record — the
-> `anthropics/claude-code` tracker (89,923 issues), `openai/codex`, `google-gemini/gemini-cli`,
-> 1,762 Hacker News comments read in full, Stack Overflow and GitHub repository search — and closed
-> or moved **NK-1, NK-2, NK-5, NK-6, NK-7, NK-10, NK-11, NK-16, NK-18, NK-19** and weakened NK-14.
-> The per-row standing is the table in [`re-research.md`](re-research.md) §3; the marks below carry a
-> pointer each. **Nine rows did not move, and seven of those need a person rather than a search.**
+Same three marks. **Nothing here is applied to `CLAUDE.md`** — this says what the evidence now does to
+each claim, and the owner decides what follows.
 
-**Equal in weight to section A, and longer than is comfortable.** Each row says the question and why
-nothing in this repository can answer it. Every one of these is `[?]`.
+| # | The assertion, in short | Standing | On what |
+|---|---|---|---|
+| **A-1** | The core value is assembly **with validation**, not storage | **Contested `*`** | The one practitioner asked wants **observability of what ran**, not a coherence check — NK-23. And what built his collection was reassembly, not validation — NK-1 |
+| **A-2** | *"The user has said"* the wow moment is the **export** | **Unsupported** | Never tested. Asked what a genie should fix, he asked to **see what loaded**, not for an archive — NK-23 `*` |
+| **A-3** | Supporting moments: the validation pass, and **duplicating a project** to re-tune it | **Partly `*`** | First evidence that someone wanted a previous thing back — and could not have it, because it was welded to its project — NK-8 |
+| **A-4** | Practitioners who have **accumulated a lot of material** | **`*`** | 40-something files, ~6k lines, 14 months, one person — NK-2, NK-3 |
+| **A-5** | Visually literate, living in Linear, Vercel, Raycast, Figma | **`?`** | No instrument here can reach it, and none has |
+| **A-6** | **Desktop-first** | **`*`** consistent | Every environment described is a desktop or a container on one — NK-5, NK-6 |
+| **A-7** | **Dark from day one** | **`?`**, and not a claim about people | Untouched by this stage |
+| **A-8** | *"An empty library kills the product"* | **`?`** | Still nobody has watched a first run of **this** product |
+| **A-9** | Per-item evidence is **usage facts, never a score** | **`*` confirmed, unprompted** | Asked openly what would help him choose among his own things, he invented our mechanism — *"loaded in 40 sessions, this one in 2, this one never"* — and extended it: **last actually useful**, counted **per session** — NK-12 |
+| **A-10** | Nothing blocks, because *"it is the user's own library on their own machine"* | **Premise weakened `✓` + `*`** | Not his own machine only: a contractor got the setup, half his tools silently missing, **worked around it for two days** — NK-7 |
+| **A-11** | `SETUP.md` is written **for the agent** that opens the project | **`?` on the mechanism, `*` on the target** | Never run once — NK-13. The pain it aims at is real: Node 18 against a server needing 20+, *"it degrades quietly"* |
+| **A-12** | A public shelf gives material **from the first second** | **`?`, and now carrying a risk** | Untested — plus 13.4% of 3,984 scanned public skills carry critical security issues ([re-research](re-research.md) R6) |
+| **A-13** | **~30 realistic items** is the right order of magnitude | **`✓` + `*` supported** | 20–30+ named as the threshold where management breaks; 40-something files reported. **Stage 5's 300 is contradicted** — NK-2 |
+| **A-14** | Three things carry the cost of having no library pane | **`?`, and its premise moved** | Untested, and it was priced against surviving 300 items, which nothing supports — NK-2 |
 
-## C1. The eight the stage plan named
-
-| # | Question | Why nothing here answers it |
-|---|---|---|
-| **NK-1** | **Which of loss, reassembly cost or silent breakage actually drives adoption?** (Q5) | Two of the three are invisible to the only instrument, by construction. Deferred 2026-09-02 as accepted risk with a trigger written down. The one hint on record — shipping a public shelf leans toward *reassembly* — is filed in [`FINAL.md`](../FINAL.md) §3 Q5 **as a hint, so nobody mistakes it for the answer.** |  **→ Moved (not closed) — [re-research](re-research.md) R3: reassembly friction is filed on live trackers as feature requests; loss still has no evidence in any instrument.**
-| **NK-2** | **How large is one person's library?** | The 300-item figure is stage 5's reasoning (OBS-41), never a count of anything. No capture in the phase exceeds 27 objects (OBS-43). |  **→ Partly closed — [re-research](re-research.md) R4: 20–30 items is the reported threshold where a collection stops being manageable.**
-| **NK-3** | **How fast does it grow?** | Nothing in the phase observes a collection over time. Not one capture is a second visit to the same surface. |
-| **NK-4** | **How often is a tool like this opened?** — daily, weekly, once per project | The *weekly* claim behind the chosen pattern is stage 5's reasoning. No usage data exists anywhere in this repository, ours or anyone else's. |
-| **NK-5** | **How many agent targets does one person actually keep?** | OBS-3, OBS-5 and OBS-6 show that *hosts vary across the population*, and that one person asked for a unified format. **Neither shows how many targets a single person maintains at once.** Population variance is not per-person count, and conflating the two is the specific error this row exists to prevent. |  **→ Closed — [re-research](re-research.md) R1 and R2: two to four targets per person is normal, and one source for all of them is the loudest demand in our audience’s own tracker (6,592 reactions).**
-| **NK-6** | **Where does this material live today?** — dotfiles, gists, a repo folder, chat history, a Notion page, nowhere | OBS-7 shows people arguing about *where a tool puts its own config*, which is not the same as where a person keeps their own store. Nothing observes a practitioner's filing habits. This is the row step 5 can plausibly convert into an observation. |  **→ Closed — [re-research](re-research.md) R5: dotfiles repos, `~/.claude/skills/`, per-project files and symlink farms, plus a weighted request for a git repo as the source.**
-| **NK-7** | **Does the person work alone, or does anyone else ever open their archive?** | OBS-2's silence is the instrument's, not the world's. And §6's *nothing blocks* rests on the answer being *alone* (A-10), so this is not a decorative unknown. |  **→ Partly closed — [re-research](re-research.md) R12: colleagues, teams and org contributors appear throughout. Weakens the premise §6 uses for *nothing blocks*.**
-| **NK-8** | **Has anyone ever wanted a previous project back?** | The duplicate-and-re-tune moment (A-3) and the promote path (§5, §7) both rest on it. Zero evidence in either direction; flow 09 captured the *mechanism* in Notion and GitHub, never a person needing it. |
-
-## C2. The ones this inventory adds
-
-| # | Question | Why nothing here answers it |
-|---|---|---|
-| **NK-9** | **Would anyone adopt this at all, and why?** | Named in the stage plan as the one row no step in stage 6 can lift. U only ever sees people who already adopted something else and then hit a wall. |
-| **NK-10** | **What do they do today instead?** | No substitute behaviour was ever observed — not a shell script, not a dotfiles repo, not copy-paste. The entire *before* state is missing. |  **→ Closed — [re-research](re-research.md) R2 and R8: symlinks, `@include` lines, wrapper scripts, manual double-copies, and home-made managers.**
-| **NK-11** | **What would make someone distrust our check?** | OBS-28, OBS-29, OBS-31 and OBS-33 are vendors' bets about what convinces. Nobody has been shown our three severities, and *Skipped* — the glyph that exists precisely so a green tick is not claimed unearned (§6) — has never been in front of a person. |  **→ Moved and redirected — [re-research](re-research.md) R7: the dominant doubt is *does any of this do anything*, not *is the checker right*. Plus a security fear with numbers (R6).**
-| **NK-12** | **Is a usage fact — *used in 3 projects* — persuasive, or is it noise?** | A-9 is sound about what we can honestly show. It is silent, and this repository is silent, on whether it changes anyone's behaviour. |
-| **NK-13** | **Does a receiving agent actually set a project up correctly from `SETUP.md` alone?** | A-11 is the spec's most load-bearing bet, and it is a bet on a *machine's* behaviour rather than a person's. It has never been run once. It is also testable cheaply and by us, with no users needed — which makes it different in kind from everything else in this section. |
-| **NK-14** | **Is hand-entered `requires` / `conflicts` data ever actually maintained?** | §5 says relations are entered manually. Backstage's known failure mode is that catalogs rot when nobody maintains the metadata ([`competitors.md`](../1-landscape/competitors.md), Backstage). Whether a single-user library rots the same way is unobserved. |  **→ Weak signal — [re-research](re-research.md) R3: *“copies can drift out of sync”* is filed as a problem. Maintenance itself still unobserved.**
-| **NK-15** | **Does the loudest observed pain (OBS-15) belong to the same people as the quietest (OBS-16)?** | Both were counted across the same corpus, never joined per person. 182 and 13 may be two crowds or one. The whole primary-persona choice turns on this, and **the instrument cannot resolve it** — reaction counts carry no identity. |
-| **NK-16** | **Are tracker filers the same population as `CLAUDE.md` §3's audience?** | Assumed by every downstream use of stage 3, established nowhere. Filing issues against a free OSS extension is a behaviour, not a job title. |  **→ Improved, still open — [re-research](re-research.md) R1: the corpus is now the tracker of the product our audience uses. Self-selection for people who file issues stands.**
-| **NK-17** | **What is the emotional register of the moment this product is opened?** | Every persona template wants a *context* block — the situation someone arrives from. U sees the moment of breakage and never the hour before it. The stage plan predicted this block would be *mostly `[?]`*, and it is. |
-| **NK-18** | **Does anyone want their work to be a portfolio?** | §2's long-term ambition and OBS-40's observation are both about a *surface*. Not one issue, capture or source in the phase records a practitioner wanting to be seen. |  **→ Searched, nothing found — [re-research](re-research.md) R10: 0 of 1,762 HN comments, and 2 unrelated issues at 0 reactions.**
-| **NK-19** | **Under what licence may someone else's skill ship inside our public library?** | G6 in the digest. Not a question about what people want but about what we are allowed to hand them, and it is unanswered — a licence review, not a design decision. |  **→ Answerable — [re-research](re-research.md) R11: an optional `license` field, and the rule that a missing licence is not permission.**
-| **NK-20** | **Does the person hitting OBS-15 have a library at all?** | The archive-does-not-run pain is felt by someone installing *one* server as easily as by someone assembling thirty items. If it is mostly the former, the pain is real and **not ours**. |
+**Two of the fourteen have moved decisively, in opposite directions.** **A-9 is the best-supported
+claim in the spec** — a practitioner invented it unprompted. **A-10's premise is the weakest** — the
+archive does leave the machine, and when it did, the person receiving it lost two days without knowing
+anything was wrong.
 
 ---
 
-## What this file changes
+# C. The twenty questions, revalidated
 
-**Nothing.** It is a stocktake and it edits no file outside this folder — `CLAUDE.md` least of all.
-Three things it hands forward:
+**Rewritten 2026-09-07**, after [`re-research.md`](re-research.md) took four instruments to the
+public record and after the first practitioner interview arrived. This section used to be a list of
+things nobody knew. It is now a **register**: every question, the answer we currently have, **the
+data that answer rests on with a link to it**, and **a mark saying how true it is.**
 
-1. **Step 2, the axes.** OBS-3, OBS-5 and OBS-6 look like an axis — *one host* against *several* —
-   and NK-5 says why they are not one yet. OBS-15 against OBS-16 is the axis with evidence at both
-   ends, and NK-15 is the reason those two ends may turn out to be one person.
-2. **Step 4, the audit.** **OBS-4 is a correction to a signed-off document.** It is filed here as an
-   observation and **not applied**; it belongs in the audit's proposals, where the owner decides.
-3. **Step 5, the one question re-researched at point scale.** **NK-6 is the strongest candidate** — a
-   GitHub search for repositories carrying `.claude/`, `CLAUDE.md`, `.cursor/rules` and `AGENTS.md`
-   observes where material lives and, per repository, how many targets sit side by side, which
-   touches NK-5 as well. It costs one API session and turns two `[?]` rows into observations, or
-   into a documented failure to observe.
+**The marks are defined once**, in [`research.md`](../research.md), *The three marks*:
+
+| | Means | Here |
+|---|---|---|
+| **`✓`** | Confirmed — another person can re-run the instrument and get the same answer | A logged query with its count, a captured page, a source read at origin |
+| **`*`** | Practitioner-reported — said in an interview, from memory, about their own work | [`agent-setup-interview.md`](agent-setup-interview.md), **n = 1** |
+| **`?`** | Unknown — no instrument has established it in either direction | |
+
+**Three things to hold while reading.**
+
+**A `*` never becomes a `✓` by repetition**, and right now there is only one interview, so every `*`
+below is **one person**. Four more are required before the *provisional* label lifts, and five is
+still the number that can *refute* a choice rather than measure a population.
+
+**Where `✓` and `*` disagree, both are kept** — rule 4. Three rows below do disagree, and they are
+the most interesting rows in the document: NK-1, NK-2 and NK-18.
+
+**A closed row is not a settled row.** `✓` means checkable, not permanent. Two rows closed by
+re-research are re-asked in the interview guide as corroboration, because a contradiction there would
+be worth more than a confirmation.
+
+---
+
+## The register at a glance
+
+| # | Question | Mark | Where it stands |
+|---|---|---|---|
+| **NK-1** | Which pain drives adoption — loss, reassembly, breakage? | **`*`** | For one practitioner **reassembly built the collection**; breakage is what he *files* about. Loss appeared for the first time — also from him |
+| **NK-2** | How large is one person's library? | **`✓` + `*`** | Reported sizes cluster at **20–40 items**. Stage 5's 300 has nothing behind it |
+| **NK-3** | How fast does it grow? | **`*`** | One file → ~40 files in 14 months, by accretion, never by design |
+| **NK-4** | How often is it opened? | **`*`** | Agents daily. The **collection** is entered to copy out, to add a rule in irritation, or to search — **never to review** |
+| **NK-5** | How many agent targets per person? | **`✓`** | Two to four. One source for all of them is the loudest demand in the whole evidence base |
+| **NK-6** | Where does the material live? | **`✓`** | A private git repo, symlinked into `~/.claude/` and elsewhere |
+| **NK-7** | Alone, or does anyone else open it? | **`✓` + `*`** | **Not alone.** And the handover failed silently for two days |
+| **NK-8** | Has anyone wanted a previous project back? | **`*`** | **Yes** — and he could not have it, so he rewrote a worse one |
+| **NK-9** | Would anyone adopt this, and why? | **`*`** | He went looking twice, used something for a week, stopped. Still the weakest row |
+| **NK-10** | What do they do today instead? | **`✓`** | `cp -r`, symlinks, `@include`, hand-written scripts |
+| **NK-11** | What would make them distrust? | **`✓` + `*`** | Not *your checker is wrong* — ***half of my own material may do nothing*** |
+| **NK-12** | Is a usage fact persuasive? | **`*`** | **Asked for it unprompted, in our own words**, when the question was put open |
+| **NK-13** | Does an agent set up from `SETUP.md` alone? | **`?`** | **Still untested, and we are the ones who can test it** |
+| **NK-14** | Is hand-entered metadata maintained? | **`*`** | **No.** Divergence cost three hours and a client complaint. *"The folder only grows"* |
+| **NK-15** | Are the loud pain and the quiet pain the same person? | **`*`** | **Yes, for this one — and he says the collection caused the second** |
+| **NK-16** | Are tracker filers our audience? | **`?`** | Unresolved. He is a filer, so n=1 cannot answer it |
+| **NK-17** | What is the emotional register on arrival? | **`*`** | Three modes, and **most edits are written while irritated** |
+| **NK-18** | Does anyone want their work to be a portfolio? | **`✓` + `*`** | Two searches found nothing; he says a qualified yes **for a different motive** |
+| **NK-19** | Licence for redistribution? | **`✓`** | A field and a rule: absence of a licence is not permission |
+| **NK-20** | Does the person hitting env pain have a library? | **`*`** | **Yes** — same answer as NK-15, same sentence |
+
+**Nine rows carry a `✓` somewhere. Ten rest on one person. One is blank, and it is ours to fill.**
+
+---
+
+## Row by row
+
+### NK-1 — Which pain drives adoption: loss, reassembly cost, or breakage? `*`
+
+**Answer, and it is not what either side of the argument expected.** For the one practitioner asked,
+**reassembly cost is what built the collection** — it is the origin story, told without prompting:
+
+> *"It started as exactly one file… I copied that file to the next project, then the next, and at
+> project four I got annoyed and made a repo. So the origin is not 'I designed a system.' The origin
+> is **'I got tired of copy-pasting one file.'**"* — [interview, Q4](agent-setup-interview.md) `*`
+
+And the cost is described as invisible by construction, which is why no tracker ever saw it:
+
+> *"That trickle is the actual cost and **it's invisible because no single instance of it feels
+> expensive**."* — [interview, Q9](agent-setup-interview.md) `*`
+
+**Loss appeared for the first time in this repository**, unprompted, inside an answer about something
+else:
+
+> *"…I'm looking for something I know I wrote and can't find; that's usually a prompt, and **it
+> usually takes longer than rewriting it would**."* — [interview, Q19](agent-setup-interview.md) `*`
+
+**Rests on.**
+- `*` The three quotes above. **One person.**
+- `✓` [`re-research.md`](re-research.md) R3 — the reassembly complaint is filed on live trackers as feature requests: [claude-code #9444](https://github.com/anthropics/claude-code/issues/9444) (48 reactions, *"copies can drift out of sync"*), [codex #17401](https://github.com/openai/codex/issues/17401) (*"no modular reuse across projects… 10+ repos"*).
+- `✓` [`3-pain/user-pain.md`](../3-pain/user-pain.md) — breakage is what gets filed and reacted to, at 182 and now 6,592.
+
+**How true.** The `✓` half says **what people file about**: breakage. The `*` half says **what made
+one person start keeping a collection**: reassembly. Those are different questions, the disagreement
+is real, and **both stay** (rule 4). Still `?`: whether either converts a stranger into a user.
+
+**What would move it.** Four more interviews, and specifically guide Q25 — *did you go looking, did
+you find anything, did you keep using it.*
+
+---
+
+### NK-2 — How large is one person's library? `✓` + `*`
+
+**Answer. Twenty to forty items — and stage 5's 300 has nothing behind it.**
+
+**Rests on.**
+- `✓` [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151 reactions: *"Once you get to **20-30+ skills** with multiple contributors, it becomes difficult to manage."* The `✓` is that this was written and reacted to — not that 20–30 is a population truth.
+- `✓` [claude-code #10238](https://github.com/anthropics/claude-code/issues/10238), 168 reactions — a team hitting the limit of *"a flat list of skills"*.
+- `*` [interview, Q3](agent-setup-interview.md): *"11 skills, 6 CLAUDE.md templates…, an `mcp/` folder with 9 server configs, a `prompts/` folder…, a `scripts/` folder… **Call it 40-something files.** Somewhere around **6k lines**."*
+- `?` [`5-patterns/patterns.md`](../5-patterns/patterns.md) — the **300-item** figure the chosen shape was priced against. Reasoned, never measured, and now contradicted by every actual report.
+
+**How true.** The order of magnitude comes from two independent instruments; they agree with each
+other and disagree with us. **`CLAUDE.md` §11's ~30 is the well-supported number; stage 5's 300 is
+not.** That matters because §8's accepted cost — no library pane — was priced against surviving 300.
+
+**What would move it.** Three more people answering guide Q3 with a count.
+
+---
+
+### NK-3 — How fast does it grow? `*`
+
+**Answer.** From one file to roughly forty in fourteen months — **by accretion after irritation, and
+never downward.**
+
+**Rests on.**
+- `*` [interview, Q4](agent-setup-interview.md): *"**Fourteen months**, give or take. It started as **exactly one file**."*
+- `*` [interview, Q18](agent-setup-interview.md): *"deleting feels riskier than keeping. If I remove something and quality drops, I won't connect the two events… **So the folder only grows, which is a bad property for a thing whose job is to be precise.**"*
+
+**How true.** One person, from memory; the curve is a recollection. The **mechanism** is the useful
+part — grows on irritation, never shrinks because deletion has no feedback loop — and it is specific
+enough to design against and specific enough to be wrong.
+
+**What would move it.** Not a conversation. This one wants a real folder, examined with its git log.
+
+---
+
+### NK-4 — How often is a tool like this opened? `*`
+
+**Answer.** The **agents** are open constantly. The **collection** is opened for three reasons, and
+reviewing it is not one of them.
+
+> *"Three modes, in descending frequency. Most often I'm **copying something out of it** into a new
+> project. Second, I'm **adding a rule right after the agent did something annoying**… Third, and
+> rarest, I'm **looking for something I know I wrote and can't find**… **I basically never go in
+> there to read or review. There's no reason to, nothing prompts it, so it doesn't happen.**"*
+> — [interview, Q19](agent-setup-interview.md) `*`
+
+**Rests on.** That quote, plus `*` [Q2](agent-setup-interview.md) — *"About forty minutes ago. It's
+open right now in another tab."*
+
+**How true.** One person. But three named modes are a brief, and the third one — searching for
+something he wrote and cannot find — is the only sighting of *loss* anywhere in this repository.
+
+**What would move it.** Guide Q19, four more times. If the three modes recur, they are the Library
+screen's requirements.
+
+---
+
+### NK-5 — How many agent targets does one person keep? `✓`
+
+**Answer. Two to four** — and **one source feeding all of them is the loudest demand anywhere in this
+repository's evidence base.**
+
+**Rests on.**
+- `✓` [claude-code #6235](https://github.com/anthropics/claude-code/issues/6235) — **6,592 reactions**: *"CLAUDE.md feels too specific to Claude Code. It doesn't work as well when collaborating with other developers who aren't using Claude Code."* Plus the twelve-issue family in [`re-research.md`](re-research.md) R1, across three vendors' trackers.
+- `✓` [`re-research.md`](re-research.md) R2 — six practitioners describing their own setups in public, and **25 comments** across eight downloaded HN threads about symlinking one source into several formats.
+- `*` [interview, Q1](agent-setup-interview.md) — four installed (Claude Code, Cursor, Codex CLI, Aider) plus a dead Continue; two used yesterday.
+
+**How true.** The **shape** is `✓`: re-runnable queries, three trackers, a five-figure reaction count.
+The **per-person distribution** is softer — six self-descriptions and one interview — so *two to four*
+is indicative rather than measured.
+
+**What would move it.** Nothing urgent. Best-evidenced row in the document.
+
+---
+
+### NK-6 — Where does the material live today? `✓`
+
+**Answer.** In a **git repository the person owns**, symlinked into the places each agent expects.
+
+**Rests on.**
+- `✓` [`re-research.md`](re-research.md) R5 — [#1455](https://github.com/anthropics/claude-code/issues/1455) XDG at **446 reactions**; [#28729](https://github.com/anthropics/claude-code/issues/28729) asking for a **git repo as the source of truth**; `agent-dotfiles` and `SkillCatalog` built on exactly that premise.
+- `*` [interview, Q3](agent-setup-interview.md): *"`~/dev/kit/agents/`, which is a **private GitHub repo** called `agent-kit`. It gets **symlinked** into `~/.claude/` and a couple of other places."*
+
+**How true.** Two instruments agreeing, one re-runnable. As solid as anything here.
+
+**What would move it.** Corroboration is cheap and low-value; ask it as a warm-up (guide Q3).
+
+---
+
+### NK-7 — Does the person work alone, or does anyone else open the archive? `✓` + `*`
+
+**Answer. Not alone — and the handover failed silently for two days.**
+
+> *"A contractor… I gave him the repo including the agent config, and he got roughly the same
+> experience as my Linux move: paths broken, one server not starting, and **he assumed that was
+> normal and worked around it for two days without mentioning it**… That was the moment I understood
+> the config had become **tribal knowledge rather than a setup**."*
+> — [interview, Q21](agent-setup-interview.md) `*`
+
+**Rests on.**
+- `*` Q21 above, and [Q22](agent-setup-interview.md) — given away twice, informally, each time needing twenty minutes of live explanation of *"which files are load-bearing and which are aspirational."*
+- `✓` [`re-research.md`](re-research.md) R12 — #6235's stated motive is collaboration with developers on other agents; [#10238](https://github.com/anthropics/claude-code/issues/10238) *"with my team"*; [#28729](https://github.com/anthropics/claude-code/issues/28729) *"multiple contributors"*.
+
+**How true.** Both instruments agree and one is re-runnable. **It weakens a premise the spec leans
+on**: §6 justifies *nothing blocks* partly with *"it is the user's own library on their own machine."*
+Sometimes it is not, and the second party lost two days without knowing anything was wrong.
+
+**What would move it.** Nothing. What is open is what we *do* about it, which is design, not research.
+
+---
+
+### NK-8 — Has anyone ever wanted a previous project back? `*`
+
+**Answer. Yes — and the interesting half is why he could not have it.**
+
+> *"The eval harness from the invoice project. **It's the best thing I've built for this category of
+> work**… I didn't bring it because it's **welded to that project's data model**. Extracting it means
+> either doing a proper generalization pass, which is half a day I wasn't going to bill anyone for, or
+> copying it and mutilating it, which is **how I ended up with three divergent copies of the chunking
+> module**. So I wrote a worse thing from scratch in an hour and told myself I'd fix it later. **I did
+> not fix it later.**"* — [interview, Q8](agent-setup-interview.md) `*`
+
+**Rests on.** That answer alone. **Nothing in the repository, in either direction, before it.**
+
+**How true.** One person — but the first evidence this question has ever had, and it answers more
+than it was asked. The blocker is not *finding* the previous thing; it is that the thing is
+**entangled with its project**. That is an argument about item granularity, and it lands next to
+`detached` / `overrides` in §5.
+
+**What would move it.** Guide Q8, four more times. If it recurs, it is a job for stage 7's matrix.
+
+---
+
+### NK-9 — Would anyone adopt this at all, and why? `*`
+
+**Answer. Still the weakest row**, and the one data point is about **lapsing, not rejecting**:
+
+> *"Yeah, twice, both times right after being burned… There are session viewers and log tools, and
+> they tell you what happened in the conversation, which isn't the same question… **I used one for
+> about a week**, mostly to look at token counts, **then stopped**, and I couldn't tell you the exact
+> day I stopped."* — [interview, Q25](agent-setup-interview.md) `*`
+
+**Rests on.**
+- `*` Q25 above — searched twice, adopted briefly, drifted away without a decision.
+- `✓` [`re-research.md`](re-research.md) R8 — the adjacent category is crowded with free tools at 400–4,500 stars, so *nothing exists* is not a reason anyone would come to us.
+
+**How true.** One person's lapse is not a market signal. What it establishes is the **shape of the
+risk**: exactly our audience, went looking unprompted, found something adjacent, and **left silently**.
+
+**What would move it.** Q25 four more times, and above all the **P5 recruit** — someone who does not
+keep this material at all. The guide asks for it; it has not happened.
+
+---
+
+### NK-10 — What do they do today instead? `✓`
+
+**Answer.** `cp -r`, symlinks, `@AGENTS.md` include lines, wrapper scripts, home-made managers.
+**And notably not the automation they already built:**
+
+> *"The CLAUDE.md, the two skills, the MCP config. All of it moved by `cp`. **Not by git submodule,
+> not by a package, not by the bootstrap script that exists specifically to do this.** By `cp -r`
+> from a sibling directory."* — [interview, Q7](agent-setup-interview.md) `*`
+
+**Rests on.** `✓` [`re-research.md`](re-research.md) R2 and R8 · `*` Q7 above.
+
+**How true.** Two instruments agree. The `*` adds what the `✓` could not see: **a person who built
+the tool and still did it by hand**, because his tool covered the global layer and not the per-project
+one. That is a warning about where our own value has to sit.
+
+**What would move it.** Nothing. Corroborate in passing.
+
+---
+
+### NK-11 — What would make someone distrust the check? `✓` + `*`
+
+**Answer, and it is not the question we thought we were asking.** The distrust on record is not *your
+checker may be wrong*. It is **half of my own material may be doing nothing.**
+
+> *"Maybe **half of it**, if you want the real answer."* — [interview, Q16](agent-setup-interview.md) `*`
+>
+> *"Properly, no. **I've never A/B'd anything**… each individual file feels too small to justify the
+> ceremony, and it's forty small things, so the total never gets audited."*
+> — [Q17](agent-setup-interview.md) `*`
+>
+> *"The rule that got applied should have been **traceable**. I want to be able to ask, after the
+> fact, **which instruction produced that behaviour**. Right now I can't, so I guess, and **my
+> guesses are unfalsifiable**."* — [Q14](agent-setup-interview.md) `*`
+
+**Rests on.**
+- `*` The three quotes above.
+- `✓` [`re-research.md`](re-research.md) R7 — the same doubt across the HN threads: *"mostly useless… 50/50 or less that Claude.md even reads/uses this file"*, *"I can never quite tell if it's helping anything"*, and a story titled *I am morally opposed to updating my Claude.md*.
+- `✓` R6 — with a real security fear underneath it: [Snyk](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/), 3,984 skills scanned, 13.4% carrying critical issues.
+
+**How true.** `✓` and `*` agree from independent instruments — the strongest combination available
+here. **The consequence is uncomfortable**: our validation pass answers *does this set cohere*, and
+the doubt on record is *does any of this do anything*. Not the same promise. See NK-23.
+
+**What would move it.** Nothing; this is established. What to do about it is a register question.
+
+---
+
+### NK-12 — Is a usage fact persuasive, or is it noise? `*`
+
+**Answer. Persuasive — and he asked for it in our own words, unprompted.** Guide Q20 is deliberately
+open and **forbids offering** *used in 3 projects* as an option, precisely so that an answer would be
+worth something:
+
+> *"**Usage data, first.** Just: **this file was loaded in 40 sessions, this one in 2, this one never.
+> That alone would let me delete half of it with confidence.** After that, some record of when a rule
+> got applied and what it changed… And a **date. Not created-date, last-actually-useful date.**"*
+> — [interview, Q20](agent-setup-interview.md) `*`
+
+**Rests on.** That answer, under the open-question rule in [`interview-guide.md`](interview-guide.md) §4.
+
+**How true.** One person — but this is the strongest **form** a `*` can take: an unprompted invention
+of the exact mechanism `CLAUDE.md` §5 already chose, by someone who had never seen the spec. **It
+confirms the decision and extends it**: he wants *last actually useful* rather than *last exported*,
+and he wants the count **per session** — which our data model does not currently produce.
+
+**What would move it.** Q20 four more times, still open. Two more unprompted inventions would make §5
+as close to validated as this method allows.
+
+---
+
+### NK-13 — Does a receiving agent set a project up correctly from `SETUP.md` alone? `?`
+
+**Answer. Nobody knows and nobody has tried.** The only row in the register that is **blank and ours
+to fill.**
+
+**Rests on.** Nothing. `CLAUDE.md` §6 and the Q2 disposition in [`FINAL.md`](../FINAL.md) commit to it
+on reasoning alone.
+
+**How true.** `?`. It is not a question about people at all — it is a claim about a **machine's**
+behaviour, it is the spec's most load-bearing bet, and it has never been run once.
+
+**What would move it.** **Us, in an afternoon.** Compose a small set by hand, write the `SETUP.md` §6
+describes, hand the archive to a fresh Claude Code, Cursor and Codex, record what each actually does.
+Adjacent evidence says the target is real: `*` [interview, Q11](agent-setup-interview.md) — a
+devcontainer with Node 18 against a server needing 20+, and *"broken config doesn't announce itself,
+**it degrades quietly**."*
+
+---
+
+### NK-14 — Is hand-entered metadata ever actually maintained? `*`
+
+**Answer. No — and the failure has a price tag.**
+
+> *"Same code in three projects. I fixed an off-by-one… on a Friday, and it never got back to the
+> other two. **Six weeks later a client flagged** that retrieval was returning fragments cut
+> mid-sentence, which is exactly the bug I'd already fixed elsewhere… I debugged it for **three
+> hours** as if it were new before I opened the other repo and saw my own fix sitting there."*
+> — [interview, Q10](agent-setup-interview.md) `*`
+
+The same loop runs in the instruction files, which is our object exactly: a rule fixed in project B
+and never in the template, *"so the next copy is wrong too. **It's a loop.**"*
+
+**Rests on.**
+- `*` Q10 and [Q18](agent-setup-interview.md).
+- `✓` [claude-code #9444](https://github.com/anthropics/claude-code/issues/9444) — *"Maintenance burden… Inconsistency risk — **copies can drift out of sync**"*, filed and reacted to.
+- `✓` [`1-landscape/competitors.md`](../1-landscape/competitors.md) — Backstage's known failure mode: catalogs rot when nobody maintains the metadata.
+
+**How true.** Three instruments, two re-runnable, all saying the same thing. **A `✓`-grade conclusion
+about the world with a `*`-grade story about the cost.** It is also the register's strongest argument
+for the live link in §5 — that mechanism exists to break precisely this loop.
+
+**What would move it.** Nothing. Act on it.
+
+---
+
+### NK-15 — Are the loud pain and the quiet pain the same person? `*`
+
+**The question the whole interview guide was built around**
+([`interview-guide.md`](interview-guide.md) §1), because no amount of searching can join two reaction
+counts to one identity.
+
+**Answer. For this person, yes — and he volunteers a causal direction we had not considered.**
+
+> *"**Already had the collection, and that's the point.** When it was one file I knew what was in it.
+> At forty files with overlapping instructions **I have no working model of what's active on a given
+> run. The collection created the problem.**"* — [interview, Q15](agent-setup-interview.md) `*`
+
+**Rests on.** That answer, produced by guide Q15, which exists solely to make this join.
+
+**How true.** **One person, and the row needs five.** But note what it is: not two pains sitting side
+by side in one person — a claim that **the second pain is caused by having a collection at all.** If
+that holds, the persona does not split into *breaks at handover* versus *collector*; **the collector
+becomes the person who breaks**, and the primary-persona argument changes shape entirely.
+
+**What would move it.** Four more Q15 answers, with the block-B / block-C marks on each sheet.
+**Until then no primary persona may be declared** — which is the whole point of §1 of the guide.
+
+---
+
+### NK-16 — Are tracker filers the same population as `CLAUDE.md` §3's audience? `?`
+
+**Answer. Unresolved — and this interview could not resolve it**, because the respondent *is* a filer:
+
+> *"One issue, about MCP config path handling… Got a reasonable answer, not much came of it. Written
+> about it, no. **I've drafted a post twice** about how these config folders rot and **deleted it both
+> times** because it felt like complaining without a solution."*
+> — [interview, Q24](agent-setup-interview.md) `*`
+
+**Rests on.** `*` Q24 · `✓` [`re-research.md`](re-research.md) R1 — the corpus is at least now the
+tracker of the product our audience actually uses rather than a dead competitor's.
+
+**How true.** `?`. One filer says nothing about non-filers. The useful part is the last line: **the
+pain is felt more often than it is reported**, because the report gets deleted for lacking a solution.
+That is a mechanism for tracker under-count, and it is `*`.
+
+**What would move it.** The guide's recruiting rule — **at least two of the five must never have filed
+anything in public.** Not yet satisfied.
+
+---
+
+### NK-17 — What is the emotional register on arrival? `*`
+
+**Answer. Irritation, mostly — and it is baked into the material.**
+
+> *"…I'm adding a rule right after the agent did something annoying, which means **most edits are
+> written while irritated, which is probably visible in the tone of some of them**."*
+> — [interview, Q19](agent-setup-interview.md) `*`
+
+**Rests on.** That quote, plus Q19's three modes (NK-4).
+
+**How true.** One person. But it is the first answer this question has ever had, and it is exactly the
+kind of thing no tracker could produce: **the library is written in anger and read in a hurry.** It
+bears on tone, on the copy register (§6), and on what an item card should surface.
+
+**What would move it.** Guide Q19, four more times.
+
+---
+
+### NK-18 — Does anyone want their work to be a portfolio? `✓` + `*`
+
+**Answer. Two searches found nothing. The one person asked said a qualified yes — for a motive that
+has nothing to do with being seen.**
+
+> *"None of it. I'd like a slice of it public, mostly for the reason that **publishing forces cleanup
+> and I need external pressure to do that**. But I can't publish as-is because client-specific rules
+> are scattered through it…"* — [interview, Q23](agent-setup-interview.md) `*`
+
+**Rests on.**
+- `✓` [`re-research.md`](re-research.md) R10 — **0 of 1,762** HN comments; `portfolio in:title` in `anthropics/claude-code` returns **2 issues, both 0 reactions, both unrelated**.
+- `*` Q23 above.
+
+**How true.** **These disagree and both stay** (rule 4). The `✓` absence is real and was looked for
+deliberately. The `*` reframes rather than contradicts: the want is **not to be seen, it is a forcing
+function for cleanup**, and it is blocked by client material tangled through the files. `CLAUDE.md`
+§9's decision to keep publishing out of the MVP is untouched by either.
+
+**What would move it.** Q23 four more times, and the answer recorded plainly whichever way it falls.
+
+---
+
+### NK-19 — Under what licence may someone else's skill ship in our public library? `✓`
+
+**Answer. Not a research question any more — a field and a rule.**
+
+**Rests on.** `✓` [`re-research.md`](re-research.md) R11 — the Agent Skills format carries an
+**optional `license` field**; real catalogs pick one and say so
+([tech-leads-club](https://github.com/tech-leads-club/agent-skills), CC-BY-4.0;
+[awesome-legal-skills](https://github.com/lawve-ai/awesome-legal-skills), CC BY-NC-ND 4.0, with
+included resources keeping their own terms); and the governing principle: **a publicly accessible
+skill is not necessarily free of restrictions, and a missing licence field does not prove that reuse
+is permitted.**
+
+**How true.** `✓` for the rule. What remains is **ours to decide**: §5's `Item` carries `repoUrl`,
+`path` and `ref` and **no licence field**, and §11's *"checked sources"* has no stated review standard.
+Both are proposals in [`re-research.md`](re-research.md) §4.
+
+**What would move it.** Nothing. Decide it.
+
+---
+
+### NK-20 — Does the person hitting the environment pain even have a library? `*`
+
+**Answer. Yes — in the same sentence that answers NK-15.** The worry behind this row was that *the
+archive lands and does not run* might belong mostly to people installing **one** server, in which case
+the pain is real and **not ours**. For this person it is not that:
+
+> *"Already had the collection, and that's the point… **The collection created the problem.**"*
+> — [interview, Q15](agent-setup-interview.md) `*`
+
+Corroborated by the scale of his failures: `*` [Q5](agent-setup-interview.md) — four MCP servers
+silently not starting on Linux because of absolute paths copied from a docs example; `*`
+[Q12](agent-setup-interview.md) — *"**one in three fresh environments** has something silently not
+loading."*
+
+**Rests on.** Q15, Q5, Q12. **One person.**
+
+**How true.** `*` — and it **shares its evidence with NK-15**, so the two rows are not independent
+confirmations of each other. Worth stating, because counting them twice would be the easiest mistake
+in this document.
+
+**What would move it.** Guide Q15, four more times.
+
+---
+
+## Three questions the interview added
+
+The protocol says questions land in the register as work turns them up. The interview turned up three
+— two of them in answer to *"anything I should have asked?"* — and **none was among the twenty.**
+
+### NK-21 — What happens when the user's own rule and an external requirement conflict? `*`
+
+> *"You didn't ask what happens when a rule and a client requirement conflict. **That comes up
+> constantly.** My CLAUDE.md says one thing, the client's linter says another, and **there's no
+> precedence anywhere**; it's resolved by whichever I remember at the time, which is a bad way to
+> resolve anything."* — [interview, Q26](agent-setup-interview.md) `*`
+
+**Why it matters.** §6 models conflicts **between items in our library**. This is a conflict between
+an item and **something outside the set entirely** — a linter, a client standard, a repo convention —
+and the data model has nowhere to put it. Neither `conflicts` nor `requires` reaches it.
+
+### NK-22 — How much of what makes a setup work was never written down? `*`
+
+> *"Roughly **half of what makes a project go well is stuff I've never written down** because writing
+> it down felt too obvious. Then a contractor joins and none of it transfers. If you're studying why
+> these setups fail, **'the written part was never the whole thing'** is probably a bigger factor than
+> anything about the files themselves."* — [interview, Q26](agent-setup-interview.md) `*`
+
+**Why it matters.** It bounds the ceiling of the entire product. We validate the written part. If the
+written part is half the system, a perfectly coherent archive still under-delivers at handover —
+which is exactly what happened to his contractor (NK-7).
+
+### NK-23 — Is the wanted thing observability rather than validation? `*`
+
+Asked what one thing a genie should fix, he did not ask for a checker:
+
+> *"**Show me what actually loaded and what actually mattered.** Per session: these files were read,
+> this rule fired here, **these six things were present and had no observable effect.** That's it. I
+> don't need it to fix anything, **I need to see it**, because everything else I'd fix myself in an
+> afternoon if I could see it."* — [interview, Q25](agent-setup-interview.md) `*`
+
+**Why it matters.** `CLAUDE.md` §2 says the core value is **assembly with validation**. The one
+practitioner asked wants **observability of what ran**. Those overlap and they are not the same
+product — and one of them we cannot build, because we run nothing on anyone's machine (§6). **This is
+the sharpest open question in the folder**, and it belongs in the sitting that closes stages 6 and 7,
+as a register entry with a named instrument: guide Q25, four more times.
+
+---
+
+## What this section changes
+
+**Nothing, still.** It is a register, and registers are read before decisions rather than instead of
+them. It edits no file outside this folder.
+
+**What it hands forward.**
+
+1. **To the axes (step 2).** NK-15 is the one that matters, and its `*` answer suggests the axis may
+   not exist as drawn: if the collection *causes* the breakage, then *collector* and *person who
+   breaks* are one persona at two moments, not two personas.
+2. **To the audit (step 4).** The dangerous list writes itself from this section — **every row
+   carrying only `*` bears on a design decision and stands on one person**: NK-8, NK-9, NK-12, NK-15,
+   NK-17, NK-20, NK-21, NK-22, NK-23.
+3. **To the owner, as work rather than research.** **NK-13 is the only blank row we can fill
+   ourselves**, it needs an afternoon, and it tests the spec's most load-bearing bet.
+4. **To the register in [`research-plan.md`](../research-plan.md).** NK-21, NK-22 and NK-23 are
+   candidates for Q10, Q11 and Q12, each with a named instrument, to be dispositioned in the same
+   sitting as Q7–Q9 once stage 7 is in.
