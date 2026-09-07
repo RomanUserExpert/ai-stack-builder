@@ -257,8 +257,12 @@ Where the sources actually are:
   what that stage said it could not see.
 - **Owner's assertions** — [`CLAUDE.md`](../../CLAUDE.md), cited as such: *stated in §3, not observed.*
 
-Two marks, one meaning. The stage documents use the lesson's `[?]`; the digest uses
-**`данные не подтверждены`**. They are the same mark in two registers, and the digest keeps its own.
+**Superseded 2026-09-07 — there are now three marks, not two.** The scale is defined once, in
+[`research.md`](../research.md), *The three marks*: **✓** confirmed by a re-runnable instrument · **★**
+reported by a practitioner in an interview · **`?`** unknown. The stage documents write the third as
+`[?]` and the digest writes it as **`данные не подтверждены`**; those two are the same level in two
+registers, and each keeps its own wording. **A ★ never becomes a ✓ by repetition** — only an
+instrument promotes it.
 
 ---
 

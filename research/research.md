@@ -10,10 +10,38 @@ where the two ever disagree, CLAUDE.md wins. It is **not** the sign-off document
 Nothing here is a third list of open questions — the register lives in
 [`research/research-plan.md`](research-plan.md) and is currently empty.
 
-**How to read the citations.** Every claim carries a link to the document or capture it came from.
-Where a claim has no source in this repository it is marked **`данные не подтверждены`** and nothing
-is invented to fill the space. Those marks are load-bearing: they are the honest edge of what was
-actually established.
+**How to read the citations.** Every claim carries a link to the document or capture it came from,
+and nothing is invented to fill a space. Those marks are load-bearing: they are the honest edge of
+what was actually established.
+
+### The three marks — the evidence rule for this whole folder
+
+Added 2026-09-07, when the first practitioner interview arrived and the old two-level scale stopped
+being able to describe it. **Every claim about people carries one of three marks**, and the mark says
+*how it is known*, never *how much we like it*.
+
+| Mark | Means | Test that earns it |
+|---|---|---|
+| **✓** | **Confirmed.** | Another person can re-run the instrument and get the same answer: a captured page, a logged query with its count, a source read at origin, a file in this repository. **Checkable without trusting anyone's memory.** |
+| **★** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
+| **`?`** | **Unknown.** | No instrument here has established it in either direction. This digest writes it **`данные не подтверждены`**; the stage documents write **`[?]`**. Same level, two registers, and each keeps its own wording. |
+
+**Four rules, and the second is the one that will be broken first.**
+
+1. **The mark is per claim, not per document.** One paragraph can hold all three.
+2. **A ★ never becomes a ✓ by repetition.** Five practitioners saying the same thing is five people's
+   memory — that makes a hypothesis strong, it does not make it measured. **Only an instrument
+   promotes ★ to ✓.**
+3. **A number inside a ★ is a recollection, not a measurement.** *"Forty-something files"*, *"one in
+   three fresh environments"*, *"about half of it"* stay ★ however precise they sound. The
+   respondent in the first interview says as much twice unprompted — *"I usually round that down"*,
+   *"it's a story I tell myself"* — which is exactly why ★ is its own level and not a weak ✓.
+4. **Where ✓ and ★ disagree, keep both and say so.** The trackers say the loudest thing is an archive
+   that will not run; the first practitioner says the expensive part was a trickle nobody counts.
+   That is a finding, not a conflict to be settled by preference.
+
+**And unmarked prose may not out-run its marks.** A sentence reasoning from a ★ claim is itself ★.
+An unmarked claim is being asserted as ✓, so if it is not checkable, mark it.
 
 **The evidence base, counted rather than estimated.** 143 image captures, 36 source documents and
 7 raw data logs in this folder, besides this digest and its rendered page. Stage 1's 38 are catalogued in
