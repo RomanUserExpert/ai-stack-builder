@@ -1,0 +1,1478 @@
+{
+ "collected": "2026-09-07",
+ "instrument": "GitHub search API via gh, authenticated. Sorted by reactions, the only crowd-weighting these trackers offer. Same method as stage 3, applied to trackers stage 3 did not read.",
+ "queries": [
+  {
+   "label": "CC.top-all",
+   "q": "repo:anthropics/claude-code is:issue",
+   "total": 89923
+  },
+  {
+   "label": "CC.skills",
+   "q": "repo:anthropics/claude-code is:issue skills",
+   "total": 5386
+  },
+  {
+   "label": "CC.agentsmd",
+   "q": "repo:anthropics/claude-code is:issue AGENTS.md",
+   "total": 283
+  },
+  {
+   "label": "CC.reuse",
+   "q": "repo:anthropics/claude-code is:issue reuse across projects",
+   "total": 267
+  },
+  {
+   "label": "CC.share",
+   "q": "repo:anthropics/claude-code is:issue share skills between projects",
+   "total": 227
+  },
+  {
+   "label": "CC.sync",
+   "q": "repo:anthropics/claude-code is:issue sync settings across machines",
+   "total": 154
+  },
+  {
+   "label": "T.skills",
+   "q": "repo:anthropics/claude-code is:issue skills in:title",
+   "total": 1059
+  },
+  {
+   "label": "T.reuse",
+   "q": "repo:anthropics/claude-code is:issue reuse in:title",
+   "total": 85
+  },
+  {
+   "label": "T.share",
+   "q": "repo:anthropics/claude-code is:issue share in:title",
+   "total": 573
+  },
+  {
+   "label": "T.sync",
+   "q": "repo:anthropics/claude-code is:issue sync in:title",
+   "total": 399
+  },
+  {
+   "label": "T.marketplace",
+   "q": "repo:anthropics/claude-code is:issue marketplace in:title",
+   "total": 680
+  },
+  {
+   "label": "T.plugin",
+   "q": "repo:anthropics/claude-code is:issue plugin in:title",
+   "total": 3100
+  },
+  {
+   "label": "T.mcp",
+   "q": "repo:anthropics/claude-code is:issue mcp in:title",
+   "total": 4684
+  },
+  {
+   "label": "T.env",
+   "q": "repo:anthropics/claude-code is:issue env in:title",
+   "total": 497
+  },
+  {
+   "label": "T.secret",
+   "q": "repo:anthropics/claude-code is:issue secret in:title",
+   "total": 132
+  },
+  {
+   "label": "T.portfolio",
+   "q": "repo:anthropics/claude-code is:issue portfolio in:title",
+   "total": 2
+  },
+  {
+   "label": "T.global",
+   "q": "repo:anthropics/claude-code is:issue global in:title",
+   "total": 414
+  },
+  {
+   "label": "T.import",
+   "q": "repo:anthropics/claude-code is:issue import in:title",
+   "total": 153
+  },
+  {
+   "label": "X.dup-across",
+   "q": "(repo:anthropics/claude-code OR repo:openai/codex OR repo:google-gemini/gemini-cli OR repo:modelcontextprotocol/servers OR repo:continuedev/continue) is:issue duplicate across projects",
+   "total": 0
+  },
+  {
+   "label": "X.copy-same",
+   "q": "(repo:anthropics/claude-code OR repo:openai/codex OR repo:google-gemini/gemini-cli OR repo:modelcontextprotocol/servers OR repo:continuedev/continue) is:issue \"copy the same\"",
+   "total": 0
+  },
+  {
+   "label": "X.reuse-title",
+   "q": "(repo:anthropics/claude-code OR repo:openai/codex OR repo:google-gemini/gemini-cli OR repo:modelcontextprotocol/servers OR repo:continuedev/continue) is:issue reusable in:title",
+   "total": 0
+  },
+  {
+   "label": "X.shared-lib",
+   "q": "(repo:anthropics/claude-code OR repo:openai/codex OR repo:google-gemini/gemini-cli OR repo:modelcontextprotocol/servers OR repo:continuedev/continue) is:issue shared library skills prompts",
+   "total": 0
+  },
+  {
+   "label": "X.multi-agent-cfg",
+   "q": "(repo:anthropics/claude-code OR repo:openai/codex OR repo:google-gemini/gemini-cli OR repo:modelcontextprotocol/servers OR repo:continuedev/continue) is:issue support AGENTS.md in:title",
+   "total": 0
+  },
+  {
+   "label": "X.too-many",
+   "q": "(repo:anthropics/claude-code OR repo:openai/codex OR repo:google-gemini/gemini-cli OR repo:modelcontextprotocol/servers OR repo:continuedev/continue) is:issue too many skills context",
+   "total": 0
+  },
+  {
+   "label": "X.dup",
+   "q": "repo:anthropics/claude-code repo:openai/codex repo:google-gemini/gemini-cli is:issue duplication",
+   "total": 963
+  },
+  {
+   "label": "X.reusable",
+   "q": "repo:anthropics/claude-code repo:openai/codex repo:google-gemini/gemini-cli is:issue reusable",
+   "total": 553
+  },
+  {
+   "label": "X.across-projects",
+   "q": "repo:anthropics/claude-code repo:openai/codex repo:google-gemini/gemini-cli is:issue \"across projects\"",
+   "total": 1692
+  },
+  {
+   "label": "X.across-machines",
+   "q": "repo:anthropics/claude-code repo:openai/codex repo:google-gemini/gemini-cli is:issue \"across machines\"",
+   "total": 534
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "q": "repo:openai/codex is:issue AGENTS.md in:title",
+   "total": 129
+  },
+  {
+   "label": "X.gemini-md",
+   "q": "repo:google-gemini/gemini-cli is:issue AGENTS.md in:title",
+   "total": 5
+  }
+ ],
+ "issues": [
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 6235,
+   "title": "Feature Request: Support AGENTS.md.",
+   "reactions": 6592,
+   "comments": 389,
+   "state": "closed",
+   "created": "2025-08-21",
+   "url": "https://github.com/anthropics/claude-code/issues/6235"
+  },
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 42796,
+   "title": "[MODEL] Claude Code is unusable for complex engineering tasks with the Feb updates",
+   "reactions": 3286,
+   "comments": 583,
+   "state": "closed",
+   "created": "2026-04-02",
+   "url": "https://github.com/anthropics/claude-code/issues/42796"
+  },
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 45596,
+   "title": "Bring Back Buddy — A Consolidated Plea from the Community",
+   "reactions": 2085,
+   "comments": 268,
+   "state": "open",
+   "created": "2026-04-09",
+   "url": "https://github.com/anthropics/claude-code/issues/45596"
+  },
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 17118,
+   "title": "[Feature Request] Support for OpenCode and Max plan",
+   "reactions": 1416,
+   "comments": 410,
+   "state": "closed",
+   "created": "2026-01-09",
+   "url": "https://github.com/anthropics/claude-code/issues/17118"
+  },
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 3382,
+   "title": "[BUG] Claude says \"You're absolutely right!\" about everything",
+   "reactions": 1373,
+   "comments": 179,
+   "state": "closed",
+   "created": "2025-07-12",
+   "url": "https://github.com/anthropics/claude-code/issues/3382"
+  },
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 36151,
+   "title": "[FEATURE] Multi-account switching in Claude Mobile app without shared email",
+   "reactions": 956,
+   "comments": 170,
+   "state": "open",
+   "created": "2026-03-19",
+   "url": "https://github.com/anthropics/claude-code/issues/36151"
+  },
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 18435,
+   "title": "[FEATURE] Add the ability to manage multiple Claude accounts within the Claude Desktop app with easy switching between profiles.",
+   "reactions": 921,
+   "comments": 181,
+   "state": "open",
+   "created": "2026-01-15",
+   "url": "https://github.com/anthropics/claude-code/issues/18435"
+  },
+  {
+   "label": "CC.top-all",
+   "repo": "anthropics/claude-code",
+   "num": 34229,
+   "title": "[BUG] Phone verification",
+   "reactions": 892,
+   "comments": 742,
+   "state": "open",
+   "created": "2026-03-14",
+   "url": "https://github.com/anthropics/claude-code/issues/34229"
+  },
+  {
+   "label": "CC.skills",
+   "repo": "anthropics/claude-code",
+   "num": 3648,
+   "title": "Terminal Scrolling Uncontrollably During Claude Code Interaction",
+   "reactions": 837,
+   "comments": 337,
+   "state": "closed",
+   "created": "2025-07-16",
+   "url": "https://github.com/anthropics/claude-code/issues/3648"
+  },
+  {
+   "label": "CC.agentsmd",
+   "repo": "anthropics/claude-code",
+   "num": 16157,
+   "title": "[BUG] Instantly hitting usage limits with Max subscription",
+   "reactions": 725,
+   "comments": 1492,
+   "state": "open",
+   "created": "2026-01-03",
+   "url": "https://github.com/anthropics/claude-code/issues/16157"
+  },
+  {
+   "label": "CC.agentsmd",
+   "repo": "anthropics/claude-code",
+   "num": 2511,
+   "title": "Feature request: Connect Claude code to Claude projects ",
+   "reactions": 624,
+   "comments": 49,
+   "state": "open",
+   "created": "2025-06-24",
+   "url": "https://github.com/anthropics/claude-code/issues/2511"
+  },
+  {
+   "label": "CC.agentsmd",
+   "repo": "anthropics/claude-code",
+   "num": 53262,
+   "title": "HERMES.md in git commit messages causes requests to route to extra usage billing instead of plan quota",
+   "reactions": 533,
+   "comments": 93,
+   "state": "closed",
+   "created": "2026-04-25",
+   "url": "https://github.com/anthropics/claude-code/issues/53262"
+  },
+  {
+   "label": "CC.agentsmd",
+   "repo": "anthropics/claude-code",
+   "num": 31005,
+   "title": "Support for AGENTS.md and .agents/skills/, the community has been asking since August 2025",
+   "reactions": 472,
+   "comments": 23,
+   "state": "open",
+   "created": "2026-03-05",
+   "url": "https://github.com/anthropics/claude-code/issues/31005"
+  },
+  {
+   "label": "CC.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 38335,
+   "title": "[BUG] Claude Max plan session limits exhausted abnormally fast since March 23, 2026 (CLI usage)",
+   "reactions": 545,
+   "comments": 843,
+   "state": "open",
+   "created": "2026-03-24",
+   "url": "https://github.com/anthropics/claude-code/issues/38335"
+  },
+  {
+   "label": "CC.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 6915,
+   "title": "Allow MCP tools to be available only to subagent",
+   "reactions": 378,
+   "comments": 89,
+   "state": "closed",
+   "created": "2025-08-31",
+   "url": "https://github.com/anthropics/claude-code/issues/6915"
+  },
+  {
+   "label": "CC.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 46829,
+   "title": "Cache TTL silently regressed from 1h to 5m around early March 2026, causing quota and cost inflation",
+   "reactions": 342,
+   "comments": 56,
+   "state": "closed",
+   "created": "2026-04-12",
+   "url": "https://github.com/anthropics/claude-code/issues/46829"
+  },
+  {
+   "label": "CC.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 8763,
+   "title": "API Error: 400 due to tool use concurrency issues. Run /rewind to recover the conversation. - [Bug] Anthropic API Error: Unexpected 400 Bad Request Response",
+   "reactions": 277,
+   "comments": 270,
+   "state": "closed",
+   "created": "2025-10-02",
+   "url": "https://github.com/anthropics/claude-code/issues/8763"
+  },
+  {
+   "label": "CC.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 4928,
+   "title": "[BUG] file named nul created on windows",
+   "reactions": 235,
+   "comments": 184,
+   "state": "closed",
+   "created": "2025-08-01",
+   "url": "https://github.com/anthropics/claude-code/issues/4928"
+  },
+  {
+   "label": "CC.share",
+   "repo": "anthropics/claude-code",
+   "num": 77136,
+   "title": "[BUG] Claude 4.7, 4.8, 5.0, and Fable increasingly default to repetitive rhetorical tics and often struggle to produce coherent prose despite explicit style instructions",
+   "reactions": 546,
+   "comments": 118,
+   "state": "open",
+   "created": "2026-07-13",
+   "url": "https://github.com/anthropics/claude-code/issues/77136"
+  },
+  {
+   "label": "CC.sync",
+   "repo": "anthropics/claude-code",
+   "num": 1455,
+   "title": "Claude Code does not respect the XDG Base Directory specification",
+   "reactions": 446,
+   "comments": 67,
+   "state": "open",
+   "created": "2025-05-31",
+   "url": "https://github.com/anthropics/claude-code/issues/1455"
+  },
+  {
+   "label": "CC.sync",
+   "repo": "anthropics/claude-code",
+   "num": 28791,
+   "title": "[FEATURE] Sync conversation history between CLI and Claude Code desktop app",
+   "reactions": 155,
+   "comments": 37,
+   "state": "open",
+   "created": "2026-02-26",
+   "url": "https://github.com/anthropics/claude-code/issues/28791"
+  },
+  {
+   "label": "CC.sync",
+   "repo": "anthropics/claude-code",
+   "num": 91870,
+   "title": "Function Hooks - make plugins 10x more powerful",
+   "reactions": 115,
+   "comments": 126,
+   "state": "open",
+   "created": "2026-09-03",
+   "url": "https://github.com/anthropics/claude-code/issues/91870"
+  },
+  {
+   "label": "CC.sync",
+   "repo": "anthropics/claude-code",
+   "num": 19649,
+   "title": "[MODEL] Frequently uses Bash tools (sed/grep/etc) when use-case is well aligned to other builtin tools (Read/Grep/etc)",
+   "reactions": 114,
+   "comments": 46,
+   "state": "open",
+   "created": "2026-01-21",
+   "url": "https://github.com/anthropics/claude-code/issues/19649"
+  },
+  {
+   "label": "T.skills",
+   "repo": "anthropics/claude-code",
+   "num": 10238,
+   "title": "[FEATURE] Add support for subdirectories in skills",
+   "reactions": 168,
+   "comments": 53,
+   "state": "closed",
+   "created": "2025-10-24",
+   "url": "https://github.com/anthropics/claude-code/issues/10238"
+  },
+  {
+   "label": "T.skills",
+   "repo": "anthropics/claude-code",
+   "num": 20697,
+   "title": "[FEATURE] Sync Skills between Claude Desktop and Claude Code CLI",
+   "reactions": 161,
+   "comments": 43,
+   "state": "open",
+   "created": "2026-01-25",
+   "url": "https://github.com/anthropics/claude-code/issues/20697"
+  },
+  {
+   "label": "T.skills",
+   "repo": "anthropics/claude-code",
+   "num": 28729,
+   "title": "[FEATURE] Link a source control repo as the source for organization skills",
+   "reactions": 151,
+   "comments": 39,
+   "state": "open",
+   "created": "2026-02-25",
+   "url": "https://github.com/anthropics/claude-code/issues/28729"
+  },
+  {
+   "label": "T.skills",
+   "repo": "anthropics/claude-code",
+   "num": 25045,
+   "title": "[FEATURE] allow skills to programmatically rename sessions",
+   "reactions": 131,
+   "comments": 11,
+   "state": "open",
+   "created": "2026-02-11",
+   "url": "https://github.com/anthropics/claude-code/issues/25045"
+  },
+  {
+   "label": "T.skills",
+   "repo": "anthropics/claude-code",
+   "num": 14920,
+   "title": "[Feature Request] Add ability to disable individual Claude plugin skills",
+   "reactions": 89,
+   "comments": 16,
+   "state": "open",
+   "created": "2025-12-20",
+   "url": "https://github.com/anthropics/claude-code/issues/14920"
+  },
+  {
+   "label": "T.skills",
+   "repo": "anthropics/claude-code",
+   "num": 9716,
+   "title": "[BUG] Claude Code assistant not aware of available skills in .claude/skills/ directory",
+   "reactions": 75,
+   "comments": 69,
+   "state": "open",
+   "created": "2025-10-17",
+   "url": "https://github.com/anthropics/claude-code/issues/9716"
+  },
+  {
+   "label": "T.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 27390,
+   "title": "Claude Desktop: MCP servers fail with Protocol instance reuse error",
+   "reactions": 59,
+   "comments": 22,
+   "state": "closed",
+   "created": "2026-02-21",
+   "url": "https://github.com/anthropics/claude-code/issues/27390"
+  },
+  {
+   "label": "T.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 79366,
+   "title": "Worktree sessions reuse an existing worktree directory from a previous session instead of creating a fresh one",
+   "reactions": 11,
+   "comments": 16,
+   "state": "open",
+   "created": "2026-07-20",
+   "url": "https://github.com/anthropics/claude-code/issues/79366"
+  },
+  {
+   "label": "T.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 60113,
+   "title": "[FEATURE] Agent view: opt-out of worktree isolation and reuse heavy dependency directories",
+   "reactions": 7,
+   "comments": 3,
+   "state": "closed",
+   "created": "2026-05-18",
+   "url": "https://github.com/anthropics/claude-code/issues/60113"
+  },
+  {
+   "label": "T.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 69542,
+   "title": "Claude in Chrome (desktop/web app): a new tab group is created for every session instead of reusing the previous session's tab",
+   "reactions": 5,
+   "comments": 6,
+   "state": "open",
+   "created": "2026-06-19",
+   "url": "https://github.com/anthropics/claude-code/issues/69542"
+  },
+  {
+   "label": "T.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 22162,
+   "title": "[BUG] Memory leak: API clients created repeatedly instead of reused (8-9 GB memory usage)",
+   "reactions": 3,
+   "comments": 5,
+   "state": "closed",
+   "created": "2026-01-31",
+   "url": "https://github.com/anthropics/claude-code/issues/22162"
+  },
+  {
+   "label": "T.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 41884,
+   "title": "[FEATURE] Preserve and reuse thinking trace when user interrupts mid-thinking",
+   "reactions": 2,
+   "comments": 2,
+   "state": "closed",
+   "created": "2026-04-01",
+   "url": "https://github.com/anthropics/claude-code/issues/41884"
+  },
+  {
+   "label": "T.reuse",
+   "repo": "anthropics/claude-code",
+   "num": 76794,
+   "title": "Mobile: always-on context-window usage indicator (could reuse the 'Create PR' action area, no extra real estate)",
+   "reactions": 1,
+   "comments": 1,
+   "state": "open",
+   "created": "2026-07-12",
+   "url": "https://github.com/anthropics/claude-code/issues/76794"
+  },
+  {
+   "label": "T.share",
+   "repo": "anthropics/claude-code",
+   "num": 13843,
+   "title": "Share conversation context from Claude.ai to Claude Code",
+   "reactions": 157,
+   "comments": 27,
+   "state": "open",
+   "created": "2025-12-12",
+   "url": "https://github.com/anthropics/claude-code/issues/13843"
+  },
+  {
+   "label": "T.share",
+   "repo": "anthropics/claude-code",
+   "num": 15881,
+   "title": "[Feature Request] Seamless session sharing between Claude Code and Claude Desktop",
+   "reactions": 61,
+   "comments": 9,
+   "state": "open",
+   "created": "2025-12-31",
+   "url": "https://github.com/anthropics/claude-code/issues/15881"
+  },
+  {
+   "label": "T.share",
+   "repo": "anthropics/claude-code",
+   "num": 57034,
+   "title": "Support VS Code's browser-sharing API so Claude can validate web UI changes",
+   "reactions": 58,
+   "comments": 5,
+   "state": "open",
+   "created": "2026-05-07",
+   "url": "https://github.com/anthropics/claude-code/issues/57034"
+  },
+  {
+   "label": "T.share",
+   "repo": "anthropics/claude-code",
+   "num": 48322,
+   "title": "[FEATURE] Team/Enterprise: shared routines (org-owned scheduled agents)",
+   "reactions": 53,
+   "comments": 5,
+   "state": "open",
+   "created": "2026-04-15",
+   "url": "https://github.com/anthropics/claude-code/issues/48322"
+  },
+  {
+   "label": "T.share",
+   "repo": "anthropics/claude-code",
+   "num": 9444,
+   "title": "[FEATURE] Support for Plugin Dependencies and Shared Resources",
+   "reactions": 48,
+   "comments": 19,
+   "state": "closed",
+   "created": "2025-10-12",
+   "url": "https://github.com/anthropics/claude-code/issues/9444"
+  },
+  {
+   "label": "T.share",
+   "repo": "anthropics/claude-code",
+   "num": 34437,
+   "title": "Worktrees should share the same project directory as the main repo",
+   "reactions": 44,
+   "comments": 11,
+   "state": "open",
+   "created": "2026-03-14",
+   "url": "https://github.com/anthropics/claude-code/issues/34437"
+  },
+  {
+   "label": "T.sync",
+   "repo": "anthropics/claude-code",
+   "num": 22648,
+   "title": "[Feature Request] Account-level settings sync across devices",
+   "reactions": 47,
+   "comments": 25,
+   "state": "open",
+   "created": "2026-02-03",
+   "url": "https://github.com/anthropics/claude-code/issues/22648"
+  },
+  {
+   "label": "T.sync",
+   "repo": "anthropics/claude-code",
+   "num": 1884,
+   "title": "Claude sync issue",
+   "reactions": 36,
+   "comments": 90,
+   "state": "closed",
+   "created": "2025-06-10",
+   "url": "https://github.com/anthropics/claude-code/issues/1884"
+  },
+  {
+   "label": "T.sync",
+   "repo": "anthropics/claude-code",
+   "num": 31992,
+   "title": "[FEATURE] Cross-machine session resume — sync session state for CLI-to-CLI handoff",
+   "reactions": 17,
+   "comments": 10,
+   "state": "open",
+   "created": "2026-03-08",
+   "url": "https://github.com/anthropics/claude-code/issues/31992"
+  },
+  {
+   "label": "T.sync",
+   "repo": "anthropics/claude-code",
+   "num": 37628,
+   "title": "[VSCode] Renaming session via sidebar pencil icon doesn't sync terminal tab title — next message overwrites the custom name",
+   "reactions": 15,
+   "comments": 11,
+   "state": "open",
+   "created": "2026-03-23",
+   "url": "https://github.com/anthropics/claude-code/issues/37628"
+  },
+  {
+   "label": "T.sync",
+   "repo": "anthropics/claude-code",
+   "num": 47744,
+   "title": "[FEATURE] API / sync mechanism for Claude Team Project knowledge files",
+   "reactions": 14,
+   "comments": 4,
+   "state": "open",
+   "created": "2026-04-14",
+   "url": "https://github.com/anthropics/claude-code/issues/47744"
+  },
+  {
+   "label": "T.marketplace",
+   "repo": "anthropics/claude-code",
+   "num": 18949,
+   "title": "Skills from marketplace plugins don't appear in slash command autocomplete",
+   "reactions": 74,
+   "comments": 16,
+   "state": "open",
+   "created": "2026-01-18",
+   "url": "https://github.com/anthropics/claude-code/issues/18949"
+  },
+  {
+   "label": "T.marketplace",
+   "repo": "anthropics/claude-code",
+   "num": 15148,
+   "title": "LSP plugin lspServers config not being processed from marketplace.json",
+   "reactions": 73,
+   "comments": 21,
+   "state": "open",
+   "created": "2025-12-23",
+   "url": "https://github.com/anthropics/claude-code/issues/15148"
+  },
+  {
+   "label": "T.marketplace",
+   "repo": "anthropics/claude-code",
+   "num": 10265,
+   "title": "[FEATURE] Ability to enable or configure automatic updating of a marketplace and plugin",
+   "reactions": 65,
+   "comments": 12,
+   "state": "closed",
+   "created": "2025-10-24",
+   "url": "https://github.com/anthropics/claude-code/issues/10265"
+  },
+  {
+   "label": "T.marketplace",
+   "repo": "anthropics/claude-code",
+   "num": 14485,
+   "title": "Plugin marketplace clone triggers unexplained SSH key access prompt on startup",
+   "reactions": 47,
+   "comments": 10,
+   "state": "open",
+   "created": "2025-12-18",
+   "url": "https://github.com/anthropics/claude-code/issues/14485"
+  },
+  {
+   "label": "T.marketplace",
+   "repo": "anthropics/claude-code",
+   "num": 9756,
+   "title": "[FEATURE] Support Auth on Private Marketplaces and Plugins",
+   "reactions": 37,
+   "comments": 32,
+   "state": "closed",
+   "created": "2025-10-17",
+   "url": "https://github.com/anthropics/claude-code/issues/9756"
+  },
+  {
+   "label": "T.marketplace",
+   "repo": "anthropics/claude-code",
+   "num": 28125,
+   "title": "[BUG] Cowork Can't add private GitHub marketplace",
+   "reactions": 36,
+   "comments": 38,
+   "state": "open",
+   "created": "2026-02-24",
+   "url": "https://github.com/anthropics/claude-code/issues/28125"
+  },
+  {
+   "label": "T.marketplace",
+   "repo": "anthropics/claude-code",
+   "num": 26588,
+   "title": "Marketplace plugin cloning should default to HTTPS instead of SSH",
+   "reactions": 36,
+   "comments": 5,
+   "state": "open",
+   "created": "2026-02-18",
+   "url": "https://github.com/anthropics/claude-code/issues/26588"
+  },
+  {
+   "label": "T.plugin",
+   "repo": "anthropics/claude-code",
+   "num": 16446,
+   "title": "[FEATURE] LaTeX rendering in \"Claude Code for VS Code\" plugin",
+   "reactions": 143,
+   "comments": 43,
+   "state": "open",
+   "created": "2026-01-06",
+   "url": "https://github.com/anthropics/claude-code/issues/16446"
+  },
+  {
+   "label": "T.plugin",
+   "repo": "anthropics/claude-code",
+   "num": 14200,
+   "title": "[FEATURE] Add rules support to Plugins",
+   "reactions": 110,
+   "comments": 33,
+   "state": "open",
+   "created": "2025-12-16",
+   "url": "https://github.com/anthropics/claude-code/issues/14200"
+  },
+  {
+   "label": "T.plugin",
+   "repo": "anthropics/claude-code",
+   "num": 13952,
+   "title": "[BUG] LSP servers not loading due to race condition between LSP Manager initialization and plugin loading",
+   "reactions": 102,
+   "comments": 55,
+   "state": "closed",
+   "created": "2025-12-14",
+   "url": "https://github.com/anthropics/claude-code/issues/13952"
+  },
+  {
+   "label": "T.plugin",
+   "repo": "anthropics/claude-code",
+   "num": 45132,
+   "title": "[FEATURE] Add Scala (Metals) to the native LSP plugin lineup",
+   "reactions": 93,
+   "comments": 15,
+   "state": "open",
+   "created": "2026-04-08",
+   "url": "https://github.com/anthropics/claude-code/issues/45132"
+  },
+  {
+   "label": "T.mcp",
+   "repo": "anthropics/claude-code",
+   "num": 7328,
+   "title": "[FEATURE] MCP Tool Filtering: Allow Selective Enable/Disable of Individual Tools from Servers",
+   "reactions": 225,
+   "comments": 90,
+   "state": "closed",
+   "created": "2025-09-09",
+   "url": "https://github.com/anthropics/claude-code/issues/7328"
+  },
+  {
+   "label": "T.mcp",
+   "repo": "anthropics/claude-code",
+   "num": 1785,
+   "title": "[Feature Request] Support for MCP Sampling to leverage Claude Max subscriptions and reduce API costs",
+   "reactions": 194,
+   "comments": 58,
+   "state": "open",
+   "created": "2025-06-08",
+   "url": "https://github.com/anthropics/claude-code/issues/1785"
+  },
+  {
+   "label": "T.mcp",
+   "repo": "anthropics/claude-code",
+   "num": 4476,
+   "title": "Implement Agent-Scoped MCP Configuration with Strict Isolation",
+   "reactions": 183,
+   "comments": 41,
+   "state": "closed",
+   "created": "2025-07-26",
+   "url": "https://github.com/anthropics/claude-code/issues/4476"
+  },
+  {
+   "label": "T.mcp",
+   "repo": "anthropics/claude-code",
+   "num": 1774,
+   "title": "[Feature Request] Enable quick-toggle for MCP servers",
+   "reactions": 161,
+   "comments": 23,
+   "state": "closed",
+   "created": "2025-06-08",
+   "url": "https://github.com/anthropics/claude-code/issues/1774"
+  },
+  {
+   "label": "T.mcp",
+   "repo": "anthropics/claude-code",
+   "num": 2799,
+   "title": "[Feature Request]: Add support for MCP Elicitation",
+   "reactions": 158,
+   "comments": 93,
+   "state": "closed",
+   "created": "2025-07-01",
+   "url": "https://github.com/anthropics/claude-code/issues/2799"
+  },
+  {
+   "label": "T.mcp",
+   "repo": "anthropics/claude-code",
+   "num": 3433,
+   "title": "Claude Code cannot connect to GitHub's remote MCP server using OAuth authentication",
+   "reactions": 152,
+   "comments": 58,
+   "state": "open",
+   "created": "2025-07-13",
+   "url": "https://github.com/anthropics/claude-code/issues/3433"
+  },
+  {
+   "label": "T.env",
+   "repo": "anthropics/claude-code",
+   "num": 401,
+   "title": "[BUG] Claude loads my projects .env into its bash environment (!)",
+   "reactions": 54,
+   "comments": 64,
+   "state": "closed",
+   "created": "2025-03-08",
+   "url": "https://github.com/anthropics/claude-code/issues/401"
+  },
+  {
+   "label": "T.env",
+   "repo": "anthropics/claude-code",
+   "num": 11927,
+   "title": "[BUG] 'env' vars from .claude/settings.json not passed to the plugins/mcps.",
+   "reactions": 31,
+   "comments": 18,
+   "state": "open",
+   "created": "2025-11-19",
+   "url": "https://github.com/anthropics/claude-code/issues/11927"
+  },
+  {
+   "label": "T.env",
+   "repo": "anthropics/claude-code",
+   "num": 1254,
+   "title": "[BUG] Environment variables from `env` section not passed to MCP servers",
+   "reactions": 28,
+   "comments": 17,
+   "state": "closed",
+   "created": "2025-05-23",
+   "url": "https://github.com/anthropics/claude-code/issues/1254"
+  },
+  {
+   "label": "T.env",
+   "repo": "anthropics/claude-code",
+   "num": 18075,
+   "title": "feat: Add env var for custom Chromium browser path",
+   "reactions": 26,
+   "comments": 5,
+   "state": "open",
+   "created": "2026-01-14",
+   "url": "https://github.com/anthropics/claude-code/issues/18075"
+  },
+  {
+   "label": "T.env",
+   "repo": "anthropics/claude-code",
+   "num": 42203,
+   "title": "Desktop app ignores env.PATH from settings.json (sandbox overrides)",
+   "reactions": 26,
+   "comments": 4,
+   "state": "closed",
+   "created": "2026-04-01",
+   "url": "https://github.com/anthropics/claude-code/issues/42203"
+  },
+  {
+   "label": "T.env",
+   "repo": "anthropics/claude-code",
+   "num": 12047,
+   "title": "[FEATURE] Disable reading ANTHROPIC_API_KEY from local `.env` files in the SDK",
+   "reactions": 25,
+   "comments": 3,
+   "state": "closed",
+   "created": "2025-11-20",
+   "url": "https://github.com/anthropics/claude-code/issues/12047"
+  },
+  {
+   "label": "T.env",
+   "repo": "anthropics/claude-code",
+   "num": 23642,
+   "title": "Support 1Password op:// secret references in settings.json env section",
+   "reactions": 24,
+   "comments": 12,
+   "state": "open",
+   "created": "2026-02-06",
+   "url": "https://github.com/anthropics/claude-code/issues/23642"
+  },
+  {
+   "label": "T.secret",
+   "repo": "anthropics/claude-code",
+   "num": 32733,
+   "title": "[FEATURE] Secure secrets injection for Claude Code on the web",
+   "reactions": 192,
+   "comments": 7,
+   "state": "open",
+   "created": "2026-03-10",
+   "url": "https://github.com/anthropics/claude-code/issues/32733"
+  },
+  {
+   "label": "T.secret",
+   "repo": "anthropics/claude-code",
+   "num": 29910,
+   "title": "[FEATURE] Built-in secrets management with optional third-party integrations",
+   "reactions": 45,
+   "comments": 15,
+   "state": "open",
+   "created": "2026-03-01",
+   "url": "https://github.com/anthropics/claude-code/issues/29910"
+  },
+  {
+   "label": "T.secret",
+   "repo": "anthropics/claude-code",
+   "num": 28942,
+   "title": "[FEATURE] Support `envFile` in `.mcp.json` for loading secrets before env var expansion",
+   "reactions": 16,
+   "comments": 6,
+   "state": "open",
+   "created": "2026-02-26",
+   "url": "https://github.com/anthropics/claude-code/issues/28942"
+  },
+  {
+   "label": "T.secret",
+   "repo": "anthropics/claude-code",
+   "num": 4160,
+   "title": "Support \".claudeignore\" file to prevent secret exposure",
+   "reactions": 13,
+   "comments": 13,
+   "state": "closed",
+   "created": "2025-07-22",
+   "url": "https://github.com/anthropics/claude-code/issues/4160"
+  },
+  {
+   "label": "T.secret",
+   "repo": "anthropics/claude-code",
+   "num": 73582,
+   "title": "Store API credentials in the OS secret store instead of plaintext",
+   "reactions": 5,
+   "comments": 3,
+   "state": "open",
+   "created": "2026-07-02",
+   "url": "https://github.com/anthropics/claude-code/issues/73582"
+  },
+  {
+   "label": "T.secret",
+   "repo": "anthropics/claude-code",
+   "num": 44868,
+   "title": "Claude Code exposes secrets from .env / .dev.vars files via grep -n and Read tool, despite CLAUDE.md prohibitions",
+   "reactions": 5,
+   "comments": 9,
+   "state": "closed",
+   "created": "2026-04-07",
+   "url": "https://github.com/anthropics/claude-code/issues/44868"
+  },
+  {
+   "label": "T.portfolio",
+   "repo": "anthropics/claude-code",
+   "num": 68000,
+   "title": "[Bug] API Requests Blocked by Safety Measures on Portfolio Use Case",
+   "reactions": 0,
+   "comments": 3,
+   "state": "closed",
+   "created": "2026-06-12",
+   "url": "https://github.com/anthropics/claude-code/issues/68000"
+  },
+  {
+   "label": "T.portfolio",
+   "repo": "anthropics/claude-code",
+   "num": 15070,
+   "title": "Investigate missing realtime market data for Monday 12-22-2025 portfolio analysis",
+   "reactions": 0,
+   "comments": 1,
+   "state": "closed",
+   "created": "2025-12-22",
+   "url": "https://github.com/anthropics/claude-code/issues/15070"
+  },
+  {
+   "label": "T.global",
+   "repo": "anthropics/claude-code",
+   "num": 20745,
+   "title": "Model setting changes globally across all sessions (regression)",
+   "reactions": 70,
+   "comments": 33,
+   "state": "closed",
+   "created": "2026-01-25",
+   "url": "https://github.com/anthropics/claude-code/issues/20745"
+  },
+  {
+   "label": "T.global",
+   "repo": "anthropics/claude-code",
+   "num": 14202,
+   "title": "Bug: Project-scoped plugins incorrectly detected as installed globally",
+   "reactions": 64,
+   "comments": 25,
+   "state": "open",
+   "created": "2025-12-16",
+   "url": "https://github.com/anthropics/claude-code/issues/14202"
+  },
+  {
+   "label": "T.global",
+   "repo": "anthropics/claude-code",
+   "num": 13340,
+   "title": "[BUG] global/local settings.json allow permissions are not respected by Claude Code",
+   "reactions": 51,
+   "comments": 26,
+   "state": "open",
+   "created": "2025-12-07",
+   "url": "https://github.com/anthropics/claude-code/issues/13340"
+  },
+  {
+   "label": "T.global",
+   "repo": "anthropics/claude-code",
+   "num": 18160,
+   "title": "[BUG] Claude is ignoring `allow` permissions in global `settings.json`",
+   "reactions": 50,
+   "comments": 27,
+   "state": "open",
+   "created": "2026-01-14",
+   "url": "https://github.com/anthropics/claude-code/issues/18160"
+  },
+  {
+   "label": "T.global",
+   "repo": "anthropics/claude-code",
+   "num": 17017,
+   "title": "Project-level permissions replace global permissions instead of merging",
+   "reactions": 26,
+   "comments": 14,
+   "state": "open",
+   "created": "2026-01-09",
+   "url": "https://github.com/anthropics/claude-code/issues/17017"
+  },
+  {
+   "label": "T.global",
+   "repo": "anthropics/claude-code",
+   "num": 2932,
+   "title": "Permissions Error During Claude Code Global Package Update with NVM",
+   "reactions": 24,
+   "comments": 11,
+   "state": "closed",
+   "created": "2025-07-03",
+   "url": "https://github.com/anthropics/claude-code/issues/2932"
+  },
+  {
+   "label": "T.global",
+   "repo": "anthropics/claude-code",
+   "num": 40175,
+   "title": "[BUG] Cowork: Global instructions silently revert to older version after saving",
+   "reactions": 23,
+   "comments": 37,
+   "state": "open",
+   "created": "2026-03-28",
+   "url": "https://github.com/anthropics/claude-code/issues/40175"
+  },
+  {
+   "label": "T.import",
+   "repo": "anthropics/claude-code",
+   "num": 7013,
+   "title": "[Bug] Python Code Generation: Imports Incorrectly Placed Inside Functions",
+   "reactions": 26,
+   "comments": 13,
+   "state": "open",
+   "created": "2025-09-02",
+   "url": "https://github.com/anthropics/claude-code/issues/7013"
+  },
+  {
+   "label": "T.import",
+   "repo": "anthropics/claude-code",
+   "num": 29072,
+   "title": "[FEATURE] Support URL imports in CLAUDE.md (`@https://...`)",
+   "reactions": 11,
+   "comments": 6,
+   "state": "closed",
+   "created": "2026-02-26",
+   "url": "https://github.com/anthropics/claude-code/issues/29072"
+  },
+  {
+   "label": "T.import",
+   "repo": "anthropics/claude-code",
+   "num": 2950,
+   "title": "Imports or CLAUDE.local.md?",
+   "reactions": 10,
+   "comments": 10,
+   "state": "closed",
+   "created": "2025-07-03",
+   "url": "https://github.com/anthropics/claude-code/issues/2950"
+  },
+  {
+   "label": "T.import",
+   "repo": "anthropics/claude-code",
+   "num": 13568,
+   "title": "[Bug] Hookify plugin: incorrect sys.path configuration breaks module imports",
+   "reactions": 9,
+   "comments": 5,
+   "state": "closed",
+   "created": "2025-12-10",
+   "url": "https://github.com/anthropics/claude-code/issues/13568"
+  },
+  {
+   "label": "T.import",
+   "repo": "anthropics/claude-code",
+   "num": 13470,
+   "title": "[Bug] Hookify plugin import error: incorrect package namespace structure",
+   "reactions": 7,
+   "comments": 3,
+   "state": "closed",
+   "created": "2025-12-09",
+   "url": "https://github.com/anthropics/claude-code/issues/13470"
+  },
+  {
+   "label": "T.import",
+   "repo": "anthropics/claude-code",
+   "num": 60308,
+   "title": "/ultrareview fails: seed bundle import error from Firestore",
+   "reactions": 6,
+   "comments": 6,
+   "state": "closed",
+   "created": "2026-05-18",
+   "url": "https://github.com/anthropics/claude-code/issues/60308"
+  },
+  {
+   "label": "T.import",
+   "repo": "anthropics/claude-code",
+   "num": 18518,
+   "title": "[BUG] .mdc files excluded from @ imports in CLAUDE.md since v2.1.2",
+   "reactions": 6,
+   "comments": 4,
+   "state": "closed",
+   "created": "2026-01-16",
+   "url": "https://github.com/anthropics/claude-code/issues/18518"
+  },
+  {
+   "label": "X.dup",
+   "repo": "anthropics/claude-code",
+   "num": 826,
+   "title": "[BUG] Console scrolling top of history when claude add text to the console",
+   "reactions": 822,
+   "comments": 354,
+   "state": "open",
+   "created": "2025-04-19",
+   "url": "https://github.com/anthropics/claude-code/issues/826"
+  },
+  {
+   "label": "X.dup",
+   "repo": "anthropics/claude-code",
+   "num": 27302,
+   "title": "[FEATURE] Support multiple Connector accounts (same connector, different accounts) in Claude and Claude Code on the web (claude.ai/code)",
+   "reactions": 524,
+   "comments": 242,
+   "state": "open",
+   "created": "2026-02-21",
+   "url": "https://github.com/anthropics/claude-code/issues/27302"
+  },
+  {
+   "label": "X.dup",
+   "repo": "openai/codex",
+   "num": 30364,
+   "title": "GPT-5.5 Codex reasoning-token clustering at 516/1034/1552 may be leading to degraded performance on complex tasks",
+   "reactions": 429,
+   "comments": 188,
+   "state": "closed",
+   "created": "2026-06-27",
+   "url": "https://github.com/openai/codex/issues/30364"
+  },
+  {
+   "label": "X.dup",
+   "repo": "anthropics/claude-code",
+   "num": 769,
+   "title": "[BUG]  In-progress Call causes Screen Flickering",
+   "reactions": 335,
+   "comments": 307,
+   "state": "open",
+   "created": "2025-04-12",
+   "url": "https://github.com/anthropics/claude-code/issues/769"
+  },
+  {
+   "label": "X.reusable",
+   "repo": "openai/codex",
+   "num": 14593,
+   "title": "Burning tokens very fast",
+   "reactions": 308,
+   "comments": 630,
+   "state": "closed",
+   "created": "2026-03-13",
+   "url": "https://github.com/openai/codex/issues/14593"
+  },
+  {
+   "label": "X.reusable",
+   "repo": "openai/codex",
+   "num": 31814,
+   "title": "GPT-5.6 Sol cannot specify subagent models, forcing all subagents to also be Sol instances",
+   "reactions": 206,
+   "comments": 100,
+   "state": "closed",
+   "created": "2026-07-09",
+   "url": "https://github.com/openai/codex/issues/31814"
+  },
+  {
+   "label": "X.reusable",
+   "repo": "openai/codex",
+   "num": 2909,
+   "title": "Support for multi-root workspaces",
+   "reactions": 154,
+   "comments": 23,
+   "state": "closed",
+   "created": "2025-08-29",
+   "url": "https://github.com/openai/codex/issues/2909"
+  },
+  {
+   "label": "X.reusable",
+   "repo": "anthropics/claude-code",
+   "num": 20412,
+   "title": "Claude.ai MCP servers auto-injected into Claude Code without opt-in — causes OOM crashes on resource-constrained systems",
+   "reactions": 142,
+   "comments": 39,
+   "state": "closed",
+   "created": "2026-01-23",
+   "url": "https://github.com/anthropics/claude-code/issues/20412"
+  },
+  {
+   "label": "X.reusable",
+   "repo": "anthropics/claude-code",
+   "num": 23627,
+   "title": "[FEATURE] Multi-repository support for remote/web sessions",
+   "reactions": 93,
+   "comments": 15,
+   "state": "open",
+   "created": "2026-02-06",
+   "url": "https://github.com/anthropics/claude-code/issues/23627"
+  },
+  {
+   "label": "X.reusable",
+   "repo": "anthropics/claude-code",
+   "num": 45732,
+   "title": "Bring Back /buddy: 511 Reasons Why",
+   "reactions": 76,
+   "comments": 22,
+   "state": "closed",
+   "created": "2026-04-09",
+   "url": "https://github.com/anthropics/claude-code/issues/45732"
+  },
+  {
+   "label": "X.across-projects",
+   "repo": "openai/codex",
+   "num": 8745,
+   "title": "LSP integration (auto-detect + auto-install) for Codex CLI",
+   "reactions": 579,
+   "comments": 63,
+   "state": "open",
+   "created": "2026-01-05",
+   "url": "https://github.com/openai/codex/issues/8745"
+  },
+  {
+   "label": "X.across-machines",
+   "repo": "openai/codex",
+   "num": 10450,
+   "title": "Remote Development in Codex Desktop App",
+   "reactions": 876,
+   "comments": 179,
+   "state": "closed",
+   "created": "2026-02-03",
+   "url": "https://github.com/openai/codex/issues/10450"
+  },
+  {
+   "label": "X.across-machines",
+   "repo": "anthropics/claude-code",
+   "num": 16561,
+   "title": "Feature: Parse compound Bash commands and match each component against permissions",
+   "reactions": 176,
+   "comments": 47,
+   "state": "closed",
+   "created": "2026-01-07",
+   "url": "https://github.com/anthropics/claude-code/issues/16561"
+  },
+  {
+   "label": "X.across-machines",
+   "repo": "openai/codex",
+   "num": 1980,
+   "title": "Adhere to XDG Base Desktop Specification on Linux platforms",
+   "reactions": 134,
+   "comments": 22,
+   "state": "open",
+   "created": "2025-08-08",
+   "url": "https://github.com/openai/codex/issues/1980"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 12115,
+   "title": "Dynamically loading nested AGENTS.md",
+   "reactions": 114,
+   "comments": 24,
+   "state": "open",
+   "created": "2026-02-18",
+   "url": "https://github.com/openai/codex/issues/12115"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 6038,
+   "title": "Ability to include files in AGENTS.md",
+   "reactions": 36,
+   "comments": 6,
+   "state": "open",
+   "created": "2025-10-31",
+   "url": "https://github.com/openai/codex/issues/6038"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 17401,
+   "title": "feat: @include directive for composable AGENTS.md files",
+   "reactions": 21,
+   "comments": 10,
+   "state": "open",
+   "created": "2026-04-11",
+   "url": "https://github.com/openai/codex/issues/17401"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 3793,
+   "title": "/status doesn't mention global AGENTS.md",
+   "reactions": 20,
+   "comments": 23,
+   "state": "closed",
+   "created": "2025-09-17",
+   "url": "https://github.com/openai/codex/issues/3793"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 3853,
+   "title": "Support global/centralized instructions/AGENTS.md + configuration",
+   "reactions": 11,
+   "comments": 6,
+   "state": "open",
+   "created": "2025-09-18",
+   "url": "https://github.com/openai/codex/issues/3853"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 13386,
+   "title": "AGENTS.md is silently truncated and instructions near the end ignored",
+   "reactions": 11,
+   "comments": 4,
+   "state": "open",
+   "created": "2026-03-03",
+   "url": "https://github.com/openai/codex/issues/13386"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 4466,
+   "title": "Agents.MD being ignored",
+   "reactions": 11,
+   "comments": 5,
+   "state": "closed",
+   "created": "2025-09-29",
+   "url": "https://github.com/openai/codex/issues/4466"
+  },
+  {
+   "label": "X.agentsmd-codex",
+   "repo": "openai/codex",
+   "num": 23788,
+   "title": "feat: auto-load all `.md` files from `~/.codex/instructions/` (modular companion to `~/.codex/AGENTS.md`)",
+   "reactions": 9,
+   "comments": 1,
+   "state": "open",
+   "created": "2026-05-21",
+   "url": "https://github.com/openai/codex/issues/23788"
+  },
+  {
+   "label": "X.gemini-md",
+   "repo": "google-gemini/gemini-cli",
+   "num": 12345,
+   "title": "Add AGENTS.md to the context filename list by default",
+   "reactions": 14,
+   "comments": 9,
+   "state": "closed",
+   "created": "2025-10-31",
+   "url": "https://github.com/google-gemini/gemini-cli/issues/12345"
+  },
+  {
+   "label": "X.gemini-md",
+   "repo": "google-gemini/gemini-cli",
+   "num": 10401,
+   "title": "Switch GEMINI.md to AGENTS.md",
+   "reactions": 2,
+   "comments": 4,
+   "state": "closed",
+   "created": "2025-10-02",
+   "url": "https://github.com/google-gemini/gemini-cli/issues/10401"
+  },
+  {
+   "label": "X.gemini-md",
+   "repo": "google-gemini/gemini-cli",
+   "num": 25205,
+   "title": "[Docs] Documentation missing AGENTS.md as a default context filename",
+   "reactions": 1,
+   "comments": 4,
+   "state": "closed",
+   "created": "2026-04-12",
+   "url": "https://github.com/google-gemini/gemini-cli/issues/25205"
+  },
+  {
+   "label": "X.gemini-md",
+   "repo": "google-gemini/gemini-cli",
+   "num": 28227,
+   "title": "AGENTS.md silently not loaded — not in default context.fileName list in v0.49.0 (parity with agents.md convention)",
+   "reactions": 0,
+   "comments": 2,
+   "state": "open",
+   "created": "2026-07-01",
+   "url": "https://github.com/google-gemini/gemini-cli/issues/28227"
+  },
+  {
+   "label": "X.gemini-md",
+   "repo": "google-gemini/gemini-cli",
+   "num": 8220,
+   "title": "I asked it to update AGENTS.md and it keeps trying to replace it.",
+   "reactions": 0,
+   "comments": 4,
+   "state": "closed",
+   "created": "2025-09-10",
+   "url": "https://github.com/google-gemini/gemini-cli/issues/8220"
+  }
+ ]
+}

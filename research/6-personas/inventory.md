@@ -45,6 +45,12 @@ Of the three candidate pains this product might rest on, **U can see exactly one
 | **B. Reassembly cost** — re-copying the same set into every project | **No.** Produces silent tedium. |
 | **C. Silent breakage** — I configured it and it does not work | **Yes.** This is what trackers are made of. |
 
+> **Superseded in part, 2026-09-07.** [`re-research.md`](re-research.md) R3 found reassembly friction
+> **filed** on live trackers — as feature requests rather than as bugs, which is why a bug-shaped
+> search missed it. Row **B** should read *invisible to a bug search, visible to a feature-request
+> search*. Row **A** stands: loss has no evidence in any instrument tried. The table is left as it
+> was so that what stage 3 believed, and what corrected it, are both legible.
+
 So the *Observed* section is dense about C and empty about A and B — and that emptiness is the
 instrument's, not the world's. **Absence in U is never evidence of absence in the world.** Every use
 of an absence below says so on the line.
@@ -182,6 +188,14 @@ and is listed here so that stage 6 cannot cite it as evidence and then cite the 
 
 # C. Not known
 
+> **Updated 2026-09-07 — eleven of these twenty rows moved the same day.**
+> [`re-research.md`](re-research.md) took four instruments to the public record — the
+> `anthropics/claude-code` tracker (89,923 issues), `openai/codex`, `google-gemini/gemini-cli`,
+> 1,762 Hacker News comments read in full, Stack Overflow and GitHub repository search — and closed
+> or moved **NK-1, NK-2, NK-5, NK-6, NK-7, NK-10, NK-11, NK-16, NK-18, NK-19** and weakened NK-14.
+> The per-row standing is the table in [`re-research.md`](re-research.md) §3; the marks below carry a
+> pointer each. **Nine rows did not move, and seven of those need a person rather than a search.**
+
 **Equal in weight to section A, and longer than is comfortable.** Each row says the question and why
 nothing in this repository can answer it. Every one of these is `[?]`.
 
@@ -189,13 +203,13 @@ nothing in this repository can answer it. Every one of these is `[?]`.
 
 | # | Question | Why nothing here answers it |
 |---|---|---|
-| **NK-1** | **Which of loss, reassembly cost or silent breakage actually drives adoption?** (Q5) | Two of the three are invisible to the only instrument, by construction. Deferred 2026-09-02 as accepted risk with a trigger written down. The one hint on record — shipping a public shelf leans toward *reassembly* — is filed in [`FINAL.md`](../FINAL.md) §3 Q5 **as a hint, so nobody mistakes it for the answer.** |
-| **NK-2** | **How large is one person's library?** | The 300-item figure is stage 5's reasoning (OBS-41), never a count of anything. No capture in the phase exceeds 27 objects (OBS-43). |
+| **NK-1** | **Which of loss, reassembly cost or silent breakage actually drives adoption?** (Q5) | Two of the three are invisible to the only instrument, by construction. Deferred 2026-09-02 as accepted risk with a trigger written down. The one hint on record — shipping a public shelf leans toward *reassembly* — is filed in [`FINAL.md`](../FINAL.md) §3 Q5 **as a hint, so nobody mistakes it for the answer.** |  **→ Moved (not closed) — [re-research](re-research.md) R3: reassembly friction is filed on live trackers as feature requests; loss still has no evidence in any instrument.**
+| **NK-2** | **How large is one person's library?** | The 300-item figure is stage 5's reasoning (OBS-41), never a count of anything. No capture in the phase exceeds 27 objects (OBS-43). |  **→ Partly closed — [re-research](re-research.md) R4: 20–30 items is the reported threshold where a collection stops being manageable.**
 | **NK-3** | **How fast does it grow?** | Nothing in the phase observes a collection over time. Not one capture is a second visit to the same surface. |
 | **NK-4** | **How often is a tool like this opened?** — daily, weekly, once per project | The *weekly* claim behind the chosen pattern is stage 5's reasoning. No usage data exists anywhere in this repository, ours or anyone else's. |
-| **NK-5** | **How many agent targets does one person actually keep?** | OBS-3, OBS-5 and OBS-6 show that *hosts vary across the population*, and that one person asked for a unified format. **Neither shows how many targets a single person maintains at once.** Population variance is not per-person count, and conflating the two is the specific error this row exists to prevent. |
-| **NK-6** | **Where does this material live today?** — dotfiles, gists, a repo folder, chat history, a Notion page, nowhere | OBS-7 shows people arguing about *where a tool puts its own config*, which is not the same as where a person keeps their own store. Nothing observes a practitioner's filing habits. This is the row step 5 can plausibly convert into an observation. |
-| **NK-7** | **Does the person work alone, or does anyone else ever open their archive?** | OBS-2's silence is the instrument's, not the world's. And §6's *nothing blocks* rests on the answer being *alone* (A-10), so this is not a decorative unknown. |
+| **NK-5** | **How many agent targets does one person actually keep?** | OBS-3, OBS-5 and OBS-6 show that *hosts vary across the population*, and that one person asked for a unified format. **Neither shows how many targets a single person maintains at once.** Population variance is not per-person count, and conflating the two is the specific error this row exists to prevent. |  **→ Closed — [re-research](re-research.md) R1 and R2: two to four targets per person is normal, and one source for all of them is the loudest demand in our audience’s own tracker (6,592 reactions).**
+| **NK-6** | **Where does this material live today?** — dotfiles, gists, a repo folder, chat history, a Notion page, nowhere | OBS-7 shows people arguing about *where a tool puts its own config*, which is not the same as where a person keeps their own store. Nothing observes a practitioner's filing habits. This is the row step 5 can plausibly convert into an observation. |  **→ Closed — [re-research](re-research.md) R5: dotfiles repos, `~/.claude/skills/`, per-project files and symlink farms, plus a weighted request for a git repo as the source.**
+| **NK-7** | **Does the person work alone, or does anyone else ever open their archive?** | OBS-2's silence is the instrument's, not the world's. And §6's *nothing blocks* rests on the answer being *alone* (A-10), so this is not a decorative unknown. |  **→ Partly closed — [re-research](re-research.md) R12: colleagues, teams and org contributors appear throughout. Weakens the premise §6 uses for *nothing blocks*.**
 | **NK-8** | **Has anyone ever wanted a previous project back?** | The duplicate-and-re-tune moment (A-3) and the promote path (§5, §7) both rest on it. Zero evidence in either direction; flow 09 captured the *mechanism* in Notion and GitHub, never a person needing it. |
 
 ## C2. The ones this inventory adds
@@ -203,16 +217,16 @@ nothing in this repository can answer it. Every one of these is `[?]`.
 | # | Question | Why nothing here answers it |
 |---|---|---|
 | **NK-9** | **Would anyone adopt this at all, and why?** | Named in the stage plan as the one row no step in stage 6 can lift. U only ever sees people who already adopted something else and then hit a wall. |
-| **NK-10** | **What do they do today instead?** | No substitute behaviour was ever observed — not a shell script, not a dotfiles repo, not copy-paste. The entire *before* state is missing. |
-| **NK-11** | **What would make someone distrust our check?** | OBS-28, OBS-29, OBS-31 and OBS-33 are vendors' bets about what convinces. Nobody has been shown our three severities, and *Skipped* — the glyph that exists precisely so a green tick is not claimed unearned (§6) — has never been in front of a person. |
+| **NK-10** | **What do they do today instead?** | No substitute behaviour was ever observed — not a shell script, not a dotfiles repo, not copy-paste. The entire *before* state is missing. |  **→ Closed — [re-research](re-research.md) R2 and R8: symlinks, `@include` lines, wrapper scripts, manual double-copies, and home-made managers.**
+| **NK-11** | **What would make someone distrust our check?** | OBS-28, OBS-29, OBS-31 and OBS-33 are vendors' bets about what convinces. Nobody has been shown our three severities, and *Skipped* — the glyph that exists precisely so a green tick is not claimed unearned (§6) — has never been in front of a person. |  **→ Moved and redirected — [re-research](re-research.md) R7: the dominant doubt is *does any of this do anything*, not *is the checker right*. Plus a security fear with numbers (R6).**
 | **NK-12** | **Is a usage fact — *used in 3 projects* — persuasive, or is it noise?** | A-9 is sound about what we can honestly show. It is silent, and this repository is silent, on whether it changes anyone's behaviour. |
 | **NK-13** | **Does a receiving agent actually set a project up correctly from `SETUP.md` alone?** | A-11 is the spec's most load-bearing bet, and it is a bet on a *machine's* behaviour rather than a person's. It has never been run once. It is also testable cheaply and by us, with no users needed — which makes it different in kind from everything else in this section. |
-| **NK-14** | **Is hand-entered `requires` / `conflicts` data ever actually maintained?** | §5 says relations are entered manually. Backstage's known failure mode is that catalogs rot when nobody maintains the metadata ([`competitors.md`](../1-landscape/competitors.md), Backstage). Whether a single-user library rots the same way is unobserved. |
+| **NK-14** | **Is hand-entered `requires` / `conflicts` data ever actually maintained?** | §5 says relations are entered manually. Backstage's known failure mode is that catalogs rot when nobody maintains the metadata ([`competitors.md`](../1-landscape/competitors.md), Backstage). Whether a single-user library rots the same way is unobserved. |  **→ Weak signal — [re-research](re-research.md) R3: *“copies can drift out of sync”* is filed as a problem. Maintenance itself still unobserved.**
 | **NK-15** | **Does the loudest observed pain (OBS-15) belong to the same people as the quietest (OBS-16)?** | Both were counted across the same corpus, never joined per person. 182 and 13 may be two crowds or one. The whole primary-persona choice turns on this, and **the instrument cannot resolve it** — reaction counts carry no identity. |
-| **NK-16** | **Are tracker filers the same population as `CLAUDE.md` §3's audience?** | Assumed by every downstream use of stage 3, established nowhere. Filing issues against a free OSS extension is a behaviour, not a job title. |
+| **NK-16** | **Are tracker filers the same population as `CLAUDE.md` §3's audience?** | Assumed by every downstream use of stage 3, established nowhere. Filing issues against a free OSS extension is a behaviour, not a job title. |  **→ Improved, still open — [re-research](re-research.md) R1: the corpus is now the tracker of the product our audience uses. Self-selection for people who file issues stands.**
 | **NK-17** | **What is the emotional register of the moment this product is opened?** | Every persona template wants a *context* block — the situation someone arrives from. U sees the moment of breakage and never the hour before it. The stage plan predicted this block would be *mostly `[?]`*, and it is. |
-| **NK-18** | **Does anyone want their work to be a portfolio?** | §2's long-term ambition and OBS-40's observation are both about a *surface*. Not one issue, capture or source in the phase records a practitioner wanting to be seen. |
-| **NK-19** | **Under what licence may someone else's skill ship inside our public library?** | G6 in the digest. Not a question about what people want but about what we are allowed to hand them, and it is unanswered — a licence review, not a design decision. |
+| **NK-18** | **Does anyone want their work to be a portfolio?** | §2's long-term ambition and OBS-40's observation are both about a *surface*. Not one issue, capture or source in the phase records a practitioner wanting to be seen. |  **→ Searched, nothing found — [re-research](re-research.md) R10: 0 of 1,762 HN comments, and 2 unrelated issues at 0 reactions.**
+| **NK-19** | **Under what licence may someone else's skill ship inside our public library?** | G6 in the digest. Not a question about what people want but about what we are allowed to hand them, and it is unanswered — a licence review, not a design decision. |  **→ Answerable — [re-research](re-research.md) R11: an optional `license` field, and the rule that a missing licence is not permission.**
 | **NK-20** | **Does the person hitting OBS-15 have a library at all?** | The archive-does-not-run pain is felt by someone installing *one* server as easily as by someone assembling thirty items. If it is mostly the former, the pain is real and **not ours**. |
 
 ---
