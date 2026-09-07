@@ -14,7 +14,7 @@ remains next once they close.
 | 3 | **Pain** | The first evidence about users rather than vendors | ● done |
 | 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ● done — 15 cells scored |
 | 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ● done — hybrid chosen, CLAUDE.md §8 rewritten |
-| 6 | **Personas** | 2–4 behavioural personas, one primary, every block sourced or `[?]` — **provisional** until five practitioners are asked | ○ planned — [`6-personas/README.md`](6-personas/README.md) |
+| 6 | **Personas** | 2–4 behavioural personas, one primary, every block sourced or `[?]` — **provisional** until five practitioners are asked | ◐ in progress — step 1 done, [`6-personas/inventory.md`](6-personas/inventory.md) |
 | 7 | **Jobs to be done** | One main job, related, emotional and social jobs, and a jobs × personas matrix that says what to build first and what not to build | ○ planned, blocked on 6 — [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) |
 
 Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
@@ -51,6 +51,7 @@ research/
 | [`4-benchmark/benchmark.md`](4-benchmark/benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`4-benchmark/`](4-benchmark/). |
 | [`5-patterns/patterns.md`](5-patterns/patterns.md) | **Stage 5.** Five shapes for *assemble → check → export*, each answering the same five questions, each scored on the stage-4 rubric read as *does the shape give this a home*. The choice, what each rejected variant donates, and what the choice costs. |
 | [`6-personas/README.md`](6-personas/README.md) | **Stage 6 — the plan.** What the stage is for, the way it goes wrong here, the inputs classified by kind of evidence, seven steps with a done-bar each, the evidence rule and the honest problem. |
+| [`6-personas/inventory.md`](6-personas/inventory.md) | **Stage 6, step 1.** Every statement about people in this repository, each with its source and its kind of evidence; the owner's assertions listed as claims under test; twenty things nobody here knows. |
 | [`6-personas/personas.md`](6-personas/personas.md) | **Stage 6.** Personas with attachment, primary marked, hypotheses separate. Provisional. |
 | [`6-personas/audit.md`](6-personas/audit.md) | Confirmed / hypothesis / invented, the dangerous list, and the proposals for CLAUDE.md, the digest and the register. |
 | [`6-personas/interview-guide.md`](6-personas/interview-guide.md) | The instrument for lifting *provisional* — the Q5 conversations, ready before they are scheduled. |
