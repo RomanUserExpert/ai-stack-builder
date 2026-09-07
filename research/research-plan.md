@@ -14,7 +14,7 @@ remains next once they close.
 | 3 | **Pain** | The first evidence about users rather than vendors | ● done |
 | 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ● done — 15 cells scored |
 | 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ● done — hybrid chosen, CLAUDE.md §8 rewritten |
-| 6 | **Personas** | 2–4 behavioural personas, one primary, every block sourced or `[?]` — **provisional** until five practitioners are asked | ◐ in progress — steps 1 and 5 done, [`inventory.md`](6-personas/inventory.md) · [`re-research.md`](6-personas/re-research.md) |
+| 6 | **Personas** | 2–4 behavioural personas, one primary, every block sourced or `[?]` — **provisional** until five practitioners are asked | ◐ in progress — inventory, re-research and the interview guide done; personas next |
 | 7 | **Jobs to be done** | One main job, related, emotional and social jobs, and a jobs × personas matrix that says what to build first and what not to build | ○ planned, blocked on 6 — [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) |
 
 Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
@@ -55,7 +55,7 @@ research/
 | [`6-personas/re-research.md`](6-personas/re-research.md) | **Stage 6, step 5.** A source document. Four instruments taken to the public record — the `anthropics/claude-code`, `openai/codex` and `gemini-cli` trackers, 1,762 Hacker News comments read in full, Stack Overflow, GitHub repository search. Eleven of the twenty unknowns moved. Contains a correction to stage 3 and a challenge to CLAUDE.md §2, neither applied. |
 | [`6-personas/personas.md`](6-personas/personas.md) | **Stage 6.** Personas with attachment, primary marked, hypotheses separate. Provisional. |
 | [`6-personas/audit.md`](6-personas/audit.md) | Confirmed / hypothesis / invented, the dangerous list, and the proposals for CLAUDE.md, the digest and the register. |
-| [`6-personas/interview-guide.md`](6-personas/interview-guide.md) | The instrument for lifting *provisional* — the Q5 conversations, ready before they are scheduled. |
+| [`6-personas/interview-guide.md`](6-personas/interview-guide.md) | **The instrument for lifting *provisional*.** A 30-minute guide covering the fifteen rows that need a person, built around the one question no search can answer — whether the loud pain and the quiet pain belong to the same people. Recruiting screen, six rules, six blocks, the words never to say, and a coverage table. Ready before the conversations are scheduled. |
 | [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) | **Stage 7 — the plan.** The canonical job form, the hierarchy, the feature-name test, the matrix, and what each of its two answers is worth. |
 | [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) | **Stage 7.** Main-job candidates and the choice, the hierarchy, the matrix with feature and competitor columns, the two conclusions. Provisional. |
 | [`7-jobs-to-be-done/audit.md`](7-jobs-to-be-done/audit.md) | The audit and the reconciliation table against CLAUDE.md §2, §8, §9. |
