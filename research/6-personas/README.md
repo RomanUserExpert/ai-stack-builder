@@ -258,10 +258,10 @@ Where the sources actually are:
 - **Owner's assertions** — [`CLAUDE.md`](../../CLAUDE.md), cited as such: *stated in §3, not observed.*
 
 **Superseded 2026-09-07 — there are now three marks, not two.** The scale is defined once, in
-[`research.md`](../research.md), *The three marks*: **✓** confirmed by a re-runnable instrument · **★**
+[`research.md`](../research.md), *The three marks*: **`✓`** confirmed by a re-runnable instrument · **`*`**
 reported by a practitioner in an interview · **`?`** unknown. The stage documents write the third as
 `[?]` and the digest writes it as **`данные не подтверждены`**; those two are the same level in two
-registers, and each keeps its own wording. **A ★ never becomes a ✓ by repetition** — only an
+registers, and each keeps its own wording. **A `*` never becomes a `✓` by repetition** — only an
 instrument promotes it.
 
 ---

@@ -22,26 +22,26 @@ being able to describe it. **Every claim about people carries one of three marks
 
 | Mark | Means | Test that earns it |
 |---|---|---|
-| **✓** | **Confirmed.** | Another person can re-run the instrument and get the same answer: a captured page, a logged query with its count, a source read at origin, a file in this repository. **Checkable without trusting anyone's memory.** |
-| **★** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
+| **`✓`** | **Confirmed.** | Another person can re-run the instrument and get the same answer: a captured page, a logged query with its count, a source read at origin, a file in this repository. **Checkable without trusting anyone's memory.** |
+| **`*`** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
 | **`?`** | **Unknown.** | No instrument here has established it in either direction. This digest writes it **`данные не подтверждены`**; the stage documents write **`[?]`**. Same level, two registers, and each keeps its own wording. |
 
 **Four rules, and the second is the one that will be broken first.**
 
 1. **The mark is per claim, not per document.** One paragraph can hold all three.
-2. **A ★ never becomes a ✓ by repetition.** Five practitioners saying the same thing is five people's
+2. **A `*` never becomes a `✓` by repetition.** Five practitioners saying the same thing is five people's
    memory — that makes a hypothesis strong, it does not make it measured. **Only an instrument
-   promotes ★ to ✓.**
-3. **A number inside a ★ is a recollection, not a measurement.** *"Forty-something files"*, *"one in
-   three fresh environments"*, *"about half of it"* stay ★ however precise they sound. The
+   promotes `*` to `✓`.**
+3. **A number inside a `*` is a recollection, not a measurement.** *"Forty-something files"*, *"one in
+   three fresh environments"*, *"about half of it"* stay `*` however precise they sound. The
    respondent in the first interview says as much twice unprompted — *"I usually round that down"*,
-   *"it's a story I tell myself"* — which is exactly why ★ is its own level and not a weak ✓.
-4. **Where ✓ and ★ disagree, keep both and say so.** The trackers say the loudest thing is an archive
+   *"it's a story I tell myself"* — which is exactly why `*` is its own level and not a weak `✓`.
+4. **Where `✓` and `*` disagree, keep both and say so.** The trackers say the loudest thing is an archive
    that will not run; the first practitioner says the expensive part was a trickle nobody counts.
    That is a finding, not a conflict to be settled by preference.
 
-**And unmarked prose may not out-run its marks.** A sentence reasoning from a ★ claim is itself ★.
-An unmarked claim is being asserted as ✓, so if it is not checkable, mark it.
+**And unmarked prose may not out-run its marks.** A sentence reasoning from a `*` claim is itself `*`.
+An unmarked claim is being asserted as `✓`, so if it is not checkable, mark it.
 
 **The evidence base, counted rather than estimated.** 143 image captures, 36 source documents and
 7 raw data logs in this folder, besides this digest and its rendered page. Stage 1's 38 are catalogued in
@@ -298,7 +298,7 @@ our animated sweep subordinate to a result that survives being paused.
 ### 2. `N of M`, and a count that is a link — VS Code Workspace Trust
 
 **What it is.** Workspace Trust shows two columns — *In a Trusted Folder* against *In Restricted
-Mode* — with the current one outlined and four ✓/✕ lines each. Two of those lines are counted **and
+Mode* — with the current one outlined and four `✓`/✕ lines each. Two of those lines are counted **and
 hyperlinked**: *"95 workspace settings are not applied"*, *"10 extensions are disabled or have
 limited functionality"*. Scored **C2 = 5**, the best consequence disclosure in the entire benchmark.
 

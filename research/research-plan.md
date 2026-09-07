@@ -55,7 +55,7 @@ research/
 | [`6-personas/re-research.md`](6-personas/re-research.md) | **Stage 6, step 5.** A source document. Four instruments taken to the public record — the `anthropics/claude-code`, `openai/codex` and `gemini-cli` trackers, 1,762 Hacker News comments read in full, Stack Overflow, GitHub repository search. Eleven of the twenty unknowns moved. Contains a correction to stage 3 and a challenge to CLAUDE.md §2, neither applied. |
 | [`6-personas/personas.md`](6-personas/personas.md) | **Stage 6.** Personas with attachment, primary marked, hypotheses separate. Provisional. |
 | [`6-personas/audit.md`](6-personas/audit.md) | Confirmed / hypothesis / invented, the dangerous list, and the proposals for CLAUDE.md, the digest and the register. |
-| [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md) | **Interview 1 of 5.** The first practitioner run against the guide. Everything in it is **★**. Does not lift the provisional label — that needs five. |
+| [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md) | **Interview 1 of 5.** The first practitioner run against the guide. Everything in it is **`*`**. Does not lift the provisional label — that needs five. |
 | [`6-personas/interview-guide.md`](6-personas/interview-guide.md) | **The instrument for lifting *provisional*.** A 30-minute guide covering the fifteen rows that need a person, built around the one question no search can answer — whether the loud pain and the quiet pain belong to the same people. Recruiting screen, six rules, six blocks, the words never to say, and a coverage table. Ready before the conversations are scheduled. |
 | [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) | **Stage 7 — the plan.** The canonical job form, the hierarchy, the feature-name test, the matrix, and what each of its two answers is worth. |
 | [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) | **Stage 7.** Main-job candidates and the choice, the hierarchy, the matrix with feature and competitor columns, the two conclusions. Provisional. |
@@ -344,9 +344,9 @@ sign-off.
 say **what would answer it**. A question with no named instrument is not a question, it is a worry.
 
 **Marking an answer.** Since 2026-09-07 every claim about people carries one of three marks, defined
-once in [`research.md`](research.md), *The three marks*: **✓** confirmed by an instrument another
-person can re-run · **★** reported by a practitioner in an interview · **`?`** unknown, written `[?]`
-in the stage documents and **`данные не подтверждены`** in the digest. **A ★ never becomes a ✓ by
+once in [`research.md`](research.md), *The three marks*: **`✓`** confirmed by an instrument another
+person can re-run · **`*`** reported by a practitioner in an interview · **`?`** unknown, written `[?]`
+in the stage documents and **`данные не подтверждены`** in the digest. **A `*` never becomes a `✓` by
 repetition** — only an instrument promotes it, which is why five interviews lift a *provisional*
 label and still do not turn a recollection into a measurement.
 

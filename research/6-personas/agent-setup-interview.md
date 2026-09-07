@@ -1,7 +1,7 @@
 # Agent Setup Interview
 
-> **Standing: ★ practitioner-reported. One person.** Filed 2026-09-07, run against
-> [`interview-guide.md`](interview-guide.md). **Everything in this file is ★** under the evidence rule
+> **Standing: `*` practitioner-reported. One person.** Filed 2026-09-07, run against
+> [`interview-guide.md`](interview-guide.md). **Everything in this file is `*`** under the evidence rule
 > in [`research.md`](../research.md), *The three marks*: it is evidence about **this respondent**,
 > spoken from memory about their own work, and it is not a fact about anybody else. Every number in
 > it — *forty-something files*, *one in three fresh environments*, *about half of it* — is a
@@ -17,7 +17,7 @@
 >
 > **The respondent is described but not identified**, and the answers are written as spoken and
 > lightly cleaned up — so this cannot be re-run by a third party the way a logged query can. That is
-> what separates ★ from ✓ and it is not a defect: no instrument in this repository before it could
+> what separates `*` from `✓` and it is not a defect: no instrument in this repository before it could
 > reach motive, cost or feeling at all.
 
 Respondent: AI engineer, 4+ years. Mixed client work and own products.
