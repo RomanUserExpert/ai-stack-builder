@@ -329,9 +329,9 @@ Next phase after that: design system — not started, per CLAUDE.md §1.
 
 **This is the last section on purpose, and it is a running list.** Questions land here as stages
 raise them. They are **not** answered as they arrive. The six that stood here were closed on
-2026-09-02 and are recorded below with their dispositions. **Three more are live** — Q7, Q8 and Q9,
-raised on 2026-09-06 by the planning of stages 6 and 7, and answered in one sitting once both stages
-are in.
+2026-09-02 and are recorded below with their dispositions. **Six more are live** — Q7, Q8 and Q9,
+raised on 2026-09-06 by the planning of stages 6 and 7, and **Q10, Q11 and Q12, raised on 2026-09-07
+by the first practitioner interview.** All six are answered in one sitting once both stages are in.
 
 **The protocol.** When a stage turns up something we cannot settle yet, it gets an entry here and the
 stage carries on. Nothing is answered mid-flight, because a question answered on partial evidence has
@@ -392,11 +392,19 @@ evidence in view.
 are done and the picture is whole. Each carries a named instrument, which is what makes it a question
 rather than a worry.
 
+**Q10, Q11 and Q12 were added 2026-09-07**, raised by the **first practitioner interview**
+([`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md)) and recorded in
+[`6-personas/inventory.md`](6-personas/inventory.md) as NK-21 to NK-23. All three stand on **one
+person** — mark `*` — which is why they are entries here and not findings anywhere.
+
 | ID | Question | Raised by | What would answer it | Blocks |
 |---|---|---|---|---|
 | **Q7** | Who is the primary persona — the practitioner whose pain is *sighted* (an archive that lands and does not run; a key that silently wins) or the collector §3 describes (large corpus, wants to find and reuse)? | Stage 6, step 3 | The five practitioner conversations Q5 names, run against [`6-personas/interview-guide.md`](6-personas/interview-guide.md); plus a GitHub search for repositories carrying `.claude/`, `CLAUDE.md`, `.cursor/rules`, `AGENTS.md`, which observes where material lives and how many targets one person keeps | Which persona wins design conflicts — empty states, what a card carries, the register of validation copy |
 | **Q8** | Is the main job *assemble a set that holds together* (§2, owner's assertion) or *hand a set to a machine and have it run first time* (stage 3, observed)? If both survive, the lesson's rule says two products. | Stage 7, step 1 | The same conversations, asked as situations (*what did you last do with a skill you already had; what happened the last time you moved a setup to another machine*), never as pitches; the matrix's main-job row with sourced cells | Positioning; the relative weight of the Project screen and Run in mockups |
 | **Q9** | Which specified features close no evidenced job — candidates: the public library switch and example project, duplicate project, promote, the target selector, library-wide search? | Stage 7, step 5 | The matrix's *feature* column, then Q7/Q8's conversations for the `[?]` rows. Absence in the trackers is not evidence of no job, so this closes only with people asked | Mockup scope. Not the design system |
+| **Q10** | When the user's own rule and an **external** requirement conflict — a client's linter, a repo convention — which wins, and where does the product put that? | Stage 6, the first interview (NK-21) | The remaining four conversations, asked as a situation (*what happened the last time your own rule and the project's tooling disagreed*). §6 models conflicts **between our items** and the data model has nowhere to put this one | The `Item` model, and what the validation pass is allowed to claim |
+| **Q11** | If roughly half of what makes a setup work was **never written down**, what is the ceiling on validating the written part? | Stage 6, the first interview (NK-22) | The same four conversations, plus the NK-13 test: hand a coherent archive to a fresh agent and see what still does not transfer | The promise the product makes at handover. Not the build |
+| **Q12** | Is the wanted thing **observability of what ran** rather than **validation that a set coheres**? If both survive, the lesson's rule says two products — the same shape as Q8. | Stage 6, the first interview (NK-23) | Guide Q25 (*what would a genie fix*) four more times, asked before any description of the product. **We cannot build the first** — §6 runs nothing on anyone's machine — so a strong answer here is a positioning finding, not a feature request | `CLAUDE.md` §2's core-value sentence, and positioning |
 
 **Q5 is re-pointed, not re-opened.** Its disposition stands — deferred, accepted risk — but its
 instrument was unnamed beyond *five practitioners*. Stage 6 makes
