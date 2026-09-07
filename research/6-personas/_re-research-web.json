@@ -1,0 +1,124 @@
+{
+ "collected": "2026-09-07",
+ "note": "Web pages and repositories read for re-research.md. Kind is recorded per source because vendor content is positioning, never demand. READMEs were read as claims, not as products - the same standard stage 1 applied to marketing pages.",
+ "sources": [
+  {
+   "url": "https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/",
+   "kind": "security research, vendor-published",
+   "used_for": "R6",
+   "taken": [
+    "3,984 skills scanned from ClawHub and skills.sh, 2026-02-05",
+    "534 (13.4%) critical security issues",
+    "1,467 (36.82%) at least one security flaw",
+    "76 confirmed malicious payloads; 8 still public",
+    "of confirmed malicious samples: 100% malicious code, 91% prompt injection",
+    "'A SKILL.md Markdown file and a GitHub account that is one week old. No code signing. No security review. No sandbox by default.'"
+   ],
+   "caveat": "Snyk sells security scanning. Headline says 'prompt injection in 36%' while the table gives 36.82% as 'any security flaw'; this document does not resolve which the headline means.",
+   "http": 200
+  },
+  {
+   "url": "https://agentman.ai/blog/agent-skills-ecosystem-report-2026",
+   "kind": "vendor report (hard competitor)",
+   "used_for": "R9",
+   "taken": [
+    "~40 skills-compatible products on agentskills.io showcase",
+    "SkillsMP lists ~1.9M public skills scraped from GitHub",
+    "2,500+ Claude Code plugin marketplaces registered",
+    "SkillsBench analysed 47,150 public skills, average quality 6.2/12",
+    "audit of 22,511 skills found 140,963 issues",
+    "2-3 targeted skills delivered +18.6 points; monolithic skills reduced performance by 2.9 points",
+    "68% of production agent deployments adopted MCP or equivalent"
+   ],
+   "caveat": "Agentman is in the hard-competitor group and sells curation. Every figure favours their thesis. Published 2026-06-25. Cited as what a vendor published, never as fact.",
+   "note": "Contains no data on how many skills an individual keeps or reuses - stated explicitly by the source.",
+   "http": 200
+  },
+  {
+   "url": "https://www.agensi.io/learn/best-ai-agent-skills-marketplaces-2026",
+   "kind": "third-party survey",
+   "used_for": "R9",
+   "taken": [
+    "'Discovery is no longer the bottleneck. Judgment is.'",
+    "LobeHub lists 230,000+ skills and 56,000+ MCP servers"
+   ],
+   "caveat": "Affiliate-shaped comparison content.",
+   "http": 200
+  },
+  {
+   "url": "https://atlan.com/know/ai-agent/ai-agent-skills/custom-vs-public-agent-skills/",
+   "kind": "vendor guide",
+   "used_for": "R11",
+   "taken": [
+    "Agent Skills spec carries an optional license field in SKILL.md",
+    "'a publicly accessible skill is not necessarily free from restrictions, and a missing license field does not prove that reuse is permitted'"
+   ],
+   "caveat": "Vendor guidance, not legal advice.",
+   "http": 200
+  },
+  {
+   "url": "https://github.com/tech-leads-club/agent-skills",
+   "kind": "live catalog",
+   "used_for": "R11",
+   "taken": [
+    "maintainer-authored SKILL.md files licensed CC-BY-4.0 unless stated otherwise"
+   ],
+   "caveat": null,
+   "http": 200
+  },
+  {
+   "url": "https://github.com/lawve-ai/awesome-legal-skills",
+   "kind": "live catalog",
+   "used_for": "R11",
+   "taken": [
+    "catalog licensed CC BY-NC-ND 4.0; included resources keep their own terms"
+   ],
+   "caveat": null,
+   "http": 200
+  },
+  {
+   "url": "https://daily.dev/blog/ai-engineers-online-community-map-2026/",
+   "kind": "community survey",
+   "used_for": "R13",
+   "taken": [
+    "Discord: Latent Space, Anthropic's Claude Code channels, Cursor, Ollama, Hugging Face",
+    "Reddit: r/ClaudeAI, r/LocalLLaMA, r/ChatGPTCoding, r/AI_Agents"
+   ],
+   "caveat": "Methodology for finding five practitioners. Not a finding about people.",
+   "http": 200
+  },
+  {
+   "url": "https://stackoverflow.com/questions/79602341/how-to-reuse-github-copilot-custom-instructions-across-all-projects",
+   "kind": "Stack Overflow question",
+   "used_for": "R14",
+   "taken": [
+    "4 votes, 2 answers, 3,775 views"
+   ],
+   "caveat": "Views are the weakest weighting in this document.",
+   "http": "HTTP Error 403: Forbidden",
+   "http_note": "403 to a non-browser user agent - Stack Overflow blocks bot requests to question pages. The data came from api.stackexchange.com, not from this page. The URL is correct in a browser."
+  },
+  {
+   "url": "https://stackoverflow.com/questions/79834343/is-there-any-support-like-agents-md-or-claude-md-in-antigravity",
+   "kind": "Stack Overflow question",
+   "used_for": "R14",
+   "taken": [
+    "2,618 views"
+   ],
+   "caveat": null,
+   "http": "HTTP Error 403: Forbidden",
+   "http_note": "403 to a non-browser user agent - Stack Overflow blocks bot requests to question pages. The data came from api.stackexchange.com, not from this page. The URL is correct in a browser."
+  }
+ ],
+ "repositories_read_from_readme": [
+  "xingkongliang/skills-manager",
+  "jeremylongshore/tons-of-skills-marketplace",
+  "MoizIbnYousaf/ai-agent-skills",
+  "jiweiyeah/Skills-Manager",
+  "luongnv89/asm",
+  "enulus/OpenPackage",
+  "yibie/skills-manager",
+  "RealZST/HarnessKit",
+  "tankpkg/tank"
+ ]
+}

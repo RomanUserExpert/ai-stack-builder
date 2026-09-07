@@ -35,9 +35,19 @@ judgement. Anything below that rests on HN inherits HN's skew and does not get R
 **A reaction count is still ordinal.** 6,592 against 48 says *louder*. It does not say *more
 important*, and it never says anything about people who did not file.
 
-**Capture logs**, so this is reproducible: [`_re-research-gh.json`](_re-research-gh.json) — 30
-queries, 120 issues. [`_re-research-hn.json`](_re-research-hn.json) — 6 queries, 38 hits.
-[`_re-research-hn-threads.json`](_re-research-hn-threads.json) — 8 threads, 1,762 comments in full.
+**Capture logs, so every number below is reproducible.**
+
+| Log | Holds |
+|---|---|
+| [`_re-research-gh.json`](_re-research-gh.json) | 30 queries, 120 issues — title, reaction count, comment count, state, date, URL. **Plus the full body of all 21 issues quoted in this document**, so the quotes can be checked without re-fetching. |
+| [`_re-research-hn-threads.json`](_re-research-hn-threads.json) | 8 threads, **1,762 comments in full text**, with author, date and item id. |
+| [`_re-research-hn.json`](_re-research-hn.json) | 6 keyword queries, 38 hits, with the `nbHits` each query returned. |
+| [`_re-research-web.json`](_re-research-web.json) | 9 web sources and 9 repositories, each with its **kind**, the specific figures taken from it, its caveat, and an HTTP link check run 2026-09-07. |
+
+**What the logs deliberately do not hold.** Bodies for the 99 issues that were ranked but not
+quoted — the ranking used titles and counts, and those are stored. Comment threads for the GitHub
+issues. And the READMEs of the nine repositories in R8, which were read live and are quoted in place;
+the repository list is logged so they can be re-read.
 
 ---
 
