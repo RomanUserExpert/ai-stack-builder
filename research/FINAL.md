@@ -1,8 +1,13 @@
 # FINAL — the closing document of the research phase
 
-Written 2026-09-01, closed 2026-09-02. **The research phase is signed off.** Read this instead of
-re-reading everything: it is what the phase produced, what it decided, and how the six open questions
-were settled in the sitting of 2026-09-02.
+Written 2026-09-01, closed 2026-09-02. **The five-stage research phase is signed off.** Read this
+instead of re-reading everything: it is what the phase produced, what it decided, and how the six open
+questions were settled in the sitting of 2026-09-02.
+
+**Updated 2026-09-07.** The phase was re-opened on 2026-09-06 with stages 6 and 7, and stage 6 is
+now under way. **Section 6 below is the current state** — what exists, what the evidence rule now is,
+and the four things in this document that have since been shown to be narrower than they read.
+Nothing here is retracted.
 
 Three documents govern this folder and none of them repeats another:
 
@@ -31,7 +36,7 @@ research/
 |---|---|---|
 | **1 Landscape** ([`1-landscape/README.md`](1-landscape/README.md)) | Who else is in this space, on five axes, with 38 captures | The market has converged on **measured trust** — Tessl scores every skill, Smithery every server — and we cannot measure anything. Hence: usage facts, never a score (CLAUDE.md §5). |
 | **2 Flows** ([`2-flows/README.md`](2-flows/README.md)) | Twelve mechanisms, ten closed, one declined, one handed forward | Figma models overrides precisely enough to offer `Reset fill` **by name** and then draws a modified instance identically to a clean one. The drift indicator is a **display** problem, not a modelling one (§7). |
-| **3 Pain** ([`3-pain/README.md`](3-pain/README.md)) | What actually hurts, from two public trackers | Our thesis is **real and quiet** (13 reactions) while the loud pain is environmental (**182**). Everything downstream is weighted by this. |
+| **3 Pain** ([`3-pain/README.md`](3-pain/README.md)) | What actually hurts, from two public trackers | Our thesis is **real and quiet** (13 reactions) while the loud pain is environmental (**182**). Everything downstream is weighted by this. **Two corrections since — see §6.** The loudest is **6,592**, not 182, and the reassembly friction stage 3 called invisible **is** filed, as feature requests. |
 | **4 Benchmark** ([`4-benchmark/README.md`](4-benchmark/README.md)) | Who does each of our four flows best, and how well | Blocking is a choice almost nobody has to make. Terraform never refuses, npm refuses and prices the override, Figma disables and sign-posts. We confirm rather than refuse (§6). |
 | **5 Patterns** ([`5-patterns/README.md`](5-patterns/README.md)) | What shape the key flow takes | **The library leaves the builder and drag stops being the verb** (§8). Held as provisional until the sitting below; **it survived unchanged.** |
 
@@ -294,3 +299,73 @@ Two things this phase deliberately hands forward as work rather than as decision
 public library has to be built** — real items from checked sources, with provenance and pinned
 `ref`s, composed so the example project genuinely produces a Problem and a Note — and **Q5 carries a
 trigger**, not a schedule. Neither blocks the design system.
+
+---
+
+## 6. Stage 6 in progress — what it has produced, and what it has moved
+
+**Added 2026-09-07.** Stage 6 is not finished and this is not a second close. It is here because a
+reader who starts at this file — which the whole repository instructs — would otherwise get the
+five-stage picture with no sign that parts of it have moved.
+
+**Four documents exist**, all in [`6-personas/`](6-personas/):
+
+| File | What it is |
+|---|---|
+| [`inventory.md`](6-personas/inventory.md) | Every statement about people in this repository, with its source and its kind of evidence; the owner's fourteen assertions with a standing mark each; and **a register of twenty questions**, each with the answer we have, the data under it, and a mark. |
+| [`re-research.md`](6-personas/re-research.md) | **A source document.** Four instruments taken to the public record — the `anthropics/claude-code` tracker (89,923 issues), `openai/codex`, `google-gemini/gemini-cli`, 1,762 Hacker News comments read in full, Stack Overflow, GitHub repository search. Logs committed beside it. |
+| [`interview-guide.md`](6-personas/interview-guide.md) | The instrument for the five Q5 conversations, built around the one question no search can answer. |
+| [`agent-setup-interview.md`](6-personas/agent-setup-interview.md) | **Interview 1 of 5.** Everything in it is `*`. |
+
+**Still to do:** the behavioural axes, `personas.md`, `audit.md`, the page, and four more interviews.
+**Stage 7 has not started.**
+
+### The evidence rule changed, and it applies to this file too
+
+There are now **three marks**, defined once in [`research.md`](research.md), *The three marks*:
+**`✓`** confirmed by an instrument another person can re-run · **`*`** reported by a practitioner in
+an interview, from memory, about their own work · **`?`** unknown. **A `*` never becomes a `✓` by
+repetition** — only an instrument promotes it. The stage documents still write the third as `[?]`
+and the digest still writes it as **`данные не подтверждены`**; those are one level in two registers.
+
+### What has moved in what this document already says
+
+**Nothing above is retracted, and three things are now known to be narrower than they read.**
+
+- **Stage 3, finding 4 — *nobody is asking for a composition layer*.** Measured as `0 results` on
+  `continuedev/continue`, with a bug-shaped query, on a product whose hosted half was already dead.
+  On live trackers the same friction **is** filed, as feature requests:
+  [claude-code #9444](https://github.com/anthropics/claude-code/issues/9444) — *"each plugin must
+  duplicate these resources… maintenance burden… copies can drift out of sync"* —
+  and [codex #17401](https://github.com/openai/codex/issues/17401) — *"no modular reuse across
+  projects… 10+ repos"*. The *method* section's claim that reassembly cost is invisible **by
+  construction** should read: invisible to a bug search, visible to a feature-request search. `✓`
+- **Stage 3, finding 1's superlative.** 182 is the most-reacted issue in
+  `modelcontextprotocol/servers`, not anywhere. The most-reacted issue in the audience's own tracker
+  is [claude-code #6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592
+  reactions**, asking for one instruction source across several agents. Finding 1's *direction*
+  survives — the top of the corpus is environment and host, never composition. `✓`
+- **Stage 5's 300-item claim**, which is what §8's accepted cost was priced against. Every actual
+  report clusters at **20–40**. `✓` + `*`
+- **`CLAUDE.md` §2's *"nothing does this today"*, at the item level.** Open-source skill managers
+  with 400–4,500 stars audit duplicates, detect version drift and score trust. The **set-level** half
+  — resolve a named set, check that set, hand it over with instructions for the receiving machine —
+  appears still unoccupied. `✓`
+
+**None of it is applied.** Stages 6 and 7 audit the spec; the owner edits it. The proposals are in
+[`re-research.md`](6-personas/re-research.md) §4 and they are the first thing to read tomorrow.
+
+### The register grew
+
+**Six questions are live**, not three: Q7–Q9 from the planning of stages 6–7, and **Q10, Q11 and Q12
+raised on 2026-09-07 by the first interview** — precedence between a user's own rule and an external
+requirement; the unwritten half of a setup; and whether the wanted thing is **observability of what
+ran** rather than validation that a set coheres. All three stand on one person. The register is in
+[`research-plan.md`](research-plan.md) and remains the only list.
+
+### The one row we can close ourselves
+
+**`SETUP.md` has never been tested.** `CLAUDE.md` §6 and Q2 above commit to an agent reading it and
+performing the setup, on reasoning alone. It is the spec's most load-bearing bet, it is a claim about
+a **machine** rather than a person, and it needs an afternoon: compose a small set, write the
+document, hand the archive to a fresh Claude Code, Cursor and Codex, record what each does.

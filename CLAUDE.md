@@ -14,16 +14,36 @@ There is still no application code, no design system, no mockups.
 
 **Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
 the key flow takes. None of them established **who the person is** or **what they hire this product
-for**. Stages 6 and 7 do that, and they are planned rather than begun:
+for**. Stages 6 and 7 do that:
 [`research/6-personas/README.md`](research/6-personas/README.md) and
 [`research/7-jobs-to-be-done/README.md`](research/7-jobs-to-be-done/README.md). **The five-stage
 sign-off stands as written** — nothing below is retracted; the two new stages *audit* this file and
 raise register entries rather than editing it.
 
+**Status, 2026-09-07 — stage 6 is under way and stage 7 has not started.** Four documents exist:
+[`inventory.md`](research/6-personas/inventory.md) — a register of the twenty questions about people,
+each with its answer, the data under it and a mark;
+[`re-research.md`](research/6-personas/re-research.md) — a source document, four instruments taken to
+the public record, with its capture logs; [`interview-guide.md`](research/6-personas/interview-guide.md);
+and [`agent-setup-interview.md`](research/6-personas/agent-setup-interview.md), **interview 1 of 5**.
+Still to do: the behavioural axes, `personas.md`, `audit.md`, and four more interviews.
+
+**Nothing has been applied to this file.** Stage 6 has produced **nine proposals** that touch §2, §5,
+§6, §9 and §11 — including a narrowing of §2's *"nothing does this today"* and a new safety risk under
+§11's public shelf — and they are collected in
+[`research/6-personas/re-research.md` §4](research/6-personas/re-research.md). **Read them before the next
+change to this file.** Four things this document leans on are now known to be narrower than they read;
+[`research/FINAL.md`](research/FINAL.md) §6 lists them.
+
+**The evidence rule changed.** Every claim about people now carries one of three marks, defined once
+in [`research/research.md`](research/research.md), *The three marks*: **`✓`** confirmed by an
+instrument another person can re-run · **`*`** reported by a practitioner in an interview · **`?`**
+unknown. **A `*` never becomes a `✓` by repetition.**
+
 The agreed order of work:
 
 1. ~~Research, stages 1–5~~ — **done, signed off 2026-09-02**
-2. **Research, stages 6–7** — personas, then jobs to be done ← next, planned not started
+2. **Research, stages 6–7** — personas, then jobs to be done ← **in progress**, stage 6 mid-flight
 3. Design system (tokens, typography, color, components)
 4. Mockups / screen design (static, no logic)
 5. Static frontend implementation (markup only, no business logic)
@@ -533,10 +553,14 @@ together in a sitting, once the picture is whole, rather than one at a time on p
 not keep a second list in this file; two lists drift, and this document has already been bitten by
 that twice. **The protocol outlived the research phase** — the design system uses the same register.
 
-**Three questions are live.** All six of the original ones were closed in one sitting on 2026-09-02 —
+**Six questions are live.** All six of the original ones were closed in one sitting on 2026-09-02 —
 four answered, two deferred with a stated reason. **Q7, Q8 and Q9 were raised on 2026-09-06 by the
 planning of stages 6 and 7** — who the primary persona is, what the main job is, and which specified
-features close no evidenced job. They are not answered now: the protocol batches them into one
+features close no evidenced job. **Q10, Q11 and Q12 were raised on 2026-09-07 by the first
+practitioner interview** — precedence between a user's own rule and an external requirement such as a
+client's linter; the roughly half of a working setup that was never written down; and whether the
+wanted thing is **observability of what ran** rather than validation that a set coheres. All three
+stand on one person. They are not answered now: the protocol batches them into one
 sitting once both stages are in. Q5 was **re-pointed rather than re-opened** — its instrument is now
 named. Their dispositions are below; the reasoning, and what was read before
 each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).

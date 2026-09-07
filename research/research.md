@@ -1,7 +1,9 @@
 # Research — the consolidated read
 
-A digest of the whole research phase (2026-08-30 → 2026-09-02), in five sections: competitors,
-flows, benchmark, patterns, conclusions.
+A digest of the research phase, in six sections: competitors, flows, benchmark, patterns,
+conclusions — and, since 2026-09-07, **what stage 6 has found so far.** Sections 1–5 cover
+2026-08-30 → 2026-09-02 and are unchanged except where a later finding narrowed them, which is marked
+in place and pointed at section 6.
 
 **What this file is, and what it is not.** It is a *read* — one place to see what the phase found,
 with every fact traceable. It is **not** the specification: that is [`CLAUDE.md`](../CLAUDE.md), and
@@ -43,8 +45,10 @@ being able to describe it. **Every claim about people carries one of three marks
 **And unmarked prose may not out-run its marks.** A sentence reasoning from a `*` claim is itself `*`.
 An unmarked claim is being asserted as `✓`, so if it is not checkable, mark it.
 
-**The evidence base, counted rather than estimated.** 143 image captures, 36 source documents and
-7 raw data logs in this folder, besides this digest and its rendered page. Stage 1's 38 are catalogued in
+**The evidence base, counted rather than estimated.** 143 image captures, **43 source documents and
+11 raw data logs** in this folder — the counts rose on 2026-09-07 with stage 6's four documents and
+four capture logs (1,762 Hacker News comments, 120 issues with 21 bodies, 30 queries, 9 web sources
+with a link check), besides this digest and its rendered page. Stage 1's 38 are catalogued in
 [`research/1-landscape/screens-index.md`](1-landscape/screens-index.md) with sign-in walls
 labelled; the rest sit in their stage folders. Two public issue trackers were queried through the
 GitHub API, raw results in
@@ -498,15 +502,15 @@ is no evidence at all in either direction, the row says so.
 
 | # | The gap | Hypothesis | Derives from |
 |---|---|---|---|
-| **G1** | **Nobody was ever asked anything.** Both trackers are structurally blind to *loss* and to *reassembly cost*; the entire phase read vendors and artefacts, never users. **`данные не подтверждены`** on which pain drives adoption | **Reassembly cost, not loss, is what converts** — a practitioner adopts to stop re-copying the same four files, and finds *searching my own corpus* valuable only afterwards. Falsifiable in five conversations. Note the one weak hint on record: the decision to ship a public library is itself a bet that people want *material*, not that they want to find their own | §3 Benchmark (the weighting caveat) · §2 Flows |
+| **G1** | **Superseded in part — see §6.** One practitioner has now been asked, and the reassembly friction is filed on live trackers. **Nobody was ever asked anything.** Both trackers are structurally blind to *loss* and to *reassembly cost*; the entire phase read vendors and artefacts, never users. **`данные не подтверждены`** on which pain drives adoption | **Reassembly cost, not loss, is what converts** — a practitioner adopts to stop re-copying the same four files, and finds *searching my own corpus* valuable only afterwards. Falsifiable in five conversations. Note the one weak hint on record: the decision to ship a public library is itself a bet that people want *material*, not that they want to find their own | §3 Benchmark (the weighting caveat) · §2 Flows |
 | **G2** | **B4 has no prior art to copy.** No candidate scored above 4, and **not one cell in the matrix scores what a product says about the machine its artefact lands on** — because no candidate has such a surface | **Disclosure before the write is the whole opportunity.** If Run's last stages state what the archive contains and what the receiving machine must still do, the archive-does-not-run pain drops without us running anything on that machine. Falsifiable: if users still hit environment failures at the same rate, the disclosure was theatre | §3 Benchmark (B4, finding 8) |
 | **G3** | **The return path has no prior art.** Figma erases the origin at detach and offers nothing afterwards; no product in the survey lets a local override become a first-class object again | **Promotion as a *new* item is safe and *update the original* is not** — because the second spends blast radius on an action taken inside one project. Falsifiable: if users routinely promote and then immediately delete the original, they wanted a merge and we built the wrong verb | §2 Flows (flow 05) |
-| **G4** | **Density was never observed.** Flow 02's whole browsing grammar was captured against **four** issues, and the benchmark's Obsidian cell against **27** notes. The 300-item claim behind the chosen pattern is reasoned, not measured — **`данные не подтверждены`** | **The palette holds at 300 items and the failure mode is discovery, not search** — people will find what they can name and stay blind to what they cannot. That is precisely the C1 = 3 cost already accepted, so it is testable the moment a seeded library exists | §4 Patterns (the cost) · §2 Flows (what the flows could not see) |
+| **G4** | **Superseded — see §6.** Every actual report clusters at **20–40 items**, not 300. **Density was never observed.** Flow 02's whole browsing grammar was captured against **four** issues, and the benchmark's Obsidian cell against **27** notes. The 300-item claim behind the chosen pattern is reasoned, not measured — **`данные не подтверждены`** | **The palette holds at 300 items and the failure mode is discovery, not search** — people will find what they can name and stay blind to what they cannot. That is precisely the C1 = 3 cost already accepted, so it is testable the moment a seeded library exists | §4 Patterns (the cost) · §2 Flows (what the flows could not see) |
 | **G5** | **The public library does not exist yet.** It is a decision with no content behind it: no items, no verified sources, no composed example project | **A seed of 8–12 items that produces at least one Problem and one Note teaches the product better than 30 clean ones.** Falsifiable on first use: if the first run's six green ticks leave users unable to say what the product is for, the seed was decorative | §1 Competitors (they all solve cold start with volume; we cannot) · §2 Flows (flow 08) |
 | **G6** | **Licensing and attribution for redistributed items.** Nothing in this repository covers the terms under which someone else's skill may ship inside our public library — **`данные не подтверждены`** | **Pinned `ref` plus visible provenance is necessary but may not be sufficient.** This needs a licence review before the shelf is built, not a design decision | §1 Competitors · §4 Patterns |
 | **G7** | **Two of five hard competitors were never seen.** Agentman is login-walled, Packmind sales-gated; their mechanisms and Packmind's monetisation are **`данные не подтверждены`** | **Neither changes the picture**, because both sell to organisations and difference 1 already covers the whole group. Falsifiable if either turns out to sell to individuals | §1 Competitors |
 | **G8** | **Item versioning and history were never observed** (flow 01 declined; Tessl pins a commit but a version *change* was never seen) | **Not needed**: `detached` + `overrides` does the job for our own items, and a pinned `ref` does it for external ones. Falsifiable the first time a user asks *what did this item look like last month* | §2 Flows (flow 01) |
-| **G9** | **Our own thesis is real but quiet.** The duplicate-key collision is sighted in the wild with **13 reactions** against **182** for an environmental failure | **Silent breakage is a retention argument, not an acquisition one** — it is what makes the product trusted once adopted, and not what makes anyone try it. That is a positioning claim, and it is the same product either way | §3 Benchmark (the weighting caveat) |
+| **G9** | **Re-weighted — see §6.** The loudest is **6,592**, not 182. **Our own thesis is real but quiet.** The duplicate-key collision is sighted in the wild with **13 reactions** against **182** for an environmental failure | **Silent breakage is a retention argument, not an acquisition one** — it is what makes the product trusted once adopted, and not what makes anyone try it. That is a positioning claim, and it is the same product either way | §3 Benchmark (the weighting caveat) |
 
 ## What is not a gap
 
@@ -522,3 +526,114 @@ Worth stating, so these do not get re-opened by accident:
   usage facts from the user's own library instead (§1, pattern 2).
 - **Visual direction.** Deliberately not decided here. Flow 10 was handed forward with its material
   gathered (§2).
+
+---
+
+# 6. Stage 6 — the first evidence about *people*
+
+**Added 2026-09-07, and unfinished.** Stages 1–5 established what vendors sell and what breaks. None
+of them established **who the person is**. Stage 6 is the first attempt, it is **in progress**, and
+every claim here carries one of the three marks defined at the top of this file. Sources:
+[`6-personas/inventory.md`](6-personas/inventory.md) — the register ·
+[`6-personas/re-research.md`](6-personas/re-research.md) — the source document with its capture logs ·
+[`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md) — interview 1 of 5.
+
+## What was looked at, and what it could not see
+
+Four instruments beyond stage 3's two trackers: the **`anthropics/claude-code` tracker (89,923
+issues)** — the tracker of the product our audience actually uses, which stage 3 never read;
+`openai/codex` (26,451) and `google-gemini/gemini-cli` (14,163); **1,762 Hacker News comments**
+downloaded from eight threads and read in full; Stack Overflow; GitHub repository search.
+
+**Reddit was unreadable** — it blocks our crawler, and r/ClaudeAI and r/ChatGPTCoding are named
+across community surveys as where this population actually talks. The largest venue in the space is
+missing from this section by technical accident.
+
+## The seven findings that matter
+
+**One source for several agents is the loudest demand in the whole evidence base. `✓`**
+[claude-code #6235](https://github.com/anthropics/claude-code/issues/6235) — **6,592 reactions**:
+*"CLAUDE.md feels too specific to Claude Code. It doesn't work as well when collaborating with other
+developers who aren't using Claude Code."* Thirteen issues across three vendors' trackers say the
+same thing. That is **thirty-six times** the 182 §3 called the loudest pain in the ecosystem — and it
+is a demand our export target selector already aims at.
+
+**Reassembly cost was filed after all, and stage 3 looked in the wrong shape. `✓`**
+Finding 4's *0 results* was a bug-shaped query on a frozen product. On live trackers the friction is
+filed as **feature requests**: [claude-code #9444](https://github.com/anthropics/claude-code/issues/9444)
+— *"each plugin must duplicate these resources… maintenance burden… **copies can drift out of
+sync**"* — and [codex #17401](https://github.com/openai/codex/issues/17401) — *"**no modular reuse
+across projects.** A developer working across 10+ repos with shared conventions…"*
+
+**A library is 20 to 40 items, not 300. `✓` + `*`**
+[claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151 reactions: *"Once
+you get to **20-30+ skills**… it becomes difficult to manage."* The practitioner interviewed keeps
+*"40-something files"*, about 6k lines, grown from **one file in fourteen months**. This supports
+`CLAUDE.md` §11's ~30 and **contradicts stage 5's 300**, which is what the cost of dropping the
+library pane was priced against.
+
+**The material lives in a git repository, symlinked into place. `✓`**
+[#1455](https://github.com/anthropics/claude-code/issues/1455) — XDG, **446 reactions**;
+[#28729](https://github.com/anthropics/claude-code/issues/28729) asks for **a git repo as the source
+of truth**. What people do today is `cp -r`, symlinks, `@include` lines and hand-written scripts.
+
+**The dominant doubt is not *is my set broken* — it is *does any of this do anything*. `✓` + `*`**
+*"Mostly useless… 50/50 or less that CLAUDE.md even reads/uses this file."* · *"I can never quite
+tell if it's helping anything."* · an entire HN story titled *I am morally opposed to updating my
+Claude.md*. And from the interview: *"**Maybe half of it**, if you want the real answer… **I've never
+A/B'd anything.**"* Our validation pass answers *does this set cohere*; the doubt on record is a
+different question, and that gap is now **Q12** in the register.
+
+**Someone else's material is genuinely unsafe. `✓`**
+[Snyk's ToxicSkills study](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/) —
+**3,984 skills scanned** from two registries on 2026-02-05: **13.4% with critical security issues**,
+76 confirmed malicious payloads. *"The barrier to publishing? A `SKILL.md` and a GitHub account
+that's one week old. No code signing. No security review. No sandbox by default."* §11 plans a
+curated public shelf of other people's work; *checked sources* now has to mean checked for content.
+
+**The ground is no longer unoccupied — at the item level. `✓`**
+Open-source skill managers with real traction: `skills-manager` **4,526★**,
+`tons-of-skills-marketplace` 2,706★, `ai-agent-skills` 1,138★, `asm` 915★, `HarnessKit` 425★. `asm`
+audits duplicates and near-duplicates and pins registry commits; `HarnessKit` scores trust 0–100 and
+detects version drift per agent; a 4,526★ app already ships our *"conflicts never block, you
+choose"* principle. **What none of them appears to do is the set-level half** — resolve a named set,
+check *that set*, and hand it over with instructions for the receiving machine. `CLAUDE.md` §2's
+*"nothing does this today"* needs narrowing to that half.
+
+## The one practitioner, and the two things he said that change the argument
+
+Interview 1 of 5. Everything from it is **`*`** — one person, from memory, about his own work.
+
+**On why the collection exists at all:** *"It started as exactly one file… at project four I got
+annoyed and made a repo. So the origin is not 'I designed a system.' The origin is **'I got tired of
+copy-pasting one file.'**"* And the cost is invisible by construction: *"That trickle is the actual
+cost and **it's invisible because no single instance of it feels expensive**."*
+
+**On the question no search could answer** — whether the loud pain and the quiet pain belong to the
+same person: *"**Already had the collection, and that's the point.** When it was one file I knew what
+was in it. At forty files with overlapping instructions I have no working model of what's active on a
+given run. **The collection created the problem.**"* If that holds across five, the persona does not
+split into *breaks at handover* versus *collector* — **the collector is the person who breaks.**
+
+**And one unprompted confirmation.** Asked openly what would help him choose among his own things —
+with our own vocabulary forbidden — he invented `CLAUDE.md` §5: *"**Usage data, first.** This file
+was loaded in 40 sessions, this one in 2, this one never. That alone would let me delete half of it
+with confidence."* Then extended it: **last actually useful**, counted **per session**.
+
+## Where it stands
+
+**Eleven of twenty unknowns moved on the public record; the interview moved several more.** Nine
+carry a `✓` somewhere, ten rest on one person, and **one is blank and ours to fill**: whether a
+receiving agent actually sets a project up from `SETUP.md` alone has **never been tested**, and it is
+the spec's most load-bearing bet.
+
+**Six questions are live** — Q7–Q9 from the stage planning, and **Q10, Q11, Q12** raised by the
+interview: precedence between a user's own rule and an external requirement; the roughly half of a
+working setup that was never written down; and observability versus validation. The register in
+[`research-plan.md`](research-plan.md) is the only list.
+
+**Nothing here is applied to the specification.** Stages 6 and 7 audit; the owner edits. The
+proposals sit in [`re-research.md`](6-personas/re-research.md) §4.
+
+**Still to do in stage 6:** the behavioural axes, `personas.md`, `audit.md`, and **four more
+interviews** — the event that lifts *provisional*. Stage 7 has not started.

@@ -423,6 +423,7 @@ blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink
     <li><a href="#s3"><b>Stage 03</b>Pain</a></li>
     <li><a href="#s4"><b>Stage 04</b>Benchmark</a></li>
     <li><a href="#s5"><b>Stage 05</b>Patterns</a></li>
+    <li><a href="#s6"><b>Stage 06</b>People</a></li>
     <li><a href="#end"><b>Close</b>Decisions</a></li>
     <li><a href="#gaps"><b>Close</b>Open gaps</a></li>
   </ol>
@@ -895,6 +896,46 @@ blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink
 </section>
 
 <!-- ============ DECISIONS ============ -->
+<!-- ============ STAGE 6 ============ -->
+<section id="s6" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 06</span><h2>People</h2></div>
+  <p class="qline">Who is this person, and what do they actually do? The first stage that looks at practitioners rather than at products &mdash; and the only one still in progress.</p>
+
+  <p>Stages 1&ndash;5 established what vendors sell and what breaks. None of them established who the person is. Stage 6 reads the public record with four new instruments and then, for the first time in this phase, <strong>asks somebody</strong>. It is unfinished: the personas themselves are not written, and four more conversations are owed.</p>
+
+  <p class="tnote"><strong>Three marks, from here on.</strong> <code>&#10003;</code> confirmed &mdash; another person can re-run the instrument and get the same answer. <code>*</code> reported by a practitioner in an interview, from memory, about their own work. <code>?</code> unknown. <strong>A <code>*</code> never becomes a <code>&#10003;</code> by repetition</strong> &mdash; only an instrument promotes it, which is why one interview lifts nothing on its own.</p>
+
+  <h3>What was read, and what could not be</h3>
+  <p>The <strong>Claude Code issue tracker &mdash; 89,923 issues</strong>, which is the tracker of the product this audience actually uses and which stage 3 never opened; the Codex and Gemini CLI trackers; <strong>1,762 Hacker News comments</strong> downloaded from eight threads and read in full; Stack Overflow; GitHub repository search. <strong>Reddit blocks our crawler</strong>, so the largest venue in the space is missing by technical accident rather than by judgement.</p>
+
+  <h3>Seven findings</h3>
+
+  <div class="decisions wide">
+    <div class="dec"><div class="what"><b>One source, many agents <code>&#10003;</code></b>The loudest demand in the entire evidence base</div><div class="why"><strong>6,592 reactions</strong> on a single request to support a shared instruction file, because &ldquo;it doesn&rsquo;t work as well when collaborating with developers who aren&rsquo;t using the same agent&rdquo;. Thirteen issues across three vendors say the same. That is <strong>thirty-six times</strong> the 182 stage 3 called the loudest pain in the ecosystem &mdash; and it is what our export target selector already aims at.</div></div>
+    <div class="dec"><div class="what"><b>Reassembly cost <code>&#10003;</code></b>Filed after all &mdash; stage 3 looked in the wrong shape</div><div class="why">The <em>0 results</em> that concluded &ldquo;nobody is asking for this&rdquo; was a bug-shaped query on a product whose hosted half was already dead. On live trackers the friction is filed as <em>feature requests</em>: <em>&ldquo;each plugin must duplicate these resources&hellip; maintenance burden&hellip; copies can drift out of sync&rdquo;</em>, and <em>&ldquo;no modular reuse across projects. A developer working across 10+ repos&hellip;&rdquo;</em></div></div>
+    <div class="dec"><div class="what"><b>Twenty to forty <code>&#10003;</code> <code>*</code></b>Not three hundred</div><div class="why"><em>&ldquo;Once you get to 20-30+ skills it becomes difficult to manage&rdquo;</em> &mdash; 151 reactions. The practitioner interviewed keeps 40-something files, ~6k lines, grown from <strong>one file in fourteen months</strong>. That supports the ~30 in the spec and <strong>contradicts the 300-item figure</strong> the chosen shape&rsquo;s accepted cost was priced against.</div></div>
+    <div class="dec"><div class="what"><b>A git repo, symlinked <code>&#10003;</code></b>Where the material actually lives</div><div class="why">XDG compliance at 446 reactions; a request for <em>a git repo as the source of truth</em> at 151. What people do today is <code>cp -r</code>, symlinks, include directives and hand-written scripts &mdash; including one person who built the automation and still copied by hand.</div></div>
+    <div class="dec"><div class="what"><b>The real doubt <code>&#10003;</code> <code>*</code></b>Not &ldquo;is my set broken&rdquo; but &ldquo;does any of this do anything&rdquo;</div><div class="why"><em>&ldquo;Mostly useless&hellip; 50/50 or less that it even reads the file.&rdquo;</em> <em>&ldquo;I can never quite tell if it&rsquo;s helping anything.&rdquo;</em> An entire thread titled <em>I am morally opposed to updating my instructions file</em>. And from the interview: <em>&ldquo;Maybe half of it, if you want the real answer&hellip; I&rsquo;ve never A/B&rsquo;d anything.&rdquo;</em> Our check answers <em>does this set cohere</em>. That is a different question, and it is now an open register entry.</div></div>
+    <div class="dec"><div class="what"><b>Other people&rsquo;s skills are unsafe <code>&#10003;</code></b>13.4% carry critical security issues</div><div class="why">A security study scanned <strong>3,984 public skills</strong> across two registries: 534 with critical issues, 76 confirmed malicious payloads. <em>&ldquo;The barrier to publishing? A markdown file and a GitHub account one week old. No code signing. No security review. No sandbox by default.&rdquo;</em> We plan to ship a curated public shelf; <em>checked sources</em> now has to mean checked for content.</div></div>
+    <div class="dec"><div class="what"><b>The ground is no longer empty <code>&#10003;</code></b>&mdash; at the item level</div><div class="why">Open-source skill managers with 425 to 4,526 stars audit duplicates, pin registry commits, score trust out of 100 and detect version drift. One of them already ships our own <em>conflicts never block, you choose</em> principle. What none appears to do is the <strong>set</strong>-level half: resolve a named set, check <em>that set</em>, and hand it over with instructions for the receiving machine.</div></div>
+  </div>
+
+  <h3>One practitioner, and the sentence the whole interview was built to get</h3>
+
+  <p>Everything from the interview is <code>*</code> &mdash; one person, from memory, about their own work. Two reaction counts, 6,592 and 13, had never been joined to a single identity, and no amount of further searching could do it. So the question was asked directly:</p>
+
+  <p class="tnote"><em>&ldquo;<strong>Already had the collection, and that&rsquo;s the point.</strong> When it was one file I knew what was in it. At forty files with overlapping instructions I have no working model of what&rsquo;s active on a given run. <strong>The collection created the problem.</strong>&rdquo;</em></p>
+
+  <p>If that holds across five people, the audience does not split into <em>the one who breaks at handover</em> and <em>the collector</em>. <strong>The collector is the person who breaks</strong>, and the primary-persona argument changes shape entirely.</p>
+
+  <p>On why the collection exists at all: <em>&ldquo;It started as exactly one file&hellip; at project four I got annoyed and made a repo. So the origin is not &lsquo;I designed a system.&rsquo; The origin is <strong>&lsquo;I got tired of copy-pasting one file.&rsquo;</strong>&rdquo;</em> And on why nobody ever filed it: <em>&ldquo;That trickle is the actual cost and <strong>it&rsquo;s invisible because no single instance of it feels expensive</strong>.&rdquo;</em></p>
+
+  <p>One answer confirmed a decision without being led to it. Asked openly what would help him choose among his own material &mdash; with our vocabulary forbidden in the question &mdash; he invented the mechanism the specification had already chosen: <em>&ldquo;<strong>Usage data, first.</strong> This file was loaded in 40 sessions, this one in 2, this one never. That alone would let me delete half of it with confidence.&rdquo;</em> Then extended it: <strong>last actually useful</strong>, counted <strong>per session</strong>.</p>
+
+  <h3>Where it stands</h3>
+  <p>Eleven of twenty unknowns moved on the public record, and the interview moved several more. Nine now carry a <code>&#10003;</code> somewhere, ten rest on one person and say so, and <strong>one is blank and ours to fill</strong>: whether a receiving agent actually performs the setup from the generated document has <strong>never been tested</strong>, and it is the specification&rsquo;s most load-bearing bet. <strong>Six questions are live.</strong> Nothing here has been applied to the specification &mdash; this stage audits, the owner edits.</p>
+</section>
+
 <section id="end" class="col">
   <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What we decided, and why</h2></div>
   <p class="qline">Ten decisions came out of the phase. Each is a product commitment with evidence behind it, not a preference.</p>
