@@ -1,7 +1,9 @@
 # Research — the consolidated read
 
-A digest of the research phase, in six sections: competitors, flows, benchmark, patterns,
-conclusions — and, since 2026-09-07, **what stage 6 has found so far.** Sections 1–5 cover
+A digest of the research phase, in seven sections: competitors, flows, benchmark, patterns,
+conclusions; **what stage 6 has found so far** (added 2026-09-07); and **research justification**
+(added 2026-09-08) — the five questions the personas-and-jobs critique raised, what was collected
+against each, and what each answer changed. Sections 1–5 cover
 2026-08-30 → 2026-09-02 and are unchanged except where a later finding narrowed them, which is marked
 in place and pointed at section 6.
 
@@ -691,4 +693,77 @@ requests (48, 21) — and it puts the weight one step past `CLAUDE.md` §2's *as
 which is stated there as a difference and not applied. **A second candidate survived** — *know whether
 any of this does anything* — and by the method's own rule two surviving main jobs mean two products;
 that is **Q12**, and it is the one §6 forbids us to build. Four related jobs, three emotional, two
-social, seven in hypotheses. **Still to do:** the matrix, the audit, the reconciliation.
+social, seven in hypotheses.
+
+**The matrix put three jobs in the MVP core** — important for the primary persona and **not closed by
+the market**: the main job (nobody above 4 on B4, structurally); *move the work without moving the
+secrets* (192, 54, 45, 32, 23, 22 — the largest crowd in the corpus, and no candidate closes it for a
+handed-over artefact); and *fix it once and have the fix reach every copy* (48, plus six weeks and a
+client complaint), which is what §5's live link exists for. **The highest-scoring job we cannot close
+at all** is *stop suspecting half of what I keep is dead weight* — its feature cell is empty and
+cannot be filled, and the market is actively forming around it. **P3's column is `[?]` in all nine
+rows**, and six specified features close only jobs whose every cell is `[?]` — the shelf and the
+example project among them. **That is a list of hypotheses about an absence, not a cut list.**
+**Still to do:** the audit and the reconciliation.
+
+---
+
+# 7. Research justification — five questions, and what answering them changed
+
+**Added 2026-09-08.** Stages 6 and 7 were audited claim by claim in
+[`personas-and-jobs-critique.md`](personas-and-jobs-critique.md): **238 claims, 163 confirmed, 48
+hypothesis, 27 invented**, and a ranked list of thirteen claims that carry a design decision while
+standing on `[?]` or on nothing. This section is what happened next. **Three questions came from the
+critique, two more were raised by its dangerous list**, and all five were taken to the public record
+in one sitting.
+
+**The source document is [`6-personas/re-research-2.md`](6-personas/re-research-2.md)** — question,
+instrument, log, result — with its capture log in
+[`_re-research-2-log.json`](6-personas/_re-research-2-log.json). **This is the digest entry; that is
+the source. Nothing here may be cited as a decision.**
+
+**One new instrument mattered more than the rest.** The **GitHub `git/trees` API** is the first thing
+in this repository that **counts somebody's collection instead of asking them how big it is.** Under
+rule 5 almost everything else here proves that something was *said*; a file count in a public tree is
+a measurement.
+
+## The five questions and their answers
+
+| | Question | Instrument | Answer | Standing |
+|---|---|---|---|---|
+| **Q-A** | Does a receiving agent perform the setup from `SETUP.md` alone? | HN, one 274-comment thread on exactly this, read in full | **Not answered, and no web instrument can answer it.** But in the largest sample of practice available, the job is done by **`chezmoi`, symlinks, a CLI installer, `skills.py`, `vercel-labs/skills` and a bootstrap script**. Two comments in 274 describe an agent touching this material at all, and **neither is a setup** | Stays **`?`** — and the spec's bet is now visibly *against the grain of practice*, not merely untested |
+| **Q-B** | Who receives a handed-over setup, and what happens? | HN, the same thread plus a comment search | **Population confirmed.** Six independent senders describe distributing to teams: company skills pushed by a **bootstrap script**, *"distributing them is currently awkward"*; git *"so complete team leverages them"*; a **public skill registry for the Norwegian Government**; and *"skills need to be edited **across team members** in a controlled way. **Git is of course required for this but is not enough**"*. Separately: `CLAUDE.md team` returned 44 comments, **6 about more than one person, 38 solo** | **`✓` for the population.** The **receiving end is still `[?]`** — every voice is a sender |
+| **Q-C** | What does a real agent-material repository contain? | **GitHub repository search + `git/trees`, four repositories counted** | **11, 25, 47 and 48 items.** Two of four configure **three and four distinct agent tools**, read from the tree — `.claude/` beside Devin, Copilot and Pi in one; `claude/` beside Codex and Antigravity in another, with `CLAUDE.md`, `AGENTS.md` and `MULTI-AGENT.md` side by side. The public population of personal agent-material repos is **93** | **`✓`, counted.** Our own *"every library size is 20 to 40"* was **too narrow at the top** |
+| **Q-D** | Does anything already keep secrets out of a handed-over artefact? | HN search, 14 hits, plus the thread | **The runtime half is occupied** — a credential-injection proxy outside the sandbox, a vault with time-scoped access, a key broker, a WASM sandbox with a secret scanner, *"block secrets"* policies. **The handover half is not.** Every one of those keeps a key from a *running* agent; none is about what a set carries when it leaves. And a person names the failure: *"a skills file can just easily say '**We connect to bob using key Z and user X**'"* | **`✓`.** Our matrix cell said *"No, in this space"* and is **too strong** |
+| **Q-E** | Does the empty-handed consumer exist? | GitHub repository search + the thread | **The supply is vast and confirmed** — **19,703** repositories match `"claude skills"`, topped by curated collections at 74,686★, 25,709★, 15,006★. **The demand, from the first five practitioners ever observed on the question, is sceptical**: *"I'm not sure I've ever used any of them… some YouTuber trying to make money"*; *"I do not understand the appeal of skill shopping"*; *"a few established names"*; one prefers building from session learnings. The one positive was distributing **his own** material | **Changed.** P3 was `[?]` in both directions; **it now has evidence and the evidence runs against it** |
+
+## What this changed in [`6-personas/personas.md`](6-personas/personas.md), and why
+
+**Five marks moved and one persona changed character.** Each row says what caused it.
+
+| # | What changed | From → to | What caused it |
+|---|---|---|---|
+| **1** | **P1's library size** | *"20 to 40 items"*, `✓`+`*` on one filer's sentence → **11 to 48, counted**, `✓` | Four public repositories read through the tree API. **Two of them exceed 40**, so the top of our band was wrong. Stage 5's **300 stays refuted**; `CLAUDE.md` §11's *~30* sits inside the band rather than at its centre. **Design for fifty, not for thirty** |
+| **2** | **P1's agent targets** | *"two to four"*, `*` — seven people's self-description → **`✓`, counted in two public trees** | One repository configures Claude, Devin, Copilot and Pi; another Claude, Codex and Antigravity. **The loudest demand in the evidence base now has a counted per-person figure under it** rather than only self-report |
+| **3** | **Where P1's material lives** | `*` + a `✓` about *wanting* git as the source → **`✓`** | The arrangement is visible in the trees and described independently by six people: `chezmoi`, *"a `.agents/skills/` directory + a symlink"*, *"two source-of-truth git repos… syncs to all coding agents"*. **Bias printed on the card: this counts only people who publish, and the one practitioner interviewed keeps his private** |
+| **4** | **P2's population** | One author's motive sentence and one second-hand story → **`✓` from six independent senders**; H5 half closed | The critique ranked this **D-2**, second most dangerous. The population, its scale and its stated difficulty are now confirmed. **The receiving end did not move at all** — every one of the six is a sender, and the guide still has no receiver question block |
+| **5** | **P3's character, and its quote** | *"There is none, and the absence is the finding"* → **a quote that is a refusal** | The critique ranked this **D-4**. Four of the five observed opinions about installing other people's material are refusal, minimisation or a preference for one's own. **This does not say the shelf is wrong** — four sceptics on Hacker News are not a market, that venue is the one most likely to distrust a marketplace, and nobody asked a beginner anything. **It says the premise had its first contact with real opinion and the opinion prefers provenance over volume** |
+| **6** | **H6 / NK-13** | *"never tested"* → *"never tested, and against the grain of practice"* | Q-A. No mark changed; the **reading** did |
+
+**What deliberately did not change.** The critique's other findings — the reversed irritation claim,
+the superlatives, the four matrix cells that break the matrix's own rule, the Backstage mark
+`jtbd.md` re-granted after the register withdrew it — **are corrections, not new evidence, and they
+are a separate pass.** This round applied only what new data actually answered.
+
+## What it did to the two conclusions, and what has not been applied
+
+- **[`jtbd.md`](7-jobs-to-be-done/jtbd.md)'s matrix has two cells that are now wrong**: RJ-4's competitor cell (*"No, in this space"* — Q-D) and H-J4's P3 column (`[?]` — Q-E). **Not applied.** The matrix is stage 7's and its audit is still owed.
+- **The benchmark has a gap rather than an oversight**: Doppler and Infisical are captured in flow 07 and deliberately unscored. On Q-D's evidence that is now worth one afternoon.
+- **`CLAUDE.md` is untouched.** §11's shelf is the decision Q-E bears on, and the reading is a warning about **what the shelf contains and how it sorts**, not an argument that it should not ship. That is **Q9** in the register, and it now has its first evidence.
+
+## The half-day that keeps not being spent
+
+**NK-13.** Two rounds of research, five instruments, 19,703 repositories and 274 comments later, the
+single most load-bearing claim in the specification — *a receiving agent performs the setup from
+`SETUP.md` alone* — **has still never been run once**, and nothing on the public record can run it.
+It is half a day on this machine. **Every round makes it matter more and none of them can touch it.**

@@ -1,9 +1,9 @@
 # Jobs to be done — one main job, four on the way to it
 
-> **PROVISIONAL.** Written 2026-09-08, stage 7 steps 1–4, from
+> **PROVISIONAL.** Written 2026-09-08, stage 7 **steps 1 to 5**, from
 > [`6-personas/personas.md`](../6-personas/personas.md) and the register and axes in
-> [`6-personas/inventory.md`](../6-personas/inventory.md). **The matrix (step 5), the audit (step 6)
-> and the reconciliation with the spec (step 7) are not in this file yet.** The label lifts on the
+> [`6-personas/inventory.md`](../6-personas/inventory.md). **The audit (step 6) and the
+> reconciliation with the spec (step 7) are not in this file yet.** The label lifts on the
 > same event as stage 6's: **five practitioner conversations** run against
 > [`interview-guide.md`](../6-personas/interview-guide.md) and filed as source documents. **One has
 > happened.**
@@ -19,7 +19,7 @@ repetition**, and **a re-runnable query proves that something was *said*, not th
 The specific way it goes wrong **here** is not inventing jobs but **laundering the specification into
 job form** — [`CLAUDE.md`](../../CLAUDE.md) already names four surfaces and all the mechanics, so a
 sentence like *"when my set is complete, I want the system to run a validation pass"* would be §6
-with a *when* in front of it, and the whole stage would confirm the spec by construction. **Step 4
+with a *when* in front of it, and the whole stage would confirm the spec by construction. **§5
 below is the pass that catches it, and the corrections are shown rather than silently made.**
 
 **Where the jobs came from.** Every job names its persona and its evidence. **A job whose evidence
@@ -318,9 +318,143 @@ to add or remove anything from the specification.
 
 ---
 
-# 7. What this hands forward
+# 7. The matrix — jobs against personas
 
-1. **To step 5, the matrix.** Rows are the jobs above; columns are P1, P2, P3; cells are 1–3 **with a source, or `[?]` — never an averaged 2**. Two more columns: which specified feature closes the job (or *nothing*, which is the interesting answer), and which of the fifteen competitors closes it as against merely selling against it. **The prediction to test rather than assume:** the evidenced rows will be exactly the ones the trackers can see, and **P3's column will be almost entirely `[?]`** — which is a fact about our instruments, not about that person.
-2. **To the register.** Nothing new. The main job's rival is **Q12**; H-J3 is **Q10**; H-J7 is **Q11**; H-J1 and H-J2 are **Q5** and **Q7**; H-J4 is **Q9**.
-3. **To the interview guide.** Three questions come out of this stage for step 6 to merge, and they are already implied above: the genie question asked four more times before any description of the product (Q12); *what happened the last time your own rule and the project's tooling disagreed* (Q10); and one that does not exist in the guide yet — **ask a receiver**, not an author, because every line about P2 is currently somebody else's account of them.
-4. **Not to `CLAUDE.md`.** Nothing here is applied. **No feature is removed by this stage**, and the difference of emphasis between §2's *assembly with validation* and this file's *transfer* main job is stated once, above, as a difference — not as a correction.
+**Stage 7, step 5.** Rows are the jobs above; columns are the three personas from
+[`personas.md`](../6-personas/personas.md). **A cell holds an importance of 1–3 with the source of
+that number, or `[?]`.** There is no averaging and no default: *an importance nobody has told us is
+`[?]`, not 2*, because our only weighting is reaction counts on one kind of pain, and a middle value
+would silently encode the instrument's blindness as a measurement.
+
+**1** = it comes up · **2** = it costs them something · **3** = it is a reason they would change how
+they work.
+
+**And a reaction count is ordinal.** 6,592 against 13 says *louder*; it never says *five hundred
+times more important*, and it says nothing at all about the pains no tracker can see. Every cell that
+cites a count means *louder than*.
+
+**Read the P2 and P3 columns before anything else.** P2 carries a number in three cells, because only
+one issue's stated motive speaks for receivers and **no receiver has ever been asked**. P3 carries a
+number in none at all. That is a fact about our instruments rather than about those people — and it
+is the most useful thing this matrix produces.
+
+## The sourced jobs
+
+| Job | **P1** keeper · *primary* | **P2** receiver | **P3** empty-handed | Feature that closes it | Do competitors close it? |
+|---|---|---|---|---|---|
+| **MAIN — make it keep working somewhere else** | **3** — `✓` [#6235](https://github.com/anthropics/claude-code/issues/6235) **6,592**, the loudest demand anywhere in the base, and [#64](https://github.com/modelcontextprotocol/servers/issues/64) **182**, the loudest pain in the older corpus · `*` Q5, Q11 — twenty-five minutes to detect, two to fix | **3** — `✓` #6235's stated motive **is** this job: *"it doesn't work as well when collaborating with developers who aren't using Claude Code"* · `*` Q21, **second-hand** | **`[?]`** — someone with nothing has nothing to move. Plausible is not evidence | **§6** — the agent target selector, `SETUP.md` written for the receiving agent, pinned `ref`s, target-correct paths · **§8** — the handover stages before Export | **No.** `V` [`benchmark.md`](../4-benchmark/benchmark.md) — **B4 is the weakest flow in the industry, nobody above 4**, and not one of fifteen cells scores what a product says about the machine its artefact lands on. Per-agent *output* exists (Ruler, `create-next-app`, flow 06) and skill managers **claim** per-agent sync in their READMEs (R8, unrun) — **the item-level half is contested, the set-level half is open** |
+| **RJ-1 — know what the other side needs, before I send it** | **2** — `*` Q21 only, plus `V` the B4 gap. **He found out on a call; that he wanted to know beforehand is our inference, `R`** | **3** — `*` Q21: *"he assumed that was normal and **worked around it for two days without mentioning it**"* · `✓` #6235's motive. **Second-hand — the contractor was never asked** | **`[?]`** | **§6** — `SETUP.md` per item in the resolved set, `.env.example`, pinned `ref`s · **§8** — the last stages of Run, read before the irreversible step | **No, and this is the clearest open cell in the matrix.** Nobody above 4 on B4, for a structural reason: no candidate has a surface that describes the receiving machine at all |
+| **RJ-2 — what my pieces drag in, and where two will fight** | **2** — `✓` [#1219](https://github.com/modelcontextprotocol/servers/issues/1219) **13**, our own thesis sighted in the exact file we generate, plus the *set-and-ignored* family at 6, 3, 2, 0, 0, 0 (OBS-17) · `*` Q13 — 1,100 lines of noise into a colleague's branch. **13 against 182 is *quieter*, and that is all the count says** | **`[?]`** — a receiver does not assemble the set; whether they inherit its collisions is unestablished | **`[?]`** | **§6** — the dependency walk, `conflicts`, duplicate command names, same-target-path, cycles reported as information · **§8** — Run as a stage list | **Partly, and never for this material.** `E` the nearest dead competitor **computed the duplicate correctly and discarded the loser in silence** — `BlockDuplicationDetector`, then `mergeUnrolledAssistants`, no error, no warning (postmortem §5). `M` npm `ERESOLVE` and `terraform validate` do it excellently **in their own domains**. `V` `asm`'s README claims duplicate and near-duplicate audit and names *trigger collision* — unrun |
+| **RJ-3 — fix it once and have the fix reach every copy** | **3** — `✓` [#9444](https://github.com/anthropics/claude-code/issues/9444) **48**: *"maintenance burden… **inconsistency risk — copies can drift out of sync**"* · `*` Q10 — the same off-by-one fixed in one of three projects, **found six weeks later by a client, three hours to re-debug** | **`[?]`** — whether a receiver cares about the author's other copies is unestablished | **`[?]`** | **§5** — an item lives in the library once and projects link to it **live**. The one mechanism in the spec that exists for exactly this job | **Solved elsewhere, dead here.** `M` Figma does it well for components, down to *423 instances* on one row (flow 05). `E` Continue's hub did it for **this** material and was switched off. `V` `HarnessKit`'s README claims per-agent drift detection — unrun |
+| **RJ-4 — move the work without moving the secrets** | **3** — `✓` the largest crowd in the corpus: [#32733](https://github.com/anthropics/claude-code/issues/32733) 192 · [#401](https://github.com/anthropics/claude-code/issues/401) 54 · [#29910](https://github.com/anthropics/claude-code/issues/29910) 45 · [continue #1729](https://github.com/continuedev/continue/issues/1729) 32 · [#1018](https://github.com/modelcontextprotocol/servers/issues/1018) 23 · [#754](https://github.com/modelcontextprotocol/servers/issues/754) 22 · `*` Q23 — the private and the reusable are **tangled in the same files** | **`[?]`** — `.env.example` exists for the receiver, and **no receiver has said anything about it** | **`[?]`** | **§5** `needsEnv` · **§6** — collected across the resolved set and written to `.env.example` before export | **No, in this space.** `M` Vercel's env drawer is the best-observed prior art in the phase — type before value, the irreversible option as the default, *"Where to rotate, or who to contact"* (flow 07) — and it belongs to a different product. No candidate in the survey does this for a handed-over artefact |
+| **EJ-1 — not be quietly overruled by my own tools** | **3** — `✓` [#20412](https://github.com/anthropics/claude-code/issues/20412) **142**, *"silently synced… without any opt-in, notification, or consent"* · `✓` [codex #13386](https://github.com/openai/codex/issues/13386), dropped *"with no warning anywhere"* · `✓` #1219 · `*` Q13, Q14 — *"my guesses are unfalsifiable"* | **2** — `*` Q21: overruled by **absence** — half his tools missing, and nothing said. **Second-hand** | **`[?]`** | **§6** — three severities, *nothing blocks*, the unclean export **confirmed** with its consequence in the present tense, and *Skipped* given a glyph it earned · **§7** — state 6 naming the fields that differ | **The market has the mechanism and the nearest competitor failed at it.** `M` Port ships pass / warn / block with the reason attached; GitHub's mergebox names consequences. `E` **Continue shipped `ConfigValidationError { fatal: boolean }` and filed a block that failed to resolve as `fatal: false`** — the exact failure, in our space, in production |
+| **EJ-2 — believe a clean result was earned** | **2** — `✓` R7: *"**blackbox oracles make bad workflows, and tend to produce a whole lot of cargo culting**"* ([bandrami](https://news.ycombinator.com/item?id=46820441)); *"engineers will always invent weird heuristics to detect drift"* ([Alpha_Logic](https://news.ycombinator.com/item?id=46106973)). **HN comment scores are not exposed, so this evidence carries no weighting at all** | **`[?]`** | **`[?]`** — arguably central for someone taking strangers' material; arguable is not evidence | **§6** — *Skipped* gets a neutral glyph rather than a tick it did not earn · **§5** — no score, no rating, no badge | **They close a different job.** Tessl scores 93 with an uplift multiplier, Smithery out of 100, `HarnessKit` claims 0–100 (`V`). Those answer *give me a signal*; whether a produced number makes anyone **believe** is `[?]`, and reading their scores as a failure at *this* job is **our inference, `R`** |
+| **EJ-3 — stop suspecting half of what I keep is dead weight** | **3** — `✓` R7 across eight threads: *"mostly useless… 50/50 or less"*, *"I can never quite tell if it's helping anything"*, a story titled *[I am morally opposed to updating my Claude.md](https://news.ycombinator.com/item?id=49376287)* · `*` Q16, Q17, Q18 — *"maybe half of it"*, *"I've never A/B'd anything"*, *"the folder only grows"* | **`[?]`** | **`[?]`** | **Nothing — and nothing can.** §5's usage facts are the nearest thing and they answer *is it used*, not *did it change anything*. **§6 runs nothing on anyone's machine.** This is **Q12** | **The market is forming here and we are not in it.** `V` four HN stories in nine months trying to measure exactly this: *AGENTS.md outperforms skills in our agent evals* (524 points), **SkillsBench** (364), Agent Skills Leaderboard (135), agent-skills-eval (79) |
+| **SJ-1 — not be the missing manual for my own work** | **2** — `*` Q21, Q22: *"which files are load-bearing and which are aspirational… **none of that is written down anywhere**"* · `✓` that other people do open this material — #6235 6,592, [#10238](https://github.com/anthropics/claude-code/issues/10238) 168, [#28729](https://github.com/anthropics/claude-code/issues/28729) 151 | **`[?]`** — the receiver's half of this job is **H-J7**, and it stands on one aside | **`[?]`** | **§6** — `SETUP.md` addressed to the agent that opens the project, stating per item what it requires | **No.** The same structural gap as RJ-1: B4, nobody above 4 |
+| **SJ-2 — have something I would put my name to** · *post-MVP* | **1** — `✓` the **absence**, looked for deliberately in two instruments: **0 of 1,762** HN comments, and `portfolio in:title` returning two unrelated issues (R10) · `*` Q23, a qualified yes **for a different motive**: *"publishing forces cleanup and I need external pressure"*. **They disagree and both stay** (rule 4) | **`[?]`** | **`[?]`** | **None in the MVP, by decision.** §9 keeps publishing out and does not show `visibility` at all | **Yes, all of them, and all need a server.** `M` Figma Community, Notion's gallery, Raycast's store, and a GitHub profile that reads as a portfolio when full and as an empty template when not (flow 12) |
+
+## The hypothesis jobs, in the same matrix
+
+**Every cell here is `[?]` except one, and that is the point of the block.** These rows exist because
+**four specified features close nothing else.**
+
+| Job | P1 | P2 | P3 | Feature that closes it | Do competitors close it? |
+|---|---|---|---|---|---|
+| **H-J1 — lay hands on something I wrote months ago** | **`[?]`** — one sighting, `*` Q19: *"it usually takes longer than rewriting it would"*. Evidence that it **happened**, not of how much it matters | **`[?]`** | **`[?]`** | **§8** — Library, filters by kind and tag, search · **§5** — per-item usage facts | **Yes, and well.** B1 is where the craft is concentrated: Linear's palette and filter grammar, Backstage's catalog, Raycast, Obsidian. **We would be competing where the market is strongest and our evidence thinnest** |
+| **H-J2 — start from something I have done before and re-tune it** | **`[?]`** — §2 names it as a supporting moment; **nobody has said it.** The nearest sighting is `*` Q8, where the thing he wanted back was **welded to its project** and he wrote a worse one instead | **`[?]`** | **`[?]`** | **§8** — Projects, and duplication | **Yes, cheaply.** `M` Notion's `Ctrl+D` with no dialog; GitHub's fork form with a prefilled name and a narrowing checkbox (flow 09) |
+| **H-J3 — change one copy for one project without touching the rest** | **`[?]`** — one aside, `*` Q26: *"my rule says one thing, the client's linter says another, and **there's no precedence anywhere**"*. That is **Q10**, and it is a conflict with something **outside** the set entirely, which §5 has nowhere to put | **`[?]`** | **`[?]`** | **§5** — `detached`, `overrides`, promotion as a new item · **§7** — state 6, with the differing fields named | **Half.** `M` Figma models overrides precisely enough to offer *Reset fill* by name — **and erases the origin at detach, so there is no way back** (flow 05). Our return path has **no prior art in the survey**, which cuts both ways |
+| **H-J4 — get moving with material somebody else made** | **`[?]`** | **`[?]`** | **`[?]` — and this is the persona the feature was built for.** What exists instead: `V` an installer category at 425–4,526★ (R8) and catalogs reporting six- and seven-figure counts (R9). **Not one observed person** | **§8** — the `My library` / `Public library` scope switch · **§11** — the curated read-only shelf and the example project | **Yes — the most crowded space in the entire survey.** `V` Smithery 17,500 servers, Tessl 3,000+ skills, Agentman 115 business skills, Notion's template gallery, plus the whole installer category. **Every catalog in the phase solves cold start this way** (OBS-12) |
+| **H-J5 — watch what actually ran** · *the surviving second main job* | **3** — `✓` R7 · `*` Q25, the genie question, asked before the product was ever described. **Its importance is not in doubt; its closability is** | **`[?]`** | **`[?]`** | **Nothing, and nothing can be.** The same cell as EJ-3, which is this job's emotional face — **counted once, not twice** | **Forming.** The four measurement projects listed under EJ-3 |
+| **H-J6 — my work counts as something I can show** | See **SJ-2** — the same job in functional wording, **not counted twice** | — | — | None in the MVP (§9) | Yes, and all of them need a server |
+| **H-J7 — the unwritten half travels too** | **`[?]`** | **`[?]`** — `*` Q26, one aside: *"roughly **half** of what makes a project go well is stuff I've never written down"*. **If it holds it bounds the ceiling of the product**, because we validate the written part. **Q11** | **`[?]`** | **Nothing, and nothing can be** | **No.** Nobody in the survey attempts it |
+
+---
+
+# 8. What to build first — three jobs
+
+**The rule, applied mechanically:** importance **3** for the primary persona **and** not closed by the
+market. Five jobs score 3 for P1 — the main job, RJ-3, RJ-4, EJ-1 and EJ-3. Two fall out on the
+second test, and the reasons are worth more than the shortlist.
+
+### 1 · The main job — make it keep working somewhere else
+
+> *"Codex, Amp, Cursor, and others are starting to standardize around AGENTS.md… **It doesn't work as
+> well when collaborating with other developers who aren't using Claude Code.**"* — **6,592 reactions**
+
+**Cells: P1 = 3, P2 = 3.** The only row with a number in both people-columns. **Market: nobody above
+4 on B4**, and structurally so — no candidate has a surface that says anything about the machine its
+artefact lands on. **The spec already spends most of its handover budget here** — §6's `SETUP.md`
+decision, the target selector, the disclosure stages — which this row confirms rather than discovers.
+
+### 2 · RJ-4 — move the work without moving the secrets
+
+**Cell: P1 = 3**, on the largest `✓` crowd in the corpus — 192, 54, 45, 32, 23, 22, across two
+ecosystems — plus the `*` no count could give: **the private and the reusable are tangled in the same
+files**, and separating them is *"a couple of hours that are never the most urgent couple of hours."*
+**Market: nobody in this space.** The best prior art anywhere in the phase (Vercel's env drawer)
+belongs to a different product entirely.
+
+### 3 · RJ-3 — fix it once and have the fix reach every copy
+
+**Cell: P1 = 3**, `✓` at 48 with a `*` price tag attached: six weeks, a client complaint, three hours
+re-debugging a bug already fixed elsewhere. **Market: solved beautifully for design components and
+dead for this material** — the one product that shipped it here was switched off. **§5's live link is
+the single mechanism in the spec that exists for exactly this job**, and this row is its
+justification.
+
+### The two that scored 3 and are not in the core — and this matters more than the shortlist
+
+- **EJ-1 — not be quietly overruled.** P1 = 3, on 142 plus two more `✓`. It is **not a feature to build**; it is a **constraint on how every other feature behaves**, and §6 already encodes it — nothing blocks, the consequence is named in the present tense, *Skipped* gets a glyph it earned. **It belongs in the core as a rule, not as a row.**
+- **EJ-3 / H-J5 — stop suspecting half of it is dead weight.** P1 = 3, market forming, **and the *feature* cell is empty because nothing we can build fills it.** §6 runs nothing on anyone's machine. **This is the highest-importance job in the matrix that the product cannot close.** It is **Q12**, and its honest form is a positioning question, not a backlog item.
+
+### The fourth, named because it is close
+
+**RJ-1** — *know what the other side needs before I send it* — scores **P1 = 2, P2 = 3, market
+nobody.** It misses the core on the primary's number alone, and **that number is an inference**: the
+respondent found out on a call and never said he wanted to know beforehand. **It is also the job the
+spec has invested in most heavily.** If one more practitioner says it plainly, it moves into the core
+ahead of RJ-3.
+
+### Where this agrees with the specification, and where it does not
+
+**Agrees** with §6 and §8 on the handover, and with §5's live link — both now have a job with
+evidence behind them rather than a rationale. **Qualifies §2**: the three core jobs are one transfer
+job and two of its failure modes, not *assembly with validation* — assembly is what you do in order
+to move something. **Touches no surface in §8**, and proposes no new one.
+
+---
+
+# 9. What might not be worth building — a list of hypotheses, not a cut list
+
+> **Read the label before the list.** Every feature below closes **a job whose every cell is `[?]`**.
+> That is not evidence that nobody wants it. **It is an absence in instruments that cannot see
+> presence** — the trackers are blind to *find* and *reassemble* by construction, and no person in
+> P3's shape has ever been observed at all. **Cutting a feature on this list would be acting on our
+> own blindness.** This stage removes nothing; removals are the owner's call on a register entry, and
+> the entry has to say that the evidence for removal is an absence.
+
+| Specified feature | The only job it closes | Standing of that job | What the matrix actually says |
+|---|---|---|---|
+| **The `Public library` scope switch** (§8) and **the curated shelf** (§11) | **H-J4** | **Every cell `[?]`**, and the persona it serves — **P3 — has never been observed.** What exists is vendor counts and tool READMEs | **The sharpest finding in the matrix.** Two surfaces, a build commitment of real content from checked sources, and **a security standard the spec does not yet have** — 13.4% critical in a scan of 3,984 public skills (R6) — all closing one job with no observed person behind it, **in the most crowded space in the entire survey.** This is **Q9**, and it deserves the sitting's attention before it deserves a mockup |
+| **The example project** (§11) | **H-J4**, plus an onboarding argument | `[?]`, and §11's own reasoning — *a shelf guarantees material, not that the first check says anything* — is sound reasoning and **not evidence** | **Weaker as a feature and stronger as an argument** than the shelf itself. `M` OBS-36, the best first-run capture in the phase — Linear opening on four real issues — supports the **shape**, never the need |
+| **Duplicate a project** (§8) | **H-J2** | `[?]` entirely. §2 names it as a supporting moment; **nobody has said it** | Cheap to build, closes nothing evidenced, and the market closes it in a keystroke. **A candidate to postpone, not to cut** |
+| **Promote a detached item** (§5, §7) | **H-J3** | One aside, `*`, and it is **Q10** | Q4's disposition already noted that promotion only has value if in-project editing exists. **Both stand on the same single `[?]`, and they stand or fall together** |
+| **Library-wide search and filters** (§8) | **H-J1** | One sighting, `*` | **The awkward one.** It is the market's best-served flow (B1) **and** our thinnest evidence **and** the thing §8's accepted cost was priced against — a cost priced at **300 items**, which nothing supports (R4). **Build it for 20–40, not for 300** |
+| **Per-item usage facts** (§5) | **H-J1** and **EJ-3**, partially | `*` n = 1 — **and the strongest `*` in the repository**: a practitioner invented our exact mechanism unprompted, with our vocabulary forbidden in the question, then **extended it** — *last actually useful*, counted **per session** | **Not an orphan.** The only specified feature a real person asked for in our own words. The evidence is still one person; two more unprompted repetitions would make §5 as close to validated as this method allows |
+
+### Where this agrees with §9's refusals, and where it does not
+
+- **Publishing to a public catalog — §9 refuses it and the matrix agrees.** SJ-2 scores **1** for the primary, on an absence looked for in two instruments, and every competitor that closes it needs a server. **The strongest agreement in the file.**
+- **Composition — §9 defers it and the matrix qualifies the reasoning.** One of the two signals §9 leaned on has since failed: the `0 results` was a bug-shaped query on a frozen product, and the same friction **is** filed on live trackers ([#9444](https://github.com/anthropics/claude-code/issues/9444), [codex #17401](https://github.com/openai/codex/issues/17401)). **The deferral still stands on recursion**, which was always the better half of the argument.
+- **Versioning of your own items — §9 refuses it, and the matrix has a datum against the refusal.** [#28729](https://github.com/anthropics/claude-code/issues/28729), **151 reactions**, asks for exactly what §9 rules out: *"there's no version history, no review process, and **no easy way to roll back a bad change**."* It comes from an **organisation** context, and one request is not a mandate — **but §9 currently reads as though nobody wants it, and somebody does.** Recorded; the disposition is the owner's.
+
+---
+
+# 10. What this hands forward
+
+
+1. **The prediction the plan made about the matrix held, and it should be read as a warning rather than as a result.** The plan said the evidenced rows would be exactly the ones the trackers can see, and that P3's column would be almost entirely `[?]`. **It is entirely `[?]`** — nine rows out of nine — and P2 carries a number in only three. So *what to build first* is evidenced and *what might not be worth building* is a list of hypotheses, and the second list must never be read as the first.
+2. **To step 6, the audit.** The dangerous list is already visible from the matrix itself: **every P2 cell carrying a number is second-hand** — the receiver has never been asked, and two of the three rest on one story the author told about somebody else. **RJ-1's P1 = 2 is an inference**, not something anybody said. And **the whole of the orphan list rests on absences** in instruments that cannot see presence.
+3. **To the register.** Nothing new. The main job's rival is **Q12**; H-J3 is **Q10**; H-J7 is **Q11**; H-J1 and H-J2 are **Q5** and **Q7**; H-J4 is **Q9**.
+4. **To the interview guide.** Three questions come out of this stage for step 6 to merge, and they are already implied above: the genie question asked four more times before any description of the product (Q12); *what happened the last time your own rule and the project's tooling disagreed* (Q10); and one that does not exist in the guide yet — **ask a receiver**, not an author, because every line about P2 is currently somebody else's account of them.
+5. **Not to `CLAUDE.md`.** Nothing here is applied. **No feature is removed by this stage**, and the difference of emphasis between §2's *assembly with validation* and this file's *transfer* main job is stated once, above, as a difference — not as a correction.

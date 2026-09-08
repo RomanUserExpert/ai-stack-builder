@@ -7,11 +7,18 @@ personas that decides what to build first and what not to build at all — adapt
 screens are already specified. That last fact is the whole difficulty of this stage and is dealt
 with below.
 
-Status, **2026-09-08: steps 1–4 are done; steps 5, 6 and 7 are not.**
+Status, **2026-09-08: steps 1–5 are done; steps 6 and 7 are not.**
 [`jtbd.md`](jtbd.md) holds the main-job candidates and the choice, the hierarchy — **one main job,
-four related, three emotional, two social** — the *Rewritten* list from the feature-name test, and
-**seven hypothesis jobs**. **Still owed:** the matrix (step 5), `audit.md` (step 6), the
-reconciliation with the spec (step 7), and the section on the shared page.
+four related, three emotional, two social** — the *Rewritten* list from the feature-name test,
+**seven hypothesis jobs**, and **the matrix with both of its conclusions**. **Still owed:**
+`audit.md` (step 6), the reconciliation with the spec (step 7), and the section on the shared page.
+
+**The matrix came out the shape the plan predicted, which is a warning and not a result.**
+**P3's column is `[?]` in all nine rows** and P2 carries a number in three, because only one issue's
+stated motive speaks for receivers and **no receiver has ever been asked**. So *what to build first*
+is evidenced — the main job, keys staying behind, one fix reaching every copy — and **what might not
+be worth building is a list of hypotheses about an absence**, which is why this stage removes
+nothing.
 
 **The step-1 rule fired.** Two main-job candidates survived — *make it work somewhere else* and
 *know whether any of this does anything* — and the lesson's rule for that case is that you have two

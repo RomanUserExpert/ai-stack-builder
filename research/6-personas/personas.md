@@ -3,7 +3,11 @@
 > **PROVISIONAL.** Written 2026-09-08, stage 6 step 3, from
 > [`inventory.md`](inventory.md) (the register and the axes),
 > [`re-research.md`](re-research.md) (four instruments on the public record) and
-> [`agent-setup-interview.md`](agent-setup-interview.md) (**interview 1 of 5**). The label lifts on
+> [`agent-setup-interview.md`](agent-setup-interview.md) (**interview 1 of 5**), and — since
+> 2026-09-08 — [`re-research-2.md`](re-research-2.md), a second targeted collection run against the
+> five questions in [`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md). **Five marks
+> changed and P3 changed character; each change is recorded in [`research.md`](../research.md) §7,
+> *Research justification*.** The label lifts on
 > one event and one only: **the five practitioner conversations Q5 names**, run against
 > [`interview-guide.md`](interview-guide.md) and filed here as source documents. Four are still owed,
 > and the guide asks that **two of them be people who have never filed an issue in public** — see the
@@ -43,7 +47,7 @@ serve), with **X4** (author or consumer) producing the third — [`inventory.md`
 | **X1** solo ↔ handed over | Solo, until the day it is not | **Receives somebody else's** | Solo, and has nothing yet |
 | **X2** one host ↔ several | **Two to four, kept in sync by hand** | Usually a different one from the author's | `[?]` |
 | **X4** author ↔ consumer | **Author** | Author elsewhere, consumer here | **Consumer** |
-| Standing | **`✓` + `*`, and primary** | **`✓` at population, `*` for the story** | **Mostly `[?]` — the persona the spec already ships for and nobody has met** |
+| Standing | **`✓` + `*`, and primary** | **`✓` at population** — six independent senders and three issue threads; **`*` and second-hand for the receiving end** | **`[?]` that the persona exists; `✓` that the nearest observed people are sceptical of the shelf's premise.** Changed 2026-09-08 |
 
 ---
 
@@ -55,12 +59,17 @@ They did not set out to build a library. **They copied one file into a second pr
 and at the fourth they made a repository.** `*` [interview, Q4](agent-setup-interview.md) — *"the
 origin is not 'I designed a system.' The origin is **'I got tired of copy-pasting one file.'**"*
 
-Fourteen months later it holds **20 to 40 items** across skills, instruction files, MCP configs and
-scripts. `✓` [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151
-reactions — *"once you get to **20-30+ skills**… it becomes difficult to manage"* · `*`
-[interview, Q3](agent-setup-interview.md) — *"call it 40-something files"*, ~6k lines. **What the `✓`
-carries is that a filer wrote that and 151 people reacted to the request around it**, not that 20–30
-is a population figure (rule 5) — [`inventory.md`](inventory.md) NK-2.
+Fourteen months later it holds **tens of items, not hundreds** — the counted band is **11 to 48**
+across skills, agents, commands, instruction files and MCP configs. **Upgraded to `✓` on 2026-09-08,
+and widened.** `✓` **counted, not asked** — four public agent-material repositories read through the
+GitHub tree API: 11 items, 25, 47 and 48 ([`re-research-2.md`](re-research-2.md) Q-C, with the counts
+and the queries). `✓` [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729),
+151 reactions — *"once you get to **20-30+ skills**… it becomes difficult to manage"*, which is one
+filer's sentence and carries only that (rule 5) · `*` [interview, Q3](agent-setup-interview.md) —
+*"call it 40-something files"*, ~6k lines. **This card said *20 to 40* until the count was run; two of
+the four repositories exceed 40, so the top of the band was wrong.** Stage 5's **300 stays refuted** —
+nothing observed approaches it. **Design for fifty, not for thirty** —
+[`inventory.md`](inventory.md) NK-2.
 
 **They arrive at our product from one of three situations, and only three, because those are the only
 three anyone has described:** copying something out of the collection into a new project; adding a
@@ -75,8 +84,8 @@ for anyone else is **`[?]` → H1**.
 
 ### Environment — the block this repository added
 
-- **Two to four agents installed, two of them used on any given day.** `✓` [`re-research.md`](re-research.md) R1–R2 — the demand for one source across agents is the loudest thing in the whole evidence base, [#6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592 reactions**; six practitioners describe their own multi-tool setups in public; **25 HN comments** are about symlinking one source into several formats. The **per-person count** of two-to-four is seven people's self-description, so `*` on the number and `✓` on the pattern — NK-5.
-- **The material lives in a git repository they own**, symlinked into `~/.claude/` and the other places each agent expects. `*` [interview, Q3](agent-setup-interview.md) · `✓` that people care intensely where it sits ([#1455](https://github.com/anthropics/claude-code/issues/1455), XDG, **446 reactions**) and that a filer asked for **a git repo as the source of truth** ([#28729](https://github.com/anthropics/claude-code/issues/28729)) — **which is evidence that it is not yet how that person works** — NK-6.
+- **Two to four agents installed, two of them used on any given day. `✓` — and as of 2026-09-08 this is counted rather than reported.** Two of four public agent-material repositories configure **four** and **three** distinct tools, read straight from their trees: `.claude/settings.json` beside `packages/devin/config.json`, `packages/copilot/settings.json` and `packages/pi/agent/settings.json`; and `claude/` beside `codex/config.toml.example` and `antigravity/mcp_config.json.example`, with `CLAUDE.md`, `AGENTS.md` and `MULTI-AGENT.md` side by side ([`re-research-2.md`](re-research-2.md) Q-C). `✓` [`re-research.md`](re-research.md) R1–R2 — the demand for one source across agents is the loudest thing in the whole evidence base, [#6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592 reactions**; **25 HN comments** about symlinking one source into several formats. **The per-person count used to be `*`, seven people's self-description; it is now `✓` in two public trees** — NK-5.
+- **The material lives in a git repository they own**, symlinked into `~/.claude/` and the other places each agent expects. **`✓` as of 2026-09-08** — the arrangement is visible in the trees themselves and described independently by six people in one thread: `chezmoi` with *"a `.agents/skills/` directory + a symlink"*; *"two source-of-truth git repos (private and public)… syncs to all coding agents `~/.claude/skills/`, `~/.codex/skills`, `~/.pi/agent/skills`"*; *"a separate repo which has to be pulled locally and the skills and agents are sym linked to projects"* ([`re-research-2.md`](re-research-2.md) Q-C). `*` [interview, Q3](agent-setup-interview.md) · `✓` that people care intensely where it sits ([#1455](https://github.com/anthropics/claude-code/issues/1455), XDG, **446 reactions**) — NK-6. **The instrument's bias, printed here: this counts only people who publish their setup, and the one practitioner interviewed keeps his private.**
 - **Three machines or more, counting containers**, and the environments are exactly the ones the instructions did not assume — WSL, dev containers, Remote-SSH, Docker, JetBrains. `✓` OBS-6, with reaction counts · `*` [interview, Q5](agent-setup-interview.md).
 - **Nothing is public.** `✓` R10 — **0 of 1,762** HN comments mention a portfolio, and `portfolio in:title` in the audience's own tracker returns two unrelated issues.
 
@@ -146,9 +155,23 @@ They are handed a repository, a config or a project and expected to work in it. 
 **They usually run a different agent from the person who wrote it.** `✓` — that is what #6235 is
 about, and the same family spans three vendors' trackers (R1).
 
-**Environment.** `[?]` almost entirely → **H5**. We know they exist and we know one story about one of
-them. We do not know what they have installed, what they are allowed to install, or whether they can
-even ask the author.
+**Environment. Half of H5 closed on 2026-09-08; the other half did not.** `✓` **the sending side and
+its difficulty**, from six independent voices in one Ask HN thread of 305 points and 274 comments
+([`re-research-2.md`](re-research-2.md) Q-B): company-managed skills pushed to every developer by a
+**bootstrap script**, with the sender saying *"these are supposed to be portable between agents, and
+so **distributing them is currently awkward**"*; skills committed to git *"so complete team leverages
+them"*; a **public skill registry with profile-based syncing for the Norwegian Government**; and the
+sentence that is this product's thesis written by somebody else —
+
+> *"skills need to be edited across projects and **across team members** in a controlled way.
+> **Git is of course required for this but is not enough**."*
+> — [mstr32](https://news.ycombinator.com/item?id=49594219) `✓`
+
+**Still `[?]`:** what a receiver has installed, what they are allowed to install, whether they can ask
+the author, and **what the first hour is like** — because **every voice above is the sender.** A
+second measurement, worth recording: `CLAUDE.md team` across HN comments returned 44 hits, of which
+**6 concerned more than one person and 38 were solo setups.** That is the first time this repository
+has measured how often the material is shared rather than asserting either way.
 
 ## 2. Jobs
 
@@ -184,36 +207,71 @@ the single strongest argument for keeping this persona and not folding it into P
 
 What `SETUP.md` states and in what order (`CLAUDE.md` §6) · which stages sit before Export in Run and
 what they disclose (§6, §8) · the wording of a Note about a missing env key. **It may not settle**
-anything about how the receiver *feels*, because **no receiver has ever been asked** — every line
-above is either a filed request or the author's account of somebody else.
+anything about how the receiver *feels*, because **no receiver has ever been asked**. Six more voices
+arrived on 2026-09-08 and **every one of them is a sender too** — the population, its scale and its
+stated difficulty are now `✓`; the experience on the receiving end is exactly as unobserved as it was
+([`re-research-2.md`](re-research-2.md) Q-B). **The guide still has no receiver question block.**
 
 ---
 
-# P3 · The empty-handed — secondary, and **mostly hypothesis**
+# P3 · The empty-handed — secondary, and **changed on 2026-09-08**
 
-> **Read this card as a warning, not as a portrait.** `CLAUDE.md` §8 and §11 already ship two
-> surfaces for this person — the **`Public library` scope switch** and the **example project** — and
-> **not one person in this shape has been observed anywhere in the phase.** The card exists so the
-> gap has a face and a name, which is the whole point of the stage.
+> **This card used to say that nobody in this shape had ever been observed. That stopped being true,
+> and the first evidence runs against the persona rather than for it.** Five practitioners were
+> found stating what they do about other people's material, and four of the five refuse it, minimise
+> it, or prefer their own ([`re-research-2.md`](re-research-2.md) Q-E). `CLAUDE.md` §8 and §11 ship
+> two surfaces and a content commitment for this person. **Read the card as a warning, and read the
+> quote block, which is no longer empty.**
 
 ## 1. Context
 
 Someone with no collection of their own, or a collection so young it does nothing, opening the
-product for the first time. **`[?]` → H7.** What exists instead of evidence:
+product for the first time. **Still `[?]` that this person exists in numbers — H7 is not closed — but
+it is no longer `[?]` in both directions.** The supply is confirmed and enormous; the first demand
+signal is scepticism.
+
+**The supply. `✓`** — `"claude skills"` in repository name or description returns **19,703
+repositories**, and the top of that list is curated collections at five-figure star counts:
+`ComposioHQ/awesome-claude-skills` **74,686★**, `alirezarezvani/claude-skills` **25,709★** and
+*"380 Claude Code skills"*, `travisvn/awesome-claude-skills` **15,006★**
+([`re-research-2.md`](re-research-2.md) Q-E). **Against that, personal agent-material repositories
+that are public number 93.**
+
+**The demand, from the first people ever observed on this question. `✓` as utterances, and four of
+five are negative:**
+
+- *"**I'm not sure I've ever used any of them**, and when I've looked at them it's been some **YouTuber trying to make money**."* — [SyneRyder](https://news.ycombinator.com/item?id=49591526)
+- *"**I do not understand the appeal of skill shopping.**"* — [resonious](https://news.ycombinator.com/item?id=49595691)
+- *"I try to keep my collection of community skills **short**, usually **a few established names**."* — [osr00](https://news.ycombinator.com/item?id=49591803)
+- Prefers **creating skills from session learnings** rather than downloading published ones — [sinuhe69](https://news.ycombinator.com/item?id=49595603)
+- The one positive is not this persona: *"ship as a plugin and **add your git repo as a marketplace**"* — [jve](https://news.ycombinator.com/item?id=49595170) — **distributing his own material. That is P1's job.**
+
+**What this does not license.** Four sceptics on Hacker News are not a market, that venue is the one
+most likely to distrust a marketplace, the thread self-selects for people already managing their own
+skills, and **nobody asked a beginner anything.** It does not say cold start is solved or that the
+shelf is wrong. **It says the shelf's premise has had its first contact with real opinion and the
+opinion is that curated volume is not what these people want** — `osr00`'s *"a few established
+names"* is the shape that survived: **provenance over volume.**
+
+What still stands behind the surfaces, and none of it is a person:
 
 - **`V`** A whole tool category exists to install other people's material — `xingkongliang/skills-manager` 4,526★, `MoizIbnYousaf/ai-agent-skills` *"universal skill installer and package manager"* 1,138★, `luongnv89/asm` 915★ — [`re-research.md`](re-research.md) R8. **Their existence and their stars are `✓`; what they do is their own README and we ran none of them** (rule 5).
 - **`V`** Catalogs report skills at six and seven figures, and one vendor's own report says *"discovery is no longer the bottleneck. **Judgment is.**"* — R9, **published by a hard competitor that sells curation**.
 - **`V`** OBS-12 — every catalog in the survey solves cold start with **curation and volume**, and not one makes a user's own accumulated material better.
 
-**Nothing in that list is a person.** It is what tools and vendors bet.
+**Nothing in that list is a person.** It is what tools and vendors bet — and as of 2026-09-08 it is
+outweighed, in the only sample of actual opinion anyone has taken, by people saying they do not do
+this.
 
 ## 2. Jobs
 
-**All `[?]` → H8.** The plausible ones, written as hypotheses rather than facts: *get something
-working without composing it myself*; *see what good looks like before writing my own*. **No
-instrument in this repository has established either**, and `CLAUDE.md` §11's own reasoning for the
-shelf — *"an empty library kills the product, because there is nothing to validate"* — is the owner's
-assertion A-8, standing `[?]`.
+**Still `[?]` → H8, and H8 is now a harder hypothesis than it was.** The plausible jobs — *get
+something working without composing it myself*; *see what good looks like before writing my own* —
+remain unestablished, and **the first opinions collected point the other way**: the observed
+practitioners either do not install other people's skills at all, or keep the number deliberately
+small and chosen by author reputation. `CLAUDE.md` §11's reasoning for the shelf — *"an empty library
+kills the product, because there is nothing to validate"* — is the owner's assertion A-8 and it is
+still `[?]`; what changed is that **the alternative reading now has evidence and it did not before.**
 
 ## 3. Pains
 
@@ -228,21 +286,32 @@ assertion A-8, standing `[?]`.
 
 ## 5. Quote
 
-**There is none, and the absence is the finding.** `[?]`
+**This box was empty until 2026-09-08, and the absence was the finding. It is no longer empty, and
+what filled it is a refusal:**
 
-Every quote in this file comes from a tracker, a thread or the interview, under the rule that a quote
-carries a URL or it is not a quote ([`README.md`](README.md), *The circular quote*). **Nobody in this
-shape has said anything anywhere we looked** — 1,762 HN comments, five trackers, one conversation.
-**Writing a plausible sentence here and attributing it to a plausible person is exactly the failure
-this stage was re-opened to prevent.** So the box stays empty until someone fills it — the guide's P5
-recruit, *someone who does not keep this material at all*
-([`interview-guide.md`](interview-guide.md) §2), who has not been found.
+> *"**I'm not sure I've ever used any of them**, and when I've looked at them it's been some
+> **YouTuber trying to make money**."*
+>
+> — [SyneRyder, Hacker News, *Ask HN: How do you manage skills files?*](https://news.ycombinator.com/item?id=49591526) `✓`
+
+Beside it, from the same thread: *"**I do not understand the appeal of skill shopping.**"* —
+[resonious](https://news.ycombinator.com/item?id=49595691) `✓`
+
+**Read what this is and what it is not.** It is a real sentence with a URL, from the thread most
+on-topic to this product that anyone has found — 305 points, 274 comments, two days old at
+collection. It is **not** the P5 recruit the guide asks for: *someone who does not keep this material
+at all*. **Everyone quoted here keeps their own**, which makes them sceptical *consumers*, not
+empty-handed newcomers. **The persona this card describes is still unobserved. What is now observed
+is the attitude of the people nearest to it, and that attitude is not friendly to a shelf.**
 
 ## What this card is allowed to settle
 
-**Almost nothing, and that is the point.** It may not be cited for the scope switch, the shelf's size,
-or the example project's composition — those are `CLAUDE.md` decisions taken on reasoning, and this
-card adds no evidence to them. **It settles exactly one thing:** that the shelf needs a **stated
+**More than it could yesterday, and still not much.** It may not be cited for the scope switch, the
+shelf's size, or the example project's composition — those are `CLAUDE.md` decisions taken on
+reasoning. **What it may now be cited for is a warning:** the nearest observed population states a
+preference for **a few items from named authors** over curated volume, which bears on **what the
+shelf should contain and how it should be sorted**, not on whether it ships. **And it settles exactly
+one thing outright:** that the shelf needs a **stated
 content-review standard** before it ships, because the one hard number attached to this persona is
 13.4%.
 
@@ -296,10 +365,10 @@ so that none of it can be read as a finding.
 | **H2** | People want a **previous project back**, and are stopped by entanglement rather than by not finding it | Guide Q8, four more times — NK-8 | Duplicate-a-project, and item granularity (§5, §8) |
 | **H3** | A **count that links to its list** convinces this audience, as it does in VS Code and Figma | The five conversations, shown two variants of the same finding; or first use of a seeded library — NK-12 | *Used in 3 projects* on an item card (§5) |
 | **H4** | A **score would repel** rather than reassure, now that free tools at this tier ship one | Guide Q20 open, four more times, plus asking directly about `asm` and `HarnessKit` if the respondent knows them — NK-12, R8 | §5's *usage facts, never a score* |
-| **H5** | The **receiver** has a different agent and cannot easily ask the author | Ask a receiver. **Nobody has**, and the guide does not currently recruit one — NK-7 | What `SETUP.md` assumes about its reader (§6) |
-| **H6** | A **receiving agent performs the setup correctly from `SETUP.md` alone** | **Us, in an afternoon** — compose a set by hand, write the `SETUP.md` §6 describes, hand the archive to a fresh Claude Code, Cursor and Codex, record what each actually does — NK-13 | The spec's most load-bearing bet (§6, §8) |
-| **H7** | The **empty-handed persona exists** in numbers that justify shipping a shelf | The guide's P5 recruit — someone who does not keep this material at all — not yet found — NK-9 | The `Public library` scope switch (§8, §11) |
-| **H8** | Their job is *get something working without composing it myself* | The same P5 conversation, asked as a situation, never as a pitch | Whether the shelf is a browse surface or a starter kit |
+| **H5** | The **receiver** has a different agent and cannot easily ask the author | **Half closed 2026-09-08.** `✓` that senders distribute across agents and find it *"currently awkward"* — six independent voices ([`re-research-2.md`](re-research-2.md) Q-B). **The receiving end is untouched: every one of those six is a sender.** Ask a receiver — nobody has, and the guide still does not recruit one — NK-7 | What `SETUP.md` assumes about its reader (§6) |
+| **H6** | A **receiving agent performs the setup correctly from `SETUP.md` alone** | **Not closed, and the web cannot close it — confirmed 2026-09-08.** In 274 comments on exactly this topic, the mechanisms people use are `chezmoi`, symlinks, a CLI installer, `skills.py`, `vercel-labs/skills` and a bootstrap script; **two comments describe an agent touching this material and neither is a setup** ([`re-research-2.md`](re-research-2.md) Q-A). The bet is now visibly **against the grain of current practice**, not merely unverified. The instrument is unchanged and still ours: **half a day** — compose a set, write the `SETUP.md` §6 describes, hand the archive to a fresh Claude Code, Cursor and Codex, record what each does — NK-13 | The spec's most load-bearing bet (§6, §8) |
+| **H7** | The **empty-handed persona exists** in numbers that justify shipping a shelf | **Not closed, and it got harder 2026-09-08.** The supply is `✓` and enormous — 19,703 repositories, awesome-lists at five figures — against **93** public personal ones. The first five practitioners ever observed on installing others' material: **four refuse, minimise or prefer their own** ([`re-research-2.md`](re-research-2.md) Q-E). **Still nobody in the shape itself**: everyone quoted keeps their own material. The guide's P5 recruit — someone who does not keep this material at all — remains unfound — NK-9 | The `Public library` scope switch (§8, §11) |
+| **H8** | Their job is *get something working without composing it myself* | **Unestablished, and the first opinions point the other way** — the observed preference is **a few items from named authors**, not curated volume ([`re-research-2.md`](re-research-2.md) Q-E). The same P5 conversation, asked as a situation, never as a pitch | Whether the shelf is a browse surface or a starter kit — **and now also what it should contain and how it should sort** |
 | **H9** | A first check showing **one Problem and one Note** teaches the product better than six green ticks | First use of the seeded example project, watched — G5 in [`research.md`](../research.md) | The example project's composition (§11) |
 | **H10** | **Provenance and a pinned `ref`** are what make a read-only shelf trustworthy without a server | The same first use; and whether anyone clicks through to an origin — NK-19 | Public item cards (§5), and the licence field that model lacks |
 | **H11** | `CLAUDE.md` §3's audience — **25+, visually literate, living in Linear, Vercel, Raycast, Figma** — describes these people | **No instrument in this repository can reach it**, and none has. It is A-4 and A-5, and it stays a hypothesis through the design system unless someone asks | Visual direction, and who the craft bar is set for |

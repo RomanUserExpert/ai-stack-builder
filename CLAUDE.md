@@ -34,11 +34,18 @@ and [`agent-setup-interview.md`](research/6-personas/agent-setup-interview.md), 
 **Stage 7 started on 2026-09-08 and is four steps in.**
 [`research/7-jobs-to-be-done/jtbd.md`](research/7-jobs-to-be-done/jtbd.md) holds **one main job, four
 related, three emotional and two social**, each with its persona, its source and its mark, plus seven
-hypothesis jobs. **Two main-job candidates survived, which by the method's own rule means two
-products** — the second is Q12 and it is the one §6 forbids us to build. The main job is worded as a
-**transfer** job where §2 words the value as **assembly with validation**; that difference is stated
-in `jtbd.md` §1 and **is not applied here.** Still to do: the matrix, the audit and the
-reconciliation.
+hypothesis jobs, **and the matrix**. **Two main-job candidates survived, which by the method's own
+rule means two products** — the second is Q12 and it is the one §6 forbids us to build. The main job
+is worded as a **transfer** job where §2 words the value as **assembly with validation**; that
+difference is stated in `jtbd.md` §1 and **is not applied here.**
+
+**The matrix names three jobs for the MVP core** — the main job, *move the work without moving the
+secrets* (the largest evidence crowd in the corpus), and *fix it once and have the fix reach every
+copy* (which is what §5's live link exists for). **And it names six specified features that close a
+job whose every cell is `[?]`**, the sharpest being the public shelf and the example project: their
+persona has never been observed, and they sit in the most crowded space in the survey. **That list
+is a list of hypotheses, not a cut list** — it rests on absences in instruments that cannot see
+presence, and **nothing is removed.** Still to do: the audit and the reconciliation.
 
 **Nothing has been applied to this file.** Stage 6 has produced **nine proposals** that touch §2, §5,
 §6, §9 and §11 — including a narrowing of §2's *"nothing does this today"* and a new safety risk under

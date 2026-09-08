@@ -1,0 +1,154 @@
+{
+  "collected": "2026-09-08",
+  "round": 2,
+  "purpose": "Targeted collection against the five questions raised by research/personas-and-jobs-critique.md",
+  "note": "Every row below is a query anyone can re-run. Where a row records what a person said, the re-runnability covers the utterance and not the behaviour under it — research.md, rule 5.",
+  "instruments": [
+    {
+      "id": "I5",
+      "name": "GitHub repository search API, unauthenticated",
+      "weighting": "stars, push dates",
+      "blind_to": "private repositories, and anything not published"
+    },
+    {
+      "id": "I6",
+      "name": "GitHub git/trees API, unauthenticated, recursive=1",
+      "weighting": "none - it is a direct count of files in a published tree",
+      "blind_to": "what any of those files is worth, and whether the owner still uses it",
+      "note": "This is the first instrument in the repository that COUNTS somebody's collection instead of asking them how big it is."
+    },
+    {
+      "id": "I3b",
+      "name": "Hacker News via the Algolia API - one Ask HN thread read in full",
+      "weighting": "story points and comment count; per-comment scores are not exposed",
+      "blind_to": "a self-selecting, English-speaking, HN-shaped population"
+    }
+  ],
+  "queries": [
+    {
+      "q": "https://api.github.com/search/repositories?q=%22agent-kit%22+OR+%22claude+skills%22+in%3Aname%2Cdescription&sort=stars&order=desc&per_page=30",
+      "instrument": "I5",
+      "total_count": 19703,
+      "used_for": "Q-E supply side",
+      "top": [
+        {"repo": "ComposioHQ/awesome-claude-skills", "stars": 74686, "pushed": "2026-08-10"},
+        {"repo": "alirezarezvani/claude-skills", "stars": 25709, "pushed": "2026-08-30", "desc": "380 Claude Code skills & agent skills & plugins"},
+        {"repo": "travisvn/awesome-claude-skills", "stars": 15006, "pushed": "2026-04-28"},
+        {"repo": "Jeffallan/claude-skills", "stars": 11372, "pushed": "2026-08-07", "desc": "67 Specialized Skills"},
+        {"repo": "davepoon/buildwithclaude", "stars": 3431, "pushed": "2026-09-08"}
+      ]
+    },
+    {
+      "q": "https://api.github.com/search/repositories?q=dotfiles+claude+agents+in%3Aname%2Cdescription&sort=stars&order=desc&per_page=25",
+      "instrument": "I5",
+      "total_count": 93,
+      "used_for": "Q-C, Q-B",
+      "note": "The population of PERSONAL agent-material repositories that are public. 93, against 19,703 for published skill collections.",
+      "personal_flagged": ["shunk031/dotfiles", "mfmezger/ai_agent_dotfiles", "utkuatasoy/dotfiles", "sanketsudake/dotfiles", "goulvenclech/dotclaude", "oakensoul/claude-personal-assistant", "Eflarus/claude-dotfiles", "spideynolove/claude-dotfiles", "jckeen/dotfiles"],
+      "descriptions_carrying_counts": [
+        {"repo": "peopleforrester/claude-dotfiles", "desc": "70 skills, 15 agents, 21 rules, 14 hooks"},
+        {"repo": "flopperj/dotfiles-core", "desc": "30+ workflow skills, 5 reasoning agents"},
+        {"repo": "itaywol/adeptability", "desc": "Cross-platform AI skill portability CLI for 45+ agents"},
+        {"repo": "saqibameen/agent-dotfiles", "desc": "Write AI coding rules once, sync to every agent"}
+      ]
+    },
+    {
+      "q": "https://api.github.com/repos/goulvenclech/dotclaude/git/trees/HEAD?recursive=1",
+      "instrument": "I6",
+      "used_for": "Q-C, NK-2",
+      "counted": {"skills": 0, "agents": 3, "commands": 8, "mcp_configs": 0, "items_total": 11, "files_total": 26},
+      "targets_configured": 1
+    },
+    {
+      "q": "https://api.github.com/repos/utkuatasoy/dotfiles/git/trees/HEAD?recursive=1",
+      "instrument": "I6",
+      "used_for": "Q-C, NK-2",
+      "counted": {"skills": 6, "agents": 1, "commands": 18, "items_total": 25, "has_CLAUDE_md": true, "has_settings_json": true},
+      "targets_configured": 1
+    },
+    {
+      "q": "https://api.github.com/repos/sanketsudake/dotfiles/git/trees/HEAD?recursive=1",
+      "instrument": "I6",
+      "used_for": "Q-C, NK-2, NK-5",
+      "counted": {"skills": 39, "agents": 6, "commands": 2, "items_total": 47, "files_total": "200+"},
+      "targets_configured": 4,
+      "targets": ["Claude (.claude/settings.json)", "Devin (packages/devin/config.json)", "Copilot (packages/copilot/settings.json)", "Pi (packages/pi/agent/settings.json)"],
+      "note": "Carries both packages/claude/CLAUDE.md and packages/agents/AGENTS.md."
+    },
+    {
+      "q": "https://api.github.com/repos/jckeen/dotfiles/git/trees/HEAD?recursive=1",
+      "instrument": "I6",
+      "used_for": "Q-C, NK-2, NK-5",
+      "counted": {"skills": 28, "agents": 20, "items_total": 48, "files_total": "~280"},
+      "targets_configured": 3,
+      "targets": ["Claude (claude/, AGENTPACK.yaml)", "Codex (codex/config.toml.example)", "Antigravity (antigravity/mcp_config.json.example)"],
+      "note": "Carries CLAUDE.md, AGENTS.md and MULTI-AGENT.md side by side."
+    },
+    {
+      "q": "https://hn.algolia.com/api/v1/search?query=CLAUDE.md+team&tags=comment&hitsPerPage=40",
+      "instrument": "I3b",
+      "used_for": "Q-B",
+      "note": "44 hits; 6 concerned more than one person, 38 were solo setups."
+    },
+    {
+      "q": "https://hn.algolia.com/api/v1/search?query=manage%20skills%20files&tags=story",
+      "instrument": "I3b",
+      "found": {"objectID": 49589914, "title": "Ask HN: How do you manage skills files?", "points": 305, "num_comments": 274, "created_at": "2026-09-06"},
+      "note": "The single most on-topic source found in either round. Two days old at collection."
+    },
+    {
+      "q": "https://hn.algolia.com/api/v1/items/49589914",
+      "instrument": "I3b",
+      "read": "in full, in four passes with different extraction prompts",
+      "used_for": "Q-A, Q-B, Q-D, Q-E"
+    },
+    {
+      "q": "https://hn.algolia.com/api/v1/search?query=skills+secrets+api+keys+agent&tags=comment&hitsPerPage=30",
+      "instrument": "I3b",
+      "nbHits": 14,
+      "used_for": "Q-D"
+    }
+  ],
+  "quotes": {
+    "Q-B": [
+      {"id": 49592107, "author": "joshuanapoli", "text": "We have some company-managed skills, that help coding agents find the relationships between our repos, and our conventions, architecture, and other high-level decisions. These are supposed to be portable between agents, and so distributing them is currently awkward."},
+      {"id": 49592107, "author": "joshuanapoli", "text": "We have a bootstrap script to deploy company-managed skills to each developer's personal skills."},
+      {"id": 49594219, "author": "mstr32", "text": "The main problem I encountered around this is that skills need to be edited across projects and across team members in a controlled way. Git is of course required for this but is not enough"},
+      {"id": 49594125, "author": "chandureddyvari", "text": "I commit them to git (so complete team leverages them), each repo has kind of different skills and the skills are the ones which I update at least twice a week."},
+      {"id": 49594183, "author": "theletterf", "text": "We keep the skills in a repo, where an agentic workflow runs biweekly to check if their content drifted compared to the docs and opens PRs"},
+      {"id": 49604214, "author": "floriangoebel", "text": "A big caveat here is though that now you need to treat your skills repo very carefully as mistakes in there can easily spread to all of the new code you write using a coding agent."},
+      {"id": 49594132, "author": "starefossen", "text": "Public skill registry with profile-based syncing tool for Norwegian Government."}
+    ],
+    "Q-C": [
+      {"id": 49594125, "author": "chandureddyvari", "text": "I've got 9 skills so far (many people have 100s installed from marketplaces and plugins)"},
+      {"id": 49594490, "author": "yatsyk", "text": "Skills live in two source-of-truth git repos (private and public). Agents edit skills by my request, and syncs to all coding agents ~/.claude/skills/, ~/.codex/skills, ~/.pi/agent/skills, ~/.config/opencode/skills etc."},
+      {"id": 49594140, "author": "lazy_afternoons", "text": "I have a separate repo which has to be pulled locally and the skills and agents are sym linked to projects."},
+      {"id": 49592102, "author": "jameshiew", "text": "manage them as part of my dotfiles using chezmoi. A .agents/skills/ directory + a symlink"},
+      {"id": 49594053, "author": "pletnes", "text": "skills in my dotfiles repo, then symlink them to my home directory and/or projects"},
+      {"id": 49594119, "author": "Sherveen", "text": "I have a repo/project called Loadouts & Summons... symlinked to all my dev machines."}
+    ],
+    "Q-A": [
+      {"id": 49594099, "author": "politician", "text": "I wrote a small command-line tool that installs skill packs into agent-specific project folders."},
+      {"id": 49595485, "author": "toffelx", "text": "configuration file of marketplaces and other skills to fetch... run skills.py to clean/fetch"},
+      {"id": 49595591, "author": "FailMore", "text": "relying on vercel-labs/skills is sound. It handles global installs for a wide range"},
+      {"id": 49594183, "author": "theletterf", "text": "agentic workflow runs biweekly to check if their content drifted compared to the docs and opens PRs"},
+      {"id": 49594705, "author": "hypfer", "text": "Are there any 'skills' at all that have proven to be useful?"},
+      {"id": 49595216, "author": "RicDan", "text": "If you're using skills to force the AI to fullfill some must criterias, it's not going to work"},
+      {"id": 49594064, "author": "winternewt", "text": "sometimes it doesn't follow the instructions well. I have a skill for that too"}
+    ],
+    "Q-D": [
+      {"id": 49590065, "author": "imadtaieber", "text": "a skills file can just easily say 'We connect to bob using key Z and user X.'"},
+      {"id": 47237328, "author": "decodebytes", "text": "we give agents our API keys as environment variables, and a single prompt injection can exfiltrate them via env, /proc/PID/environ, or just an outbound HTTP call", "tool": "phantom token pattern - a credential-injection proxy outside the sandbox"},
+      {"id": 46908256, "author": "sathish316", "text": "secure way to provide access to additional non-sensitive API keys and secrets is by introducing a secure vault and ensuring skills retrieve credentials from it using time-scoped access"},
+      {"id": 47005411, "author": "stcredzero", "text": "agents can script and develop without having any keys... stored in our seks-broker... injects the keys inside seksh"},
+      {"id": 46889258, "author": "senza1dio", "text": "1.5M API keys leaked... zero content scanning, no sandbox for skills", "caveat": "the story this comment sits on is [dead]; treat the number as unverified"}
+    ],
+    "Q-E": [
+      {"id": 49591526, "author": "SyneRyder", "text": "I'm not sure I've ever used any of them, and when I've looked at them it's been some YouTuber trying to make money."},
+      {"id": 49595691, "author": "resonious", "text": "I do not understand the appeal of skill shopping. The one exception I have is things like the Axiom Apple development skills."},
+      {"id": 49591803, "author": "osr00", "text": "I try to keep my collection of community skills short, usually a few established names (mattpocock, mcollina, trailsofbit)."},
+      {"id": 49595603, "author": "sinuhe69", "text": "Prefers creating skills from session learnings rather than downloading published ones."},
+      {"id": 49595170, "author": "jve", "text": "Last week I had to reuse homemade skills on different project. I very much liked the AI proposed solution and it works quite well: ship as a plugin and add your git repo as a marketplace."}
+    ]
+  }
+}

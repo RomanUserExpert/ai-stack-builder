@@ -331,7 +331,16 @@ list of the six sentences that had to be rewritten because they were the specifi
 in front of them. **Two main-job candidates survived**, which the method says means two products; the
 second is **Q12**, and §6 forbids us to build it. The main job reads as **transfer** — *what I got
 working here has to keep working there* — where §2 reads as **assembly with validation**. Stated as a
-difference of emphasis, in one sentence, and **not applied.** Still to do: the matrix, the audit, the
+difference of emphasis, in one sentence, and **not applied.**
+
+**The matrix (step 5) is in the same file.** Three jobs for the MVP core — important for the primary
+persona **and** not closed by the market: the main job, *move the work without moving the secrets*,
+and *fix it once and have the fix reach every copy*. Two jobs scored 3 for the primary and are **not**
+in the core, and the reasons matter more than the shortlist: *not be quietly overruled* is a
+constraint on every feature rather than a feature, and *stop suspecting half of it is dead weight* has
+an **empty feature cell**, because §6 runs nothing on anyone's machine. **P3's column is `[?]` in all
+nine rows.** Six specified features close only a job whose every cell is `[?]` — **a list of
+hypotheses about an absence, not a cut list**; nothing is removed. Still to do: the audit and the
 reconciliation.
 **Stage 7 has not started.**
 
