@@ -118,11 +118,12 @@ a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
 /* ---------- shell ---------- */
 .shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
 @media (min-width:1080px){
-  .shell{display:grid;grid-template-columns:176px minmax(0,1fr);gap:48px;padding:0 32px 120px}
+  .shell{display:grid;grid-template-columns:208px minmax(0,1fr);gap:44px;padding:0 32px 120px}
+  .lessons{grid-column:1;grid-row:1 / span 4}
   .mast{grid-column:2;grid-row:1}
-  .rail{grid-column:1;grid-row:2}
-  main{grid-column:2;grid-row:2}
-  .foot{grid-row:3}
+  .rail{grid-column:2;grid-row:2}
+  main{grid-column:2;grid-row:3}
+  .foot{grid-column:2;grid-row:4}
 }
 .col{max-width:100%}
 .col>*{max-width:74ch}
@@ -157,49 +158,35 @@ a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
 }
 .facts dd small{font-size:11.5px;color:var(--ink-3);display:block;margin-top:6px;font-weight:400;letter-spacing:0}
 
-/* ---------- rail ---------- */
 .rail{
-  position:sticky;top:12px;z-index:20;margin:12px 0 4px;padding:8px 12px;
-  background:var(--surface);border:1px solid var(--rule);border-radius:10px;box-shadow:var(--shadow)
+  position:sticky;top:0;z-index:20;margin:0;
+  background:var(--paper);border-bottom:1px solid var(--rule);
 }
-.rail ol{display:flex;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail::after{
+  content:"";position:absolute;right:0;top:0;bottom:1px;width:40px;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--paper) 72%);
+}
+.rail ol{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
 .rail ol::-webkit-scrollbar{display:none}
 .rail li{flex:0 0 auto;margin:0}
 .rail a{
-  display:block;white-space:nowrap;padding:5px 11px;border:1px solid var(--rule);border-radius:4px;
-  font-size:12.5px;font-weight:500;color:var(--ink-2);background:var(--bg)
+  display:flex;align-items:baseline;gap:7px;white-space:nowrap;
+  padding:12px 13px 10px;border:0;border-bottom:2px solid transparent;border-radius:0;
+  font-size:13px;font-weight:500;color:var(--ink-3);background:none;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
 }
-.rail a:hover{border-color:var(--accent);color:var(--ink)}
-.rail a.on{border-color:var(--accent);color:var(--accent);background:var(--accent-06)}
-.rail a b{display:none}
+.rail a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.rail a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.rail a b{
+  display:inline;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:600;
+}
+.rail a.on b{color:var(--accent)}
 .railhead{display:none}
 
-@media (min-width:1080px){
-  .rail{
-    display:block;position:sticky;top:0;align-self:start;padding:64px 0 0;max-height:100vh;
-    overflow-y:auto;margin:0;background:none;border:0;border-radius:0;box-shadow:none;z-index:auto
-  }
-  .railhead{
-    display:block;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--ink-3);font-weight:600;margin:0 0 14px;padding-left:15px
-  }
-  .rail ol{display:block;overflow:visible;border-left:1px solid var(--rule)}
-  .rail a{
-    display:block;padding:7px 0 7px 15px;margin-left:-1px;border:0;border-radius:0;
-    border-left:2px solid transparent;white-space:normal;background:none;
-    font-size:13px;line-height:1.35;color:var(--ink-3);font-weight:400
-  }
-  .rail a:hover{color:var(--ink);border-left-color:var(--rule)}
-  .rail a.on{color:var(--ink);border-left-color:var(--accent);font-weight:600;background:none}
-  .rail a b{
-    display:block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--accent);font-weight:600;margin-bottom:2px
-  }
-}
-
 /* ---------- sections ---------- */
-section{padding:72px 0 8px;scroll-margin-top:76px}
-@media (min-width:1080px){section{scroll-margin-top:24px}}
+section{padding:64px 0 8px;scroll-margin-top:72px}
+@media (min-width:1080px){section{scroll-margin-top:62px}}
 section+section{border-top:1px solid var(--rule-soft)}
 .stagehead{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
 .stagenum{
@@ -548,20 +535,23 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 .pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
 .pick p{margin:0;font-size:14px;color:var(--ink-2)}
 
-/* --- the course rail: which phase of the project this page is ------- */
-.lessons{border-bottom:1px solid var(--rule);background:var(--sunken)}
-.lessons .inner{max-width:1216px;margin:0 auto;padding:0 32px}
+/* --- the course lessons: a left sidebar on wide screens, a strip below --- */
+.lessons{
+  border-bottom:1px solid var(--rule);background:var(--sunken);
+  margin:0 -32px 0;padding:0 32px;
+}
 .lessons ol{
-  display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0;
+  display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+  list-style:none;margin:0;padding:0;
   font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
 }
-.lessons li{margin:0}
+.lessons ol::-webkit-scrollbar{display:none}
+.lessons li{margin:0;flex:0 0 auto}
 .lessons a,.lessons span{
   display:flex;align-items:baseline;gap:6px;padding:9px 11px 8px;
   border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
   white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
 }
-.lessons a{border-bottom-color:transparent}
 .lessons a:hover{color:var(--ink);border-bottom-color:var(--rule)}
 .lessons b{font-weight:700;color:var(--ink-2)}
 .lessons a:hover b{color:var(--ink)}
@@ -569,10 +559,27 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 .lessons .now b{color:var(--accent)}
 .lessons .soon{color:var(--ink-3);opacity:.55;cursor:default}
 .lessons .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
-@media (max-width:1079px){
-  .lessons ol{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
-  .lessons ol::-webkit-scrollbar{display:none}
-  .lessons .inner{padding:0 16px}
+.lessonshead{display:none}
+
+@media (min-width:1080px){
+  .lessons{
+    position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;
+    margin:0;padding:66px 0 32px;background:none;border:0;
+  }
+  .lessonshead{
+    display:block;font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 14px;padding-left:13px;
+  }
+  .lessons ol{display:block;overflow:visible;border-left:1px solid var(--rule);font-size:12.5px}
+  .lessons a,.lessons span{
+    display:grid;grid-template-columns:1.85em minmax(0,1fr);gap:6px;align-items:baseline;
+    padding:7px 0 7px 13px;margin-left:-1px;white-space:normal;line-height:1.32;
+    border-bottom:0;border-left:2px solid transparent;
+  }
+  .lessons a:hover{border-left-color:var(--rule)}
+  .lessons .now{border-left-color:var(--accent)}
+  .lessons .soon{opacity:.42}
+  .lessons .soon em{display:none}
 }
 
 /* --- skip link and the lesson meta line --- */
@@ -591,8 +598,11 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 <body>
 <a class="skip" href="#content">Skip to the material</a>
 
+<div class="shell">
+
 <nav class="lessons" aria-label="Course lessons">
   <div class="inner">
+    <p class="lessonshead">Lessons</p>
     <ol>
       <li><span class="now"><b>01</b>Research and benchmark</span></li>
       <li><a href="6-personas/personas.html"><b>02</b>Personas and JTBD</a></li>
@@ -610,7 +620,6 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
   </div>
 </nav>
 
-<div class="shell">
 
 <header class="mast">
   <p class="eyebrow">Lesson 01 · Research and benchmark</p>
@@ -1248,7 +1257,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
   <dl class="facts wide">
     <div><dt>Image captures</dt><dd>143<small>34 on this page</small></dd></div>
-    <div><dt>Source documents</dt><dd>45<small>across seven stages</small></dd></div>
+    <div><dt>Source documents</dt><dd>47<small>across seven stages</small></dd></div>
     <div><dt>Raw data logs</dt><dd>12<small>queries and results</small></dd></div>
     <div><dt>Products captured</dt><dd>15<small>three groups</small></dd></div>
     <div><dt>Flows</dt><dd>12<small>10 closed</small></dd></div>
@@ -1272,7 +1281,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
 <footer class="foot">
   <span>AI Stack Builder · research phase closed 2 September 2026</span>
-  <span>143 captures · 36 source documents · 15 scored cells</span>
+  <span>143 captures · 47 source documents · 15 scored cells</span>
 </footer>
 
 </div>
@@ -1338,24 +1347,51 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
 (function(){
   var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
-  if(!links.length || !('IntersectionObserver' in window)) return;
-  var map = {};
-  links.forEach(function(a){
+  if(!links.length) return;
+  var rail = document.querySelector('.rail');
+  var ol   = rail ? rail.querySelector('ol') : null;
+
+  var map = links.map(function(a){
     var el = document.querySelector(a.getAttribute('href'));
-    if(el) map[el.id] = a;
-  });
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        links.forEach(function(a){ a.classList.remove('on'); });
-        if(map[e.target.id]) map[e.target.id].classList.add('on');
-      }
-    });
-  }, { rootMargin: '-10% 0px -75% 0px', threshold: 0 });
-  Object.keys(map).forEach(function(id){
-    var el = document.getElementById(id);
-    if(el) io.observe(el);
-  });
+    return el ? { a:a, el:el } : null;
+  }).filter(Boolean);
+  if(!map.length) return;
+
+  var current = null;
+
+  /* One tab is always active: the last section whose top has passed the bar.
+     An IntersectionObserver band leaves the indicator blank between sections,
+     which is wrong for something shaped like tabs. */
+  function sync(){
+    /* a section becomes current once its top reaches the upper third of the
+       viewport, not when it touches the bar - otherwise the heading is already
+       well in view while the tabs still point at the section above it. */
+    var line = Math.max(110, window.innerHeight * 0.32), best = map[0], i;
+    for(i = 0; i < map.length; i++){
+      if(map[i].el.getBoundingClientRect().top <= line) best = map[i];
+    }
+    if(best === current) return;
+    current = best;
+    for(i = 0; i < links.length; i++) links[i].classList.remove('on');
+    best.a.classList.add('on');
+
+    /* keep the active tab inside the horizontal scroller */
+    if(ol && ol.scrollWidth > ol.clientWidth + 4){
+      var t = best.a.getBoundingClientRect(), o = ol.getBoundingClientRect();
+      if(t.left < o.left + 12)       ol.scrollLeft += t.left  - o.left  - 28;
+      else if(t.right > o.right - 48) ol.scrollLeft += t.right - o.right + 56;
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ sync(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  sync();
 })();
 </script>
 </body>

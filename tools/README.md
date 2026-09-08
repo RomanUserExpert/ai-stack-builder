@@ -1,8 +1,12 @@
 # tools — the research page generators
 
 **Two generated pages, one design language, published as lessons 01 and 02 of the course.**
-A tab strip on both lists **all twelve course lessons**; the page you are on is marked current and
-the ten unbuilt ones are marked *soon*. **That list is the course's and is fixed** — it is not the
+**The lesson list is a left sidebar; the section anchors are a sticky horizontal tab bar.** The
+sidebar lists **all twelve course lessons**, current one marked, the ten unbuilt ones *soon*. The tab
+bar sticks to the top of the content column, and a scroll handler keeps **exactly one tab active** —
+the last section whose top has reached the upper third of the viewport — and scrolls that tab into
+view when the bar overflows. An `IntersectionObserver` band was tried first and left the indicator
+blank between sections, which is wrong for something shaped like tabs. **That list is the course's and is fixed** — it is not the
 project's build phases. **Adding a third page means editing the strip in both templates and adding
 the file to `.vercelignore`, which is a whitelist.**
 [`../research/research.html`](../research/research.html) is lesson 01, research stages 1–5;
