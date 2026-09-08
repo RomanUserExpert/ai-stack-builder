@@ -2,8 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/research/research" }
+  "_comment": "A rewrite here keeps the address bar at / while serving /research/research, so every relative link on the page resolves against the wrong base and 404s. A redirect moves the browser to the real path instead, which keeps the same links working both on the site and when the file is opened from disk.",
+  "redirects": [
+    { "source": "/", "destination": "/research/research", "permanent": false }
   ],
   "headers": [
     {
