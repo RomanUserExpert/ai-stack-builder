@@ -717,6 +717,12 @@ standing on `[?]` or on nothing. This section is what happened next. **Three que
 critique, two more were raised by its dangerous list**, and all five were taken to the public record
 in one sitting.
 
+**There is a page for all of this.** [`6-personas/personas.html`](6-personas/personas.html), built
+2026-09-08 from the audited files, renders the three persona cards with the primary marked, the job
+hierarchy, and the matrix as a table with every `✓` / `*` / `?` visible. It shares its design language
+with [`research.html`](research.html) — the same tokens, shell and scroll-spy, lifted at build time so
+the two cannot drift — and `research.html` now carries **Stage 07 · Jobs** and links to it.
+
 **The source document is [`6-personas/re-research-2.md`](6-personas/re-research-2.md)** — question,
 instrument, log, result — with its capture log in
 [`_re-research-2-log.json`](6-personas/_re-research-2-log.json). **This is the digest entry; that is

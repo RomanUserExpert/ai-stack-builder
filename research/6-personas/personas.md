@@ -1,5 +1,10 @@
 # Personas — three, one primary
 
+> **There is a page.** [`personas.html`](personas.html) renders this file and
+> [`../7-jobs-to-be-done/jtbd.md`](../7-jobs-to-be-done/jtbd.md) together — cards, hierarchy, matrix,
+> marks visible — and it is linked from the research page. **This markdown is the source; the page is
+> the read.**
+
 > **PROVISIONAL.** Written 2026-09-08, stage 6 step 3, from
 > [`inventory.md`](inventory.md) (the register and the axes),
 > [`re-research.md`](re-research.md) (four instruments on the public record) and

@@ -1,5 +1,9 @@
 # Jobs to be done — one main job, four on the way to it
 
+> **There is a page.** [`../6-personas/personas.html`](../6-personas/personas.html) renders the
+> hierarchy and the matrix beside the personas they came from, with every mark visible. **This
+> markdown is the source; the page is the read.**
+
 > **PROVISIONAL.** Written 2026-09-08, stage 7 **steps 1 to 5**, from
 > [`6-personas/personas.md`](../6-personas/personas.md) and the register and axes in
 > [`6-personas/inventory.md`](../6-personas/inventory.md). **The audit (step 6) and the
@@ -64,8 +68,11 @@ sentence, which is why P2 exists as a persona rather than as a moment.
 - `*` [interview Q5](../6-personas/agent-setup-interview.md) — four MCP servers silently not starting on Linux, twenty minutes spent believing *the model had gotten worse*; [Q11](../6-personas/agent-setup-interview.md) — Node 18 against a server needing 20+, *"broken config doesn't announce itself, **it degrades quietly**"*.
 - `✓` `V` [`benchmark.md`](../4-benchmark/benchmark.md) — **B4, produce an artefact and hand it over, is the weakest flow in the industry, nobody above 4**, because no product has a surface that says anything about the machine its artefact lands on.
 
-**Standing. `✓` + `*`.** Both instrument families point at it, and the two loudest numbers in the
-repository — 6,592 and 182 — are both inside it.
+**Standing. `✓` + `*`.** Both instrument families point at it, and **the loudest number in the whole
+evidence base — 6,592 — sits inside it**, as does the 182 that stage 3 called the loudest pain in the
+ecosystem. **Corrected 2026-09-08:** this sentence said *the two loudest numbers*, which the audit
+refuted — 182 is not second, and 1,416, 624, 472, 446 and 245 all sit above it
+([`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md), J-14).
 
 **It passes the three tests.** It names no mechanism and no surface. It survives a change of product:
 a symlink farm, a dotfiles repo, a package manager and a hand-written bootstrap script all close it

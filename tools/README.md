@@ -1,4 +1,11 @@
-# tools — the research page generator
+# tools — the research page generators
+
+**Two generated pages, one design language.**
+[`../research/research.html`](../research/research.html) is the whole phase;
+[`../research/6-personas/personas.html`](../research/6-personas/personas.html) is stages 6 and 7 —
+the persona cards, the job hierarchy and the jobs-against-personas matrix. **The second one pulls its
+tokens, its shell and its scroll-spy out of the first at build time**, so the two cannot drift: edit
+the shared `<style>` block in `research-page.tpl.html` and both pages move.
 
 [`../research/research.html`](../research/research.html) is a **generated** file: one self-contained page with all 34
 screen captures embedded as data URIs, so it opens from disk and can be sent to someone as a single
@@ -7,11 +14,16 @@ file with nothing to fetch. Do not hand-edit it — edit the template and rebuil
 ```
 python tools/build_page.py        # compress + embed the captures  -> tools/_research-page.build.html
 python tools/make_standalone.py   # wrap in a full HTML document   -> research/research.html
+python tools/build_personas.py    # personas + jobs, no captures   -> research/6-personas/personas.html
 ```
+
+**Run all three after touching `research-page.tpl.html`**, because its `<style>` block is shared.
 
 | File | What it is |
 |---|---|
-| `research-page.tpl.html` | The page itself — content, CSS, the small scroll-spy script. Captures are referenced as `{{IMG:key}}` placeholders. |
+| `research-page.tpl.html` | The research page — content, **the CSS both pages share**, the small scroll-spy script. Captures are referenced as `{{IMG:key}}` placeholders. |
+| `personas-page.tpl.html` | The personas-and-jobs page: a title and a body, and **no styles of its own**. Everything visual comes from the shared block. |
+| `build_personas.py` | Lifts the shared `<style>` and the scroll-spy out of `research-page.tpl.html`, wraps this page's body in a standalone document, and asserts the tokens, the primary card, the matrix and every rail anchor survived. No images, so no embedding step. |
 | `build_page.py` | Resolves each placeholder: reads the capture from `research/`, resizes to `MAXW`, re-encodes as JPEG at `QUALITY`, embeds it as a data URI. Fails loudly on a missing file, an unknown placeholder or an unsubstituted one. |
 | `make_standalone.py` | Wraps the build output in `<!doctype html>` with a charset, a viewport and the small reset the artifact host would otherwise supply. **Without this step the page mojibakes** — every em dash, `×` and `⌘` in it depends on the charset declaration. |
 
