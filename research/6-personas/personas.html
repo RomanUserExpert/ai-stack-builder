@@ -11,7 +11,7 @@ body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
 </style>
-<title>AI Stack Builder &mdash; People and Jobs</title>
+<title>Lesson 2 &mdash; Personas and JTBD &middot; AI Stack Builder</title>
 
 <style>
 /* Components for this page live in research-page.tpl.html and are pulled in
@@ -558,11 +558,11 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 .lessons .inner{max-width:1216px;margin:0 auto;padding:0 32px}
 .lessons ol{
   display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0;
-  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.05em;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
 }
 .lessons li{margin:0}
 .lessons a,.lessons span{
-  display:flex;align-items:baseline;gap:8px;padding:13px 16px 12px;
+  display:flex;align-items:baseline;gap:6px;padding:9px 11px 8px;
   border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
   white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
 }
@@ -573,7 +573,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 .lessons .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .lessons .now b{color:var(--accent)}
 .lessons .soon{color:var(--ink-3);opacity:.55;cursor:default}
-.lessons .soon em{font-style:normal;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.lessons .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
 @media (max-width:1079px){
   .lessons ol{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
   .lessons ol::-webkit-scrollbar{display:none}
@@ -596,15 +596,21 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 <body>
 <a class="skip" href="#content">Skip to the material</a>
 
-<nav class="lessons" aria-label="Project phases">
+<nav class="lessons" aria-label="Course lessons">
   <div class="inner">
     <ol>
       <li><a href="../research.html"><b>01</b>Research and benchmark</a></li>
-      <li><span class="now"><b>02</b>People and jobs</span></li>
-      <li><span class="soon"><b>03</b>Design system <em>&middot; next</em></span></li>
-      <li><span class="soon"><b>04</b>Mockups <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>05</b>Static frontend <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>06</b>Logic <em>&middot; soon</em></span></li>
+      <li><span class="now"><b>02</b>Personas and JTBD</span></li>
+      <li><span class="soon"><b>03</b>Information architecture <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>04</b>Prototyping and wireframing <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>05</b>Tone of voice and microcopy <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>06</b>Concept <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>07</b>UI assembly <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>08</b>Design tokens <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>09</b>Design system <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>10</b>Responsive <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>11</b>Animation and micro-interactions <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>12</b>Handoff and documentation <em>&middot; soon</em></span></li>
     </ol>
   </div>
 </nav>
@@ -612,9 +618,9 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 <div class="shell">
 
 <header class="mast">
-  <p class="eyebrow">Phase 02 · People and jobs</p>
+  <p class="eyebrow">Lesson 02 · Personas and JTBD</p>
   <h1>Who this is for, and what they are trying to get done</h1>
-  <p class="lessonmeta">Phase <strong>2 of 6</strong> &middot; research stages <strong>06 and 07</strong> &middot; <strong>provisional</strong> until five practitioner conversations &middot; collected <strong>8 Sep 2026</strong> &middot; source brief: <strong>CLAUDE.md</strong></p>
+  <p class="lessonmeta">Lesson <strong>2 of 12</strong> &middot; research stages <strong>06 and 07</strong> &middot; <strong>provisional</strong> until five practitioner conversations &middot; collected <strong>8 Sep 2026</strong> &middot; source brief: <strong>CLAUDE.md</strong></p>
   <p class="standfirst">Three behavioural personas and a job hierarchy for <strong>AI Stack Builder</strong>, built only from what the research actually established. Every block carries a mark saying how it is known. Roughly a third of it is still unknown, and those parts are drawn as hypotheses rather than quietly filled in.</p>
   <dl class="facts">
     <div><dt>Personas</dt><dd>3<small>one primary</small></dd></div>
@@ -626,8 +632,8 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
   </dl>
 </header>
 
-<nav class="rail" aria-label="In this phase">
-  <p class="railhead">In this phase</p>
+<nav class="rail" aria-label="In this lesson">
+  <p class="railhead">In this lesson</p>
   <ol>
     <li><a href="#read"><b>00</b>How to read this</a></li>
     <li><a href="#evidence"><b>01</b>The evidence</a></li>
@@ -667,7 +673,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
   <div class="stagehead"><span class="stagenum">01</span><h2>The evidence</h2></div>
   <p class="qline">What was read before any of this was written, and the seven things it turned up.</p>
 
-  <p>Phase 01 established what vendors sell and what breaks. <strong>None of it established who the person is.</strong> This phase reads the public record with new instruments and then, for the first time, <strong>asks somebody</strong>. It is unfinished: four more conversations are owed.</p>
+  <p>Lesson 01 established what vendors sell and what breaks. <strong>None of it established who the person is.</strong> This phase reads the public record with new instruments and then, for the first time, <strong>asks somebody</strong>. It is unfinished: four more conversations are owed.</p>
 
 <h3>What was read, and what could not be</h3>
   <p>The <strong>Claude Code issue tracker &mdash; 89,923 issues</strong>, which is the tracker of the product this audience actually uses and which stage 3 never opened; the Codex and Gemini CLI trackers; <strong>1,762 Hacker News comments</strong> downloaded from eight threads and read in full; Stack Overflow; GitHub repository search. <strong>Reddit blocks our crawler</strong>, so the largest venue in the space is missing by technical accident rather than by judgement.</p>
@@ -1176,7 +1182,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 </main>
 
 <footer class="foot">
-  <p>Stages 06 and 07 of the research phase for <strong>AI Stack Builder</strong> &mdash; personas and jobs to be done. <strong>Provisional</strong> until five practitioner conversations are filed. Sources, capture logs and the claim-by-claim audit live in the repository beside this page.</p>
+  <p>Lesson 02 &mdash; research stages 06 and 07 for <strong>AI Stack Builder</strong> &mdash; personas and jobs to be done. <strong>Provisional</strong> until five practitioner conversations are filed. Sources, capture logs and the claim-by-claim audit live in the repository beside this page.</p>
 </footer>
 
 </div>

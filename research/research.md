@@ -723,9 +723,9 @@ hierarchy, and the matrix as a table with every `✓` / `*` / `?` visible. It sh
 with [`research.html`](research.html) — the same tokens, shell and scroll-spy, lifted at build time so
 the two cannot drift.
 
-**The two pages are navigated as the project's first two phases.** A tab strip on both lists the six
-phases of the agreed order of work: **01 Research and benchmark** carries stages 1–5, **02 People and
-jobs** carries stages 6–7, and the four still to come are marked *soon*. Each page opens with an
+**The two pages are lessons 01 and 02 of the course this work is homework for.** A tab strip on both
+lists **all twelve lessons**, current one marked, the ten unbuilt ones *soon*: **01 Research and
+benchmark** carries stages 1–5, **02 Personas and JTBD** carries stages 6–7. Each page opens with an
 **Overview** — what we saw, what we decided — and closes on its evidence.
 
 **The source document is [`6-personas/re-research-2.md`](6-personas/re-research-2.md)** — question,

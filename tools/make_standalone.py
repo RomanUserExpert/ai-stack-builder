@@ -45,7 +45,7 @@ print("wrote %s  (%.2f MB)" % (DST, size / 1048576.0))
 
 # sanity checks
 check = io.open(DST, encoding="utf-8").read()
-for needle in ("<!doctype html>", 'charset="utf-8"', "<title>AI Stack Builder Research</title>",
+for needle in ("<!doctype html>", 'charset="utf-8"', "Research and benchmark",
                'class="shell"', "</body>", "</html>"):
     assert needle in check, "MISSING: " + needle
 assert check.count("<body>") == 1 and check.count("</html>") == 1

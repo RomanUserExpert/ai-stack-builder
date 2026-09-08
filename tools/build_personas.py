@@ -74,7 +74,7 @@ print("wrote %s  (%.0f KB)" % (DST, os.path.getsize(DST) / 1024.0))
 
 check = io.open(DST, encoding="utf-8").read()
 for needle in ("<!doctype html>", 'charset="utf-8"',
-               "People and Jobs</title>",
+               "Personas and JTBD",
                'class="shell"', 'class="pc primary"', 'class="matrix"', "</body>", "</html>"):
     assert needle in check, "MISSING: " + needle
 assert check.count("<body>") == 1 and check.count("</html>") == 1
