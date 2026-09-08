@@ -680,4 +680,15 @@ instruments, and because the split the plan expected collapsed: the one practiti
 **the collection caused the breakage**, so the collector and the person who breaks are one person at
 two moments. **P3, the empty-handed, has no quote and almost no evidence** — and `CLAUDE.md` §8 and
 §11 already ship two surfaces for it. **Still to do in stage 6:** `audit.md`, the page, and **four
-more interviews** — the event that lifts *provisional*. Stage 7 has not started.
+more interviews** — the event that lifts *provisional*.
+
+**Stage 7 started 2026-09-08** — [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md), steps 1–4.
+**The main job is a transfer job:** *when something I have already got working has to live somewhere
+else — a second tool, a new machine, a colleague's laptop — I want it to keep working there without
+me rediscovering everything it quietly depended on.* It merges the three loudest evidenced demands —
+one source across tools (6,592), it does not run on my machine (182), and reassembly filed as feature
+requests (48, 21) — and it puts the weight one step past `CLAUDE.md` §2's *assembly with validation*,
+which is stated there as a difference and not applied. **A second candidate survived** — *know whether
+any of this does anything* — and by the method's own rule two surviving main jobs mean two products;
+that is **Q12**, and it is the one §6 forbids us to build. Four related jobs, three emotional, two
+social, seven in hypotheses. **Still to do:** the matrix, the audit, the reconciliation.

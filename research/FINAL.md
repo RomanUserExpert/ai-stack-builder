@@ -324,6 +324,15 @@ expected, *collector* against *the person who breaks at handover*, **did not hap
 practitioner asked says the collection **caused** the breakage, so the primary merges them, and four
 more Q15 answers are what would refute the merge. **Still to do:** `audit.md`, the page, and four
 more interviews.
+
+**And stage 7 opened the same day.** [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) — steps
+1 to 4: one main job, four related, three emotional, two social, seven hypothesis jobs, and a visible
+list of the six sentences that had to be rewritten because they were the specification with a *when*
+in front of them. **Two main-job candidates survived**, which the method says means two products; the
+second is **Q12**, and §6 forbids us to build it. The main job reads as **transfer** — *what I got
+working here has to keep working there* — where §2 reads as **assembly with validation**. Stated as a
+difference of emphasis, in one sentence, and **not applied.** Still to do: the matrix, the audit, the
+reconciliation.
 **Stage 7 has not started.**
 
 ### The evidence rule changed, and it applies to this file too

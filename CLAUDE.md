@@ -31,6 +31,15 @@ and [`agent-setup-interview.md`](research/6-personas/agent-setup-interview.md), 
 *the empty-handed*, the last being the persona §8's scope switch and §11's shelf already ship for and
 **nobody has met**. Still to do: `audit.md`, the page, and **four more interviews**.
 
+**Stage 7 started on 2026-09-08 and is four steps in.**
+[`research/7-jobs-to-be-done/jtbd.md`](research/7-jobs-to-be-done/jtbd.md) holds **one main job, four
+related, three emotional and two social**, each with its persona, its source and its mark, plus seven
+hypothesis jobs. **Two main-job candidates survived, which by the method's own rule means two
+products** — the second is Q12 and it is the one §6 forbids us to build. The main job is worded as a
+**transfer** job where §2 words the value as **assembly with validation**; that difference is stated
+in `jtbd.md` §1 and **is not applied here.** Still to do: the matrix, the audit and the
+reconciliation.
+
 **Nothing has been applied to this file.** Stage 6 has produced **nine proposals** that touch §2, §5,
 §6, §9 and §11 — including a narrowing of §2's *"nothing does this today"* and a new safety risk under
 §11's public shelf — and they are collected in

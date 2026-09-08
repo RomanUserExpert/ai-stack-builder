@@ -7,7 +7,18 @@ personas that decides what to build first and what not to build at all — adapt
 screens are already specified. That last fact is the whole difficulty of this stage and is dealt
 with below.
 
-Status: **not started.** Blocked on stage 6's `personas.md` and `audit.md`.
+Status, **2026-09-08: steps 1–4 are done; steps 5, 6 and 7 are not.**
+[`jtbd.md`](jtbd.md) holds the main-job candidates and the choice, the hierarchy — **one main job,
+four related, three emotional, two social** — the *Rewritten* list from the feature-name test, and
+**seven hypothesis jobs**. **Still owed:** the matrix (step 5), `audit.md` (step 6), the
+reconciliation with the spec (step 7), and the section on the shared page.
+
+**The step-1 rule fired.** Two main-job candidates survived — *make it work somewhere else* and
+*know whether any of this does anything* — and the lesson's rule for that case is that you have two
+products. It is **recorded and not resolved**, because it is already **Q12** in the register and it
+is the one we cannot build. `personas.md` exists; `audit.md` does not, and the jobs were written
+from the personas and the register directly, with each job's standing inherited rather than
+re-argued.
 
 ---
 
