@@ -721,7 +721,12 @@ in one sitting.
 2026-09-08 from the audited files, renders the three persona cards with the primary marked, the job
 hierarchy, and the matrix as a table with every `✓` / `*` / `?` visible. It shares its design language
 with [`research.html`](research.html) — the same tokens, shell and scroll-spy, lifted at build time so
-the two cannot drift — and `research.html` now carries **Stage 07 · Jobs** and links to it.
+the two cannot drift.
+
+**The two pages are navigated as the project's first two phases.** A tab strip on both lists the six
+phases of the agreed order of work: **01 Research and benchmark** carries stages 1–5, **02 People and
+jobs** carries stages 6–7, and the four still to come are marked *soon*. Each page opens with an
+**Overview** — what we saw, what we decided — and closes on its evidence.
 
 **The source document is [`6-personas/re-research-2.md`](6-personas/re-research-2.md)** — question,
 instrument, log, result — with its capture log in

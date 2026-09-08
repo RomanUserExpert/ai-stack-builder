@@ -6,11 +6,27 @@
 </style>
 
 
+<a class="skip" href="#content">Skip to the material</a>
+
+<nav class="lessons" aria-label="Project phases">
+  <div class="inner">
+    <ol>
+      <li><a href="../research.html"><b>01</b>Research and benchmark</a></li>
+      <li><span class="now"><b>02</b>People and jobs</span></li>
+      <li><span class="soon"><b>03</b>Design system <em>&middot; next</em></span></li>
+      <li><span class="soon"><b>04</b>Mockups <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>05</b>Static frontend <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>06</b>Logic <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
 <div class="shell">
 
 <header class="mast">
-  <p class="eyebrow">Research · stages 06 &amp; 07 · <strong>provisional</strong> · 8 Sep 2026</p>
+  <p class="eyebrow">Phase 02 · People and jobs</p>
   <h1>Who this is for, and what they are trying to get done</h1>
+  <p class="lessonmeta">Phase <strong>2 of 6</strong> &middot; research stages <strong>06 and 07</strong> &middot; <strong>provisional</strong> until five practitioner conversations &middot; collected <strong>8 Sep 2026</strong> &middot; source brief: <strong>CLAUDE.md</strong></p>
   <p class="standfirst">Three behavioural personas and a job hierarchy for <strong>AI Stack Builder</strong>, built only from what the research actually established. Every block carries a mark saying how it is known. Roughly a third of it is still unknown, and those parts are drawn as hypotheses rather than quietly filled in.</p>
   <dl class="facts">
     <div><dt>Personas</dt><dd>3<small>one primary</small></dd></div>
@@ -22,20 +38,21 @@
   </dl>
 </header>
 
-<nav class="rail" aria-label="Contents">
-  <p class="railhead">Contents</p>
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
   <ol>
     <li><a href="#read"><b>00</b>How to read this</a></li>
-    <li><a href="#people"><b>01</b>The three personas</a></li>
-    <li><a href="#primary"><b>02</b>Why P1 is primary</a></li>
-    <li><a href="#jobs"><b>03</b>The jobs</a></li>
-    <li><a href="#matrix"><b>04</b>The matrix</a></li>
-    <li><a href="#build"><b>05</b>What to build first</a></li>
-    <li><a href="#hyp"><b>06</b>Hypotheses</a></li>
+    <li><a href="#evidence"><b>01</b>The evidence</a></li>
+    <li><a href="#people"><b>02</b>The three personas</a></li>
+    <li><a href="#primary"><b>03</b>Why P1 is primary</a></li>
+    <li><a href="#jobs"><b>04</b>The jobs</a></li>
+    <li><a href="#matrix"><b>05</b>The matrix</a></li>
+    <li><a href="#build"><b>06</b>What to build first</a></li>
+    <li><a href="#hyp"><b>07</b>Hypotheses</a></li>
   </ol>
 </nav>
 
-<main>
+<main id="content">
 
 <!-- ============ HOW TO READ ============ -->
 <section id="read" class="col">
@@ -57,9 +74,34 @@
   <p class="tnote"><strong>Provisional, and the label lifts on one event.</strong> Five practitioner conversations, filed as source documents. One has happened. Until then this page can settle conflicts about the check, the handover and the copy &mdash; the parts with evidence &mdash; and it cannot settle positioning.</p>
 </section>
 
+<!-- ============ EVIDENCE ============ -->
+<section id="evidence" class="col">
+  <div class="stagehead"><span class="stagenum">01</span><h2>The evidence</h2></div>
+  <p class="qline">What was read before any of this was written, and the seven things it turned up.</p>
+
+  <p>Phase 01 established what vendors sell and what breaks. <strong>None of it established who the person is.</strong> This phase reads the public record with new instruments and then, for the first time, <strong>asks somebody</strong>. It is unfinished: four more conversations are owed.</p>
+
+<h3>What was read, and what could not be</h3>
+  <p>The <strong>Claude Code issue tracker &mdash; 89,923 issues</strong>, which is the tracker of the product this audience actually uses and which stage 3 never opened; the Codex and Gemini CLI trackers; <strong>1,762 Hacker News comments</strong> downloaded from eight threads and read in full; Stack Overflow; GitHub repository search. <strong>Reddit blocks our crawler</strong>, so the largest venue in the space is missing by technical accident rather than by judgement.</p>
+
+  <h3>Seven findings</h3>
+
+  <div class="decisions wide">
+    <div class="dec"><div class="what"><b>One source, many agents <code>&#10003;</code></b>The loudest demand in the entire evidence base</div><div class="why"><strong>6,592 reactions</strong> on a single request to support a shared instruction file, because &ldquo;it doesn&rsquo;t work as well when collaborating with developers who aren&rsquo;t using the same agent&rdquo;. Thirteen issues across three vendors say the same. That is <strong>thirty-six times</strong> the 182 stage 3 called the loudest pain in the ecosystem &mdash; and it is what our export target selector already aims at.</div></div>
+    <div class="dec"><div class="what"><b>Reassembly cost <code>&#10003;</code></b>Filed after all &mdash; stage 3 looked in the wrong shape</div><div class="why">The <em>0 results</em> that concluded &ldquo;nobody is asking for this&rdquo; was a bug-shaped query on a product whose hosted half was already dead. On live trackers the friction is filed as <em>feature requests</em>: <em>&ldquo;each plugin must duplicate these resources&hellip; maintenance burden&hellip; copies can drift out of sync&rdquo;</em>, and <em>&ldquo;no modular reuse across projects. A developer working across 10+ repos&hellip;&rdquo;</em></div></div>
+    <div class="dec"><div class="what"><b>Twenty to forty <code>&#10003;</code> <code>*</code></b>Not three hundred</div><div class="why"><em>&ldquo;Once you get to 20-30+ skills it becomes difficult to manage&rdquo;</em> &mdash; 151 reactions. The practitioner interviewed keeps 40-something files, ~6k lines, grown from <strong>one file in fourteen months</strong>. That supports the ~30 in the spec and <strong>contradicts the 300-item figure</strong> the chosen shape&rsquo;s accepted cost was priced against. What the <code>&#10003;</code> carries is that one filer wrote that sentence and 151 people reacted to the request around it &mdash; not that 20&ndash;30 is a population figure. <strong>Three reports in total, two of them one person&rsquo;s: the 300 is refuted and no number replaces it.</strong></div></div>
+    <div class="dec"><div class="what"><b>A git repo, symlinked <code>&#10003;</code> <code>*</code></b>Where the material actually lives</div><div class="why">XDG compliance at 446 reactions; a request for <em>a git repo as the source of truth</em> at 151 &mdash; and a request is evidence that this is not yet how that person works. Twenty-five comments <em>say</em> they symlink one source into many formats; nobody was watched doing it, so that half stays self-report however often it is repeated. The private repo symlinked into the agent directories is <strong>one practitioner&rsquo;s own setup</strong>. What people do today is <code>cp -r</code>, symlinks, include directives and hand-written scripts &mdash; including one person who built the automation and still copied by hand.</div></div>
+    <div class="dec"><div class="what"><b>The real doubt <code>&#10003;</code> <code>*</code></b>Not &ldquo;is my set broken&rdquo; but &ldquo;does any of this do anything&rdquo;</div><div class="why"><em>&ldquo;Mostly useless&hellip; 50/50 or less that it even reads the file.&rdquo;</em> <em>&ldquo;I can never quite tell if it&rsquo;s helping anything.&rdquo;</em> An entire thread titled <em>I am morally opposed to updating my instructions file</em>. And from the interview: <em>&ldquo;Maybe half of it, if you want the real answer&hellip; I&rsquo;ve never A/B&rsquo;d anything.&rdquo;</em> Our check answers <em>does this set cohere</em>. That is a different question, and it is now an open register entry.</div></div>
+    <div class="dec"><div class="what"><b>Other people&rsquo;s skills carry real risk <code>&#10003;</code> published</b>13.4% critical, on somebody else&rsquo;s scan</div><div class="why">A security study scanned <strong>3,984 public skills</strong> across two registries: 534 with critical issues, 76 confirmed malicious payloads. <strong>We read the study at origin; we did not re-run it and cannot</strong> &mdash; the vendor sells security tooling, and its own post does not reconcile the headline figure with the table beneath it. The order of magnitude is what this carries. <em>&ldquo;The barrier to publishing? A markdown file and a GitHub account one week old. No code signing. No security review. No sandbox by default.&rdquo;</em> We plan to ship a curated public shelf; <em>checked sources</em> now has to mean checked for content.</div></div>
+    <div class="dec"><div class="what"><b>The ground is no longer empty <code>&#10003;</code></b>&mdash; at the item level, by their own account</div><div class="why">Open-source skill managers with 425 to 4,526 stars <strong>say in their READMEs</strong> that they audit duplicates, pin registry commits, score trust out of 100 and detect version drift. One of them already claims our own <em>conflicts never block, you choose</em> principle. <strong>The stars, the repositories and the push dates are checkable; the capabilities are self-description, and we installed none of them.</strong> What none appears to do is the <strong>set</strong>-level half: resolve a named set, check <em>that set</em>, and hand it over with instructions for the receiving machine.</div></div>
+  </div>
+
+  <p class="tnote"><strong>Then every claim in the personas and the jobs was audited one by one</strong> &mdash; 238 of them, <strong>163 confirmed, 48 hypothesis, 27 invented</strong> &mdash; and the five questions that audit raised were taken back to the public record. That second round <strong>counted four real agent-material repositories file by file</strong>, which is the first instrument here that measures somebody&rsquo;s collection instead of asking them how big it is. It moved five marks and changed one persona&rsquo;s character.</p>
+</section>
+
 <!-- ============ PERSONAS ============ -->
 <section id="people" class="col">
-  <div class="stagehead"><span class="stagenum">01</span><h2>The three personas</h2></div>
+  <div class="stagehead"><span class="stagenum">02</span><h2>The three personas</h2></div>
   <p class="qline">Split on behaviour we can actually see, never on demographics.</p>
 
   <p>Two axes separate them, and both have evidence at both ends. <strong>Does anyone else ever open this material</strong> &mdash; 182 ranked issues across two trackers contain not one about a team, against 6,592 reactions on a request whose stated motive is collaborating with developers on other tools. And <strong>how many tools the same material has to serve</strong> &mdash; 245 reactions for <em>bring it to the editor I already use</em>, against 6,592 for <em>one source for all of them</em>. A third axis, author against consumer, produces the third persona and carries a warning printed on it.</p>
@@ -237,7 +279,7 @@
 
 <!-- ============ PRIMARY ============ -->
 <section id="primary" class="col">
-  <div class="stagehead"><span class="stagenum">02</span><h2>Why P1 is primary</h2></div>
+  <div class="stagehead"><span class="stagenum">03</span><h2>Why P1 is primary</h2></div>
   <p class="qline">The contest we expected did not happen, and the reason is worth more than the answer.</p>
 
   <p>The plan expected a fight between the person whose pain is <em>sighted</em> &mdash; an archive that lands and does not run &mdash; and the <em>collector</em> the specification is positioned for. The one practitioner asked says they are the same person:</p>
@@ -265,7 +307,7 @@
 
 <!-- ============ JOBS ============ -->
 <section id="jobs" class="col">
-  <div class="stagehead"><span class="stagenum">03</span><h2>The jobs</h2></div>
+  <div class="stagehead"><span class="stagenum">04</span><h2>The jobs</h2></div>
   <p class="qline">A job survives a change of product. A feature does not.</p>
 
   <p>The specific way this goes wrong here is not inventing jobs but <strong>laundering the specification into job form</strong>. Our spec already names four surfaces and all the mechanics, so <em>&ldquo;when my set is complete, I want the system to run a validation pass&rdquo;</em> would be the spec with a <em>when</em> in front of it, and the whole exercise would confirm the spec by construction. Every motivation clause below was machine-checked against a list of our own feature names; <strong>twenty-two formulations, zero hits</strong>.</p>
@@ -341,7 +383,7 @@
 
 <!-- ============ MATRIX ============ -->
 <section id="matrix" class="col">
-  <div class="stagehead"><span class="stagenum">04</span><h2>The matrix</h2></div>
+  <div class="stagehead"><span class="stagenum">05</span><h2>The matrix</h2></div>
   <p class="qline">Jobs against personas. An importance nobody has told us is <span class="m m-q">?</span>, never an averaged 2.</p>
 
   <p><strong>1</strong> = it comes up &middot; <strong>2</strong> = it costs them something &middot; <strong>3</strong> = it is a reason they would change how they work. <strong>Read the P2 and P3 columns first.</strong> P2 carries a number in three cells, because only one issue&rsquo;s stated motive speaks for receivers and no receiver has ever been asked. <strong>P3 carries a number in none of the ten rows.</strong> That is a fact about our instruments rather than about those people, and it is the most useful thing this table produces.</p>
@@ -489,7 +531,7 @@
 
 <!-- ============ BUILD ============ -->
 <section id="build" class="col">
-  <div class="stagehead"><span class="stagenum">05</span><h2>What to build first</h2></div>
+  <div class="stagehead"><span class="stagenum">06</span><h2>What to build first</h2></div>
   <p class="qline">Importance 3 for the primary persona <em>and</em> not closed by the market. Applied mechanically.</p>
 
   <div class="picks wide">
@@ -518,7 +560,7 @@
 
 <!-- ============ HYPOTHESES ============ -->
 <section id="hyp" class="col">
-  <div class="stagehead"><span class="stagenum">06</span><h2>Hypotheses</h2></div>
+  <div class="stagehead"><span class="stagenum">07</span><h2>Hypotheses</h2></div>
   <p class="qline">Every <span class="m m-q">?</span> above, restated so none of it can be read as a finding.</p>
 
   <div class="mwrap wide">

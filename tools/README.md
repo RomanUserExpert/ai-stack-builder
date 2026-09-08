@@ -1,7 +1,10 @@
 # tools — the research page generators
 
-**Two generated pages, one design language.**
-[`../research/research.html`](../research/research.html) is the whole phase;
+**Two generated pages, one design language, navigated as the project's first two phases.**
+A tab strip on both lists the six phases of `CLAUDE.md` §1's agreed order of work; the page you are
+on is marked current and the four unbuilt ones are marked *soon*. **Adding a third page means adding
+it to that strip in both templates and to `.vercelignore`, which is a whitelist.**
+[`../research/research.html`](../research/research.html) is phase 01, research stages 1–5;
 [`../research/6-personas/personas.html`](../research/6-personas/personas.html) is stages 6 and 7 —
 the persona cards, the job hierarchy and the jobs-against-personas matrix. **The second one pulls its
 tokens, its shell and its scroll-spy out of the first at build time**, so the two cannot drift: edit
