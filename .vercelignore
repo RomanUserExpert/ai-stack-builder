@@ -1,8 +1,14 @@
-# The deployed site is one self-contained file: every capture is embedded in it
-# as a data URI, so none of the source material needs to be served. Upload only
-# the page (and vercel.json, which Vercel reads from the root).
+# The deployed site is a small set of self-contained pages: every capture is
+# embedded as a data URI, so none of the source material needs to be served.
+# Upload only the pages (and vercel.json, which Vercel reads from the root).
+#
+# Re-including a file inside an excluded directory needs the directory itself
+# re-included first, which is why 6-personas gets its own pair of rules.
 *
 !research
 research/*
 !research/research.html
+!research/6-personas
+research/6-personas/*
+!research/6-personas/personas.html
 !vercel.json
