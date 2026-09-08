@@ -26,19 +26,27 @@ each with its answer, the data under it and a mark;
 [`re-research.md`](research/6-personas/re-research.md) — a source document, four instruments taken to
 the public record, with its capture logs; [`interview-guide.md`](research/6-personas/interview-guide.md);
 and [`agent-setup-interview.md`](research/6-personas/agent-setup-interview.md), **interview 1 of 5**.
-Still to do: the behavioural axes, `personas.md`, `audit.md`, and four more interviews.
+**The behavioural axes and [`personas.md`](research/6-personas/personas.md) landed on 2026-09-08** —
+**three personas, one primary**: *the keeper who runs several agents* (primary), *the receiver*, and
+*the empty-handed*, the last being the persona §8's scope switch and §11's shelf already ship for and
+**nobody has met**. Still to do: `audit.md`, the page, and **four more interviews**.
 
 **Nothing has been applied to this file.** Stage 6 has produced **nine proposals** that touch §2, §5,
 §6, §9 and §11 — including a narrowing of §2's *"nothing does this today"* and a new safety risk under
 §11's public shelf — and they are collected in
 [`research/6-personas/re-research.md` §4](research/6-personas/re-research.md). **Read them before the next
-change to this file.** Four things this document leans on are now known to be narrower than they read;
-[`research/FINAL.md`](research/FINAL.md) §6 lists them.
+change to this file.** Four things this document leans on are now narrower than they read —
+three of them on re-runnable evidence, and the fourth, §2's *"nothing does this today"*, on what
+competing tools **claim in their own READMEs**, none of which we have run.
+[`research/FINAL.md`](research/FINAL.md) §6 lists them with what each mark is carrying.
 
 **The evidence rule changed.** Every claim about people now carries one of three marks, defined once
 in [`research/research.md`](research/research.md), *The three marks*: **`✓`** confirmed by an
 instrument another person can re-run · **`*`** reported by a practitioner in an interview · **`?`**
-unknown. **A `*` never becomes a `✓` by repetition.**
+unknown. **A `*` never becomes a `✓` by repetition.** And, after every mark in the folder was audited
+on 2026-09-08: **a re-runnable query proves that something was *said*, not that it is *true*** — an
+issue body, a forum comment and a tool's README are people describing their own behaviour, so the
+`✓` on them covers the utterance and not the behaviour under it.
 
 The agreed order of work:
 
@@ -77,7 +85,8 @@ questions. Do not answer a question from the digest that these three answer diff
 [`research/FINAL.md`](research/FINAL.md) is the closing document — what the phase produced, the
 decisions taken, how the six questions were settled, and the documents that are read from more than
 one stage. [`research/research-plan.md`](research/research-plan.md) is the spine and holds the
-register, now empty. **Start at `FINAL.md`.**
+register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
+**Start at `FINAL.md`.**
 
 Do not skip ahead. If a request seems to jump past the design system, confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is

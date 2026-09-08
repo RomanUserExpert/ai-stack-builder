@@ -35,6 +35,17 @@ at the bottom of the page; it is the first thing to know about everything below.
 
 ## Finding 1 — the loud pain is environmental, not compositional
 
+> **Standing note added 2026-09-08. The finding holds; the superlative does not.** *Most-reacted in
+> either repository* was true of the two repositories this stage read. Stage 6 read the tracker of
+> the product this audience actually uses and found
+> [claude-code #6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592 reactions**,
+> asking for one instruction source across several agents — **thirty-six times** the number below.
+> The *direction* of this finding survives intact: the top of every corpus tried is environment and
+> host, never composition. **The sentence is left as written** so that what stage 3 measured, and
+> what corrected it, are both legible; see [`../6-personas/re-research.md`](../6-personas/re-research.md)
+> R1 and [`../FINAL.md`](../FINAL.md) §6. Nothing here is retracted and nothing is rewritten — this
+> is a mark on the claim, and the edit is the owner's.
+
 The single most-reacted issue in either repository, by a factor of eight over anything
 configuration-related:
 
@@ -118,6 +129,19 @@ to contact*.
 
 ## Finding 4 — nobody is asking for a composition layer
 
+> **Standing note added 2026-09-08. This finding was refuted in part on 2026-09-07.** The `0 results`
+> below is a **bug-shaped query on a frozen product** — `continuedev/continue`, whose hosted half was
+> already dead. On live trackers the same friction **is** filed, as **feature requests**:
+> [claude-code #9444](https://github.com/anthropics/claude-code/issues/9444), 48 reactions —
+> *"each plugin must duplicate these resources… maintenance burden… **copies can drift out of
+> sync**"* — and [codex #17401](https://github.com/openai/codex/issues/17401), 21 reactions —
+> *"**no modular reuse across projects.** A developer working across 10+ repos…"* **So one of the
+> "two independent signals" below is gone**, and the other — the switched-off hosted half — is a fact
+> about one company's economics, not a measurement of demand. The heading overstates what was
+> measured. **Left as written, marked here**; see
+> [`../6-personas/re-research.md`](../6-personas/re-research.md) R3. The rewrite is proposal 1 in
+> that document and is the owner's to apply.
+
 The uncomfortable one. Searches for sharing and reuse across projects return **nothing**:
 
 - `reuse blocks assistant` in `continuedev/continue` — **0 results.**
@@ -147,6 +171,10 @@ working archive*, and "working" is where users are actually bleeding.
 **Do not lead with.** Sharing, publishing, a catalog. Finding 4 plus the post-mortem agree.
 
 **Still unknown, and this source cannot tell us.** Whether loss (A) or reassembly cost (B) is what
-would actually make someone adopt this. Both are invisible to issue trackers by construction. If we
+would actually make someone adopt this. Both are invisible to issue trackers by construction.
+**Corrected 2026-09-08: only one of them is.** Reassembly cost is invisible to a **bug** search and
+visible to a **feature-request** search — it was filed, with reactions on it, on trackers this stage
+never opened. Loss remains invisible to every instrument tried since, and *which of the two converts*
+remains unmeasured either way, which is what the rest of this paragraph gets right. If we
 ever want that answer it needs a different instrument — asking people, or watching them — and it is
 worth saying plainly that we have not done it.

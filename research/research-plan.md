@@ -53,7 +53,7 @@ research/
 | [`6-personas/README.md`](6-personas/README.md) | **Stage 6 — the plan.** What the stage is for, the way it goes wrong here, the inputs classified by kind of evidence, seven steps with a done-bar each, the evidence rule and the honest problem. |
 | [`6-personas/inventory.md`](6-personas/inventory.md) | **Stage 6, step 1, revalidated.** Every statement about people in this repository with its source and kind of evidence; the owner's fourteen assertions with a standing mark each; and **a register of the twenty questions** — the answer we have, the data it rests on with links, and a `✓` / `*` / `?` mark on each. Three more questions arrived with the first interview: NK-21 to NK-23. |
 | [`6-personas/re-research.md`](6-personas/re-research.md) | **Stage 6, step 5.** A source document. Four instruments taken to the public record — the `anthropics/claude-code`, `openai/codex` and `gemini-cli` trackers, 1,762 Hacker News comments read in full, Stack Overflow, GitHub repository search. Eleven of the twenty unknowns moved. Contains a correction to stage 3 and a challenge to CLAUDE.md §2, neither applied. |
-| `6-personas/personas.md` — **not written yet** | **Stage 6, step 3.** Personas with attachment, primary marked, hypotheses separate. Provisional. |
+| [`6-personas/personas.md`](6-personas/personas.md) | **Stage 6, step 3, written 2026-09-08.** Three personas on the axes in `inventory.md` §D — **P1 the keeper who runs several agents (primary)**, P2 the receiver, P3 the empty-handed. Five blocks each (context, jobs, pains, trust triggers, quote) plus environment; every block sourced or `[?]`; **eleven hypotheses** in their own table, each with the instrument that would close it. **Provisional** until five interviews. |
 | `6-personas/audit.md` — **not written yet** | Confirmed / hypothesis / invented, the dangerous list, and the proposals for CLAUDE.md, the digest and the register. |
 | [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md) | **Interview 1 of 5.** The first practitioner run against the guide. Everything in it is **`*`**. Does not lift the provisional label — that needs five. |
 | [`6-personas/interview-guide.md`](6-personas/interview-guide.md) | **The instrument for lifting *provisional*.** A 30-minute guide covering the fifteen rows that need a person, built around the one question no search can answer — whether the loud pain and the quiet pain belong to the same people. Recruiting screen, six rules, six blocks, the words never to say, and a coverage table. Ready before the conversations are scheduled. |
@@ -348,7 +348,11 @@ once in [`research.md`](research.md), *The three marks*: **`✓`** confirmed by 
 person can re-run · **`*`** reported by a practitioner in an interview · **`?`** unknown, written `[?]`
 in the stage documents and **`данные не подтверждены`** in the digest. **A `*` never becomes a `✓` by
 repetition** — only an instrument promotes it, which is why five interviews lift a *provisional*
-label and still do not turn a recollection into a measurement.
+label and still do not turn a recollection into a measurement. **And, from the mark audit of
+2026-09-08 — rule 5 in the digest — a re-runnable query proves that something was *said*, not that it
+is *true*.** An issue body, a forum comment and a tool's own README are people describing their own
+behaviour: the `✓` covers the utterance, and rule 2 still governs the behaviour under it. Four rows
+in [`6-personas/inventory.md`](6-personas/inventory.md) were re-marked for exactly this.
 
 **The prep sheet for the sitting is section 3 of [`FINAL.md`](FINAL.md)** — per question, where to
 read before deciding, the options actually on the table, and a recommendation. It holds the

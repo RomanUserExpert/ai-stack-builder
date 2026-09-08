@@ -43,6 +43,18 @@ Set by the plan, so the variants can be compared rather than admired.
 4. How does an **unclean export** get confirmed, and where does that confirmation appear?
 5. What does it cost at **300 items** rather than 30?
 
+> **Standing note added 2026-09-08 — question 5's number was never measured, and it is now
+> contradicted.** *300 items* was reasoned here, not observed anywhere, and it is what the chosen
+> shape's accepted cost was priced against. Every library size on record since clusters at **20–40**:
+> [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151 reactions,
+> *"once you get to 20-30+ skills… it becomes difficult to manage"*, and one practitioner's
+> *"40-something files"* after fourteen months. **Three reports, two of them one person's — enough to
+> refute 300, not enough to replace it with a number**, and density at any size is still unobserved
+> ([`../research.md`](../research.md) G4). **The comparison below is left exactly as it was run.**
+> Nothing in it changes: 300 was the *stress* figure and every variant was scored against the same
+> one, so the ranking is unaffected — what changes is that **the cost this stage accepted may be
+> smaller than it priced.** See [`../6-personas/re-research.md`](../6-personas/re-research.md) R4.
+
 ## The constraints that are not up for negotiation
 
 Desktop-first · dark from day one · **not a node canvas** · single user · local only · custom design

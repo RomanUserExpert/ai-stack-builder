@@ -317,7 +317,13 @@ five-stage picture with no sign that parts of it have moved.
 | [`interview-guide.md`](6-personas/interview-guide.md) | The instrument for the five Q5 conversations, built around the one question no search can answer. |
 | [`agent-setup-interview.md`](6-personas/agent-setup-interview.md) | **Interview 1 of 5.** Everything in it is `*`. |
 
-**Still to do:** the behavioural axes, `personas.md`, `audit.md`, the page, and four more interviews.
+**Added 2026-09-08:** the behavioural axes ([`inventory.md`](6-personas/inventory.md) §D — six
+proposed, **two used to split, one one-ended axis that deletes a split rather than making one**) and
+[`personas.md`](6-personas/personas.md) — **three personas, one primary.** The contest the plan
+expected, *collector* against *the person who breaks at handover*, **did not happen**: the one
+practitioner asked says the collection **caused** the breakage, so the primary merges them, and four
+more Q15 answers are what would refute the merge. **Still to do:** `audit.md`, the page, and four
+more interviews.
 **Stage 7 has not started.**
 
 ### The evidence rule changed, and it applies to this file too
@@ -330,7 +336,11 @@ and the digest still writes it as **`данные не подтверждены`
 
 ### What has moved in what this document already says
 
-**Nothing above is retracted, and three things are now known to be narrower than they read.**
+**Nothing above is retracted, and four things are now narrower than they read** — the sentence said
+*three* against four bullets until 2026-09-08, and the fourth is the one that carries the least
+weight, so it was the wrong one to lose count of. **Each bullet now says what its mark is carrying**,
+per rule 5 in [`research.md`](research.md): a re-runnable query proves that something was *said*, not
+that it is *true*.
 
 - **Stage 3, finding 4 — *nobody is asking for a composition layer*.** Measured as `0 results` on
   `continuedev/continue`, with a bug-shaped query, on a product whose hosted half was already dead.
@@ -345,15 +355,34 @@ and the digest still writes it as **`данные не подтверждены`
   is [claude-code #6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592
   reactions**, asking for one instruction source across several agents. Finding 1's *direction*
   survives — the top of the corpus is environment and host, never composition. `✓`
-- **Stage 5's 300-item claim**, which is what §8's accepted cost was priced against. Every actual
-  report clusters at **20–40**. `✓` + `*`
+- **Stage 5's 300-item claim**, which is what §8's accepted cost was priced against. The reports we
+  have — **three of them, two from one person** — cluster at **20–40**. `✓` + `*`, where the `✓` is
+  that a filer wrote *"20-30+ skills"* and 151 people reacted to the request it sits in, **not** that
+  20–30 is a population figure. **The 300 is refuted; no number replaces it.**
 - **`CLAUDE.md` §2's *"nothing does this today"*, at the item level.** Open-source skill managers
-  with 400–4,500 stars audit duplicates, detect version drift and score trust. The **set-level** half
-  — resolve a named set, check that set, hand it over with instructions for the receiving machine —
-  appears still unoccupied. `✓`
+  with 400–4,500 stars **say in their READMEs** that they audit duplicates, detect version drift and
+  score trust. The **set-level** half — resolve a named set, check that set, hand it over with
+  instructions for the receiving machine — appears in nobody's README. **`✓` on their existence,
+  their stars and their push dates; their capabilities are vendor self-description and we ran none of
+  them.** That is enough to require narrowing the sentence and not enough to rewrite the thesis; the
+  difference costs an afternoon of installing two of them.
 
 **None of it is applied.** Stages 6 and 7 audit the spec; the owner edits it. The proposals are in
 [`re-research.md`](6-personas/re-research.md) §4 and they are the first thing to read tomorrow.
+
+### The marks were audited on 2026-09-08
+
+Every mark in the folder was re-read against its own evidence. **Nothing was collected and nothing
+was withdrawn; eleven marks changed and two counts were wrong** — five register rows, two of the
+owner's-assertion standings, the Snyk figures, and three of the digest's stage-6 findings. The rule the audit produced is now
+**rule 5** in [`research.md`](research.md) — *a re-runnable query proves that something was said, not
+that it is true* — and it is what four of the changes turn on: an issue body, a forum comment and a
+tool's own README are people describing their own behaviour, so the `✓` on them covers the utterance
+and rule 2 still governs the behaviour underneath. In
+[`inventory.md`](6-personas/inventory.md): **NK-5, NK-6, NK-10** and **NK-19** lost a plain `✓`,
+**NK-14** gained one it had already earned in its own *Rests on*, and the Snyk figures are now marked
+*published, not verified by us*. The register's own summary line was wrong in the same direction and
+now reads **nine `✓`, nine on one person, two with nothing at all**.
 
 ### The register grew
 

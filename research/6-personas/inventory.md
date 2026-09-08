@@ -15,6 +15,14 @@ against the owner's fourteen assertions.**
 It establishes nothing new. It is a stocktake, and its value is that it is honest about how small
 the stock is.
 
+**Two scales, and they do not compete.** Section A tags each row with a **kind** — `U` observed from
+users · `V` vendor positioning · `M` a mechanism captured from a product · `E` an event in the world ·
+`R` reasoned here · `O` asserted by the owner — which is the finer, older scheme and is explained
+below. Sections B and C carry the **three marks** (`✓` / `*` / `?`). They map loosely: only `U` and
+`E` can support a `✓`, `V` and `M` are evidence of what a company decided rather than of anything
+about a person, and `R` and `O` are claims under test. Where a section-C row cites a section-A
+observation, the mark is the one that governs.
+
 **Nothing in this file is inferred.** Where a claim would need a step of reasoning to reach, it is
 not in the *Observed* section; it is in *Not known*, marked `[?]`. Where the repository already
 reasoned to a claim about a person, the claim is recorded as **reasoned**, with the reasoning's
@@ -208,17 +216,18 @@ each claim, and the owner decides what follows.
 | **A-6** | **Desktop-first** | **`*`** consistent | Every environment described is a desktop or a container on one — NK-5, NK-6 |
 | **A-7** | **Dark from day one** | **`?`**, and not a claim about people | Untouched by this stage |
 | **A-8** | *"An empty library kills the product"* | **`?`** | Still nobody has watched a first run of **this** product |
-| **A-9** | Per-item evidence is **usage facts, never a score** | **`*` confirmed, unprompted** | Asked openly what would help him choose among his own things, he invented our mechanism — *"loaded in 40 sessions, this one in 2, this one never"* — and extended it: **last actually useful**, counted **per session** — NK-12 |
+| **A-9** | Per-item evidence is **usage facts, never a score** | **`*`, invented unprompted, n = 1** | Asked openly what would help him choose among his own things, he invented our mechanism — *"loaded in 40 sessions, this one in 2, this one never"* — and extended it: **last actually useful**, counted **per session** — NK-12 |
 | **A-10** | Nothing blocks, because *"it is the user's own library on their own machine"* | **Premise weakened `✓` + `*`** | Not his own machine only: a contractor got the setup, half his tools silently missing, **worked around it for two days** — NK-7 |
 | **A-11** | `SETUP.md` is written **for the agent** that opens the project | **`?` on the mechanism, `*` on the target** | Never run once — NK-13. The pain it aims at is real: Node 18 against a server needing 20+, *"it degrades quietly"* |
 | **A-12** | A public shelf gives material **from the first second** | **`?`, and now carrying a risk** | Untested — plus 13.4% of 3,984 scanned public skills carry critical security issues ([re-research](re-research.md) R6) |
-| **A-13** | **~30 realistic items** is the right order of magnitude | **`✓` + `*` supported** | 20–30+ named as the threshold where management breaks; 40-something files reported. **Stage 5's 300 is contradicted** — NK-2 |
+| **A-13** | **~30 realistic items** is the right order of magnitude | **`✓` + `*`, and read rule 5 on the `✓`** | 20–30+ named as the threshold where management breaks — **one filer's sentence, with the 151 reactions sitting on the request around it, not on the number**; 40-something files reported by one practitioner. Three reports in total. **They refute stage 5's 300 without establishing a figure of their own** — NK-2 |
 | **A-14** | Three things carry the cost of having no library pane | **`?`, and its premise moved** | Untested, and it was priced against surviving 300 items, which nothing supports — NK-2 |
 
 **Two of the fourteen have moved decisively, in opposite directions.** **A-9 is the best-supported
-claim in the spec** — a practitioner invented it unprompted. **A-10's premise is the weakest** — the
-archive does leave the machine, and when it did, the person receiving it lost two days without knowing
-anything was wrong.
+claim in the spec** — a practitioner invented it unprompted, which is the strongest *form* a `*` can
+take and is still **one person**; the word *confirmed* was removed from this row on 2026-09-08
+because it is the reserved name of `✓`. **A-10's premise is the weakest** — the archive does leave the
+machine, and when it did, the person receiving it lost two days without knowing anything was wrong.
 
 ---
 
@@ -250,6 +259,16 @@ the most interesting rows in the document: NK-1, NK-2 and NK-18.
 re-research are re-asked in the interview guide as corroboration, because a contradiction there would
 be worth more than a confirmation.
 
+> **Re-marked 2026-09-08, after an audit of every mark in this folder.** The audit found one mistake
+> made five times, and it is the one [`research.md`](../research.md) now carries as **rule 5**: *a
+> re-runnable query proves that something was **said**, not that it is **true**.* An issue body, a
+> forum comment and a tool's own README are all people describing their own behaviour or their own
+> product. The `✓` on them covers the **utterance** — this was written, this many reacted, anyone can
+> go and read it — and the behaviour underneath is still self-report, to which rule 2 applies. Five
+> rows were carrying a plain `✓` for a claim only the utterance supported: **NK-5, NK-6, NK-10 and
+> NK-19** are re-marked below, and **NK-14** moves the other way, because its own *Rests on* listed
+> two re-runnable sources under a `*` header. Nothing new was collected; only the marks changed.
+
 ---
 
 ## The register at a glance
@@ -260,24 +279,25 @@ be worth more than a confirmation.
 | **NK-2** | How large is one person's library? | **`✓` + `*`** | Reported sizes cluster at **20–40 items**. Stage 5's 300 has nothing behind it |
 | **NK-3** | How fast does it grow? | **`*`** | One file → ~40 files in 14 months, by accretion, never by design |
 | **NK-4** | How often is it opened? | **`*`** | Agents daily. The **collection** is entered to copy out, to add a rule in irritation, or to search — **never to review** |
-| **NK-5** | How many agent targets per person? | **`✓`** | Two to four. One source for all of them is the loudest demand in the whole evidence base |
-| **NK-6** | Where does the material live? | **`✓`** | A private git repo, symlinked into `~/.claude/` and elsewhere |
+| **NK-5** | How many agent targets per person? | **`✓` + `*`** | `✓` One source for all of them is the loudest demand in the whole evidence base. `*` *Two to four each* is seven people's self-description |
+| **NK-6** | Where does the material live? | **`✓` + `*`** | `✓` People care loudly where it sits, and ask for git to be the source. `*` The private repo symlinked into `~/.claude/` is one person's |
 | **NK-7** | Alone, or does anyone else open it? | **`✓` + `*`** | **Not alone.** And the handover failed silently for two days |
 | **NK-8** | Has anyone wanted a previous project back? | **`*`** | **Yes** — and he could not have it, so he rewrote a worse one |
 | **NK-9** | Would anyone adopt this, and why? | **`*`** | He went looking twice, used something for a week, stopped. Still the weakest row |
-| **NK-10** | What do they do today instead? | **`✓`** | `cp -r`, symlinks, `@include`, hand-written scripts |
+| **NK-10** | What do they do today instead? | **`✓` + `*`** | `cp -r`, symlinks, `@include`, hand-written scripts — said in public many times, watched by nobody |
 | **NK-11** | What would make them distrust? | **`✓` + `*`** | Not *your checker is wrong* — ***half of my own material may do nothing*** |
 | **NK-12** | Is a usage fact persuasive? | **`*`** | **Asked for it unprompted, in our own words**, when the question was put open |
 | **NK-13** | Does an agent set up from `SETUP.md` alone? | **`?`** | **Still untested, and we are the ones who can test it** |
-| **NK-14** | Is hand-entered metadata maintained? | **`*`** | **No.** Divergence cost three hours and a client complaint. *"The folder only grows"* |
+| **NK-14** | Is hand-entered metadata maintained? | **`✓` + `*`** | **No.** Drift is filed and reacted to; for one person it cost three hours and a client complaint |
 | **NK-15** | Are the loud pain and the quiet pain the same person? | **`*`** | **Yes, for this one — and he says the collection caused the second** |
 | **NK-16** | Are tracker filers our audience? | **`?`** | Unresolved. He is a filer, so n=1 cannot answer it |
 | **NK-17** | What is the emotional register on arrival? | **`*`** | Three modes, and **most edits are written while irritated** |
 | **NK-18** | Does anyone want their work to be a portfolio? | **`✓` + `*`** | Two searches found nothing; he says a qualified yes **for a different motive** |
-| **NK-19** | Licence for redistribution? | **`✓`** | A field and a rule: absence of a licence is not permission |
+| **NK-19** | Licence for redistribution? | **`✓` + `?`** | `✓` A field exists and absence of a licence is not permission. `?` **No item on our planned shelf has had its licence looked at** |
 | **NK-20** | Does the person hitting env pain have a library? | **`*`** | **Yes** — same answer as NK-15, same sentence |
 
-**Nine rows carry a `✓` somewhere. Ten rest on one person. One is blank, and it is ours to fill.**
+**After the 2026-09-08 re-marking: nine rows carry a `✓` somewhere, nine rest on one person alone,
+and two carry no evidence at all — NK-13 and NK-16. Only one of those two is ours to fill.**
 
 ---
 
@@ -374,7 +394,7 @@ screen's requirements.
 
 ---
 
-### NK-5 — How many agent targets does one person keep? `✓`
+### NK-5 — How many agent targets does one person keep? `✓` + `*`
 
 **Answer. Two to four** — and **one source feeding all of them is the loudest demand anywhere in this
 repository's evidence base.**
@@ -384,25 +404,37 @@ repository's evidence base.**
 - `✓` [`re-research.md`](re-research.md) R2 — six practitioners describing their own setups in public, and **25 comments** across eight downloaded HN threads about symlinking one source into several formats.
 - `*` [interview, Q1](agent-setup-interview.md) — four installed (Claude Code, Cursor, Codex CLI, Aider) plus a dead Continue; two used yesterday.
 
-**How true.** The **shape** is `✓`: re-runnable queries, three trackers, a five-figure reaction count.
-The **per-person distribution** is softer — six self-descriptions and one interview — so *two to four*
-is indicative rather than measured.
+**How true.** Split the row in two, because the header used to hide the split. **The demand is `✓`**:
+re-runnable queries, three trackers, a five-figure reaction count, and what is confirmed is that
+thousands of people asked for one instruction source across agents. **The per-person count is `*`** —
+six people describing their own setups in public plus one interview, which is self-report seven times
+over and, under rule 5, does not become a measurement by being public. *Two to four* is the number to
+design against and not a number to quote.
 
 **What would move it.** Nothing urgent. Best-evidenced row in the document.
 
 ---
 
-### NK-6 — Where does the material live today? `✓`
+### NK-6 — Where does the material live today? `✓` + `*`
 
-**Answer.** In a **git repository the person owns**, symlinked into the places each agent expects.
+**Answer.** For the one person asked, in a **git repository he owns**, symlinked into the places each
+agent expects. At population level, what is established is narrower: **people care intensely where
+this material sits, and a weighted request exists for git to be the source of truth.**
 
 **Rests on.**
 - `✓` [`re-research.md`](re-research.md) R5 — [#1455](https://github.com/anthropics/claude-code/issues/1455) XDG at **446 reactions**; [#28729](https://github.com/anthropics/claude-code/issues/28729) asking for a **git repo as the source of truth**; `agent-dotfiles` and `SkillCatalog` built on exactly that premise.
 - `*` [interview, Q3](agent-setup-interview.md): *"`~/dev/kit/agents/`, which is a **private GitHub repo** called `agent-kit`. It gets **symlinked** into `~/.claude/` and a couple of other places."*
 
-**How true.** Two instruments agreeing, one re-runnable. As solid as anything here.
+**How true.** Weaker than it read before 2026-09-08. `✓` covers three things: that 446 people reacted
+to a request about *where the config directory lives*, that a filer asked for **a git repo as the
+source of truth**, and that tools built on that premise exist. Note what the second one means —
+**a request is evidence that this is not yet how that person works.** The actual arrangement in the
+answer above, a private repo symlinked into `~/.claude/`, is **one practitioner's**, `*`. The two
+instruments point the same way; only one of them observed anybody.
 
-**What would move it.** Corroboration is cheap and low-value; ask it as a warm-up (guide Q3).
+**What would move it.** The instrument stage 6's plan named and nobody has run: a GitHub search for
+repositories that actually carry `.claude/`, `CLAUDE.md`, `.cursor/rules` and `AGENTS.md` side by
+side. That would observe the arrangement instead of asking about it. Guide Q3 corroborates cheaply.
 
 ---
 
@@ -471,7 +503,7 @@ keep this material at all. The guide asks for it; it has not happened.
 
 ---
 
-### NK-10 — What do they do today instead? `✓`
+### NK-10 — What do they do today instead? `✓` + `*`
 
 **Answer.** `cp -r`, symlinks, `@AGENTS.md` include lines, wrapper scripts, home-made managers.
 **And notably not the automation they already built:**
@@ -482,9 +514,12 @@ keep this material at all. The guide asks for it; it has not happened.
 
 **Rests on.** `✓` [`re-research.md`](re-research.md) R2 and R8 · `*` Q7 above.
 
-**How true.** Two instruments agree. The `*` adds what the `✓` could not see: **a person who built
-the tool and still did it by hand**, because his tool covered the global layer and not the per-project
-one. That is a warning about where our own value has to sit.
+**How true.** Two instruments agree, and rule 5 says what the `✓` is actually carrying: **twenty-five
+comments and several issues in which people say they symlink** — the utterance, re-readable by anyone.
+Nobody watched a single one of them do it, and repetition does not promote self-report. The `*` adds
+what no amount of that could see: **a person who built the automation and still copied by hand**,
+because his tool covered the global layer and not the per-project one. That is a warning about where
+our own value has to sit, and it is the most useful sentence in the row.
 
 **What would move it.** Nothing. Corroborate in passing.
 
@@ -508,7 +543,7 @@ checker may be wrong*. It is **half of my own material may be doing nothing.**
 **Rests on.**
 - `*` The three quotes above.
 - `✓` [`re-research.md`](re-research.md) R7 — the same doubt across the HN threads: *"mostly useless… 50/50 or less that Claude.md even reads/uses this file"*, *"I can never quite tell if it's helping anything"*, and a story titled *I am morally opposed to updating my Claude.md*.
-- `✓` R6 — with a real security fear underneath it: [Snyk](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/), 3,984 skills scanned, 13.4% carrying critical issues.
+- `✓` R6 — with a real security fear underneath it: [Snyk](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/), 3,984 skills scanned, 13.4% carrying critical issues. **`✓` that the study is published and readable at origin, not that we verified it** — we cannot re-run the scan, Snyk sells security tooling, and its own post does not reconcile *36%* in the headline with *36.82%* for a different measure in the table. The order of magnitude is what this carries.
 
 **How true.** `✓` and `*` agree from independent instruments — the strongest combination available
 here. **The consequence is uncomfortable**: our validation pass answers *does this set cohere*, and
@@ -560,7 +595,7 @@ devcontainer with Node 18 against a server needing 20+, and *"broken config does
 
 ---
 
-### NK-14 — Is hand-entered metadata ever actually maintained? `*`
+### NK-14 — Is hand-entered metadata ever actually maintained? `✓` + `*`
 
 **Answer. No — and the failure has a price tag.**
 
@@ -576,11 +611,12 @@ and never in the template, *"so the next copy is wrong too. **It's a loop.**"*
 **Rests on.**
 - `*` Q10 and [Q18](agent-setup-interview.md).
 - `✓` [claude-code #9444](https://github.com/anthropics/claude-code/issues/9444) — *"Maintenance burden… Inconsistency risk — **copies can drift out of sync**"*, filed and reacted to.
-- `✓` [`1-landscape/competitors.md`](../1-landscape/competitors.md) — Backstage's known failure mode: catalogs rot when nobody maintains the metadata.
+- **Not `✓`** — [`1-landscape/competitors.md`](../1-landscape/competitors.md) on Backstage's known failure mode, *catalogs rot when nobody maintains the metadata*. That is our own stage-1 write-up of community lore about someone else's product; it corroborates and it measures nothing. Re-marked 2026-09-08.
 
-**How true.** Three instruments, two re-runnable, all saying the same thing. **A `✓`-grade conclusion
-about the world with a `*`-grade story about the cost.** It is also the register's strongest argument
-for the live link in §5 — that mechanism exists to break precisely this loop.
+**How true.** Two instruments and one piece of corroboration, all saying the same thing. **A `✓`-grade conclusion
+about the world with a `*`-grade story about the cost.** The header used to say `*`, which contradicted
+this paragraph and the *Rests on* above it; corrected 2026-09-08. It is also the register's strongest
+argument for the live link in §5 — that mechanism exists to break precisely this loop.
 
 **What would move it.** Nothing. Act on it.
 
@@ -671,9 +707,11 @@ function for cleanup**, and it is blocked by client material tangled through the
 
 ---
 
-### NK-19 — Under what licence may someone else's skill ship in our public library? `✓`
+### NK-19 — Under what licence may someone else's skill ship in our public library? `✓` + `?`
 
-**Answer. Not a research question any more — a field and a rule.**
+**Answer, for the general rule. Not a research question any more — a field and a rule.**
+**For the question as actually asked — under what licence may *these* items ship on *our* shelf — the
+answer is still `?`, because no item on the planned shelf has had its licence looked at.**
 
 **Rests on.** `✓` [`re-research.md`](re-research.md) R11 — the Agent Skills format carries an
 **optional `license` field**; real catalogs pick one and say so
@@ -683,11 +721,15 @@ included resources keeping their own terms); and the governing principle: **a pu
 skill is not necessarily free of restrictions, and a missing licence field does not prove that reuse
 is permitted.**
 
-**How true.** `✓` for the rule. What remains is **ours to decide**: §5's `Item` carries `repoUrl`,
-`path` and `ref` and **no licence field**, and §11's *"checked sources"* has no stated review standard.
-Both are proposals in [`re-research.md`](re-research.md) §4.
+**How true.** `✓` for the rule, and the rule is the easy half. **`?` for the shelf**, and that is the
+half with work in it: §5's `Item` carries `repoUrl`, `path` and `ref` and **no licence field**, §11's
+*"checked sources"* has no stated review standard, and **not one candidate item has been checked** —
+which, given R6's 13.4%, is the same gap the security proposal is about. Marking this row a plain `✓`
+made a decided rule look like a cleared shelf. Both halves are proposals in
+[`re-research.md`](re-research.md) §4.
 
-**What would move it.** Nothing. Decide it.
+**What would move it.** Deciding the rule closes nothing on its own. The `?` closes only when the
+shelf is actually built and each item's licence is recorded beside its `ref`.
 
 ---
 
@@ -777,3 +819,50 @@ them. It edits no file outside this folder.
 4. **To the register in [`research-plan.md`](../research-plan.md).** NK-21, NK-22 and NK-23 are
    candidates for Q10, Q11 and Q12, each with a named instrument, to be dispositioned in the same
    sitting as Q7–Q9 once stage 7 is in.
+
+---
+
+# D. The behavioural axes
+
+**Stage 6, step 2. Written 2026-09-08**, after section C and before `personas.md`, because the plan
+([`README.md`](README.md), step 2) forbids writing a persona until the thing that would separate one
+from another has been named and checked. **The rule that governs this section: no axis is
+demographic, and an axis is only used to split a persona if there is evidence at *both* ends.** An
+axis with evidence at one end is recorded and **not used** — a one-ended axis produces a persona and
+its shadow, which is invention wearing a table.
+
+**Every axis below was proposed in step 2 of the plan or produced by section C, and each is stated as
+a behaviour someone could be observed doing.**
+
+| # | The axis | Evidence at end A | Evidence at end B | Used to split? |
+|---|---|---|---|---|
+| **X1** | **Does anyone else ever open this material?** *Solo* ↔ *handed over* | **`✓` Solo.** 182 ranked issues across two trackers contain **not one** about a team, a colleague, an organisation, a rollout or a sync — OBS-2, a title search run over the raw JSON | **`✓` Handed over.** [#6235](https://github.com/anthropics/claude-code/issues/6235)'s stated motive is *"collaborating with other developers who aren't using Claude Code"* (6,592); [#10238](https://github.com/anthropics/claude-code/issues/10238) *"with my team"* (168); [#28729](https://github.com/anthropics/claude-code/issues/28729) *"multiple contributors"* (151). Plus `*` the contractor who lost two days — NK-7 | **Yes.** Both ends re-runnable, and the two ends want different things from the same archive |
+| **X2** | **How many agent targets does the same material have to serve?** *One host, non-negotiable* ↔ *two to four, kept in sync by hand* | **`✓` One host.** The most-reacted issue in the stage-3 corpus is *bring this to the editor I already use* — [continue #917](https://github.com/continuedev/continue/issues/917), **245 reactions**; and #759 at 115, #1440 at 24 — OBS-3 | **`✓` Several.** [#6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592** plus a twelve-issue family across three vendors' trackers; **25 HN comments** about symlinking one source into several formats — R1, R2 | **Yes.** The strongest pair of ends in the document |
+| **X3** | **What does the person believe their own material does?** *It works, I just cannot find it* ↔ *half of it may do nothing* | **`?`** Nothing observed anyone believing their material works. The nearest thing is that people keep adding to it, which is not the same claim | **`✓` + `*` Doubt.** *"Mostly useless… 50/50 or less that Claude.md even reads/uses this file"* — [saberience](https://news.ycombinator.com/item?id=46106423); an HN story titled *[I am morally opposed to updating my Claude.md](https://news.ycombinator.com/item?id=49376287)*; and `*` *"Maybe half of it, if you want the real answer"* — R7, NK-11 | **No — one-ended.** Recorded because end B is heavily evidenced and belongs in **every** card, not because it separates anybody |
+| **X4** | **Does the person write their own material, or install other people's?** *Author* ↔ *consumer* | **`✓` + `*` Author.** The whole of section A is people configuring their own things; `*` a repo grown from one file over fourteen months — NK-3 | **`V` Consumer, vendor-grade only.** An entire tool category exists to install other people's skills (R8, 425–4,526★) and catalogs report skills at six and seven figures (R9) — **but every one of those numbers is a vendor's or a tool's own count, and not one person was observed consuming** | **Yes, with a warning printed on it.** Used because §8 and §11 already ship a surface for end B; **end B has no observed person behind it**, and the persona built on it says so in every line |
+| **X5** | **Does the person file when it breaks, or absorb it silently?** *Files* ↔ *works around it* | **`✓` Files.** The entire evidence base is, by construction, people who filed | **`*` Absorbs.** The contractor *"assumed that was normal and worked around it for two days without mentioning it"*; and the respondent *"drafted a post twice… deleted it both times"* — NK-7, NK-16 | **No — this is a sampling caveat, not a split.** It says our portrait is drawn from filers (NK-16) and must be labelled as such wherever it is used |
+| **X6** | **Is the collection the victim of the breakage, or its cause?** *Victim* ↔ *cause* | **`?`** Nobody has said the collection was merely unlucky | **`*` Cause.** *"Already had the collection, and that's the point… At forty files with overlapping instructions I have no working model of what's active on a given run. **The collection created the problem.**"* — NK-15, one person | **No, and it is the most important axis here.** One-ended, `*`, n = 1 — **and if it holds it deletes a split rather than making one.** See below |
+
+## What X6 does to the persona set, and why it is not a split
+
+The plan anticipated the primary-persona choice as a contest: **the person whose pain is *sighted*
+— an archive that lands and does not run — against the *collector* the spec is positioned for**
+([`README.md`](README.md), step 3). X6 says those may be **one person at two moments**: the
+collection grows past the point where its owner can hold it in their head, and *that* is when the
+silent breakage starts.
+
+**It stands on one sentence from one practitioner and it may not survive four more conversations.**
+But it is the only causal claim anyone has made, and the honest consequence is that we do **not**
+build a persona set around a collector/breaker split that the only direct evidence says is a single
+person. **The primary persona merges them, and the merge is what four more Q15 answers would
+refute** (guide Q15, [`interview-guide.md`](interview-guide.md) §1).
+
+## The axes actually used
+
+**X1 and X2 separate the personas. X4 produces a third that is almost entirely hypothesis and is
+labelled as such.** X3 is carried by every card because it is evidenced everywhere and distinguishes
+nobody. X5 is a caveat printed on the whole document. X6 is the reason the primary is shaped as it is.
+
+**Nothing here is demographic.** No axis names an age, a job title, a seniority, a city or a tool
+preference as such, because [`CLAUDE.md`](../../CLAUDE.md) §3's audience sentence is a claim under
+test (section B, A-4 and A-5) and cannot be used to divide people it has not been shown to describe.

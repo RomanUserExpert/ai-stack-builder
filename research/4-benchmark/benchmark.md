@@ -501,9 +501,9 @@ Read the four flows against [`3-pain/user-pain.md`](../3-pain/user-pain.md) inst
 | | Flow | What the pain evidence says |
 |---|---|---|
 | **B1** | Find | An issue tracker is **structurally blind** here — nobody files *I cannot find what I wrote in March*. No evidence of pain, and none of its absence either. |
-| **B2** | Assemble | Same blindness, plus finding 4: **nobody is asking for a composition layer**, in a 6,677-issue tracker belonging to a product that shipped one. |
+| **B2** | Assemble | Same blindness, plus finding 4: **nobody is asking for a composition layer**, in a 6,677-issue tracker belonging to a product that shipped one. **Standing note, 2026-09-08: finding 4 was refuted in part** — a bug-shaped query on a frozen product; the same friction is filed as *feature requests* on live trackers ([claude-code #9444](https://github.com/anthropics/claude-code/issues/9444), 48 reactions). The re-weighting below is unaffected: B2 was already the flow with the least pain evidence under it. |
 | **B3** | Check | Where our thesis is actually sighted — the duplicate `server-postgres` key, *"the chat always chooses the first one specified"*, 13 reactions — and where env and secrets sit, which rank near the top of **both** trackers. |
-| **B4** | Produce | Where the **loudest pain in the ecosystem** lives: 182 reactions on *MCP Servers Don't Work with NVM*, and a top-of-tracker made of PATH, node versions, platform paths and processes dying at startup. The archive lands on a machine and does not run. |
+| **B4** | Produce | Where the **loudest pain in the ecosystem** lives: 182 reactions on *MCP Servers Don't Work with NVM*, and a top-of-tracker made of PATH, node versions, platform paths and processes dying at startup. The archive lands on a machine and does not run. **Standing note, 2026-09-08:** 182 is the loudest in *that* tracker. In the audience's own tracker the loudest is **6,592**, asking for one instruction source across several agents — which is a demand this same flow's target selector aims at, so **B4's weighting goes up, not down.** |
 
 **So the value is concentrated in B3 and B4, and the craft is concentrated in B1 and B2.** Linear,
 GitHub and Obsidian are exemplary at a flow nobody files issues about; the flow people shout about is

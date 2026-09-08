@@ -73,6 +73,19 @@ from a pricing page in this pass.
    *other people's* work: governance, drift, compliance, standards enforcement. A personal library
    that answers to nobody is unoccupied ground.
 
+   > **Standing note added 2026-09-08, dating what this surveyed.** This is fifteen **funded
+   > vendors**, read in August 2026, and it is still true of them. It was never a survey of
+   > open-source tooling, and at that tier the ground is **no longer empty**: skill managers at
+   > 425–4,526 stars address the individual practitioner directly — `xingkongliang/skills-manager`
+   > (4,526★), `luongnv89/asm` (915★), `RealZST/HarnessKit` (425★) and others, most pushed within
+   > days of the collection. **What each of them actually does is its own README and we ran none of
+   > them**, so what is confirmed is their existence and their traction, not their capability. The
+   > **set**-level ground — resolve a named set, check *that set*, hand it over with instructions for
+   > the receiving machine — appears in nobody's README. See
+   > [`../6-personas/re-research.md`](../6-personas/re-research.md) R8; the rewrite of this
+   > difference, and of `CLAUDE.md` §2's *"nothing does this today"*, is proposal 3 there and is the
+   > owner's to apply.
+
 2. **They all trust the network; we can trust the file.** Every catalog above solves cold start
    with curation and volume — 17,500 MCP servers, 3,000 skills, 115 business skills. None of them
    makes your own accumulated material better. Our unit of value is the user's existing corpus,

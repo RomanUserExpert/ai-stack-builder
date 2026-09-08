@@ -10,7 +10,8 @@ with every fact traceable. It is **not** the specification: that is [`CLAUDE.md`
 where the two ever disagree, CLAUDE.md wins. It is **not** the sign-off document either: that is
 [`research/FINAL.md`](FINAL.md), which records the decisions and the closed questions.
 Nothing here is a third list of open questions — the register lives in
-[`research/research-plan.md`](research-plan.md) and is currently empty.
+[`research/research-plan.md`](research-plan.md), and **six entries are live in it** — Q7 to Q12.
+It was empty when this file was written on 2026-09-02; stages 6 and 7 refilled it.
 
 **How to read the citations.** Every claim carries a link to the document or capture it came from,
 and nothing is invented to fill a space. Those marks are load-bearing: they are the honest edge of
@@ -28,7 +29,7 @@ being able to describe it. **Every claim about people carries one of three marks
 | **`*`** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
 | **`?`** | **Unknown.** | No instrument here has established it in either direction. This digest writes it **`данные не подтверждены`**; the stage documents write **`[?]`**. Same level, two registers, and each keeps its own wording. |
 
-**Four rules, and the second is the one that will be broken first.**
+**Five rules, and the second is the one that will be broken first — with the fifth as the reason why.**
 
 1. **The mark is per claim, not per document.** One paragraph can hold all three.
 2. **A `*` never becomes a `✓` by repetition.** Five practitioners saying the same thing is five people's
@@ -41,6 +42,14 @@ being able to describe it. **Every claim about people carries one of three marks
 4. **Where `✓` and `*` disagree, keep both and say so.** The trackers say the loudest thing is an archive
    that will not run; the first practitioner says the expensive part was a trickle nobody counts.
    That is a finding, not a conflict to be settled by preference.
+5. **A re-runnable query proves that something was *said*, not that it is *true*.** Added 2026-09-08,
+   after an audit of every mark in this folder found this to be the way rule 2 gets broken. Where a
+   `✓` rests on people describing **their own behaviour** — an issue body, a forum comment, a tool's
+   own README — the mark covers the **utterance**: this was written, by that many people, carrying
+   that many reactions, and anyone can go and read it. The behaviour it reports is still self-report,
+   and rule 2 applies to it unchanged: twenty-five people saying *I symlink* is twenty-five people's
+   account of themselves, not a measurement of what practitioners do. **Say which of the two a `✓` is
+   carrying wherever the difference could change a decision.**
 
 **And unmarked prose may not out-run its marks.** A sentence reasoning from a `*` claim is itself `*`.
 An unmarked claim is being asserted as `✓`, so if it is not checkable, mark it.
@@ -168,6 +177,9 @@ Captures:
    to security and platform leadership, Packmind to engineering managers, Agentman to business teams,
    Port to platform engineering. The value proposition is always control over *other people's* work —
    governance, drift, compliance. **A personal library that answers to nobody is unoccupied ground.**
+   **Narrowed 2026-09-07 — see §6.** That was measured on *funded vendors*, in August 2026. At the
+   open-source practitioner tier the item-level ground is occupied: skill managers at 425–4,526
+   stars. What still looks unoccupied is the **set**-level half.
 
 2. **They all trust the network; we can trust the file.** Every catalog above solves cold start with
    curation and volume — 17,500 MCP servers, 3,000 skills, 115 business skills. None of them makes
@@ -397,9 +409,9 @@ answers *does anyone bleed here*. Read the four flows against the pain evidence 
 | | Flow | What the pain evidence says |
 |---|---|---|
 | **B1** | Find | A tracker is **structurally blind** — nobody files *I cannot find what I wrote in March*. No evidence of pain, and none of its absence |
-| **B2** | Assemble | Same blindness, plus: **nobody is asking for a composition layer** — `reuse blocks assistant` returns **0 results** in a 6,677-issue tracker belonging to a product that shipped one |
+| **B2** | Assemble | Same blindness, plus: **nobody is asking for a composition layer** — `reuse blocks assistant` returns **0 results** in a 6,677-issue tracker belonging to a product that shipped one. **Corrected 2026-09-07 — see §6:** that was a bug-shaped query on a frozen product, and on live trackers the same friction is filed as *feature requests* |
 | **B3** | Check | Where our thesis is actually sighted: two `server-postgres` entries in one `mcp.json`, *"the chat always chooses the first one specified"* — **13 reactions**. And env/secrets rank near the top of both trackers |
-| **B4** | Produce | Where the **loudest pain lives**: **182 reactions** on *MCP Servers Don't Work with NVM*, over a top-of-tracker made of PATH, node version managers, platform paths and processes dying at startup |
+| **B4** | Produce | Where the **loudest pain lives**: **182 reactions** on *MCP Servers Don't Work with NVM*, over a top-of-tracker made of PATH, node version managers, platform paths and processes dying at startup. **Re-weighted 2026-09-07 — see §6:** loudest in *that* tracker; in the audience's own tracker the loudest is 6,592, and it is about one source feeding several agents |
 
 **The value is concentrated in B3 and B4; the craft is concentrated in B1 and B2.** Linear, GitHub
 and Obsidian are exemplary at a flow nobody files issues about; the flow people shout about is the one
@@ -521,7 +533,12 @@ Worth stating, so these do not get re-opened by accident:
 - **Blocking.** Settled: three severities, export never disabled, an unclean set confirmed (§3, the
   mechanism that will not work).
 - **A composition layer.** Two independent signals against it — 0 results in a 6,677-issue tracker,
-  and it is the half of Continue that was switched off (§3, weighting caveat; §4).
+  and it is the half of Continue that was switched off (§3, weighting caveat; §4). **One of the two
+  failed on 2026-09-07 — see §6.** The `0 results` was a bug-shaped query on a frozen tracker; on
+  live ones the friction is filed, as feature requests, with reactions on it. The surviving signal is
+  an *economic* fact about one company, not a measurement of demand. **Composition stays out of the
+  MVP as a decision — `CLAUDE.md` §9, deferred over recursion — and no longer as a finding that
+  nobody wants it.**
 - **Per-item scores or badges.** The market converged on measured trust and we can measure nothing;
   usage facts from the user's own library instead (§1, pattern 2).
 - **Visual direction.** Deliberately not decided here. Flow 10 was handed forward with its material
@@ -565,17 +582,25 @@ filed as **feature requests**: [claude-code #9444](https://github.com/anthropics
 sync**"* — and [codex #17401](https://github.com/openai/codex/issues/17401) — *"**no modular reuse
 across projects.** A developer working across 10+ repos with shared conventions…"*
 
-**A library is 20 to 40 items, not 300. `✓` + `*`**
+**Every library size on record is 20 to 40 items. Nothing supports 300. `✓` + `*`**
 [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151 reactions: *"Once
 you get to **20-30+ skills**… it becomes difficult to manage."* The practitioner interviewed keeps
 *"40-something files"*, about 6k lines, grown from **one file in fourteen months**. This supports
 `CLAUDE.md` §11's ~30 and **contradicts stage 5's 300**, which is what the cost of dropping the
-library pane was priced against.
+library pane was priced against. **What the `✓` carries, under rule 5:** that one filer wrote that
+sentence and 151 people reacted to the *request it sits in* — not that 20–30 is a population truth.
+Three reports, two of them one person's, are the whole of the evidence; they agree with each other
+and disagree with us, and that is the finding. **The number is not established, the 300 is refuted.**
 
-**The material lives in a git repository, symlinked into place. `✓`**
+**The material lives in a git repository, symlinked into place. `✓` + `*`**
 [#1455](https://github.com/anthropics/claude-code/issues/1455) — XDG, **446 reactions**;
 [#28729](https://github.com/anthropics/claude-code/issues/28729) asks for **a git repo as the source
 of truth**. What people do today is `cp -r`, symlinks, `@include` lines and hand-written scripts.
+**Read the marks carefully here, under rule 5.** `✓` covers that people care loudly where their
+material sits on disk, and that twenty-five HN comments and several issues **say** they symlink one
+source into many formats. It does **not** cover *a private git repo symlinked into `~/.claude/`* as a
+general practice: that is one practitioner's own setup, `*`. And #28729 is a **request** for
+git-as-source, which is evidence that it is not yet how that filer works.
 
 **The dominant doubt is not *is my set broken* — it is *does any of this do anything*. `✓` + `*`**
 *"Mostly useless… 50/50 or less that CLAUDE.md even reads/uses this file."* · *"I can never quite
@@ -584,21 +609,32 @@ Claude.md*. And from the interview: *"**Maybe half of it**, if you want the real
 A/B'd anything.**"* Our validation pass answers *does this set cohere*; the doubt on record is a
 different question, and that gap is now **Q12** in the register.
 
-**Someone else's material is genuinely unsafe. `✓`**
+**Someone else's material carries real risk, on a third party's measurement. `✓` published, not `✓` verified**
 [Snyk's ToxicSkills study](https://snyk.io/blog/toxicskills-malicious-ai-agent-skills-clawhub/) —
 **3,984 skills scanned** from two registries on 2026-02-05: **13.4% with critical security issues**,
-76 confirmed malicious payloads. *"The barrier to publishing? A `SKILL.md` and a GitHub account
-that's one week old. No code signing. No security review. No sandbox by default."* §11 plans a
-curated public shelf of other people's work; *checked sources* now has to mean checked for content.
+76 confirmed malicious payloads. **The `✓` is that the study is published and readable at origin.**
+We did not re-run the scan and cannot; Snyk sells security tooling; and its own post puts *36% prompt
+injection* in the headline against *36.82% any security flaw* in the table without reconciling them.
+*"The barrier to publishing? A `SKILL.md` and a GitHub account that's one week old. No code signing.
+No security review. No sandbox by default."* **The order of magnitude is what this supports, not the
+decimals** — and one order of magnitude is enough: §11 plans a curated public shelf of other people's
+work, and *checked sources* now has to mean **checked for content**.
 
-**The ground is no longer unoccupied — at the item level. `✓`**
+**The ground is no longer unoccupied — at the item level. `✓` on existence, README-grade on capability**
+**This is the most consequential finding in the stage, so its standing has to be exact.** `✓` covers
+the repositories, their star counts and their push dates: re-runnable, checkable, real attention.
+**Everything about what these tools *do* is their own README** — rule 5 — and we installed none of
+them and ran none of them. So the honest challenge to `CLAUDE.md` §2 is *tools claiming the
+item-level half exist and have thousands of stars*, not *the item-level half is solved*. Either way
+the sentence needs narrowing; only the second version would justify rewriting the thesis.
 Open-source skill managers with real traction: `skills-manager` **4,526★**,
-`tons-of-skills-marketplace` 2,706★, `ai-agent-skills` 1,138★, `asm` 915★, `HarnessKit` 425★. `asm`
-audits duplicates and near-duplicates and pins registry commits; `HarnessKit` scores trust 0–100 and
-detects version drift per agent; a 4,526★ app already ships our *"conflicts never block, you
-choose"* principle. **What none of them appears to do is the set-level half** — resolve a named set,
-check *that set*, and hand it over with instructions for the receiving machine. `CLAUDE.md` §2's
-*"nothing does this today"* needs narrowing to that half.
+`tons-of-skills-marketplace` 2,706★, `ai-agent-skills` 1,138★, `asm` 915★, `HarnessKit` 425★ — those
+counts, and the repositories under them, are the `✓`. **What each says of itself:** `asm` *"audits
+duplicates and near-duplicates"* and *"pins registry commits"*; `HarnessKit` *"scores trust 0–100"*
+and *"detects version drift per agent"*; the 4,526★ app advertises *"true conflicts never block"*,
+which is our own §6 principle in its README. **And the set-level half appears in none of those
+READMEs** — resolve a named set, check *that set*, and hand it over with instructions for the
+receiving machine. `CLAUDE.md` §2's *"nothing does this today"* needs narrowing to that half.
 
 ## The one practitioner, and the two things he said that change the argument
 
@@ -622,8 +658,9 @@ with confidence."* Then extended it: **last actually useful**, counted **per ses
 
 ## Where it stands
 
-**Eleven of twenty unknowns moved on the public record; the interview moved several more.** Nine
-carry a `✓` somewhere, ten rest on one person, and **one is blank and ours to fill**: whether a
+**Eleven of twenty unknowns moved on the public record; the interview moved several more.** After the
+mark audit of 2026-09-08: **nine rows carry a `✓` somewhere, nine rest on one person alone, and two
+carry no evidence at all** — NK-13 and NK-16. **Only one of those two is ours to fill**: whether a
 receiving agent actually sets a project up from `SETUP.md` alone has **never been tested**, and it is
 the spec's most load-bearing bet.
 
@@ -635,5 +672,12 @@ working setup that was never written down; and observability versus validation. 
 **Nothing here is applied to the specification.** Stages 6 and 7 audit; the owner edits. The
 proposals sit in [`re-research.md`](6-personas/re-research.md) §4.
 
-**Still to do in stage 6:** the behavioural axes, `personas.md`, `audit.md`, and **four more
-interviews** — the event that lifts *provisional*. Stage 7 has not started.
+**Added 2026-09-08:** the behavioural axes ([`6-personas/inventory.md`](6-personas/inventory.md) §D)
+and [`6-personas/personas.md`](6-personas/personas.md) — **three personas, one primary**, every block
+sourced or marked `[?]` and restated as a hypothesis. **P1, the keeper who runs several agents**, is
+primary because it is the only one whose jobs and pains have `✓` and `*` agreeing from independent
+instruments, and because the split the plan expected collapsed: the one practitioner asked says
+**the collection caused the breakage**, so the collector and the person who breaks are one person at
+two moments. **P3, the empty-handed, has no quote and almost no evidence** — and `CLAUDE.md` §8 and
+§11 already ship two surfaces for it. **Still to do in stage 6:** `audit.md`, the page, and **four
+more interviews** — the event that lifts *provisional*. Stage 7 has not started.

@@ -7,7 +7,14 @@ here. The method is the one taught in lesson 2 of the design-engineering course 
 slides, read in full), adapted to this product and to this repository's evidence rules. Where the
 lesson and this repository's protocol disagree, the protocol wins and the disagreement is stated.
 
-Status: **not started.**
+Status, **2026-09-08: steps 1, 2, 3 and 5 are done; steps 4, 6 and 7 are not.**
+[`inventory.md`](inventory.md) (the register, and the axes in §D),
+[`re-research.md`](re-research.md), [`interview-guide.md`](interview-guide.md),
+[`agent-setup-interview.md`](agent-setup-interview.md) — **interview 1 of 5** — and
+[`personas.md`](personas.md), **three personas with one primary.** Step 5 was run **wide rather than
+surgically**, at the owner's instruction, and moved eleven rows instead of one. **Still owed:**
+`audit.md` (step 4), `personas.html` (step 6), the hand-back proposals (step 7), and **four more
+interviews**, which is the event that lifts *provisional* from everything in this folder.
 
 ---
 
@@ -229,7 +236,7 @@ in the register; which stage raised it; what would answer it).
 | File | What it holds |
 |---|---|
 | `inventory.md` | What the repository says about people, what the owner asserts, what nobody knows. Plus the behavioural axes. |
-| `personas.md` | 2–4 personas, one primary, every block sourced or `[?]`, hypotheses at the end. **Provisional** until the lifting event below. |
+| [`personas.md`](personas.md) | **Written 2026-09-08.** Three personas — P1 *the keeper who runs several agents* (**primary**), P2 *the receiver*, P3 *the empty-handed*. Five blocks each plus environment, every block sourced or `[?]`, eleven hypotheses at the end. **Provisional** until the lifting event below. |
 | `audit.md` | Confirmed / hypothesis / invented, the dangerous list, three questions, and the proposals for CLAUDE.md, the digest and the register. |
 | `re-research.md` | Source document for the one question closed at point scale — instrument, log, result. |
 | `interview-guide.md` | The three audit questions and the primary-persona choice, written as a 30-minute conversation guide, so that the Q5 trigger has an instrument ready the day it fires. |
@@ -263,6 +270,15 @@ reported by a practitioner in an interview · **`?`** unknown. The stage documen
 `[?]` and the digest writes it as **`данные не подтверждены`**; those two are the same level in two
 registers, and each keeps its own wording. **A `*` never becomes a `✓` by repetition** — only an
 instrument promotes it.
+
+**Extended 2026-09-08, after every mark in this folder was audited.** The rule that the audit produced
+is **rule 5** in [`research.md`](../research.md): **a re-runnable query proves that something was
+*said*, not that it is *true*.** An issue body, a forum comment and a tool's own README are people
+describing their own behaviour or their own product, so a `✓` resting on them covers the **utterance**
+— this was written, this many reacted, anyone can go and read it — while the behaviour underneath
+stays self-report and rule 2 governs it. Four rows in [`inventory.md`](inventory.md) carried a plain
+`✓` for claims only the utterance supported and were re-marked; one carried a `*` for a claim its own
+sources already made `✓`. **Nothing was collected and nothing was withdrawn.**
 
 ---
 
@@ -312,20 +328,22 @@ conflict about the Library screen or positioning, and it must not pretend to.
 
 ## Definition of done
 
-- [ ] `inventory.md` — observed / asserted / not-known, every observed row with a path or URL,
+- [x] `inventory.md` — observed / asserted / not-known, every observed row with a path or URL,
       every owner's assertion listed as such, the not-known list containing at least the eight
-      questions named in step 1
-- [ ] Behavioural axes chosen, none demographic, each with evidence at both ends or set aside
-- [ ] `personas.md` — 2–4 personas, one primary chosen with an argument that names what would
+      questions named in step 1 — **done, and it became a register: twenty questions with an answer,
+      the data under it and a mark, plus three more the first interview added**
+- [x] Behavioural axes chosen, none demographic, each with evidence at both ends or set aside — **six proposed, two used to split, one (X4) used with a warning printed on it, three recorded and not used**; [`inventory.md`](inventory.md) §D
+- [x] `personas.md` — 2–4 personas, one primary chosen with an argument that names what would
       overturn it, every block sourced or `[?]`, hypotheses in their own section, **provisional** in
-      the header
+      the header — **three personas; eleven hypotheses; the primary's three overturning conditions
+      stated in advance**
 - [ ] `audit.md` — every factual claim classified, the dangerous list with the decision each row
       endangers, three questions each with a named instrument
-- [ ] `re-research.md` — one audit question closed or declared unclosable, as a source document;
-      every lifted `[?]` carrying its new source
-- [ ] `interview-guide.md` — the instrument for the lifting event, ready before it is needed
+- [x] `re-research.md` — one audit question closed or declared unclosable, as a source document;
+      every lifted `[?]` carrying its new source — **done, and run wide: eleven of twenty rows moved**
+- [x] `interview-guide.md` — the instrument for the lifting event, ready before it is needed — **and used once**
 - [ ] `personas.html` — built from the audited files, marks visible, linked from `research.html`
 - [ ] Proposals for CLAUDE.md, the digest and the register written into `audit.md` and **not
       applied** by this stage
-- [ ] Nothing in this stage edits CLAUDE.md §8. If a persona refutes a surface, that is a register
-      entry, not an edit
+- [x] Nothing in this stage edits CLAUDE.md §8. If a persona refutes a surface, that is a register
+      entry, not an edit — **held: §8 is untouched, and P3's surfaces are Q9 in the register**

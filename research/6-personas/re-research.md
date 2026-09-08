@@ -419,6 +419,16 @@ as corroboration of R3 at low confidence.
 
 ## 3. What moved, row by row
 
+> **Standing note added 2026-09-08, after the mark audit.** *Closed* in this table means **closed at
+> the level of what the public record can show**, which for most of these rows is *people describing
+> their own behaviour in public*. [`research.md`](../research.md) now carries that distinction as
+> **rule 5**: a re-runnable query proves that something was **said**, not that it is **true**. Three
+> rows this table calls *closed* — **NK-5, NK-6 and NK-10** — were re-marked in
+> [`inventory.md`](inventory.md) from a plain `✓` to `✓` + `*`, because the utterance is confirmed and
+> the behaviour under it is self-report. **Nothing collected here was withdrawn and no row moved back
+> to `?`.** The table is left as written, so that what this collection concluded and what the audit
+> made of it are both legible.
+
 | Row | Before | After this collection |
 |---|---|---|
 | **NK-1** — loss / reassembly / breakage | `[?]` | **Moved, not closed.** Reassembly and breakage both now have filed, weighted evidence (R3, R1). **Loss still has none, in any instrument.** Adoption is still unmeasured. |
@@ -458,16 +468,25 @@ outside this folder has been changed.**
 2. **A correction to `user-pain.md` finding 1's superlative**, carried over from
    [`inventory.md`](inventory.md) OBS-4 and now much larger: 182 is not the loudest anywhere. In the
    combined evidence base the loudest is **6,592**, and it is about multi-target support.
-3. **A challenge to `CLAUDE.md` §2's *"nothing does this today"*** (R8). The item-level half of our
-   thesis is shipped by several open-source tools with 400–4,500 stars. The set-level half — resolve
-   a named set, check it, produce an archive with instructions for the receiving machine — appears
-   not to be. The sentence needs narrowing, and `1-landscape/comparison.md` difference 1 needs a
-   dated note that it surveyed funded vendors.
+3. **A challenge to `CLAUDE.md` §2's *"nothing does this today"*** (R8). ~~The item-level half of our
+   thesis is shipped by~~ **Reworded 2026-09-08 after the mark audit: the item-level half of our
+   thesis is *claimed by the READMEs of*** several open-source tools with 400–4,500 stars. **We
+   installed none of them and ran none of them**, so what is `✓` here is their existence, their stars
+   and their push dates; their capabilities are vendor self-description, exactly the standard §2 of
+   this document already applied to them. The set-level half — resolve a named set, check it, produce
+   an archive with instructions for the receiving machine — appears not to be claimed by any of them.
+   The sentence needs narrowing either way, and `1-landscape/comparison.md` difference 1 needs a
+   dated note that it surveyed funded vendors. **If the narrowing is ever to be more than a hedge,
+   somebody has to install `asm` and `HarnessKit` and see what they actually do** — an afternoon,
+   like NK-13.
 4. **A challenge to §5's *reasoning*** (R8), not necessarily its decision: the market no longer only
    converges on measured trust at the vendor tier — free tools ship trust scores at the practitioner
    tier. *We choose not to score* is a different argument from *nobody can score but the big vendors*.
 5. **A new risk to §11's public library** (R6). We plan to ship a curated shelf of other people's
-   skills. In a scan of 3,984 skills from two registries, 13.4% had critical security issues.
+   skills. In a scan of 3,984 skills from two registries, 13.4% had critical security issues —
+   **published by Snyk and read at origin, not re-run or verified by us**, and their own post does
+   not reconcile the headline *36%* with the table's *36.82%*. The order of magnitude is the part
+   this proposal rests on.
    *Checked sources* in §11 currently means checked for provenance; it now has to mean checked for
    content, and the shelf needs a stated review standard.
 6. **A field the `Item` model lacks** (R11): `license`, for public items, with the rule that a
