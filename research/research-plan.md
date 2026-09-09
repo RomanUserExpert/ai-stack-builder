@@ -449,6 +449,41 @@ the sitting will read.
   block the guide does not have** — every line about P2 is somebody else's account of them — and
   **NK-13**, the half-day that is ours to run.
 
+### The interviews are unavailable — 2026-09-09, and it is a change of standing, not an answer
+
+**Q5's instrument has been withdrawn by circumstance.** Five practitioner conversations were the named
+instrument for **Q5, Q7, Q8, Q9, Q10, Q11 and Q12** — every live entry but none of them fully — and
+they are the event that lifts the *provisional* label on stages 6 and 7. **They cannot be run.**
+
+**What this does and does not mean.** It does **not** answer anything, and it does **not** lower the
+bar: an unavailable instrument removes an event, it does not make weaker evidence sufficient. The
+dispositions stand exactly as written. **What changes is that five entries now point at an instrument
+that will not arrive**, and a question with no reachable instrument is, by this register's own rule,
+a worry rather than a question.
+
+**What replaces it, in part.** [`6-personas/re-research-3.md`](6-personas/re-research-3.md) — five
+questions answerable **without asking anybody anything**, each with a named instrument, a procedure
+and a statement of what it can never establish. They are a different class from rounds 1 and 2: three
+read **behaviour left in public artefacts**, two are **ours to run**. Their reach against this
+register:
+
+| Entry | Does round 3 touch it? |
+|---|---|
+| **Q5** — loss or reassembly | **No.** Q-I touches its edge; motive is out of reach of every instrument here |
+| **Q7** — who is primary | **Partly.** Q-G is the first behavioural evidence about P2, which is one half of the contest |
+| **Q8** — the main job | **Partly.** Q-F tests whether the transfer job's mechanism works at all |
+| **Q9** — which features close no evidenced job | **Yes, materially.** Q-I measures whether imported material is kept, which is the behaviour the shelf assumes |
+| **Q10** — precedence against an external rule | **No.** A property of judgement |
+| **Q11** — the unwritten half | **No.** Q-G hints at its size and cannot measure it |
+| **Q12** — observability rather than validation | **No, and nothing can.** It needs a runtime we will not build |
+
+**The question this raises and does not answer: what, if anything, may ever lift *provisional*?**
+That is the owner's call at the sitting, not a research finding. Three positions are available and
+each has a cost — keep the label until conversations become possible; replace the trigger with a
+named non-interview event and say what it is; or drop the label and carry the marks alone, which is
+what the three-mark system was built to make survivable. **It is recorded here so the sitting takes
+it deliberately.**
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

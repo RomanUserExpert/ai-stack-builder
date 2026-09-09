@@ -503,8 +503,10 @@ on**: §6 justifies *nothing blocks* partly with *"it is the user's own library 
 Sometimes it is not, and the second party lost two days without knowing anything was wrong.
 
 **What would move it.** For the sending half, nothing. **For the receiving half, one conversation with
-a receiver** — the guide recruits one and has no questions for them, which is the gap to close before
-the next interview.
+a receiver** — the guide recruits one and has no questions for them. **Since the interviews are
+unavailable (2026-09-09), the receiving half is approached from the other side instead**: **Q-G** in
+[`re-research-3.md`](re-research-3.md) reads **forks as handovers** and their first commits as the
+first hour. It observes what a receiver *changed* and can never say why.
 
 ---
 
@@ -560,7 +562,10 @@ risk**: exactly our audience, went looking unprompted, found something adjacent,
 opinions against and none for, from the population least likely to like it.**
 
 **What would move it.** Q25 four more times, and above all the **P5 recruit** — someone who does not
-keep this material at all. The guide asks for it; it has not happened.
+keep this material at all. The guide asks for it; **it cannot happen, as of 2026-09-09.** What is
+reachable instead is the behaviour the shelf assumes rather than the person it was drawn for: **Q-I**
+in [`re-research-3.md`](re-research-3.md) measures whether imported material is ever touched again,
+and whether the installer category is a habit or a bookmark.
 
 ---
 
@@ -657,7 +662,9 @@ on reasoning alone.
 **How true.** `?`. It is not a question about people at all — it is a claim about a **machine's**
 behaviour, it is the spec's most load-bearing bet, and it has never been run once.
 
-**What would move it.** **Us, in an afternoon.** Compose a small set by hand, write the `SETUP.md` §6
+**What would move it.** **Us, in an afternoon** — and as of 2026-09-09 the procedure is written down
+step by step as **Q-F** in [`re-research-3.md`](re-research-3.md), with the deliberately broken set it
+needs and the four defect classes to watch for. Compose a small set by hand, write the `SETUP.md` §6
 describes, hand the archive to a fresh Claude Code, Cursor and Codex, record what each actually does.
 Adjacent evidence says the target is real: `*` [interview, Q11](agent-setup-interview.md) — a
 devcontainer with Node 18 against a server needing 20+, and *"broken config doesn't announce itself,

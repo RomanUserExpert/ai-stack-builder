@@ -25,9 +25,23 @@ hand-back, is [`re-research.md` §4](re-research.md) plus
 [`jtbd.md` §12](../7-jobs-to-be-done/jtbd.md), which is the single list the register's next sitting
 reads.** Nothing is applied to `CLAUDE.md`.
 
-**Still owed: four more interviews**, which is the event that lifts *provisional* from everything in
-this folder — **and the guide still has no block of questions for a receiver**, which is why every
-line about P2 is somebody else's account of them.
+**The interviews cannot be run. Recorded 2026-09-09, and it changes what this stage can still do.**
+The four remaining conversations are the event that lifts *provisional* from everything in this
+folder, they are the named instrument for five of the six live register entries, and they are
+**unavailable**. The label therefore does not lift, and saying so is the honest position: an
+unavailable instrument does not lower a bar, it removes the event.
+
+**What replaces them is a third round, and it is a different class of instrument.**
+[`re-research-3.md`](re-research-3.md) — **five questions that need no interview**: the handover test
+we run ourselves, forks read as the receiving end, drift measured in git history, whether imported
+material is ever touched again, and the competitors installed and pointed at a deliberately broken
+set. Three of the five read **behaviour left in public artefacts** rather than what anyone said about
+it, and two are **ours to run**. **It is a plan and nothing in it may be cited until its capture logs
+exist.** It does not lift *provisional*, does not answer Q5, Q10, Q11 or Q12, and reaches no private
+repository — all of which it says on its own front page.
+
+**And the guide still has no block of questions for a receiver**, which is why every line about P2 is
+somebody else's account of them. That gap is now addressed from the other side, by Q-G.
 **[`personas.html`](personas.html) was built on 2026-09-08**, after the audit rather than before it,
 which is what step 6 required: a page built from an unaudited file publishes the invention. It
 carries stage 7's hierarchy and matrix too, as the plan intended, and every mark is visible on it.

@@ -12,7 +12,9 @@
 > proposes to the specification, handed to the register rather than written into `CLAUDE.md`. The
 > label lifts on the same event as stage 6's: **five practitioner conversations** run against
 > [`interview-guide.md`](../6-personas/interview-guide.md) and filed as source documents. **One has
-> happened.**
+> happened, and as of 2026-09-09 the remaining four cannot be run** — which removes the event rather
+> than lowering the bar. The blocked cells stay blocked; what is reachable without a person is
+> [`re-research-3.md`](../6-personas/re-research-3.md), and §11 says which cells it could move.
 
 > **What the audit did to the matrix, before you read it.** It **removed evidence, it did not add
 > any**. Two cells lost their numbers outright and four were lowered, because they held an importance
@@ -568,11 +570,21 @@ confirmations; SJ-2's 1 on an absence looked for in two instruments; every compe
 above; and the hypothesis list's shape. **The audit did not overturn a single job.** It changed what
 we are allowed to lean on.
 
-**What is still owed and cannot be closed here.** Four interviews, and the receiver's question block
-the guide does not have — **every line in the P2 column is somebody else's account of a person nobody
-has asked.** And **NK-13**: compose a set, write the `SETUP.md` §6 describes, hand the archive to a
-fresh Claude Code, Cursor and Codex, record what each does. Half a day, on this machine, and after
-two rounds of research it is still the most load-bearing untested claim in the project.
+**What is still owed, and what became unreachable on 2026-09-09.** The four remaining interviews
+**cannot be run**, which removes the named instrument for most of the blocked cells and does not lower
+the bar for any of them — the P2 column stays `[?]` on the record rather than on a promise. **Every
+line in that column is still somebody else's account of a person nobody has asked.**
+
+**What is reachable instead is written down as [`re-research-3.md`](../6-personas/re-research-3.md)** —
+five questions that need no interview, three of which read behaviour left in public artefacts and two
+of which are ours to run. Against this matrix: **Q-G** reads forks as handovers and is the first
+behavioural evidence about **P2** the project would have; **Q-H** measures whether copies drift, which
+is **RJ-3**'s premise; **Q-I** measures whether imported material is ever touched again, which is the
+behaviour **H-J4** assumes; **Q-J** runs the competitors against a broken set, which is the competitor
+column's unrun half. **And Q-F is still NK-13** — compose a set, write the `SETUP.md` §6 describes,
+hand the archive to a fresh Claude Code, Cursor and Codex, record what each does. Half a day, on this
+machine, and after two rounds of research it remains the most load-bearing untested claim in the
+project. **None of the five lifts *provisional*, and none of them answers Q5, Q10, Q11 or Q12.**
 
 ---
 
@@ -590,7 +602,7 @@ belongs to.
 | **R-3** | **§11**, *~30 realistic items* | Counted rather than asserted: **11, 25, 47 and 48 items** in four public repositories, two above 40 (Q-C) | **Say tens, not hundreds, and design the Library for fifty.** §8's accepted cost was priced against 300 and that stays refuted | Feeds **Q5**, blocks nothing |
 | **R-4** | **§5, §7**, detach → promote | After the audit, in-project editing and promotion stand on **nothing** — the one aside cited is about a conflict outside the set (D-6, J-107) | **Nothing to change now.** Q4's disposition was taken on reasoning and holds; but this is the least evidenced mechanism in the spec and the only one with no prior art | **Q10** |
 | **R-5** | **§6, §8**, the disclosure stages before Export | RJ-1's sender-side cell lost its number entirely (D-5). The stages may still be right **for the receiver** — and no receiver has been asked | **Keep, and note what they rest on.** One practitioner saying it plainly moves RJ-1 into the core | **Q7 / Q8** |
-| **R-6** | **§6**, `SETUP.md` written for the agent | In 274 comments on exactly this topic, the work is done by `chezmoi`, symlinks, a CLI installer, `skills.py` and bootstrap scripts; **two comments describe an agent touching this material and neither is a setup** (Q-A) | **The bet is not refuted — it is against the grain of current practice.** Run NK-13 before the first mockup that shows the handover stages | **NK-13**, the named half-day |
+| **R-6** | **§6**, `SETUP.md` written for the agent | In 274 comments on exactly this topic, the work is done by `chezmoi`, symlinks, a CLI installer, `skills.py` and bootstrap scripts; **two comments describe an agent touching this material and neither is a setup** (Q-A) | **The bet is not refuted — it is against the grain of current practice.** Run NK-13 before the first mockup that shows the handover stages; the procedure is **Q-F** in [`re-research-3.md`](../6-personas/re-research-3.md) | **NK-13**, the named half-day |
 | **R-7** | **§6**, `.env.example` and RJ-4 | The runtime half of this problem is occupied by several parties; **the handover half is not** (Q-D) | **Keep it in the core, narrow the claim.** It is hygiene that happens to be unoccupied, not a differentiator we invented | — |
 | **R-8** | **§9**, versioning refused | [#28729](https://github.com/anthropics/claude-code/issues/28729), **151 reactions**, asks for exactly what §9 rules out — from an organisation context | **§9 currently reads as though nobody wants it, and somebody does.** Record the datum; the disposition is the owner's | Owner's call |
 | **R-9** | **§9**, composition deferred | One of the two signals §9 leaned on has failed — the `0 results` was a bug-shaped query on a frozen product — and the friction is filed live (#9444, codex #17401). **The deferral stands on recursion**, which was always the better half | **Change the stated reason, not the decision** | Owner's call |

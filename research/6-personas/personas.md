@@ -17,7 +17,11 @@
 > corrected in place, each marked with its ID. **Every correction weakened a claim; none reversed a
 > finding, and no persona changed.** The label lifts on
 > one event and one only: **the five practitioner conversations Q5 names**, run against
-> [`interview-guide.md`](interview-guide.md) and filed here as source documents. Four are still owed,
+> [`interview-guide.md`](interview-guide.md) and filed here as source documents. **Four are still owed
+> and, as of 2026-09-09, unavailable — so the label does not lift, and nothing on these cards is
+> promoted because the event will not arrive.** What is reachable without a person is
+> [`re-research-3.md`](re-research-3.md); it reaches the receiver's column and the shelf's premise in
+> part, and it reaches nothing about motive or feeling. Four were owed,
 > and the guide asks that **two of them be people who have never filed an issue in public** — see the
 > bias in *What these portraits are drawn from*, below.
 

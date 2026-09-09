@@ -20,9 +20,15 @@ for**. Stages 6 and 7 do that:
 sign-off stands as written** — nothing below is retracted; the two new stages *audit* this file and
 raise register entries rather than editing it.
 
-**Status, 2026-09-09 — both stages are written, audited and reconciled; only the interviews are
-owed.** Every step of both plans is done except the four remaining practitioner conversations, which
-are the event that lifts *provisional*. The documents:
+**Status, 2026-09-09 — both stages are written, audited and reconciled, and the interviews are
+unavailable.** Every step of both plans is done. The four remaining practitioner conversations — the
+event that lifts *provisional*, and the named instrument for five of the six live register entries —
+**cannot be run.** That removes an event; it does not lower a bar, and nothing in either stage is
+promoted because of it. **What is reachable without a person is written down as
+[`re-research-3.md`](research/6-personas/re-research-3.md)** — five questions with named instruments,
+three reading behaviour left in public artefacts and **two of them ours to run**, including the
+handover test this file has owed itself since 2026-09-02. **It is a plan; nothing in it may be cited
+until its capture logs exist.** The documents:
 [`inventory.md`](research/6-personas/inventory.md) — a register of the twenty questions about people,
 each with its answer, the data under it and a mark;
 [`re-research.md`](research/6-personas/re-research.md) — a source document, four instruments taken to
@@ -54,9 +60,10 @@ design system → mockups → frontend → logic). Those are a different list an
 **The behavioural axes and [`personas.md`](research/6-personas/personas.md) landed on 2026-09-08** —
 **three personas, one primary**: *the keeper who runs several agents* (primary), *the receiver*, and
 *the empty-handed*, the last being the persona §8's scope switch and §11's shelf already ship for and
-**nobody had met**. The page and the audit followed; **four more interviews are still owed**, and so
-is a block of questions for a **receiver** — the guide recruits one and has nothing to ask them, which
-is why every line about the second persona is somebody else's account of them.
+**nobody had met**. The page and the audit followed. **The four remaining interviews are owed and
+unavailable**, and so is a block of questions for a **receiver** — the guide recruits one and has
+nothing to ask them, which is why every line about the second persona is somebody else's account of
+them. Round 3 approaches that column from the other side, by reading **forks as handovers**.
 
 **Stage 7 ran from 2026-09-08 to 2026-09-09 and is complete.**
 [`research/7-jobs-to-be-done/jtbd.md`](research/7-jobs-to-be-done/jtbd.md) holds **one main job, four
@@ -120,7 +127,9 @@ stage 3 recorded that a tracker sees breakage, not friction. **All of the adopti
 marked `[?]`, and the third persona is mostly `[?]`** — the first two turned out to be mostly one
 person's recollection plus utterance-level `✓`, which the audit counted rather than estimated. The
 label lifts on the event Q5 already names — five practitioner conversations — for which stage 6 built
-the instrument and ran the first.
+the instrument and ran the first. **As of 2026-09-09 the remaining four cannot be run, so the label
+does not lift.** Whether anything else may ever lift it is a decision for the register's next sitting
+and is recorded there; it is not a research finding, and **no mark is promoted in the meantime**.
 
 **All five of the original research stages are done.** Landscape, flows and pain; then **benchmark** — 15
 product-and-flow cells scored against five categories lifted from stages 1–3
@@ -666,7 +675,9 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
   project**, without which detach is only unlink. Sections 5, 7 and 8.
 - ~~Loss or reassembly cost — which drives adoption? (Q5)~~ — **deferred, accepted risk.** No
   instrument here can answer it. The trigger is written down: ask five practitioners before the first
-  feature that only pays off under one answer. Blocks positioning, not the build.
+  feature that only pays off under one answer. Blocks positioning, not the build. **The instrument
+  became unavailable on 2026-09-09** — the disposition stands, and
+  [`research/research-plan.md`](research/research-plan.md) records what can be reached without it.
 - ~~Styling engine (Q6)~~ — **deferred to the design-system phase**, decided on two built components.
   The criterion is recorded: tokens and two real themes first-class, and the engine must not push
   utility classes into components that are themselves the product's value. Section 10.

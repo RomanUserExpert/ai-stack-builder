@@ -442,3 +442,9 @@ ran** rather than validation that a set coheres. All three stand on one person. 
 performing the setup, on reasoning alone. It is the spec's most load-bearing bet, it is a claim about
 a **machine** rather than a person, and it needs an afternoon: compose a small set, write the
 document, hand the archive to a fresh Claude Code, Cursor and Codex, record what each does.
+**Written out step by step on 2026-09-09 as Q-F in
+[`6-personas/re-research-3.md`](6-personas/re-research-3.md)**, together with four more questions that
+need no interview — because **the interviews became unavailable**, which removes the instrument five
+register entries were pointed at and lowers no bar. That round reads behaviour left in public
+artefacts: forks as handovers, drift in git history, whether imported material is ever touched again,
+and the competitors installed and run against a deliberately broken set.
