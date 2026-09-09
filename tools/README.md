@@ -11,8 +11,11 @@ sidebar lists **all twelve course phases**, current one marked, the ten unbuilt 
 bar sticks to the top of the content column, and a scroll handler keeps **exactly one tab active** —
 the last section whose top has reached the upper third of the viewport — and scrolls that tab into
 view when the bar overflows. **Both horizontal bars are also dragged with the mouse** — press and
-pull, `cursor:grab` appearing only while a bar actually overflows, a drag past 4px swallowing the
-click it would have ended in, and touch left to scroll natively. It lives in the same IIFE as the
+pull, `cursor:grab` appearing only while a bar actually overflows, and touch left to scroll natively.
+A press is a click until it has travelled **5px**; past that it becomes a drag and eats the click it
+would have ended in. **It must not use `setPointerCapture`** — a captured pointer retargets the click
+at the scroller and the tab under the cursor never gets it, which is how the first version broke
+every tab. The move and up handlers go on the `window` instead. It lives in the same IIFE as the
 scroll-spy, because that is the block `build_personas.py` lifts across. An `IntersectionObserver` band was tried first and left the indicator
 blank between sections, which is wrong for something shaped like tabs. **That list is the course's and is fixed** — it is not the
 project's build phases. **Adding a third page means editing the strip in both templates and adding

@@ -1396,6 +1396,9 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
   }
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('resize', onScroll);
+  /* a click on a tab jumps without always producing a scroll event the throttle
+     can see, so the bar would keep pointing at the section we just left */
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(sync); });
 
   /* Drag the horizontal bars with the mouse. They overflow at most widths and a
      wheel alone only moves them with shift held, which nobody discovers. Touch
@@ -1403,33 +1406,45 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
      few pixels swallows the click it would otherwise end in. */
   function dragScroll(box){
     if(!box) return;
-    var down = false, moved = 0, startX = 0, startLeft = 0;
+    var SLOP = 5;                         /* a press only becomes a drag past this */
+    var down = false, dragging = false, swallow = false, startX = 0, startLeft = 0;
     function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
     function mark(){ box.classList.toggle('grabbable', !fits()); }
 
-    box.addEventListener('pointerdown', function(e){
-      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
-      down = true; moved = 0; startX = e.clientX; startLeft = box.scrollLeft;
-      box.setPointerCapture(e.pointerId);
-      box.classList.add('dragging');
-    });
-    box.addEventListener('pointermove', function(e){
-      if(!down) return;
+    /* No setPointerCapture: a captured pointer retargets the click at the
+       scroller, and the tab under the cursor never receives it. The move and up
+       handlers go on the window instead, so a drag still survives leaving the
+       bar, and a plain click stays a plain click on the link. */
+    function move(e){
       var dx = e.clientX - startX;
-      if(Math.abs(dx) > moved) moved = Math.abs(dx);
+      if(!dragging){
+        if(Math.abs(dx) < SLOP) return;
+        dragging = true; swallow = true;
+        box.classList.add('dragging');
+      }
       box.scrollLeft = startLeft - dx;
       e.preventDefault();
-    });
-    function release(e){
-      if(!down) return;
-      down = false;
-      box.classList.remove('dragging');
-      if(box.hasPointerCapture(e.pointerId)) box.releasePointerCapture(e.pointerId);
     }
-    box.addEventListener('pointerup', release);
-    box.addEventListener('pointercancel', release);
+    function up(){
+      down = false; dragging = false;
+      box.classList.remove('dragging');
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    }
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; dragging = false; swallow = false;
+      startX = e.clientX; startLeft = box.scrollLeft;
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+    });
+    /* only a press that actually moved eats its click */
     box.addEventListener('click', function(e){
-      if(moved > 4){ e.preventDefault(); e.stopPropagation(); moved = 0; }
+      if(!swallow) return;
+      swallow = false;
+      e.preventDefault(); e.stopPropagation();
     }, true);
     box.addEventListener('dragstart', function(e){ e.preventDefault(); });
 
