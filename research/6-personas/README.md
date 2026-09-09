@@ -7,15 +7,27 @@ here. The method is the one taught in lesson 2 of the design-engineering course 
 slides, read in full), adapted to this product and to this repository's evidence rules. Where the
 lesson and this repository's protocol disagree, the protocol wins and the disagreement is stated.
 
-Status, **2026-09-08: steps 1, 2, 3 and 5 are done; steps 4, 6 and 7 are not.**
+Status, **2026-09-09: every step is done except the interviews.**
 [`inventory.md`](inventory.md) (the register, and the axes in §D),
 [`re-research.md`](re-research.md), [`interview-guide.md`](interview-guide.md),
 [`agent-setup-interview.md`](agent-setup-interview.md) — **interview 1 of 5** — and
 [`personas.md`](personas.md), **three personas with one primary.** Step 5 was run **wide rather than
-surgically**, at the owner's instruction, and moved eleven rows instead of one. **Still owed:**
-`audit.md` (step 4) — though [`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md)
-covers it claim by claim — the hand-back proposals (step 7), and **four more interviews**, which is
-the event that lifts *provisional* from everything in this folder.
+surgically**, at the owner's instruction, and moved eleven rows instead of one; **it was then run a
+second time** on 2026-09-08 against the five questions the audit raised —
+[`re-research-2.md`](re-research-2.md), where two instruments **count** somebody's collection for the
+first time instead of asking about it.
+
+**Step 4, the audit, is [`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md)** — merged
+with stage 7's step 6 at the owner's request, 238 claims classified across both files — **and it was
+applied on 2026-09-09**: the eleven invented claims in `personas.md` are corrected in place, each
+marked with its ID, and five rows in `inventory.md` carry what round 2 established. **Step 7, the
+hand-back, is [`re-research.md` §4](re-research.md) plus
+[`jtbd.md` §12](../7-jobs-to-be-done/jtbd.md), which is the single list the register's next sitting
+reads.** Nothing is applied to `CLAUDE.md`.
+
+**Still owed: four more interviews**, which is the event that lifts *provisional* from everything in
+this folder — **and the guide still has no block of questions for a receiver**, which is why every
+line about P2 is somebody else's account of them.
 **[`personas.html`](personas.html) was built on 2026-09-08**, after the audit rather than before it,
 which is what step 6 required: a page built from an unaudited file publishes the invention. It
 carries stage 7's hierarchy and matrix too, as the plan intended, and every mark is visible on it.

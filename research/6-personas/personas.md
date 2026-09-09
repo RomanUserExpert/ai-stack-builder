@@ -12,7 +12,10 @@
 > 2026-09-08 — [`re-research-2.md`](re-research-2.md), a second targeted collection run against the
 > five questions in [`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md). **Five marks
 > changed and P3 changed character; each change is recorded in [`research.md`](../research.md) §7,
-> *Research justification*.** The label lifts on
+> *Research justification*.** **And on 2026-09-09 the audit itself was applied**: the eleven invented
+> claims [`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md) found in this file are
+> corrected in place, each marked with its ID. **Every correction weakened a claim; none reversed a
+> finding, and no persona changed.** The label lifts on
 > one event and one only: **the five practitioner conversations Q5 names**, run against
 > [`interview-guide.md`](interview-guide.md) and filed here as source documents. Four are still owed,
 > and the guide asks that **two of them be people who have never filed an issue in public** — see the
@@ -50,7 +53,7 @@ serve), with **X4** (author or consumer) producing the third — [`inventory.md`
 | | **P1 — The keeper who runs several agents** | **P2 — The receiver** | **P3 — The empty-handed** |
 |---|---|---|---|
 | **X1** solo ↔ handed over | Solo, until the day it is not | **Receives somebody else's** | Solo, and has nothing yet |
-| **X2** one host ↔ several | **Two to four, kept in sync by hand** | Usually a different one from the author's | `[?]` |
+| **X2** one host ↔ several | **Two to four, counted in public trees** | `[?]` — **one filed motive says so**; no instrument measured how often (P-06) | `[?]` |
 | **X4** author ↔ consumer | **Author** | Author elsewhere, consumer here | **Consumer** |
 | Standing | **`✓` + `*`, and primary** | **`✓` at population** — six independent senders and three issue threads; **`*` and second-hand for the receiving end** | **`[?]` that the persona exists; `✓` that the nearest observed people are sceptical of the shelf's premise.** Changed 2026-09-08 |
 
@@ -82,16 +85,19 @@ rule immediately after an agent did something annoying; or hunting for something
 and cannot find. `*` [interview, Q19](agent-setup-interview.md) — *"I basically never go in there to
 read or review. **There's no reason to, nothing prompts it, so it doesn't happen.**"*
 
-**They arrive irritated more often than not**, because the second of those three modes is an edit
-written straight after a failure. `*` [interview, Q19](agent-setup-interview.md) — *"most edits are
-written while irritated, which is probably visible in the tone of some of them."* Whether this holds
-for anyone else is **`[?]` → H1**.
+**The second most frequent reason to open the folder is an edit written in irritation.** *Corrected
+2026-09-09 (P-13): this read "they arrive irritated more often than not", which reverses the
+respondent's own ordering — **copying something out is the most frequent mode**, the irritated edit
+is second.* `*` [interview, Q19](agent-setup-interview.md) — *"most edits are written while irritated,
+which is probably visible in the tone of some of them."* Whether this holds for anyone else is
+**`[?]` → H1**, and the copy register for a Problem and a Note (§6) is being tuned to a mood we have
+ranked second, not first.
 
 ### Environment — the block this repository added
 
 - **Two to four agents installed, two of them used on any given day. `✓` — and as of 2026-09-08 this is counted rather than reported.** Two of four public agent-material repositories configure **four** and **three** distinct tools, read straight from their trees: `.claude/settings.json` beside `packages/devin/config.json`, `packages/copilot/settings.json` and `packages/pi/agent/settings.json`; and `claude/` beside `codex/config.toml.example` and `antigravity/mcp_config.json.example`, with `CLAUDE.md`, `AGENTS.md` and `MULTI-AGENT.md` side by side ([`re-research-2.md`](re-research-2.md) Q-C). `✓` [`re-research.md`](re-research.md) R1–R2 — the demand for one source across agents is the loudest thing in the whole evidence base, [#6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592 reactions**; **25 HN comments** about symlinking one source into several formats. **The per-person count used to be `*`, seven people's self-description; it is now `✓` in two public trees** — NK-5.
 - **The material lives in a git repository they own**, symlinked into `~/.claude/` and the other places each agent expects. **`✓` as of 2026-09-08** — the arrangement is visible in the trees themselves and described independently by six people in one thread: `chezmoi` with *"a `.agents/skills/` directory + a symlink"*; *"two source-of-truth git repos (private and public)… syncs to all coding agents `~/.claude/skills/`, `~/.codex/skills`, `~/.pi/agent/skills`"*; *"a separate repo which has to be pulled locally and the skills and agents are sym linked to projects"* ([`re-research-2.md`](re-research-2.md) Q-C). `*` [interview, Q3](agent-setup-interview.md) · `✓` that people care intensely where it sits ([#1455](https://github.com/anthropics/claude-code/issues/1455), XDG, **446 reactions**) — NK-6. **The instrument's bias, printed here: this counts only people who publish their setup, and the one practitioner interviewed keeps his private.**
-- **Three machines or more, counting containers**, and the environments are exactly the ones the instructions did not assume — WSL, dev containers, Remote-SSH, Docker, JetBrains. `✓` OBS-6, with reaction counts · `*` [interview, Q5](agent-setup-interview.md).
+- **Three, if you count containers** — `*` one person, [interview, Q5](agent-setup-interview.md); *"or more"* was added by us and is now removed (P-23). The environments are exactly the ones the instructions did not assume — WSL, dev containers, Remote-SSH, Docker, JetBrains — and **`✓` covers only that these hosts appear in the trackers with those reaction counts** (OBS-6), never a per-person machine count, which no instrument has measured.
 - **Nothing is public.** `✓` R10 — **0 of 1,762** HN comments mention a portfolio, and `portfolio in:title` in the audience's own tracker returns two unrelated issues.
 
 ## 2. Jobs — what they are trying to do
@@ -105,7 +111,7 @@ for anyone else is **`[?]` → H1**.
 ## 3. Pains — from trackers, forums and one conversation
 
 - **It lands on a fresh machine and quietly does not run.** `✓` [mcp/servers #64](https://github.com/modelcontextprotocol/servers/issues/64) — *MCP Servers Don't Work with NVM*, **182 reactions, 91 comments**, over a top-of-tracker made of `npx` failures, processes dying at startup, timezones and Windows path casing — [`user-pain.md`](../3-pain/user-pain.md) finding 1. `*` [interview, Q11](agent-setup-interview.md) — a devcontainer on Node 18 against a server needing 20+: *"the failure mode is that the agent just doesn't have those tools and carries on without them, cheerfully."* **Detection took 25 minutes; the fix took two.**
-- **The failure does not announce itself.** `*` [interview, Q11](agent-setup-interview.md) — *"broken config doesn't announce itself, **it degrades quietly**"*, and *"**one in three** fresh environments has something silently not loading"* (a recollection, not a measurement — rule 3). `✓` the same shape, filed: [codex #13386](https://github.com/openai/codex/issues/13386) — `AGENTS.md` **silently truncated at 32 KB**, *"with no warning anywhere"* · [claude-code #9716](https://github.com/anthropics/claude-code/issues/9716), 75 reactions — skills present and not noticed.
+- **The failure does not announce itself.** `*` [interview, Q11](agent-setup-interview.md) — *"broken config doesn't announce itself, **it degrades quietly**"*, and — `*` [Q12](agent-setup-interview.md), **not Q11 as this line used to say** (P-37) — *"**one in three** fresh environments has something silently not loading"* (a recollection, not a measurement — rule 3). `✓` the same shape, filed: [codex #13386](https://github.com/openai/codex/issues/13386) — `AGENTS.md` **silently truncated at 32 KB**, *"with no warning anywhere"* · [claude-code #9716](https://github.com/anthropics/claude-code/issues/9716), 75 reactions — skills present and not noticed.
 - **Two things claim the same slot and the first one silently wins.** `✓` [mcp/servers #1219](https://github.com/modelcontextprotocol/servers/issues/1219), 13 reactions — *"the chat always chooses the first one specified in order of `mcp.json`"* — **our own collision thesis, sighted in the wild, in the exact file we generate.** Quieter than the environmental pain by a factor of fourteen, and that ratio is the honest weighting — OBS-16, [`user-pain.md`](../3-pain/user-pain.md) finding 2.
 - **Env keys and secrets.** `✓` and heavier than stage 3 found: [#32733](https://github.com/anthropics/claude-code/issues/32733) 192 · [#401](https://github.com/anthropics/claude-code/issues/401) 54 — *"Claude loads my project's `.env` into its bash environment"* · [#29910](https://github.com/anthropics/claude-code/issues/29910) 45 · [continue #1729](https://github.com/continuedev/continue/issues/1729) 32 — *"storing api keys in plain text"* · [mcp/servers #1018](https://github.com/modelcontextprotocol/servers/issues/1018) 23 · [#754](https://github.com/modelcontextprotocol/servers/issues/754) 22 — R6, OBS-18.
 - **Being silently overruled by their own tooling.** `*` [interview, Q13](agent-setup-interview.md) — a formatting rule left over from another project reformatted a codebase as a side effect, **1,100 lines of noise pushed into a colleague's review branch.** `✓` the same class: [#20412](https://github.com/anthropics/claude-code/issues/20412), 142 reactions — MCP servers *"silently synced… without any opt-in, notification, or consent."*
@@ -157,8 +163,12 @@ load-bearing, and **they do not know what is missing.**
 
 They are handed a repository, a config or a project and expected to work in it. `✓` [#6235](https://github.com/anthropics/claude-code/issues/6235), **6,592 reactions** — the stated motive of the loudest request in the evidence base is *"collaborating with other developers **who aren't using Claude Code**"* · [#10238](https://github.com/anthropics/claude-code/issues/10238) 168 — *"we have started using and developing skills **with my team**"* · [#28729](https://github.com/anthropics/claude-code/issues/28729) 151 — org skills, *"multiple contributors"* · [#48322](https://github.com/anthropics/claude-code/issues/48322) 53 — team/enterprise shared routines — [`re-research.md`](re-research.md) R12, NK-7.
 
-**They usually run a different agent from the person who wrote it.** `✓` — that is what #6235 is
-about, and the same family spans three vendors' trackers (R1).
+**Whether they usually run a different agent from the person who wrote it is `[?]`.** *Corrected
+2026-09-09 (P-71): this asserted "usually", a frequency no instrument measured, and leaned on R1's
+thirteen-issue family — five of which are about session, history, account or subscription sync rather
+than instruction files.* **The situation is filed once with a stated motive** — #6235, whose author
+says collaborators are not using the same tool — and **its frequency is not known**. The
+instruction-file family is eight issues, not thirteen (R1).
 
 **Environment. Half of H5 closed on 2026-09-08; the other half did not.** `✓` **the sending side and
 its difficulty**, from six independent voices in one Ask HN thread of 305 points and 274 comments
@@ -261,7 +271,7 @@ names"* is the shape that survived: **provenance over volume.**
 What still stands behind the surfaces, and none of it is a person:
 
 - **`V`** A whole tool category exists to install other people's material — `xingkongliang/skills-manager` 4,526★, `MoizIbnYousaf/ai-agent-skills` *"universal skill installer and package manager"* 1,138★, `luongnv89/asm` 915★ — [`re-research.md`](re-research.md) R8. **Their existence and their stars are `✓`; what they do is their own README and we ran none of them** (rule 5).
-- **`V`** Catalogs report skills at six and seven figures, and one vendor's own report says *"discovery is no longer the bottleneck. **Judgment is.**"* — R9, **published by a hard competitor that sells curation**.
+- **`V`** Catalogs report skills at six and seven figures — Agentman published the figures — and *"discovery is no longer the bottleneck. **Judgment is.**"* comes from **agensi.io, a third-party affiliate-shaped comparison**, not from a hard competitor's own report. *Corrected 2026-09-09 (P-89); the error entered in [`re-research.md`](re-research.md) R9, which lists the sentence under the Agentman bullet.*
 - **`V`** OBS-12 — every catalog in the survey solves cold start with **curation and volume**, and not one makes a user's own accumulated material better.
 
 **Nothing in that list is a person.** It is what tools and vendors bet — and as of 2026-09-08 it is
@@ -339,7 +349,7 @@ choice between two candidates but the merge of them.
 
 **Four reasons P1 is primary, in descending strength:**
 
-1. **It is the only persona with `✓` and `*` agreeing from independent instruments** on its jobs and its pains — the multi-target job at 6,592, the drift job at 48, the environmental pain at 182, the collision at 13, the doubt across eight threads and one interview.
+1. **It is the persona with the most agreement between `✓` and `*` from independent instruments** on its jobs and its pains — the multi-target job at 6,592, the drift job at 48, the environmental pain at 182, the collision at 13, and the doubt found **in four of the eight threads read**, plus one interview. *Corrected 2026-09-09: "the only persona" was a superlative P2's own card contradicts (P-107), and "across eight threads" was not what was read (P-108). Reason 1 is weaker than it was written; reasons 2 to 4 still carry the choice.*
 2. **It is where the value was already found to concentrate.** The benchmark re-weighted the four flows by pain and put the value in **B3 (check)** and **B4 (produce)** — [`benchmark.md`](../4-benchmark/benchmark.md), *finalisation*. Those are P1's two moments.
 3. **It carries the higher risk and has the fewer levers**, which is the lesson's own rule for choosing. If we are wrong about P1, Run and the item card are both wrong, and they are the product. If we are wrong about P3, one scope switch and one seeded project are wrong.
 4. **P2's job is a *consequence* of P1's set, not an independent product.** The receiver's pain begins with an archive P1 produced. Designing for P2 without P1 has nothing to design against.
@@ -353,9 +363,9 @@ choice between two candidates but the merge of them.
 ## What these portraits are drawn from — the bias, printed on the page
 
 - **Every public source is a person who chose to write in public.** The whole corpus is filers and commenters — X5, NK-16. The one practitioner interviewed is *also* a filer, so n = 1 cannot correct it. **The guide requires two of the five to have never filed anything in public** ([`interview-guide.md`](interview-guide.md) §2); that has not happened yet.
-- **Reddit is missing**, and it is named across community surveys as the largest venue for this population — R13.
+- **Reddit is missing**, and **one community survey names it among the venues this population uses** — R13. *Corrected 2026-09-09 (P-114): "named across community surveys as the largest venue" was a plural and a ranking built on a single unranked survey.*
 - **Every number spoken in the interview is a recollection** — *forty-something files*, *one in three fresh environments*, *about half of it* — and the respondent flags his own unreliability twice unprompted. Rule 3.
-- **Roughly half of every card above is `[?]`, and all of the adoption story is.** That was predicted in the plan before any of it was written ([`README.md`](README.md), *The honest problem*), and it turned out to be accurate.
+- **P3 is mostly `[?]`; P1 and P2 are mostly `*` and utterance-level `✓`.** *Corrected 2026-09-09 (P-116): this said "roughly half of every card is `[?]`", and the count refutes it — P1 carries 20 `✓`, 19 `*` and 5 `[?]`; P2 5 / 5 / 2; P3 2 / 0 / 6.* **The adoption half of the prediction was right and stands**: all of the adoption story is `[?]`. The risk the wrong sentence created is the one to keep in mind — a reader leaning on P1's card at `✓` strength because they were told it is only half hypothesis, when most of it is one person's recollection.
 
 ---
 
@@ -370,7 +380,7 @@ so that none of it can be read as a finding.
 | **H2** | People want a **previous project back**, and are stopped by entanglement rather than by not finding it | Guide Q8, four more times — NK-8 | Duplicate-a-project, and item granularity (§5, §8) |
 | **H3** | A **count that links to its list** convinces this audience, as it does in VS Code and Figma | The five conversations, shown two variants of the same finding; or first use of a seeded library — NK-12 | *Used in 3 projects* on an item card (§5) |
 | **H4** | A **score would repel** rather than reassure, now that free tools at this tier ship one | Guide Q20 open, four more times, plus asking directly about `asm` and `HarnessKit` if the respondent knows them — NK-12, R8 | §5's *usage facts, never a score* |
-| **H5** | The **receiver** has a different agent and cannot easily ask the author | **Half closed 2026-09-08.** `✓` that senders distribute across agents and find it *"currently awkward"* — six independent voices ([`re-research-2.md`](re-research-2.md) Q-B). **The receiving end is untouched: every one of those six is a sender.** Ask a receiver — nobody has, and the guide still does not recruit one — NK-7 | What `SETUP.md` assumes about its reader (§6) |
+| **H5** | The **receiver** has a different agent and cannot easily ask the author | **Half closed 2026-09-08.** `✓` that senders distribute across agents and find it *"currently awkward"* — six independent voices ([`re-research-2.md`](re-research-2.md) Q-B). **The receiving end is untouched: every one of those six is a sender.** Ask a receiver — nobody has. *Corrected 2026-09-09 (P-119): the guide **does** recruit one — §2's P3 profile is "has handed a setup to somebody else, **or received one**" — what it lacks is **a block of questions for a receiver**; every question in §4 is addressed to an author* — NK-7 | What `SETUP.md` assumes about its reader (§6) |
 | **H6** | A **receiving agent performs the setup correctly from `SETUP.md` alone** | **Not closed, and the web cannot close it — confirmed 2026-09-08.** In 274 comments on exactly this topic, the mechanisms people use are `chezmoi`, symlinks, a CLI installer, `skills.py`, `vercel-labs/skills` and a bootstrap script; **two comments describe an agent touching this material and neither is a setup** ([`re-research-2.md`](re-research-2.md) Q-A). The bet is now visibly **against the grain of current practice**, not merely unverified. The instrument is unchanged and still ours: **half a day** — compose a set, write the `SETUP.md` §6 describes, hand the archive to a fresh Claude Code, Cursor and Codex, record what each does — NK-13 | The spec's most load-bearing bet (§6, §8) |
 | **H7** | The **empty-handed persona exists** in numbers that justify shipping a shelf | **Not closed, and it got harder 2026-09-08.** The supply is `✓` and enormous — 19,703 repositories, awesome-lists at five figures — against **93** public personal ones. The first five practitioners ever observed on installing others' material: **four refuse, minimise or prefer their own** ([`re-research-2.md`](re-research-2.md) Q-E). **Still nobody in the shape itself**: everyone quoted keeps their own material. The guide's P5 recruit — someone who does not keep this material at all — remains unfound — NK-9 | The `Public library` scope switch (§8, §11) |
 | **H8** | Their job is *get something working without composing it myself* | **Unestablished, and the first opinions point the other way** — the observed preference is **a few items from named authors**, not curated volume ([`re-research-2.md`](re-research-2.md) Q-E). The same P5 conversation, asked as a situation, never as a pitch | Whether the shelf is a browse surface or a starter kit — **and now also what it should contain and how it should sort** |

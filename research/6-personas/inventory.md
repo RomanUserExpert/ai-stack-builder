@@ -276,18 +276,18 @@ be worth more than a confirmation.
 | # | Question | Mark | Where it stands |
 |---|---|---|---|
 | **NK-1** | Which pain drives adoption — loss, reassembly, breakage? | **`*`** | For one practitioner **reassembly built the collection**; breakage is what he *files* about. Loss appeared for the first time — also from him |
-| **NK-2** | How large is one person's library? | **`✓` + `*`** | Reported sizes cluster at **20–40 items**. Stage 5's 300 has nothing behind it |
+| **NK-2** | How large is one person's library? | **`✓` counted** | **11, 25, 47 and 48 items** in four public repositories, two of them above 40 (2026-09-08, Q-C). *Reported sizes cluster at 20–40* was a blend of two different measures and is withdrawn. **Tens, not hundreds; design for fifty.** Stage 5's 300 stays refuted |
 | **NK-3** | How fast does it grow? | **`*`** | One file → ~40 files in 14 months, by accretion, never by design |
 | **NK-4** | How often is it opened? | **`*`** | Agents daily. The **collection** is entered to copy out, to add a rule in irritation, or to search — **never to review** |
-| **NK-5** | How many agent targets per person? | **`✓` + `*`** | `✓` One source for all of them is the loudest demand in the whole evidence base. `*` *Two to four each* is seven people's self-description |
-| **NK-6** | Where does the material live? | **`✓` + `*`** | `✓` People care loudly where it sits, and ask for git to be the source. `*` The private repo symlinked into `~/.claude/` is one person's |
-| **NK-7** | Alone, or does anyone else open it? | **`✓` + `*`** | **Not alone.** And the handover failed silently for two days |
+| **NK-5** | How many agent targets per person? | **`✓` counted** | `✓` One source for all of them is the loudest demand in the whole evidence base. **And the per-person count is no longer self-report**: two of four public repositories configure **four** and **three** distinct tools, read from their trees (2026-09-08, Q-C) |
+| **NK-6** | Where does the material live? | **`✓`** | **A git repository the person owns, symlinked into the places each agent expects** — visible in the trees themselves and described independently by six people (`chezmoi`, `.agents/skills/` + a symlink, two source-of-truth repos syncing to three agents). Bias: this counts only people who publish; the one interviewed keeps his private |
+| **NK-7** | Alone, or does anyone else open it? | **`✓` + `*`** | **Not alone**, and the sending side is now `✓` from **six independent voices** — *"distributing them is currently awkward"*, *"git is of course required for this but is not enough"* (Q-B). **The receiving end is still `[?]`: every one of the six is a sender.** And the one handover on record failed silently for two days |
 | **NK-8** | Has anyone wanted a previous project back? | **`*`** | **Yes** — and he could not have it, so he rewrote a worse one |
-| **NK-9** | Would anyone adopt this, and why? | **`*`** | He went looking twice, used something for a week, stopped. Still the weakest row |
+| **NK-9** | Would anyone adopt this, and why? | **`*`** + **`✓` against one premise** | He went looking twice, used something for a week, stopped. Still the weakest row — **and as of 2026-09-08 the shelf's premise has its first contact with real opinion: four of five practitioners refuse, minimise or prefer their own material** (Q-E) |
 | **NK-10** | What do they do today instead? | **`✓` + `*`** | `cp -r`, symlinks, `@include`, hand-written scripts — said in public many times, watched by nobody |
 | **NK-11** | What would make them distrust? | **`✓` + `*`** | Not *your checker is wrong* — ***half of my own material may do nothing*** |
 | **NK-12** | Is a usage fact persuasive? | **`*`** | **Asked for it unprompted, in our own words**, when the question was put open |
-| **NK-13** | Does an agent set up from `SETUP.md` alone? | **`?`** | **Still untested, and we are the ones who can test it** |
+| **NK-13** | Does an agent set up from `SETUP.md` alone? | **`?`** | **Still untested, and we are the ones who can test it.** Sharpened 2026-09-08: in 274 comments on exactly this topic the job is done by `chezmoi`, symlinks, a CLI installer, `skills.py` and bootstrap scripts, and **two comments describe an agent touching this material at all — neither is a setup** (Q-A). The bet is **against the grain of current practice**, not merely unverified |
 | **NK-14** | Is hand-entered metadata maintained? | **`✓` + `*`** | **No.** Drift is filed and reacted to; for one person it cost three hours and a client complaint |
 | **NK-15** | Are the loud pain and the quiet pain the same person? | **`*`** | **Yes, for this one — and he says the collection caused the second** |
 | **NK-16** | Are tracker filers our audience? | **`?`** | Unresolved. He is a filer, so n=1 cannot answer it |
@@ -298,6 +298,15 @@ be worth more than a confirmation.
 
 **After the 2026-09-08 re-marking: nine rows carry a `✓` somewhere, nine rest on one person alone,
 and two carry no evidence at all — NK-13 and NK-16. Only one of those two is ours to fill.**
+
+**Updated 2026-09-09, after [`re-research-2.md`](re-research-2.md).** Five rows moved and none of them
+moved by being repeated: **NK-2 and NK-5 became measurements** — file counts and tool counts read out
+of four public repository trees, the first time this repository has counted somebody's collection
+instead of asking them how big it is; **NK-6 and NK-7's sending half became `✓`** on six independent
+voices; **NK-9 gained its first evidence and it is negative**; and **NK-13 stayed `?` while getting
+harder**, because the largest available sample of practice does the job with scripts rather than with
+an agent reading prose. **The row-by-row entries below carry the detail; where a row was updated it
+says so and cites Q-A to Q-E.**
 
 ---
 
@@ -337,9 +346,19 @@ you find anything, did you keep using it.*
 
 ---
 
-### NK-2 — How large is one person's library? `✓` + `*`
+### NK-2 — How large is one person's library? `✓` **counted**
 
-**Answer. Twenty to forty items — and stage 5's 300 has nothing behind it.**
+**Answer. Eleven to forty-eight items, counted — and stage 5's 300 has nothing behind it.**
+
+> **Updated 2026-09-08 by [`re-research-2.md`](re-research-2.md) Q-C, and this row changed kind.**
+> Four public agent-material repositories were read through the GitHub tree API — not asked, counted:
+> **11, 25, 47 and 48 items** (`goulvenclech/dotclaude`, `utkuatasoy/dotfiles`,
+> `sanketsudake/dotfiles`, `jckeen/dotfiles`), the last two above forty. Two more publish
+> corroborating figures in their descriptions (*"70 skills, 15 agents, 21 rules, 14 hooks"*;
+> *"30+ workflow skills, 5 reasoning agents"*). **Our own "20 to 40" was too narrow at the top and
+> blended an organisation's management threshold with one person's file count** — the audit's D-3.
+> **The right statement: tens, not hundreds, and design for fifty rather than for thirty.** The
+> instrument sees only public repositories, and the one practitioner interviewed keeps his private.
 
 **Rests on.**
 - `✓` [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151 reactions: *"Once you get to **20-30+ skills** with multiple contributors, it becomes difficult to manage."* The `✓` is that this was written and reacted to — not that 20–30 is a population truth.
@@ -347,11 +366,13 @@ you find anything, did you keep using it.*
 - `*` [interview, Q3](agent-setup-interview.md): *"11 skills, 6 CLAUDE.md templates…, an `mcp/` folder with 9 server configs, a `prompts/` folder…, a `scripts/` folder… **Call it 40-something files.** Somewhere around **6k lines**."*
 - `?` [`5-patterns/patterns.md`](../5-patterns/patterns.md) — the **300-item** figure the chosen shape was priced against. Reasoned, never measured, and now contradicted by every actual report.
 
-**How true.** The order of magnitude comes from two independent instruments; they agree with each
-other and disagree with us. **`CLAUDE.md` §11's ~30 is the well-supported number; stage 5's 300 is
-not.** That matters because §8's accepted cost — no library pane — was priced against surviving 300.
+**How true.** As of 2026-09-08 the order of magnitude is **counted rather than reported**, in four
+trees anyone can re-read. **`CLAUDE.md` §11's ~30 sits inside the counted band rather than at its
+centre; stage 5's 300 is refuted by measurement, not only by report.** That matters because §8's
+accepted cost — no library pane — was priced against surviving 300.
 
-**What would move it.** Three more people answering guide Q3 with a count.
+**What would move it.** More trees counted, and three more people answering guide Q3 with a count —
+which would tell us whether the private collections run larger or smaller than the published ones.
 
 ---
 
@@ -394,7 +415,7 @@ screen's requirements.
 
 ---
 
-### NK-5 — How many agent targets does one person keep? `✓` + `*`
+### NK-5 — How many agent targets does one person keep? `✓` **counted**
 
 **Answer. Two to four** — and **one source feeding all of them is the loudest demand anywhere in this
 repository's evidence base.**
@@ -406,16 +427,20 @@ repository's evidence base.**
 
 **How true.** Split the row in two, because the header used to hide the split. **The demand is `✓`**:
 re-runnable queries, three trackers, a five-figure reaction count, and what is confirmed is that
-thousands of people asked for one instruction source across agents. **The per-person count is `*`** —
-six people describing their own setups in public plus one interview, which is self-report seven times
-over and, under rule 5, does not become a measurement by being public. *Two to four* is the number to
-design against and not a number to quote.
+thousands of people asked for one instruction source across agents. **And since 2026-09-08 the
+per-person count is `✓` too, which is what changed here.** It was `*` — seven people's self-report,
+which rule 5 says stays self-report however public it is. Now two of four repository trees show
+**four** and **three** distinct tools configured side by side: `.claude/settings.json` beside
+`packages/devin/config.json`, `packages/copilot/settings.json` and `packages/pi/agent/settings.json`;
+and `claude/` beside `codex/config.toml.example` and `antigravity/mcp_config.json.example`, with
+`CLAUDE.md`, `AGENTS.md` and `MULTI-AGENT.md` in one directory ([`re-research-2.md`](re-research-2.md)
+Q-C). **Two to four is now a number to quote, with the publication bias printed beside it.**
 
 **What would move it.** Nothing urgent. Best-evidenced row in the document.
 
 ---
 
-### NK-6 — Where does the material live today? `✓` + `*`
+### NK-6 — Where does the material live today? `✓`
 
 **Answer.** For the one person asked, in a **git repository he owns**, symlinked into the places each
 agent expects. At population level, what is established is narrower: **people care intensely where
@@ -425,16 +450,25 @@ this material sits, and a weighted request exists for git to be the source of tr
 - `✓` [`re-research.md`](re-research.md) R5 — [#1455](https://github.com/anthropics/claude-code/issues/1455) XDG at **446 reactions**; [#28729](https://github.com/anthropics/claude-code/issues/28729) asking for a **git repo as the source of truth**; `agent-dotfiles` and `SkillCatalog` built on exactly that premise.
 - `*` [interview, Q3](agent-setup-interview.md): *"`~/dev/kit/agents/`, which is a **private GitHub repo** called `agent-kit`. It gets **symlinked** into `~/.claude/` and a couple of other places."*
 
-**How true.** Weaker than it read before 2026-09-08. `✓` covers three things: that 446 people reacted
+> **Answered 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-C), and the row is now `✓`.** The
+> arrangement is visible in the repository trees themselves and described independently by six people
+> in one thread: `chezmoi` managing *"a `.agents/skills/` directory + a symlink"*; *"two
+> source-of-truth git repos (private and public)… syncs to all coding agents `~/.claude/skills/`,
+> `~/.codex/skills`, `~/.pi/agent/skills`"*; *"a separate repo which has to be pulled locally and the
+> skills and agents are sym linked to projects"*. **The instrument stage 6 named — a search for
+> repositories carrying this material — was run, and it observed the arrangement instead of asking
+> about it.** Bias, printed: it sees only people who publish, and the one practitioner interviewed
+> keeps his private.
+
+**How true.** Weaker than it read before 2026-09-08, and then stronger after it. `✓` covers three things: that 446 people reacted
 to a request about *where the config directory lives*, that a filer asked for **a git repo as the
 source of truth**, and that tools built on that premise exist. Note what the second one means —
 **a request is evidence that this is not yet how that person works.** The actual arrangement in the
 answer above, a private repo symlinked into `~/.claude/`, is **one practitioner's**, `*`. The two
 instruments point the same way; only one of them observed anybody.
 
-**What would move it.** The instrument stage 6's plan named and nobody has run: a GitHub search for
-repositories that actually carry `.claude/`, `CLAUDE.md`, `.cursor/rules` and `AGENTS.md` side by
-side. That would observe the arrangement instead of asking about it. Guide Q3 corroborates cheaply.
+**What would move it.** **The instrument was run on 2026-09-08** and is recorded above; what remains
+open is the private half, which no public search can reach. Guide Q3 corroborates cheaply.
 
 ---
 
@@ -452,11 +486,25 @@ side. That would observe the arrangement instead of asking about it. Guide Q3 co
 - `*` Q21 above, and [Q22](agent-setup-interview.md) — given away twice, informally, each time needing twenty minutes of live explanation of *"which files are load-bearing and which are aspirational."*
 - `✓` [`re-research.md`](re-research.md) R12 — #6235's stated motive is collaboration with developers on other agents; [#10238](https://github.com/anthropics/claude-code/issues/10238) *"with my team"*; [#28729](https://github.com/anthropics/claude-code/issues/28729) *"multiple contributors"*.
 
+> **The sending half became `✓` on 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-B); the
+> receiving half did not move at all.** Six independent people in one thread describe distributing
+> this material to others: company-managed skills pushed by a **bootstrap script**, with
+> *"distributing them is currently awkward"*; *"skills need to be edited across projects and **across
+> team members** in a controlled way. **Git is of course required for this but is not enough**"* —
+> which is this product's thesis written by somebody else; skills committed to git *"so complete team
+> leverages them"*; a biweekly drift-checking workflow that opens PRs; a public skill registry for
+> the Norwegian Government; and *"mistakes in there can easily spread to all of the new code you
+> write"*. Separately, `CLAUDE.md team` over the HN comments returns **44 hits — 6 about more than
+> one person, 38 solo**, the first time this repository has measured the ratio instead of asserting
+> it. **Every one of those voices is a sender. Nobody has ever described receiving.**
+
 **How true.** Both instruments agree and one is re-runnable. **It weakens a premise the spec leans
 on**: §6 justifies *nothing blocks* partly with *"it is the user's own library on their own machine."*
 Sometimes it is not, and the second party lost two days without knowing anything was wrong.
 
-**What would move it.** Nothing. What is open is what we *do* about it, which is design, not research.
+**What would move it.** For the sending half, nothing. **For the receiving half, one conversation with
+a receiver** — the guide recruits one and has no questions for them, which is the gap to close before
+the next interview.
 
 ---
 
@@ -495,8 +543,21 @@ than it was asked. The blocker is not *finding* the previous thing; it is that t
 - `*` Q25 above — searched twice, adopted briefly, drifted away without a decision.
 - `✓` [`re-research.md`](re-research.md) R8 — the adjacent category is crowded with free tools at 400–4,500 stars, so *nothing exists* is not a reason anyone would come to us.
 
+> **First evidence on the shelf's premise, 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-E),
+> and it is negative.** The supply is `✓` and enormous — **19,703** repositories match
+> `"claude skills"`, topped by curated collections at **74,686★**, 25,709★ and 15,006★ — against
+> **93** public personal ones. The demand, from the first five practitioners ever observed on the
+> question: *"I'm not sure I've ever used any of them… some **YouTuber trying to make money**"*;
+> *"I do not understand the appeal of **skill shopping**"*; *"a few **established names**"*; one
+> prefers building from session learnings. **The single positive was a person distributing his own
+> material through a marketplace mechanism — which is P1's job, not P3's.** What this does not
+> license: four sceptics on Hacker News are not a market, that venue self-selects for people who
+> already manage their own material, and **no beginner was asked anything**.
+
 **How true.** One person's lapse is not a market signal. What it establishes is the **shape of the
 risk**: exactly our audience, went looking unprompted, found something adjacent, and **left silently**.
+**And the adjacent question — would someone with nothing adopt a curated shelf — now has five
+opinions against and none for, from the population least likely to like it.**
 
 **What would move it.** Q25 four more times, and above all the **P5 recruit** — someone who does not
 keep this material at all. The guide asks for it; it has not happened.
@@ -583,6 +644,15 @@ to fill.**
 
 **Rests on.** Nothing. `CLAUDE.md` §6 and the Q2 disposition in [`FINAL.md`](../FINAL.md) commit to it
 on reasoning alone.
+
+> **Sharpened 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-A), and the mark did not move.**
+> One Ask HN thread on exactly this topic — 305 points, 274 comments — was read in full. **What people
+> actually use is human-written automation:** `chezmoi` with a `.agents/skills/` directory and a
+> symlink, a command-line tool that installs skill packs, a `skills.py` fetcher, `vercel-labs/skills`,
+> a company bootstrap script. **Two comments in 274 describe an agent touching this material at all,
+> and neither is a setup.** That does **not** say a receiving agent cannot act on a precise document —
+> nobody in the thread was trying — it says **the spec's bet is against the grain of current
+> practice** rather than merely untested.
 
 **How true.** `?`. It is not a question about people at all — it is a claim about a **machine's**
 behaviour, it is the spec's most load-bearing bet, and it has never been run once.
@@ -837,7 +907,7 @@ a behaviour someone could be observed doing.**
 | # | The axis | Evidence at end A | Evidence at end B | Used to split? |
 |---|---|---|---|---|
 | **X1** | **Does anyone else ever open this material?** *Solo* ↔ *handed over* | **`✓` Solo.** 182 ranked issues across two trackers contain **not one** about a team, a colleague, an organisation, a rollout or a sync — OBS-2, a title search run over the raw JSON | **`✓` Handed over.** [#6235](https://github.com/anthropics/claude-code/issues/6235)'s stated motive is *"collaborating with other developers who aren't using Claude Code"* (6,592); [#10238](https://github.com/anthropics/claude-code/issues/10238) *"with my team"* (168); [#28729](https://github.com/anthropics/claude-code/issues/28729) *"multiple contributors"* (151). Plus `*` the contractor who lost two days — NK-7 | **Yes.** Both ends re-runnable, and the two ends want different things from the same archive |
-| **X2** | **How many agent targets does the same material have to serve?** *One host, non-negotiable* ↔ *two to four, kept in sync by hand* | **`✓` One host.** The most-reacted issue in the stage-3 corpus is *bring this to the editor I already use* — [continue #917](https://github.com/continuedev/continue/issues/917), **245 reactions**; and #759 at 115, #1440 at 24 — OBS-3 | **`✓` Several.** [#6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592** plus a twelve-issue family across three vendors' trackers; **25 HN comments** about symlinking one source into several formats — R1, R2 | **Yes.** The strongest pair of ends in the document |
+| **X2** | **How many agent targets does the same material have to serve?** *One host, non-negotiable* ↔ *two to four, kept in sync by symlinks, scripts and copies* (*by hand* was loose — the workarounds on record are symlinks, a bootstrap script and `cp -r`; P-05) | **`✓` One host.** The most-reacted issue in the stage-3 corpus is *bring this to the editor I already use* — [continue #917](https://github.com/continuedev/continue/issues/917), **245 reactions**; and #759 at 115, #1440 at 24 — OBS-3 | **`✓` Several, and counted since 2026-09-08.** [#6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592** plus a twelve-issue family across three vendors' trackers; **25 HN comments** about symlinking one source into several formats — R1, R2; **and two of four public repository trees configure four and three distinct tools** (Q-C) | **Yes.** The strongest pair of ends in the document |
 | **X3** | **What does the person believe their own material does?** *It works, I just cannot find it* ↔ *half of it may do nothing* | **`?`** Nothing observed anyone believing their material works. The nearest thing is that people keep adding to it, which is not the same claim | **`✓` + `*` Doubt.** *"Mostly useless… 50/50 or less that Claude.md even reads/uses this file"* — [saberience](https://news.ycombinator.com/item?id=46106423); an HN story titled *[I am morally opposed to updating my Claude.md](https://news.ycombinator.com/item?id=49376287)*; and `*` *"Maybe half of it, if you want the real answer"* — R7, NK-11 | **No — one-ended.** Recorded because end B is heavily evidenced and belongs in **every** card, not because it separates anybody |
 | **X4** | **Does the person write their own material, or install other people's?** *Author* ↔ *consumer* | **`✓` + `*` Author.** The whole of section A is people configuring their own things; `*` a repo grown from one file over fourteen months — NK-3 | **`V` Consumer, vendor-grade only.** An entire tool category exists to install other people's skills (R8, 425–4,526★) and catalogs report skills at six and seven figures (R9) — **but every one of those numbers is a vendor's or a tool's own count, and not one person was observed consuming** | **Yes, with a warning printed on it.** Used because §8 and §11 already ship a surface for end B; **end B has no observed person behind it**, and the persona built on it says so in every line |
 | **X5** | **Does the person file when it breaks, or absorb it silently?** *Files* ↔ *works around it* | **`✓` Files.** The entire evidence base is, by construction, people who filed | **`*` Absorbs.** The contractor *"assumed that was normal and worked around it for two days without mentioning it"*; and the respondent *"drafted a post twice… deleted it both times"* — NK-7, NK-16 | **No — this is a sampling caveat, not a split.** It says our portrait is drawn from filers (NK-16) and must be labelled as such wherever it is used |

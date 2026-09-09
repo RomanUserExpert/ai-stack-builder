@@ -519,7 +519,7 @@ is no evidence at all in either direction, the row says so.
 | **G1** | **Superseded in part — see §6.** One practitioner has now been asked, and the reassembly friction is filed on live trackers. **Nobody was ever asked anything.** Both trackers are structurally blind to *loss* and to *reassembly cost*; the entire phase read vendors and artefacts, never users. **`данные не подтверждены`** on which pain drives adoption | **Reassembly cost, not loss, is what converts** — a practitioner adopts to stop re-copying the same four files, and finds *searching my own corpus* valuable only afterwards. Falsifiable in five conversations. Note the one weak hint on record: the decision to ship a public library is itself a bet that people want *material*, not that they want to find their own | §3 Benchmark (the weighting caveat) · §2 Flows |
 | **G2** | **B4 has no prior art to copy.** No candidate scored above 4, and **not one cell in the matrix scores what a product says about the machine its artefact lands on** — because no candidate has such a surface | **Disclosure before the write is the whole opportunity.** If Run's last stages state what the archive contains and what the receiving machine must still do, the archive-does-not-run pain drops without us running anything on that machine. Falsifiable: if users still hit environment failures at the same rate, the disclosure was theatre | §3 Benchmark (B4, finding 8) |
 | **G3** | **The return path has no prior art.** Figma erases the origin at detach and offers nothing afterwards; no product in the survey lets a local override become a first-class object again | **Promotion as a *new* item is safe and *update the original* is not** — because the second spends blast radius on an action taken inside one project. Falsifiable: if users routinely promote and then immediately delete the original, they wanted a merge and we built the wrong verb | §2 Flows (flow 05) |
-| **G4** | **Superseded — see §6.** Every actual report clusters at **20–40 items**, not 300. **Density was never observed.** Flow 02's whole browsing grammar was captured against **four** issues, and the benchmark's Obsidian cell against **27** notes. The 300-item claim behind the chosen pattern is reasoned, not measured — **`данные не подтверждены`** | **The palette holds at 300 items and the failure mode is discovery, not search** — people will find what they can name and stay blind to what they cannot. That is precisely the C1 = 3 cost already accepted, so it is testable the moment a seeded library exists | §4 Patterns (the cost) · §2 Flows (what the flows could not see) |
+| **G4** | **Superseded — see §6 and §7.** Counted collections run **11 to 48 items**, two of four above forty (§7, Q-C), not 300. **Density was never observed.** Flow 02's whole browsing grammar was captured against **four** issues, and the benchmark's Obsidian cell against **27** notes. The 300-item claim behind the chosen pattern is reasoned, not measured — **`данные не подтверждены`** | **The palette holds at 300 items and the failure mode is discovery, not search** — people will find what they can name and stay blind to what they cannot. That is precisely the C1 = 3 cost already accepted, so it is testable the moment a seeded library exists | §4 Patterns (the cost) · §2 Flows (what the flows could not see) |
 | **G5** | **The public library does not exist yet.** It is a decision with no content behind it: no items, no verified sources, no composed example project | **A seed of 8–12 items that produces at least one Problem and one Note teaches the product better than 30 clean ones.** Falsifiable on first use: if the first run's six green ticks leave users unable to say what the product is for, the seed was decorative | §1 Competitors (they all solve cold start with volume; we cannot) · §2 Flows (flow 08) |
 | **G6** | **Licensing and attribution for redistributed items.** Nothing in this repository covers the terms under which someone else's skill may ship inside our public library — **`данные не подтверждены`** | **Pinned `ref` plus visible provenance is necessary but may not be sufficient.** This needs a licence review before the shelf is built, not a design decision | §1 Competitors · §4 Patterns |
 | **G7** | **Two of five hard competitors were never seen.** Agentman is login-walled, Packmind sales-gated; their mechanisms and Packmind's monetisation are **`данные не подтверждены`** | **Neither changes the picture**, because both sell to organisations and difference 1 already covers the whole group. Falsifiable if either turns out to sell to individuals | §1 Competitors |
@@ -584,15 +584,21 @@ filed as **feature requests**: [claude-code #9444](https://github.com/anthropics
 sync**"* — and [codex #17401](https://github.com/openai/codex/issues/17401) — *"**no modular reuse
 across projects.** A developer working across 10+ repos with shared conventions…"*
 
-**Every library size on record is 20 to 40 items. Nothing supports 300. `✓` + `*`**
+**Counted library sizes run 11 to 48 items. Nothing supports 300. `✓`, counted**
+**Updated 2026-09-08.** Four public agent-material repositories were read through the GitHub tree
+API — **11, 25, 47 and 48 items**, two of them above forty (§7, Q-C). **Tens, not hundreds; design
+for fifty rather than for thirty.** The reported evidence that used to carry this finding is below,
+and *"every library size on record is 20 to 40"* was too narrow at the top.
 [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151 reactions: *"Once
 you get to **20-30+ skills**… it becomes difficult to manage."* The practitioner interviewed keeps
 *"40-something files"*, about 6k lines, grown from **one file in fourteen months**. This supports
 `CLAUDE.md` §11's ~30 and **contradicts stage 5's 300**, which is what the cost of dropping the
 library pane was priced against. **What the `✓` carries, under rule 5:** that one filer wrote that
 sentence and 151 people reacted to the *request it sits in* — not that 20–30 is a population truth.
-Three reports, two of them one person's, are the whole of the evidence; they agree with each other
-and disagree with us, and that is the finding. **The number is not established, the 300 is refuted.**
+Three reports, two of them one person's, were the whole of the evidence until the trees were counted;
+they agreed with each other and disagreed with us, and that was the finding. **Since 2026-09-08 the
+band is a measurement and the 300 is refuted by one**, with the instrument's bias printed beside it:
+it sees only people who publish their setup, and the one practitioner interviewed keeps his private.
 
 **The material lives in a git repository, symlinked into place. `✓` + `*`**
 [#1455](https://github.com/anthropics/claude-code/issues/1455) — XDG, **446 reactions**;
@@ -695,16 +701,26 @@ any of this does anything* — and by the method's own rule two surviving main j
 that is **Q12**, and it is the one §6 forbids us to build. Four related jobs, three emotional, two
 social, seven in hypotheses.
 
-**The matrix put three jobs in the MVP core** — important for the primary persona and **not closed by
-the market**: the main job (nobody above 4 on B4, structurally); *move the work without moving the
-secrets* (192, 54, 45, 32, 23, 22 — the largest crowd in the corpus, and no candidate closes it for a
-handed-over artefact); and *fix it once and have the fix reach every copy* (48, plus six weeks and a
-client complaint), which is what §5's live link exists for. **The highest-scoring job we cannot close
-at all** is *stop suspecting half of what I keep is dead weight* — its feature cell is empty and
-cannot be filled, and the market is actively forming around it. **P3's column is `[?]` in all nine
-rows**, and six specified features close only jobs whose every cell is `[?]` — the shelf and the
-example project among them. **That is a list of hypotheses about an absence, not a cut list.**
-**Still to do:** the audit and the reconciliation.
+**The matrix named three jobs for the MVP core** — important for the primary persona and **not closed
+by the market**: the main job (nobody above 4 on B4, structurally); *move the work without moving the
+secrets* (192, 54, 45, 32, 23, 22 — **the largest crowd on a fear, after the multi-target family**,
+and the handover half of the problem is unoccupied); and *fix it once and have the fix reach every
+copy* (48, plus six weeks and a client complaint), which is what §5's live link exists for. **The
+highest-scoring job we cannot close at all** is *stop suspecting half of what I keep is dead weight* —
+its feature cell is empty and cannot be filled, and the market is actively forming around it. **P3's
+column is `[?]` in all ten rows**, and six specified features close only jobs whose every cell is
+`[?]` — the shelf and the example project among them. **That is a list of hypotheses about an
+absence, not a cut list.**
+
+**The audit landed on 2026-09-09 and the core three did not survive it as a mechanical result.** Two
+matrix cells lost their numbers and four were lowered from 3 to 2, because a **3** means *a reason
+they would change how they work* and in each case the person on record demonstrably did not — the one
+receiver worked around a broken handover for two days and said nothing; the one keeper still copies
+with `cp -r`; the one person afraid of leaking client material has never spent the *"couple of hours"*
+to separate it. **The rule now selects one buildable job.** *Keys staying behind* and *one fix
+reaching every copy* stay in the core on stated grounds — the market is open in both, and the
+specification has already spent a mechanism on each — which is a judgement with the matrix as its
+input rather than a result the matrix produces. See [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §8 and §11.
 
 ---
 
@@ -768,9 +784,9 @@ are a separate pass.** This round applied only what new data actually answered.
 
 ## What it did to the two conclusions, and what has not been applied
 
-- **[`jtbd.md`](7-jobs-to-be-done/jtbd.md)'s matrix has two cells that are now wrong**: RJ-4's competitor cell (*"No, in this space"* — Q-D) and H-J4's P3 column (`[?]` — Q-E). **Not applied.** The matrix is stage 7's and its audit is still owed.
+- **[`jtbd.md`](7-jobs-to-be-done/jtbd.md)'s matrix had two cells that were wrong**: RJ-4's competitor cell (*"No, in this space"* — Q-D) and H-J4's P3 column (`[?]` — Q-E). **Both were applied on 2026-09-09**, together with the audit's own corrections, and the pass is recorded cell by cell in that file's §11.
 - **The benchmark has a gap rather than an oversight**: Doppler and Infisical are captured in flow 07 and deliberately unscored. On Q-D's evidence that is now worth one afternoon.
-- **`CLAUDE.md` is untouched.** §11's shelf is the decision Q-E bears on, and the reading is a warning about **what the shelf contains and how it sorts**, not an argument that it should not ship. That is **Q9** in the register, and it now has its first evidence.
+- **`CLAUDE.md` is untouched, and stays untouched.** §11's shelf is the decision Q-E bears on, and the reading is a warning about **what the shelf contains and how it sorts**, not an argument that it should not ship. That is **Q9** in the register, and it now has its first evidence — recorded there on 2026-09-09. **The proposals for the specification are collected in two lists and neither is applied**: [`re-research.md`](6-personas/re-research.md) §4 and [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §12.
 
 ## The half-day that keeps not being spent
 

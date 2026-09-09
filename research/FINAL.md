@@ -272,6 +272,8 @@ read from several, which is exactly how a folder becomes confusing. Filed here s
 | [`2-flows/11-copy-and-error-language/ci-failure-copy.md`](2-flows/11-copy-and-error-language/ci-failure-copy.md) | Stage 2 | §6, and every sentence the validation pass will ever write. Paired with `4-benchmark/npm-eresolve.md` and `terraform-validate-errors.md`, which are the same subject at a higher standard. |
 | [`2-flows/10-dark-design-language/NOTES-linear.md`](2-flows/10-dark-design-language/NOTES-linear.md) | Stage 2 | **Nothing in this phase.** Deliberately handed forward: it is the one flow about appearance, and CLAUDE.md postpones visual direction to the design-system phase. Its first reader has not started work yet. |
 | [`1-landscape/screens-index.md`](1-landscape/screens-index.md) | Stage 1 | Stage 2's README addresses captures through it. Sign-in walls are labelled, which is why some flows read as partial. |
+| [`personas-and-jobs-critique.md`](personas-and-jobs-critique.md) | **The research root** — it spans two stages | **Stage 6 step 4 and stage 7 step 6, merged at the owner's request.** 238 claims in `personas.md` and `jtbd.md` classified Confirmed / Hypothesis / Invented; it edited nothing, and everything it proposed was applied on 2026-09-09 ([`jtbd.md` §11](7-jobs-to-be-done/jtbd.md), and in place in `personas.md`). Read Part 2, *the dangerous list*, before any design decision leans on a persona. |
+| [`6-personas/re-research-2.md`](6-personas/re-research-2.md) | Stage 6 | **Stage 7's matrix and this document's §6.** The round that answered the audit's questions, and **the first instrument in the repository that counts somebody's collection instead of asking about it**. Two of its five answers change what was written elsewhere; one of them, Q-E, is the first evidence ever collected about P3 and it runs against the shelf. |
 
 ---
 
@@ -322,8 +324,9 @@ proposed, **two used to split, one one-ended axis that deletes a split rather th
 [`personas.md`](6-personas/personas.md) — **three personas, one primary.** The contest the plan
 expected, *collector* against *the person who breaks at handover*, **did not happen**: the one
 practitioner asked says the collection **caused** the breakage, so the primary merges them, and four
-more Q15 answers are what would refute the merge. **Still to do:** `audit.md`, the page, and four
-more interviews.
+more Q15 answers are what would refute the merge. **Done since:** the page (2026-09-08), the audit and its application
+(2026-09-09). **Still to do: four more interviews**, and a block of questions for a receiver,
+which the guide does not have.
 
 **And stage 7 opened the same day.** [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) — steps
 1 to 4: one main job, four related, three emotional, two social, seven hypothesis jobs, and a visible
@@ -333,16 +336,33 @@ second is **Q12**, and §6 forbids us to build it. The main job reads as **trans
 working here has to keep working there* — where §2 reads as **assembly with validation**. Stated as a
 difference of emphasis, in one sentence, and **not applied.**
 
-**The matrix (step 5) is in the same file.** Three jobs for the MVP core — important for the primary
-persona **and** not closed by the market: the main job, *move the work without moving the secrets*,
-and *fix it once and have the fix reach every copy*. Two jobs scored 3 for the primary and are **not**
-in the core, and the reasons matter more than the shortlist: *not be quietly overruled* is a
-constraint on every feature rather than a feature, and *stop suspecting half of it is dead weight* has
-an **empty feature cell**, because §6 runs nothing on anyone's machine. **P3's column is `[?]` in all
-nine rows.** Six specified features close only a job whose every cell is `[?]` — **a list of
-hypotheses about an absence, not a cut list**; nothing is removed. Still to do: the audit and the
-reconciliation.
-**Stage 7 has not started.**
+**The matrix (step 5) is in the same file.** Three jobs were named for the MVP core — important for
+the primary persona **and** not closed by the market: the main job, *move the work without moving the
+secrets*, and *fix it once and have the fix reach every copy*. Two jobs scored 3 for the primary and
+are **not** in the core, and the reasons matter more than the shortlist: *not be quietly overruled* is
+a constraint on every feature rather than a feature, and *stop suspecting half of it is dead weight*
+has an **empty feature cell**, because §6 runs nothing on anyone's machine. **P3's column is `[?]` in
+all ten rows** — this document said *nine* until 2026-09-09, and so did the stage README. Six
+specified features close only a job whose every cell is `[?]` — **a list of hypotheses about an
+absence, not a cut list**; nothing is removed.
+
+**Both stages closed on 2026-09-09, and the closing pass changed the shortlist.** The audit
+([`personas-and-jobs-critique.md`](personas-and-jobs-critique.md), stage 6 step 4 and stage 7 step 6
+merged) classified 238 claims across the two documents — **163 confirmed, 48 hypothesis, 27
+invented** — and was then applied. In the matrix it **only ever subtracted**: two cells lost their
+numbers and four were lowered from 3 to 2, because a **3** means *a reason they would change how they
+work* and in every case the person on record demonstrably did not. **The consequence is that the core
+three is no longer a result the rule produces**: after the correction the rule selects **one**
+buildable job, and *keys staying behind* and *one fix reaching every copy* are kept on stated
+grounds — the market is open in both and the spec has already spent a mechanism on each. `jtbd.md` §8
+says so in those words.
+
+**The one thing that gained evidence argues against a feature.** [`re-research-2.md`](6-personas/re-research-2.md)
+Q-E reached the first five practitioners ever observed on installing other people's material: **four
+refuse it, minimise it, or prefer their own**, and what survived is *"a few established names"* —
+**provenance over volume**. That is the first evidence under **Q9**, and it bears on **what the public
+shelf holds and how it sorts**, not on whether it ships. Four sceptics on Hacker News are not a
+market; the venue self-selects; no beginner was asked.
 
 ### The evidence rule changed, and it applies to this file too
 
@@ -373,10 +393,13 @@ that it is *true*.
   is [claude-code #6235](https://github.com/anthropics/claude-code/issues/6235) at **6,592
   reactions**, asking for one instruction source across several agents. Finding 1's *direction*
   survives — the top of the corpus is environment and host, never composition. `✓`
-- **Stage 5's 300-item claim**, which is what §8's accepted cost was priced against. The reports we
-  have — **three of them, two from one person** — cluster at **20–40**. `✓` + `*`, where the `✓` is
-  that a filer wrote *"20-30+ skills"* and 151 people reacted to the request it sits in, **not** that
-  20–30 is a population figure. **The 300 is refuted; no number replaces it.**
+- **Stage 5's 300-item claim**, which is what §8's accepted cost was priced against. **Counted on
+  2026-09-08 rather than reported**: four public agent-material repositories hold **11, 25, 47 and 48
+  items**, two of them above forty, read through the GitHub tree API
+  ([`re-research-2.md`](6-personas/re-research-2.md) Q-C). **The 300 is refuted by measurement, and
+  the replacement is a band, not a point: tens, not hundreds — design for fifty.** The earlier
+  *"20–40"* was a blend of one organisation's management threshold with one person's file count and
+  is withdrawn. The instrument sees only people who publish their setup.
 - **`CLAUDE.md` §2's *"nothing does this today"*, at the item level.** Open-source skill managers
   with 400–4,500 stars **say in their READMEs** that they audit duplicates, detect version drift and
   score trust. The **set-level** half — resolve a named set, check that set, hand it over with
@@ -385,8 +408,11 @@ that it is *true*.
   them.** That is enough to require narrowing the sentence and not enough to rewrite the thesis; the
   difference costs an afternoon of installing two of them.
 
-**None of it is applied.** Stages 6 and 7 audit the spec; the owner edits it. The proposals are in
-[`re-research.md`](6-personas/re-research.md) §4 and they are the first thing to read tomorrow.
+**None of it is applied.** Stages 6 and 7 audit the spec; the owner edits it. **The proposals now sit
+in two places and both are for the same sitting**: [`re-research.md`](6-personas/re-research.md) §4,
+nine of them from stage 6, and [`jtbd.md` §12](7-jobs-to-be-done/jtbd.md), nine more from stage 7 —
+the reconciliation, written as a table of *what was found · what is proposed · which register entry
+it belongs to*. **Read §12 first**; it is the shorter list and it names the sections.
 
 ### The marks were audited on 2026-09-08
 

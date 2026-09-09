@@ -416,6 +416,39 @@ instrument was unnamed beyond *five practitioners*. Stage 6 makes
 the questions. Its *blocks* line widens accordingly: **positioning, and the provisional label on
 stages 6 and 7**, because the label lifts on the same event.
 
+### What the closing of stages 6 and 7 did to this register — 2026-09-09
+
+**No question was answered, none was added, and one gained its first evidence.** The protocol holds:
+the six live entries leave in one sitting, and that sitting has not happened. What changed is what
+the sitting will read.
+
+- **Q9 — *which specified features close no evidenced job* — now has evidence, and it is the first
+  ever collected about the persona underneath it.** [`6-personas/re-research-2.md`](6-personas/re-research-2.md)
+  Q-E reached five practitioners on installing other people's material: **four refuse it, minimise it,
+  or prefer their own**, and the one positive was distributing **his own** work. The supply side is
+  settled and enormous — 19,703 repositories, curated collections at 74,686★ — against **93** public
+  personal ones. **This does not answer Q9 and it does not cut anything.** It moves the question from
+  *does the shelf close a job* to **what the shelf holds and how it sorts**: *provenance over volume*
+  is the only shape any observed person endorsed. Four sceptics on Hacker News are not a market, the
+  venue self-selects, and no beginner was asked.
+- **Q7 and Q8 are unmoved.** Both need the four remaining conversations. What did move is the ground
+  under them: the audit lowered or withdrew six matrix cells, so **the *core three* the sitting was
+  going to read is now one job the rule chooses and two kept on stated grounds**
+  ([`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §8, §11).
+- **Q10, Q11 and Q12 are unmoved and still stand on one person.** Q-A sharpened the ground under
+  **NK-13** without moving it: in the largest available sample of practice, handover is done by
+  `chezmoi`, symlinks, CLI installers and bootstrap scripts, and **two comments in 274 describe an
+  agent touching this material at all — neither is a setup.** The spec's bet is *against the grain of
+  current practice*, which is a stronger statement than *untested* and still not a refutation.
+- **A second proposal list now exists.** Stage 6's nine proposals are in
+  [`6-personas/re-research.md`](6-personas/re-research.md) §4; stage 7's nine are in
+  [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §12, written as *what was found · what is
+  proposed · which entry it belongs to*. **Both are inputs to the sitting, not decisions**, and
+  `CLAUDE.md` is untouched by either.
+- **What is still owed before the sitting is worth holding:** four interviews, **a receiver's question
+  block the guide does not have** — every line about P2 is somebody else's account of them — and
+  **NK-13**, the half-day that is ours to run.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

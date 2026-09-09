@@ -7,25 +7,41 @@ personas that decides what to build first and what not to build at all — adapt
 screens are already specified. That last fact is the whole difficulty of this stage and is dealt
 with below.
 
-Status, **2026-09-08: steps 1–5 are done; steps 6 and 7 are not.**
+Status, **2026-09-09: all seven steps are done.**
 [`jtbd.md`](jtbd.md) holds the main-job candidates and the choice, the hierarchy — **one main job,
 four related, three emotional, two social** — the *Rewritten* list from the feature-name test,
-**seven hypothesis jobs**, and **the matrix with both of its conclusions**. **Still owed:**
-`audit.md` (step 6), the reconciliation with the spec (step 7), and the section on the shared page.
+**seven hypothesis jobs**, and **the matrix with both of its conclusions**. **Step 6, the audit, is
+[`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md)** — merged with stage 6's step 4
+at the owner's request, and 117 claims in this file alone were classified: 76 confirmed, 26
+hypothesis, **15 invented**. It was **applied on 2026-09-09**, cell by cell, and the pass is recorded
+in [`jtbd.md` §11](jtbd.md). **Step 7 is [`jtbd.md` §12](jtbd.md)** — nine proposals to the
+specification, handed to the register's next sitting rather than written into `CLAUDE.md`. The
+section on the shared page is built.
 
 **The matrix came out the shape the plan predicted, which is a warning and not a result.**
-**P3's column is `[?]` in all nine rows** and P2 carries a number in three, because only one issue's
-stated motive speaks for receivers and **no receiver has ever been asked**. So *what to build first*
-is evidenced — the main job, keys staying behind, one fix reaching every copy — and **what might not
-be worth building is a list of hypotheses about an absence**, which is why this stage removes
-nothing.
+**P3's column is `[?]` in all ten rows** — *nine of nine* was a miscount, corrected 2026-09-09 (J-113)
+— and P2 carries a number in three, **all of them 2s after the audit and every one second-hand**,
+because only one issue's stated motive speaks for receivers and **no receiver has ever been asked**.
+So *what to build first* is evidenced — the main job, keys staying behind, one fix reaching every copy
+— and **what might not be worth building is a list of hypotheses about an absence**, which is why this
+stage removes nothing.
+
+**What the audit did to it, and this is the part to read first.** It **subtracted**. Two cells lost
+their numbers outright (RJ-1/P1, EJ-2/P1) and four were lowered from 3 to 2 (MAIN/P2, RJ-1/P2,
+RJ-3/P1, RJ-4/P1), because each held an importance the evidence under it did not carry — a **3** means
+*a reason they would change how they work*, and in every case the person on record demonstrably did
+not. The consequence lands on §8: the *core three*, announced as a rule applied mechanically, **is now
+one job the rule chooses and two kept on stated grounds.** The **only** cell that gained evidence is
+**H-J4's P3**, from [`re-research-2.md`](../6-personas/re-research-2.md) Q-E — and **it runs against
+the feature it supports**: four of the first five practitioners ever observed on installing other
+people's material refuse it, minimise it, or prefer their own.
 
 **The step-1 rule fired.** Two main-job candidates survived — *make it work somewhere else* and
 *know whether any of this does anything* — and the lesson's rule for that case is that you have two
 products. It is **recorded and not resolved**, because it is already **Q12** in the register and it
-is the one we cannot build. `personas.md` exists; `audit.md` does not, and the jobs were written
-from the personas and the register directly, with each job's standing inherited rather than
-re-argued.
+is the one we cannot build. The jobs were written from the personas and the register directly, with
+each job's standing inherited rather than re-argued — **which is exactly what the audit then had to
+correct**, since a standing inherited from a card is not a standing checked against a source.
 
 ---
 
