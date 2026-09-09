@@ -16,7 +16,12 @@ A press is a click until it has travelled **5px**; past that it becomes a drag a
 would have ended in. **It must not use `setPointerCapture`** — a captured pointer retargets the click
 at the scroller and the tab under the cursor never gets it, which is how the first version broke
 every tab. The move and up handlers go on the `window` instead. It lives in the same IIFE as the
-scroll-spy, because that is the block `build_personas.py` lifts across. An `IntersectionObserver` band was tried first and left the indicator
+scroll-spy, because that is the block `build_personas.py` lifts across.
+
+**The page scrolls to an anchor smoothly** — `html{scroll-behavior:smooth}`, under
+`prefers-reduced-motion: no-preference`. It is set on the root only: `scroll-behavior` does not
+inherit, so the two horizontal bars keep their 1:1 drag, and the spy asks for smoothness explicitly
+when it glides the active tab into view. An `IntersectionObserver` band was tried first and left the indicator
 blank between sections, which is wrong for something shaped like tabs. **That list is the course's and is fixed** — it is not the
 project's build phases. **Adding a third page means editing the strip in both templates and adding
 the file to `.vercelignore`, which is a whitelist.**
