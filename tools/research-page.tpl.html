@@ -1,4 +1,4 @@
-<title>Lesson 1 — Research and benchmark · AI Stack Builder</title>
+<title>Phase 1 — Research and benchmark · AI Stack Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&display=swap">
@@ -106,7 +106,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
 .shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
 @media (min-width:1080px){
   .shell{display:grid;grid-template-columns:208px minmax(0,1fr);gap:44px;padding:0 32px 120px}
-  .lessons{grid-column:1;grid-row:1 / span 4}
+  .phases{grid-column:1;grid-row:1 / span 4}
   .mast{grid-column:2;grid-row:1}
   .rail{grid-column:2;grid-row:2}
   main{grid-column:2;grid-row:3}
@@ -170,6 +170,11 @@ a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
 }
 .rail a.on b{color:var(--accent)}
 .railhead{display:none}
+
+/* --- both horizontal bars are dragged with the mouse, not only wheeled --- */
+.rail ol.grabbable,.phases ol.grabbable{cursor:grab}
+.rail ol.dragging,.phases ol.dragging,
+.rail ol.dragging *,.phases ol.dragging *{cursor:grabbing;user-select:none}
 
 /* ---------- sections ---------- */
 section{padding:64px 0 8px;scroll-margin-top:80px}
@@ -522,73 +527,73 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 .pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
 .pick p{margin:0;font-size:14px;color:var(--ink-2)}
 
-/* --- the course lessons: a left sidebar on wide screens, a strip below --- */
-.lessons{
+/* --- the course phases: a left sidebar on wide screens, a strip below --- */
+.phases{
   border-bottom:1px solid var(--rule);background:var(--sunken);
   margin:0 -32px 0;padding:0 32px;
 }
-.lessons ol{
+.phases ol{
   display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
   list-style:none;margin:0;padding:0;
   font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
 }
-.lessons ol::-webkit-scrollbar{display:none}
-.lessons li{margin:0;flex:0 0 auto}
-.lessons a,.lessons span{
+.phases ol::-webkit-scrollbar{display:none}
+.phases li{margin:0;flex:0 0 auto}
+.phases a,.phases span{
   display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
   border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
   white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
 }
-.lessons a:hover{color:var(--ink);border-bottom-color:var(--rule)}
-.lessons b{font-weight:700;color:var(--ink-2)}
-.lessons a:hover b{color:var(--ink)}
-.lessons .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
-.lessons .now b{color:var(--accent)}
-.lessons .soon{color:var(--ink-3);opacity:.55;cursor:default}
-.lessons .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
-.lessonshead{display:none}
+.phases a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases b{font-weight:700;color:var(--ink-2)}
+.phases a:hover b{color:var(--ink)}
+.phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.phases .now b{color:var(--accent)}
+.phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
+.phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.phaseshead{display:none}
 
 @media (min-width:1080px){
-  .lessons{
+  .phases{
     position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;
     margin:0;padding:66px 0 32px;background:none;border:0;
   }
-  .lessonshead{
+  .phaseshead{
     display:block;font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 14px;padding-left:13px;
   }
-  .lessons ol{display:block;overflow:visible;border-left:1px solid var(--rule);font-size:12.5px}
-  .lessons a,.lessons span{
+  .phases ol{display:block;overflow:visible;border-left:1px solid var(--rule);font-size:12.5px}
+  .phases a,.phases span{
     display:block;padding:7px 0 8px 13px;margin-left:-1px;white-space:normal;line-height:1.32;
     border-bottom:0;border-left:2px solid transparent;
   }
-  .lessons b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
-  .lessons a:hover{border-left-color:var(--rule)}
-  .lessons .now{border-left-color:var(--accent)}
-  .lessons .soon{opacity:.42}
-  .lessons .soon em{display:none}
+  .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
+  .phases a:hover{border-left-color:var(--rule)}
+  .phases .now{border-left-color:var(--accent)}
+  .phases .soon{opacity:.42}
+  .phases .soon em{display:none}
 }
 
-/* --- skip link and the lesson meta line --- */
+/* --- skip link and the phase meta line --- */
 .skip{
   position:absolute;left:-9999px;top:0;z-index:20;padding:12px 18px;
   background:var(--accent);color:var(--on-fill);font-weight:600;
 }
 .skip:focus{left:0}
-.lessonmeta{
+.phasemeta{
   font-family:var(--font-mono);font-size:12px;color:var(--ink-3);
   margin:0 0 18px;letter-spacing:.02em;
 }
-.lessonmeta strong{color:var(--ink-2);font-weight:600}
+.phasemeta strong{color:var(--ink-2);font-weight:600}
 </style>
 
 <a class="skip" href="#content">Skip to the material</a>
 
 <div class="shell">
 
-<nav class="lessons" aria-label="Course lessons">
+<nav class="phases" aria-label="Course phases">
   <div class="inner">
-    <p class="lessonshead">Lessons</p>
+    <p class="phaseshead">Phases</p>
     <ol>
       <li><span class="now"><b>01</b>Research and benchmark</span></li>
       <li><a href="6-personas/personas.html"><b>02</b>Personas and JTBD</a></li>
@@ -608,10 +613,10 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
 
 <header class="mast">
-  <p class="eyebrow">Lesson 01 · Research and benchmark</p>
+  <p class="eyebrow">Phase 01 · Research and benchmark</p>
   <h1>What we learned before drawing anything</h1>
-  <p class="lessonmeta">Lesson <strong>1 of 12</strong> &middot; five research stages, <strong>signed off 2 Sep 2026</strong> &middot; re-verified <strong>8 Sep 2026</strong> &middot; source brief: <strong>CLAUDE.md</strong></p>
-  <p class="standfirst">Five stages of research for <strong>AI Stack Builder</strong> — a workspace where an AI practitioner keeps their own building blocks and assembles them into projects that export as a working archive. We surveyed the market, captured how live products behave, went looking for what actually hurts, scored the best of them against a rubric, then compared five shapes for our key flow and chose one. <strong>Who the person is and what they hire this for is lesson 02</strong> &mdash; <a href="6-personas/personas.html">personas and JTBD</a>.</p>
+  <p class="phasemeta">Phase <strong>1 of 12</strong> &middot; five research stages, <strong>signed off 2 Sep 2026</strong> &middot; re-verified <strong>8 Sep 2026</strong> &middot; source brief: <strong>CLAUDE.md</strong></p>
+  <p class="standfirst">Five stages of research for <strong>AI Stack Builder</strong> — a workspace where an AI practitioner keeps their own building blocks and assembles them into projects that export as a working archive. We surveyed the market, captured how live products behave, went looking for what actually hurts, scored the best of them against a rubric, then compared five shapes for our key flow and chose one. <strong>Who the person is and what they hire this for is phase 02</strong> &mdash; <a href="6-personas/personas.html">personas and JTBD</a>.</p>
   <dl class="facts">
     <div><dt>Stages</dt><dd>5<small>all closed</small></dd></div>
     <div><dt>Products</dt><dd>15<small>on five axes</small></dd></div>
@@ -622,8 +627,8 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
   </dl>
 </header>
 
-<nav class="rail" aria-label="In this lesson">
-  <p class="railhead">In this lesson</p>
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
   <ol>
     <li><a href="#overview"><b>Start</b>Overview</a></li>
     <li><a href="#s1"><b>Stage 01</b>Competitors</a></li>
@@ -664,7 +669,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     <li><strong>Composition and versioning stay out</strong>, deferred rather than refused, with the reason written down.</li>
   </ul>
 
-  <p class="tnote"><strong>What this phase could not do.</strong> It read vendors, artefacts and trackers. <strong>It never asked a person anything.</strong> That is lesson 02 &mdash; <a href="6-personas/personas.html">personas and JTBD</a> &mdash; and it changed several things on this page, each marked where it happened.</p>
+  <p class="tnote"><strong>What this phase could not do.</strong> It read vendors, artefacts and trackers. <strong>It never asked a person anything.</strong> That is phase 02 &mdash; <a href="6-personas/personas.html">personas and JTBD</a> &mdash; and it changed several things on this page, each marked where it happened.</p>
 </section>
 
 <!-- ============ STAGE 1 ============ -->
@@ -1377,6 +1382,49 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
   }
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('resize', onScroll);
+
+  /* Drag the horizontal bars with the mouse. They overflow at most widths and a
+     wheel alone only moves them with shift held, which nobody discovers. Touch
+     already scrolls them natively, so this is mouse-only; a drag of more than a
+     few pixels swallows the click it would otherwise end in. */
+  function dragScroll(box){
+    if(!box) return;
+    var down = false, moved = 0, startX = 0, startLeft = 0;
+    function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
+    function mark(){ box.classList.toggle('grabbable', !fits()); }
+
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; moved = 0; startX = e.clientX; startLeft = box.scrollLeft;
+      box.setPointerCapture(e.pointerId);
+      box.classList.add('dragging');
+    });
+    box.addEventListener('pointermove', function(e){
+      if(!down) return;
+      var dx = e.clientX - startX;
+      if(Math.abs(dx) > moved) moved = Math.abs(dx);
+      box.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    });
+    function release(e){
+      if(!down) return;
+      down = false;
+      box.classList.remove('dragging');
+      if(box.hasPointerCapture(e.pointerId)) box.releasePointerCapture(e.pointerId);
+    }
+    box.addEventListener('pointerup', release);
+    box.addEventListener('pointercancel', release);
+    box.addEventListener('click', function(e){
+      if(moved > 4){ e.preventDefault(); e.stopPropagation(); moved = 0; }
+    }, true);
+    box.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    mark();
+    window.addEventListener('resize', mark);
+  }
+  dragScroll(ol);
+  dragScroll(document.querySelector('.phases ol'));
+
   sync();
 })();
 </script>

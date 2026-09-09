@@ -1,18 +1,23 @@
 # tools — the research page generators
 
-**Two generated pages, one design language, published as lessons 01 and 02 of the course.**
-**The lesson list is a left sidebar; the section anchors are a sticky horizontal tab bar.**
-**In both, the small label sits *above* the title, not beside it** — the lesson number in the
+**Two generated pages, one design language, published as phases 01 and 02 of the course.**
+**The phase list is a left sidebar; the section anchors are a sticky horizontal tab bar.** *Phase* is
+what the pages call the course's *lesson* — the label changed on 2026-09-09, the twelve entries did
+not, and they are still the course's twelve and never this project's build phases (`CLAUDE.md` §1).
+**In both, the small label sits *above* the title, not beside it** — the phase number in the
 sidebar, the stage in the tab bar — and **both pages label their tabs with research stages**
 (`START` · `STAGE 01`… · `CLOSE`), never with a bare ordinal, so the two read as one system. The
-sidebar lists **all twelve course lessons**, current one marked, the ten unbuilt ones *soon*. The tab
+sidebar lists **all twelve course phases**, current one marked, the ten unbuilt ones *soon*. The tab
 bar sticks to the top of the content column, and a scroll handler keeps **exactly one tab active** —
 the last section whose top has reached the upper third of the viewport — and scrolls that tab into
-view when the bar overflows. An `IntersectionObserver` band was tried first and left the indicator
+view when the bar overflows. **Both horizontal bars are also dragged with the mouse** — press and
+pull, `cursor:grab` appearing only while a bar actually overflows, a drag past 4px swallowing the
+click it would have ended in, and touch left to scroll natively. It lives in the same IIFE as the
+scroll-spy, because that is the block `build_personas.py` lifts across. An `IntersectionObserver` band was tried first and left the indicator
 blank between sections, which is wrong for something shaped like tabs. **That list is the course's and is fixed** — it is not the
 project's build phases. **Adding a third page means editing the strip in both templates and adding
 the file to `.vercelignore`, which is a whitelist.**
-[`../research/research.html`](../research/research.html) is lesson 01, research stages 1–5;
+[`../research/research.html`](../research/research.html) is phase 01, research stages 1–5;
 [`../research/6-personas/personas.html`](../research/6-personas/personas.html) is stages 6 and 7 —
 the persona cards, the job hierarchy and the jobs-against-personas matrix. **The second one pulls its
 tokens, its shell and its scroll-spy out of the first at build time**, so the two cannot drift: edit
