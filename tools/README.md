@@ -1,7 +1,10 @@
 # tools — the research page generators
 
 **Two generated pages, one design language, published as lessons 01 and 02 of the course.**
-**The lesson list is a left sidebar; the section anchors are a sticky horizontal tab bar.** The
+**The lesson list is a left sidebar; the section anchors are a sticky horizontal tab bar.**
+**In both, the small label sits *above* the title, not beside it** — the lesson number in the
+sidebar, the stage in the tab bar — and **both pages label their tabs with research stages**
+(`START` · `STAGE 01`… · `CLOSE`), never with a bare ordinal, so the two read as one system. The
 sidebar lists **all twelve course lessons**, current one marked, the ten unbuilt ones *soon*. The tab
 bar sticks to the top of the content column, and a scroll handler keeps **exactly one tab active** —
 the last section whose top has reached the upper third of the viewport — and scrolls that tab into
