@@ -4,8 +4,9 @@ Updated 2026-09-06. The phase ran in five stages and was **signed off on 2026-09
 was worked through in one sitting that day. **On 2026-09-06 the phase was re-opened with two more
 stages, 6 and 7** — personas and jobs to be done — because the sign-off had established what vendors
 sell and what breaks, and never who the person is or what they hire the product for. The five-stage
-sign-off stands as written; stages 6–7 are an addition to it, not a correction, and the design system
-remains next once they close.
+sign-off stands as written; stages 6–7 are an addition to it, not a correction. **What comes next is
+lesson 03, information architecture** — *corrected 2026-09-09; this said "the design system", which
+is lesson 09, and five lessons stand between them. CLAUDE.md §1 carries the twelve.*
 
 | # | Stage | What it produces | Status |
 |---|---|---|---|
@@ -68,8 +69,9 @@ research/
 ### Flows
 
 **10 of 12 closed.** Flow 01 is declined (login-walled, and its other gap is out of MVP scope).
-Flow 10 is handed to the design-system phase rather than left open — it is the one flow about
-appearance rather than behaviour, and CLAUDE.md §12 postpones visual direction until after research.
+Flow 10 is handed forward rather than left open — it is the one flow about appearance rather than
+behaviour, and CLAUDE.md §12 postpones visual direction until after research. **Its reader is
+lesson 06, concept** (corrected 2026-09-09; it used to say the design-system phase).
 
 **Status key.** ● closed · ◐ partially covered · → handed forward to the next phase.
 
@@ -194,8 +196,9 @@ fit to the fixed constraints, and one chosen with the reasoning for the rejectio
 
 **Boundary, and it matters.** These are **flow structures, not screens**. Described in prose and
 plain-text diagrams — boxes, order, what is on screen at each step. No visual design, no layout
-grids, no colour, no components. CLAUDE.md §1 puts the design system and mockups after this phase and
-this stage must not quietly become them.
+grids, no colour, no components. CLAUDE.md §1 puts information architecture, prototyping, the concept
+and UI assembly after this phase — lessons 03 to 07 — and this stage must not quietly become any of
+them.
 
 ### The five variants
 
@@ -321,7 +324,9 @@ The research phase is finished when:
 - [ ] Every register entry raised by stages 6–7 marked **answered** or **deferred with a stated
       reason**, in one sitting, once both stages are in
 
-Next phase after that: design system — not started, per CLAUDE.md §1.
+Next after that: **lesson 03, information architecture** — not started. *Corrected 2026-09-09: this
+said "design system", which is lesson 09. Five lessons stand between the two, and CLAUDE.md §1 now
+carries the twelve.*
 
 ---
 
@@ -377,7 +382,7 @@ deferred, exactly as this section warned it would.
 | **Q3** | Can a project contain another project? | **Deferred — not refused.** Out of the MVP. Two reasons, and the second is the owner's: no variant needed composition to work, **and composition risks unbounded recursion**. Worth revisiting post-MVP, with a depth rule decided before the feature. | CLAUDE.md §9 |
 | **Q4** | Can a detached item be promoted back into the library? | **Answered — as a new item**, with the project's row re-linking to it. *Push my changes to the original* is a different action with a different confirmation and is not built. **And the consequence is now explicit:** promotion only has value if a detached item can be **edited inside the project** — otherwise detach is merely unlink. In-project editing is therefore in the MVP. | CLAUDE.md §5, §7, §8 |
 | **Q5** | Loss or reassembly cost — which drives adoption? | **Deferred — accepted risk, with the trigger written down.** Nothing in this repository can answer it; trackers are blind to both candidates by construction. Ask five practitioners **before the first feature that only pays off under one answer** — a *reassemble from a previous project* flow versus serious investment in library-wide search. The MVP is the same product under either answer. **Instrument named 2026-09-06: [`6-personas/interview-guide.md`](6-personas/interview-guide.md). The same event also lifts the provisional label on stages 6 and 7.** | Positioning, and the provisional label on stages 6–7. Nothing in the build |
-| **Q6** | Styling engine | **Deferred to the design-system phase**, with the criterion recorded now: tokens and two real themes first-class, and the engine must not push utility classes into components that are themselves the product's value. Decide on two built components. | CLAUDE.md §10, §12 |
+| **Q6** | Styling engine | **Deferred to lesson 08, design tokens**, with the criterion recorded now: tokens and two real themes first-class, and the engine must not push utility classes into components that are themselves the product's value. Decide on two built components. | CLAUDE.md §10, §12 |
 
 **What the sitting did not change.** No answer added a surface. Q2 lands as two more stages inside
 Run, which is already a stage list; Q1 lands as a scope switch inside Library, which is already a

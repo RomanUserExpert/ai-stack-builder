@@ -8,9 +8,10 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 ## 1. Current phase — read this first
 
 **Phase: research was signed off on 2026-09-02 in five stages, and was re-opened on 2026-09-06 with
-two more — personas and jobs to be done. They run before the design system.**
+two more — personas and jobs to be done. Those two are lesson 02, and the next lesson is 03,
+information architecture — not the design system, which is lesson 09.**
 
-There is still no application code, no design system, no mockups.
+There is still no application code, no information architecture, no design system, no mockups.
 
 **Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
 the key flow takes. None of them established **who the person is** or **what they hire this product
@@ -53,9 +54,11 @@ handoff — with the current one marked and the ten unbuilt ones marked *soon*. 
 research stages 1–5; phase 02 carries stages 6–7.** Each page has the same shape as the course's own
 reference page: a skip link, a meta line saying which phase of twelve and when it was last
 re-verified, a rail titled *in this phase*, an **Overview** of what we saw and what we decided, the
-stage sections, and the evidence. **That list of twelve is the course's, not ours** — the rename is a
-label, and it does **not** mean the strip may be refilled with this file's build phases (research →
-design system → mockups → frontend → logic). Those are a different list and they never appear there.
+stage sections, and the evidence. **That list of twelve is the course's, and as of 2026-09-09 it is also ours** — the order of work
+above is that list, not the five build phases this file used to keep beside it. The rule the old
+sentence was protecting still holds and is now trivial: **the strip shows the twelve and nothing
+else.** Our former phases are not a parallel list to be shown anywhere; they are folded into the
+twelve, and where each went is written under the table above.
 
 **The behavioural axes and [`personas.md`](research/6-personas/personas.md) landed on 2026-09-08** —
 **three personas, one primary**: *the keeper who runs several agents* (primary), *the receiver*, and
@@ -113,14 +116,32 @@ on 2026-09-08: **a re-runnable query proves that something was *said*, not that 
 issue body, a forum comment and a tool's README are people describing their own behaviour, so the
 `✓` on them covers the utterance and not the behaviour under it.
 
-The agreed order of work:
+The agreed order of work — **corrected 2026-09-09, and the correction matters.** This list used to
+read *research → design system → mockups → frontend → logic*, five phases of our own invention, and
+**it put the design system second when it is ninth**. The real order is **the course's twelve
+lessons**, because that is what this work is homework for and what both pages already navigate by.
+Five lessons stand between us and the design system, and they are the ones that decide what the
+product *is* before anything decides what it looks like.
 
-1. ~~Research, stages 1–5~~ — **done, signed off 2026-09-02**
-2. **Research, stages 6–7** — personas, then jobs to be done ← **written, audited and reconciled 2026-09-09; four interviews owed, and the register's sitting has not happened**
-3. Design system (tokens, typography, color, components)
-4. Mockups / screen design (static, no logic)
-5. Static frontend implementation (markup only, no business logic)
-6. Logic (state, storage, validation, export)
+| | Lesson | State |
+|---|---|---|
+| **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
+| **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The register's sitting has not happened and four interviews are unavailable** |
+| **03** | **Information architecture** | ← **next.** The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the palette reaches, what an item card carries |
+| **04** | Prototyping and wireframing | Structure before appearance — no colour, no type scale, no components |
+| **05** | Tone of voice and microcopy | §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
+| **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
+| **07** | UI assembly | The screens built out of the concept — what the old list called *mockups* |
+| **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
+| **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
+| **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
+| **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
+| **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
+
+**Where the old five went.** *Design system* splits across 08 and 09; *mockups* is 07, and 04 comes
+before it; *static frontend implementation* is how 07 and 09 are built, since §10 says design happens
+in code; *logic* — state, storage, validation, export — is the last thing and sits after 12, because
+nothing in the twelve requires it and §6 is specification rather than a build order.
 
 **Both new stages ship marked `provisional`.** We have one interview, no analytics and no users, and
 stage 3 recorded that a tracker sees breakage, not friction. **All of the adoption story is hypothesis
@@ -157,14 +178,16 @@ one stage. [`research/research-plan.md`](research/research-plan.md) is the spine
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. If a request seems to jump past the design system, confirm before acting.
+Do not skip ahead. **The next lesson is 03, information architecture**; if a request seems to jump
+past it — to components, tokens, colour or a screen that looks finished — confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is
 written down so design decisions are made with the real mechanics in view.
 
 **One piece of the research phase is handed forward as work rather than as a decision:** the curated
 public library has to be **built** — real items from checked sources, each with its origin and a
 pinned `ref`, composed so the example project genuinely produces one Problem and one Note. It does
-not block the design system, and it is not a demo asset. See §11.
+not block lesson 03, and it is not a demo asset. **It is wanted by 03 and needed by 04**: an
+information architecture argued against an empty library is argued against nothing. See §11.
 
 ---
 
@@ -577,7 +600,7 @@ Do not build these. Do not design a screen that only makes sense once they exist
 - **Archive:** built in the browser (JSZip).
 - **Library portability:** export/import of the whole library as JSON — this covers both
   backup and informal sharing before any server exists.
-- **Styling engine — deferred to the design-system phase** (2026-09-02), decided on two built
+- **Styling engine — deferred to lesson 08, design tokens** (2026-09-02), decided on two built
   components rather than in the abstract. The criterion is fixed now: **tokens and two real themes
   must be first-class**, and the engine must not push utility classes into components that are
   themselves the product's value. Tailwind, CSS Modules and vanilla-extract are all still live.
@@ -629,7 +652,7 @@ with an ID, who raised it, **what would answer it**, and what it blocks. Section
 what the alternatives were. Questions are added to the register as work turns them up and answered
 together in a sitting, once the picture is whole, rather than one at a time on partial evidence. Do
 not keep a second list in this file; two lists drift, and this document has already been bitten by
-that twice. **The protocol outlived the research phase** — the design system uses the same register.
+that twice. **The protocol outlived the research phase** — every lesson after it uses the same register.
 
 **Six questions are live.** All six of the original ones were closed in one sitting on 2026-09-02 —
 four answered, two deferred with a stated reason. **Q7, Q8 and Q9 were raised on 2026-09-06 by the
@@ -651,7 +674,7 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
   two issue trackers and the source of the nearest dead competitor, in [`research/`](research/), one
   folder per stage. Start at [`research/FINAL.md`](research/FINAL.md).
 - ~~Visual direction and tone~~ — still not chosen, but no longer a question *here*: it is the first
-  task of the design-system phase, with its reference material already gathered in
+  task of **lesson 06, concept** — tone of voice is its own lesson, 05 — with its reference material already gathered in
   `research/2-flows/10-dark-design-language/`.
 - ~~Does `visibility` appear in the MVP interface~~ — no. Section 9.
 - ~~Does anything read `version`~~ — the field is gone; external references are pinned instead.
@@ -678,7 +701,7 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
   feature that only pays off under one answer. Blocks positioning, not the build. **The instrument
   became unavailable on 2026-09-09** — the disposition stands, and
   [`research/research-plan.md`](research/research-plan.md) records what can be reached without it.
-- ~~Styling engine (Q6)~~ — **deferred to the design-system phase**, decided on two built components.
+- ~~Styling engine (Q6)~~ — **deferred to lesson 08, design tokens**, decided on two built components.
   The criterion is recorded: tokens and two real themes first-class, and the engine must not push
   utility classes into components that are themselves the product's value. Section 10.
 
@@ -688,7 +711,8 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
 
 - Docs, code and UI copy in English. Conversation with the user may be in Russian.
 - Research stages 1–5 are signed off (2026-09-02). **Stages 6 and 7 — personas and jobs to be done —
-  were added on 2026-09-06 and run before the design system.** Do not start the design system, scaffold
-  the app or generate mockups before they close.
+  were added on 2026-09-06 and are lesson 02.** **The next lesson is 03, information
+  architecture.** Do not start tokens, components, colour or a finished-looking screen before 03 and
+  04 are done, and do not scaffold the app before there is something for it to hold.
 - This file is the single source of truth for the product. The original brief has been
   folded into it and deleted; there is no other spec to reconcile against.

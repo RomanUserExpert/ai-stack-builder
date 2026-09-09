@@ -77,7 +77,7 @@ cost. The status table lives in the register at the end of
 | **Q3** | Project inside a project | **Deferred**, not refused — recursion |
 | **Q4** | Promoting a detached item | **Answered** — a new item, and editing comes with it |
 | **Q5** | Loss or reassembly cost | **Deferred** — accepted risk, trigger written down |
-| **Q6** | Styling engine | **Deferred** to the design-system phase, criterion recorded |
+| **Q6** | Styling engine | **Deferred** to lesson 08, design tokens; criterion recorded |
 
 **No answer added a surface**, which is the thing this sitting was most at risk of. Q2 lands as two
 more stages inside Run, and Run is already a stage list. Q1 lands as a scope switch inside Library,
@@ -241,7 +241,7 @@ the answer.
 
 **Blocks:** positioning and the post-MVP order. **Not** the MVP build.
 
-### Q6 — Styling engine: deferred to the design-system phase
+### Q6 — Styling engine: deferred to lesson 08, design tokens
 
 Tailwind vs CSS Modules vs vanilla-extract. Almost nothing in the research bears on it, which is
 worth stating rather than padding: CLAUDE.md §10 (**no UI kits** — the design system is custom and
@@ -270,7 +270,7 @@ read from several, which is exactly how a folder becomes confusing. Filed here s
 | [`4-benchmark/benchmark.md`](4-benchmark/benchmark.md) — *finalisation* section | Stage 4 | Stage 5, and every question. It is a statement about the **instrument**: the rubric grades craft, not weight, and the five pattern variants differ most where the pain evidence is thinnest. Read it before treating any score as a reason. |
 | [`2-flows/05-linked-vs-detached/NOTES.md`](2-flows/05-linked-vs-detached/NOTES.md) | Stage 2 | CLAUDE.md §5 and §7, and Q4. The single most spec-bearing capture in the folder. |
 | [`2-flows/11-copy-and-error-language/ci-failure-copy.md`](2-flows/11-copy-and-error-language/ci-failure-copy.md) | Stage 2 | §6, and every sentence the validation pass will ever write. Paired with `4-benchmark/npm-eresolve.md` and `terraform-validate-errors.md`, which are the same subject at a higher standard. |
-| [`2-flows/10-dark-design-language/NOTES-linear.md`](2-flows/10-dark-design-language/NOTES-linear.md) | Stage 2 | **Nothing in this phase.** Deliberately handed forward: it is the one flow about appearance, and CLAUDE.md postpones visual direction to the design-system phase. Its first reader has not started work yet. |
+| [`2-flows/10-dark-design-language/NOTES-linear.md`](2-flows/10-dark-design-language/NOTES-linear.md) | Stage 2 | **Nothing in this phase.** Deliberately handed forward: it is the one flow about appearance, and CLAUDE.md postpones visual direction. **Its first reader is lesson 06, concept** — corrected 2026-09-09, it used to say the design-system phase, which is lesson 09 — and that reader has not started work yet. |
 | [`1-landscape/screens-index.md`](1-landscape/screens-index.md) | Stage 1 | Stage 2's README addresses captures through it. Sign-in walls are labelled, which is why some flows read as partial. |
 | [`personas-and-jobs-critique.md`](personas-and-jobs-critique.md) | **The research root** — it spans two stages | **Stage 6 step 4 and stage 7 step 6, merged at the owner's request.** 238 claims in `personas.md` and `jtbd.md` classified Confirmed / Hypothesis / Invented; it edited nothing, and everything it proposed was applied on 2026-09-09 ([`jtbd.md` §11](7-jobs-to-be-done/jtbd.md), and in place in `personas.md`). Read Part 2, *the dangerous list*, before any design decision leans on a persona. |
 | [`6-personas/re-research-2.md`](6-personas/re-research-2.md) | Stage 6 | **Stage 7's matrix and this document's §6.** The round that answered the audit's questions, and **the first instrument in the repository that counts somebody's collection instead of asking about it**. Two of its five answers change what was written elsewhere; one of them, Q-E, is the first evidence ever collected about P3 and it runs against the shelf. |
@@ -293,14 +293,17 @@ read from several, which is exactly how a folder becomes confusing. Filed here s
 > audit the spec rather than edit it. This close will need a second half once they finish. The status
 > and the three questions they raised are in [`research-plan.md`](research-plan.md).
 
-**The five-stage research phase is closed.** Next: stages 6 and 7. Then the design system, whose
-first task is the visual direction, with its reference material already gathered in
+**The five-stage research phase is closed.** Next: stages 6 and 7 — **lesson 02** — and after them
+**lesson 03, information architecture**, not the design system, which is lesson 09 — *corrected
+2026-09-09; this sentence used to send the reader straight from research to the design system, and
+five lessons stand between them.* The visual direction, which this document called the design-system
+phase's first task, is **lesson 06, concept**, with its reference material already gathered in
 [`2-flows/10-dark-design-language/`](2-flows/10-dark-design-language/).
 
 Two things this phase deliberately hands forward as work rather than as decisions: **the curated
 public library has to be built** — real items from checked sources, with provenance and pinned
 `ref`s, composed so the example project genuinely produces a Problem and a Note — and **Q5 carries a
-trigger**, not a schedule. Neither blocks the design system.
+trigger**, not a schedule. Neither blocks lesson 03.
 
 ---
 
