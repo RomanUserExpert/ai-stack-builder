@@ -40,16 +40,20 @@ and it is positive. **The second half of that bet failed**: with the Problems le
 receiver found them, one **mis-resolved one on a false claim of byte-identity**, and one saw none.
 **Six proposals came out of the round and none is applied here** — they are listed at the end of
 [`re-research-3.md`](research/6-personas/re-research-3.md) and go to the register's sitting with the
-other two lists. **A fourth round the same day** —
-[`re-research-4.md`](research/6-personas/re-research-4.md) — went after the persona columns of the
-matrix in two venues this project had never used, the Cursor and OpenAI community forums, and
-**moved three cells upward**, the first time any round has added rather than subtracted. **Its
-strongest finding is a negative one**: after four rounds and five venues, **no receiver has ever
-spoken in the first person** — every account of a handover is written by the sender — and the two
-clearest public beginners wrote their own material on day one or asked to shadow a human rather than
-reach for a library. One of them is the first proposal any round has made to the **shape** of §5 rather
-than to its reasoning: an item addresses a directory, not a file. **The *provisional* label does not
-lift** — its trigger is unchanged. The documents:
+other two lists. **One of them is the first proposal any round has made to the *shape* of §5 rather
+than to its reasoning: an item addresses a directory, not a file.**
+
+**A fourth round ran the same day** — [`re-research-4.md`](research/6-personas/re-research-4.md) —
+because round 3 moved no importance in the jobs matrix and said why: its instruments see machines,
+and the matrix's columns are people. It went after the columns in two venues this project had never
+used — the Cursor and OpenAI community forums, where the vendor answers in public — and **moved
+three cells upward**, the first time any round has added to the matrix rather than subtracted from
+it. **Its strongest finding is a negative one**: after four rounds and five venues, **no receiver has
+ever spoken in the first person** — every account of a handover is written by the sender — and the
+two clearest public beginners wrote their own material on day one or asked to shadow a human rather
+than reach for a library. **The *provisional* label does not lift** — its trigger is unchanged.
+
+The documents:
 [`inventory.md`](research/6-personas/inventory.md) — a register of the twenty questions about people,
 each with its answer, the data under it and a mark;
 [`re-research.md`](research/6-personas/re-research.md) — a source document, four instruments taken to
