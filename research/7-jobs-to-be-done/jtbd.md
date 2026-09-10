@@ -500,6 +500,20 @@ that is a result rather than an omission.**
 **Rewritten 2026-09-09, and the rewrite is the most consequential thing the audit caused.** This
 section used to open *"the rule, applied mechanically"* and produce three jobs. It no longer does.
 
+> **The arithmetic below is out of date as of 2026-09-10, and the correction is recorded rather than
+> applied.** Rounds 3 and 4 raised **RJ-2** and **RJ-3** to a 3 for the primary persona. **Five jobs
+> now score 3 for P1** — the main job, RJ-2, RJ-3, EJ-1 and EJ-3 — and with EJ-1 still a constraint
+> rather than a row and EJ-3 still unbuildable, **the rule now selects three buildable jobs on its
+> own: the main job, RJ-2 and RJ-3.** It has stopped needing the judgement this section was written
+> to make honest.
+>
+> **But the three it selects are not the three below.** RJ-2 enters and **RJ-4 is displaced** — RJ-4
+> is still a 2, and it sits in the core on the stated grounds this section gives it. **Changing the
+> shortlist is the owner's call at the register's sitting, not a research round's**, so the sections
+> below stand as written and this note says what the matrix now implies. **And one sentence needs
+> re-reading with it:** *"if one practitioner says it plainly, RJ-1 moves into the core ahead of
+> RJ-3"* was written when RJ-3 was a 2. It is a 3 now.
+
 **The rule as written:** importance **3** for the primary persona **and** not closed by the market.
 Before the audit five jobs scored 3 for P1 — the main job, RJ-3, RJ-4, EJ-1 and EJ-3. **After it,
 three do**: the main job, EJ-1 and EJ-3. And of those three, **EJ-1 is a constraint on how every
