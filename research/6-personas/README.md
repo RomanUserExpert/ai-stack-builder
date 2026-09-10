@@ -7,7 +7,7 @@ here. The method is the one taught in lesson 2 of the design-engineering course 
 slides, read in full), adapted to this product and to this repository's evidence rules. Where the
 lesson and this repository's protocol disagree, the protocol wins and the disagreement is stated.
 
-Status, **2026-09-09: every step is done except the interviews.**
+Status, **2026-09-10: every step is done except the interviews, and the third round of collection has been run.**
 [`inventory.md`](inventory.md) (the register, and the axes in §D),
 [`re-research.md`](re-research.md), [`interview-guide.md`](interview-guide.md),
 [`agent-setup-interview.md`](agent-setup-interview.md) — **interview 1 of 5** — and
@@ -36,9 +36,22 @@ unavailable instrument does not lower a bar, it removes the event.
 we run ourselves, forks read as the receiving end, drift measured in git history, whether imported
 material is ever touched again, and the competitors installed and pointed at a deliberately broken
 set. Three of the five read **behaviour left in public artefacts** rather than what anyone said about
-it, and two are **ours to run**. **It is a plan and nothing in it may be cited until its capture logs
-exist.** It does not lift *provisional*, does not answer Q5, Q10, Q11 or Q12, and reaches no private
-repository — all of which it says on its own front page.
+it, and two are **ours to run**. It does not lift *provisional*, does not answer Q5, Q10, Q11 or Q12,
+and reaches no private repository — all of which it says on its own front page.
+
+**It was run on 2026-09-10, and the capture logs exist**, so it may be cited:
+[`_re-research-3-log.json`](_re-research-3-log.json) and [`_qf-handover-test/`](_qf-handover-test/).
+**Four questions answered, one in part.** **NK-13 and H6 are closed**: three receiving agents out of
+three performed the setup from `SETUP.md`, and with the set's defects undisclosed one found them, one
+closed a real conflict on a false claim, and one saw none. **Q-G's headline was withdrawn by its own
+control** — forks of agent material are no more dormant than forks of anything else — and what
+survives is that whoever acts acts within the hour, and 25 of them replace the author with themselves.
+**Q-H** measured the drift §5's live link exists for; **Q-I** put behaviour against round 2's opinion
+about the shelf; **Q-J** confirmed §2's sentence at the set level and took two claims away from it at
+the item level. **Six proposals went to the register and none is applied.** The whole round is
+summarised in [`../research.md`](../research.md) §8 and its effect on the matrix in
+[`../7-jobs-to-be-done/jtbd.md`](../7-jobs-to-be-done/jtbd.md) §7 — **where not one importance moved,
+because the columns are people and these instruments see machines.**
 
 **And the guide still has no block of questions for a receiver**, which is why every line about P2 is
 somebody else's account of them. That gap is now addressed from the other side, by Q-G.

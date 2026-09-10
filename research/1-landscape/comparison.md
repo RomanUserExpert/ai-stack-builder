@@ -85,6 +85,22 @@ from a pricing page in this pass.
    > [`../6-personas/re-research.md`](../6-personas/re-research.md) R8; the rewrite of this
    > difference, and of `CLAUDE.md` §2's *"nothing does this today"*, is proposal 3 there and is the
    > owner's to apply.
+   >
+   > **Second note, 2026-09-10 — the afternoon proposal 3 asked for was spent.**
+   > [`../6-personas/re-research-3.md`](../6-personas/re-research-3.md) Q-J installed **four** of
+   > these tools and pointed them at a deliberately broken set: `agent-skill-manager` 2.19.0,
+   > `skills` 1.5.25, `ai-agent-skills` 4.3.2, `opkg` 0.11.3. Two could not be installed under the
+   > name their README gives — the npm packages `harnesskit` and `tank` belong to unrelated projects,
+   > so **`RealZST/HarnessKit`'s trust score and per-agent drift detection are still unrun**, now for
+   > a stated reason. **What the run establishes**, dated and versioned: the **set**-level ground is
+   > still empty, because **none of the four has a set-level unit at all** — nothing detected a
+   > duplicate command name, two items writing to one config file, or a key missing across a set.
+   > **What it takes away:** two claims did not survive contact. `asm doctor` describes the
+   > **receiving machine**, which the benchmark said nobody did. And `asm audit`, given one skill
+   > copied into three directories with one copy edited, skipped a directory it does not scan and
+   > called the remaining two — 8,072 bytes against 8,088, different hashes — **`✓ identical
+   > copies`**, offering to delete one. **Their existence and traction were `✓` before; their
+   > capabilities are now measured rather than quoted, and they are weaker than the READMEs say.**
 
 2. **They all trust the network; we can trust the file.** Every catalog above solves cold start
    with curation and volume — 17,500 MCP servers, 3,000 skills, 115 business skills. None of them

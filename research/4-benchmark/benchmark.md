@@ -529,6 +529,17 @@ Every cell in this matrix scores what a product says **about its own state**. No
 product says about **the machine its artefact lands on** — and no candidate offered anything to
 score, because none of them has such a surface.
 
+> **Dated note added 2026-09-10, and the last clause no longer holds.** This was measured over
+> **fifteen funded vendors in August 2026**, and it is still true of them. It is not true of the
+> open-source tier: [`../6-personas/re-research-3.md`](../6-personas/re-research-3.md) Q-J installed
+> four of those tools and ran them, and **`asm doctor` is exactly such a surface** — git presence and
+> version, `gh` authentication, the Node version, 21 provider directories writable, lock-file
+> integrity, registry reachability, disk space and PATH shadowing. `ai-agent-skills doctor` has a
+> smaller one. **What survives, and is now firmer for being run rather than inferred: nobody
+> describes the receiving machine *for a named set*.** The gap this section names is real; its
+> *structural* explanation — that no such surface exists anywhere — is withdrawn. **Nothing in the
+> scoring changes**: neither tool was a benchmark candidate, and B4's four cells stand as scored.
+
 That is the single square where our weakest-flow finding and the ecosystem's loudest pain point at
 the same thing. It is **Q2** in the register, it was raised by stage 3, and stage 4 could only
 confirm that nobody solves it. Whatever the final shape is, the answer lives in the last stages of

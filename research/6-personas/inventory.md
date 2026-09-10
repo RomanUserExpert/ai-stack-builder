@@ -281,23 +281,31 @@ be worth more than a confirmation.
 | **NK-4** | How often is it opened? | **`*`** | Agents daily. The **collection** is entered to copy out, to add a rule in irritation, or to search — **never to review** |
 | **NK-5** | How many agent targets per person? | **`✓` counted** | `✓` One source for all of them is the loudest demand in the whole evidence base. **And the per-person count is no longer self-report**: two of four public repositories configure **four** and **three** distinct tools, read from their trees (2026-09-08, Q-C) |
 | **NK-6** | Where does the material live? | **`✓`** | **A git repository the person owns, symlinked into the places each agent expects** — visible in the trees themselves and described independently by six people (`chezmoi`, `.agents/skills/` + a symlink, two source-of-truth repos syncing to three agents). Bias: this counts only people who publish; the one interviewed keeps his private |
-| **NK-7** | Alone, or does anyone else open it? | **`✓` + `*`** | **Not alone**, and the sending side is now `✓` from **six independent voices** — *"distributing them is currently awkward"*, *"git is of course required for this but is not enough"* (Q-B). **The receiving end is still `[?]`: every one of the six is a sender.** And the one handover on record failed silently for two days |
+| **NK-7** | Alone, or does anyone else open it? | **`✓` + `*`** | **Not alone**, and the sending side is now `✓` from **six independent voices** — *"distributing them is currently awkward"*, *"git is of course required for this but is not enough"* (Q-B). ~~**The receiving end is still `[?]`: every one of the six is a sender.**~~ **Updated 2026-09-10 (Q-G): the receiving end is no longer `[?]`, on behaviour rather than on an account.** **25 receivers were watched in public diffs** substituting themselves for the author — setup URLs, git identity, absolute paths, branch conventions, and instructions addressed to the agent naming the author's handle — and 55% of everyone who acted at all acted **within the first hour**. **What Q-G did not establish**: how often handover happens. Its 89.4% zero-commit figure was withdrawn by its own control (84.8% and 87.0% for populations with nothing to do with agents). And the one handover on record failed silently for two days |
 | **NK-8** | Has anyone wanted a previous project back? | **`*`** | **Yes** — and he could not have it, so he rewrote a worse one |
-| **NK-9** | Would anyone adopt this, and why? | **`*`** + **`✓` against one premise** | He went looking twice, used something for a week, stopped. Still the weakest row — **and as of 2026-09-08 the shelf's premise has its first contact with real opinion: four of five practitioners refuse, minimise or prefer their own material** (Q-E) |
+| **NK-9** | Would anyone adopt this, and why? | **`*`** + **`✓` against one premise** | He went looking twice, used something for a week, stopped. Still the weakest row — **and as of 2026-09-08 the shelf's premise has its first contact with real opinion: four of five practitioners refuse, minimise or prefer their own material** (Q-E). **And as of 2026-09-10 it has its first contact with behaviour, which runs the other way** (Q-I): five public skills are carried verbatim by 2,040–4,024 repositories each; of 446 copies read in full, **32% were edited after being added**, at a median of 27 days; `npx skills` went from 19 downloads a month to 44.4 million in eight months. **Opinion against, behaviour for, and both stand** — rule 4. What neither reaches is **who** any importer is |
 | **NK-10** | What do they do today instead? | **`✓` + `*`** | `cp -r`, symlinks, `@include`, hand-written scripts — said in public many times, watched by nobody |
 | **NK-11** | What would make them distrust? | **`✓` + `*`** | Not *your checker is wrong* — ***half of my own material may do nothing*** |
 | **NK-12** | Is a usage fact persuasive? | **`*`** | **Asked for it unprompted, in our own words**, when the question was put open |
-| **NK-13** | Does an agent set up from `SETUP.md` alone? | **`?`** | **Still untested, and we are the ones who can test it.** Sharpened 2026-09-08: in 274 comments on exactly this topic the job is done by `chezmoi`, symlinks, a CLI installer, `skills.py` and bootstrap scripts, and **two comments describe an agent touching this material at all — neither is a setup** (Q-A). The bet is **against the grain of current practice**, not merely unverified |
+| **NK-13** | Does an agent set up from `SETUP.md` alone? | **`✓` — answered 2026-09-10** | **Tested. Yes to performing, no to checking.** [`re-research-3.md`](re-research-3.md) Q-F, capture in [`_qf-handover-test/`](_qf-handover-test/): ten real pinned items, five planted defects, three receiving agents, one instruction. **Three of three performed the setup**, including cloning an external item at its pinned `ref`. **With the defects undisclosed, one found them, one closed a real conflict on a false claim of byte-identity, one saw none** — and one wrote the machine's live OAuth token into a plaintext file unprompted. Bounded: three model tiers of one vendor's agent, one machine, one day. The mark covers a behaviour we watched. **Superseded below:** Sharpened 2026-09-08: in 274 comments on exactly this topic the job is done by `chezmoi`, symlinks, a CLI installer, `skills.py` and bootstrap scripts, and **two comments describe an agent touching this material at all — neither is a setup** (Q-A). The bet is **against the grain of current practice**, not merely unverified |
 | **NK-14** | Is hand-entered metadata maintained? | **`✓` + `*`** | **No.** Drift is filed and reacted to; for one person it cost three hours and a client complaint |
 | **NK-15** | Are the loud pain and the quiet pain the same person? | **`*`** | **Yes, for this one — and he says the collection caused the second** |
 | **NK-16** | Are tracker filers our audience? | **`?`** | Unresolved. He is a filer, so n=1 cannot answer it |
 | **NK-17** | What is the emotional register on arrival? | **`*`** | Three modes, and **most edits are written while irritated** |
 | **NK-18** | Does anyone want their work to be a portfolio? | **`✓` + `*`** | Two searches found nothing; he says a qualified yes **for a different motive** |
-| **NK-19** | Licence for redistribution? | **`✓` + `?`** | `✓` A field exists and absence of a licence is not permission. `?` **No item on our planned shelf has had its licence looked at** |
+| **NK-19** | Licence for redistribution? | **`✓` + `?`** | `✓` A field exists and absence of a licence is not permission. `?` **No item on our planned shelf has had its licence looked at.** **And 2026-09-10 gives the row its first measurement, on other people's copies rather than ours** (Q-I): of 446 foreign copies of five public skills, **45 — 10% — name their origin anywhere in the file.** Provenance does not survive a copy, which is an argument for §5 showing it rather than storing it, and says nothing about licences |
 | **NK-20** | Does the person hitting env pain have a library? | **`*`** | **Yes** — same answer as NK-15, same sentence |
 
 **After the 2026-09-08 re-marking: nine rows carry a `✓` somewhere, nine rest on one person alone,
 and two carry no evidence at all — NK-13 and NK-16. Only one of those two is ours to fill.**
+
+> **Updated 2026-09-10.** **NK-13 is filled** — the half-day was spent, and it is the first row in this
+> register whose `✓` covers a behaviour somebody watched rather than an utterance somebody typed
+> ([`re-research-3.md`](re-research-3.md) Q-F). **NK-16 is still blank**, and it is the one that needs a
+> person. Three more rows changed without changing their marks: **NK-7**'s receiving half moved from
+> `[?]` to behaviour, **NK-9** gained evidence pointing the opposite way from the evidence it already
+> had, and **NK-19** got its first number. **So the count is now ten rows with a `✓`, and one row with
+> nothing at all.**
 
 **Updated 2026-09-09, after [`re-research-2.md`](re-research-2.md).** Five rows moved and none of them
 moved by being repeated: **NK-2 and NK-5 became measurements** — file counts and tool counts read out
@@ -306,7 +314,9 @@ instead of asking them how big it is; **NK-6 and NK-7's sending half became `✓
 voices; **NK-9 gained its first evidence and it is negative**; and **NK-13 stayed `?` while getting
 harder**, because the largest available sample of practice does the job with scripts rather than with
 an agent reading prose. **The row-by-row entries below carry the detail; where a row was updated it
-says so and cites Q-A to Q-E.**
+says so and cites Q-A to Q-E.** **Round 3 followed on 2026-09-10 and cites Q-F to Q-J: NK-13 left `?`
+for `✓`, NK-7's receiving half was observed for the first time, NK-9 gained behaviour running against
+the opinion it already had, and NK-19 got a number.**
 
 ---
 
@@ -642,10 +652,25 @@ as close to validated as this method allows.
 
 ---
 
-### NK-13 — Does a receiving agent set a project up correctly from `SETUP.md` alone? `?`
+### NK-13 — Does a receiving agent set a project up correctly from `SETUP.md` alone? `✓`
 
-**Answer. Nobody knows and nobody has tried.** The only row in the register that is **blank and ours
-to fill.**
+**Answer, 2026-09-10 — it was tried, and the answer is split.** **Performs: yes, three receivers out of
+three**, including cloning an external item at its pinned `ref`, installing the dependency the document
+named and reporting at the end. **Correctly: no.** `SETUP.md` states what each item requires and, by
+design, not what is wrong with the set — §8 puts finding-disclosure on the sender’s side. With the
+defects undisclosed, one receiver found them all, **one detected the duplicate command name and then
+closed it on a false claim that the two files were byte-identical** (1,125 bytes against 850, different
+sha1), and one saw none of them and reported success. One of the three read the machine’s live OAuth
+token out of the `gh` keyring and wrote it into `.env`, having been told only to set the project up.
+
+**It also found three defects nobody planted**, the sharpest being that **an item is a directory and
+§5 models it as a file**: the `pdf` skill instructs the agent to read `REFERENCE.md`, `FORMS.md` and
+eight scripts, none of which the export carried, and `SETUP.md` said the item required nothing.
+
+**Bounded.** Three model tiers of **one vendor’s agent** — Cursor and Codex CLIs are not installed on
+this machine — in three fresh directories rather than clean containers, on a machine that already had
+git, node, Python and an authenticated `gh`. It is a claim about one day, and it is dated and versioned
+in [`re-research-3.md`](re-research-3.md) Q-F.
 
 **Rests on.** Nothing. `CLAUDE.md` §6 and the Q2 disposition in [`FINAL.md`](../FINAL.md) commit to it
 on reasoning alone.
@@ -659,8 +684,11 @@ on reasoning alone.
 > nobody in the thread was trying — it says **the spec's bet is against the grain of current
 > practice** rather than merely untested.
 
-**How true.** `?`. It is not a question about people at all — it is a claim about a **machine's**
-behaviour, it is the spec's most load-bearing bet, and it has never been run once.
+**How true.** `✓` **for performing, and the checking half is refuted — 2026-09-10.** It is not a
+question about people at all: it is a claim about a **machine's** behaviour, which is why it was the
+one row here we could settle ourselves. **We did.** Three receivers performed the setup; with the
+set's defects undisclosed, one found them, one closed a real conflict on a false claim, one saw none.
+**The mark covers behaviour we watched**, which no other `✓` in this register does.
 
 **What would move it.** **Us, in an afternoon** — and as of 2026-09-09 the procedure is written down
 step by step as **Q-F** in [`re-research-3.md`](re-research-3.md), with the deliberately broken set it
@@ -891,8 +919,12 @@ them. It edits no file outside this folder.
 2. **To the audit (step 4).** The dangerous list writes itself from this section — **every row
    carrying only `*` bears on a design decision and stands on one person**: NK-8, NK-9, NK-12, NK-15,
    NK-17, NK-20, NK-21, NK-22, NK-23.
-3. **To the owner, as work rather than research.** **NK-13 is the only blank row we can fill
-   ourselves**, it needs an afternoon, and it tests the spec's most load-bearing bet.
+3. ~~**To the owner, as work rather than research.** **NK-13 is the only blank row we can fill
+   ourselves**, it needs an afternoon, and it tests the spec's most load-bearing bet.~~ **Done
+   2026-09-10** — [`re-research-3.md`](re-research-3.md) Q-F. The bet holds for performing and fails
+   for checking, and the work turned up a proposal to §5's shape rather than to its reasoning: **an
+   item addresses a directory, not a file.** **What is still ours to run and unspent: the handover
+   half of secrets — Doppler and Infisical, captured in flow 07 and still unscored.**
 4. **To the register in [`research-plan.md`](../research-plan.md).** NK-21, NK-22 and NK-23 are
    candidates for Q10, Q11 and Q12, each with a named instrument, to be dispositioned in the same
    sitting as Q7–Q9 once stage 7 is in.

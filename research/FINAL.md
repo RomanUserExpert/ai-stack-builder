@@ -7,6 +7,8 @@ questions were settled in the sitting of 2026-09-02.
 **Updated 2026-09-07.** The phase was re-opened on 2026-09-06 with stages 6 and 7, and stage 6 is
 now under way. **Section 6 below is the current state** — what exists, what the evidence rule now is,
 and the four things in this document that have since been shown to be narrower than they read.
+**Updated again 2026-09-10:** round 3 was run, two of those four narrowings are now measured rather
+than inferred, and the one row this file said we could close ourselves is closed.
 Nothing here is retracted.
 
 Three documents govern this folder and none of them repeats another:
@@ -406,10 +408,21 @@ that it is *true*.
 - **`CLAUDE.md` §2's *"nothing does this today"*, at the item level.** Open-source skill managers
   with 400–4,500 stars **say in their READMEs** that they audit duplicates, detect version drift and
   score trust. The **set-level** half — resolve a named set, check that set, hand it over with
-  instructions for the receiving machine — appears in nobody's README. **`✓` on their existence,
+  instructions for the receiving machine — appears in nobody's README. ~~**`✓` on their existence,
   their stars and their push dates; their capabilities are vendor self-description and we ran none of
-  them.** That is enough to require narrowing the sentence and not enough to rewrite the thesis; the
-  difference costs an afternoon of installing two of them.
+  them.**~~ **The afternoon was spent on 2026-09-10** (round 3, Q-J): four of them were installed and
+  pointed at a deliberately broken set — `agent-skill-manager` 2.19.0, `skills` 1.5.25,
+  `ai-agent-skills` 4.3.2, `opkg` 0.11.3. **Two more could not be installed under the name their
+  README gives**, the npm packages `harnesskit` and `tank` belonging to unrelated projects, so
+  `HarnessKit`'s trust score and drift detection stay unrun for a stated reason. **The set-level half
+  held and is now measured rather than inferred: none of the four has a set-level unit at all**, so
+  none detected the duplicate command name, the two items writing to one config file, or the key
+  missing across the set. **Two item-level claims failed contact**: `asm doctor` describes the
+  **receiving machine**, which the benchmark said nobody did, and `asm audit` — given one skill in
+  three directories with one copy edited — skipped a directory it does not scan and called the other
+  two, 8,072 bytes against 8,088, **`✓ identical copies`**, offering to delete one. **So the sentence
+  still needs narrowing at the item level and is confirmed where it matters**, and the narrowing can
+  now be written from a measurement.
 
 **None of it is applied.** Stages 6 and 7 audit the spec; the owner edits it. **The proposals now sit
 in two places and both are for the same sitting**: [`re-research.md`](6-personas/re-research.md) §4,

@@ -7,7 +7,8 @@ personas that decides what to build first and what not to build at all — adapt
 screens are already specified. That last fact is the whole difficulty of this stage and is dealt
 with below.
 
-Status, **2026-09-09: all seven steps are done.**
+Status, **2026-09-10: all seven steps are done, and the matrix has been through a third round of
+collection without a single importance changing.**
 [`jtbd.md`](jtbd.md) holds the main-job candidates and the choice, the hierarchy — **one main job,
 four related, three emotional, two social** — the *Rewritten* list from the feature-name test,
 **seven hypothesis jobs**, and **the matrix with both of its conclusions**. **Step 6, the audit, is
@@ -17,6 +18,25 @@ hypothesis, **15 invented**. It was **applied on 2026-09-09**, cell by cell, and
 in [`jtbd.md` §11](jtbd.md). **Step 7 is [`jtbd.md` §12](jtbd.md)** — nine proposals to the
 specification, handed to the register's next sitting rather than written into `CLAUDE.md`. The
 section on the shared page is built.
+
+**Round 3 was run on 2026-09-10 and this is what it did to the matrix** —
+[`../6-personas/re-research-3.md`](../6-personas/re-research-3.md), recorded cell by cell in
+[`jtbd.md` §7](jtbd.md). **No importance moved, in any of the ten rows.** The reason is structural and
+worth more than the result: **the columns of this matrix are people, and round 3's instruments see
+machines and artefacts.** A receiving agent that performs a setup is not P2; a skill whose two copies
+have differed for four months says the drift is real and nothing about what it cost; an importer who
+edits a vendored file four weeks later is a behaviour with no person attached. **Importance is a fact
+about somebody, and this round asked nobody anything.**
+
+**Nine cells changed in the two right-hand columns.** Three market cells lost a *structural* claim
+— *no product says anything about the machine its artefact lands on* is no longer true, `asm doctor`
+is such a surface — and what survives is narrower and firmer: nobody does it **for a named set**. One
+vendor claim became a measurement and failed it. Three feature cells were tested rather than asserted.
+RJ-3's premise was measured and **the measurement is why its number stays a 2**: the drift is real and
+nobody reconciles. H-J4 now has behaviour on one side and opinion on the other. And **one thing the
+round nearly did and did not**: Q-G's 89.4% was drafted as evidence that the archive is not being
+received, which would have forced a rewrite of the whole P2 column — **its control withdrew the
+reading before it reached this stage.**
 
 **The matrix came out the shape the plan predicted, which is a warning and not a result.**
 **P3's column is `[?]` in all ten rows** — *nine of nine* was a miscount, corrected 2026-09-09 (J-113)

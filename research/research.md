@@ -788,9 +788,50 @@ are a separate pass.** This round applied only what new data actually answered.
 - **The benchmark has a gap rather than an oversight**: Doppler and Infisical are captured in flow 07 and deliberately unscored. On Q-D's evidence that is now worth one afternoon.
 - **`CLAUDE.md` is untouched, and stays untouched.** §11's shelf is the decision Q-E bears on, and the reading is a warning about **what the shelf contains and how it sorts**, not an argument that it should not ship. That is **Q9** in the register, and it now has its first evidence — recorded there on 2026-09-09. **The proposals for the specification are collected in two lists and neither is applied**: [`re-research.md`](6-personas/re-research.md) §4 and [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §12.
 
-## The half-day that keeps not being spent
+## The half-day was spent — 2026-09-10
 
-**NK-13.** Two rounds of research, five instruments, 19,703 repositories and 274 comments later, the
-single most load-bearing claim in the specification — *a receiving agent performs the setup from
-`SETUP.md` alone* — **has still never been run once**, and nothing on the public record can run it.
-It is half a day on this machine. **Every round makes it matter more and none of them can touch it.**
+**NK-13.** Two rounds of research, five instruments, 19,703 repositories and 274 comments could not
+touch the single most load-bearing claim in the specification — *a receiving agent performs the setup
+from `SETUP.md` alone*. **A third round stopped reading the public record and ran it.**
+[`6-personas/re-research-3.md`](6-personas/re-research-3.md) Q-F, capture in
+[`6-personas/_qf-handover-test/`](6-personas/_qf-handover-test/).
+
+**The claim holds and its unexamined half does not.** Ten real items from five checked sources, every
+one pinned, five defects planted, three receiving agents, one instruction. **All three performed the
+setup**, including cloning an external item at its pinned `ref`. **With the defects undisclosed — §8
+puts finding-disclosure on the sender's side — one receiver found them, one detected the duplicate
+command name and closed it on a false claim that the two files were byte-identical, and one saw
+none.** One copied the machine's live OAuth token into a plaintext file, having been told only to set
+the project up.
+
+**The disclosure the sender gets before Export is the disclosure the receiver turns out to need.**
+That is the round's largest proposal and it is **not applied**; it goes to the register's sitting with
+five others, one of which is the first proposal any round has made to the **shape** of §5 rather than
+to its reasoning: **an item addresses a directory, not a file.**
+
+# 8. Round 3 — five questions that needed no interview, and what running them changed
+
+**Collected 2026-09-10.** Source document: [`6-personas/re-research-3.md`](6-personas/re-research-3.md);
+capture log [`_re-research-3-log.json`](6-personas/_re-research-3-log.json). **This is the digest
+entry; that is the source.** The round's whole point is a change of instrument class: rounds 1 and 2
+read what people **wrote**, and rule 5 governs all of it. **Two of these five are experiments we ran
+ourselves and three read behaviour left in public artefacts**, so for the first time the marks cover
+behaviour rather than utterance.
+
+| | Question | What it found |
+|---|---|---|
+| **Q-F** | Does a receiving agent perform the setup from `SETUP.md` alone? | **Yes, three of three — and the checking half fails.** Above. **NK-13 and H6 are closed** |
+| **Q-G** | What does a receiver do with inherited material? | **The headline was withdrawn by its own control.** 89.4% of 2,027 forks of personal agent material carry no commit — against **84.8%** for plain dotfiles and **87.0%** for ordinary small libraries, so the dormancy is a fact about forks. **What survives**: 55% of those who act, act within the hour, and **25 substitute themselves for the author** — setup URLs, git identity, absolute paths, and instructions to the agent naming the author's handle |
+| **Q-H** | Do copies drift, and for how long? | **Yes, and nobody reconciles.** 14% of 7,506 duplicated items in 500 published trees are out of sync now; over history **383 divergences are open at HEAD, median 121 days**, and **four ever closed, all within seven hours**. A 25,773★ repository whose proposition is one skill set for every agent has **72%** of its per-target copies diverged |
+| **Q-I** | Is other people's material kept, or only starred? | **Kept, and rarely credited.** Five public skills are carried verbatim by 2,040–4,024 repositories each; of 446 copies read in full, **32% were edited after being added** at a median of 27 days, and **10% name their origin**. `npx skills` went from 19 downloads a month to 44.4 million in eight months |
+| **Q-J** | Does anything on the market perform the set-level check? | **No, and §2's sentence is confirmed as run** — four tools installed, none has a set-level unit. **Two claims failed contact**: `asm doctor` describes the receiving machine, which the benchmark said nobody did; and `asm audit` calls two files with different hashes *“identical copies”* and offers to delete one |
+
+**What it did to the matrix: nothing vertical.** Not one importance moved, in ten rows, and the reason
+is structural — **the columns are people and these instruments see machines and artefacts.** Nine
+cells changed in the two right-hand columns; the pass is recorded in
+[`jtbd.md`](7-jobs-to-be-done/jtbd.md) §7.
+
+**What it did to this document's own honesty.** Three measurements were built, checked and discarded
+before anything was written — a path-rewrite rule that gave 69% instead of 12%, and two provenance
+rules that gave 82% and 66% instead of 10% — and a fourth was discarded **after** it was written, when
+Q-G's control came back. **The discarded versions are named in the source document on purpose.**
