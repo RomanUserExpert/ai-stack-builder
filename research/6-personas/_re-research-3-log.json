@@ -1,0 +1,310 @@
+{
+ "collected": "2026-09-10",
+ "round": 3,
+ "purpose": "The five questions of re-research-3.md, run. Three read behaviour left in public artefacts; two are experiments we ran on this machine.",
+ "note": "Rounds 1 and 2 read what people wrote, and rule 5 governs all of it. Q-F and Q-J are a different class: the observation is ours, so the mark covers the behaviour and not the utterance. Q-G, Q-H and Q-I read diffs, blob SHAs and commit dates, which are also behaviour. Every count below is re-runnable from the query beside it.",
+ "authenticated": true,
+ "instruments": [
+  {
+   "id": "I7",
+   "name": "The handover test - we ran it",
+   "what": "A composed archive of ten real pinned items, containing five planted defects, handed to three fresh receiving agents with one instruction.",
+   "blind_to": "What a human recipient does; other vendors (Cursor and Codex CLIs are not installed on this machine); whether anybody would reach for such an archive unprompted. It is three model tiers of one agent, on one machine, on one day."
+  },
+  {
+   "id": "I8",
+   "name": "GitHub forks + compare API across the fork point",
+   "what": "ahead_by, the commits unique to the fork, and the files they touched.",
+   "blind_to": "Motive; private handovers, which never appear as a fork; anybody who is not on GitHub. A fork is a public, self-selecting act."
+  },
+  {
+   "id": "I9",
+   "name": "git/trees blob SHAs, then full history over duplicated paths",
+   "what": "Whether two copies of one item are byte-identical now, and for how long they have differed.",
+   "blind_to": "Whether the divergence cost anybody anything; private repositories; a copy deliberately kept different is indistinguishable from one forgotten."
+  },
+  {
+   "id": "I10",
+   "name": "npm registry download series + GitHub code search for vendored files",
+   "what": "Whether installing other people's material is a recurring behaviour, and whether what was imported is ever touched again.",
+   "blind_to": "Private use; who the person was; a download is not a use, and `npx` re-downloads on every invocation, so downloads are closer to invocations than to people."
+  },
+  {
+   "id": "I11",
+   "name": "Run the competitors",
+   "what": "What the tools whose READMEs claim duplicate audit, drift detection and trust scores actually detect, pointed at the same deliberately broken set as Q-F.",
+   "blind_to": "Funded closed products behind a login; roadmaps; anything they do for paying customers."
+  }
+ ],
+ "queries": [
+  {
+   "instrument": "I7",
+   "used_for": "Q-F",
+   "artefact": "research/6-personas/_qf-handover-test/",
+   "sources_pinned": {
+    "anthropics/skills": "41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f",
+    "ChrisWiles/claude-code-showcase": "a95518f0cb67e86230119da40429169bc4c35a6f",
+    "iannuttall/claude-agents": "f7df2c3e7395d163ad52d0793bac8fa7ce0d776a",
+    "alirezarezvani/claude-skills": "19392f7a08264ed00486a251f5b2098321771f94",
+    "shotgun-sh/shotgun": "4d344d5a46aafc815de441ff670d4131187f33e6",
+    "modelcontextprotocol/servers": "d73f99efbfd40c3aa1b61e88728b3d49fb52608f"
+   },
+   "items": 10,
+   "planted_defects": [
+    "duplicate command name /review",
+    "target-path collision .claude/commands/review.md",
+    "target-path collision .claude/settings.json",
+    "MCP key collision `memory` at two refs",
+    "missing env key GITHUB_TOKEN"
+   ],
+   "discovered_defects_not_planted": [
+    "@anthropic/mcp-github and @anthropic/mcp-memory do not exist on npm",
+    "the pdf skill references REFERENCE.md, FORMS.md and scripts/ that were never exported",
+    "the surviving settings.json hooks call .claude/hooks/skill-eval.sh, in no item"
+   ]
+  },
+  {
+   "instrument": "I8",
+   "used_for": "Q-G",
+   "population_queries": [
+    "dotfiles claude agents in:name,description",
+    "in:name .claude dotfiles",
+    "\"claude skills\" in:name,description",
+    "\"agents.md\" in:name,description",
+    "in:name claude-config",
+    "in:name claude-setup",
+    "in:name my-claude",
+    "in:name claude-code-config",
+    "in:name agent-config",
+    "in:name dotclaude",
+    "in:name claude-loadout OR in:name claude-workspace",
+    "topic:claude-code topic:dotfiles",
+    "in:name cursor-rules",
+    "in:name agents-md OR in:name agentsmd",
+    "\"my claude code setup\" in:description",
+    "\"personal claude\" in:name,description"
+   ],
+   "parents_with_forks_crawled": 678,
+   "fork_records": 2130,
+   "unresolvable_404": 103,
+   "resolved": 2027,
+   "zero_commits_after_fork": 1813,
+   "zero_commits_pct": 89.4,
+   "committed_at_least_once": 214,
+   "categories_of_committers": {
+    "paths_rewritten": 22,
+    "deletions": 53,
+    "none_of_the_above": 125,
+    "agent_target": 33,
+    "secret_removed_or_rotated": 10,
+    "mcp_config": 13,
+    "env_file_touched": 4,
+    "live_secret_in_diff": 1
+   },
+   "self_substitution": 25,
+   "note": "Category counts are of the 214 committers, not of all 2,027 forks."
+  },
+  {
+   "instrument": "I9",
+   "used_for": "Q-H",
+   "trees_scanned": 500,
+   "repos_holding_a_duplicate": 38,
+   "duplicated_items": 7506,
+   "currently_diverged": 1024,
+   "history_repos": [
+    "Jamie-BitFlight/claude_skills",
+    "agent-sh/agnix",
+    "alirezarezvani/claude-skills",
+    "atsushi-green/ds-ai-coding-skills",
+    "huangserva/skill-prompt-generator",
+    "Claudate/project-multilevel-index",
+    "haowjy/creative-writing-skills"
+   ],
+   "divergences_that_closed": 4,
+   "closed_durations_days": [
+    0.03,
+    0.07,
+    0.14,
+    0.31
+   ],
+   "divergences_open_at_head": 383,
+   "open_days_median": 120.9,
+   "open_days_max": 217.5,
+   "note": "Per-repo item tracking is capped at 200 duplicated items."
+  },
+  {
+   "instrument": "I10",
+   "used_for": "Q-I",
+   "npm": {
+    "skills": {
+     "week": 8478818,
+     "month": 39676919,
+     "year": 142040489,
+     "weekly_tail": [
+      10923794,
+      8795033,
+      10261423,
+      8259215,
+      8786032,
+      10397431,
+      9030600,
+      8478818
+     ]
+    },
+    "agent-skill-manager": {
+     "week": 173,
+     "month": 1275,
+     "year": 10012,
+     "weekly_tail": [
+      281,
+      194,
+      80,
+      99,
+      192,
+      318,
+      572,
+      173
+     ]
+    },
+    "ai-agent-skills": {
+     "week": 183,
+     "month": 900,
+     "year": 20873,
+     "weekly_tail": [
+      312,
+      422,
+      352,
+      263,
+      230,
+      211,
+      236,
+      183
+     ]
+    },
+    "opkg": {
+     "week": 170,
+     "month": 1179,
+     "year": 11433,
+     "weekly_tail": [
+      220,
+      211,
+      203,
+      369,
+      241,
+      192,
+      525,
+      170
+     ]
+    },
+    "tank": {
+     "week": 3,
+     "month": 19,
+     "year": 377,
+     "weekly_tail": [
+      2,
+      1,
+      5,
+      5,
+      2,
+      4,
+      8,
+      3
+     ]
+    },
+    "harnesskit": {
+     "week": 1,
+     "month": 31,
+     "year": 692,
+     "weekly_tail": [
+      1,
+      1,
+      4,
+      5,
+      12,
+      7,
+      9,
+      1
+     ]
+    },
+    "harnesskit-frontend": {
+     "week": null,
+     "month": null,
+     "year": null,
+     "weekly_tail": []
+    },
+    "@modelcontextprotocol/server-memory": {
+     "week": 152087,
+     "month": 405883,
+     "year": 3585429,
+     "weekly_tail": [
+      93612,
+      88509,
+      106297,
+      101844,
+      74695,
+      80075,
+      74597,
+      152087
+     ]
+    }
+   },
+   "npm_skills_version_split_last_week": {
+    "1.5.x": 8343319,
+    "total": 8478818,
+    "pct_modern": 99.98
+   },
+   "npm_skills_monthly": "see _qi_npm.json; 19/month in 2025-12 -> 44.4M in 2026-07",
+   "identity_checks": {
+    "skills": "npm name created 2016-10-06, repository field now vercel-labs/skills; 98.4% of last week is 1.5.x, the modern tool",
+    "harnesskit": "npm harnesskit is hashwanthsutharapu/harnesskit, NOT RealZST/HarnessKit",
+    "tank": "npm tank is a 2019 package, uxstone/mustang, NOT tankpkg/tank"
+   },
+   "code_search_total_counts": {
+    "pdf": 2592,
+    "algorithmic-art": 2056,
+    "skill-creator": 4024,
+    "mcp-builder": 3200,
+    "brand-guidelines": 2040
+   },
+   "code_search_note": "one page of 100 results per phrase; total_counts are in the thousands, so this is a sample and not a census",
+   "foreign_copies_inspected": 446,
+   "ever_modified_after_add": 143,
+   "never_touched_again": 303,
+   "names_origin_in_file": 45,
+   "added_range": [
+    "2025-08-14",
+    "2026-09-02"
+   ],
+   "discarded_measures": [
+    "a provenance rule matching the word `license` gave 82%; every one of these skills carries `license:` in its own frontmatter, so it measured the original file surviving. Discarded.",
+    "a rule matching \"based on\" gave 66%; sampled, it was matching ordinary prose. Discarded."
+   ]
+  },
+  {
+   "instrument": "I8",
+   "used_for": "Q-G control",
+   "result": "not completed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Roman\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\E--Work-Personal-AI-Stack-Builder\\\\622a6e56-b941-4ea4-9fb1-d5d6e95358fe\\\\scratchpad\\\\r3\\\\_qg_control.json'"
+  },
+  {
+   "instrument": "I11",
+   "used_for": "Q-J",
+   "installed": {
+    "agent-skill-manager (asm)": "2.19.0",
+    "skills (vercel-labs)": "1.5.25",
+    "ai-agent-skills": "4.3.2",
+    "opkg (OpenPackage)": "0.11.3"
+   },
+   "not_installable_under_that_name": {
+    "harnesskit": "npm name belongs to another project",
+    "tank": "npm name belongs to another project"
+   },
+   "results": "see re-research-3.md Q-J grid"
+  }
+ ],
+ "limits": [
+  "Every count over public repositories over-samples people who publish. The one practitioner ever interviewed keeps this material in a private repository.",
+  "Q-F is three model tiers of one vendor's agent on one machine on one day, not three vendors in clean containers. Cursor and Codex CLIs are not installed here.",
+  "Q-J ran read-only verbs only. No tool was asked to install or modify anything.",
+  "The GitHub code search API caps at 100 results per page and was read one page deep per phrase, so the vendored-copy sample is 100 per skill against total_counts in the thousands."
+ ]
+}

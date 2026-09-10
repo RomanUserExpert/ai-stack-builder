@@ -439,15 +439,47 @@ requirement; the unwritten half of a setup; and whether the wanted thing is **ob
 ran** rather than validation that a set coheres. All three stand on one person. The register is in
 [`research-plan.md`](research-plan.md) and remains the only list.
 
-### The one row we can close ourselves
+### The one row we could close ourselves — closed 2026-09-10
 
-**`SETUP.md` has never been tested.** `CLAUDE.md` §6 and Q2 above commit to an agent reading it and
-performing the setup, on reasoning alone. It is the spec's most load-bearing bet, it is a claim about
-a **machine** rather than a person, and it needs an afternoon: compose a small set, write the
-document, hand the archive to a fresh Claude Code, Cursor and Codex, record what each does.
-**Written out step by step on 2026-09-09 as Q-F in
-[`6-personas/re-research-3.md`](6-personas/re-research-3.md)**, together with four more questions that
-need no interview — because **the interviews became unavailable**, which removes the instrument five
-register entries were pointed at and lowers no bar. That round reads behaviour left in public
-artefacts: forks as handovers, drift in git history, whether imported material is ever touched again,
-and the competitors installed and run against a deliberately broken set.
+**`SETUP.md` had never been tested.** `CLAUDE.md` §6 and Q2 above commit to an agent reading it and
+performing the setup, on reasoning alone. It was the spec's most load-bearing bet, it is a claim about
+a **machine** rather than a person, and it needed an afternoon. **It was written out on 2026-09-09 as
+Q-F in [`6-personas/re-research-3.md`](6-personas/re-research-3.md)** — together with four more
+questions that need no interview, because **the interviews became unavailable**, which removes the
+instrument five register entries were pointed at and lowers no bar — and **the whole round was run on
+2026-09-10.**
+
+**All five were run. Four are answered, one in part**, and the capture is
+[`6-personas/_re-research-3-log.json`](6-personas/_re-research-3-log.json) with
+[`6-personas/_qf-handover-test/`](6-personas/_qf-handover-test/) beside it. **This is the first time
+this repository measured its own claims rather than the ecosystem's opinion of them**, and four of the
+marks it produced cover a behaviour rather than an utterance — the exception rule 5 was written to
+allow for.
+
+- **Q-F — the bet holds, and its second half does not.** Ten real pinned items with five planted
+  defects, handed to three receivers. **All three performed the setup**, including cloning an external
+  item at its pinned ref. **One found the Problems, one mis-resolved one on a false claim, one saw
+  none** — and one copied the machine's live OAuth token into a plaintext file, unprompted. It also
+  turned up three defects nobody planted, the sharpest being that **an item is a directory and §5
+  models it as a file.** **NK-13 and the audit's D-1 are closed.**
+- **Q-G — 89.4% of 2,027 forks of personal agent material have no commit after the fork point.** Of
+  the 10.6% who commit, 55% do so within the hour, and **25 of them literally substitute themselves
+  for the author** — setup URLs, git identity, absolute paths, and instructions to the agent naming
+  the author's handle. The number needs a control before it is interpreted, and the control is
+  reported with it.
+- **Q-H — copies diverge and stay diverged.** 14% of 7,506 duplicated items in 500 published trees are
+  out of sync now; over history, **383 divergences are open at HEAD with a median age of 121 days, and
+  four ever closed, all within seven hours.**
+- **Q-I — the shelf's premise describes a real behaviour.** Thousands of repositories carry verbatim
+  copies of public skills; **32% of 446 traced copies were edited after import, at a median of 27
+  days; 10% keep any statement of origin.** This places round 2's four-of-five refusal rather than
+  refuting it.
+- **Q-J — §2's sentence survives where it matters and narrows twice more.** Four tools installed and
+  run against the same broken set: **nothing detects a set-level defect, because nothing has a
+  set-level unit.** But `asm` ships 369 pre-defined **bundles** and a `doctor` that is a **B4 surface**
+  — which the benchmark said nobody had — and its duplicate audit calls two files with different
+  sha1s *"identical copies"* and offers to delete one.
+
+**Six proposals go to the register's sitting**, listed at the end of that file. **Nothing is applied
+to `CLAUDE.md`, and the *provisional* label does not lift** — its trigger is five practitioner
+conversations, and closing four hypotheses does not change what the trigger is.

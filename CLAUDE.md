@@ -28,8 +28,21 @@ event that lifts *provisional*, and the named instrument for five of the six liv
 promoted because of it. **What is reachable without a person is written down as
 [`re-research-3.md`](research/6-personas/re-research-3.md)** — five questions with named instruments,
 three reading behaviour left in public artefacts and **two of them ours to run**, including the
-handover test this file has owed itself since 2026-09-02. **It is a plan; nothing in it may be cited
-until its capture logs exist.** The documents:
+handover test this file has owed itself since 2026-09-02.
+
+**Round 3 was run on 2026-09-10 and the capture logs exist**, so it may now be cited:
+[`_re-research-3-log.json`](research/6-personas/_re-research-3-log.json) and
+[`_qf-handover-test/`](research/6-personas/_qf-handover-test/). **Four questions answered, one in
+part.** The one that matters to this file is **Q-F, the handover test**: three receiving agents were
+handed an archive built exactly as §6 describes, and **all three performed the setup**, including
+cloning an external item at its pinned ref — the first evidence of any kind under §6's central bet,
+and it is positive. **The second half of that bet failed**: with the Problems left undisclosed, one
+receiver found them, one **mis-resolved one on a false claim of byte-identity**, and one saw none.
+**Six proposals came out of the round and none is applied here** — they are listed at the end of
+[`re-research-3.md`](research/6-personas/re-research-3.md) and go to the register's sitting with the
+other two lists. One of them is the first proposal any round has made to the **shape** of §5 rather
+than to its reasoning: an item addresses a directory, not a file. **The *provisional* label does not
+lift** — its trigger is unchanged. The documents:
 [`inventory.md`](research/6-personas/inventory.md) — a register of the twenty questions about people,
 each with its answer, the data under it and a mark;
 [`re-research.md`](research/6-personas/re-research.md) — a source document, four instruments taken to

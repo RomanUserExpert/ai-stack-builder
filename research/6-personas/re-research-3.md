@@ -1,5 +1,15 @@
 # Re-research, round 3 — five questions that need no interview
 
+> **Planned 2026-09-09. Run 2026-09-10.** Every question below now carries an **Answer** section and
+> the capture log exists: [`_re-research-3-log.json`](_re-research-3-log.json), plus
+> [`_qf-handover-test/`](_qf-handover-test/) for the one experiment that produced an artefact.
+> **The plan text is left exactly as written** so that what was predicted can be read against what
+> was found — and in two places the finding is not what the plan expected.
+>
+> **Four of the five are answered. Q-I is answered in part.** The one thing to read first, if only
+> one thing is read: **Q-F**. The spec's largest bet survives, and the reason it survives is not the
+> reason §6 gives.
+
 **A plan, not a result. Written 2026-09-09.** Nothing here has been collected yet, and **nothing in
 this file may be cited as evidence** until each question carries its capture log beside it, the way
 [`re-research.md`](re-research.md) and [`re-research-2.md`](re-research-2.md) do.
@@ -74,6 +84,104 @@ about three machines on one day, and it must be dated and versioned in the write
 **Cost.** Half a day. **Mark it would earn: `✓` — and it is the one `✓` in this repository that would
 cover a behaviour rather than an utterance**, because we watched the behaviour happen.
 
+### Answer — run 2026-09-10. The setup gets performed. The *checking* does not, and that is the finding.
+
+**Capture:** [`_qf-handover-test/`](_qf-handover-test/) — the ground truth of the composed set, the
+`SETUP.md` the agents read, the two scripts that build the archive, and a transcript per run.
+
+**What was built.** Ten real items from five checked sources, every one pinned at a commit
+(`anthropics/skills` @ `41bbe19`, `ChrisWiles/claude-code-showcase` @ `a95518f`,
+`iannuttall/claude-agents` @ `f7df2c3`, `alirezarezvani/claude-skills` @ `19392f7`,
+`shotgun-sh/shotgun` @ `4d344d5`), plus `microsoft/playwright-mcp` @ `8a13ef8` as an external item
+that is instructions and never files. Five defects planted: a duplicate command name, two
+target-path collisions, an MCP key collision at two different refs, a missing env key. `SETUP.md`
+names **none** of them, because §8 puts finding-disclosure on the sender's side and telling the
+receiver would have destroyed the measurement.
+
+**What was not available.** Cursor and Codex CLIs are not installed on this machine and were not
+installed for this. *Three fresh agents in clean containers* became **three model tiers of one
+vendor's agent in three fresh directories**, on a machine that had git, node, Python and an
+authenticated `gh` CLI already on it. That is a weaker instrument than the plan asked for, and
+everything below is bounded by it.
+
+#### The mechanical half of the bet holds, three times out of three
+
+Every one of the three cloned the external repository **at the exact pinned ref**, installed the
+dependency the document named, created `.env` from `.env.example`, and reported at the end. No agent
+refused, none asked to be told what to do, and none needed a human in the loop to get that far.
+**`SETUP.md` written for a machine is read by a machine and acted on.** That is the first evidence
+of any kind under `CLAUDE.md` §6's central decision, and it is positive.
+
+#### The diagnostic half does not hold, and it splits by tier
+
+| | run 1 · default tier | run 2 · sonnet | run 3 · haiku |
+|---|---|---|---|
+| clone at the pinned ref | yes | yes | yes |
+| dependency installed, `.env` created | yes | yes | yes |
+| **duplicate command `/review`** | **found** — fetched both upstreams, reported them as two unrelated commands | **found, then wrongly closed**: *"byte-identical, so there's no real conflict"* | **not seen** |
+| **`.claude/settings.json` collision** | **found**, both losers preserved in a directory the agent does not scan | **found**, merged the two by hand | **not seen** |
+| **MCP key collision on `memory`** | **found** | noticed the config *"already resolves"* it | **not seen** |
+| **missing `GITHUB_TOKEN`** | left empty, and said why | **wrote the machine's live OAuth token into `.env`** | left empty, asked the human |
+| third-party plugin marketplace enabled by the surviving settings | **flagged as a security decision** | not mentioned | described as *"example marketplace"* |
+| two MCP packages that do not exist on npm | **found** | not found | not found |
+| `pdf` skill missing the files it tells the agent to read | **found** | not found | not found |
+| hook pointing at a script in no item | **found** | **found** | not found |
+| verdict | **performed** | **performed with gaps** | **performed with gaps** |
+| turns · time · cost | 20 · 321 s · $1.34 | 28 · 249 s · $0.45 | 14 · 79 s · $0.06 |
+
+**Run 2's claim was checked and it is false.** The two `review.md` files are 1,125 and 850 bytes,
+different sha1, different first lines, one a lint/CI gate and one a Python PR review. A receiver
+**detected a Problem, produced a confident reason it was not one, and closed it.** That is the
+Continue failure this repository already keeps as its sharpest post-mortem — *computed the duplicate
+correctly and discarded the loser in silence* — reproduced on our own artefact by a current model.
+
+**Run 2 also copied a live `gho_` credential out of the machine's keyring into a plaintext file**,
+unprompted, having been told only to set the project up. It added a `.gitignore`. It is the first
+observation ever made on the receiving side of **RJ-4**, *move the work without moving the secrets*,
+and it runs the other way: the danger is not only what the sender packs, it is **what the receiver
+fetches to fill the gap the sender left.** The token was redacted from every artefact in this folder
+as soon as it was found.
+
+**Run 3 performed the setup and saw nothing.** Its report reads *"✅ All skills are in place"*,
+*"Commands: `/review`"* — singular — and *"settings.json configured with example marketplace"*. A
+receiver that does the work and validates nothing is worse than one that refuses, because it
+returns a green report.
+
+#### What the test discovered that nobody planted
+
+- **Two of the MCP servers in a real 6,062★ repository's real `.mcp.json` do not exist on npm.**
+  `@anthropic/mcp-github` and `@anthropic/mcp-memory` both 404. The archive was correct, the pinned
+  material was correct, and the set still cannot run.
+- **An item is a directory, and §5 models it as a file.** The `pdf` skill's `SKILL.md` instructs the
+  agent to read `REFERENCE.md`, `FORMS.md` and eight scripts. `Item.content` has room for one blob,
+  `targetPath` for one destination, and the export placed one file. **The archive was silently
+  incomplete and `SETUP.md` said the item required nothing.**
+- **An archive can reconfigure the receiving agent before setup begins.** The `settings.json` that
+  won the collision declares a third-party plugin marketplace and enables a plugin from it. Nothing
+  in §6 treats a settings file as executable, and it is.
+- **A surviving item can reference a file that belongs to the item that lost.** The hooks in the
+  losing `settings.json` call `.claude/hooks/skill-eval.sh` — never an item, therefore never
+  exported, therefore a failure on every prompt.
+
+#### What this establishes, and what it does not
+
+**Establishes `✓`, and the mark covers behaviour:** a coding agent reads a `SETUP.md` of this shape
+and performs the setup it describes, including cloning at a pinned ref. **Three of three.**
+
+**Establishes `✓` in the other direction:** leaving the Problems to the receiver does not work. Of
+three receivers, one found them, one mis-resolved one and missed three, one saw none.
+
+**Does not establish:** that a human recipient behaves this way; that Cursor or Codex behave this
+way — neither was run; that any of this holds on another day, another version, or a machine without
+network. **It is three tiers of one agent on one machine on 2026-09-10, and it must be re-run before
+it is leaned on twice.**
+
+**To the register, not to the spec.** Three proposals, all for the sitting: `SETUP.md` should carry
+the set's Problems and not only its requirements, because the disclosure §8 gives the sender is the
+disclosure the receiver turns out to need; `Item` needs to address a **directory**, not a file; and
+a settings file is an executable item, which §6 does not currently allow for. **NK-13 and the
+audit's D-1 are closed by this run.**
+
 ---
 
 ## Q-G — What does a receiver actually do with inherited material? · **I8**
@@ -118,6 +226,88 @@ handover the one interview described — a repository handed to a contractor nev
 **Cost.** A day, mostly scripted. **Mark: `✓` for what was changed** — a diff is a behaviour, not a
 self-report — **and `[?]` for every word about why.**
 
+### Answer — the third outcome the plan named, and it is the uncomfortable one
+
+**Instrument as run.** Sixteen repository-search queries built a population of **653 parent
+repositories** holding one person's agent material and carrying between 1 and 99 forks. Repositories
+above 99 forks were excluded on purpose: at that size the thing being forked is a template, and
+forking a template is not receiving a handover. Every fork of every one of those parents was read
+through the compare API across the fork point — **2,130 fork records, 103 of them unresolvable
+(deleted, empty or gone private), 2,027 resolved.** Counts and queries in
+[`_re-research-3-log.json`](_re-research-3-log.json).
+
+#### The headline
+
+> **1,813 of 2,027 forks — 89.4% — have not a single commit after the fork point.**
+
+**214 forks, 10.6%, committed anything at all.** The plan said to count that case separately and
+honestly, and it is now the largest number in the study.
+
+**Of the 214 who did commit, when they did it:** median **25 minutes** after the fork,
+**55% within the first hour**, 70% within a day (n = 159; 55 records excluded because their commits
+predate the fork record and the timing cannot be trusted). **The first hour is real.** Whatever a
+receiver does, they do it immediately or never.
+
+#### What the 214 changed
+
+Classified from the patch bodies, not from filenames. The first pass counted any diff line
+*mentioning* a home directory as a path rewrite and produced 69%; that is what a dotfiles diff looks
+like on every other line, and it was thrown away. The strict rule below only counts a **matched
+pair** — a removed line and an added line that become the same string once the owner or user segment
+is normalised away.
+
+| What they did | of 214 committers |
+|---|---|
+| nothing that fits a category — ordinary continued development of the material | **125 · 58%** |
+| deleted files that came with the fork | 53 · 25% |
+| touched a second agent target (`AGENTS.md`, `.codex/`, `.cursor/`, `.gemini/`) | 33 · 15% |
+| **literally substituted themselves for the author** | **25 · 12%** |
+| changed MCP configuration | 13 · 6% |
+| removed or rotated a key, or filled in an env example | 10 · 5% |
+| a live-looking secret visible in the diff | 1 |
+| commits are merges or upstream syncs — a **contributor**, not a receiver | 31 · 14% |
+
+**The 25 self-substitutions are the cleanest thing in the round**, because each is a matched pair
+that can be read:
+
+- `curl -fsSL .../archibate/dotfiles-claude/main/setup.sh` → their own repository. **The setup script
+  the author shipped would have installed the author's material onto the receiver's machine.**
+- `STRAP_GITHUB_USER="br3ndonland"` → theirs. `user = br3ndonland` in a git config → theirs. Four
+  different people did this to the same repository.
+- `/Users/bbrowning/…/skills/pr-review/reference/jwt-security.md` → `/Users/emilien/…`. An absolute
+  home path inside a skill.
+- `Use the pattern: users/Max191/<short-description>` → their own handle. A **branch-naming
+  convention addressed to the agent** that names the author.
+- `A repo is user-owned if travisjneuman is the GitHub owner` → their own handle. **An instruction to
+  the agent whose subject is the author's identity.**
+
+That last class is the one no mechanism in `CLAUDE.md` reaches. `needsEnv` covers a key; nothing
+covers *the author's name baked into a rule the agent obeys*.
+
+#### What this does to the P2 column
+
+The plan named three outcomes and said which each would change. **The third fired**: *if they mostly
+delete things or never commit, the archive is not being received at all and the whole P2 story needs
+rewriting before it is designed for.*
+
+**And that is exactly what must not be over-read.** Two things bound it:
+
+- **There is no control in this measurement.** Most forks of most repositories on GitHub are dormant;
+  the fork button is widely used as a bookmark. Without the same number for comparable non-agent
+  repositories, 89.4% says *forks are mostly dormant*, which may be a fact about GitHub rather than
+  about agent material. **That control is one query away and it was not run** — it is the first thing
+  the next round should do, and until it exists the 89.4% is `✓` as a count and `[?]` as an
+  interpretation.
+- **The one handover this repository has ever heard described was private** — a repository handed to
+  a contractor, [interview Q21](agent-setup-interview.md). It would appear in this instrument as
+  nothing at all.
+
+**What it does establish `✓`:** when somebody does take another person's agent material and act on
+it, they act **within the hour**, and the single most common concrete edit is **replacing the author
+with themselves** — in setup URLs, git identity, absolute paths, branch conventions and instructions
+addressed to the agent. **RJ-1 now has a behaviour under it**, which the audit had left it without;
+it is a modest one, 25 cases, and it is not a self-report.
+
 ---
 
 ## Q-H — Do copies actually drift, and for how long? · **I9**
@@ -148,6 +338,65 @@ is the public, dated version of *found six weeks later by a client*.
 can say. And it cannot see the private repositories where this material mostly lives.
 
 **Cost.** A day. **Mark: `✓` for divergence and its duration; `[?]` for harm.**
+
+### Answer — copies diverge, they stay diverged for months, and almost nobody ever reconciles
+
+**Instrument as run, and it turned out cheaper than the plan assumed.** Git's object SHA is
+content-addressed, so two copies of a file with the same blob SHA are byte-identical and two with
+different SHAs have diverged. **The current state of every duplicate in a published tree is one API
+call per repository and no cloning at all.** A duplicate is defined as the same path suffix under two
+or more distinct agent roots — `.claude/skills/foo/SKILL.md` beside `.codex/skills/foo/SKILL.md` is
+one item in two places. Generic basenames were excluded, because two unrelated `README.md`s are not
+one item; a first pass that did not exclude them was thrown away.
+
+**500 trees scanned. 38 repositories (8%) hold at least one duplicated item. 7,506 duplicated items.
+1,024 of them — 14% — are out of sync right now.**
+
+The concentration matters more than the average:
+
+| Repository | ★ | duplicated items | out of sync | roots it keeps |
+|---|---|---|---|---|
+| [`alirezarezvani/claude-skills`](https://github.com/alirezarezvani/claude-skills) | 25,773 | 257 | **185 · 72%** | `.codex`, `.gemini`, `.hermes`, `.vibe` |
+| [`agent-sh/agnix`](https://github.com/agent-sh/agnix) | 407 | 467 | **385 · 82%** | `skills`, `plugin/skills`, per-agent fixtures |
+| [`Infrasity-Labs/dev-gtm-claude-skills`](https://github.com/Infrasity-Labs/dev-gtm-claude-skills) | 123 | 37 | **32 · 86%** | `agents`, plugin dirs |
+| [`secondsky/claude-skills`](https://github.com/secondsky/claude-skills) | 217 | 17 | **17 · 100%** | per-plugin `agents`, `commands`, `skills` |
+| [`atsushi-green/ds-ai-coding-skills`](https://github.com/atsushi-green/ds-ai-coding-skills) | 77 | 10 | **10 · 100%** | `.claude`, `.github` |
+| [`huangserva/skill-prompt-generator`](https://github.com/huangserva/skill-prompt-generator) | 1,481 | 32 | **0 · 0%** | `.claude`, `.codex` |
+
+**A 25,773-star repository whose whole proposition is one skill set for every agent has 72% of its
+per-target copies out of sync with each other.** The one repository at 0% is the smallest and holds
+two targets.
+
+#### Duration, from history
+
+Seven repositories were cloned and every duplicated item walked commit by commit — up to 200
+duplicated items per repository, which is where the cap binds for the three largest.
+
+> **383 divergences are open at HEAD. Median time open: 121 days. Longest: 218 days.**
+>
+> **Four divergences in the entire sample ever closed. All four closed within seven hours.**
+
+**The plan predicted the wrong signature and that is worth recording.** It expected *the second edit
+arriving weeks later in the other copy* — the public, dated version of *found six weeks later by a
+client*. **That pattern occurs four times and never takes longer than an afternoon.** What actually
+happens is that copies diverge and **stay** diverged, for a median of four months, with no
+reconciliation ever observed.
+
+#### What this establishes, and what it does not
+
+**`✓` — divergence between copies of one item is real, common in the repositories that hold copies at
+all, and measured in months.** RJ-3's premise is no longer only one filed request at 48 reactions
+and one person's story.
+
+**`[?]` — everything about harm and about intent, exactly as the plan said.** And the finding makes
+intent *harder* to separate, not easier: since reconciliation is essentially never observed, there is
+no behavioural signature distinguishing *drift nobody noticed* from *a copy somebody meant to keep
+different*. A four-month-old divergence between `.claude/` and `.gemini/` copies of the same skill is
+more plausibly the first than the second, and plausibility is not evidence.
+
+**One thing it does bear on directly.** §5's live link exists so that a fix reaches every copy. The
+measurement says the copies exist, they drift, and the drift persists. It says nothing about whether
+anybody wants our mechanism — but the mechanism is now aimed at something that demonstrably happens.
 
 ---
 
@@ -183,6 +432,94 @@ from the MVP, and does change what it must be.
 question is about the behaviour the shelf assumes, not about the person it was drawn for.**
 
 **Cost.** Half a day. **Mark: `✓` for counts and dates; `[?]` for the persona.**
+
+### Answer — a third of imports get edited, two thirds never do, and the installer category is not flat
+
+#### The registry series, with two identity corrections first
+
+`npx skills` — [`vercel-labs/skills`](https://github.com/vercel-labs/skills), 30,841★ — **8,478,818
+downloads last week.** The npm name predates the tool (it was registered in 2016), so the number was
+split by version before it was believed: **98.4% of last week's traffic is `1.5.x` and 99.98% is
+`1.3.0` or later**, which is the modern tool. Monthly, since the first modern version landed on
+2026-01-30:
+
+| 2025-12 | 2026-01 | 2026-02 | 2026-03 | 2026-04 | 2026-05 | 2026-06 | 2026-07 | 2026-08 |
+|---|---|---|---|---|---|---|---|---|
+| 19 | 240,953 | 988,785 | 2,635,935 | 3,026,631 | 4,760,931 | 38,867,068 | 44,425,540 | 39,859,796 |
+
+**The rest of the category is flat and small**: `agent-skill-manager` 173/week, `ai-agent-skills`
+183/week, `opkg` 170/week. And two of R8's tools are not on npm under the names their READMEs give —
+`harnesskit` and `tank` both belong to unrelated projects, which is a correction to round 1.
+
+**The caveat is load-bearing and belongs in the same breath as the number.** `npx` re-downloads on
+every invocation unless the tool is installed globally, and CI counts. **8.5M/week is closer to
+invocations than to people**, and no instrument here converts one into the other. What survives the
+caveat is the *shape*: six orders of magnitude in eight months, then a plateau. **Whatever this is,
+it is not a bookmark.**
+
+#### The vendored-file trace
+
+Five well-known public skills from `anthropics/skills`, each identified by a distinctive sentence of
+its own frontmatter, searched for in every **other** repository on GitHub:
+
+| Skill | repositories carrying the sentence verbatim |
+|---|---|
+| `skill-creator` | **4,024** |
+| `mcp-builder` | **3,200** |
+| `pdf` | **2,592** |
+| `algorithmic-art` | **2,056** |
+| `brand-guidelines` | **2,040** |
+
+**446 unique foreign copies** were then read in full — 100 search results per skill, deduplicated —
+and the commit history of each exact path was walked. They were added between **2025-08-14** and
+**2026-09-02**.
+
+> **143 of 446 — 32% — were modified after the day they were added.**
+> **303 — 68% — have never been touched again.**
+>
+> Of the 143 that were edited: **median 27 days** between being added and last being touched, p75
+> 87 days, longest 318. Only 17% were same-day.
+
+**A median of 27 days is the interesting number.** It is not adaptation-at-install — that would be
+same-day, and same-day is 17%. It is somebody coming back to a file weeks after importing it, which
+is the signature of **use**.
+
+#### Provenance, and a measurement thrown away
+
+The first pass reported 82% of copies carrying "a statement of origin" and it was wrong: the rule
+matched the word `license`, which **every one of these skills already carries in its own
+frontmatter** (`license: Complete terms in LICENSE.txt`). That counts the original file surviving,
+not the importer crediting anybody. A second rule matching *"based on"* was thrown away for the same
+reason — sampled, it was matching ordinary prose inside the skills (*"Color based on cell size"*).
+
+**The one rule that survives is the strict one: does the copied file name `anthropics/skills` or an
+anthropics URL anywhere in its body.**
+
+> **45 of 446 — 10%.**
+
+#### What this establishes, and what it does not
+
+**`✓` — consuming other people's agent material is a mass behaviour, not a niche one**, and it is
+recurring rather than one-off: a third of imports are edited, at a median of four weeks after
+arriving. **`✓` — provenance does not survive the copy.** Nine copies in ten carry no statement of
+where they came from.
+
+**Against round 2, and the plan predicted this.** [`re-research-2.md`](re-research-2.md) Q-E reached
+five practitioners on installing other people's material and **four refused, minimised or preferred
+their own**. This round measured the behaviour instead of the opinion and found thousands of
+repositories doing it. **Both stand** (rule 4): a self-selected Hacker News thread says what a
+certain kind of practitioner says, and the registry and the trees say what a much larger population
+does. **The opinion is not refuted; it is placed.**
+
+**Does not establish** who any of these importers is, and **in particular not that any of them is
+P3.** The persona remains `[?]`, exactly as the plan said it would. This question was about the
+behaviour the shelf assumes, and the behaviour is there.
+
+**To Q9.** The shelf is not a bookmark bar. What the evidence says about *what it should hold* is
+unchanged from round 2 — provenance over volume — and this round adds the sharper form of it:
+**provenance is what everybody loses, so showing it is the part that has to be ours.** §5 already
+requires `repoUrl` and a pinned `ref` shown rather than stored; this is the first measurement under
+that decision, and it supports it.
 
 ---
 
@@ -221,9 +558,118 @@ what any of them ships next quarter.
 **Cost.** An afternoon, plus whatever the installs fight us over. **Mark: `✓` for what each tool did
 on our set, dated and versioned.**
 
+### Answer — §2's sentence survives at the set level and has to be narrowed twice more at the item level
+
+**Installed and run on 2026-09-10**, against the same archive Q-F used:
+
+| Tool | Repo | ★ | Installed as |
+|---|---|---|---|
+| **asm** | [`luongnv89/asm`](https://github.com/luongnv89/asm) | 916 | `agent-skill-manager` **2.19.0** |
+| **skills** | [`vercel-labs/skills`](https://github.com/vercel-labs/skills) | 30,841 | `skills` **1.5.25** |
+| **ai-agent-skills** | [`MoizIbnYousaf/ai-agent-skills`](https://github.com/MoizIbnYousaf/ai-agent-skills) | 1,138 | `ai-agent-skills` **4.3.2** |
+| **OpenPackage** | [`enulus/OpenPackage`](https://github.com/enulus/OpenPackage) | 613 | `opkg` **0.11.3** |
+
+**Two of R8's tools could not be installed under the name their README gives**, and this is itself a
+correction to round 1: the npm package `harnesskit` belongs to
+`hashwanthsutharapu/harnesskit`, a different project, and `tank` belongs to a 2019 package,
+`uxstone/mustang`. **`RealZST/HarnessKit`'s trust score and per-agent drift detection remain unrun**,
+and the R8 line about them stays vendor self-description.
+
+#### The grid — our four planted defect classes against four shipping tools
+
+Read-only verbs only; nothing was asked to install or modify.
+
+| Defect | asm | skills | ai-agent-skills | opkg |
+|---|---|---|---|---|
+| duplicate command name `/review` | **not detected** — `audit` reports *"No duplicate skills found"*, correctly, because its unit is a skill and ours were commands | no command concept | no command concept | **not detected** — `list` found nothing at all in the set |
+| target-path collision on `.claude/settings.json` | not detected | not detected | not detected | not detected |
+| MCP key collision on `memory`, two refs | **no MCP concept** | no MCP concept | no MCP concept | no MCP concept |
+| missing env key `GITHUB_TOKEN` | **no env concept** | no env concept | no env concept | no env concept |
+| the `pdf` item missing the files it tells the agent to read | **not detected** — `eval` scored it 61/100 with *Structure & completeness 8/10* | — | **not detected** — `validate` returned **PASS · Skill is valid** | — |
+
+**Nothing in the market detects a set-level defect, because nothing in the market has a set-level
+unit.** Every one of these tools takes *the skill* as its atom and asks *is this skill duplicated,
+safe or stale*. `CLAUDE.md` §2's claim — *what nothing does today is tell you that a skill needs a
+particular MCP server, that two skills write to the same config file, that two items register the
+same command name* — **is confirmed as run, on four tools, on 2026-09-10.** The narrowing
+[`FINAL.md`](../FINAL.md) §6 recorded on README-reading can now be made precise instead of cautious.
+
+#### And then the tool was given a duplicate it *does* claim to handle
+
+Our set contained no duplicate **skill**, so `asm audit`'s correct silence proved nothing. So one was
+planted: the `pdf` skill copied into `.codex/skills/pdf/` and `.cursor/skills/pdf/`, and then the
+Codex copy's `description:` line edited so the two differ.
+
+- **It does not scan `.cursor/skills/`.** `asm list` shows the item as `[Claude Code] [Codex]`. The
+  third copy is invisible — and it is the modified one.
+- **On the two it does see, with the files at 8,072 and 8,088 bytes and different sha1s and a
+  visibly different `description:` line, it reports:**
+
+> ```
+>   "pdf" (same dirName)
+>      ✓ identical copies
+>     [keep] Claude Code (project) …
+>            Codex (project) …
+>
+>   Run asm audit -y to auto-remove duplicates
+> ```
+
+**A 916-star tool declares two demonstrably different files identical and offers to delete one of
+them.** That is the Continue post-mortem — *computed the duplicate correctly and discarded the loser
+in silence* — reproduced live, except that here it does not compute correctly either. It is the
+single best piece of evidence this repository has for **§6's** *nothing blocks, and everything is
+named*, and it is dated and re-runnable.
+
+**A second one, same shape.** `asm audit security pdf` returns:
+
+> `pdf — SAFE · 0 files | 0 lines · No suspicious patterns detected.`
+
+A green verdict on a scan that had nothing to scan. **§6 gives *Skipped* its own neutral glyph
+precisely so this cannot happen, and here it is happening in a shipping product.** The decision was
+taken on reasoning; it now has a specimen.
+
+#### What the market has that our benchmark said nobody had
+
+Three findings that run against us, and they are the reason to run competitors rather than read them.
+
+- **`asm doctor` is a B4 surface.** Thirteen environment health checks: git present and ≥ 2.20, `gh`
+  present **and authenticated**, Node version, **21 provider directories writable**, config validity,
+  lock-file integrity, registry reachable, disk space, and **PATH shadowing**. The benchmark's
+  finding — *B4, produce an artefact and hand it over, is the weakest flow in the industry, nobody
+  above 4, and not one cell scores what a product says about the machine its artefact lands on* — was
+  measured on funded vendors in August 2026. **A 916-star open-source tool has that surface in
+  September.** `ai-agent-skills doctor` has a smaller one, per-target writability across five agents.
+- **`asm bundle` is a set.** Its own words: *"A bundle is a reusable recipe of skills for a particular
+  workflow, domain, or project setup"*, with `create`, `install`, `list`, `show`, `export`, and
+  **369 pre-defined bundles shipped with the tool**, each skill carrying its own
+  `install: github:owner/repo:path`. That is a named, shareable, reusable set of items with pinned
+  sources — the thing §4 calls a **Project** and §11 calls a **shelf**, in one artefact. **What it is
+  not** is checked: a bundle has no dependency edges, no env keys, no MCP servers, no collision pass
+  and no archive. **The set-level *concept* is taken. The set-level *check* is still open.**
+- **`ai-agent-skills` records provenance and reasons.** `info <name>` shows *"skill details and
+  provenance"*; `vendor <source> --why "…"` makes a house copy **with the reason stored**; `--no-deps`
+  exists, so catalog installs expand dependencies between skills. §5's *provenance on every item* is
+  not an idea we are alone in having.
+
+#### What this establishes, and what it does not
+
+**`✓`, and it covers behaviour, because we watched these programs run on our own artefact.** Dated
+2026-09-10, versioned in the table above.
+
+**It does not establish** what Tessl or Smithery do behind a login, what `HarnessKit` does — it could
+not be installed — or what any of them ships next quarter. **And step 4 of the plan was not run:**
+Doppler's and Infisical's free tiers were not tested for whether they touch what an artefact
+**carries when it leaves**. That benchmark gap, opened by Q-D, is still open.
+
 ---
 
 ## What these five cannot do, said once and plainly
+
+> **Written before the round was run, and it held.** Nothing below was revised afterwards. Two of
+> the five turned out to reach further than this section allowed for — Q-F answered a question about
+> the **data model** that nobody had asked, and Q-I placed round 2's Q-E rather than merely adding to
+> it — and one reached less far: **Q-G produced a number it cannot interpret without a control**, and
+> that control is reported under Q-G rather than hidden here.
 
 - **They do not lift `provisional`.** That label's trigger is five practitioner conversations, and it
   is written into stage 6's plan, stage 7's plan, `CLAUDE.md` §1 and the Q5 disposition. **Interviews
@@ -259,3 +705,54 @@ other row in the audit's dangerous list sits downstream of it.
 **Each answer is filed the way rounds 1 and 2 were filed**: the question, the instrument, the capture
 log beside it, what it establishes, and — the part this repository has been strict about and should
 stay strict about — **what it does not.**
+
+---
+
+# What it actually handed forward — 2026-09-10
+
+**Nothing here is applied to [`CLAUDE.md`](../../CLAUDE.md).** A research round may narrow a claim,
+close a hypothesis and raise a proposal; the owner edits the spec, at the register's sitting. This
+section is the list that sitting reads, on top of the two proposal lists it already had.
+
+## Two hypotheses are closed, and one register entry gains its first behavioural evidence
+
+| | Was | Is now |
+|---|---|---|
+| **NK-13 / D-1** — *a receiving agent performs the setup from `SETUP.md` alone* | The spec's largest bet, taken on reasoning, never tested | **Closed `✓`.** Three of three receivers performed it, including cloning at the pinned ref. **And the second half of the bet failed**: leaving the Problems to the receiver does not work |
+| **H6** in [`personas.md`](personas.md) | *Not closed, and the web cannot close it* | **Closed by Q-F**, on the same evidence |
+| **H-J4 / Q9** — *does the shelf's premise describe a real behaviour* | Opinion only: four of five practitioners negative (Q-E) | **Behaviour measured.** Thousands of repositories vendor public skills; 32% of imports are edited, at a median of 27 days; 10% keep provenance |
+
+## Six proposals, each with the evidence that raised it
+
+| # | Spec section | What was found | Proposal |
+|---|---|---|---|
+| **S-1** | **§6**, `SETUP.md` | Of three receivers, one found the Problems, one **mis-resolved** one on a false claim of byte-identity, one saw none. The document states requirements and not findings, by design | **`SETUP.md` should carry the set's Problems.** The disclosure §8 gives the *sender* before Export is the disclosure the *receiver* turns out to need. This is the round's largest proposal |
+| **S-2** | **§5**, the `Item` shape | The `pdf` skill instructs the agent to read `REFERENCE.md`, `FORMS.md` and eight scripts. `content` holds one blob and `targetPath` one destination, so **the export was silently incomplete and `SETUP.md` said the item required nothing** | **An item addresses a directory, not a file.** This is a model change, and it is the only one this round proposes |
+| **S-3** | **§6**, what an item can do | The `settings.json` that won the collision **declares a third-party plugin marketplace and enables a plugin from it**. An archive can reconfigure the receiving agent before setup begins | **Treat a settings file as an executable item**, and say so where §6 lists what export produces |
+| **S-4** | **§6**, `needsEnv` · **RJ-4** | A receiver told only to *set this project up* **copied the machine's live OAuth token out of the keyring into a plaintext file**. First observation ever on RJ-4's receiving side | **The secrets risk runs both ways.** What the receiver fetches to fill the gap the sender left is a hazard the spec does not name |
+| **S-5** | **§2**, *nothing does this today* | Four tools installed and run: **nothing detects a set-level defect, because nothing has a set-level unit.** But `asm` ships **369 pre-defined bundles** — *"a reusable recipe of skills for a project setup"* — and `asm doctor` is a **B4 surface**, which the benchmark said nobody had | **Narrow it precisely rather than cautiously.** The set-level *check* is unoccupied; the set-level *concept* and the receiving-machine *report* are not |
+| **S-6** | **§6**, three severities | `asm audit` calls two files with different sha1s *"✓ identical copies"* and offers to auto-remove one. `asm audit security` returns **SAFE** on a scan of *0 files, 0 lines* | **No change — evidence for a decision already taken.** *Nothing blocks, everything is named*, and *Skipped* gets a glyph it earned, now each have a dated specimen in a shipping product |
+
+## What did not move, and one thing that got harder
+
+- **Q5, Q10, Q11, Q12 are untouched**, exactly as the plan said. Motive, precedence against an
+  external rule, the unwritten half, and observability all need a person.
+- **The *provisional* label does not lift.** Its trigger is five practitioner conversations. Four
+  hypotheses closing does not change what the trigger is, and this round deliberately does not argue
+  that it should.
+- **Q-H made intent harder to read, not easier.** Reconciliation is essentially never observed, so
+  there is no behavioural signature separating *drift nobody noticed* from *a copy somebody meant to
+  keep different*.
+- **Two things this round was supposed to do and did not.** Doppler and Infisical were not tested for
+  the handover half of secrets — the benchmark gap Q-D opened stays open. And `HarnessKit`, whose
+  trust score and per-agent drift detection are the sharpest competing claims in R8, **could not be
+  installed**: the npm name belongs to a different project.
+
+## And what the round says about its own instruments
+
+**Three measurements were built, checked and thrown away before anything was written**: a path-rewrite
+rule that counted every diff line mentioning a home directory (69% → 12% under a matched-pair rule);
+a provenance rule that matched the word `license`, which every one of these skills carries in its own
+frontmatter (82% → 10%); and a second provenance rule matching *"based on"*, which was matching
+ordinary prose. **The discarded versions are named here on purpose.** A round that only reports the
+rules that survived is indistinguishable from one that had no rules.

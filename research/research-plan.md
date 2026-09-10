@@ -482,6 +482,40 @@ register:
 | **Q11** — the unwritten half | **No.** Q-G hints at its size and cannot measure it |
 | **Q12** — observability rather than validation | **No, and nothing can.** It needs a runtime we will not build |
 
+### Round 3 was run — 2026-09-10. No question is answered; three now carry behavioural evidence
+
+**The protocol holds. The six live entries still leave in one sitting, and that sitting has not
+happened.** What changed is what it will read: the five questions of
+[`6-personas/re-research-3.md`](6-personas/re-research-3.md) were run in full, and for the first time
+this repository has marks that cover a **behaviour** rather than an utterance — two experiments we ran
+ourselves, three instruments reading what people did to repositories rather than what they said.
+Capture: [`6-personas/_re-research-3-log.json`](6-personas/_re-research-3-log.json) and
+[`6-personas/_qf-handover-test/`](6-personas/_qf-handover-test/).
+
+| Entry | What round 3 did to it | Standing now |
+|---|---|---|
+| **Q5** — loss or reassembly | **Nothing**, as predicted. Motive is out of reach of every instrument here | Deferred, unchanged |
+| **Q7** — who is primary | **Partly.** Q-G is the first behavioural evidence about **P2**: of 2,027 forks of personal agent material, **89.4% carry no commit at all**, and of those that do, 12% replace the author with themselves. It bears on the receiver's *existence in the public record*, not on which persona is primary | Unmoved as a question; its P2 half is no longer `[?]` in every cell |
+| **Q8** — the main job | **Partly.** Q-F tested the transfer job's mechanism and **it works**: three of three receiving agents performed the setup from `SETUP.md`. The job's feature has a working mechanism for the first time | Unmoved. Needs the conversations |
+| **Q9** — which features close no evidenced job | **Materially, and it is the second time.** Round 2 gave it opinion; Q-I gives it behaviour. **Thousands of repositories vendor public skills; 32% of traced copies are edited after import, at a median of 27 days; 10% keep any provenance.** The shelf's premise describes something people do | Still open, and now with evidence on both sides of it |
+| **Q10** — precedence against an external rule | **Nothing.** A property of judgement | Unchanged |
+| **Q11** — the unwritten half | **Nothing.** Q-F bounded a different thing: what the *written* half fails to carry — an item's sibling files, a settings file's executability, the author's identity inside a rule | Unchanged |
+| **Q12** — observability rather than validation | **Nothing, and nothing can.** Needs a runtime we will not build | Unchanged |
+
+**Two hypotheses left the board.** **NK-13 / D-1** — *does a receiving agent perform the setup from
+`SETUP.md` alone* — is **closed `✓`**, and so is **H6** in [`6-personas/personas.md`](6-personas/personas.md),
+which is the same claim. That was the half-day this register has been owed since 2026-09-07.
+
+**Six proposals were raised and none applied**, listed at the end of
+[`6-personas/re-research-3.md`](6-personas/re-research-3.md). One of them is a **change to the data
+model** — an item addresses a directory, not a file — which is the first thing any round has proposed
+to §5's shape rather than to its reasoning. **They join the two lists already waiting** (stage 6's
+nine, stage 7's nine) as input to the same sitting.
+
+**And the label does not lift.** Its trigger is five practitioner conversations. Four hypotheses
+closing does not change what the trigger is, and this round says so itself rather than arguing
+otherwise.
+
 **The question this raises and does not answer: what, if anything, may ever lift *provisional*?**
 That is the owner's call at the sitting, not a research finding. Three positions are available and
 each has a cost — keep the label until conversations become possible; replace the trigger with a

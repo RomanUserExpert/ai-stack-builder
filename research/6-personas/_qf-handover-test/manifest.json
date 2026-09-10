@@ -1,0 +1,185 @@
+{
+ "sources": {
+  "anthropics/skills": "41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f",
+  "ChrisWiles/claude-code-showcase": "a95518f0cb67e86230119da40429169bc4c35a6f",
+  "iannuttall/claude-agents": "f7df2c3e7395d163ad52d0793bac8fa7ce0d776a",
+  "alirezarezvani/claude-skills": "19392f7a08264ed00486a251f5b2098321771f94",
+  "shotgun-sh/shotgun": "4d344d5a46aafc815de441ff670d4131187f33e6",
+  "modelcontextprotocol/servers": "d73f99efbfd40c3aa1b61e88728b3d49fb52608f"
+ },
+ "items": [
+  {
+   "id": "pdf",
+   "kind": "skill",
+   "source": "inline",
+   "repoUrl": "https://github.com/anthropics/skills",
+   "path": "skills/pdf/SKILL.md",
+   "ref": "41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f",
+   "targetPath": ".claude/skills/pdf/SKILL.md",
+   "bytes": 8072
+  },
+  {
+   "id": "webapp-testing",
+   "kind": "skill",
+   "source": "inline",
+   "repoUrl": "https://github.com/anthropics/skills",
+   "path": "skills/webapp-testing/SKILL.md",
+   "ref": "41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f",
+   "targetPath": ".claude/skills/webapp-testing/SKILL.md",
+   "bytes": 3913,
+   "requires": [
+    "with-server"
+   ]
+  },
+  {
+   "id": "with-server",
+   "kind": "script",
+   "source": "inline",
+   "repoUrl": "https://github.com/anthropics/skills",
+   "path": "skills/webapp-testing/scripts/with_server.py",
+   "ref": "41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f",
+   "targetPath": ".claude/skills/webapp-testing/scripts/with_server.py",
+   "bytes": 3693
+  },
+  {
+   "id": "systematic-debugging",
+   "kind": "skill",
+   "source": "inline",
+   "repoUrl": "https://github.com/ChrisWiles/claude-code-showcase",
+   "path": ".claude/skills/systematic-debugging/SKILL.md",
+   "ref": "a95518f0cb67e86230119da40429169bc4c35a6f",
+   "targetPath": ".claude/skills/systematic-debugging/SKILL.md",
+   "bytes": 4888
+  },
+  {
+   "id": "code-reviewer",
+   "kind": "agent",
+   "source": "inline",
+   "repoUrl": "https://github.com/ChrisWiles/claude-code-showcase",
+   "path": ".claude/agents/code-reviewer.md",
+   "ref": "a95518f0cb67e86230119da40429169bc4c35a6f",
+   "targetPath": ".claude/agents/code-reviewer.md",
+   "bytes": 4456
+  },
+  {
+   "id": "security-auditor",
+   "kind": "agent",
+   "source": "inline",
+   "repoUrl": "https://github.com/iannuttall/claude-agents",
+   "path": "agents/security-auditor.md",
+   "ref": "f7df2c3e7395d163ad52d0793bac8fa7ce0d776a",
+   "targetPath": ".claude/agents/security-auditor.md",
+   "bytes": 8085
+  },
+  {
+   "id": "review-cmd-a",
+   "kind": "prompt",
+   "source": "inline",
+   "repoUrl": "https://github.com/alirezarezvani/claude-skills",
+   "path": ".claude/commands/review.md",
+   "ref": "19392f7a08264ed00486a251f5b2098321771f94",
+   "targetPath": ".claude/commands/review.md",
+   "bytes": 1125,
+   "command": "review"
+  },
+  {
+   "id": "review-cmd-b",
+   "kind": "prompt",
+   "source": "inline",
+   "repoUrl": "https://github.com/shotgun-sh/shotgun",
+   "path": ".claude/commands/review.md",
+   "ref": "4d344d5a46aafc815de441ff670d4131187f33e6",
+   "targetPath": ".claude/commands/review.md",
+   "bytes": 850,
+   "command": "review"
+  },
+  {
+   "id": "settings-showcase",
+   "kind": "script",
+   "source": "inline",
+   "repoUrl": "https://github.com/ChrisWiles/claude-code-showcase",
+   "path": ".claude/settings.json",
+   "ref": "a95518f0cb67e86230119da40429169bc4c35a6f",
+   "targetPath": ".claude/settings.json",
+   "bytes": 3588
+  },
+  {
+   "id": "settings-skills",
+   "kind": "script",
+   "source": "inline",
+   "repoUrl": "https://github.com/alirezarezvani/claude-skills",
+   "path": ".claude/settings.json",
+   "ref": "19392f7a08264ed00486a251f5b2098321771f94",
+   "targetPath": ".claude/settings.json",
+   "bytes": 310
+  }
+ ],
+ "mcp": [
+  {
+   "id": "mcp-github",
+   "key": "github",
+   "source": "ChrisWiles/claude-code-showcase",
+   "ref": "a95518f0cb67e86230119da40429169bc4c35a6f",
+   "config": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+     "-y",
+     "@anthropic/mcp-github"
+    ],
+    "env": {
+     "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+    }
+   },
+   "needsEnv": [
+    "GITHUB_TOKEN"
+   ]
+  },
+  {
+   "id": "mcp-memory-a",
+   "key": "memory",
+   "source": "ChrisWiles/claude-code-showcase",
+   "ref": "a95518f0cb67e86230119da40429169bc4c35a6f",
+   "config": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+     "-y",
+     "@anthropic/mcp-memory"
+    ]
+   },
+   "needsEnv": []
+  },
+  {
+   "id": "mcp-memory-b",
+   "key": "memory",
+   "source": "modelcontextprotocol/servers",
+   "ref": "d73f99efbfd40c3aa1b61e88728b3d49fb52608f",
+   "config": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+     "-y",
+     "@modelcontextprotocol/server-memory"
+    ],
+    "env": {
+     "MEMORY_FILE_PATH": "${MEMORY_FILE_PATH}"
+    }
+   },
+   "needsEnv": [
+    "MEMORY_FILE_PATH"
+   ]
+  }
+ ],
+ "external": [
+  {
+   "id": "playwright-mcp",
+   "kind": "mcp",
+   "repoUrl": "https://github.com/microsoft/playwright-mcp",
+   "ref": "8a13ef8e9f7385a0f89477922127f31cbfde9761",
+   "path": ".",
+   "targetPath": "vendor/playwright-mcp",
+   "note": "never vendored into the archive - instructions only"
+  }
+ ]
+}
