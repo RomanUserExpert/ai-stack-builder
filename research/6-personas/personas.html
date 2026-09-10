@@ -487,6 +487,25 @@ blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink
   background:var(--bad-soft);font-size:14.5px;
 }
 
+/* --- a .warn that folds away: <details class="warn"> --- */
+details.warn{padding:0}
+details.warn>summary{
+  cursor:pointer;padding:11px 14px;font-weight:600;
+  list-style:none;display:flex;gap:9px;align-items:baseline;
+}
+details.warn>summary::-webkit-details-marker{display:none}
+details.warn>summary::before{
+  content:"▸";font-size:11px;opacity:.7;flex:none;
+  transition:transform .12s ease;
+}
+details.warn[open]>summary::before{transform:rotate(90deg)}
+details.warn>summary:hover{background:rgba(128,128,128,.09)}
+details.warn>summary:focus-visible{outline:2px solid var(--bad);outline-offset:-2px}
+details.warn>summary .sub{font-weight:400;opacity:.72;font-size:13.5px}
+details.warn[open]>summary{border-bottom:1px solid var(--bad)}
+details.warn>.inner{padding:11px 14px 12px}
+@media (prefers-reduced-motion:reduce){details.warn>summary::before{transition:none}}
+
 /* --- jobs hierarchy --- */
 .mainjob{
   margin:26px 0 0;padding:26px 28px;border:1px solid var(--accent-45);background:var(--accent-06);
@@ -999,15 +1018,18 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
   <p><strong>1</strong> = it comes up &middot; <strong>2</strong> = it costs them something &middot; <strong>3</strong> = it is a reason they would change how they work. <strong>Read the P2 and P3 columns first.</strong> <strong>No receiver has ever been asked, and after four rounds and five venues none has ever spoken in the first person</strong> &mdash; every account of a handover is written by the sender. P2 still carries a number in five cells: three of them are second-hand, and <strong>two were filled by watching what receivers did in public diffs</strong>, because somebody who never posts still leaves one. <strong>P3 carries a number in none of the ten rows</strong>, and four instruments have now hunted for that person and failed. That is a fact about our instruments rather than about those people, and it is the most useful thing this table produces.</p>
 
-  <div class="warn" style="max-width:none">
-    <p style="margin:0 0 9px"><strong>How this matrix reached the state below.</strong> One audit and four collection passes, each dated &mdash; because the numbers moved in <em>both</em> directions, and which way they moved is part of the evidence.</p>
+  <details class="warn" style="max-width:none">
+    <summary>Iteration history<span class="sub">&middot; one audit and four collection passes, 9&ndash;10 Sep 2026</span></summary>
+    <div class="inner">
+    <p style="margin:0 0 9px"><strong>How this matrix reached the state below.</strong> Each pass is dated &mdash; because the numbers moved in <em>both</em> directions, and which way they moved is part of the evidence.</p>
     <p style="margin:0 0 7px"><strong>09 Sep &middot; the audit.</strong> <em>Subtracted only.</em> Two cells lost their numbers &mdash; <strong>RJ-1</strong> and <strong>EJ-2</strong> for the keeper &mdash; because each held an importance the cell itself called an inference, or described as carrying no weighting. Four were lowered from 3 to 2, because a <strong>3</strong> means <em>a reason they would change how they work</em> and in every case the person on record demonstrably did not: the one receiver worked around a broken handover for two days and said nothing; the one keeper still copies with <code>cp -r</code>; the one person afraid of leaking client material has never spent the couple of hours to separate it. <strong>One cell gained anything at all</strong> &mdash; the empty-handed column of H-J4 &mdash; and what it gained argues against the feature.</p>
     <p style="margin:0 0 7px"><strong>10 Sep &middot; the experiments.</strong> A handover test, and four competing tools installed and pointed at a deliberately broken set. <strong>Not one importance moved</strong>, and the reason is structural: these instruments see <em>machines and artefacts</em>, and the columns of this matrix are <em>people</em>. Nine cells changed in the two right-hand columns instead.</p>
     <p style="margin:0 0 7px"><strong>10 Sep &middot; the forums.</strong> Two vendor community sites this research had never used, where <strong>the vendor answers in public</strong>. Three cells up: <strong>RJ-2</strong> to a 3, <strong>EJ-2</strong> and <strong>H-J3</strong> from unknown to 2. <strong>The first upward movement this matrix has had.</strong></p>
     <p style="margin:0 0 7px"><strong>10 Sep &middot; the diffs.</strong> An earlier pass had read <strong>214 forks with their patches</strong>; nobody had asked that corpus about this table. <em>A receiver who never posts still leaves a diff.</em> Four more cells, <strong>two of them in the receiver&rsquo;s column and both on behaviour rather than on somebody&rsquo;s account of it</strong>: four receivers stripping the author&rsquo;s credentials out of what they inherited, and <strong>30 of 214 writing 21,266 lines</strong> of the setup manual the sender never shipped.</p>
     <p style="margin:0 0 7px"><strong>10 Sep &middot; the shelves.</strong> 18 of the largest public collections, 568 issues. One more cell &mdash; and then a wall. Three real people, blocked by exactly what this product exists to prevent: a 4,386&#9733; collection whose agents need an <strong>undeclared MCP server</strong> nobody documents, so new users cannot run them at all; a first-timer meeting a file-collision prompt he cannot answer, repeated for every agent. <strong>Not one of them fills a cell, and that is the finding.</strong> A public artefact shows an <em>act</em>; a persona is defined by a <em>situation</em>. You can see that somebody installed a stranger&rsquo;s agents and could not run them; you cannot see whether they had anything of their own.</p>
     <p style="margin:0"><strong>Net: thirty-six unknown cells that morning, thirty by the end. The keeper&rsquo;s column from seven unknowns to three. The empty-handed column unchanged at ten</strong> &mdash; and the two clearest public beginners wrote their own material on day one, or asked to shadow a human. Neither reached for a library; neither got a reply.</p>
-  </div>
+    </div>
+  </details>
 
   <p class="scrollhint">Ten sourced jobs, six hypothesis jobs <em>· wide table, scrolls sideways on a narrow screen</em></p>
   <div class="mwrap wide">
