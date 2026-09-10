@@ -26,24 +26,24 @@ unavailable.** Every step of both plans is done. The four remaining practitioner
 event that lifts *provisional*, and the named instrument for five of the six live register entries —
 **cannot be run.** That removes an event; it does not lower a bar, and nothing in either stage is
 promoted because of it. **What is reachable without a person is written down as
-[`re-research-3.md`](research/6-personas/re-research-3.md)** — five questions with named instruments,
+[`re-research.md` round 3](research/6-personas/re-research.md#round-3-five-questions-that-need-no-interview)** — five questions with named instruments,
 three reading behaviour left in public artefacts and **two of them ours to run**, including the
 handover test this file has owed itself since 2026-09-02.
 
 **Round 3 was run on 2026-09-10 and the capture logs exist**, so it may now be cited:
-[`_re-research-3-log.json`](research/6-personas/_re-research-3-log.json) and
-[`_qf-handover-test/`](research/6-personas/_qf-handover-test/). **Four questions answered, one in
+[`_captures/round3-log.json`](research/6-personas/_captures/round3-log.json) and
+[`_captures/qf-handover-test/`](research/6-personas/_captures/qf-handover-test/). **Four questions answered, one in
 part.** The one that matters to this file is **Q-F, the handover test**: three receiving agents were
 handed an archive built exactly as §6 describes, and **all three performed the setup**, including
 cloning an external item at its pinned ref — the first evidence of any kind under §6's central bet,
 and it is positive. **The second half of that bet failed**: with the Problems left undisclosed, one
 receiver found them, one **mis-resolved one on a false claim of byte-identity**, and one saw none.
 **Six proposals came out of the round and none is applied here** — they are listed at the end of
-[`re-research-3.md`](research/6-personas/re-research-3.md) and go to the register's sitting with the
+[`re-research.md` round 3](research/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) and go to the register's sitting with the
 other two lists. **One of them is the first proposal any round has made to the *shape* of §5 rather
 than to its reasoning: an item addresses a directory, not a file.**
 
-**A fourth round ran the same day** — [`re-research-4.md`](research/6-personas/re-research-4.md) —
+**A fourth round ran the same day** — [`re-research.md` round 4](research/6-personas/re-research.md#round-4-the-matrixs-empty-cells) —
 because round 3 moved no importance in the jobs matrix and said why: its instruments see machines,
 and the matrix's columns are people. It went after the columns in two venues this project had never
 used — the Cursor and OpenAI community forums, where the vendor answers in public — and **moved
@@ -57,9 +57,9 @@ The documents:
 [`inventory.md`](research/6-personas/inventory.md) — a register of the twenty questions about people,
 each with its answer, the data under it and a mark;
 [`re-research.md`](research/6-personas/re-research.md) — a source document, four instruments taken to
-the public record, with its capture logs; [`interview-guide.md`](research/6-personas/interview-guide.md);
-[`agent-setup-interview.md`](research/6-personas/agent-setup-interview.md), **interview 1 of 5**;
-[`re-research-2.md`](research/6-personas/re-research-2.md) — a second collection run on 2026-09-08
+the public record, with its capture logs; [`interviews.md` the guide](research/6-personas/interviews.md#part-1-the-guide);
+[`interviews.md` interview 1](research/6-personas/interviews.md#part-2-interview-1-of-5), **interview 1 of 5**;
+[`re-research.md` round 2](research/6-personas/re-research.md#round-2-counting-not-asking) — a second collection run on 2026-09-08
 against the questions the audit raised, and **the first instrument here that counts somebody's
 collection instead of asking about it**; and
 [`personas-and-jobs-critique.md`](research/personas-and-jobs-critique.md) — **the audit**, stage 6's

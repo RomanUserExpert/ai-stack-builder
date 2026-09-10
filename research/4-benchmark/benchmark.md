@@ -531,7 +531,7 @@ score, because none of them has such a surface.
 
 > **Dated note added 2026-09-10, and the last clause no longer holds.** This was measured over
 > **fifteen funded vendors in August 2026**, and it is still true of them. It is not true of the
-> open-source tier: [`../6-personas/re-research-3.md`](../6-personas/re-research-3.md) Q-J installed
+> open-source tier: [`../6-personas/re-research.md (round 3)`](../6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-J installed
 > four of those tools and ran them, and **`asm doctor` is exactly such a surface** — git presence and
 > version, `gh` authentication, the Node version, 21 provider directories writable, lock-file
 > integrity, registry reachability, disk space and PATH shadowing. `ai-agent-skills doctor` has a

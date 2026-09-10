@@ -9,12 +9,12 @@ lesson and this repository's protocol disagree, the protocol wins and the disagr
 
 Status, **2026-09-10: every step is done except the interviews, and two more rounds of collection have been run.**
 [`inventory.md`](inventory.md) (the register, and the axes in §D),
-[`re-research.md`](re-research.md), [`interview-guide.md`](interview-guide.md),
-[`agent-setup-interview.md`](agent-setup-interview.md) — **interview 1 of 5** — and
+[`re-research.md`](re-research.md), [`interviews.md` the guide](interviews.md#part-1-the-guide),
+[`interviews.md` interview 1](interviews.md#part-2-interview-1-of-5) — **interview 1 of 5** — and
 [`personas.md`](personas.md), **three personas with one primary.** Step 5 was run **wide rather than
 surgically**, at the owner's instruction, and moved eleven rows instead of one; **it was then run a
 second time** on 2026-09-08 against the five questions the audit raised —
-[`re-research-2.md`](re-research-2.md), where two instruments **count** somebody's collection for the
+[`re-research.md` round 2](re-research.md#round-2-counting-not-asking), where two instruments **count** somebody's collection for the
 first time instead of asking about it.
 
 **Step 4, the audit, is [`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md)** — merged
@@ -32,7 +32,7 @@ folder, they are the named instrument for five of the six live register entries,
 unavailable instrument does not lower a bar, it removes the event.
 
 **What replaces them is a third round, and it is a different class of instrument.**
-[`re-research-3.md`](re-research-3.md) — **five questions that need no interview**: the handover test
+[`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview) — **five questions that need no interview**: the handover test
 we run ourselves, forks read as the receiving end, drift measured in git history, whether imported
 material is ever touched again, and the competitors installed and pointed at a deliberately broken
 set. Three of the five read **behaviour left in public artefacts** rather than what anyone said about
@@ -40,7 +40,7 @@ it, and two are **ours to run**. It does not lift *provisional*, does not answer
 and reaches no private repository — all of which it says on its own front page.
 
 **It was run on 2026-09-10, and the capture logs exist**, so it may be cited:
-[`_re-research-3-log.json`](_re-research-3-log.json) and [`_qf-handover-test/`](_qf-handover-test/).
+[`_captures/round3-log.json`](_captures/round3-log.json) and [`_captures/qf-handover-test/`](_captures/qf-handover-test/).
 **Four questions answered, one in part.** **NK-13 and H6 are closed**: three receiving agents out of
 three performed the setup from `SETUP.md`, and with the set's defects undisclosed one found them, one
 closed a real conflict on a false claim, and one saw none. **Q-G's headline was withdrawn by its own
@@ -53,13 +53,28 @@ summarised in [`../research.md`](../research.md) §8 and its effect on the matri
 [`../7-jobs-to-be-done/jtbd.md`](../7-jobs-to-be-done/jtbd.md) §7 — **where not one importance moved,
 because the columns are people and these instruments see machines.**
 
-**A fourth round followed the same day** — [`re-research-4.md`](re-research-4.md) — because round 3 moved no importance in the matrix and said why: its instruments see machines, and the matrix's columns are people. It went to two venues this repository had never used, **forum.cursor.com** and **community.openai.com**, both with the vendor answering in public. **Three cells moved and all three moved up**, which no round had done before. **And it produced the strongest thing anyone here has said about P2**: after four rounds and five venues, **no receiver has ever spoken in the first person** — every account of a handover is written by the sender, which is a property of the population rather than a failure of searching.
+**A fourth round followed the same day** — [`re-research.md` round 4](re-research.md#round-4-the-matrixs-empty-cells) — because round 3 moved no importance in the matrix and said why: its instruments see machines, and the matrix's columns are people. It went to two venues this repository had never used, **forum.cursor.com** and **community.openai.com**, both with the vendor answering in public. **Three cells moved and all three moved up**, which no round had done before. **And it produced the strongest thing anyone here has said about P2**: after four rounds and five venues, **no receiver has ever spoken in the first person** — every account of a handover is written by the sender, which is a property of the population rather than a failure of searching.
 
 **And the guide still has no block of questions for a receiver**, which is why every line about P2 is
 somebody else's account of them. That gap is now addressed from the other side, by Q-G.
 **[`personas.html`](personas.html) was built on 2026-09-08**, after the audit rather than before it,
 which is what step 6 required: a page built from an unaudited file publishes the invention. It
 carries stage 7's hierarchy and matrix too, as the plan intended, and every mark is visible on it.
+
+
+## What is in this folder — after the consolidation of 2026-09-10
+
+| | |
+|---|---|
+| [`README.md`](README.md) | This file. The stage plan, its seven steps, and the status. |
+| [`inventory.md`](inventory.md) | **Step 1.** The register of twenty questions about people, each with its answer, the data under it and a mark. |
+| [`re-research.md`](re-research.md) | **Step 5 and everything after it.** Four collection rounds in one source document, each keeping its own dated part: [1](re-research.md#round-1-the-public-record) the public record · [2](re-research.md#round-2-counting-not-asking) counting rather than asking · [3](re-research.md#round-3-five-questions-that-need-no-interview) two experiments we ran · [4](re-research.md#round-4-the-matrixs-empty-cells) the matrix's empty cells. |
+| [`interviews.md`](interviews.md) | [The guide](interviews.md#part-1-the-guide) and [interview 1 of 5](interviews.md#part-2-interview-1-of-5). The other four are unavailable. |
+| [`personas.md`](personas.md) | **Step 3.** Three personas, one primary, every block sourced or `[?]`. |
+| [`personas.html`](personas.html) | **Generated** by `tools/build_personas.py`. Phase 02 of the course. Do not hand-edit. |
+| [`_captures/`](_captures/) | One log per round, plus [`qf-handover-test/`](_captures/qf-handover-test/) — the archive three receiving agents were given and what each did with it. |
+
+**Four files were retired into the two merged ones** — `re-research-2/3/4.md`, `interview-guide.md` and `agent-setup-interview.md` — and every inbound link in the repository was rewritten to an anchor inside them. **No text was edited in the merge.**
 
 ---
 
@@ -284,7 +299,7 @@ in the register; which stage raised it; what would answer it).
 | [`personas.md`](personas.md) | **Written 2026-09-08.** Three personas — P1 *the keeper who runs several agents* (**primary**), P2 *the receiver*, P3 *the empty-handed*. Five blocks each plus environment, every block sourced or `[?]`, eleven hypotheses at the end. **Provisional** until the lifting event below. |
 | `audit.md` | Confirmed / hypothesis / invented, the dangerous list, three questions, and the proposals for CLAUDE.md, the digest and the register. |
 | `re-research.md` | Source document for the one question closed at point scale — instrument, log, result. |
-| `interview-guide.md` | The three audit questions and the primary-persona choice, written as a 30-minute conversation guide, so that the Q5 trigger has an instrument ready the day it fires. |
+| `interviews.md` the guide | The three audit questions and the primary-persona choice, written as a 30-minute conversation guide, so that the Q5 trigger has an instrument ready the day it fires. |
 | [`personas.html`](personas.html) | **Built 2026-09-08.** The human-readable page, in the research page's identity — three persona cards with the primary marked, the job hierarchy, the matrix as a table with every `✓` / `*` / `?` visible, and the eleven hypotheses. Generated by `tools/build_personas.py`. |
 
 ---
@@ -358,7 +373,7 @@ describes. That bias is the instrument's, and the file must say so where the cho
 **The label.** The personas ship marked **provisional**, in the header of `personas.md` and on every
 card of `personas.html`. The label lifts per claim as sources arrive, and lifts from the document
 when one event has happened: **the five practitioner conversations that Q5 already names**, run
-against `interview-guide.md`, with notes filed in this folder as a source document. Five is the
+against `interviews.md` the guide, with notes filed in this folder as a source document. Five is the
 number the register wrote down; it is the smallest number that can refute a primary-persona choice
 rather than merely colour it. A seeded library in the hands of one real user would lift the
 *environment* and *density* rows (G4, G5) but not the adoption row; it is a second event, not a
@@ -386,7 +401,7 @@ conflict about the Library screen or positioning, and it must not pretend to.
       endangers, three questions each with a named instrument
 - [x] `re-research.md` — one audit question closed or declared unclosable, as a source document;
       every lifted `[?]` carrying its new source — **done, and run wide: eleven of twenty rows moved**
-- [x] `interview-guide.md` — the instrument for the lifting event, ready before it is needed — **and used once**
+- [x] `interviews.md` the guide — the instrument for the lifting event, ready before it is needed — **and used once**
 - [x] `personas.html` — built from the audited files, marks visible, linked from `research.html` —
       **done 2026-09-08**, generated by `tools/build_personas.py` from the shared design language so
       the two pages cannot drift

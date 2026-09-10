@@ -87,7 +87,7 @@ from a pricing page in this pass.
    > owner's to apply.
    >
    > **Second note, 2026-09-10 — the afternoon proposal 3 asked for was spent.**
-   > [`../6-personas/re-research-3.md`](../6-personas/re-research-3.md) Q-J installed **four** of
+   > [`../6-personas/re-research.md (round 3)`](../6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-J installed **four** of
    > these tools and pointed them at a deliberately broken set: `agent-skill-manager` 2.19.0,
    > `skills` 1.5.25, `ai-agent-skills` 4.3.2, `opkg` 0.11.3. Two could not be installed under the
    > name their README gives — the npm packages `harnesskit` and `tank` belong to unrelated projects,

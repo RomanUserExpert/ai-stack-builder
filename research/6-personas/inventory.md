@@ -243,7 +243,7 @@ data that answer rests on with a link to it**, and **a mark saying how true it i
 | | Means | Here |
 |---|---|---|
 | **`✓`** | Confirmed — another person can re-run the instrument and get the same answer | A logged query with its count, a captured page, a source read at origin |
-| **`*`** | Practitioner-reported — said in an interview, from memory, about their own work | [`agent-setup-interview.md`](agent-setup-interview.md), **n = 1** |
+| **`*`** | Practitioner-reported — said in an interview, from memory, about their own work | [`interviews.md` interview 1](interviews.md#part-2-interview-1-of-5), **n = 1** |
 | **`?`** | Unknown — no instrument has established it in either direction | |
 
 **Three things to hold while reading.**
@@ -287,7 +287,7 @@ be worth more than a confirmation.
 | **NK-10** | What do they do today instead? | **`✓` + `*`** | `cp -r`, symlinks, `@include`, hand-written scripts — said in public many times, watched by nobody |
 | **NK-11** | What would make them distrust? | **`✓` + `*`** | Not *your checker is wrong* — ***half of my own material may do nothing*** |
 | **NK-12** | Is a usage fact persuasive? | **`*`** | **Asked for it unprompted, in our own words**, when the question was put open |
-| **NK-13** | Does an agent set up from `SETUP.md` alone? | **`✓` — answered 2026-09-10** | **Tested. Yes to performing, no to checking.** [`re-research-3.md`](re-research-3.md) Q-F, capture in [`_qf-handover-test/`](_qf-handover-test/): ten real pinned items, five planted defects, three receiving agents, one instruction. **Three of three performed the setup**, including cloning an external item at its pinned `ref`. **With the defects undisclosed, one found them, one closed a real conflict on a false claim of byte-identity, one saw none** — and one wrote the machine's live OAuth token into a plaintext file unprompted. Bounded: three model tiers of one vendor's agent, one machine, one day. The mark covers a behaviour we watched. **Superseded below:** Sharpened 2026-09-08: in 274 comments on exactly this topic the job is done by `chezmoi`, symlinks, a CLI installer, `skills.py` and bootstrap scripts, and **two comments describe an agent touching this material at all — neither is a setup** (Q-A). The bet is **against the grain of current practice**, not merely unverified |
+| **NK-13** | Does an agent set up from `SETUP.md` alone? | **`✓` — answered 2026-09-10** | **Tested. Yes to performing, no to checking.** [`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview) Q-F, capture in [`_captures/qf-handover-test/`](_captures/qf-handover-test/): ten real pinned items, five planted defects, three receiving agents, one instruction. **Three of three performed the setup**, including cloning an external item at its pinned `ref`. **With the defects undisclosed, one found them, one closed a real conflict on a false claim of byte-identity, one saw none** — and one wrote the machine's live OAuth token into a plaintext file unprompted. Bounded: three model tiers of one vendor's agent, one machine, one day. The mark covers a behaviour we watched. **Superseded below:** Sharpened 2026-09-08: in 274 comments on exactly this topic the job is done by `chezmoi`, symlinks, a CLI installer, `skills.py` and bootstrap scripts, and **two comments describe an agent touching this material at all — neither is a setup** (Q-A). The bet is **against the grain of current practice**, not merely unverified |
 | **NK-14** | Is hand-entered metadata maintained? | **`✓` + `*`** | **No.** Drift is filed and reacted to; for one person it cost three hours and a client complaint |
 | **NK-15** | Are the loud pain and the quiet pain the same person? | **`*`** | **Yes, for this one — and he says the collection caused the second** |
 | **NK-16** | Are tracker filers our audience? | **`?`** | Unresolved. He is a filer, so n=1 cannot answer it |
@@ -301,13 +301,13 @@ and two carry no evidence at all — NK-13 and NK-16. Only one of those two is o
 
 > **Updated 2026-09-10.** **NK-13 is filled** — the half-day was spent, and it is the first row in this
 > register whose `✓` covers a behaviour somebody watched rather than an utterance somebody typed
-> ([`re-research-3.md`](re-research-3.md) Q-F). **NK-16 is still blank**, and it is the one that needs a
+> ([`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview) Q-F). **NK-16 is still blank**, and it is the one that needs a
 > person. Three more rows changed without changing their marks: **NK-7**'s receiving half moved from
 > `[?]` to behaviour, **NK-9** gained evidence pointing the opposite way from the evidence it already
 > had, and **NK-19** got its first number. **So the count is now ten rows with a `✓`, and one row with
 > nothing at all.**
 
-**Updated 2026-09-09, after [`re-research-2.md`](re-research-2.md).** Five rows moved and none of them
+**Updated 2026-09-09, after [`re-research.md` round 2](re-research.md#round-2-counting-not-asking).** Five rows moved and none of them
 moved by being repeated: **NK-2 and NK-5 became measurements** — file counts and tool counts read out
 of four public repository trees, the first time this repository has counted somebody's collection
 instead of asking them how big it is; **NK-6 and NK-7's sending half became `✓`** on six independent
@@ -329,18 +329,18 @@ the opinion it already had, and NK-19 got a number.**
 
 > *"It started as exactly one file… I copied that file to the next project, then the next, and at
 > project four I got annoyed and made a repo. So the origin is not 'I designed a system.' The origin
-> is **'I got tired of copy-pasting one file.'**"* — [interview, Q4](agent-setup-interview.md) `*`
+> is **'I got tired of copy-pasting one file.'**"* — [interview, Q4](interviews.md#part-2-interview-1-of-5) `*`
 
 And the cost is described as invisible by construction, which is why no tracker ever saw it:
 
 > *"That trickle is the actual cost and **it's invisible because no single instance of it feels
-> expensive**."* — [interview, Q9](agent-setup-interview.md) `*`
+> expensive**."* — [interview, Q9](interviews.md#part-2-interview-1-of-5) `*`
 
 **Loss appeared for the first time in this repository**, unprompted, inside an answer about something
 else:
 
 > *"…I'm looking for something I know I wrote and can't find; that's usually a prompt, and **it
-> usually takes longer than rewriting it would**."* — [interview, Q19](agent-setup-interview.md) `*`
+> usually takes longer than rewriting it would**."* — [interview, Q19](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.**
 - `*` The three quotes above. **One person.**
@@ -360,7 +360,7 @@ you find anything, did you keep using it.*
 
 **Answer. Eleven to forty-eight items, counted — and stage 5's 300 has nothing behind it.**
 
-> **Updated 2026-09-08 by [`re-research-2.md`](re-research-2.md) Q-C, and this row changed kind.**
+> **Updated 2026-09-08 by [`re-research.md` round 2](re-research.md#round-2-counting-not-asking) Q-C, and this row changed kind.**
 > Four public agent-material repositories were read through the GitHub tree API — not asked, counted:
 > **11, 25, 47 and 48 items** (`goulvenclech/dotclaude`, `utkuatasoy/dotfiles`,
 > `sanketsudake/dotfiles`, `jckeen/dotfiles`), the last two above forty. Two more publish
@@ -373,7 +373,7 @@ you find anything, did you keep using it.*
 **Rests on.**
 - `✓` [claude-code #28729](https://github.com/anthropics/claude-code/issues/28729), 151 reactions: *"Once you get to **20-30+ skills** with multiple contributors, it becomes difficult to manage."* The `✓` is that this was written and reacted to — not that 20–30 is a population truth.
 - `✓` [claude-code #10238](https://github.com/anthropics/claude-code/issues/10238), 168 reactions — a team hitting the limit of *"a flat list of skills"*.
-- `*` [interview, Q3](agent-setup-interview.md): *"11 skills, 6 CLAUDE.md templates…, an `mcp/` folder with 9 server configs, a `prompts/` folder…, a `scripts/` folder… **Call it 40-something files.** Somewhere around **6k lines**."*
+- `*` [interview, Q3](interviews.md#part-2-interview-1-of-5): *"11 skills, 6 CLAUDE.md templates…, an `mcp/` folder with 9 server configs, a `prompts/` folder…, a `scripts/` folder… **Call it 40-something files.** Somewhere around **6k lines**."*
 - `?` [`5-patterns/patterns.md`](../5-patterns/patterns.md) — the **300-item** figure the chosen shape was priced against. Reasoned, never measured, and now contradicted by every actual report.
 
 **How true.** As of 2026-09-08 the order of magnitude is **counted rather than reported**, in four
@@ -392,8 +392,8 @@ which would tell us whether the private collections run larger or smaller than t
 never downward.**
 
 **Rests on.**
-- `*` [interview, Q4](agent-setup-interview.md): *"**Fourteen months**, give or take. It started as **exactly one file**."*
-- `*` [interview, Q18](agent-setup-interview.md): *"deleting feels riskier than keeping. If I remove something and quality drops, I won't connect the two events… **So the folder only grows, which is a bad property for a thing whose job is to be precise.**"*
+- `*` [interview, Q4](interviews.md#part-2-interview-1-of-5): *"**Fourteen months**, give or take. It started as **exactly one file**."*
+- `*` [interview, Q18](interviews.md#part-2-interview-1-of-5): *"deleting feels riskier than keeping. If I remove something and quality drops, I won't connect the two events… **So the folder only grows, which is a bad property for a thing whose job is to be precise.**"*
 
 **How true.** One person, from memory; the curve is a recollection. The **mechanism** is the useful
 part — grows on irritation, never shrinks because deletion has no feedback loop — and it is specific
@@ -412,9 +412,9 @@ reviewing it is not one of them.
 > project. Second, I'm **adding a rule right after the agent did something annoying**… Third, and
 > rarest, I'm **looking for something I know I wrote and can't find**… **I basically never go in
 > there to read or review. There's no reason to, nothing prompts it, so it doesn't happen.**"*
-> — [interview, Q19](agent-setup-interview.md) `*`
+> — [interview, Q19](interviews.md#part-2-interview-1-of-5) `*`
 
-**Rests on.** That quote, plus `*` [Q2](agent-setup-interview.md) — *"About forty minutes ago. It's
+**Rests on.** That quote, plus `*` [Q2](interviews.md#part-2-interview-1-of-5) — *"About forty minutes ago. It's
 open right now in another tab."*
 
 **How true.** One person. But three named modes are a brief, and the third one — searching for
@@ -433,7 +433,7 @@ repository's evidence base.**
 **Rests on.**
 - `✓` [claude-code #6235](https://github.com/anthropics/claude-code/issues/6235) — **6,592 reactions**: *"CLAUDE.md feels too specific to Claude Code. It doesn't work as well when collaborating with other developers who aren't using Claude Code."* Plus the twelve-issue family in [`re-research.md`](re-research.md) R1, across three vendors' trackers.
 - `✓` [`re-research.md`](re-research.md) R2 — six practitioners describing their own setups in public, and **25 comments** across eight downloaded HN threads about symlinking one source into several formats.
-- `*` [interview, Q1](agent-setup-interview.md) — four installed (Claude Code, Cursor, Codex CLI, Aider) plus a dead Continue; two used yesterday.
+- `*` [interview, Q1](interviews.md#part-2-interview-1-of-5) — four installed (Claude Code, Cursor, Codex CLI, Aider) plus a dead Continue; two used yesterday.
 
 **How true.** Split the row in two, because the header used to hide the split. **The demand is `✓`**:
 re-runnable queries, three trackers, a five-figure reaction count, and what is confirmed is that
@@ -443,7 +443,7 @@ which rule 5 says stays self-report however public it is. Now two of four reposi
 **four** and **three** distinct tools configured side by side: `.claude/settings.json` beside
 `packages/devin/config.json`, `packages/copilot/settings.json` and `packages/pi/agent/settings.json`;
 and `claude/` beside `codex/config.toml.example` and `antigravity/mcp_config.json.example`, with
-`CLAUDE.md`, `AGENTS.md` and `MULTI-AGENT.md` in one directory ([`re-research-2.md`](re-research-2.md)
+`CLAUDE.md`, `AGENTS.md` and `MULTI-AGENT.md` in one directory ([`re-research.md` round 2](re-research.md#round-2-counting-not-asking)
 Q-C). **Two to four is now a number to quote, with the publication bias printed beside it.**
 
 **What would move it.** Nothing urgent. Best-evidenced row in the document.
@@ -458,9 +458,9 @@ this material sits, and a weighted request exists for git to be the source of tr
 
 **Rests on.**
 - `✓` [`re-research.md`](re-research.md) R5 — [#1455](https://github.com/anthropics/claude-code/issues/1455) XDG at **446 reactions**; [#28729](https://github.com/anthropics/claude-code/issues/28729) asking for a **git repo as the source of truth**; `agent-dotfiles` and `SkillCatalog` built on exactly that premise.
-- `*` [interview, Q3](agent-setup-interview.md): *"`~/dev/kit/agents/`, which is a **private GitHub repo** called `agent-kit`. It gets **symlinked** into `~/.claude/` and a couple of other places."*
+- `*` [interview, Q3](interviews.md#part-2-interview-1-of-5): *"`~/dev/kit/agents/`, which is a **private GitHub repo** called `agent-kit`. It gets **symlinked** into `~/.claude/` and a couple of other places."*
 
-> **Answered 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-C), and the row is now `✓`.** The
+> **Answered 2026-09-08 ([`re-research.md` round 2](re-research.md#round-2-counting-not-asking) Q-C), and the row is now `✓`.** The
 > arrangement is visible in the repository trees themselves and described independently by six people
 > in one thread: `chezmoi` managing *"a `.agents/skills/` directory + a symlink"*; *"two
 > source-of-truth git repos (private and public)… syncs to all coding agents `~/.claude/skills/`,
@@ -490,13 +490,13 @@ open is the private half, which no public search can reach. Guide Q3 corroborate
 > experience as my Linux move: paths broken, one server not starting, and **he assumed that was
 > normal and worked around it for two days without mentioning it**… That was the moment I understood
 > the config had become **tribal knowledge rather than a setup**."*
-> — [interview, Q21](agent-setup-interview.md) `*`
+> — [interview, Q21](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.**
-- `*` Q21 above, and [Q22](agent-setup-interview.md) — given away twice, informally, each time needing twenty minutes of live explanation of *"which files are load-bearing and which are aspirational."*
+- `*` Q21 above, and [Q22](interviews.md#part-2-interview-1-of-5) — given away twice, informally, each time needing twenty minutes of live explanation of *"which files are load-bearing and which are aspirational."*
 - `✓` [`re-research.md`](re-research.md) R12 — #6235's stated motive is collaboration with developers on other agents; [#10238](https://github.com/anthropics/claude-code/issues/10238) *"with my team"*; [#28729](https://github.com/anthropics/claude-code/issues/28729) *"multiple contributors"*.
 
-> **The sending half became `✓` on 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-B); the
+> **The sending half became `✓` on 2026-09-08 ([`re-research.md` round 2](re-research.md#round-2-counting-not-asking) Q-B); the
 > receiving half did not move at all.** Six independent people in one thread describe distributing
 > this material to others: company-managed skills pushed by a **bootstrap script**, with
 > *"distributing them is currently awkward"*; *"skills need to be edited across projects and **across
@@ -515,7 +515,7 @@ Sometimes it is not, and the second party lost two days without knowing anything
 **What would move it.** For the sending half, nothing. **For the receiving half, one conversation with
 a receiver** — the guide recruits one and has no questions for them. **Since the interviews are
 unavailable (2026-09-09), the receiving half is approached from the other side instead**: **Q-G** in
-[`re-research-3.md`](re-research-3.md) reads **forks as handovers** and their first commits as the
+[`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview) reads **forks as handovers** and their first commits as the
 first hour. It observes what a receiver *changed* and can never say why.
 
 ---
@@ -529,7 +529,7 @@ first hour. It observes what a receiver *changed* and can never say why.
 > either doing a proper generalization pass, which is half a day I wasn't going to bill anyone for, or
 > copying it and mutilating it, which is **how I ended up with three divergent copies of the chunking
 > module**. So I wrote a worse thing from scratch in an hour and told myself I'd fix it later. **I did
-> not fix it later.**"* — [interview, Q8](agent-setup-interview.md) `*`
+> not fix it later.**"* — [interview, Q8](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.** That answer alone. **Nothing in the repository, in either direction, before it.**
 
@@ -549,13 +549,13 @@ than it was asked. The blocker is not *finding* the previous thing; it is that t
 > *"Yeah, twice, both times right after being burned… There are session viewers and log tools, and
 > they tell you what happened in the conversation, which isn't the same question… **I used one for
 > about a week**, mostly to look at token counts, **then stopped**, and I couldn't tell you the exact
-> day I stopped."* — [interview, Q25](agent-setup-interview.md) `*`
+> day I stopped."* — [interview, Q25](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.**
 - `*` Q25 above — searched twice, adopted briefly, drifted away without a decision.
 - `✓` [`re-research.md`](re-research.md) R8 — the adjacent category is crowded with free tools at 400–4,500 stars, so *nothing exists* is not a reason anyone would come to us.
 
-> **First evidence on the shelf's premise, 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-E),
+> **First evidence on the shelf's premise, 2026-09-08 ([`re-research.md` round 2](re-research.md#round-2-counting-not-asking) Q-E),
 > and it is negative.** The supply is `✓` and enormous — **19,703** repositories match
 > `"claude skills"`, topped by curated collections at **74,686★**, 25,709★ and 15,006★ — against
 > **93** public personal ones. The demand, from the first five practitioners ever observed on the
@@ -574,7 +574,7 @@ opinions against and none for, from the population least likely to like it.**
 **What would move it.** Q25 four more times, and above all the **P5 recruit** — someone who does not
 keep this material at all. The guide asks for it; **it cannot happen, as of 2026-09-09.** What is
 reachable instead is the behaviour the shelf assumes rather than the person it was drawn for: **Q-I**
-in [`re-research-3.md`](re-research-3.md) measures whether imported material is ever touched again,
+in [`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview) measures whether imported material is ever touched again,
 and whether the installer category is a habit or a bookmark.
 
 ---
@@ -586,7 +586,7 @@ and whether the installer category is a habit or a bookmark.
 
 > *"The CLAUDE.md, the two skills, the MCP config. All of it moved by `cp`. **Not by git submodule,
 > not by a package, not by the bootstrap script that exists specifically to do this.** By `cp -r`
-> from a sibling directory."* — [interview, Q7](agent-setup-interview.md) `*`
+> from a sibling directory."* — [interview, Q7](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.** `✓` [`re-research.md`](re-research.md) R2 and R8 · `*` Q7 above.
 
@@ -606,15 +606,15 @@ our own value has to sit, and it is the most useful sentence in the row.
 **Answer, and it is not the question we thought we were asking.** The distrust on record is not *your
 checker may be wrong*. It is **half of my own material may be doing nothing.**
 
-> *"Maybe **half of it**, if you want the real answer."* — [interview, Q16](agent-setup-interview.md) `*`
+> *"Maybe **half of it**, if you want the real answer."* — [interview, Q16](interviews.md#part-2-interview-1-of-5) `*`
 >
 > *"Properly, no. **I've never A/B'd anything**… each individual file feels too small to justify the
 > ceremony, and it's forty small things, so the total never gets audited."*
-> — [Q17](agent-setup-interview.md) `*`
+> — [Q17](interviews.md#part-2-interview-1-of-5) `*`
 >
 > *"The rule that got applied should have been **traceable**. I want to be able to ask, after the
 > fact, **which instruction produced that behaviour**. Right now I can't, so I guess, and **my
-> guesses are unfalsifiable**."* — [Q14](agent-setup-interview.md) `*`
+> guesses are unfalsifiable**."* — [Q14](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.**
 - `*` The three quotes above.
@@ -638,9 +638,9 @@ worth something:
 > *"**Usage data, first.** Just: **this file was loaded in 40 sessions, this one in 2, this one never.
 > That alone would let me delete half of it with confidence.** After that, some record of when a rule
 > got applied and what it changed… And a **date. Not created-date, last-actually-useful date.**"*
-> — [interview, Q20](agent-setup-interview.md) `*`
+> — [interview, Q20](interviews.md#part-2-interview-1-of-5) `*`
 
-**Rests on.** That answer, under the open-question rule in [`interview-guide.md`](interview-guide.md) §4.
+**Rests on.** That answer, under the open-question rule in [`interviews.md` the guide](interviews.md#part-1-the-guide) §4.
 
 **How true.** One person — but this is the strongest **form** a `*` can take: an unprompted invention
 of the exact mechanism `CLAUDE.md` §5 already chose, by someone who had never seen the spec. **It
@@ -670,12 +670,12 @@ eight scripts, none of which the export carried, and `SETUP.md` said the item re
 **Bounded.** Three model tiers of **one vendor’s agent** — Cursor and Codex CLIs are not installed on
 this machine — in three fresh directories rather than clean containers, on a machine that already had
 git, node, Python and an authenticated `gh`. It is a claim about one day, and it is dated and versioned
-in [`re-research-3.md`](re-research-3.md) Q-F.
+in [`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview) Q-F.
 
 **Rests on.** Nothing. `CLAUDE.md` §6 and the Q2 disposition in [`FINAL.md`](../FINAL.md) commit to it
 on reasoning alone.
 
-> **Sharpened 2026-09-08 ([`re-research-2.md`](re-research-2.md) Q-A), and the mark did not move.**
+> **Sharpened 2026-09-08 ([`re-research.md` round 2](re-research.md#round-2-counting-not-asking) Q-A), and the mark did not move.**
 > One Ask HN thread on exactly this topic — 305 points, 274 comments — was read in full. **What people
 > actually use is human-written automation:** `chezmoi` with a `.agents/skills/` directory and a
 > symlink, a command-line tool that installs skill packs, a `skills.py` fetcher, `vercel-labs/skills`,
@@ -691,10 +691,10 @@ set's defects undisclosed, one found them, one closed a real conflict on a false
 **The mark covers behaviour we watched**, which no other `✓` in this register does.
 
 **What would move it.** **Us, in an afternoon** — and as of 2026-09-09 the procedure is written down
-step by step as **Q-F** in [`re-research-3.md`](re-research-3.md), with the deliberately broken set it
+step by step as **Q-F** in [`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview), with the deliberately broken set it
 needs and the four defect classes to watch for. Compose a small set by hand, write the `SETUP.md` §6
 describes, hand the archive to a fresh Claude Code, Cursor and Codex, record what each actually does.
-Adjacent evidence says the target is real: `*` [interview, Q11](agent-setup-interview.md) — a
+Adjacent evidence says the target is real: `*` [interview, Q11](interviews.md#part-2-interview-1-of-5) — a
 devcontainer with Node 18 against a server needing 20+, and *"broken config doesn't announce itself,
 **it degrades quietly**."*
 
@@ -708,13 +708,13 @@ devcontainer with Node 18 against a server needing 20+, and *"broken config does
 > other two. **Six weeks later a client flagged** that retrieval was returning fragments cut
 > mid-sentence, which is exactly the bug I'd already fixed elsewhere… I debugged it for **three
 > hours** as if it were new before I opened the other repo and saw my own fix sitting there."*
-> — [interview, Q10](agent-setup-interview.md) `*`
+> — [interview, Q10](interviews.md#part-2-interview-1-of-5) `*`
 
 The same loop runs in the instruction files, which is our object exactly: a rule fixed in project B
 and never in the template, *"so the next copy is wrong too. **It's a loop.**"*
 
 **Rests on.**
-- `*` Q10 and [Q18](agent-setup-interview.md).
+- `*` Q10 and [Q18](interviews.md#part-2-interview-1-of-5).
 - `✓` [claude-code #9444](https://github.com/anthropics/claude-code/issues/9444) — *"Maintenance burden… Inconsistency risk — **copies can drift out of sync**"*, filed and reacted to.
 - **Not `✓`** — [`1-landscape/competitors.md`](../1-landscape/competitors.md) on Backstage's known failure mode, *catalogs rot when nobody maintains the metadata*. That is our own stage-1 write-up of community lore about someone else's product; it corroborates and it measures nothing. Re-marked 2026-09-08.
 
@@ -730,14 +730,14 @@ argument for the live link in §5 — that mechanism exists to break precisely t
 ### NK-15 — Are the loud pain and the quiet pain the same person? `*`
 
 **The question the whole interview guide was built around**
-([`interview-guide.md`](interview-guide.md) §1), because no amount of searching can join two reaction
+([`interviews.md` the guide](interviews.md#part-1-the-guide) §1), because no amount of searching can join two reaction
 counts to one identity.
 
 **Answer. For this person, yes — and he volunteers a causal direction we had not considered.**
 
 > *"**Already had the collection, and that's the point.** When it was one file I knew what was in it.
 > At forty files with overlapping instructions **I have no working model of what's active on a given
-> run. The collection created the problem.**"* — [interview, Q15](agent-setup-interview.md) `*`
+> run. The collection created the problem.**"* — [interview, Q15](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.** That answer, produced by guide Q15, which exists solely to make this join.
 
@@ -758,7 +758,7 @@ becomes the person who breaks**, and the primary-persona argument changes shape 
 > *"One issue, about MCP config path handling… Got a reasonable answer, not much came of it. Written
 > about it, no. **I've drafted a post twice** about how these config folders rot and **deleted it both
 > times** because it felt like complaining without a solution."*
-> — [interview, Q24](agent-setup-interview.md) `*`
+> — [interview, Q24](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.** `*` Q24 · `✓` [`re-research.md`](re-research.md) R1 — the corpus is at least now the
 tracker of the product our audience actually uses rather than a dead competitor's.
@@ -778,7 +778,7 @@ anything in public.** Not yet satisfied.
 
 > *"…I'm adding a rule right after the agent did something annoying, which means **most edits are
 > written while irritated, which is probably visible in the tone of some of them**."*
-> — [interview, Q19](agent-setup-interview.md) `*`
+> — [interview, Q19](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.** That quote, plus Q19's three modes (NK-4).
 
@@ -797,7 +797,7 @@ has nothing to do with being seen.**
 
 > *"None of it. I'd like a slice of it public, mostly for the reason that **publishing forces cleanup
 > and I need external pressure to do that**. But I can't publish as-is because client-specific rules
-> are scattered through it…"* — [interview, Q23](agent-setup-interview.md) `*`
+> are scattered through it…"* — [interview, Q23](interviews.md#part-2-interview-1-of-5) `*`
 
 **Rests on.**
 - `✓` [`re-research.md`](re-research.md) R10 — **0 of 1,762** HN comments; `portfolio in:title` in `anthropics/claude-code` returns **2 issues, both 0 reactions, both unrelated**.
@@ -845,11 +845,11 @@ archive lands and does not run* might belong mostly to people installing **one**
 the pain is real and **not ours**. For this person it is not that:
 
 > *"Already had the collection, and that's the point… **The collection created the problem.**"*
-> — [interview, Q15](agent-setup-interview.md) `*`
+> — [interview, Q15](interviews.md#part-2-interview-1-of-5) `*`
 
-Corroborated by the scale of his failures: `*` [Q5](agent-setup-interview.md) — four MCP servers
+Corroborated by the scale of his failures: `*` [Q5](interviews.md#part-2-interview-1-of-5) — four MCP servers
 silently not starting on Linux because of absolute paths copied from a docs example; `*`
-[Q12](agent-setup-interview.md) — *"**one in three fresh environments** has something silently not
+[Q12](interviews.md#part-2-interview-1-of-5) — *"**one in three fresh environments** has something silently not
 loading."*
 
 **Rests on.** Q15, Q5, Q12. **One person.**
@@ -872,7 +872,7 @@ The protocol says questions land in the register as work turns them up. The inte
 > *"You didn't ask what happens when a rule and a client requirement conflict. **That comes up
 > constantly.** My CLAUDE.md says one thing, the client's linter says another, and **there's no
 > precedence anywhere**; it's resolved by whichever I remember at the time, which is a bad way to
-> resolve anything."* — [interview, Q26](agent-setup-interview.md) `*`
+> resolve anything."* — [interview, Q26](interviews.md#part-2-interview-1-of-5) `*`
 
 **Why it matters.** §6 models conflicts **between items in our library**. This is a conflict between
 an item and **something outside the set entirely** — a linter, a client standard, a repo convention —
@@ -883,7 +883,7 @@ and the data model has nowhere to put it. Neither `conflicts` nor `requires` rea
 > *"Roughly **half of what makes a project go well is stuff I've never written down** because writing
 > it down felt too obvious. Then a contractor joins and none of it transfers. If you're studying why
 > these setups fail, **'the written part was never the whole thing'** is probably a bigger factor than
-> anything about the files themselves."* — [interview, Q26](agent-setup-interview.md) `*`
+> anything about the files themselves."* — [interview, Q26](interviews.md#part-2-interview-1-of-5) `*`
 
 **Why it matters.** It bounds the ceiling of the entire product. We validate the written part. If the
 written part is half the system, a perfectly coherent archive still under-delivers at handover —
@@ -896,7 +896,7 @@ Asked what one thing a genie should fix, he did not ask for a checker:
 > *"**Show me what actually loaded and what actually mattered.** Per session: these files were read,
 > this rule fired here, **these six things were present and had no observable effect.** That's it. I
 > don't need it to fix anything, **I need to see it**, because everything else I'd fix myself in an
-> afternoon if I could see it."* — [interview, Q25](agent-setup-interview.md) `*`
+> afternoon if I could see it."* — [interview, Q25](interviews.md#part-2-interview-1-of-5) `*`
 
 **Why it matters.** `CLAUDE.md` §2 says the core value is **assembly with validation**. The one
 practitioner asked wants **observability of what ran**. Those overlap and they are not the same
@@ -921,7 +921,7 @@ them. It edits no file outside this folder.
    NK-17, NK-20, NK-21, NK-22, NK-23.
 3. ~~**To the owner, as work rather than research.** **NK-13 is the only blank row we can fill
    ourselves**, it needs an afternoon, and it tests the spec's most load-bearing bet.~~ **Done
-   2026-09-10** — [`re-research-3.md`](re-research-3.md) Q-F. The bet holds for performing and fails
+   2026-09-10** — [`re-research.md` round 3](re-research.md#round-3-five-questions-that-need-no-interview) Q-F. The bet holds for performing and fails
    for checking, and the work turned up a proposal to §5's shape rather than to its reasoning: **an
    item addresses a directory, not a file.** **What is still ours to run and unspent: the handover
    half of secrets — Doppler and Infisical, captured in flow 07 and still unscored.**
@@ -964,7 +964,7 @@ silent breakage starts.
 But it is the only causal claim anyone has made, and the honest consequence is that we do **not**
 build a persona set around a collector/breaker split that the only direct evidence says is a single
 person. **The primary persona merges them, and the merge is what four more Q15 answers would
-refute** (guide Q15, [`interview-guide.md`](interview-guide.md) §1).
+refute** (guide Q15, [`interviews.md` the guide](interviews.md#part-1-the-guide) §1).
 
 ## The axes actually used
 

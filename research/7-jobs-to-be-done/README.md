@@ -20,7 +20,7 @@ specification, handed to the register's next sitting rather than written into `C
 section on the shared page is built.
 
 **Round 3 was run on 2026-09-10 and this is what it did to the matrix** —
-[`../6-personas/re-research-3.md`](../6-personas/re-research-3.md), recorded cell by cell in
+[`../6-personas/re-research.md (round 3)`](../6-personas/re-research.md#round-3-five-questions-that-need-no-interview), recorded cell by cell in
 [`jtbd.md` §7](jtbd.md). **No importance moved, in any of the ten rows.** The reason is structural and
 worth more than the result: **the columns of this matrix are people, and round 3's instruments see
 machines and artefacts.** A receiving agent that performs a setup is not P2; a skill whose two copies
@@ -52,7 +52,7 @@ RJ-3/P1, RJ-4/P1), because each held an importance the evidence under it did not
 *a reason they would change how they work*, and in every case the person on record demonstrably did
 not. The consequence lands on §8: the *core three*, announced as a rule applied mechanically, **is now
 one job the rule chooses and two kept on stated grounds.** The **only** cell that gained evidence is
-**H-J4's P3**, from [`re-research-2.md`](../6-personas/re-research-2.md) Q-E — and **it runs against
+**H-J4's P3**, from [`re-research.md` round 2](../6-personas/re-research.md#round-2-counting-not-asking) Q-E — and **it runs against
 the feature it supports**: four of the first five practitioners ever observed on installing other
 people's material refuse it, minimise it, or prefer their own.
 
@@ -248,7 +248,7 @@ second candidate survived step 1.
 **Writes.** `audit.md` in this folder.
 
 **Done when.** As in stage 6. In addition, the three questions are merged into
-[`6-personas/interview-guide.md`](../6-personas/interview-guide.md), so that one conversation serves
+[`6-personas/interviews.md (the guide)`](../6-personas/interviews.md#part-1-the-guide), so that one conversation serves
 both stages.
 
 ### 7. Reconcile with the spec — and hand back
@@ -278,7 +278,7 @@ without reading the stage.
 | `jtbd.md` | Main-job candidates and the choice; the hierarchy — main, related, emotional and social — each job with persona, evidence and standing; the *Rewritten* list from the feature test; the matrix with the feature and competitors columns; the two conclusions; hypotheses at the end. **Provisional** in the header. |
 | `audit.md` | Confirmed / hypothesis / invented; the dangerous list; three questions; the reconciliation table against CLAUDE.md; the proposals. |
 | Section in [`6-personas/personas.html`](../6-personas/personas.html) | The hierarchy and the matrix as a table on the shared page, marks visible. One page for both stages, as the lesson has it. |
-| Additions to [`6-personas/interview-guide.md`](../6-personas/interview-guide.md) | This stage's three questions, merged. |
+| Additions to [`6-personas/interviews.md (the guide)`](../6-personas/interviews.md#part-1-the-guide) | This stage's three questions, merged. |
 
 ---
 

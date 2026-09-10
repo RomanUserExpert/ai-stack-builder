@@ -28,7 +28,7 @@ being able to describe it. **Every claim about people carries one of three marks
 | Mark | Means | Test that earns it |
 |---|---|---|
 | **`✓`** | **Confirmed.** | Another person can re-run the instrument and get the same answer: a captured page, a logged query with its count, a source read at origin, a file in this repository. **Checkable without trusting anyone's memory.** |
-| **`*`** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
+| **`*`** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/interviews.md (interview 1)`](6-personas/interviews.md#part-2-interview-1-of-5). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
 | **`?`** | **Unknown.** | No instrument here has established it in either direction. This digest writes it **`данные не подтверждены`**; the stage documents write **`[?]`**. Same level, two registers, and each keeps its own wording. |
 
 **Five rules, and the second is the one that will be broken first — with the fifth as the reason why.**
@@ -555,7 +555,7 @@ of them established **who the person is**. Stage 6 is the first attempt, it is *
 every claim here carries one of the three marks defined at the top of this file. Sources:
 [`6-personas/inventory.md`](6-personas/inventory.md) — the register ·
 [`6-personas/re-research.md`](6-personas/re-research.md) — the source document with its capture logs ·
-[`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md) — interview 1 of 5.
+[`6-personas/interviews.md (interview 1)`](6-personas/interviews.md#part-2-interview-1-of-5) — interview 1 of 5.
 
 ## What was looked at, and what it could not see
 
@@ -744,9 +744,9 @@ lists **all twelve lessons**, current one marked, the ten unbuilt ones *soon*: *
 benchmark** carries stages 1–5, **02 Personas and JTBD** carries stages 6–7. Each page opens with an
 **Overview** — what we saw, what we decided — and closes on its evidence.
 
-**The source document is [`6-personas/re-research-2.md`](6-personas/re-research-2.md)** — question,
+**The source document is [`6-personas/re-research.md (round 2)`](6-personas/re-research.md#round-2-counting-not-asking)** — question,
 instrument, log, result — with its capture log in
-[`_re-research-2-log.json`](6-personas/_re-research-2-log.json). **This is the digest entry; that is
+[`_captures/round2-log.json`](6-personas/_captures/round2-log.json). **This is the digest entry; that is
 the source. Nothing here may be cited as a decision.**
 
 **One new instrument mattered more than the rest.** The **GitHub `git/trees` API** is the first thing
@@ -793,8 +793,8 @@ are a separate pass.** This round applied only what new data actually answered.
 **NK-13.** Two rounds of research, five instruments, 19,703 repositories and 274 comments could not
 touch the single most load-bearing claim in the specification — *a receiving agent performs the setup
 from `SETUP.md` alone*. **A third round stopped reading the public record and ran it.**
-[`6-personas/re-research-3.md`](6-personas/re-research-3.md) Q-F, capture in
-[`6-personas/_qf-handover-test/`](6-personas/_qf-handover-test/).
+[`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-F, capture in
+[`6-personas/_captures/qf-handover-test/`](6-personas/_captures/qf-handover-test/).
 
 **The claim holds and its unexamined half does not.** Ten real items from five checked sources, every
 one pinned, five defects planted, three receiving agents, one instruction. **All three performed the
@@ -811,8 +811,8 @@ to its reasoning: **an item addresses a directory, not a file.**
 
 # 8. Round 3 — five questions that needed no interview, and what running them changed
 
-**Collected 2026-09-10.** Source document: [`6-personas/re-research-3.md`](6-personas/re-research-3.md);
-capture log [`_re-research-3-log.json`](6-personas/_re-research-3-log.json). **This is the digest
+**Collected 2026-09-10.** Source document: [`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview);
+capture log [`_captures/round3-log.json`](6-personas/_captures/round3-log.json). **This is the digest
 entry; that is the source.** The round's whole point is a change of instrument class: rounds 1 and 2
 read what people **wrote**, and rule 5 governs all of it. **Two of these five are experiments we ran
 ourselves and three read behaviour left in public artefacts**, so for the first time the marks cover
@@ -838,7 +838,7 @@ Q-G's control came back. **The discarded versions are named in the source docume
 
 # 9. Round 4 — the matrix's empty cells, hunted where the corpus had never looked
 
-**Collected 2026-09-10.** Source: [`6-personas/re-research-4.md`](6-personas/re-research-4.md); capture log [`_re-research-4-log.json`](6-personas/_re-research-4-log.json).
+**Collected 2026-09-10.** Source: [`6-personas/re-research.md (round 4)`](6-personas/re-research.md#round-4-the-matrixs-empty-cells); capture log [`_captures/round4-log.json`](6-personas/_captures/round4-log.json).
 
 **Why a fourth round the same day.** Round 3 moved no importance in the matrix and said why: its instruments see machines and artefacts, and the matrix's columns are people. **The corpus also has a hole shaped exactly like the people we need.** Everything read until now is GitHub issue filers and Hacker News commenters — and **a receiver files nothing**, because the thing they received is not their project, while **a beginner has nothing to file about**. Two new venues, neither ever used here: **[forum.cursor.com](https://forum.cursor.com)** and **[community.openai.com](https://community.openai.com)**, both Discourse, and both with **the vendor answering in public** — a class of source the corpus did not previously contain. **Reddit refused again, HTTP 403, exactly as in round 1.**
 

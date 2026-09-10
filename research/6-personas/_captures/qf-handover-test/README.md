@@ -2,7 +2,7 @@
 
 **This folder is the capture.** It holds the artefact three receiving agents were given, the ground
 truth of what was wrong with it, and what each of them did. The finding is written up in
-[`../re-research-3.md`](../re-research-3.md) under Q-F; this is the material it rests on.
+[`../re-research.md (round 3)`](../../re-research.md#round-3-five-questions-that-need-no-interview) under Q-F; this is the material it rests on.
 
 **What was tested.** `CLAUDE.md` §6 decides that `SETUP.md` is *written for the agent that opens the
 project, not for a human reader*, and that **on project init the agent reads it and performs the

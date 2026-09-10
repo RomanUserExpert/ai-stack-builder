@@ -15,12 +15,12 @@ something was **said**, not that it is **true**.
 
 **What was actually re-run for this audit.** Every reaction count in both documents was looked up
 in [`3-pain/_user-pain-issues.json`](3-pain/_user-pain-issues.json) or
-[`6-personas/_re-research-gh.json`](6-personas/_re-research-gh.json); every quoted issue body was
+[`6-personas/_captures/round1-github.json`](6-personas/_captures/round1-github.json); every quoted issue body was
 searched in the latter; every Hacker News quote was searched by item id in
-[`_re-research-hn-threads.json`](6-personas/_re-research-hn-threads.json) and
-[`_re-research-hn.json`](6-personas/_re-research-hn.json); the portfolio search was re-run over the
+[`_captures/round1-hn-threads.json`](6-personas/_captures/round1-hn-threads.json) and
+[`_captures/round1-hn.json`](6-personas/_captures/round1-hn.json); the portfolio search was re-run over the
 1,762 comments; the feature-name test was re-run over every job clause in `jtbd.md`; every interview
-quote was matched to its question in [`agent-setup-interview.md`](6-personas/agent-setup-interview.md);
+quote was matched to its question in [`interviews.md` interview 1](6-personas/interviews.md#part-2-interview-1-of-5);
 every `M`, `V` and `E` citation was opened in its flow note, the benchmark, the comparison or the
 post-mortem; and the marks on each persona card were counted.
 
@@ -455,7 +455,7 @@ on an honest `[?]`.
 > **Dated note, 2026-09-10 — read before the list.** This audit is a **record of what was true on
 > 2026-09-09** and is not rewritten. But **D-1 has since been closed**, and a reader consulting the
 > dangerous list before a design decision should know it:
-> [`6-personas/re-research-3.md`](6-personas/re-research-3.md) Q-F ran the handover test on
+> [`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-F ran the handover test on
 > 2026-09-10. **Three receiving agents out of three performed the setup**, so the claim D-1 called
 > unsupported is supported. **And the half nobody had thought to doubt failed**: with the set's
 > defects undisclosed, one receiver found them, one closed a real conflict on a false claim of
@@ -574,4 +574,4 @@ without saying so, which is exactly how the current 20–40 was made.
 **What this document does not do.** It edits nothing. It proposes twenty-seven corrections in Part 1's
 *Note* column; applying them is the owner's, or the next revision of each file's. It adds no register
 entry: every gap found above already has one (Q5, Q7, Q9, Q10, Q12) or is NK-13. Part 3's Q-B block
-for the guide is the stage 7 step 6 merge, written here and not yet in `interview-guide.md`.
+for the guide is the stage 7 step 6 merge, written here and not yet in `interviews.md` the guide.
