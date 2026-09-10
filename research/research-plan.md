@@ -1,6 +1,6 @@
 # Research plan
 
-Updated 2026-09-06. The phase ran in five stages and was **signed off on 2026-09-02**; the register
+Updated 2026-09-10. The phase ran in five stages and was **signed off on 2026-09-02**; the register
 was worked through in one sitting that day. **On 2026-09-06 the phase was re-opened with two more
 stages, 6 and 7** — personas and jobs to be done — because the sign-off had established what vendors
 sell and what breaks, and never who the person is or what they hire the product for. The five-stage
@@ -15,8 +15,8 @@ is lesson 09, and five lessons stand between them. CLAUDE.md §1 carries the twe
 | 3 | **Pain** | The first evidence about users rather than vendors | ● done |
 | 4 | **Benchmark** | A **scoring rubric** — five categories, applied to the best product in the world at each of our four core flows | ● done — 15 cells scored |
 | 5 | **Patterns** | Five radically different shapes for our key flow, scored with that rubric, one chosen | ● done — hybrid chosen, CLAUDE.md §8 rewritten |
-| 6 | **Personas** | 2–4 behavioural personas, one primary, every block sourced or `[?]` — **provisional** until five practitioners are asked | ◐ in progress — inventory, re-research and the interview guide done; personas next |
-| 7 | **Jobs to be done** | One main job, related, emotional and social jobs, and a jobs × personas matrix that says what to build first and what not to build | ○ planned, blocked on 6 — [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) |
+| 6 | **Personas** | 2–4 behavioural personas, one primary, every block sourced or `[?]` — **provisional** until five practitioners are asked | ● done 2026-09-09 — three personas, one primary; audited and applied. **Provisional stands: four interviews are unavailable.** Four collection rounds since |
+| 7 | **Jobs to be done** | One main job, related, emotional and social jobs, and a jobs × personas matrix that says what to build first and what not to build | ● done 2026-09-09 — one main job, four related, three emotional, two social, seven hypotheses and the matrix. **Rounds 3 and 4 have since moved it: 36 `[?]` cells → 31, two numbers raised** |
 
 Stage 4 exists to make stage 5 decidable. Without a rubric, *"which of these five is best"* is settled
 by taste; with one, it is settled by argument. And the rubric is not invented — its five categories
@@ -55,12 +55,12 @@ research/
 | [`6-personas/inventory.md`](6-personas/inventory.md) | **Stage 6, step 1, revalidated.** Every statement about people in this repository with its source and kind of evidence; the owner's fourteen assertions with a standing mark each; and **a register of the twenty questions** — the answer we have, the data it rests on with links, and a `✓` / `*` / `?` mark on each. Three more questions arrived with the first interview: NK-21 to NK-23. |
 | [`6-personas/re-research.md`](6-personas/re-research.md) | **Stage 6, step 5.** A source document. Four instruments taken to the public record — the `anthropics/claude-code`, `openai/codex` and `gemini-cli` trackers, 1,762 Hacker News comments read in full, Stack Overflow, GitHub repository search. Eleven of the twenty unknowns moved. Contains a correction to stage 3 and a challenge to CLAUDE.md §2, neither applied. |
 | [`6-personas/personas.md`](6-personas/personas.md) | **Stage 6, step 3, written 2026-09-08.** Three personas on the axes in `inventory.md` §D — **P1 the keeper who runs several agents (primary)**, P2 the receiver, P3 the empty-handed. Five blocks each (context, jobs, pains, trust triggers, quote) plus environment; every block sourced or `[?]`; **eleven hypotheses** in their own table, each with the instrument that would close it. **Provisional** until five interviews. |
-| `6-personas/audit.md` — **not written yet** | Confirmed / hypothesis / invented, the dangerous list, and the proposals for CLAUDE.md, the digest and the register. |
+| [`personas-and-jobs-critique.md`](personas-and-jobs-critique.md) | **The audit, written 2026-09-08 and applied 2026-09-09** — merged with stage 7's step 6 at the owner's request. 238 claims classified across both files, 27 found invented. Confirmed / hypothesis / invented, the dangerous list, and the proposals. **D-1 was closed on 2026-09-10.** |
 | [`6-personas/agent-setup-interview.md`](6-personas/agent-setup-interview.md) | **Interview 1 of 5.** The first practitioner run against the guide. Everything in it is **`*`**. Does not lift the provisional label — that needs five. |
 | [`6-personas/interview-guide.md`](6-personas/interview-guide.md) | **The instrument for lifting *provisional*.** A 30-minute guide covering the fifteen rows that need a person, built around the one question no search can answer — whether the loud pain and the quiet pain belong to the same people. Recruiting screen, six rules, six blocks, the words never to say, and a coverage table. Ready before the conversations are scheduled. |
 | [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) | **Stage 7 — the plan.** The canonical job form, the hierarchy, the feature-name test, the matrix, and what each of its two answers is worth. |
-| `7-jobs-to-be-done/jtbd.md` — **not written yet** | **Stage 7.** Main-job candidates and the choice, the hierarchy, the matrix with feature and competitor columns, the two conclusions. Provisional. |
-| `7-jobs-to-be-done/audit.md` — **not written yet** | The audit and the reconciliation table against CLAUDE.md §2, §8, §9. |
+| [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) | **Stage 7, written 2026-09-08, audited and reconciled 2026-09-09.** Main-job candidates and the choice, the hierarchy, the matrix with feature and competitor columns, the two conclusions, and §12's nine proposals. **§7 now carries what rounds 3 and 4 did to the matrix.** Provisional. |
+| [`6-personas/re-research-2.md`](6-personas/re-research-2.md) · [`-3.md`](6-personas/re-research-3.md) · [`-4.md`](6-personas/re-research-4.md) | **Three more collection rounds.** Round 2 (2026-09-08) counts somebody's collection instead of asking about it. **Round 3 (2026-09-10) stops reading the record and runs experiments** — the handover test and the competitors, installed. **Round 4 (2026-09-10) goes after the matrix's persona columns** in two vendor forums nobody here had used, and turns round 3's fork corpus on a question nobody had asked it. |
 
 ---
 
@@ -544,6 +544,10 @@ The pass is in [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §7.
 paid tier: the vendor's own resolution is *"wrap the skill as a plugin in the Team Marketplace and
 mark it as Required so it installs for everyone automatically… only available on Teams/Enterprise"*,
 and the user answers *"Huge unlock."* That belongs beside round 3's Q-J.
+
+**A second pass the same day** turned round 3's own fork corpus on a question nobody had asked it — *a receiver who never posts still leaves a diff* — and filled four more cells: **RJ-3/P1 2 → 3** (the job stated verbatim, then five mechanisms tried and failed), **H-J1/P1 `[?]` → 2**, and **two P2 cells on behaviour rather than accounts** — **RJ-4/P2** on four receivers stripping the author's credentials out of inherited material, **SJ-1/P2** on 30 of 214 receivers writing 21,266 lines of setup and handover manual the sender never shipped. **RJ-1/P1 was hunted on purpose with six targeted queries and stays `[?]`**, which makes the gap §8 calls the widest in the file wider still.
+
+**The day's arithmetic: 36 `[?]` cells this morning, 31 tonight; P1 from seven unknowns to four; P3 unchanged at ten.**
 
 **Nothing is applied to `CLAUDE.md`, and the label does not lift.**
 

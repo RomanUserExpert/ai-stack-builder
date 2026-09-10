@@ -858,3 +858,16 @@ Q-G's control came back. **The discarded versions are named in the source docume
 **Two things for the register.** **Q12 no longer stands on one person.** And the market's managed answer to distributing a **set** is a paid tier: *“wrap the skill as a plugin in the Team Marketplace and mark it as Required so it installs for everyone automatically… only available on Teams/Enterprise”*, to which the user replies *“Huge unlock.”*
 
 **One discarded pass, named on purpose.** The first filter matched first-person markers against post bodies and produced 52 “receivers”, nearly all of them Cursor's own **model-inheritance** feature, where *inherited* is jargon. It was thrown away. The pass that worked searches **titles**, because on a Q&A forum the person we need announces themselves in the title.
+
+**A second pass the same day found four more cells, and it came from turning round 3's own data on a question nobody had asked it.** The first pass concluded that the receiver never speaks — true, and not the only way to reach one. **A receiver who never posts still leaves a diff**, and 214 forks with their patches were already read.
+
+| Cell | Move | On what |
+|---|---|---|
+| **RJ-3 / P1** | **2 → 3** | *“I'm forced to duplicate configuration files across projects manually… the **risk of forgetting to update a copy, leading to inconsistencies in agent behavior across projects**”* — and then **five mechanisms tried and five failures**, ending on the symlink that works until `.gitignore` hides it from the tool |
+| **H-J1 / P1** | **`[?]` → 2** | A Cursor user whose prompt library **is a folder of notes in Telegram**, re-entering every file and skill link by hand |
+| **RJ-4 / P2** | **`[?]` → 2** | **Four receivers watched stripping the author's credentials out of inherited material** — one commit titled *“remove encrypted files”*, another *“Re-committing work without secrets”* followed by the `.env.example` the material lacked |
+| **SJ-1 / P2** | **`[?]` → 2** | **30 of 214 receivers wrote 21,266 lines** of setup and handover manual the sender never shipped, naming them `HANDOFF.md`, `SETUP.md`, `docs/windows-setup.md` |
+
+**RJ-1/P1 was hunted deliberately and stays `[?]`** — six queries aimed straight at *I wish I had known what the other side would need*, across both forums, and nobody says it. §8 of the jobs document calls that gap the widest in the file; a deliberate negative makes it wider.
+
+**The day's arithmetic: 36 `[?]` cells this morning, 31 tonight; the P1 column from seven unknowns to four; two numbers raised. And the sentence *every P2 cell carrying a number is second-hand* is no longer true** — two of them now rest on diffs. **P3's ten stay ten.**

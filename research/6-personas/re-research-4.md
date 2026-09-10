@@ -209,6 +209,141 @@ the shelf assumes — importing other people's material and coming back to edit 
 
 ---
 
+---
+
+# Second pass, the same day — four more cells, two of them P2
+
+**The first pass had a blind spot of its own.** It went looking for what people *say* and concluded
+that the receiver never speaks. **That is true and it is not the only way to reach a receiver.**
+Round 3 had already read **214 forks in full, with their patches**, and classified them for a
+different question; nobody had asked that corpus about the matrix. **A receiver who never posts still
+leaves a diff.**
+
+Plus one more sweep of the two forums, aimed at the three P1 cells the first pass did not touch.
+
+### F7 — RJ-3 / P1: **2 → 3.** The job stated verbatim, with its cost, by somebody who tried five mechanisms
+
+The audit lowered this cell to a 2 on 2026-09-09 with a sharp reason: the one person on record *"still
+moves material with `cp -r`"* — he paid the price and changed nothing. **A second person did the
+opposite.**
+
+**[Question about syncing plugin changes across projects](https://forum.cursor.com/t/question-about-syncing-plugin-changes-across-projects-local-development/167666)**
+— 8 replies, 2026-08-07, `Pavel_Mikhalev`:
+
+> *"I'm forced to **duplicate configuration files (rules and skills) across projects manually**. This
+> creates the following difficulties: **When I need to refine a rule in one project, I have to
+> simultaneously apply the same changes to all other projects where that rule is used.** This
+> approach requires constant context switching and carries the **risk of forgetting to update a copy,
+> leading to inconsistencies in agent behavior across projects.**"*
+
+**That is RJ-3's sentence, written by somebody who has never heard of us**, and the thread is a record
+of **five mechanisms tried and five failures**: the plugin installer *"can stay pinned to the first
+commit"*; the local plugin folder *"applies globally to all projects, and there's no way to
+enable/disable them on a per-project basis"*; two marketplace update paths where *"nothing would
+actually update"*; and the symlink route, which works and then dies — *"these rules shouldn't be
+stored inside the project itself, which means they need to be in `.gitignore`. But if they're in
+`.gitignore`, **Cursor doesn't see them and ignores them**."*
+
+**Rebuilding your tooling five times is the audit's own test for a 3, met.** And the last failure is
+**H-J3 again, from a second independent person**: what he needs is one shared source with per-project
+enable and disable.
+
+### F8 — H-J1 / P1: **`[?]` → 2.** A prompt library that is a folder of notes in Telegram
+
+H-J1 has stood on a single interview sighting since 2026-09-08, and jtbd's own orphan list called it
+*"the market's best-served flow **and** our thinnest evidence"*.
+
+**[Prompt library (Notepads 2.0)](https://forum.cursor.com/t/prompt-library-notepads-2-0/148996)** —
+`Artemonim`, a Cursor user with skills and subagents:
+
+> *"Right now, I have several templates **in my notes in Telegram**, and I have to copy them into new
+> chats, **as well as manually enter each link to each file, command, or skill** that I want to use to
+> start a new chat."*
+
+He then asks himself whether skills already solve it — *"Maybe I should try the skills 🤔"* — and
+answers two posts later: **"No, that's not it."**
+
+**Corroborated in an adjacent population** by [a full specification of the missing
+thing](https://community.openai.com/t/a-built-in-prompt-vault-or-prompt-library-added-to-chatgpt-would-be-extremely-useful/1390442):
+save, name, **folders, tags, search**, edit, duplicate, templates with variables — *"I regularly
+create prompts that I want to reuse, but currently there isn't a simple way to save individual
+prompts… and organize them for later."* The vendor's answer: *"No timeline to share yet."*
+
+**A 2: manual re-entry every time is a cost, and neither of them changed how they work.** The
+adjacent-population caveat is real — the second person's use is image and SEO work, not coding — so
+the cell rests on the first and cites the second.
+
+### F9 — RJ-4 / P2: **`[?]` → 2**, and it is **behaviour, not an account**
+
+The cell read *"`.env.example` exists for the receiver, and **no receiver has said anything about
+it**."* Still true. **Four of them were watched doing it instead.**
+
+In the 214 forks round 3 read, at least four independent receivers touch secrets in inherited
+material among their first commits:
+
+- **[`insurgently/dotfiles`](https://github.com/insurgently/dotfiles)** — a commit titled **"remove
+  encrypted files"**, deleting `home/.key.txt.age`, an encrypted VPN credential, the author's
+  encrypted **GPG trustdb and keyring**, and an encrypted **SSH private key**.
+- **`trang-kaleido/kaleid.mvp-claude`** — a commit titled **"Re-committing work without secrets"**,
+  and in the same fork a **40-line `.env.example`** the inherited material did not have. **A receiver
+  reinventing §6's mechanism after being burned by its absence.**
+- **`toshiyan76/github-cursor-rules-agent`** — *"APIキーの変更"*, modifying `.env.example`.
+- **`EyalShay-Debz/dotclaude`** — *"chore: utils and env key"*, modifying `.env.mcp`.
+
+**A 2: a cleanup, and in one case a history rewrite. Not a 3 — nobody is on record changing how they
+work.**
+
+### F10 — SJ-1 / P2: **`[?]` → 2.** Receivers write the manual the sender did not ship, and they name it themselves
+
+**30 of 214 committers — 14% — added a setup, handover or installation document that the material
+they received did not contain. Together: 21,266 lines.**
+
+The names are theirs, not ours: **`HANDOFF.md` at 229 lines as the fork's only commit**; another
+`HANDOFF.md` at 1,041; `SETUP.md` at 425; `INSTALL-GUIDE.md` at 283; **`docs/windows-setup.md` at
+284** — which is stage 3's environmental pain, on the receiving side; `mcp-setup.md`, `lsp-setup.md`,
+`developer-setup.md`, `cross-machine-claude-setup.md`; and one commit titled **"Make `setup.sh` safe
+for complex pre-existing installs"** beside a 120-line note on adapting an install to a machine that
+already had things.
+
+**Counted strictly.** A fork adding its own `CLAUDE.md` or `AGENTS.md` is adding *material*, not
+writing a *manual*; those are a separate 39 forks and are excluded from the 30.
+
+**A 2: hours of writing, repeatedly, to supply what the sender did not send.**
+
+### F11 — RJ-1 / P1 was hunted deliberately and is still `[?]`, which is worth recording
+
+[`jtbd.md`](../7-jobs-to-be-done/jtbd.md) §8 says the gap between what the spec spends on RJ-1 —
+§8's whole disclosure-before-Export apparatus — and what the evidence carries there is **the widest in
+the file**, and that *"if one practitioner says it plainly, it moves into the core ahead of RJ-3."*
+
+**This round went looking for that sentence on purpose**, with six title queries aimed at it —
+*what to include*, *checklist*, *what does it need*, *requirements to run*, *works on my machine*,
+*missing dependency* — across both forums. **What came back was system requirements, to-do lists and
+a method framework.** Nobody, anywhere in five venues, says *I wish I had known what the other side
+would need before I sent it.*
+
+**That is now a deliberate negative rather than an absence nobody looked for**, and it makes the gap
+§8 named larger rather than smaller. **RJ-3 has since moved to a 3 (F7), so the sentence about RJ-1
+overtaking it needs re-reading at the sitting.**
+
+---
+
+## What the two passes did to the matrix, counted
+
+| | This morning | Tonight |
+|---|---|---|
+| `[?]` cells in the matrix | **36** | **31** |
+| `[?]` in the **P1** column | 7 | **4** — RJ-1, H-J2, H-J4, H-J7 |
+| `[?]` in the **P2** column | 7 | **5** |
+| `[?]` in the **P3** column | 10 | **10** |
+| Numbers raised | — | **RJ-2 2→3 · RJ-3 2→3** |
+| Cells filled | — | **EJ-2/P1 · H-J3/P1 · H-J1/P1 · RJ-4/P2 · SJ-1/P2** |
+
+**And one qualitative change worth more than the count.** [`jtbd.md`](../7-jobs-to-be-done/jtbd.md)
+§7 said **every P2 cell carrying a number is second-hand.** That is no longer true: **RJ-4/P2 and
+SJ-1/P2 rest on diffs.** The receiver still never speaks — **and we no longer need them to, for the
+things a diff can show.**
+
 ## What this round establishes, and what it does not
 
 **Establishes, at utterance level, rule 5 governing:** three matrix cells have evidence they did not
