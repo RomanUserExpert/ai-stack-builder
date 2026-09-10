@@ -516,6 +516,37 @@ nine, stage 7's nine) as input to the same sitting.
 closing does not change what the trigger is, and this round says so itself rather than arguing
 otherwise.
 
+### Round 4 — 2026-09-10, and this one moved the matrix
+
+**[`6-personas/re-research-4.md`](6-personas/re-research-4.md)**, capture log
+[`_re-research-4-log.json`](6-personas/_re-research-4-log.json). Round 3 answered five questions and
+moved no importance in the matrix, for a structural reason: its instruments see machines, and the
+matrix's columns are people. **Round 4 went after the columns**, in two venues this repository had
+never used — **forum.cursor.com** and **community.openai.com**, both Discourse, both with the vendor
+answering on the record. 2,140 body hits over 1,929 posts read in full, 955 topics by title, 394 HN
+comments, 17 threads read end to end. **Reddit refused again — HTTP 403 — which is R13 unchanged.**
+
+**Three matrix cells moved and all three moved up**, which no round had done before: **RJ-2/P1 2 → 3**
+on a vendor-confirmed duplicate-detection failure plus two people who rebuilt their tooling around it;
+**EJ-2/P1 `[?]` → 2** and **H-J3/P1 `[?]` → 2**, each on one named person with the thread under it.
+The pass is in [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §7.
+
+**What it does to the live entries:**
+
+| Entry | What round 4 did |
+|---|---|
+| **Q12** — observability rather than validation | **It no longer stands on one person.** [Cursor forum #144731](https://forum.cursor.com/t/rules-not-being-applied-as-expected/144731): a named user with a reproduction repository asks to *"inspect the raw full context window… to tell if it is an issue with AI not loading the rule vs just deciding not to follow them"*, and the vendor confirms rules apply inconsistently. **Public, dated, re-runnable.** The disposition is still the owner's; the question is no longer one interviewee's aside |
+| **Q9** — which features close no evidenced job | **Two movements, opposite directions.** *Promote a detached item* was listed as closing a job standing on **nothing**; H-J3 now has a person and a 2. And **P3 was looked for a third time and not found**: the two clearest public beginners wrote their own material on day one, or asked to shadow a human — neither reached for a library, and neither thread got a reply |
+| **Q7** — who is primary | **A finding about the population, not about the search.** After four rounds and five venues, **no receiver has spoken in the first person.** Every account of a handover is written by the sender. Pointing register entries at *"ask a receiver"* treats as effort what looks like a property: the person who receives has no reason to post, because the thing they received is not theirs |
+| **Q5, Q8, Q10, Q11** | Unmoved |
+
+**One competitor fact for the sitting.** The market's managed answer to distributing a **set** is a
+paid tier: the vendor's own resolution is *"wrap the skill as a plugin in the Team Marketplace and
+mark it as Required so it installs for everyone automatically… only available on Teams/Enterprise"*,
+and the user answers *"Huge unlock."* That belongs beside round 3's Q-J.
+
+**Nothing is applied to `CLAUDE.md`, and the label does not lift.**
+
 **The question this raises and does not answer: what, if anything, may ever lift *provisional*?**
 That is the owner's call at the sitting, not a research finding. Three positions are available and
 each has a cost — keep the label until conversations become possible; replace the trigger with a

@@ -7,7 +7,7 @@ here. The method is the one taught in lesson 2 of the design-engineering course 
 slides, read in full), adapted to this product and to this repository's evidence rules. Where the
 lesson and this repository's protocol disagree, the protocol wins and the disagreement is stated.
 
-Status, **2026-09-10: every step is done except the interviews, and the third round of collection has been run.**
+Status, **2026-09-10: every step is done except the interviews, and two more rounds of collection have been run.**
 [`inventory.md`](inventory.md) (the register, and the axes in §D),
 [`re-research.md`](re-research.md), [`interview-guide.md`](interview-guide.md),
 [`agent-setup-interview.md`](agent-setup-interview.md) — **interview 1 of 5** — and
@@ -52,6 +52,8 @@ the item level. **Six proposals went to the register and none is applied.** The 
 summarised in [`../research.md`](../research.md) §8 and its effect on the matrix in
 [`../7-jobs-to-be-done/jtbd.md`](../7-jobs-to-be-done/jtbd.md) §7 — **where not one importance moved,
 because the columns are people and these instruments see machines.**
+
+**A fourth round followed the same day** — [`re-research-4.md`](re-research-4.md) — because round 3 moved no importance in the matrix and said why: its instruments see machines, and the matrix's columns are people. It went to two venues this repository had never used, **forum.cursor.com** and **community.openai.com**, both with the vendor answering in public. **Three cells moved and all three moved up**, which no round had done before. **And it produced the strongest thing anyone here has said about P2**: after four rounds and five venues, **no receiver has ever spoken in the first person** — every account of a handover is written by the sender, which is a property of the population rather than a failure of searching.
 
 **And the guide still has no block of questions for a receiver**, which is why every line about P2 is
 somebody else's account of them. That gap is now addressed from the other side, by Q-G.

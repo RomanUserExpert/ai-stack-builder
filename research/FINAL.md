@@ -499,3 +499,26 @@ allow for.
 **Six proposals go to the register's sitting**, listed at the end of that file. **Nothing is applied
 to `CLAUDE.md`, and the *provisional* label does not lift** — its trigger is five practitioner
 conversations, and closing four hypotheses does not change what the trigger is.
+
+### And a fourth round, the same day, which moved the matrix
+
+**Round 3 changed no importance in the ten matrix rows**, for a structural reason it stated: its
+instruments see machines and artefacts, and the matrix's columns are people. So
+[`6-personas/re-research-4.md`](6-personas/re-research-4.md) went after the columns, in two venues
+this repository had never used — **forum.cursor.com** and **community.openai.com**, both Discourse,
+**both with the vendor answering in public**, which is a class of source the corpus did not contain.
+Reddit refused again, HTTP 403, exactly as in round 1.
+
+**Three cells moved and all three moved up**, the first upward movement the matrix has had:
+**RJ-2/P1 2 → 3** on a vendor-confirmed duplicate-detection failure plus two users who rebuilt their
+tooling around it; **EJ-2/P1 `[?]` → 2** on a named person with a reproduction repository asking to
+*“inspect the raw full context window… to tell if it is an issue with AI not loading the rule vs
+just deciding not to follow them”*; **H-J3/P1 `[?]` → 2** on *“each user should be able to slightly
+modify the rules”*, which is `detached` and `overrides` described as a requirement.
+
+**The two columns that did not move say more than the three cells that did.** **No receiver has
+ever spoken in the first person** — four rounds, five venues, and every account of a handover is
+written by the sender. **And P3 was looked for a third time and not found**: the two clearest public
+beginners wrote their own material on day one or asked to shadow a human, and neither thread got a
+reply. **To the register: Q12 no longer stands on one person**, and §9's orphan entry for *promote a
+detached item* no longer stands on nothing.

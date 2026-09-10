@@ -1,0 +1,184 @@
+{
+ "collected": "2026-09-10",
+ "round": 4,
+ "purpose": "Hunt the matrix's empty cells in venues the corpus has never used. The corpus was people who file GitHub issues and people who comment on Hacker News; receivers and beginners are absent from both by construction.",
+ "instruments": [
+  {
+   "id": "I12",
+   "name": "forum.cursor.com - Discourse search + topic JSON",
+   "what": "Cursor users asking for help in their own words, including the vendor staff answering them",
+   "blind_to": "anyone not on that forum; a help forum over-samples people whose thing is broken"
+  },
+  {
+   "id": "I13",
+   "name": "community.openai.com - Discourse search + topic JSON",
+   "what": "Codex and ChatGPT users, same shape",
+   "blind_to": "same"
+  },
+  {
+   "id": "I3c",
+   "name": "Hacker News via Algolia, searched for the SITUATION not the subject",
+   "what": "full comment text, quoted phrases",
+   "blind_to": "a self-selecting HN population"
+  },
+  {
+   "id": "I14",
+   "name": "Reddit",
+   "what": "nothing - refused again",
+   "blind_to": "HTTP 403 on 2026-09-10, exactly as R13 recorded in round 1. The venue named as where this population talks is still unreachable."
+  }
+ ],
+ "volumes": {
+  "discourse_body_queries": 62,
+  "discourse_body_hits": 2140,
+  "discourse_unique_posts_fetched_full": 1929,
+  "discourse_title_queries": 52,
+  "discourse_unique_topics": 955,
+  "hn_queries": 23,
+  "hn_hits": 394,
+  "threads_read_in_full": [
+   {
+    "source": "cursor",
+    "id": 48454,
+    "title": "How do I share cursor rules with my team",
+    "views": 1375,
+    "posts": 6,
+    "url": "https://forum.cursor.com/t/how-do-i-share-cursor-rules-with-my-team/48454"
+   },
+   {
+    "source": "cursor",
+    "id": 50213,
+    "title": "How do I share cursor rules with my team？",
+    "views": 1384,
+    "posts": 5,
+    "url": "https://forum.cursor.com/t/how-do-i-share-cursor-rules-with-my-team/50213"
+   },
+   {
+    "source": "cursor",
+    "id": 144065,
+    "title": "How can i share rules with my team?",
+    "views": 44,
+    "posts": 1,
+    "url": "https://forum.cursor.com/t/how-can-i-share-rules-with-my-team/144065"
+   },
+   {
+    "source": "cursor",
+    "id": 98085,
+    "title": "Support Remote Rules Files or Enable MCP Trigger via cmd+k for Dynamic Team Rule Sharing",
+    "views": 73,
+    "posts": 1,
+    "url": "https://forum.cursor.com/t/support-remote-rules-files-or-enable-mcp-trigger-via-cmd-k-for-dynamic-team-rule-sharing/98085"
+   },
+   {
+    "source": "cursor",
+    "id": 165324,
+    "title": "Shared Skills on Cloud Agents",
+    "views": 180,
+    "posts": 6,
+    "url": "https://forum.cursor.com/t/shared-skills-on-cloud-agents/165324"
+   },
+   {
+    "source": "cursor",
+    "id": 170590,
+    "title": "Unable to share Skills on Windows",
+    "views": 29,
+    "posts": 2,
+    "url": "https://forum.cursor.com/t/unable-to-share-skills-on-windows/170590"
+   },
+   {
+    "source": "cursor",
+    "id": 66299,
+    "title": "Sync global rules - AND CHATS!",
+    "views": 760,
+    "posts": 5,
+    "url": "https://forum.cursor.com/t/sync-global-rules-and-chats/66299"
+   },
+   {
+    "source": "openai",
+    "id": 1374002,
+    "title": "Help me find or create an handover skill",
+    "views": 453,
+    "posts": 2,
+    "url": "https://community.openai.com/t/help-me-find-or-create-an-handover-skill/1374002"
+   },
+   {
+    "source": "cursor",
+    "id": 160677,
+    "title": "Excessive Token Usage: Cursor auto-loads too many \"Skills\" from ~/.claude/skills at conversation start",
+    "views": 571,
+    "posts": 9,
+    "url": "https://forum.cursor.com/t/excessive-token-usage-cursor-auto-loads-too-many-skills-from-claude-skills-at-conversation-start/160677"
+   },
+   {
+    "source": "cursor",
+    "id": 137798,
+    "title": "Beginner with Agents in Cursor AI",
+    "views": 43,
+    "posts": 1,
+    "url": "https://forum.cursor.com/t/beginner-with-agents-in-cursor-ai/137798"
+   },
+   {
+    "source": "cursor",
+    "id": 75300,
+    "title": "Cursor for beginner - need general guidance",
+    "views": 152,
+    "posts": 1,
+    "url": "https://forum.cursor.com/t/cursor-for-beginner-need-general-guidance/75300"
+   },
+   {
+    "source": "cursor",
+    "id": 24982,
+    "title": "How Rules for AI can manage rules differently on a per-project basis",
+    "views": 77,
+    "posts": 1,
+    "url": "https://forum.cursor.com/t/how-rules-for-ai-can-manage-rules-differently-on-a-per-project-basis/24982"
+   },
+   {
+    "source": "cursor",
+    "id": 170277,
+    "title": "Agent repeatedly ignores workspace User Rules and repo gates across multiple chats (unauthorized API/deploy, wrong process order)",
+    "views": 92,
+    "posts": 10,
+    "url": "https://forum.cursor.com/t/agent-repeatedly-ignores-workspace-user-rules-and-repo-gates-across-multiple-chats-unauthorized-api-deploy-wrong-process-order/170277"
+   },
+   {
+    "source": "cursor",
+    "id": 147236,
+    "title": "Rules in home folder (~/.cursor/rules) are not applied",
+    "views": 396,
+    "posts": 4,
+    "url": "https://forum.cursor.com/t/rules-in-home-folder-cursor-rules-are-not-applied/147236"
+   },
+   {
+    "source": "cursor",
+    "id": 144731,
+    "title": "Rules not being applied as expected",
+    "views": 457,
+    "posts": 5,
+    "url": "https://forum.cursor.com/t/rules-not-being-applied-as-expected/144731"
+   },
+   {
+    "source": "cursor",
+    "id": 107099,
+    "title": "Share and Manage Rules Across Teams/Projects! (Cursor Extension)",
+    "views": 1013,
+    "posts": 1,
+    "url": "https://forum.cursor.com/t/share-and-manage-rules-across-teams-projects-cursor-extension/107099"
+   },
+   {
+    "source": "openai",
+    "id": 1382589,
+    "title": "ChatGPT: User-Controlled Memory Routing (Global / Project / Session) + Per-Project Instructions",
+    "views": 78,
+    "posts": 2,
+    "url": "https://community.openai.com/t/chatgpt-user-controlled-memory-routing-global-project-session-per-project-instructions/1382589"
+   }
+  ]
+ },
+ "method_note": "Body search on a help forum drowns: Cursor's own model-inheritance feature makes \"inherited\" useless as a marker, and a first pass built on it was discarded. The pass that worked searched TITLES, because on a Q&A forum a person in the shape we need announces it in the title.",
+ "limits": [
+  "Every venue here is a place people go when something is wrong or unclear, so it over-samples friction and under-samples people for whom it works.",
+  "No receiver speaks in the first person even here. Every team-sharing thread is written by the sender.",
+  "Rule 5 governs all of it: these are utterances."
+ ]
+}

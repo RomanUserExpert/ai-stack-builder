@@ -835,3 +835,26 @@ cells changed in the two right-hand columns; the pass is recorded in
 before anything was written — a path-rewrite rule that gave 69% instead of 12%, and two provenance
 rules that gave 82% and 66% instead of 10% — and a fourth was discarded **after** it was written, when
 Q-G's control came back. **The discarded versions are named in the source document on purpose.**
+
+# 9. Round 4 — the matrix's empty cells, hunted where the corpus had never looked
+
+**Collected 2026-09-10.** Source: [`6-personas/re-research-4.md`](6-personas/re-research-4.md); capture log [`_re-research-4-log.json`](6-personas/_re-research-4-log.json).
+
+**Why a fourth round the same day.** Round 3 moved no importance in the matrix and said why: its instruments see machines and artefacts, and the matrix's columns are people. **The corpus also has a hole shaped exactly like the people we need.** Everything read until now is GitHub issue filers and Hacker News commenters — and **a receiver files nothing**, because the thing they received is not their project, while **a beginner has nothing to file about**. Two new venues, neither ever used here: **[forum.cursor.com](https://forum.cursor.com)** and **[community.openai.com](https://community.openai.com)**, both Discourse, and both with **the vendor answering in public** — a class of source the corpus did not previously contain. **Reddit refused again, HTTP 403, exactly as in round 1.**
+
+**Three matrix cells moved, and all three moved up.** The audit only ever subtracted and round 3 moved nothing vertical; this is the first upward movement the matrix has had.
+
+| Cell | Move | On what |
+|---|---|---|
+| **RJ-2 / P1** | **2 → 3** | Skills loaded from four roots at once and **duplicates confirmed by the vendor not to collapse** — *“GStack stores skills in `~/.agent/skills` (no `s`)… that’s why duplicates don’t collapse… no fix yet”* — and **two users rebuilt their tooling** rather than live with it: a purge script that marks the folder immutable, and a wrapper that re-execs the agent inside a private mount namespace |
+| **EJ-2 / P1** | **`[?]` → 2** | A named person with a reproduction repository and ten days spent: *“it would **Really** be useful if we could **inspect the raw full context window**… to tell if it is an issue with **AI not loading the rule vs just deciding not to follow them**”* |
+| **H-J3 / P1** | **`[?]` → 2** | *“I need share the rules with my team… **each user should be able to slightly modify the rules**”* — one shared source with a per-user modified copy, which is `detached` and `overrides`, from somebody with no mechanism for it |
+
+**And the two columns that did not move say more than the three cells that did.**
+
+- **The receiver does not post.** Handover to a team is asked about repeatedly — four independent topics on Cursor's forum, two at ~1,380 views, the official answer *“commit the rules inside of your Repo”* — **and every asker is a sender.** After four rounds and five venues, no receiver has spoken in the first person. That is a property of the population, not a failure of searching.
+- **P3 was looked for a third time and not found.** The two clearest public beginners: one *“created a detailed Markdown file with all the info about the project”* on day one, the other asked *“if anyone experienced here would be willing to let me **shadow them** as they code for 30 mins”*. **One made his own, one wanted a person, neither reached for a library** — and **neither thread got a reply.**
+
+**Two things for the register.** **Q12 no longer stands on one person.** And the market's managed answer to distributing a **set** is a paid tier: *“wrap the skill as a plugin in the Team Marketplace and mark it as Required so it installs for everyone automatically… only available on Teams/Enterprise”*, to which the user replies *“Huge unlock.”*
+
+**One discarded pass, named on purpose.** The first filter matched first-person markers against post bodies and produced 52 “receivers”, nearly all of them Cursor's own **model-inheritance** feature, where *inherited* is jargon. It was thrown away. The pass that worked searches **titles**, because on a Q&A forum the person we need announces themselves in the title.
