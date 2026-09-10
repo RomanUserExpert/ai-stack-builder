@@ -328,16 +328,105 @@ overtaking it needs re-reading at the sitting.**
 
 ---
 
-## What the two passes did to the matrix, counted
+---
+
+# Third pass — the last one, and it ends on a wall worth naming
+
+Two cells filled in the first pass, four in the second. **This pass went at what was left, and got
+one — and the reason it got only one is the most useful thing it produced.**
+
+Three targets, one new venue, and one deliberate inversion of the method.
+
+### F12 — H-J7 / P1: **`[?]` → 2.** Four people, one price, and a sampling problem said out loud
+
+The unwritten half has stood on **one aside from one interview** since 2026-09-07 — *"roughly half of
+what makes a project go well is stuff I've never written down"* — and it is **Q11** in the register.
+Four independent people say it in public, in the first person:
+
+- *"You lose context, lose progress, **re-explain everything, and waste 10–30 minutes every time**"* —
+  [Drift](https://news.ycombinator.com/item?id=47934325). **The only price anybody has put on it.**
+- *"Claude Code keeps forgetting what it learned. **Every session I'd re-explain the architecture,
+  re-discover the same bugs, re-learn the same solutions.** `CLAUDE.md` helps but it's manual"* —
+  [Memory-Graph](https://news.ycombinator.com/item?id=46091577).
+- *"Every time I switch tools/models, I have to re-explain the project. **Specs live in my head** or
+  in random chat history"* — [Spec-AGENTS.md](https://news.ycombinator.com/item?id=46286705).
+- *"I've been the lead developer for this client for over six years… **All the institutional
+  knowledge lived in my head.** I brought up the bus factor problem myself and built a continuity
+  package to eliminate it"* — [a continuity package](https://news.ycombinator.com/item?id=47309623).
+
+**A 2, and deliberately not a 3, for a reason that had to be checked rather than assumed.** All four
+also **built and shipped software** about it, which looks like the audit's test for a 3 — *a reason
+they would change how they work*. **It is not, because of how they were found.** These are Show HN
+posts, and in that venue **having built something is the entry ticket**: sampling there and then
+counting the building as evidence of importance is circular. What survives the circularity is the
+**stated cost**, four times, once with a number. **Their posts scored 1, 2, 2 and 3 points**, so the
+venue's own weighting is worth nothing either — which is J-74's rule, applied to us this time.
+
+**And the fourth voice repays reading beyond its cell.** The same person, handing six years of work
+to a client, solved the credential problem **exactly as `CLAUDE.md` §6 does**, without having heard
+of us: *"You need secrets accessible for handoff but you can't commit them… the documentation repo
+has **references to every credential — what it is, where it's used, who owns it — but zero actual
+values.** A separate gitignored secrets directory holds the real `.env` files."* That is
+`needsEnv` collected across the set and written to `.env.example`, invented independently by somebody
+doing a real handover. **It is one person on a post nobody read**, so it corroborates and does not
+raise anything.
+
+### F13 — P3, at the shelf's own doorstep, and still nothing
+
+Four instruments have hunted the empty-handed and failed. **This pass inverted the method**: instead
+of going where people are and asking whether any of them has nothing, it went to **the shelves
+themselves** — 18 of the largest public collections and installer tools, **568 issues** — on the
+grounds that somebody who turns up at a stranger's shelf and asks a question is P3-shaped by
+construction.
+
+**Nine issues match the language. Three are real people, and not one can be shown to be
+empty-handed.** They are, in order of what they teach:
+
+- **[`vijaythecoder/awesome-claude-agents#28`](https://github.com/vijaythecoder/awesome-claude-agents/issues/28)** — 4,386★. *"Many agents in this repository are instructed to use a tool called **`context7 MCP`**… the project's documentation provides **no explanation of what this tool is, how to install it, or how it works.** This creates an immediate and significant usability hurdle for new users, **as they are unable to run these agents as intended, leading to immediate failure and frustration.**"* **A shelf of items with an undeclared MCP dependency, and consumers blocked at exactly the point §5's `requires`, §6's dependency walk and `SETUP.md` exist for.** It is the best public justification of the product's core mechanic in the entire corpus — and it fills no cell, because we cannot say who the filer is.
+- **[`enulus/OpenPackage#45`](https://github.com/enulus/OpenPackage/issues/45)** — *"**first timer here. Is this supposed to happen? What should i do here?** It keeps spamming the message for every agents"*, against a prompt reading `File 'pattern' already exists in package 'project1'. Choose how to proceed: Keep existing file (skip) / Replace with workspace file / Cancel`. **A competitor's collision UX, met by a newcomer, per file, per agent, and he cannot answer it.** That is a warning aimed straight at §6's Run: naming a collision is not the same as making it answerable.
+- **[`enulus/OpenPackage#12`](https://github.com/enulus/OpenPackage/issues/12)** — *"how to install a package for a particular agent **when you have multiple agents installed like I have**… It's not clear from the doc"*. And, in passing: *"I put this comment on reddit but **it got deleted**."*
+
+**P3 stays `[?]` in all ten rows.**
+
+### F14 — RJ-1 and H-J2, hunted a second time and still empty
+
+**RJ-1** was hunted in the second pass with six title queries and in this one from the opposite
+direction — the receiver's complaint rather than the sender's regret. Nothing. **Nobody in six venues
+says they wished they had known what the other side would need before sending.**
+
+**H-J2** — *start from something I have done before and re-tune it* — was hunted with nine phrasings
+across HN and both forums. **What came back was always sharing, never duplicating**: people want one
+source of rules to reach several projects, which is RJ-3, and nobody describes copying a whole
+previous project and adjusting it. **The specified feature it would justify is *duplicate a project*,
+and after four rounds it is the one orphan on §9's list that nothing has touched.**
+
+### The wall, named
+
+**The blocker on what remains is not evidence. It is persona attribution.**
+
+This pass kept finding real people doing exactly the things the matrix is about — blocked by an
+undeclared MCP dependency, unable to answer a collision prompt, confused by multiple agent targets —
+and could not use any of them, **because a public artefact shows an act and a persona is defined by a
+situation.** You can see that somebody installed a stranger's agents and could not run them. You
+cannot see whether they had material of their own.
+
+**That is the honest end of this method.** P2's remaining five and P3's ten are not waiting for a
+better query; they are waiting for somebody to be **asked** — which is the instrument that became
+unavailable on 2026-09-09, and the reason the *provisional* label is still where it is.
+
+---
+
+## What the three passes did to the matrix, counted
 
 | | This morning | Tonight |
 |---|---|---|
-| `[?]` cells in the matrix | **36** | **31** |
-| `[?]` in the **P1** column | 7 | **4** — RJ-1, H-J2, H-J4, H-J7 |
+| `[?]` cells in the matrix | **36** | **30** |
+| `[?]` in the **P1** column | 7 | **3** — RJ-1, H-J2, H-J4 |
 | `[?]` in the **P2** column | 7 | **5** |
 | `[?]` in the **P3** column | 10 | **10** |
 | Numbers raised | — | **RJ-2 2→3 · RJ-3 2→3** |
-| Cells filled | — | **EJ-2/P1 · H-J3/P1 · H-J1/P1 · RJ-4/P2 · SJ-1/P2** |
+| Cells filled | — | **EJ-2/P1 · H-J3/P1 · H-J1/P1 · H-J7/P1 · RJ-4/P2 · SJ-1/P2** |
+| Register entries that moved | — | **Q12** no longer one person · **Q11** no longer one aside |
 
 **And one qualitative change worth more than the count.** [`jtbd.md`](../7-jobs-to-be-done/jtbd.md)
 §7 said **every P2 cell carrying a number is second-hand.** That is no longer true: **RJ-4/P2 and

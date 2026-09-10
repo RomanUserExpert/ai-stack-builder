@@ -173,12 +173,40 @@
     "posts": 2,
     "url": "https://community.openai.com/t/chatgpt-user-controlled-memory-routing-global-project-session-per-project-instructions/1382589"
    }
-  ]
+  ],
+  "collection_issues_read": 568
  },
  "method_note": "Body search on a help forum drowns: Cursor's own model-inheritance feature makes \"inherited\" useless as a marker, and a first pass built on it was discarded. The pass that worked searched TITLES, because on a Q&A forum a person in the shape we need announces it in the title.",
  "limits": [
   "Every venue here is a place people go when something is wrong or unclear, so it over-samples friction and under-samples people for whom it works.",
   "No receiver speaks in the first person even here. Every team-sharing thread is written by the sender.",
   "Rule 5 governs all of it: these are utterances."
- ]
+ ],
+ "third_pass": {
+  "date": "2026-09-10",
+  "why": "The remaining cells, and one deliberate inversion of the method.",
+  "instruments_added": [
+   {
+    "id": "I15",
+    "name": "GitHub issues on the public collections themselves",
+    "what": "568 issues across 18 of the largest public skill/agent collections and installer tools. The premise: somebody who turns up at a stranger's shelf and asks a question is P3-shaped by construction.",
+    "blind_to": "whether the asker has material of their own - which turned out to be the whole problem"
+   }
+  ],
+  "result": {
+   "cells_filled": [
+    "H-J7/P1 [?] -> 2"
+   ],
+   "cells_hunted_and_still_empty": [
+    "RJ-1/P1",
+    "H-J2/P1",
+    "all ten P3 cells"
+   ],
+   "p3_candidates_matching_language": 9,
+   "p3_candidates_that_are_real_people": 3,
+   "p3_candidates_that_could_be_shown_empty_handed": 0
+  },
+  "conclusion": "The blocker on the remaining cells is persona attribution, not evidence. A public artefact shows an act; a persona is defined by a situation. P2's five and P3's ten are waiting for somebody to be asked.",
+  "self_check": "H-J7 was filled at 2 rather than 3 on purpose. All four voices also built and shipped software about it, which looks like the test for a 3 - but they were found on Show HN, where having built something is the entry ticket, so counting the building as importance is circular. Their posts scored 1, 2, 2 and 3 points, so the venue's own weighting is worth nothing either."
+ }
 }
