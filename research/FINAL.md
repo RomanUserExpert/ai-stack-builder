@@ -462,11 +462,14 @@ allow for.
   none** — and one copied the machine's live OAuth token into a plaintext file, unprompted. It also
   turned up three defects nobody planted, the sharpest being that **an item is a directory and §5
   models it as a file.** **NK-13 and the audit's D-1 are closed.**
-- **Q-G — 89.4% of 2,027 forks of personal agent material have no commit after the fork point.** Of
-  the 10.6% who commit, 55% do so within the hour, and **25 of them literally substitute themselves
-  for the author** — setup URLs, git identity, absolute paths, and instructions to the agent naming
-  the author's handle. The number needs a control before it is interpreted, and the control is
-  reported with it.
+- **Q-G — a striking number, withdrawn by its own control.** 89.4% of 2,027 forks of personal agent
+  material have no commit after the fork point — **and the control says 84.8% for plain dotfiles and
+  87.0% for ordinary small libraries.** The gap is 2–5 points and points the wrong way for the
+  reading it was about to carry, so **the 89.4% stands as a count and is withdrawn as evidence that
+  the archive is not being received.** What survives the control: of the 10.6% who do commit, 55% do
+  so within the hour, and **25 of them literally substitute themselves for the author** — setup URLs,
+  git identity, absolute paths, and instructions to the agent naming the author's handle. **RJ-1 has
+  a behaviour under it for the first time.**
 - **Q-H — copies diverge and stay diverged.** 14% of 7,506 duplicated items in 500 published trees are
   out of sync now; over history, **383 divergences are open at HEAD with a median age of 121 days, and
   four ever closed, all within seven hours.**

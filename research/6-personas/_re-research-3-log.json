@@ -283,7 +283,24 @@
   {
    "instrument": "I8",
    "used_for": "Q-G control",
-   "result": "not completed: [Errno 2] No such file or directory: 'C:\\\\Users\\\\Roman\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\E--Work-Personal-AI-Stack-Builder\\\\622a6e56-b941-4ea4-9fb1-d5d6e95358fe\\\\scratchpad\\\\r3\\\\_qg_control.json'"
+   "queries": {
+    "C1_dotfiles": "in:name dotfiles NOT claude NOT agent NOT cursor NOT codex",
+    "C2_small_libs": "stars:20..400 pushed:>2026-01-01 in:name util"
+   },
+   "cap": 10,
+   "result": {
+    "C1_dotfiles": {
+     "resolved": 1118,
+     "zero_commit": 948,
+     "zero_commit_pct": 84.8
+    },
+    "C2_small_libs": {
+     "resolved": 1579,
+     "zero_commit": 1373,
+     "zero_commit_pct": 87.0
+    }
+   },
+   "why": "89.4% means nothing without knowing the same figure for repositories that have nothing to do with agents."
   },
   {
    "instrument": "I11",

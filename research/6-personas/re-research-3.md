@@ -9,6 +9,9 @@
 > **Four of the five are answered. Q-I is answered in part.** The one thing to read first, if only
 > one thing is read: **Q-F**. The spec's largest bet survives, and the reason it survives is not the
 > reason §6 gives.
+>
+> **One headline was withdrawn by its own control after being written** — Q-G's 89.4% — and the
+> sequence is left visible rather than tidied away.
 
 **A plan, not a result. Written 2026-09-09.** Nothing here has been collected yet, and **nothing in
 this file may be cited as evidence** until each question carries its capture log beside it, the way
@@ -226,7 +229,7 @@ handover the one interview described — a repository handed to a contractor nev
 **Cost.** A day, mostly scripted. **Mark: `✓` for what was changed** — a diff is a behaviour, not a
 self-report — **and `[?]` for every word about why.**
 
-### Answer — the third outcome the plan named, and it is the uncomfortable one
+### Answer — a striking number, and a control that takes it away again
 
 **Instrument as run.** Sixteen repository-search queries built a population of **653 parent
 repositories** holding one person's agent material and carrying between 1 and 99 forks. Repositories
@@ -286,27 +289,56 @@ covers *the author's name baked into a rule the agent obeys*.
 
 #### What this does to the P2 column
 
-The plan named three outcomes and said which each would change. **The third fired**: *if they mostly
-delete things or never commit, the archive is not being received at all and the whole P2 story needs
-rewriting before it is designed for.*
+The plan named three outcomes and said which each would change. **On the raw numbers the third looked
+like it had fired** — *if they mostly delete things or never commit, the archive is not being received
+at all and the whole P2 story needs rewriting before it is designed for.* **It had not.** The control
+below shows why, and it is the reason this section reads as it does rather than as that sentence.
 
-**And that is exactly what must not be over-read.** Two things bound it:
+#### The control — run afterwards, and it takes the headline away
 
-- **There is no control in this measurement.** Most forks of most repositories on GitHub are dormant;
-  the fork button is widely used as a bookmark. Without the same number for comparable non-agent
-  repositories, 89.4% says *forks are mostly dormant*, which may be a fact about GitHub rather than
-  about agent material. **That control is one query away and it was not run** — it is the first thing
-  the next round should do, and until it exists the 89.4% is `✓` as a count and `[?]` as an
-  interpretation.
+The paragraph above was written before the control existed, and it flagged the hole: *most forks of
+most repositories on GitHub are dormant, and without the same number for comparable non-agent
+repositories, 89.4% may be a fact about GitHub rather than about agent material.* **So the control
+was run, with the same instrument, the same fork range and the same cap.**
+
+| Population | resolved forks | no commit after the fork point |
+|---|---|---|
+| **Agent material** (this study) | 2,027 | **89.4%** |
+| **Plain dotfiles**, agent words excluded | 1,118 | **84.8%** |
+| **Ordinary small libraries**, 20–400★, pushed this year | 1,579 | **87.0%** |
+
+**The gap is 2.4 to 4.6 points, and it points the wrong way for the interpretation.** Forks of agent
+material are, if anything, **slightly more** dormant than forks of anything else. The differences are
+larger than sampling noise — z = 2.2 and z = 3.8 — and they are far too small to carry the sentence
+they were about to be used for.
+
+> **The 89.4% is a fact about forks, not a fact about handover.** It stands as a count and it is
+> withdrawn as evidence that *the archive is not being received*. The plan's third outcome did **not**
+> fire; nothing here says the P2 story needs rewriting, and nothing here says it does not.
+
+**This is the round's own instrument catching the round.** The number was arresting, it was about to
+be the headline of a whole question, and the control cost twenty minutes. It is recorded in the
+capture log with the two control queries so that anybody can re-run all three.
+
+#### What survives the control
+
+- **Timing.** Of the 214 who committed, **55% did so within the first hour** and 70% within a day,
+  median 25 minutes. The control does not touch this: it is a statement about the people who *did*
+  act, not about how many did.
+- **The 25 self-substitutions**, which are matched pairs and can be read one by one. They are the
+  thing no baseline explains away, because they are not *whether* somebody acted but *what the act
+  was*: replacing the author with themselves in setup URLs, git identity, absolute paths, branch
+  conventions and **instructions addressed to the agent that name the author's handle**.
 - **The one handover this repository has ever heard described was private** — a repository handed to
-  a contractor, [interview Q21](agent-setup-interview.md). It would appear in this instrument as
-  nothing at all.
+  a contractor, [interview Q21](agent-setup-interview.md) — and it would appear in this instrument as
+  nothing at all. That was true before the control and is still true.
 
-**What it does establish `✓`:** when somebody does take another person's agent material and act on
-it, they act **within the hour**, and the single most common concrete edit is **replacing the author
-with themselves** — in setup URLs, git identity, absolute paths, branch conventions and instructions
-addressed to the agent. **RJ-1 now has a behaviour under it**, which the audit had left it without;
-it is a modest one, 25 cases, and it is not a self-report.
+**What it establishes `✓`:** when somebody takes another person's agent material and acts on it, they
+act **within the hour**, and the commonest concrete edit is **replacing the author with themselves**.
+**RJ-1 now has a behaviour under it**, which the audit had left it without. It is a modest one — 25
+cases out of 2,027 forks — and it is not a self-report.
+
+**What it does not establish:** anything about how often handover happens, in either direction.
 
 ---
 
@@ -756,3 +788,9 @@ a provenance rule that matched the word `license`, which every one of these skil
 frontmatter (82% → 10%); and a second provenance rule matching *"based on"*, which was matching
 ordinary prose. **The discarded versions are named here on purpose.** A round that only reports the
 rules that survived is indistinguishable from one that had no rules.
+
+**And a fourth thing was thrown away after it was written: the round's most arresting number.** Q-G's
+89.4% was already drafted as *the third outcome the plan named* when the control came back at 84.8%
+and 87.0% for populations with nothing to do with agents. **The interpretation was withdrawn and the
+draft rewritten**, and the sequence is left visible in the section rather than tidied away. The
+control cost twenty minutes and it is the single most useful twenty minutes in the round.
