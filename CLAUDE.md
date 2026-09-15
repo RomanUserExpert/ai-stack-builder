@@ -162,7 +162,7 @@ product *is* before anything decides what it looks like.
 |---|---|---|
 | **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
 | **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The register's sitting has not happened and four interviews are unavailable** |
-| **03** | **Information architecture** | ← **under way**, started 2026-09-15. The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the palette reaches, what an item card carries |
+| **03** | **Information architecture** | ← **under way**, started 2026-09-15 · [the plan](03-information-architecture/README.md). The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the palette reaches, what an item card carries |
 | **04** | Prototyping and wireframing | Structure before appearance — no colour, no type scale, no components |
 | **05** | Tone of voice and microcopy | §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
 | **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
