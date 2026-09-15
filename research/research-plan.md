@@ -719,6 +719,58 @@ persona and no matrix cell is involved**, and nothing in the four proposal lists
 here because the register is the only list, and because lesson 03 is meant to raise entries rather
 than edit the spec — this one was edited on the owner's own answer, the same hour it was raised.
 
+### Q13 — raised 2026-09-15 by lesson 03, and by a correction to how it was being argued
+
+**One entry is live again.** The register emptied at the sitting the same morning; this is the first
+question after it, and it arrived because an argument was found to be built on the wrong thing.
+
+**What happened.** Lesson 03's screen tree concluded that **the receiver needs no screen**, since a
+handover is a file and the receiver never opens our product. The owner raised the obvious case — *a
+receiver can be sent a link to a public project or item* — and the answer given was that this is
+post-MVP, on three reasons of which **two were about implementation**: storage is one browser, there
+is no backend. **The owner rejected that order of reasoning and is right to.** *If it matters to the
+person, it is in the MVP; how it is built comes after.* The implementation reasons are struck in
+[`03-information-architecture/sitemap.md`](../03-information-architecture/sitemap.md) and what remains
+is a product question.
+
+| | |
+|---|---|
+| **Q13** | **Is sharing a link — to a project, and possibly to an item — in the MVP?** |
+| **Raised by** | Lesson 03, the screen tree, and the owner's correction that implementation may not decide product scope |
+| **What would answer it** | **No instrument reaches it** — this is a scope decision, not a finding. What the evidence *bears* on it is listed below, and it points both ways |
+| **Blocks** | Whether **P2 has a screen at all**; whether `visibility` becomes a control §9 currently hides; step 3's routes, since a shared page is a route with a different audience; and §9's own asymmetry between consuming a shelf and publishing to one |
+
+**What the evidence says, and it does not settle it.**
+
+- **For.** The main job is transfer and it is the loudest thing in the base — **6,592** and **182**. A
+  file still needs a channel; a link removes that step. And it is **the only route by which P2 ever
+  gets a screen of ours.**
+- **Against.** **Nobody observed asks us for a link.** Handover in the largest sample of practice is
+  `chezmoi`, symlinks, installers, bootstrap scripts, git and forks. **SJ-2 scores 1** for the primary
+  persona, on an absence looked for twice — **0 of 1,762** Hacker News comments mention a portfolio.
+  And the screen it would create is **for a persona who has never spoken in the first person** in five
+  venues and four rounds.
+- **Sideways.** The market's answer to distributing a **set** is a **paid team tier**, answered by a
+  user with *"Huge unlock."* That says distribution is worth money to somebody; it says nothing about
+  our person wanting it from us.
+
+**Four sub-questions that have to be answered with it, not after it.** They are product questions and
+none of them is about a build:
+
+1. **A link to what** — a project, an item, or both.
+2. **Snapshot or live.** §5 links items live *inside* this product; a receiver whose setup changes
+   under them is a different proposition, and the archive is a snapshot by nature.
+3. **Who may open it.** *Anyone with the URL* is the low-ceremony answer flow 12 found in the survey.
+   *Named people* means accounts, which §9 refuses and which is a much larger product.
+4. **What a shared surface must never carry.** RJ-4 gets **sharper**, not softer: the only thing ever
+   observed on the receiving side is four people stripping the author's credentials out of inherited
+   material, and a receiving agent copying a live OAuth token out of a keyring.
+
+**And one thing this entry puts under review without answering.** §9 hides the `visibility` control
+with the reasoning *there is no server to publish to* — **which is the same kind of reason that was
+just struck.** If Q13 is answered yes, §9's asymmetry is re-decided with it; if no, §9 should say so on
+a product ground rather than on an absent backend.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

@@ -1,7 +1,8 @@
 # Sitemap — lesson 03, information architecture
 
-> **A draft, in three sections.** Written 2026-09-15, entirely client-side: no backend is assumed and
-> none is needed to decide any of it. **Entities** — the objects a person handles in order to close a
+> **A draft, in three sections.** Written 2026-09-15. It decides nothing on implementation grounds:
+> what the product is comes first, and how it is built comes after — a rule this file had to be
+> corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
 > **Places, modes, overlays and states** — what kind of thing each node actually is, which is where
 > *four places* comes from. **Routes are still not here**: naming them is step 3, and it now has a
@@ -388,7 +389,7 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 | **Q-E1** | **Workspace** (§4) | **No job requires it.** One per user, not a team concept, and §9 refuses accounts, sync and teams — so nothing can ever be inside it except everything. It is a word for *all of this*, not an object with parts | A second workspace, which §9 forbids |
 | **Q-E2** | **Stack** (§4) | **Not a second entity.** §4 calls it the *informal* name for the resolved set, which is **E6**. Two names for one object is how a vocabulary drifts | Nothing. Prefer *resolved set* in structure, keep *stack* as speech |
 | **Q-E3** | **Tag** | A **field on E1**, not an object. The only job that touches it is H-J1, whose importance is a **2** on one person — and nothing anybody has said requires tags to have a life of their own (rename, merge, describe, own a colour) | Somebody asked to manage tags rather than to use them |
-| **Q-E4** | **`visibility`** | **§9 keeps the field and does not show the control at all**, because there is no server to publish to. The only job behind it is [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp), scored **1** for the primary persona and **post-MVP** | A server, and a register decision |
+| **Q-E4** | **`visibility`** | **§9 keeps the field and does not show the control at all.** *Its stated reason — that there is nothing to publish to — is the same kind of reason struck on 2026-09-15, so it is under review with **Q13**.* The job behind it is [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp), scored **1** for the primary persona | **Q13.** If a link is in the MVP, this control can act, and §9 hid it precisely because it could not |
 | ~~**Q-E5**~~ | ~~**Licence of an external item** `[?]`~~ | ~~**Proposed, not applied** (stage 6 proposal 6). It closes no job — it is a legal constraint on shipping E3, which is a different kind of reason~~ **Left this table on 2026-09-15: the owner applied it.** It is now a field of **E15**, and the reason it was refused here is still true — **it closes no job**, and §5 now says so in those words rather than acquiring one | — |
 | **Q-E6** | **A profile of the receiving machine** | **RJ-1 wants the *knowledge*, and the specification answers it with E12 rather than with an object.** RJ-1's importance for the primary is **`[?]`** — the cell was withdrawn by the audit, then hunted deliberately with six queries across two forums and **nobody says they wished they had known.** The market has such a surface (`asm doctor`); we do not need the object to close the job | One practitioner saying it plainly — which would also move RJ-1 into the core |
 | ~~**Q-E7**~~ | **An external requirement** — a client's linter, a repo convention | ~~That is **Q10**, live and standing on one person. **No object until the question is answered**~~ **Q10 was answered on 2026-09-15: the external requirement wins, and the product must say when it disagrees.** So an object *is* wanted — **a declared external constraint on an item**, hand-filled the way `requires` and `conflicts` are. **It is not in §5 yet**, and the reason it is still in this table is that detection is impossible in the MVP: §9 parses nothing and we never see the other machine, so what is buildable is **disclosure of a constraint the user declared**, never a comparison | The field, once §5 and §6 carry it |
@@ -476,47 +477,59 @@ the Library, is exactly the kind of thing step 2b decides.
 | | Screens | Reading |
 |---|---|---|
 | **P1 — the keeper of a corpus** · **primary** | **All five**, and Library and Item carry more weight than they did before 2026-09-15 | Q7 named the collector primary, so the corpus screens stop being the place you pass through on the way to Run. **The cost is on the record**: the collector's own job is the thinnest evidence in the folder |
-| **P2 — the receiver** · secondary | **None in the MVP** — and exactly one thing would change that: **a link**, which needs a server. See *The screen P2 would have* below | **This is the finding of the section.** In the MVP the receiver never opens this product: they are handed a **file**, and **their entire surface is `SETUP.md` inside it** (E12) — the best-evidenced object we have, three receiving agents out of three. We design for P2 **without ever showing them a screen**, which is why every decision about the archive is a decision about somebody who cannot tell us anything |
+| **P2 — the receiver** · secondary | **None today, and under review** — exactly one thing would change it: **a link**, which is now **Q13** in the register and a product question rather than a build one | **This is the finding of the section.** In the MVP the receiver never opens this product: they are handed a **file**, and **their entire surface is `SETUP.md` inside it** (E12) — the best-evidenced object we have, three receiving agents out of three. We design for P2 **without ever showing them a screen**, which is why every decision about the archive is a decision about somebody who cannot tell us anything |
 | **P3 — the empty-handed** · secondary `[?]` | **No screen of their own**: Library in its **Public** scope, and Projects for the **example project** | Nothing is built only for P3, and that is deliberate. The persona has never been observed, and the two clearest public beginners wrote their own material or asked to shadow a human rather than reach for a shelf. **A screen built only for them would be a place invented for somebody nobody has met** |
 
-### The screen P2 would have — post-MVP, drawn as an attachment point and not as a design
+### The screen P2 would have — **under review, and the reasoning below was corrected**
 
-**Raised 2026-09-15: a receiver could be sent a link to a public project or a public item, and then
-they would be on a screen of ours.** That is true, and it is the only route by which this persona ever
-gets one. It is **out of the MVP**, and the reason is not taste:
+> **Corrected 2026-09-15, the same day it was written.** This block first argued that a shared link is
+> out of the MVP, and **two of its three reasons were about implementation** — there is no server,
+> storage is one browser. **That is not a reason and it has been struck.** The product decides what it
+> is; the implementation follows. What survives is one product question, and it is now **Q13** in the
+> register.
 
-- **There is nothing to put behind a URL.** Storage is IndexedDB and there is no backend (§10), so a
-  project lives in one browser on one machine. The link is not withheld by a decision; **it cannot
-  exist until there is a server.**
-- **§9 refuses publishing outright** and states the asymmetry deliberately: **consuming** a curated
-  public shelf is in the MVP, **publishing to one** is not. A read-only shelf that ships with the
-  application needs no server, no accounts and no moderation. A shared link needs all three.
-- **§9 also forbids the thing this section could easily become**: *do not design a screen that only
-  makes sense once they exist.* So what follows is **where it would attach**, not what it would look
-  like.
-- **The demand evidence is an absence looked for twice.** **0 of 1,762** Hacker News comments mention
-  a portfolio, and `portfolio in:title` returned two unrelated issues. The one practitioner who wants
-  a slice public wants it as **a forcing function for cleanup**, not to be seen — which is
-  [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp),
-  importance **1** for the primary persona.
+**The question, put properly: does sharing a link matter to the person?** If it does, it is in the
+MVP, and how it is built is a later problem. If it does not, it is out — and *there is no server yet*
+was never an argument either way.
 
-**Where it attaches, and why today's tree does not have to be re-cut for it.** A public project page
-and a public item page are **consumption surfaces for somebody else's work** — which is exactly what
-the **Public scope of Library** and the **read-only public item** already are (E3, E15). The shape
-exists; what is missing is a server to address it and an owner's decision to publish. **The model is
-ready too**: `visibility` is on both `Item` and `Project` (§5) and §9 keeps it there for this.
+~~**There is nothing to put behind a URL.** Storage is IndexedDB and there is no backend (§10)~~ —
+**struck: an implementation fact, standing in for an argument it cannot make.**
 
-**Two rules this puts on the rest of lesson 03**, and they are the whole reason to write the block at
-all:
+**What the evidence actually says, in both directions, because it does not point one way:**
 
-1. **Nothing in the MVP tree may depend on a link existing.** Not the archive, not `SETUP.md`, not the
-   handover stages — the receiver gets a **file** and the file must be complete on its own.
-2. **Nothing in the MVP tree may be shaped so that a public page cannot later attach to it.** The
-   place it would attach is the read-only, provenance-carrying view of an item that is not yours —
-   so that view should not quietly assume *mine*, the way `My library` may.
+- **The job is the loudest thing in the base, and it is not about a link.** 6,592 reactions for one
+  source across several agents, 182 for an archive that lands and does not run. **The job is
+  transfer; the link is one mechanism for it, and the archive is another.**
+- **Nobody observed asks us for a link.** Handover in the largest sample of practice is `chezmoi`,
+  symlinks, CLI installers, bootstrap scripts, git and forks. **`SJ-2` — the one job about being seen
+  — scores 1 for the primary persona**, on an absence looked for twice: **0 of 1,762** Hacker News
+  comments mention a portfolio.
+- **And the market's answer to distributing a *set* is a paid tier** — *"wrap the skill as a plugin in
+  the Team Marketplace and mark it as Required so it installs for everyone automatically… only
+  available on Teams/Enterprise"*, answered with *"Huge unlock."* That says distribution is worth money
+  to somebody. It does not say our person wants a link from us.
+- **The strongest argument for it is not in the evidence at all, and should be said out loud.** An
+  archive is a **file**, and a file still needs a channel — mail, git, a chat. **A link removes that
+  step**, and it is the only route by which **P2 ever gets a screen of ours**.
+- **The strongest argument against is the same one:** designing that screen means designing for a
+  person who, in **five venues and four rounds, has never spoken in the first person.** Every account
+  of a handover is written by the sender.
 
-**Not a register entry.** §9 has already decided it; this is an architectural note about where the
-decision lands, not an open question.
+**What it would bring with it — product consequences, not build ones.** `visibility` stops being a
+field §9 hides and becomes **a control that can act** — which reverses §9's own reasoning rather than
+contradicting it, since §9 hid it precisely because nothing could act on it. A shared project needs to
+say **who may open it**. It needs an answer to **snapshot or live** — our model links live (§5), but a
+receiver's setup changing under them is a different matter. And **RJ-4 gets sharper**, not softer: the
+one thing observed on the receiving side is four people stripping the author's credentials out of
+inherited material, and an agent copying a live token out of a keyring.
+
+**Where it attaches, unchanged.** A public project or item page is a **consumption surface for
+somebody else's work**, which is what the Public scope and the read-only public item already are
+(E3, E15). The shape exists and `visibility` is already on both entities (§5).
+
+**One rule survives whichever way Q13 goes**, and it is worth keeping for its own sake: **the archive
+must be complete on its own.** Whoever gets the link may also just get the file, and the file is what
+lands on the machine.
 
 ### What is not a screen
 
@@ -692,8 +705,10 @@ least under them.
 
 **And the screen tree establishes five screens and one orphan**, each with the job it serves, grouped
 by the person's own three situations rather than by anything that could become a menu. **Its two
-findings are refusals rather than places:** the receiver needs **no screen at all** — their whole
-surface is `SETUP.md` inside the archive — and the highest-importance job the primary persona has is
+findings are refusals rather than places, and one is now under review:** the receiver needs **no screen
+in the product as specified today** — their whole surface is `SETUP.md` inside the archive — **which
+holds only while a shared link is out of scope, and that is Q13** in
+[the register](../research/research-plan.md); and the highest-importance job the primary persona has is
 one **no screen may serve**, because a dashboard of *what is working* promises a runtime §6 does not
 have.
 
