@@ -1,6 +1,6 @@
 # Sitemap — lesson 03, information architecture
 
-> **A draft, in three sections.** Written 2026-09-15. It decides nothing on implementation grounds:
+> **A draft, in four sections.** Written 2026-09-15. It decides nothing on implementation grounds:
 > what the product is comes first, and how it is built comes after — a rule this file had to be
 > corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
@@ -717,11 +717,76 @@ thing it names.**
 
 ---
 
+---
+
+## Where the day's decisions meet each other
+
+> **Written 2026-09-15 as a re-check, after four decisions landed in one day.** Each was recorded
+> where it belonged. **This section is the part that no single decision owns: what they do to one
+> another.** Three interactions, two of them settled here and one that needs an answer.
+
+### 1 · A live shared page meets a verdict that can be void — **open, and it needs deciding**
+
+**The collision.** A project's check verdict is **void the moment the set changes** (§6, the run is a
+moment). A shared page is **live** (§5, *Sharing*). So the ordinary case is: the owner checked on
+Monday, edited an item on Tuesday, and **the person who opens the link on Wednesday is looking at a
+set that has never been checked in the state they are seeing.**
+
+**Why it cannot be waved through.** This is the exact situation the handover evidence is about. In the
+one behavioural test ever run here, three receiving agents were handed a set whose defects were not
+disclosed: **one found them, one mis-resolved one on a false claim, and one saw none.** A page that
+shows a set and says nothing about whether it coheres reproduces that test on purpose.
+
+**Three answers are available and they are not equivalent:**
+
+| | What the page does | What it costs |
+|---|---|---|
+| **a** | **Says nothing about the check.** | The receiver is in Q-F's position, which we have measured and which went badly two times in three |
+| **b** | **Shows the owner's last verdict, with its date, and says plainly when it no longer applies.** | Honest and cheap, and it is §6's existing rule — *the date survives, the verdict does not* — pointed at a second reader. But it leaves the receiver with *nobody has checked this*, and no way to find out |
+| **c** | **Computes the findings when the page is opened**, so what the receiver reads is about the set in front of them. | It is the same check over the same data, and it makes the page answer the receiver's actual question. **It is also close to the pending proposal S-1** — *`SETUP.md` should carry the set's Problems* — which is not applied, so taking it here would be deciding a shape the register has not sat on |
+
+**Recommendation: (c), with (b)'s honesty about dates kept.** The receiver's question is *will this
+work for me*, the product exists to answer exactly that, and the check costs nothing because it runs
+on data the page already holds. **Not taken unilaterally** — it decides what a second reader is owed,
+and it brushes against a proposal waiting for the register.
+
+### 2 · The archive a visitor takes is built from the live set — **settled**
+
+A shared page offers **a way to take it** (§8), and nothing is stored: there is no archive sitting
+anywhere from the owner's last export. **So what a visitor takes is built from the set as it is when
+they take it** — the live one, not the one the owner exported last week.
+
+**That is consistent rather than awkward**, and it makes §5's sentence about the two artefacts exact:
+**the link is live, the archive is a snapshot** — *the snapshot is taken at the moment somebody takes
+it.* Two people who follow the same link a week apart may hold different archives, and **each holds
+one that matches what the page said when they took it**, which is the property that matters.
+
+### 3 · A shared item carries its licence — **settled, and it is why the field went in**
+
+The licence was added to `Item` on the same day, hours before Q13 was answered, **on a legal basis and
+with no job behind it** (E15). Sharing is where it pays: **a shared item may be somebody else's work
+being passed onward**, and the page carries `repoUrl`, the pinned `ref` and the licence. A decision
+taken for one reason turned out to be load-bearing for another, and that is worth recording rather
+than enjoying quietly.
+
+### And one thing that still owes a mechanism
+
+**Q10 was answered and has nowhere to live yet.** *An external requirement beats the user's own rule,
+and the product must say when it disagrees* — but detection is impossible (§9 parses nothing, and the
+other machine is never ours), so what is buildable is a **constraint the user declares** and the
+product **shows wherever that item appears in a set.** With Q13 answered, that now includes **the
+shared page**, which is the one place a receiver could read it — and the receiver is precisely the
+person whose linter it is going to be. **It needs a field on `Item` and a line in §6, and it is the
+only disposition from the sitting still outstanding.**
+
+---
+
 ## What this section establishes, and what it does not
 
-**Establishes.** **Fifteen entities, each with a job and a link to it**, and **eleven candidates
-refused for a stated reason — of which one, the licence, was promoted on 2026-09-15 by an owner's
-decision rather than by evidence, and is recorded as such in both places.** Three relations, not one: most of this product belongs to its owner,
+**Establishes.** **Sixteen entities, each with a job and a link to it** — fifteen on the first pass
+and **E16, the shared link, added the same day when Q13 was answered** — and **eleven candidates
+refused for a stated reason**, of which one, the licence, was promoted by an owner's decision rather
+than by evidence and is recorded as such in both places. Three relations, not one: most of this product belongs to its owner,
 **three entities exist for the receiver** — the archive, `SETUP.md` and the agent target — and **one
 points at an external author**.
 
@@ -731,8 +796,8 @@ points at an external author**.
    *does a run persist* has no answer anywhere.~~ **Raised and answered the same day, 2026-09-15: the
    run is a moment.** Nothing is stored; the project keeps when it was checked, what the check found
    as counts, and against which target, and **that verdict is void as soon as the set changes.** §5,
-   §6 and §8 carry it. **This is the one thing lesson 03 has changed in the specification so far, and
-   it was a gap rather than a disagreement** — the architecture could not be drawn without an answer.
+   §6 and §8 carry it. **It was a gap rather than a disagreement** — the architecture could not be
+   drawn without an answer, which is why it did not wait for a sitting.
 2. **The best-evidenced entity in the product is the one built for the persona nobody has ever
    interviewed.** `SETUP.md` has `✓` behaviour under it — three of three, and 30 of 214 receivers
    writing the manual themselves — while every *account* of the receiving end is written by a sender.
@@ -746,7 +811,8 @@ its place by closing a job. **The cost is recorded in the register**: the collec
 thinnest evidence in the folder, so the surfaces that now carry the most weight are the ones with the
 least under them.
 
-**And the screen tree establishes five screens and one orphan**, each with the job it serves, grouped
+**And the screen tree establishes seven screens and one orphan** — five for the owner and **two for
+the receiver, added when Q13 was answered** — each with the job it serves, grouped
 by the person's own three situations rather than by anything that could become a menu. **Its two
 findings are refusals rather than places, and one is now under review:** the receiver needs **no screen
 in the product as specified today** — their whole surface is `SETUP.md` inside the archive — **which

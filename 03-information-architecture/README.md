@@ -7,10 +7,12 @@ between them, decided 2026-09-01 and confirmed 2026-09-02. That fact is the whol
 lesson and it is dealt with under *What it is not*.
 
 **Status, 2026-09-15: step 2a and the tree half of step 3 are written.** [`sitemap.md`](sitemap.md)
-holds the **entity inventory** — fifteen objects with their fields, the job that raises each and whose
-side it is on, plus **eleven candidates refused for a stated reason** — and the **screen tree**: five
-screens and one orphan, derived from the jobs, grouped by the person's three situations, with the
-persona split and a list of the things that are states rather than screens. **Routes and the
+holds the **entity inventory** — **sixteen** objects with their fields, the job that raises each and
+whose side it is on, plus **eleven candidates refused for a stated reason** — and the **screen tree**:
+**seven screens and one orphan**, five for the owner and two for the receiver, derived from the jobs,
+grouped by the person's three situations, with the persona split and a list of the things that are
+states rather than screens. **A fourth section records where the day's decisions meet each other**,
+including one collision that still needs an answer. **Routes and the
 place/state classification are not done**, and the tree hands them two questions: *is `Item` a place or
 a form*, and *is `Run` a place at all* now that nothing is stored.
 
@@ -188,8 +190,10 @@ to how new the concept is.*
 
 ### 6. The item, in every context and every state
 
-One table of five contexts — library row, public-shelf row, project row, palette result, archive-tree
-leaf — against what an item carries in each. Then §7's six states against those contexts, saying
+One table of **six** contexts — library row, public-shelf row, project row, palette result,
+archive-tree leaf, **and the shared page somebody else opens** (added 2026-09-15 with Q13) — against
+what an item carries in each. **The sixth is the hard one**: it is read by a person who wrote none of
+it, and it is the only context where getting it wrong is visible outside this machine. Then §7's six states against those contexts, saying
 **which context has to be able to render which state**, and where state 6's three commands live. Plus
 what a card **never** claims: no score, no rating, no eval result, no badge (§5), against the usage
 facts it does carry.
@@ -303,7 +307,7 @@ is a weaker test than it will feel while passing it.
 - [ ] A route table, and every route a promise about something addressable
 - [ ] §8's three load-bearing mitigations each visible in the navigation model
 - [ ] Every surface composed in named regions, plus the three first-run states
-- [ ] The item table complete across five contexts and six states, with S-2's dependency named
+- [ ] The item table complete across six contexts and six states, with S-2's dependency named
 - [ ] Every one of §6's three severities has a home, including the finding that belongs to no row
 - [ ] Nothing in the map requires a feature §9 refuses
 - [ ] The marked list written, each entry naming its register entry

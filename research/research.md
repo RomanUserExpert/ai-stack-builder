@@ -12,7 +12,10 @@ with every fact traceable. It is **not** the specification: that is [`CLAUDE.md`
 where the two ever disagree, CLAUDE.md wins. It is **not** the sign-off document either: that is
 [`research/FINAL.md`](FINAL.md), which records the decisions and the closed questions.
 Nothing here is a third list of open questions — the register lives in
-[`research/research-plan.md`](research-plan.md), and **six entries are live in it** — Q7 to Q12.
+[`research/research-plan.md`](research-plan.md). **It was refilled by stages 6 and 7 with Q7 to Q12,
+and emptied again at the sitting of 2026-09-15** — two answered, four deferred, the blanket
+*provisional* label dropped with no mark promoted. **Q13, raised and answered the same day, put a
+shared link into the MVP.** The register holds all of it; this digest is not a second list.
 It was empty when this file was written on 2026-09-02; stages 6 and 7 refilled it.
 
 **How to read the citations.** Every claim carries a link to the document or capture it came from,

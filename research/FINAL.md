@@ -450,6 +450,10 @@ now reads **nine `✓`, nine on one person, two with nothing at all**.
 
 ### The register grew
 
+**All of them left the register on 2026-09-15** — see *Lesson 03 started without the sitting* at the
+end of this file, and the register itself. **Q13 was raised and answered after them**, putting a
+shared link into the MVP. What follows is the state this section described until that day.
+
 **Six questions are live**, not three: Q7–Q9 from the planning of stages 6–7, and **Q10, Q11 and Q12
 raised on 2026-09-07 by the first interview** — precedence between a user's own rule and an external
 requirement; the unwritten half of a setup; and whether the wanted thing is **observability of what
@@ -547,6 +551,12 @@ job is *assemble a set that holds together*, so `CLAUDE.md` §2 stands and propo
 being applied**; **Q10 answered — an external requirement beats the user's own rule and the product
 must disclose the disagreement**, with detection named as unsolved; **Q9, Q11 and Q12 deferred with
 stated reasons.**
+
+**And one more arrived after the sitting and was answered the same day. Q13: a link to a project and
+to an item is in the MVP** — live, openable by anyone holding it, with a credential in item content
+the one thing in this product that refuses an action. §9's refusal of a **catalog** is narrowed rather
+than reversed, and §2's *local, single-user* sentence is narrowed with it. **The decision was taken on
+product judgement with the evidence against it recorded in full**, because no instrument reached it.
 
 **And the question this document handed to the owner was decided: the blanket *provisional* label is
 dropped rather than lifted**, on rule 1 — *the mark is per claim, not per document* — because one word

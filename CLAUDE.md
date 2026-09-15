@@ -250,9 +250,15 @@ A project is a curated set of those blocks that exports as a ready-to-use archiv
 
 The long-term ambition is **"GitHub / Confluence for AI people"**: store your work
 independently of any one machine, keep it as a portfolio, make it public or private,
-reuse and recombine it across projects.
+reuse and recombine it across projects. **One piece of that sentence is now in the MVP rather than in
+the ambition — *public or private*, as a link rather than as a catalog (§5, §9).**
 
-The MVP ambition is narrower: a personal, local, single-user library plus a builder.
+The MVP ambition is narrower: a personal, single-user library plus a builder — **and, since
+2026-09-15, one way out of it.** *This line read "personal, local, single-user" until Q13 was
+answered.* A project or an item can be **shared by link** (§5, *Sharing*), which is the one place the
+MVP reaches somebody who is not the owner. **The library is still one person's and there is still no
+catalog** — the ambition above stays an ambition, and what moved into the MVP is the handover, not the
+marketplace.
 
 ### The core value is assembly with validation, not storage
 
@@ -275,6 +281,12 @@ re-tune it for a new context.
 
 - Design engineers and AI engineers, 25+, who use AI heavily in daily work and have
   accumulated a lot of material they want to keep and reuse.
+- **The primary persona is the collector** — decided 2026-09-15, answering Q7. Of the two candidates
+  the research put up — the practitioner whose pain is *sighted*, an archive that lands and does not
+  run, and the keeper of an accumulated corpus — **the corpus wins design conflicts.** The handover
+  mechanisms in §6 stay exactly as they are: they stop being *the point* and remain *the mechanism*.
+  **The cost is recorded rather than hidden**: this is the thinner half of the evidence, and
+  [`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*, says so.
 - Visually literate. They live in tools like Linear, Vercel, Raycast, Figma. The bar for
   craft is high; generic dashboard aesthetics will read as cheap.
 - **Desktop-first.** Responsive/adaptive comes later, deliberately.
@@ -797,9 +809,12 @@ Do not build these. Do not design a screen that only makes sense once they exist
 
 ## 10. Tech stack and conventions
 
-- **Next.js + React + TypeScript.** Chosen over Vite specifically so the later public
-  catalog and shareable project pages do not require a migration. Until then it runs
-  entirely client-side.
+- **Next.js + React + TypeScript.** Chosen over Vite specifically so that a public catalog and
+  **shareable project pages** would not require a migration. **As of 2026-09-15 the second half of
+  that sentence is no longer "later": shared links are in the MVP** (§5, *Sharing*; Q13), and the
+  choice made in advance turns out to have been the right one. **How they are served is deliberately
+  not decided here** — the product decides what it is, the implementation follows, and nothing in §5,
+  §6, §8 or §9 depends on which way it goes. The catalog is still refused (§9).
 - **No UI kits.** No MUI, no shadcn, no Chakra. The design system is custom and is part of
   the product's value.
 - **No Figma upstream.** Design happens in code and in whatever mockups we produce here.
@@ -848,7 +863,9 @@ rather than in the library, because that is where being an example is honest.
   The **~30 realistic items** figure that used to live here as a mockup requirement is the right
   order of magnitude for this too, and the same set serves both jobs.
 
-Later, still not now: user items flowing *out* into a shared catalog. That needs a server; see §9.
+**Out of the library and to another person: a link, and that is in the MVP** (§5, *Sharing*, decided
+2026-09-15). **Out of the library and into a catalog — listed, searched, ranked, moderated — is still
+refused**; see §9 for the boundary. *This paragraph used to put both on the far side of "later".*
 
 ---
 
@@ -871,8 +888,16 @@ the user's own rule, and the product must say when it disagrees** — answered i
 with detection named as unsolved, because §9 parses nothing and we never see the other machine.
 **Q9, Q11 and Q12 are deferred with stated reasons.** The dispositions and the reasoning are in
 [`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*. **Q10's answer
-is not yet built into §5 or §6** — it needs a declared field and a Note, and it is the one disposition
-that asks for new mechanism.
+is not yet built into §5 or §6** — it needs a declared field and a Note, and **it is the one
+disposition still owing a mechanism.**
+
+**And one question was raised and answered after the sitting, the same day. Q13 — is sharing a link in
+the MVP — is answered yes**: a link to **a project and to an item**, **live**, openable by **anyone
+holding it**, with one refusal and one disclosure moment around secrets. It is written into §5
+(*Sharing*), §6 (the share check), §8 (two read-only surfaces) and §9 (the catalog refusal, narrowed
+rather than reversed). **It was raised because an argument in lesson 03 was found to rest on
+implementation rather than on the product**, which is recorded in the register with the evidence
+against the decision in full.
 
 **What the paragraph below described, until that day:** All six of the original ones were closed in one sitting on 2026-09-02 —
 four answered, two deferred with a stated reason. **Q7, Q8 and Q9 were raised on 2026-09-06 by the
