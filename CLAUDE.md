@@ -310,7 +310,8 @@ Item
   name
   description
   tags: []
-  visibility    private | public        // public = eligible for the shared catalog (later)
+  visibility    private | public        // public = reachable by anyone holding its link (§5, Sharing)
+  shareRef                              // the unguessable part of that link. Absent unless shared
   source        inline | external
   content                               // if inline
   repoUrl, path, ref                    // if external: repo, file, and a pinned commit/tag/version
@@ -325,6 +326,7 @@ Project
   name
   description
   visibility    private | public
+  shareRef                              // as on Item
   members: [ProjectItem]
   checkedAt                             // when the last check ran. The run itself is not stored — §6
   checkVerdict                          // counts from that check: problems, notes, skipped
@@ -417,6 +419,43 @@ item, never whether the item is any good. The refusal of scores, ratings, eval r
 above is unaffected — and a licence rendered as a badge would quietly reintroduce the thing that
 refusal exists to prevent.
 
+### Sharing — a link to a project or to an item
+
+**Decided 2026-09-15, answering Q13.** A project **and** an item can each be shared by link. The
+decision was taken as a product decision: *if it matters to the person, it is in the MVP, and how it
+is built comes afterwards.* It is the only route by which **the receiver ever sees a surface of ours**
+rather than a file.
+
+**What a link is, and what it is not.** It is an **unlisted address**: whoever holds it can open the
+thing, and nothing is listed, searched, browsed, ranked or moderated. **This is not the public catalog
+§9 refuses** — see that section for the boundary, which is narrowed rather than reversed.
+
+**The four properties, each decided rather than assumed:**
+
+- **Both objects.** A project carries a set; an item carries one block. Both are things people hand
+  over, so both can be shared.
+- **Live, not a snapshot.** What the holder of the link sees is the thing **as it is now** — which is
+  §5's live link pointed outward, and it is consistent with the rest of this section. **The
+  consequence is that sharing is a standing decision rather than a single act:** every later edit is
+  also a publication, and §5's blast radius therefore has a third altitude — *used in 3 projects* ·
+  *this edit un-checks 3 projects* · **and one of them is shared.**
+- **Anyone holding the link.** No accounts, no named viewers, no sign-in — §9's refusal of accounts
+  stands untouched, because the viewer is anonymous and the owner is still the only user. **The link
+  is therefore the credential, so it must not be guessable**, which is what `shareRef` is for.
+- **Revocable, and honest about what revoking cannot do.** Stopping the share kills the address.
+  It does **not** reach anything anybody already copied or downloaded, and the product must say so at
+  the moment of revoking rather than implying a recall.
+
+**The archive and the link say different things, and both are true.** The archive is a **snapshot** —
+what the set was when it was built. The link is **live**. So a receiver who took the archive last week
+holds something the page may no longer match, and **the page states when the project last changed**.
+This is the same honesty the pinned `ref` buys on the shelf: *this is the version we checked*, never
+*this is current*.
+
+**A shared item that is not the user's own carries its origin.** If it came from the public shelf, the
+shared page shows `repoUrl`, the pinned `ref` and the **licence** (§5, *Public items*) — sharing
+somebody else's work onward is the case those fields were added for.
+
 ### Relations
 
 `requires` and `conflicts` are filled in **manually** when adding or editing an item.
@@ -487,6 +526,39 @@ This is `terraform apply`: never refuse, always make the cost legible before the
 A grade — Port's `Basic → Low → Good → Great` — was considered and rejected: a ladder is for
 comparing many entities against one standard, and we check one set against itself, where there is
 no *better*, only *coherent* or *not*.
+
+### Sharing is checked too, and it is the one place the product refuses
+
+**Decided 2026-09-15 with Q13's answer, and it is a deliberate exception to *nothing blocks*.**
+
+**The premise under §6's refusal to block is that the only party at risk is the user, on their own
+machine.** Sharing breaks that premise — it was already named as a weakened premise by stage 6's
+proposal 8 — and it breaks it in a way export does not: **a bad archive sits on your own disk and can
+be rebuilt; a credential on an address anyone can open is out, and unsharing does not recall it.**
+
+**So the same check runs before a link is created, with the same three severities, and one class
+refuses.**
+
+- **A credential found in item content is a Problem, and it stops the share.** Private-key blocks,
+  provider-shaped tokens, bearer tokens, `.env`-shaped assignments with values. This is the **only**
+  refusal in the product, and it is justified by irreversibility rather than by tidiness.
+- **Everything else is disclosed and does not stop anything.** Above all the thing a practitioner
+  actually described: *the private and the reusable are tangled in the same files* — a client's
+  internal API shape in an example, a rule naming a client, **and an env key whose own name names a
+  customer**. We cannot detect these and must not pretend to; they are stated as a Note at the moment
+  of sharing.
+
+**The moment of sharing is a disclosure moment, in the register this file already uses.** Before the
+link exists, the product names in the present tense what becomes visible: which items, that their
+**content** is visible, which env key **names** appear, which external repos are referenced. The model
+is Notion's *"anyone with the link can view this page's content and see contributor names"* — naming
+the second-order consequence the reader would not have thought of — and it is the trust trigger the
+research recorded for the receiving side.
+
+**What the product never has.** `needsEnv` holds **names and never values** (§5), so a shared surface
+**structurally cannot leak an env value** — there is none to leak. That is worth stating because it is
+the strongest guarantee here and it costs nothing: it is a property of the model rather than a promise
+about our care.
 
 ### The run is a moment; the project carries the verdict
 
@@ -658,8 +730,15 @@ to read the scores behind it: the rubric grades craft, not weight.
   and what the receiving machine must still do — the `SETUP.md` the agent will read, the pinned
   `ref`s, the target-correct paths, `.env.example`. They are stages like any other, with verdicts and
   expansion, and they are read **before** the irreversible step. See §6.
+- **Shared project** and **shared item** — **the receiving side's only surfaces** (added 2026-09-15,
+  Q13). Read-only, opened by anyone holding the link, and built for somebody who did not write any of
+  it: what the set contains, what each item needs, what the receiving machine must still have, the
+  origin and licence of anything that is not the sharer's own — and **a way to take it**, the archive
+  or a copy into their own library, because a link that cannot be acted on is a brochure. It is the
+  same shape as the read-only public item (§5), pointed at one person's work rather than at the shelf.
 - **Projects** — saved projects and duplication, plus **the example project that ships on first
-  run** (§11), labelled as an example and deletable. **Each row carries its check verdict and when**
+  run** (§11), labelled as an example and deletable. **A shared project reads as shared here**, and
+  everywhere else it appears, because sharing is live and every later edit is also a publication (§5). **Each row carries its check verdict and when**
   (§6, added 2026-09-15): the counts from the last check, the date, and — where the set has changed
   since — *what* changed instead of a verdict that is no longer true. Never *works*: **checked**. **Not visibility** — §9 keeps that control out
   of the MVP interface entirely, and this line used to say otherwise. Corrected 2026-09-02.
@@ -689,8 +768,18 @@ Kept in the architecture's line of sight, not built:
   project containing a project containing a project is a resolution problem we would have to bound,
   and the three-state walk in §6 exists for cycles among *items*, not among sets. **Revisit post-MVP,
   and decide the depth rule before the feature**, not after.
-- **Publishing to a public catalog.** `visibility` stays in the model, and there is no server to
-  publish to — so **the control is not shown in the MVP interface at all** (decided 2026-09-01).
+- **A public catalog — narrowed 2026-09-15, and the narrowing is the point.** **Sharing a link to a
+  project or an item is now in the MVP** (§5, *Sharing*; Q13): an unlisted address, anyone who holds
+  it can open it, nothing is listed. **What stays out is the catalog** — discovery, search, ranking,
+  a place where other people's work is *found* rather than *given to you*, and the moderation that
+  any of it would require. **A link is a handover; a catalog is a marketplace**, and only the first is
+  a thing the evidence puts anybody in need of.
+  ~~`visibility` stays in the model, and there is no server to
+  publish to — so **the control is not shown in the MVP interface at all** (decided 2026-09-01).~~
+  **Superseded.** That reasoning rested on there being nothing for the control to act on, which is no
+  longer true, and partly on an implementation fact that may not decide product scope at all.
+  **`visibility` is now a control the user can touch**, and the rule it was justified by is satisfied
+  rather than broken: *an action that cannot act is not shown* — this one can.
   **Note the asymmetry, added 2026-09-02: consuming a curated public library is in the MVP (§8, §11);
   publishing to one is not.** A read-only shelf that ships with the application needs no server,
   no accounts and no moderation. Nothing about it makes `visibility` a control the user can touch.

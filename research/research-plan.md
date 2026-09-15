@@ -771,6 +771,58 @@ with the reasoning *there is no server to publish to* — **which is the same ki
 just struck.** If Q13 is answered yes, §9's asymmetry is re-decided with it; if no, §9 should say so on
 a product ground rather than on an absent backend.
 
+### Q13 answered — 2026-09-15, the same day it was raised
+
+**Answered: yes.** A link is in the MVP. The owner took it as a product decision, with the evidence
+above in view and pointing both ways, and the four sub-questions were answered with it rather than
+after it.
+
+| | Answer | What it commits us to |
+|---|---|---|
+| **A link to what** | **Both** — a project and an item | Two read-only surfaces, §8 |
+| **Snapshot or live** | **Live** | Sharing is a **standing decision**, not an act: every later edit is also a publication. §5's blast radius gains a third altitude |
+| **Who may open it** | **Anyone holding the link** | No accounts, no named viewers — **§9's refusal of accounts is untouched**, because the viewer is anonymous and the owner is still the only user. The link is the credential, so it must not be guessable |
+| **What it must never carry** | **Delegated to the design**, and taken as below | One refusal, one disclosure moment, and one guarantee that costs nothing |
+
+**The boundary that keeps this from becoming a different product.** §9 refused *publishing to a public
+catalog*; that refusal is **narrowed, not reversed.** A link is an **unlisted address** — nothing is
+listed, searched, ranked or moderated. **A link is a handover; a catalog is a marketplace**, and the
+evidence puts somebody in need of the first and nobody in need of the second: SJ-2 scores **1**, and
+the portfolio absence was looked for twice and found twice.
+
+**And §9's *no dead toggle* rule is satisfied rather than broken.** `visibility` was hidden because
+nothing could act on it. Something can now, so the control appears — which is the same rule producing
+the opposite outcome, as it should.
+
+#### What the fourth answer became — *"protect the keys and everything else"*
+
+**Three layers, and the first is free.** `needsEnv` holds **names and never values** (§5), so a shared
+surface **structurally cannot leak an env value**. That is a property of the model rather than a
+promise about our care, which makes it the strongest thing here.
+
+**Second, the one refusal in the product.** §6 refuses to block, and its stated premise is *the user's
+own library on their own machine* — **sharing breaks that premise**, which stage 6's **proposal 8**
+had already flagged as weakened. So: **a credential found in item content stops the share.** The
+reason is irreversibility, not tidiness — a bad archive sits on your own disk and can be rebuilt; a
+key on an address anyone can open is out, and unsharing does not recall it. **Everything else is
+disclosed and blocks nothing.**
+
+**Third, sharing is a disclosure moment in the register this project already uses.** Before the link
+exists, the product names in the present tense what becomes visible — the items, that their **content**
+is visible, the env key **names**, the external repos. The model is Notion's *"anyone with the link can
+view this page's content and see contributor names"*, which is the trust trigger the research recorded
+**for the receiving side** specifically.
+
+**And what it deliberately does not claim.** We cannot detect the thing a practitioner actually
+described — *the private and the reusable are tangled in the same files*: a client's internal API shape
+in an example, a rule naming a client, **an env key whose own name names a customer.** Those are a
+Note, not a scan result, and pretending otherwise would be the unearned tick §6 exists to refuse.
+
+**What this does not settle.** Whether anybody wants the link remains unmeasured: **no instrument
+reached it, none was claimed, and the decision was taken on product grounds with the evidence against
+it recorded in full.** If it turns out to close nothing, the thing to revisit is **two surfaces**, not
+the model — `visibility` and `shareRef` cost nothing when unused.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

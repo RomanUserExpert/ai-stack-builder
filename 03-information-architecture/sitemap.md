@@ -46,9 +46,32 @@ and keeps the material (P1, primary). **Consumer** — the receiver on the other
 | **E12** | **`SETUP.md`** | [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | **Consumer** | `§`6 · **`✓` behaviour, 3 of 3** |
 | **E13** | **Agent target** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) | Consumer | `§`6 · `✓` **6,592**, the loudest thing in the base |
 | **E14** | **Usage fact** | [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) · [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Owner | `§`5 · `*` n = 1, **the strongest `*` in the repository** |
+| **E16** | **Shared link** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | **Consumer** | `§`5, §8, §9 · **a decision, not a finding** |
 | **E15** | **Provenance** | [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) · [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) | **External author** | `§`5, §11 · `✓` measured twice |
 
 ---
+
+### E16 · Shared link — added 2026-09-15
+
+The address that makes a project or an item reachable by somebody who is not its owner.
+
+- **Fields (§5).** `visibility` — the standing decision — and `shareRef`, the unguessable part of the
+  address. **Absent unless shared**, on both `Item` and `Project`.
+- **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — it is a way for the work to
+  live somewhere else · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work),
+  because the page states what the receiver needs and is therefore the manual the sender otherwise has
+  to be · and [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
+  on the sending side.
+- **Relation.** **Consumer**, and it is the first object in this inventory that **gives the consumer a
+  surface of ours** rather than a file.
+- **Standing.** `§`5, `§`8, `§`9 — **a product decision taken on 2026-09-15 with the evidence against
+  it recorded**: no observed person has asked for a link, handover in practice is git and files, and
+  [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp)
+  scores **1**. It is in because the owner judged it part of the base, and the register says so in
+  those words.
+- **Three properties with consequences.** **Live** — so sharing is a standing decision and every later
+  edit is a publication. **Anyone holding it** — so the link is the credential. **Revocable, and
+  revoking recalls nothing** already taken, which the product must say rather than imply otherwise.
 
 ### E1 · Item
 
@@ -444,6 +467,13 @@ the point of the mark.
   │
   └── Run ............................................. [MAIN] [RJ-2] [RJ-1] [RJ-4] [SJ-1]
         entered by Check, from a Project. Ends in Export.
+
+4 · WHAT SOMEBODY ELSE OPENS  — the receiver's only surfaces
+  │
+  ├── Shared project .................................. [MAIN] [RJ-1] [SJ-1]
+  └── Shared item ..................................... [MAIN] [H-J4 ?]
+        read-only, opened by anyone holding the link, and each offers
+        a way to take it — the archive, or a copy into their own library
 ```
 
 **Five screens and one orphan.** The three groups are the person's own three situations, in the order
@@ -462,6 +492,8 @@ step 3 — they are why the screens exist.
 | **Project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *Put the set together and see what it drags in* — every row carrying its own state | **P1** |
 | **Detached row** — edit · reset · promote | [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | *Change it here only, without the others getting it* | **P1** |
 | **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
+| **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, what do I still need, and how do I take it* | **P2**, and it is their only surface |
+| **Shared item** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Somebody sent me one block — what is it, whose is it, may I use it* | **P2** · P3 `[?]` |
 | **Library import / export** | **`[orphan]`** | — | — |
 
 **The orphan, named rather than quietly dropped.** `CLAUDE.md` §10 commits to **export and import of
@@ -477,20 +509,22 @@ the Library, is exactly the kind of thing step 2b decides.
 | | Screens | Reading |
 |---|---|---|
 | **P1 — the keeper of a corpus** · **primary** | **All five**, and Library and Item carry more weight than they did before 2026-09-15 | Q7 named the collector primary, so the corpus screens stop being the place you pass through on the way to Run. **The cost is on the record**: the collector's own job is the thinnest evidence in the folder |
-| **P2 — the receiver** · secondary | **None today, and under review** — exactly one thing would change it: **a link**, which is now **Q13** in the register and a product question rather than a build one | **This is the finding of the section.** In the MVP the receiver never opens this product: they are handed a **file**, and **their entire surface is `SETUP.md` inside it** (E12) — the best-evidenced object we have, three receiving agents out of three. We design for P2 **without ever showing them a screen**, which is why every decision about the archive is a decision about somebody who cannot tell us anything |
+| **P2 — the receiver** · secondary | **Two, as of 2026-09-15: the shared project and the shared item** — plus `SETUP.md` inside the archive, which is not a screen | **The finding changed the same day it was written.** It read *the receiver needs no screen at all*; **Q13 answered yes to a link**, and P2 now has exactly the two surfaces a link can lead to. **What has not changed is the hard part:** they are still designed for a person who, in five venues and four rounds, **has never spoken in the first person** — so these two screens are the most `[?]`-laden places in the product, and the archive must still be complete on its own, because whoever gets the link may only ever get the file |
 | **P3 — the empty-handed** · secondary `[?]` | **No screen of their own**: Library in its **Public** scope, and Projects for the **example project** | Nothing is built only for P3, and that is deliberate. The persona has never been observed, and the two clearest public beginners wrote their own material or asked to shadow a human rather than reach for a shelf. **A screen built only for them would be a place invented for somebody nobody has met** |
 
-### The screen P2 would have — **under review, and the reasoning below was corrected**
+### The screen P2 has — **answered 2026-09-15, and the reasoning was corrected on the way**
 
-> **Corrected 2026-09-15, the same day it was written.** This block first argued that a shared link is
-> out of the MVP, and **two of its three reasons were about implementation** — there is no server,
-> storage is one browser. **That is not a reason and it has been struck.** The product decides what it
-> is; the implementation follows. What survives is one product question, and it is now **Q13** in the
-> register.
+> **Written, corrected and answered in one day, and the sequence is left visible.** This block first
+> argued that a shared link is out of the MVP, and **two of its three reasons were about
+> implementation** — there is no server, storage is one browser. **That is not a reason; both are
+> struck.** The product decides what it is and the implementation follows. The question that survived
+> became **Q13**, and **the owner answered it: yes.** A link to a project **and** to an item, **live**,
+> openable by **anyone holding it**.
 
-**The question, put properly: does sharing a link matter to the person?** If it does, it is in the
-MVP, and how it is built is a later problem. If it does not, it is out — and *there is no server yet*
-was never an argument either way.
+**So the receiver has two surfaces**, and they are the only places in this product built for somebody
+who wrote none of it. What follows is the evidence as it stood when the decision was taken — recorded
+in full, including the half that argues the other way, because the decision was made on product
+judgement rather than on a finding.
 
 ~~**There is nothing to put behind a URL.** Storage is IndexedDB and there is no backend (§10)~~ —
 **struck: an implementation fact, standing in for an argument it cannot make.**
@@ -618,6 +652,8 @@ much of the screen it occupies.
 | **The check running** | **State of the Run mode** | — |
 | **Empty `My library` · Projects holding only the example · a project with no members** | **States** | §11 and flow 08 — *scale the explanation to how new the concept is* |
 | **A stale verdict** | **State of a project row** | §6: the verdict is not shown, the date is, and what voided it is named |
+| **Shared project** · **Shared item** | **Places**, and the most place-like things in the product | The link **is** the address — it is written down, sent, reloaded and bookmarked by somebody who has nothing else. They are the only places whose address has to survive leaving this machine |
+| **Sharing something, and revoking it** | **A state of the thing shared**, disclosed at the moment it changes | §5: sharing is a **standing decision**, so *shared* is how a project or item reads everywhere it appears — not a screen, and not a one-time dialog either |
 | **Library import / export** | **Two commands on the Library** — not a screen | This resolves the orphan's own open question: it is cheaper than it looked. **It is still an orphan** — no job raises it — but a command with no job is a smaller thing to carry than a place with no job |
 
 ### `Item` is a place, and this is a proposal to §8
@@ -665,12 +701,19 @@ cannot be bookmarked or returned to** — re-reading it means checking again. Th
 decision, it is cheap because we run nothing on anyone's machine, and it is recorded here rather than
 discovered in step 5.
 
-### Four places, and that is the whole navigable surface
+### Six places, and that is the whole navigable surface
 
-**`Library` · `Item` · `Projects` · `Project`** — with the Library carrying two addresses, one per
-scope. **Everything else is a mode, an overlay, a state or content.** That is the shape step 3 will
-put routes on, and it is deliberately small: four places for a product whose primary persona keeps
-**tens of items, not hundreds**.
+**`Library` · `Item` · `Projects` · `Project`**, with the Library carrying two addresses, one per
+scope — **plus the two the link creates, `Shared project` and `Shared item`** (Q13, 2026-09-15).
+**Everything else is a mode, an overlay, a state or content.** That is the shape step 3 will put
+routes on, and it is deliberately small: **four places for the owner, two for everybody else**, in a
+product whose primary persona keeps **tens of items, not hundreds**.
+
+**The split matters and step 3 has to honour it.** The owner's four are addressable **on one
+machine** — reload, Back, a bookmark. The receiver's two are addressable **off it**: the link is
+written down, sent, and opened by somebody who has nothing else and no context. **That is the only
+line in this architecture where an address has to mean something to a person who did not make the
+thing it names.**
 
 ---
 
