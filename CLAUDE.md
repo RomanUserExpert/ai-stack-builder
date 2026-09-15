@@ -13,6 +13,17 @@ information architecture — not the design system, which is lesson 09.**
 
 There is still no application code, no information architecture, no design system, no mockups.
 
+**Lesson 03 started on 2026-09-15, and the register's sitting was not held first.** That is the
+owner's decision, taken in these words — *we work with what we have* — and it changes standing, not
+evidence. **The sitting stays owed**, the four proposal lists stay unapplied, the *provisional* label
+stays on stages 6 and 7, and no mark is promoted. If lesson 03 finds that a section of this file has
+to change, it goes to the register as an entry rather than being edited in place; that is the protocol
+every lesson uses (§12). The cost to hold while working: **an information architecture built now
+rests on three personas, one of whom has never been observed, and on a matrix with thirty `[?]`
+cells.** Where a structural decision would need one of those cells to be a number, say so on the spot
+and leave the decision marked — do not invent the person. Recorded in the register at
+[`research/research-plan.md`](research/research-plan.md).
+
 **Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
 the key flow takes. None of them established **who the person is** or **what they hire this product
 for**. Stages 6 and 7 do that:
@@ -151,7 +162,7 @@ product *is* before anything decides what it looks like.
 |---|---|---|
 | **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
 | **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The register's sitting has not happened and four interviews are unavailable** |
-| **03** | **Information architecture** | ← **next.** The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the palette reaches, what an item card carries |
+| **03** | **Information architecture** | ← **under way**, started 2026-09-15. The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the palette reaches, what an item card carries |
 | **04** | Prototyping and wireframing | Structure before appearance — no colour, no type scale, no components |
 | **05** | Tone of voice and microcopy | §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
 | **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
@@ -202,7 +213,7 @@ one stage. [`research/research-plan.md`](research/research-plan.md) is the spine
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The next lesson is 03, information architecture**; if a request seems to jump
+Do not skip ahead. **The current lesson is 03, information architecture**; if a request seems to jump
 past it — to components, tokens, colour or a screen that looks finished — confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is
 written down so design decisions are made with the real mechanics in view.
@@ -686,9 +697,12 @@ practitioner interview** — precedence between a user's own rule and an externa
 client's linter; the roughly half of a working setup that was never written down; and whether the
 wanted thing is **observability of what ran** rather than validation that a set coheres. All three
 stand on one person. They are not answered now: the protocol batches them into one
-sitting once both stages are in. **Both stages are now in (2026-09-09) and the sitting is the next
-thing this file owes** — with two proposal lists as its input and **Q9 the only entry that gained
-evidence**, which says what the public shelf should hold rather than whether it ships. Q5 was **re-pointed rather than re-opened** — its instrument is now
+sitting once both stages are in. **Both stages are now in (2026-09-09) and the sitting is still
+owed** — *it was still the next thing this file owed until 2026-09-15, when lesson 03 was started
+without it: the entries keep their dispositions, and what the sitting reads has only grown* — with
+**four proposal lists** as its input (stage 6's nine, stage 7's nine, round 3's six, and round 4's two
+movements) and **Q9 the only entry that gained evidence**, which says what the public shelf should
+hold rather than whether it ships. Q5 was **re-pointed rather than re-opened** — its instrument is now
 named. Their dispositions are below; the reasoning, and what was read before
 each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
 
@@ -735,8 +749,9 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
 
 - Docs, code and UI copy in English. Conversation with the user may be in Russian.
 - Research stages 1–5 are signed off (2026-09-02). **Stages 6 and 7 — personas and jobs to be done —
-  were added on 2026-09-06 and are lesson 02.** **The next lesson is 03, information
-  architecture.** Do not start tokens, components, colour or a finished-looking screen before 03 and
-  04 are done, and do not scaffold the app before there is something for it to hold.
+  were added on 2026-09-06 and are lesson 02.** **Lesson 03, information architecture, is under way —
+  started 2026-09-15, with the register's sitting not held and the evidence as it stands.** Do not
+  start tokens, components, colour or a finished-looking screen before 03 and 04 are done, and do not
+  scaffold the app before there is something for it to hold.
 - This file is the single source of truth for the product. The original brief has been
   folded into it and deleted; there is no other spec to reconcile against.

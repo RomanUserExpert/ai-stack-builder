@@ -250,7 +250,8 @@ worth stating rather than padding: CLAUDE.md §10 (**no UI kits** — the design
 *is part of the product's value*), §3 (**dark from day one**, light as a design decision rather than a
 colour inversion — a theming requirement, not a preference), and
 [`2-flows/10-dark-design-language/NOTES-linear.md`](2-flows/10-dark-design-language/NOTES-linear.md),
-which is material for the next phase.
+which is material for **lesson 06, concept** — *the wording said “the next phase” until 2026-09-15,
+and §4 of this file already names 06 as that file's first reader.*
 
 **Decided there, on two built components, with the criterion recorded now:** tokens and two real
 themes must be first-class, and the engine must not push utility classes into components that are
@@ -522,3 +523,16 @@ written by the sender. **And P3 was looked for a third time and not found**: the
 beginners wrote their own material on day one or asked to shadow a human, and neither thread got a
 reply. **To the register: Q12 no longer stands on one person**, and §9's orphan entry for *promote a
 detached item* no longer stands on nothing.
+
+### Lesson 03 started without the sitting — 2026-09-15
+
+**The owner's decision: *we work with what we have.*** Information architecture began on 2026-09-15
+with the register's sitting still unheld. **Nothing in this file or in `CLAUDE.md` is applied,
+answered or promoted because of it** — the four proposal lists wait, the *provisional* label stands on
+its own trigger, and every mark is what it was on 2026-09-10. What changes is the order of work, and
+the cost of that order is stated where it can be acted on: the structure is being argued against three
+personas of which **P3 has never been observed**, a receiver who **has never spoken in the first
+person**, and **thirty `[?]` cells**. The rule lesson 03 works under is in
+[`research-plan.md`](research-plan.md), under *The sitting was not held before lesson 03*: name the
+missing cell at the point of the decision, and leave the decision marked rather than inventing the
+person.

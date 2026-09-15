@@ -86,7 +86,7 @@ lesson 06, concept** (corrected 2026-09-09; it used to say the design-system pha
 | 07 | Env variables and secrets | ● | [NOTES](2-flows/07-env-and-secrets/NOTES.md) |
 | 08 | Empty state and cold start | ● | [Linear](2-flows/08-empty-state-and-cold-start/NOTES-linear.md) |
 | 09 | Duplicate and fork | ● | [NOTES](2-flows/09-duplicate-and-fork/NOTES.md) |
-| 10 | Dark design language | → | [Material for the next phase](2-flows/10-dark-design-language/NOTES-linear.md) |
+| 10 | Dark design language | → | [Material for lesson 06, concept](2-flows/10-dark-design-language/NOTES-linear.md) |
 | 11 | Copy: errors, warnings, refusals | ● | [Conflict copy](2-flows/11-copy-and-error-language/dependency-conflict-copy.md) · [CI failure copy](2-flows/11-copy-and-error-language/ci-failure-copy.md) |
 | 12 | Visibility and portfolio | ● | [NOTES](2-flows/12-visibility-and-portfolio/NOTES.md) |
 
@@ -559,6 +559,32 @@ each has a cost — keep the label until conversations become possible; replace 
 named non-interview event and say what it is; or drop the label and carry the marks alone, which is
 what the three-mark system was built to make survivable. **It is recorded here so the sitting takes
 it deliberately.**
+
+### The sitting was not held before lesson 03 — 2026-09-15, and it is a change of order, not of standing
+
+**The owner's decision, in their own words: *we work with what we have.*** Lesson 03, information
+architecture, started on 2026-09-15 **without the sitting this register has been owed since
+2026-09-09.**
+
+**What it does not do.** It answers nothing, applies nothing and promotes no mark. All six live
+entries — **Q7 to Q12** — keep the dispositions written above. The four proposal lists stay unapplied:
+stage 6's nine ([`6-personas/re-research.md`](6-personas/re-research.md) §4), stage 7's nine
+([`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §12), round 3's six, and round 4's two
+movements. The *provisional* label on stages 6 and 7 stands, on the trigger it has always had. And the
+question this register left for the sitting — *what, if anything, may ever lift it* — is still the
+sitting's, not lesson 03's.
+
+**What it does do, and it is worth naming rather than assuming.** An information architecture is now
+being argued **against the evidence as it stands**: three personas of which **P3 has never been
+observed**, a receiver who **has never spoken in the first person**, and a matrix with **thirty `[?]`
+cells** — ten of them P3's entire column. The risk is specific: a structure invented for a person
+nobody has met reads afterwards as a requirement. **The rule lesson 03 works under is therefore the
+one this register already enforces** — where a structural decision would need an `[?]` cell to carry a
+number, it says so at the point of the decision and leaves the decision marked. It does not fill the
+cell.
+
+**And the protocol is unchanged.** Lesson 03 raises entries here; it does not edit
+[`CLAUDE.md`](../CLAUDE.md) §2–§11 in place. Two lists drift.
 
 ### Earlier decisions
 

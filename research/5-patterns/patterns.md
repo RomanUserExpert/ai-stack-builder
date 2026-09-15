@@ -7,8 +7,11 @@ app" — the spine that carries the wow moment and both supporting moments (CLAU
 
 **Boundary, and it holds for every line below.** These are **flow structures, not screens**. Prose
 and plain-text diagrams: boxes, order, what is on screen at each step. No visual design, no layout
-grid, no colour, no type scale, no components. The design system is the next phase and this stage
-must not quietly become it.
+grid, no colour, no type scale, no components. Appearance belongs to a later lesson and this stage
+must not quietly become it. *Corrected 2026-09-15: this sentence said the design system was the next
+phase. It is lesson 09, and what actually follows this stage is 03, information architecture — which
+is structure too. The rule the sentence states is unchanged and now has four lessons behind it rather
+than one.*
 
 ---
 

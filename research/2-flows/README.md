@@ -288,14 +288,20 @@ moment. **Zero coverage.**
 
 ---
 
-## 10 — Dark design language → handed to the design-system phase
+## 10 — Dark design language → handed to lesson 06, concept
 
 **Not an open research gap.** This is the one flow in the twelve that is about *appearance* rather
-than *behaviour*, and CLAUDE.md §12 postpones visual direction until after research, with §1 putting
-the design system next. So flow 10 does not close here — it **opens the next phase**, with its
-material already gathered.
+than *behaviour*, and CLAUDE.md §12 postpones visual direction until after research. So flow 10 does
+not close here — it **opens the lesson that chooses the visual direction**, with its material already
+gathered.
 
-**What is already in hand for that phase.**
+**Its reader is lesson 06, concept** — *corrected 2026-09-15; this section used to say the
+design-system phase and called it the next one. The order of work is the course's twelve lessons
+(CLAUDE.md §1): appearance starts at 06 and the design system is 09, with information architecture,
+prototyping and tone of voice standing in between. Nothing about the material below changes — only
+when it is read.*
+
+**What is already in hand for that lesson.**
 - **Geist** — colour, typography, materials and grid: the token structure to argue against.
 - **Linear's dark theme at close range** ([NOTES-linear](10-dark-design-language/NOTES-linear.md)) —
   few surfaces with the sidebar sharing the content ground, elevation as a hairline plus a few percent
@@ -525,6 +531,6 @@ each:
 | 07 | Ask the type before the value, default to the irreversible one, and let the placeholder pose the real question |
 | 08 | Answer an empty product with **real objects**, not an empty state; scale the explanation to how new the concept is |
 | 09 | Duplication is a distribution primitive, and the copy dialog states what will and will not come along |
-| 10 | *(appearance — next phase)* |
+| 10 | *(appearance — lesson 06, concept)* |
 | 11 | Cause and consequence are two rows; group by the action that fixes it, not the check that found it |
 | 12 | Public/private is a low-ceremony decision, and the profile is the portfolio |
