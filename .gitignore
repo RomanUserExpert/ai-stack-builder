@@ -42,3 +42,7 @@ tools/_research-page.build.html
 
 .vercel
 .env*
+
+# Local scratch for lesson 03 — progress and open questions, deleted when the
+# lesson closes. Never committed; the register and CLAUDE.md hold anything durable.
+03-information-architecture/PROGRESS.local.md
