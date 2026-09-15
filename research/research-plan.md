@@ -694,6 +694,31 @@ keeps a **standing block** in place of the label: the counted split, what the ca
 it may not. **The warning becomes finer-grained rather than absent** — which is what three marks were
 for.
 
+### Raised and answered the same day — 2026-09-15, the run's lifetime
+
+**Lesson 03's entity inventory turned up a gap rather than a question about people**, so it did not
+wait for a sitting. [`CLAUDE.md`](../CLAUDE.md) §6 and §8 give the validation pass an entire surface
+and §5 had **no object for a run or for a finding** — so *does last night's check still exist this
+morning* had no answer anywhere in the specification, and the architecture could not be drawn without
+one.
+
+**Answered: the run is a moment.** Nothing is stored — no run id, no list, no history, nothing to link
+to. What survives lands on the **project**: `checkedAt`, `checkVerdict` as counts, and `checkTarget`.
+**The verdict is void the moment the resolved set changes** — including when an item the user never
+touched is edited in the library, because `requires` pulled it into the set — and the product names
+**what** voided it rather than only that something did.
+
+**Two things were decided with it and both are refusals.** The status word is **checked**, never
+*works*: we start nothing, open nothing and read no `SETUP.md`, so a claim about the receiving machine
+is one this product cannot make — the same argument that gives *Skipped* its own neutral glyph. And a
+**stale verdict is not shown at all**, greyed or otherwise, because a claim that is no longer true is
+the unearned tick §6 exists to refuse; the date survives, the verdict does not.
+
+**Standing.** This is a decision about our own mechanism, not a claim about people: **no mark, no
+persona and no matrix cell is involved**, and nothing in the four proposal lists moves. It is recorded
+here because the register is the only list, and because lesson 03 is meant to raise entries rather
+than edit the spec — this one was edited on the owner's own answer, the same hour it was raised.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

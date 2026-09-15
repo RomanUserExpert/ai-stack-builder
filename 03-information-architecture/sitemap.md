@@ -119,7 +119,10 @@ A curated, read-only set that ships with the application.
 
 A named set of items that exports as an archive.
 
-- **Fields (§5).** `id` · `name` · `description` · `visibility` · `members[ProjectItem]`.
+- **Fields (§5).** `id` · `name` · `description` · `visibility` · `members[ProjectItem]` ·
+  **`checkedAt`, `checkVerdict`, `checkTarget`** — added 2026-09-15, when the run was decided to be a
+  moment. The project is where a check leaves its trace, because **the run leaves none of its own**
+  (E8).
 - **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — the project is **the unit that
   moves**; and [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
   because a collision is a property of a *set* and this is the set.
@@ -206,17 +209,21 @@ One execution of the validation pass over one resolved set.
 - **Relation.** Owner — the sender runs it, and §8 puts finding-disclosure on the sender's side.
 - **Standing, and the finding this inventory produced. `§`6 and §8 give this a whole surface, and §5
   has no object for it** — no `id`, no fields, nothing that says a run is a thing rather than a moment.
-- **The question that follows, said plainly. `[?]`** *You press Check. Stages run, findings appear,
-  you export. You close the laptop. You open the project tomorrow — what is on Run?* Two answers are
-  available and the specification picks neither. **A moment**: Run is a view of a check happening, and
-  opening it tomorrow starts a new one — nothing is stored, and yesterday's verdicts are gone.
-  **An object**: the last run is kept, so tomorrow you see yesterday's stages, their verdicts, their
-  durations, and the archive that came out — and §5 needs a record for it.
-  **Three things turn on the answer.** Whether a finished run can be **linked to**. Whether the
-  handover disclosure can be **re-read without re-running the check**. And whether the shape §6 copies
-  makes sense at all — **Vercel's deployment page is a history**, so copying its stage list while
-  keeping nothing is copying a page whose subject is persistence, without the persistence.
-  **To the register, not decided here.**
+- **Answered 2026-09-15, and the answer is *a moment*.** `§`6 now says it: no run is stored, no run
+  id, no run list, no history, **nothing to link to afterwards** — opening Run starts a check and
+  closing it ends one. So **E8 is not an entity with a lifetime**; it is the surface on which a check
+  happens, and the only thing it leaves behind lands on **E4**: `checkedAt`, `checkVerdict` as counts,
+  and `checkTarget`.
+- **Three consequences the architecture has to carry.** A finished run has **no address** — whatever
+  Run turns out to be in step 3, it is not a place you can be sent to and find yesterday's result.
+  **The handover disclosure is read during a run**, because there is no run to re-open; re-reading it
+  means checking again, which costs nothing since we run nothing. And the **Vercel shape §6 borrows is
+  a history** — we take its stage list and deliberately not its persistence, which is a thing to know
+  while drawing it rather than to discover afterwards.
+- **And the verdict is void the moment the set changes**, which makes invalidation a structural fact
+  rather than a detail: editing one library item **un-checks every project whose resolved set contains
+  it**, including projects that never named it, because `requires` pulled it in. That is §5's blast
+  radius with a consequence attached.
 
 ### E9 · Finding — Problem · Note · Skipped
 
@@ -233,7 +240,10 @@ One thing the check has to say.
   were handed a set whose Problems the document did not name, and **one mis-resolved a defect on a
   false claim of byte-identity and one saw none.** *The disclosure the sender gets before Export is the
   disclosure the receiver turns out to need.* Not applied.
-- **Standing.** `§`6. **Not in §5, like E8.** And one structural fact the architecture must carry: §8
+- **Standing.** `§`6. **Not in §5, and since 2026-09-15 that is a decision rather than a gap**:
+  findings live as long as the run that produced them. What survives on the project is **their
+  counts** — `2 problems · 1 note · 1 skipped` — never the findings themselves; to read one again you
+  check again. And one structural fact the architecture must carry: §8
   says a finding annotates **the row that owns it**, but a missing env key and a merge collision are
   properties of **the set** and own no row.
 
@@ -397,9 +407,12 @@ points at an external author**.
 
 **And two findings that were not visible before the objects were laid out side by side:**
 
-1. **§5 has no object for the check or for a finding**, and §8 gives the check an entire surface. E8
-   and E9 are specified as behaviour and absent as data, so *does a run persist* has no answer
-   anywhere. **To the register at step 9.**
+1. ~~**§5 has no object for the check or for a finding**, and §8 gives the check an entire surface, so
+   *does a run persist* has no answer anywhere.~~ **Raised and answered the same day, 2026-09-15: the
+   run is a moment.** Nothing is stored; the project keeps when it was checked, what the check found
+   as counts, and against which target, and **that verdict is void as soon as the set changes.** §5,
+   §6 and §8 carry it. **This is the one thing lesson 03 has changed in the specification so far, and
+   it was a gap rather than a disagreement** — the architecture could not be drawn without an answer.
 2. **The best-evidenced entity in the product is the one built for the persona nobody has ever
    interviewed.** `SETUP.md` has `✓` behaviour under it — three of three, and 30 of 214 receivers
    writing the manual themselves — while every *account* of the receiving end is written by a sender.

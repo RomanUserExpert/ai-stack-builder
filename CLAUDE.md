@@ -326,6 +326,9 @@ Project
   description
   visibility    private | public
   members: [ProjectItem]
+  checkedAt                             // when the last check ran. The run itself is not stored — §6
+  checkVerdict                          // counts from that check: problems, notes, skipped
+  checkTarget                           // the agent target it ran against — a different one voids it
 
 ProjectItem                             // an item's membership in one project
   itemId
@@ -360,7 +363,10 @@ Consequences the design must handle:
 - an item card needs a "linked" vs "detached" state
 - a detached item needs a visible relationship to its library original
   ("modified from library version"), with a way back
-- editing a linked item needs to communicate blast radius: *"used in 3 projects"*
+- editing a linked item needs to communicate blast radius: *"used in 3 projects"* — **and, since
+  2026-09-15, the same edit voids the verdict of every checked project whose resolved set contains
+  that item** (§6). *Used in 3 projects* and *this edit un-checks 3 projects* are the same fact said
+  at two altitudes, and the second is the one with a consequence in it
 
 **A detached item is edited inside the project** (decided 2026-09-02). This is what makes detaching a
 feature rather than a toggle: if every edit still had to happen in the Library, *detached* would be a
@@ -481,6 +487,46 @@ This is `terraform apply`: never refuse, always make the cost legible before the
 A grade — Port's `Basic → Low → Good → Great` — was considered and rejected: a ladder is for
 comparing many entities against one standard, and we check one set against itself, where there is
 no *better*, only *coherent* or *not*.
+
+### The run is a moment; the project carries the verdict
+
+Decided 2026-09-15, answering the question lesson 03's entity inventory raised: §6 and §8 give the
+check a whole surface and §5 had no object for it.
+
+**No run is stored.** Run is a surface, not a record — opening it starts a check, and closing it ends
+one. There is no run id, no run list, no history of checks, and **nothing to link to afterwards**.
+This is §9's refusal of versioning applied to the same question: a second mechanism for *what was
+true earlier* is not built.
+
+**What survives is three facts on the project**: **when** it was last checked, **what that check
+found** — as counts, `2 problems · 1 note · 1 skipped` — and **which agent target it ran against**.
+Not the findings themselves: to see them again you check again, which costs nothing because we run
+nothing on anyone's machine. The counts are there because a count is the thing you can act on and the
+thing that invites the click (`research/4-benchmark/NOTES-vscode.md`, the best consequence disclosure
+in the benchmark), and the click is a fresh check.
+
+**The word is *checked*, never *works*.** We have not run anything: the archive was not opened, no
+server was started, no agent read a `SETUP.md`. The verdict says **this set was examined and cohered
+at that moment**, which is the only claim §6 can support. *Works*, *valid*, *passing* and a bare green
+tick all promise the receiving machine, and that promise belongs to nobody in this product.
+
+**The verdict is void the moment the set changes, and the product says what voided it.** It is void
+when an item is added to or removed from the project · when **any item in the resolved set** is edited
+in the library, including one the user never touched because `requires` pulled it in · when a
+`requires` or `conflicts` edge changes, because that changes the set itself · when `needsEnv` or a
+`targetPath` changes · when a detached item's `overrides` change · and **when the agent target
+changes**, because a path collision is a collision *under a target* and two items may share a
+destination in one target and not in another.
+
+**Void means the verdict is not shown, and the date still is.** A stale verdict is a claim that is no
+longer true, and showing it greyed out is the unearned tick this section exists to refuse. What the
+project keeps is the honest half — *checked 3 days ago, out of date since `db-tools` was edited* —
+which names **what** invalidated it rather than only that something did. That is the same discipline
+§6 asks of every finding: the thing that knows the rule writes the sentence.
+
+**One consequence to accept rather than fix.** §6's handover disclosure is read **during** a run,
+because there is no run to re-open. Re-reading it means checking again. That is cheap by construction
+and it is the price of not keeping runs.
 
 ### Export
 
@@ -613,7 +659,9 @@ to read the scores behind it: the rubric grades craft, not weight.
   `ref`s, the target-correct paths, `.env.example`. They are stages like any other, with verdicts and
   expansion, and they are read **before** the irreversible step. See §6.
 - **Projects** — saved projects and duplication, plus **the example project that ships on first
-  run** (§11), labelled as an example and deletable. **Not visibility** — §9 keeps that control out
+  run** (§11), labelled as an example and deletable. **Each row carries its check verdict and when**
+  (§6, added 2026-09-15): the counts from the last check, the date, and — where the set has changed
+  since — *what* changed instead of a verdict that is no longer true. Never *works*: **checked**. **Not visibility** — §9 keeps that control out
   of the MVP interface entirely, and this line used to say otherwise. Corrected 2026-09-02.
 
 **The known cost of this choice.** With no library pane in the builder, you cannot see what you are
