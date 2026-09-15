@@ -572,6 +572,43 @@ research recorded for the receiving side.
 the strongest guarantee here and it costs nothing: it is a property of the model rather than a promise
 about our care.
 
+### The receiver checks it too, and it is the same check
+
+**Decided 2026-09-15.** Whoever opens a shared link can **run the check themselves**, on the set in
+front of them.
+
+**There was never an obstacle, and the question is worth recording because we nearly invented one.**
+The check is a walk along `requires`, a comparison of `conflicts`, duplicate command names, target
+paths, and the collection of `needsEnv` **names**. Every input is data the shared page already
+carries. It touches nothing on anybody's machine, needs no server and reveals nothing the page was not
+already showing — §6's disclosure at the moment of sharing states that item **content** is visible, so
+the check exposes nothing further.
+
+**Why it is better than the page computing quietly for them.** The validation pass is specified as a
+**designed moment rather than a spinner** (§2, §6), and the person who most needs that moment is the
+one who wrote none of this. It is also the only honest answer to the situation §5's *live* sharing
+creates: the owner checked on Monday, edited on Tuesday, and the visitor arrives on Wednesday — so
+**the only verdict worth anything is the one taken now, by the person looking at it.**
+
+**What the page states before they press anything**, because a receiver who digs is the exception
+rather than the rule: **when the owner last checked, and whether the set has changed since.** Facts,
+in §6's register, not a verdict standing in for one.
+
+**The ceiling is identical and the word does not change.** A receiver's check answers *does this set
+cohere*, exactly as the owner's does. It does **not** answer *will this run on my machine*: `needsEnv`
+holds names, and whether a key exists over there is a fact about a machine we never touch. **Checked,
+never works** — the same refusal, and it matters more here, because this reader has no other source of
+reassurance.
+
+**Nothing is stored for a visitor.** §6's verdict lives on the **project**, and a visitor owns no
+project — so their run is a moment with nothing left behind at all, which is the same rule one step
+further.
+
+**And the shape of what follows is the product's own spine.** Open the link · read the set · check it ·
+read what the receiving machine still needs · take the archive. **That is Library-to-archive performed
+by somebody who owns nothing**, and it was not designed as an answer to cold start — it is recorded as
+an observation, not as a claim about anybody's adoption.
+
 ### The run is a moment; the project carries the verdict
 
 Decided 2026-09-15, answering the question lesson 03's entity inventory raised: §6 and §8 give the
@@ -745,9 +782,12 @@ to read the scores behind it: the rubric grades craft, not weight.
 - **Shared project** and **shared item** — **the receiving side's only surfaces** (added 2026-09-15,
   Q13). Read-only, opened by anyone holding the link, and built for somebody who did not write any of
   it: what the set contains, what each item needs, what the receiving machine must still have, the
-  origin and licence of anything that is not the sharer's own — and **a way to take it**, the archive
-  or a copy into their own library, because a link that cannot be acted on is a brochure. It is the
-  same shape as the read-only public item (§5), pointed at one person's work rather than at the shelf.
+  origin and licence of anything that is not the sharer's own — **the same Check the owner has** (§6),
+  because the only verdict worth anything to them is one taken on what they are looking at — and
+  **a way to take it**, the archive or a copy into their own library, because a link that cannot be
+  acted on is a brochure. **Run is therefore a mode of this surface too**, entered the same way and
+  ending the same way. It is the same shape as the read-only public item (§5), pointed at one
+  person's work rather than at the shelf.
 - **Projects** — saved projects and duplication, plus **the example project that ships on first
   run** (§11), labelled as an example and deletable. **A shared project reads as shared here**, and
   everywhere else it appears, because sharing is live and every later edit is also a publication (§5). **Each row carries its check verdict and when**

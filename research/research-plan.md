@@ -823,6 +823,35 @@ reached it, none was claimed, and the decision was taken on product grounds with
 it recorded in full.** If it turns out to close nothing, the thing to revisit is **two surfaces**, not
 the model — `visibility` and `shareRef` cost nothing when unused.
 
+### The receiver runs the check — 2026-09-15, and it closed the collision Q13 opened
+
+**The question was the owner's and it was one sentence: why can the person holding the link not run
+the check?** There is no reason, and the architecture had nearly invented one — Run had been
+classified as a mode of the *Project*, the Project is the owner's place, and a description of the
+owner's surfaces was being read as a law about the receiver's.
+
+**Answered: the receiver runs the same check, on the set in front of them.** Every input is data the
+shared page already carries — `requires`, `conflicts`, command names, target paths, `needsEnv` names.
+No machine is touched and nothing is revealed that the sharing disclosure had not already made
+visible.
+
+**It closes the collision this register recorded hours earlier.** A live page plus a verdict that
+voids on change meant a receiver could be looking at a set nobody had checked in that state. **With
+the check in their hands the staleness stops mattering**: the only verdict worth anything is the one
+taken now, by the person looking at it. The page still states **when the owner last checked and
+whether the set has changed since** — facts, not a substitute verdict.
+
+**Three things are deliberately unchanged.** The ceiling: their check says *this set coheres*, never
+*this will run here*, because `needsEnv` holds names and their machine is not ours — **checked, never
+works.** The storage: **nothing is kept for a visitor**, who owns no project to carry a date. And the
+evidence standing: this gives P2 a screen and a verb, and **P2 has still never been asked anything**,
+so it is a decision with an unobserved person on the other end of it.
+
+**One observation, recorded as an observation.** The receiver's path — open the link, read the set,
+check it, read what the machine still needs, take the archive — **is the product's whole spine
+performed by somebody who owns nothing.** It was not designed as an answer to cold start and it is not
+claimed as one: **H-J4 and P3 are exactly as `[?]` as they were.**
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

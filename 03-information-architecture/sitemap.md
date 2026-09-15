@@ -492,7 +492,7 @@ step 3 — they are why the screens exist.
 | **Project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *Put the set together and see what it drags in* — every row carrying its own state | **P1** |
 | **Detached row** — edit · reset · promote | [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | *Change it here only, without the others getting it* | **P1** |
 | **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
-| **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, what do I still need, and how do I take it* | **P2**, and it is their only surface |
+| **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, does it hold together, what do I still need, how do I take it* | **P2**, and it is their only surface |
 | **Shared item** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Somebody sent me one block — what is it, whose is it, may I use it* | **P2** · P3 `[?]` |
 | **Library import / export** | **`[orphan]`** | — | — |
 
@@ -509,7 +509,7 @@ the Library, is exactly the kind of thing step 2b decides.
 | | Screens | Reading |
 |---|---|---|
 | **P1 — the keeper of a corpus** · **primary** | **All five**, and Library and Item carry more weight than they did before 2026-09-15 | Q7 named the collector primary, so the corpus screens stop being the place you pass through on the way to Run. **The cost is on the record**: the collector's own job is the thinnest evidence in the folder |
-| **P2 — the receiver** · secondary | **Two, as of 2026-09-15: the shared project and the shared item** — plus `SETUP.md` inside the archive, which is not a screen | **The finding changed the same day it was written.** It read *the receiver needs no screen at all*; **Q13 answered yes to a link**, and P2 now has exactly the two surfaces a link can lead to. **What has not changed is the hard part:** they are still designed for a person who, in five venues and four rounds, **has never spoken in the first person** — so these two screens are the most `[?]`-laden places in the product, and the archive must still be complete on its own, because whoever gets the link may only ever get the file |
+| **P2 — the receiver** · secondary | **Two, as of 2026-09-15: the shared project and the shared item** — plus `SETUP.md` inside the archive, which is not a screen | **The finding changed the same day it was written.** It read *the receiver needs no screen at all*; **Q13 answered yes to a link**, and P2 now has exactly the two surfaces a link can lead to. **And as of the same day they can do the product's central act on them**: the receiver runs **the same Check**, on the set in front of them, and takes the archive from its last stage. **Library-to-archive, performed by somebody who owns nothing.** **What has not changed is the hard part:** these screens are still designed for a person who, in five venues and four rounds, **has never spoken in the first person** — so they are the most `[?]`-laden places in the product, and the archive must still be complete on its own, because whoever gets the link may only ever get the file |
 | **P3 — the empty-handed** · secondary `[?]` | **No screen of their own**: Library in its **Public** scope, and Projects for the **example project** | Nothing is built only for P3, and that is deliberate. The persona has never been observed, and the two clearest public beginners wrote their own material or asked to shadow a human rather than reach for a shelf. **A screen built only for them would be a place invented for somebody nobody has met** |
 
 ### The screen P2 has — **answered 2026-09-15, and the reasoning was corrected on the way**
@@ -642,7 +642,7 @@ much of the screen it occupies.
 | **Item** | **Place** | Decided below |
 | **Projects** | **Place** | The list you come back to, now carrying each project's verdict and date (§6) |
 | **Project** | **Place** | The set you work in; every row carries its own state (§7) |
-| **Run** | **Mode of the Project** | Decided below |
+| **Run** | **Mode of the Project — and of the Shared project** | Decided below. Two places enter the same mode: the owner from their project, the receiver from the link. **Nothing is stored either way**, and for a visitor there is not even a project to carry the date |
 | **Editing an item that exists** | **Mode of the Item place** | You are still looking at the same object; leaving returns you to it |
 | **Creating an item** | **Overlay on the Library** | There is no object yet, so there is nothing to be a place for |
 | **A detached row — edit, reset, promote** | **Mode of the row, inside Project** | The override exists only in this project (§5), so it has no meaning without the project around it |
@@ -725,7 +725,7 @@ thing it names.**
 > where it belonged. **This section is the part that no single decision owns: what they do to one
 > another.** Three interactions, two of them settled here and one that needs an answer.
 
-### 1 · A live shared page meets a verdict that can be void — **open, and it needs deciding**
+### 1 · A live shared page meets a verdict that can be void — **answered: the receiver checks it**
 
 **The collision.** A project's check verdict is **void the moment the set changes** (§6, the run is a
 moment). A shared page is **live** (§5, *Sharing*). So the ordinary case is: the owner checked on
@@ -745,10 +745,31 @@ shows a set and says nothing about whether it coheres reproduces that test on pu
 | **b** | **Shows the owner's last verdict, with its date, and says plainly when it no longer applies.** | Honest and cheap, and it is §6's existing rule — *the date survives, the verdict does not* — pointed at a second reader. But it leaves the receiver with *nobody has checked this*, and no way to find out |
 | **c** | **Computes the findings when the page is opened**, so what the receiver reads is about the set in front of them. | It is the same check over the same data, and it makes the page answer the receiver's actual question. **It is also close to the pending proposal S-1** — *`SETUP.md` should carry the set's Problems* — which is not applied, so taking it here would be deciding a shape the register has not sat on |
 
-**Recommendation: (c), with (b)'s honesty about dates kept.** The receiver's question is *will this
-work for me*, the product exists to answer exactly that, and the check costs nothing because it runs
-on data the page already holds. **Not taken unilaterally** — it decides what a second reader is owed,
-and it brushes against a proposal waiting for the register.
+**Answered 2026-09-15, and none of the three was the answer. (d): the receiver runs the check
+themselves.** The question that produced it was *why can the person holding the link not just check
+it?* — and there is no reason. **We nearly invented an obstacle out of our own classification**: Run
+is a mode of the *Project*, and the Project is the owner's place, so the receiver's side looked
+closed. That was a description of the owner's surfaces being read as a law.
+
+**Nothing prevents it.** The check walks `requires`, compares `conflicts`, looks for duplicate command
+names and shared target paths, and collects `needsEnv` **names** — every input is data the shared page
+already carries. No machine is touched, nothing is revealed that §6's sharing disclosure did not
+already make visible.
+
+**And it is better than (c), the page computing quietly.** The validation pass is specified as **a
+designed moment rather than a spinner**, and the person who most needs that moment is the one who
+wrote none of this. It also settles the staleness properly: with the page live, **the only verdict
+worth anything is the one taken now by the person looking at it.** (b)'s honesty survives as facts
+rather than as a substitute verdict — the page states **when the owner last checked and whether the
+set has changed since**, because Q-F says a receiver who digs is the exception.
+
+**The ceiling is unchanged and it matters more here.** Their check answers *does this set cohere*, not
+*will it run on my machine* — `needsEnv` holds names, and what exists over there is a fact about a
+machine we never touch. **Checked, never works**, for the reader who has no other source of
+reassurance.
+
+**And nothing is stored for them at all.** §6 puts the verdict on the **project**, and a visitor owns
+none — so their run is a moment with nothing left behind, which is the same rule one step further.
 
 ### 2 · The archive a visitor takes is built from the live set — **settled**
 
