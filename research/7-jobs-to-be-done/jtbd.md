@@ -4,7 +4,21 @@
 > hierarchy and the matrix beside the personas they came from, with every mark visible. **This
 > markdown is the source; the page is the read.**
 
-> **PROVISIONAL.** Written 2026-09-08, stage 7 **steps 1 to 5**, from
+> **STANDING — the blanket *provisional* label was dropped on 2026-09-15 and no mark moved with it.**
+> The register's sitting removed the word rather than meeting its trigger, on rule 1 — *the mark is per
+> claim, not per document* — and every cell in the matrix keeps exactly the mark it had: **thirty `[?]`
+> cells, P3's ten among them**, and four practitioner conversations still owed and unavailable.
+> [`research-plan.md`](../research-plan.md), *The sitting — 2026-09-15*.
+>
+> **Two entries were answered the same day and they touch this file.** **Q8 — the main job — is
+> answered as *assemble a set that holds together*: `CLAUDE.md` §2 stands unchanged, and the *transfer*
+> wording §1 below argues for is recorded and not adopted. Proposal R-1 in §12 is closed without being
+> applied.** And **Q7 names the collector as primary**, which resolves the merge in
+> [`personas.md`](../6-personas/personas.md) toward collection — so the P1 column of the matrix below
+> should be read as *the keeper of a corpus*, and the handover jobs it scores remain mechanisms rather
+> than the point. **No importance is rewritten**; a disposition is not evidence.
+
+> **Written 2026-09-08, stage 7 steps 1 to 5, from**
 > [`6-personas/personas.md`](../6-personas/personas.md) and the register and axes in
 > [`6-personas/inventory.md`](../6-personas/inventory.md). **Audited and reconciled 2026-09-09.**
 > Step 6 is [`personas-and-jobs-critique.md`](../personas-and-jobs-critique.md), written against this

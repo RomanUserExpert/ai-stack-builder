@@ -5,7 +5,24 @@
 > marks visible — and it is linked from the research page. **This markdown is the source; the page is
 > the read.**
 
-> **PROVISIONAL.** Written 2026-09-08, stage 6 step 3, from
+> **STANDING — the blanket *provisional* label was dropped on 2026-09-15, and no mark was promoted
+> with it.** The register's sitting took the question it had reserved for the owner — *what, if
+> anything, may ever lift this* — and answered it by removing the word rather than by meeting its
+> trigger, on the evidence rule's own **rule 1**: *the mark is per claim, not per document.* One word
+> across this whole file both over-warned about **P1**, which carries **20 `✓` against 5 `[?]`**, and
+> under-warned about **P3**, which carries **2 `✓` against 6 `[?]`** and is the persona two shipped
+> surfaces already serve. **Everything the label was protecting is still here and is finer-grained:**
+> every `*` is still one person from memory, every `[?]` is still unknown, **the four practitioner
+> conversations are still owed and still unavailable**, and each card still ends with *What this card
+> is allowed to settle*. Read that line before leaning on a card.
+> [`research-plan.md`](../research-plan.md), *The sitting — 2026-09-15*.
+>
+> **And the primary persona was decided the same day. Q7 is answered: the collector.** The merge this
+> file describes — the collector and the person who breaks at handover as one person — **is resolved
+> toward its collecting half**. It is the owner's decision, taken against the grain of the loudest
+> evidence in the base, and what it costs is written into the register beside it.
+
+> **Written 2026-09-08, stage 6 step 3, from**
 > [`inventory.md`](inventory.md) (the register and the axes),
 > [`re-research.md`](re-research.md) (four instruments on the public record) and
 > [`interviews.md` interview 1](interviews.md#part-2-interview-1-of-5) (**interview 1 of 5**), and — since

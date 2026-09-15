@@ -15,9 +15,11 @@ There is still no application code, no information architecture, no design syste
 
 **Lesson 03 started on 2026-09-15, and the register's sitting was not held first.** That is the
 owner's decision, taken in these words — *we work with what we have* — and it changes standing, not
-evidence. **The sitting stays owed**, the four proposal lists stay unapplied **except stage 6's
-proposal 6, the `license` field, which the owner applied on 2026-09-15** (§5, §11), the *provisional* label
-stays on stages 6 and 7, and no mark is promoted. If lesson 03 finds that a section of this file has
+evidence. **The sitting was then held the same day** — [`research-plan.md`](research/research-plan.md),
+*The sitting — 2026-09-15* — so this paragraph's *stays owed* lasted one afternoon. Two entries
+answered, four deferred, **the blanket *provisional* label dropped with no mark promoted**, and the
+four proposal lists still unapplied **except stage 6's proposal 6, the `license` field** (§5, §11).
+If lesson 03 finds that a section of this file has
 to change, it goes to the register as an entry rather than being edited in place; that is the protocol
 every lesson uses (§12). The cost to hold while working: **an information architecture built now
 rests on three personas, one of whom has never been observed, and on a matrix with thirty `[?]`
@@ -131,8 +133,9 @@ absences in instruments that cannot see presence, four sceptics on Hacker News a
 no beginner was asked anything. **Nothing is removed.** The finding bears on **what the shelf holds
 and how it sorts**, which is Q9 in the register and now has its first evidence.
 
-**One thing has been applied and the rest has not, and that is deliberate: the register's next sitting
-decides, not the stages.** *Until 2026-09-15 this line read "nothing has been applied".* **The owner
+**One thing has been applied and the rest has not, and that is deliberate: the register decides, not
+the stages — and it sat on 2026-09-15, answering Q7, Q8 and Q10 and deferring Q9, Q11 and Q12 without
+touching a single proposal list.** *Until 2026-09-15 this line read "nothing has been applied".* **The owner
 applied stage 6's proposal 6 — the `license` field — on 2026-09-15**, on a legal basis rather than an
 evidential one: it closes no job, and §5 says so in those words. **Nothing else is applied.** There
 are now **two proposal lists and they are one input**. Stage 6's **nine
@@ -165,7 +168,7 @@ product *is* before anything decides what it looks like.
 | | Lesson | State |
 |---|---|---|
 | **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
-| **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The register's sitting has not happened and four interviews are unavailable** |
+| **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
 | **03** | **Information architecture** | ← **under way**, started 2026-09-15 · [the plan](03-information-architecture/README.md). The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the palette reaches, what an item card carries |
 | **04** | Prototyping and wireframing | Structure before appearance — no colour, no type scale, no components |
 | **05** | Tone of voice and microcopy | §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
@@ -182,14 +185,23 @@ before it; *static frontend implementation* is how 07 and 09 are built, since §
 in code; *logic* — state, storage, validation, export — is the last thing and sits after 12, because
 nothing in the twelve requires it and §6 is specification rather than a build order.
 
-**Both new stages ship marked `provisional`.** We have one interview, no analytics and no users, and
+**The blanket `provisional` label was dropped on 2026-09-15 and nothing was promoted with it** —
+the register's sitting removed the word on rule 1, *the mark is per claim, not per document*, because
+one word over-warned about P1 (20 `✓` against 5 `[?]`) and under-warned about P3 (2 `✓` against 6
+`[?]`). **Every mark below is unchanged and the four owed interviews are still owed and unavailable.**
+The paragraph that follows is what the label was carrying, and it is still true:
+
+~~**Both new stages ship marked `provisional`.**~~ We have one interview, no analytics and no users, and
 stage 3 recorded that a tracker sees breakage, not friction. **All of the adoption story is hypothesis
 marked `[?]`, and the third persona is mostly `[?]`** — the first two turned out to be mostly one
 person's recollection plus utterance-level `✓`, which the audit counted rather than estimated. The
 label lifts on the event Q5 already names — five practitioner conversations — for which stage 6 built
 the instrument and ran the first. **As of 2026-09-09 the remaining four cannot be run, so the label
-does not lift.** Whether anything else may ever lift it is a decision for the register's next sitting
-and is recorded there; it is not a research finding, and **no mark is promoted in the meantime**.
+does not lift.** ~~Whether anything else may ever lift it is a decision for the register's next
+sitting.~~ **Decided 2026-09-15: the blanket label is dropped rather than lifted**, on rule 1 — *the
+mark is per claim, not per document* — and **no mark is promoted by dropping it.** The four
+conversations are still owed and still unavailable; what changes is that the warning is now carried
+per claim, where it was always finer, instead of by one word over a whole document.
 
 **All five of the original research stages are done.** Landscape, flows and pain; then **benchmark** — 15
 product-and-flow cells scored against five categories lifted from stages 1–3
@@ -714,7 +726,18 @@ together in a sitting, once the picture is whole, rather than one at a time on p
 not keep a second list in this file; two lists drift, and this document has already been bitten by
 that twice. **The protocol outlived the research phase** — every lesson after it uses the same register.
 
-**Six questions are live.** All six of the original ones were closed in one sitting on 2026-09-02 —
+**None are live as of 2026-09-15 — the sitting was held.** **Q7 — the primary persona — is the
+collector**, which resolves `personas.md`'s merge toward its collecting half; **Q8 — the main job — is
+*assemble a set that holds together*, so §2 stands as written** and the *transfer* wording the
+evidence produced is recorded in `jtbd.md` §1 and not adopted; **Q10 — an external requirement beats
+the user's own rule, and the product must say when it disagrees** — answered in its disclosure half,
+with detection named as unsolved, because §9 parses nothing and we never see the other machine.
+**Q9, Q11 and Q12 are deferred with stated reasons.** The dispositions and the reasoning are in
+[`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*. **Q10's answer
+is not yet built into §5 or §6** — it needs a declared field and a Note, and it is the one disposition
+that asks for new mechanism.
+
+**What the paragraph below described, until that day:** All six of the original ones were closed in one sitting on 2026-09-02 —
 four answered, two deferred with a stated reason. **Q7, Q8 and Q9 were raised on 2026-09-06 by the
 planning of stages 6 and 7** — who the primary persona is, what the main job is, and which specified
 features close no evidenced job. **Q10, Q11 and Q12 were raised on 2026-09-07 by the first
@@ -722,9 +745,8 @@ practitioner interview** — precedence between a user's own rule and an externa
 client's linter; the roughly half of a working setup that was never written down; and whether the
 wanted thing is **observability of what ran** rather than validation that a set coheres. All three
 stand on one person. They are not answered now: the protocol batches them into one
-sitting once both stages are in. **Both stages are now in (2026-09-09) and the sitting is still
-owed** — *it was still the next thing this file owed until 2026-09-15, when lesson 03 was started
-without it: the entries keep their dispositions, and what the sitting reads has only grown* — with
+sitting once both stages are in. ~~**Both stages are now in (2026-09-09) and the sitting is still
+owed**~~ — **held 2026-09-15, see above** — with
 **four proposal lists** as its input (stage 6's nine, stage 7's nine, round 3's six, and round 4's two
 movements) and **Q9 the only entry that gained evidence**, which says what the public shelf should
 hold rather than whether it ships. Q5 was **re-pointed rather than re-opened** — its instrument is now

@@ -205,9 +205,18 @@ One execution of the validation pass over one resolved set.
   which is what *Skipped* having its own neutral glyph is for.
 - **Relation.** Owner — the sender runs it, and §8 puts finding-disclosure on the sender's side.
 - **Standing, and the finding this inventory produced. `§`6 and §8 give this a whole surface, and §5
-  has no object for it.** Whether a run has a lifetime — whether last night's check still exists this
-  morning — is **`[?]`** and is not answered anywhere in the specification. **To the register at step
-  9, not decided here.**
+  has no object for it** — no `id`, no fields, nothing that says a run is a thing rather than a moment.
+- **The question that follows, said plainly. `[?]`** *You press Check. Stages run, findings appear,
+  you export. You close the laptop. You open the project tomorrow — what is on Run?* Two answers are
+  available and the specification picks neither. **A moment**: Run is a view of a check happening, and
+  opening it tomorrow starts a new one — nothing is stored, and yesterday's verdicts are gone.
+  **An object**: the last run is kept, so tomorrow you see yesterday's stages, their verdicts, their
+  durations, and the archive that came out — and §5 needs a record for it.
+  **Three things turn on the answer.** Whether a finished run can be **linked to**. Whether the
+  handover disclosure can be **re-read without re-running the check**. And whether the shape §6 copies
+  makes sense at all — **Vercel's deployment page is a history**, so copying its stage list while
+  keeping nothing is copying a page whose subject is persistence, without the persistence.
+  **To the register, not decided here.**
 
 ### E9 · Finding — Problem · Note · Skipped
 
@@ -370,7 +379,7 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 | **Q-E4** | **`visibility`** | **§9 keeps the field and does not show the control at all**, because there is no server to publish to. The only job behind it is [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp), scored **1** for the primary persona and **post-MVP** | A server, and a register decision |
 | ~~**Q-E5**~~ | ~~**Licence of an external item** `[?]`~~ | ~~**Proposed, not applied** (stage 6 proposal 6). It closes no job — it is a legal constraint on shipping E3, which is a different kind of reason~~ **Left this table on 2026-09-15: the owner applied it.** It is now a field of **E15**, and the reason it was refused here is still true — **it closes no job**, and §5 now says so in those words rather than acquiring one | — |
 | **Q-E6** | **A profile of the receiving machine** | **RJ-1 wants the *knowledge*, and the specification answers it with E12 rather than with an object.** RJ-1's importance for the primary is **`[?]`** — the cell was withdrawn by the audit, then hunted deliberately with six queries across two forums and **nobody says they wished they had known.** The market has such a surface (`asm doctor`); we do not need the object to close the job | One practitioner saying it plainly — which would also move RJ-1 into the core |
-| **Q-E7** | **An external requirement** — a client's linter, a repo convention | The conflict a practitioner actually described is with something **outside the set**, and §5 has nowhere to put it. That is **Q10**, live and standing on one person. **No object until the question is answered** | Q10 answered |
+| ~~**Q-E7**~~ | **An external requirement** — a client's linter, a repo convention | ~~That is **Q10**, live and standing on one person. **No object until the question is answered**~~ **Q10 was answered on 2026-09-15: the external requirement wins, and the product must say when it disagrees.** So an object *is* wanted — **a declared external constraint on an item**, hand-filled the way `requires` and `conflicts` are. **It is not in §5 yet**, and the reason it is still in this table is that detection is impossible in the MVP: §9 parses nothing and we never see the other machine, so what is buildable is **disclosure of a constraint the user declared**, never a comparison | The field, once §5 and §6 carry it |
 | **Q-E8** | **An execution record** — what actually ran, per session | This is the highest-importance job the product **cannot** close: EJ-3 / H-J5 score **3** for the primary and **§6 runs nothing on anyone's machine.** An object here would be a promise we cannot keep. **This is Q12, and it is a positioning question rather than a backlog item** | A different product. Named here so nobody adds it later as *just a log* |
 | **Q-E9** | **Version or history of an own item** | **§9 refuses it**, and `detached` + `overrides` (E5) already does the job a version number would. One datum against the refusal is recorded — **151 reactions** asking for history and rollback, from an organisation context — and the disposition is the owner's | The register |
 | **Q-E10** | **A project inside a project** | **§9 defers it over unbounded recursion**, and no pattern variant needed it. Decide the depth rule before the feature, not after | Post-MVP, with a depth rule first |
@@ -394,6 +403,15 @@ points at an external author**.
 2. **The best-evidenced entity in the product is the one built for the persona nobody has ever
    interviewed.** `SETUP.md` has `✓` behaviour under it — three of three, and 30 of 214 receivers
    writing the manual themselves — while every *account* of the receiving end is written by a sender.
+
+**What the sitting of 2026-09-15 does to this inventory.** **Q7 named the collector as the primary
+persona** and **Q8 kept §2's *assembly with validation* as the main job**, which together move weight
+**toward E1, E2 and E14** — the item, the personal library and the usage facts that let somebody judge
+their own corpus — and leave **E11, E12 and E13** standing as **mechanisms rather than as the point**.
+No entity is added or removed by it: a disposition decides emphasis, and every object here still earns
+its place by closing a job. **The cost is recorded in the register**: the collector's own job is the
+thinnest evidence in the folder, so the surfaces that now carry the most weight are the ones with the
+least under them.
 
 **Does not establish.** Anything about places, screens, routes or navigation — **none of that is in
 this file yet, by instruction.** Nor the shape of E1, which proposal **S-2** would change from a file

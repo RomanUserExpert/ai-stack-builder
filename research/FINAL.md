@@ -527,7 +527,7 @@ beginners wrote their own material on day one or asked to shadow a human, and ne
 reply. **To the register: Q12 no longer stands on one person**, and §9's orphan entry for *promote a
 detached item* no longer stands on nothing.
 
-### Lesson 03 started without the sitting — 2026-09-15
+### Lesson 03 started without the sitting — and the sitting was then held, 2026-09-15
 
 **The owner's decision: *we work with what we have.*** Information architecture began on 2026-09-15
 with the register's sitting still unheld. **Nothing in this file or in `CLAUDE.md` is applied,
@@ -539,3 +539,16 @@ person**, and **thirty `[?]` cells**. The rule lesson 03 works under is in
 [`research-plan.md`](research-plan.md), under *The sitting was not held before lesson 03*: name the
 missing cell at the point of the decision, and leave the decision marked rather than inventing the
 person.
+
+**And then it sat, the same day.** [`research-plan.md`](research-plan.md), *The sitting — 2026-09-15*:
+**Q7 answered — the collector is primary**, which resolves the merge in
+[`6-personas/personas.md`](6-personas/personas.md) toward its collecting half; **Q8 answered — the main
+job is *assemble a set that holds together*, so `CLAUDE.md` §2 stands and proposal R-1 closes without
+being applied**; **Q10 answered — an external requirement beats the user's own rule and the product
+must disclose the disagreement**, with detection named as unsolved; **Q9, Q11 and Q12 deferred with
+stated reasons.**
+
+**And the question this document handed to the owner was decided: the blanket *provisional* label is
+dropped rather than lifted**, on rule 1 — *the mark is per claim, not per document* — because one word
+over-warned about P1 and under-warned about P3. **No mark is promoted by it.** The four conversations
+are still owed and still unavailable, and §6 above stands exactly as written.

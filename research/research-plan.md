@@ -599,6 +599,101 @@ question was deliberately left open**: whether a user's *own* external item with
 produces a **Note**, the way an external item with no pinned `ref` already does (§6). That would create
 a finding, and a new finding changes what the validation pass claims.
 
+### The sitting — 2026-09-15, held on lesson 03's doorstep
+
+**All six live entries left the register in one sitting, as the protocol requires.** Two *answered*,
+four *deferred with a stated reason*. The owner took them; this section holds the status and the
+reasoning together, because unlike 2026-09-02 there was no prep sheet written in advance — the sitting
+happened when lesson 03 needed the answers rather than when the picture was whole, and that is itself
+part of the record.
+
+| ID | Question | Disposition |
+|---|---|---|
+| **Q7** | Who is the primary persona | **Answered — the collector.** The merge in [`personas.md`](6-personas/personas.md) is resolved toward its **collecting** half rather than its handover half: the person with an accumulated corpus is who the product is for, and who wins a design conflict |
+| **Q8** | Which is the main job | **Answered — *assemble a set that holds together*.** `CLAUDE.md` §2 stands as written. The *transfer* wording the evidence produced is recorded in [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §1 and **is not adopted** |
+| **Q9** | Which specified features close no evidenced job | **Deferred — skipped deliberately.** Nothing in lesson 03 turns on it, and it is the one entry whose evidence bears on *what the shelf holds and how it sorts* rather than on *whether it ships*. It cuts nothing either way, so answering it now would spend a judgement for no gain |
+| **Q10** | Whose rule wins, mine or an external one | **Answered — the external requirement wins, and the product must say when it disagrees.** A client's linter or a repo convention beats the user's own rule. **The disclosure half is the answer; the detection half is an open problem** — below |
+| **Q11** | The unwritten half | **Deferred — to a section of its own.** It bounds the ceiling of the entire product and deserves to be worked rather than answered in a line |
+| **Q12** | Observability rather than validation | **Deferred.** §6 runs nothing on anyone's machine, so a strong answer here is a positioning finding and never a feature. Parked with its evidence intact |
+
+#### Q7 — what the answer does, and the one thing it does not do
+
+**The collector is primary.** [`personas.md`](6-personas/personas.md) had refused the contest the plan
+expected: the one practitioner asked said *"the collection created the problem"*, so P1 was written as
+the **merge** of the collector and the person who breaks at handover. **This answer resolves that merge
+toward collection** — the corpus is the situation the person arrives from, and the surfaces that serve
+it win conflicts.
+
+**Read against the evidence, plainly, because it does not go with the grain of it.** The loudest
+evidenced demand in the whole base is the transfer family — **6,592** for one source across agents,
+**182** for an archive that lands and does not run — while the collector's own job, *lay hands on
+something I wrote months ago*, is a **hypothesis job at importance 2 standing on one named person**, in
+the flow the market serves best (B1) and where our evidence is thinnest. **The decision is the owner's
+and it is taken with that in view.** What it costs is that two things now lean on the weakest evidence
+in the folder: library-wide search, and whatever the Library screen becomes.
+
+**And what it does not do.** It does **not** remove §6's handover investment — `SETUP.md` written for
+the receiving agent, the pinned refs, the target selector, the disclosure stages before Export. Those
+stand on the loudest numbers in the base **and on the only behavioural test this repository has ever
+passed**: three receiving agents out of three performed the setup. **They stop being *the point* and
+remain *the mechanism*.** Anything stronger — cutting handover surfaces because the primary persona
+changed — is not what this disposition says and is not applied.
+
+#### Q8 — §2 is confirmed rather than edited
+
+The main job as the evidence words it is a **transfer** job; §2 words the value as **assembly with
+validation**. [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §1 stated the difference and did not apply it, and
+**proposal R-1 asked for the difference to be stated inside §2.** The answer settles it the other way:
+**§2 stands unchanged, and R-1 is closed without being applied.** Assembly is the product; the move is
+what assembly is for. Consistent with Q7 — both answers choose the corpus over the handover as the
+product's centre.
+
+#### Q10 — the answer is disclosure, and detection is the unsolved half
+
+**Answered:** where the user's own rule and an external requirement disagree, **the external one wins**,
+and **the product must notify about the mismatch** rather than resolve it silently.
+
+**The obstacle, stated before anything is designed against this.** §9 refuses automatic metadata
+parsing, and nothing in the product can see a client's linter, a repo convention or a team standard —
+they live on a machine we never touch. **So a mismatch cannot be *detected* by anything the MVP
+contains.** The answer is buildable only in the direction of disclosure:
+
+- an item can **carry a declared external constraint**, the way `requires` and `conflicts` are declared
+  by hand (§5), and
+- the product can **show it wherever that item sits in a set**, stating that the external rule takes
+  precedence — which is a **Note** in §6's sense rather than a Problem: the archive is correct, the
+  reader is not fully informed.
+
+**Not applied.** It needs a field on `Item` and a line in §6, and it is recorded here so that lesson 03
+can leave it a place without inventing the mechanism.
+
+#### The *provisional* label — decided, and it is dropped
+
+**The register asked what, if anything, may ever lift it, named three positions and left the choice to
+the owner. The owner delegated the choice. It is taken here, with its cost.**
+
+**Position (b) — replace the trigger with a named non-interview event — is refused on this
+repository's own finding.** Round 3 said it in its own words: *importance is a fact about somebody, and
+this round asked nobody anything.* No artefact instrument reaches motive or feeling, so naming a
+substitute event would **lower the bar while keeping the word** — the one outcome the three-mark system
+was built to prevent.
+
+**Position (a) — hold the label until conversations become possible — is refused because the trigger
+cannot occur.** A warning whose condition can never be met stops being a warning and becomes
+furniture, and work is already being built on these documents.
+
+**Position (c) is taken: the blanket label is dropped, and every mark stays exactly where it is.** The
+argument is the evidence rule's own **rule 1** — *the mark is per claim, not per document* — and the
+audit's counts, which show one word doing two wrong things at once: it **over-warns** about P1, which
+carries 20 `✓` against 5 `[?]`, and it **under-warns** about P3, which carries 2 `✓` against 6 `[?]`
+and is the persona two shipped surfaces already serve.
+
+**What dropping it does not do, and this is the whole safeguard. No mark is promoted.** Every `*` stays
+a `*`, every `[?]` stays a `[?]`, the four owed interviews stay owed and unavailable, and each document
+keeps a **standing block** in place of the label: the counted split, what the card may settle, and what
+it may not. **The warning becomes finer-grained rather than absent** — which is what three marks were
+for.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions
