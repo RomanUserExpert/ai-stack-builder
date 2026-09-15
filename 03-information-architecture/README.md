@@ -14,9 +14,12 @@ persona split and a list of the things that are states rather than screens. **Ro
 place/state classification are not done**, and the tree hands them two questions: *is `Item` a place or
 a form*, and *is `Run` a place at all* now that nothing is stored.
 
-**The order moved, deliberately.** The tree was drawn before step 2b's classification because the
-owner asked for the hierarchy first, and it worked: a screen tree with no addressability in it turns
-out to **produce** the classification's hardest questions rather than needing them answered first.
+**The order moved, deliberately, and step 2b then closed what the tree opened.** The tree was drawn
+before the classification because the owner asked for the hierarchy first, and it worked: a screen tree
+with no addressability in it **produced** the classification's hardest questions rather than needing
+them answered first. Both are now answered — **`Item` is a place** (a proposal to §8, which calls it a
+form) and **`Run` is a mode of the Project**, because nothing is stored and there is nothing to return
+to. **Four places in the product**: Library with one address per scope, Item, Projects, Project.
 
 **Where this folder sits, and why.** [`research/`](../research/) holds lessons 01 and 02 as seven
 numbered stages. Every lesson after them is its own deliverable, so each gets a folder at the
@@ -296,7 +299,7 @@ is a weaker test than it will feel while passing it.
 - [ ] `sitemap.md` §1 lists every fixed point with its section number
 - [x] Every entity in §2a carries its fields, its job with a link, and its relation — and every
       object with no job is refused in *In question* with a reason
-- [ ] Every noun in §2b classified, with the borderline cases argued rather than asserted
+- [x] Every noun in §2b classified, with the borderline cases argued rather than asserted
 - [ ] A route table, and every route a promise about something addressable
 - [ ] §8's three load-bearing mitigations each visible in the navigation model
 - [ ] Every surface composed in named regions, plus the three first-run states

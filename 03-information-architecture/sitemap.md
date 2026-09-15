@@ -1,10 +1,11 @@
 # Sitemap — lesson 03, information architecture
 
-> **A draft, in two sections.** Written 2026-09-15. **Entities** first — the objects a person handles
-> in order to close a job — and then **Screens**, derived from those objects and from the jobs
-> themselves rather than from anybody's product. **Navigation, routes and what is addressable are still
-> not here**, deliberately: they are step 2b and step 3, and the screen tree below hands them two
-> named questions instead of answering them.
+> **A draft, in three sections.** Written 2026-09-15, entirely client-side: no backend is assumed and
+> none is needed to decide any of it. **Entities** — the objects a person handles in order to close a
+> job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
+> **Places, modes, overlays and states** — what kind of thing each node actually is, which is where
+> *four places* comes from. **Routes are still not here**: naming them is step 3, and it now has a
+> shape to put them on.
 
 **Sources read in full before writing this:**
 [`personas.md`](../research/6-personas/personas.md),
@@ -561,6 +562,105 @@ that a place you can never return to is an unusual kind of place.
 
 ---
 
+---
+
+## Places, modes, overlays and states — what kind of thing each one is
+
+> **Step 2b, written 2026-09-15.** The screen tree above is a hierarchy; this is what each node
+> actually *is*. No backend is involved and none is assumed: everything here is client-side logic,
+> flow and experience.
+
+**The rule, restated for a product with no server.** *A thing is a **place** only if somebody could be
+sent there and arrive.* With storage in one browser and nothing to share, *being sent* does not mean a
+link to another person — it means **the three things a place owes you on your own machine**: you can
+**reload** and still be where you were, **Back** means something, and the address can be **written
+down** and come back to the same view tomorrow. Anything that fails those three is not a place, however
+much of the screen it occupies.
+
+**Four kinds, and the difference that matters is addressability, not size.**
+
+| Kind | Test it passes | Test it fails |
+|---|---|---|
+| **Place** | Reload lands you here · Back is meaningful · the address survives | — |
+| **Mode** | Takes the surface, has a way out | **Not addressable** — reload cannot restore it |
+| **Overlay** | Summoned over what you were doing, dismissed back onto it | Never in the address; loses nothing when dismissed |
+| **State** | A place or a mode looking different **because of the data** | Not navigated to at all |
+
+### The classification
+
+| Thing | Kind | Why |
+|---|---|---|
+| **Library** | **Place** | Reload, Back and a written-down address all work, and §8 requires it to be *one keystroke away and remembering where you were* |
+| **Library scope** — `My library` · `Public library` | **Part of the Library's address**, not a toggle state | If the scope were transient, a reload would drop you into `My library` — which on first run is **empty by design** (§11), so the one situation the product must not dump you into is the one a reload would produce. Two addresses of one screen, same rows and same filters |
+| **Item** | **Place** | Decided below |
+| **Projects** | **Place** | The list you come back to, now carrying each project's verdict and date (§6) |
+| **Project** | **Place** | The set you work in; every row carries its own state (§7) |
+| **Run** | **Mode of the Project** | Decided below |
+| **Editing an item that exists** | **Mode of the Item place** | You are still looking at the same object; leaving returns you to it |
+| **Creating an item** | **Overlay on the Library** | There is no object yet, so there is nothing to be a place for |
+| **A detached row — edit, reset, promote** | **Mode of the row, inside Project** | The override exists only in this project (§5), so it has no meaning without the project around it |
+| **The `⌘K` palette** | **Overlay** | Summoned, dismissed, never in the address — and it is *the only way the library reaches the Project screen* (§8), which makes it load-bearing rather than a convenience |
+| **A finding** | **Content**, not navigation | It annotates the row that owns it (§8); the ones that own no row belong to the set |
+| **The unclean-export confirmation** | **State of a row inside Run** | §8 puts it *in the row below the finding that caused it* — **not a modal**, and this is where somebody would otherwise draw one |
+| **The check running** | **State of the Run mode** | — |
+| **Empty `My library` · Projects holding only the example · a project with no members** | **States** | §11 and flow 08 — *scale the explanation to how new the concept is* |
+| **A stale verdict** | **State of a project row** | §6: the verdict is not shown, the date is, and what voided it is named |
+| **Library import / export** | **Two commands on the Library** — not a screen | This resolves the orphan's own open question: it is cheaper than it looked. **It is still an orphan** — no job raises it — but a command with no job is a smaller thing to carry than a place with no job |
+
+### `Item` is a place, and this is a proposal to §8
+
+**The rule answers it.** Being sent to an item and arriving is something the product needs internally:
+*used in 3 projects* is a **count that is also a link** — the best consequence disclosure in the whole
+benchmark (VS Code Workspace Trust, C2 = 5) — and what it links to is the item, or the projects. A
+count you cannot follow is Figma's *423 instances*, which the benchmark scored one step behind for
+exactly that reason.
+
+**The job argues the same way.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
+is importance **3** for the primary persona, and editing a linked item has **blast radius**: §5 wants
+it legible *before* the edit, and since 2026-09-15 that radius has a second half — the edit **un-checks
+every project whose resolved set contains the item** (§6). *A form is opened in order to be filled and
+closed. A place is where you go to understand what you are about to disturb.* And with **Q7 naming the
+collector primary**, the item is the unit this person lives among rather than something filled in on
+the way to a project.
+
+**§8 currently says the Library holds an *add/edit form*.** This section proposes: **add** stays an
+overlay on the Library, **edit** becomes a mode of the Item place. **Not applied** — §8 is the
+owner's, and lesson 03 raises rather than edits.
+
+### `Run` is a mode, not a place — and that follows from the run being a moment
+
+**Apply the three tests.** Since 2026-09-15 **no run is stored** (§6): no id, no list, nothing to
+return to. So *reload* cannot land you back in a check — the check is gone. The address could not
+survive, because there is nothing for it to name. **Run fails two of the three tests, so it is not a
+place.**
+
+**What it is instead: the mode the Project enters when you press Check.** It still takes the whole
+surface, exactly as §8 says — **taking the surface and being addressable are different properties**,
+and this is the case that separates them.
+
+**Two behaviours follow, and they are decisions rather than details.**
+
+- **Back leaves the check and returns to the Project.** There is nowhere else it could go.
+- **A reload during a check returns to the Project and does *not* silently start a new one.** Checking
+  is an action the person takes; a reload that re-runs it is the product making a choice nobody made,
+  which is [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools)
+  — importance **3** for the primary persona and the one job §6 already treats as a constraint on
+  everything else.
+
+**And one honest consequence.** Because Run is a mode and nothing is stored, **the handover disclosure
+cannot be bookmarked or returned to** — re-reading it means checking again. That is the price of the
+decision, it is cheap because we run nothing on anyone's machine, and it is recorded here rather than
+discovered in step 5.
+
+### Four places, and that is the whole navigable surface
+
+**`Library` · `Item` · `Projects` · `Project`** — with the Library carrying two addresses, one per
+scope. **Everything else is a mode, an overlay, a state or content.** That is the shape step 3 will
+put routes on, and it is deliberately small: four places for a product whose primary persona keeps
+**tens of items, not hundreds**.
+
+---
+
 ## What this section establishes, and what it does not
 
 **Establishes.** **Fifteen entities, each with a job and a link to it**, and **eleven candidates
@@ -597,8 +697,13 @@ surface is `SETUP.md` inside the archive — and the highest-importance job the 
 one **no screen may serve**, because a dashboard of *what is working* promises a runtime §6 does not
 have.
 
-**Does not establish.** **Routes, navigation, or what is addressable** — the tree is a hierarchy of
-screens and nothing more, and it deliberately leaves two questions open for step 2b: **is `Item` a
-place or a form** (the jobs argue for a place, §8 says a form), and **is `Run` a place at all**, now
-that nothing is stored and there is nothing to return to. Nor the shape of E1, which proposal **S-2**
-would change from a file to a directory, and which the sitting has not decided.
+**And the classification answers the two questions the tree raised. `Item` is a place** — a count
+that is also a link needs somewhere to lead, and an edit with blast radius needs somewhere to stand,
+which is a **proposal to §8** rather than an edit of it. **`Run` is a mode of the Project, not a
+place** — it fails two of the three tests because nothing is stored, and taking the whole surface is
+not the same property as being addressable. **Four places in the whole product**: Library with an
+address per scope, Item, Projects, Project.
+
+**Does not establish. Routes** — the strings themselves, and what each promises — which is step 3. Nor
+the shape of E1, which proposal **S-2** would change from a file to a directory, and which the sitting
+has not decided.
