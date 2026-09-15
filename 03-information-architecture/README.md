@@ -6,10 +6,17 @@ lesson 3 — object model, surface map, navigation, screen composition — adapt
 between them, decided 2026-09-01 and confirmed 2026-09-02. That fact is the whole difficulty of this
 lesson and it is dealt with under *What it is not*.
 
-**Status, 2026-09-15: step 2a is written.** [`sitemap.md`](sitemap.md) holds the **entity
-inventory** — fifteen objects, each with its fields, the job that raises it and whose side it is on,
-plus **eleven candidates refused for a stated reason**. Nothing else has started, and no screen or
-route has been proposed.
+**Status, 2026-09-15: step 2a and the tree half of step 3 are written.** [`sitemap.md`](sitemap.md)
+holds the **entity inventory** — fifteen objects with their fields, the job that raises each and whose
+side it is on, plus **eleven candidates refused for a stated reason** — and the **screen tree**: five
+screens and one orphan, derived from the jobs, grouped by the person's three situations, with the
+persona split and a list of the things that are states rather than screens. **Routes and the
+place/state classification are not done**, and the tree hands them two questions: *is `Item` a place or
+a form*, and *is `Run` a place at all* now that nothing is stored.
+
+**The order moved, deliberately.** The tree was drawn before step 2b's classification because the
+owner asked for the hierarchy first, and it worked: a screen tree with no addressability in it turns
+out to **produce** the classification's hardest questions rather than needing them answered first.
 
 **Where this folder sits, and why.** [`research/`](../research/) holds lessons 01 and 02 as seven
 numbered stages. Every lesson after them is its own deliverable, so each gets a folder at the

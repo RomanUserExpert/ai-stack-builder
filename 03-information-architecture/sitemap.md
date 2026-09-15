@@ -1,9 +1,10 @@
 # Sitemap — lesson 03, information architecture
 
-> **A draft, and only its first section.** Written 2026-09-15 as the *entity inventory* — the objects a
-> person actually handles in order to close a job. **No screens and no navigation are proposed here**,
-> deliberately: what a place is, what is addressable and what a surface is made of come after this, in
-> steps 3 to 5 of [the plan](README.md).
+> **A draft, in two sections.** Written 2026-09-15. **Entities** first — the objects a person handles
+> in order to close a job — and then **Screens**, derived from those objects and from the jobs
+> themselves rather than from anybody's product. **Navigation, routes and what is addressable are still
+> not here**, deliberately: they are step 2b and step 3, and the screen tree below hands them two
+> named questions instead of answering them.
 
 **Sources read in full before writing this:**
 [`personas.md`](../research/6-personas/personas.md),
@@ -397,6 +398,130 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 
 ---
 
+---
+
+## Screens — the draft tree
+
+> **Written 2026-09-15, after the entity inventory and from it.** Derived from **what the person is
+> trying to get done**, not from anybody's product. No competitor's sitemap was opened while writing
+> it; the flows in [`2-flows/`](../research/2-flows/README.md) are captured mechanisms and were read as
+> mechanisms, never as structures to copy.
+
+**Depth is deliberately shallow.** Three levels, no more. Levels are added on purpose in step 3, when
+routes and addressability are decided — a tree that grows depth before it has a reason is how an
+information architecture acquires places nobody asked for.
+
+**A screen is not a state.** Empty, loading, filtered-to-zero, mid-check and error are **states** of a
+screen. They are listed under *What is not a screen* below and they will be composed in step 5.
+
+**Every screen carries the job it serves, or it is marked `[orphan]`.** An orphan is not a mistake to
+delete on sight — it is a screen the specification wants and the jobs do not raise, and saying so is
+the point of the mark.
+
+### The tree
+
+```
+1 · WHAT I KEEP  — the corpus I have accumulated
+  │
+  ├── Library ......................................... [H-J1] [RJ-3]
+  │     two scopes, one screen: My library · Public library  [H-J4 ?]
+  │     │
+  │     └── Item .................................... [RJ-3] [EJ-3 partly]
+  │
+  └── Library import / export (whole library as JSON) . [orphan]
+
+2 · WHAT I AM PUTTING TOGETHER  — the set for one piece of work
+  │
+  └── Projects ........................................ [MAIN] [H-J2 ?]
+        │
+        └── Project ................................... [MAIN] [RJ-2]
+              │
+              └── Detached row — edit, reset, promote .. [H-J3]
+
+3 · WHAT LEAVES  — the thing that has to work somewhere else
+  │
+  └── Run ............................................. [MAIN] [RJ-2] [RJ-1] [RJ-4] [SJ-1]
+        entered by Check, from a Project. Ends in Export.
+```
+
+**Five screens and one orphan.** The three groups are the person's own three situations, in the order
+[`personas.md`](../research/6-personas/personas.md) records them: *copying something out of the
+collection into a new project · adding a rule right after an agent did something annoying · hunting
+for something they know they wrote.* They are not navigation sections and should not become a menu in
+step 3 — they are why the screens exist.
+
+### Each screen, its job, and what the person came to do
+
+| Screen | Job it serves | What the person arrived to do | Persona |
+|---|---|---|---|
+| **Library** | [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) · [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) | *Lay hands on the thing I know I wrote* — and reach the one copy that a fix has to land on | **P1** · P3 in its public scope `[?]` |
+| **Item** | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | *Fix this once*, and see who else it reaches before touching it | **P1** |
+| **Projects** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J2](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Get back to the set I keep for that piece of work* — and see whether it is still checked | **P1** · P3 for the example `[?]` |
+| **Project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *Put the set together and see what it drags in* — every row carrying its own state | **P1** |
+| **Detached row** — edit · reset · promote | [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | *Change it here only, without the others getting it* | **P1** |
+| **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
+| **Library import / export** | **`[orphan]`** | — | — |
+
+**The orphan, named rather than quietly dropped.** `CLAUDE.md` §10 commits to **export and import of
+the whole library as JSON**, *"which covers both backup and informal sharing before any server
+exists"*. **No job in the matrix raises it.** Backup appears nowhere in the evidence — nobody has said
+they lost a corpus — and *informal sharing* is the transfer family's wording for something the archive
+already does. It is kept in the tree **because the specification wants it and because naming an orphan
+is cheaper than discovering one at step 5**; whether it is a screen at all, or two commands living on
+the Library, is exactly the kind of thing step 2b decides.
+
+### Which screens each persona needs
+
+| | Screens | Reading |
+|---|---|---|
+| **P1 — the keeper of a corpus** · **primary** | **All five**, and Library and Item carry more weight than they did before 2026-09-15 | Q7 named the collector primary, so the corpus screens stop being the place you pass through on the way to Run. **The cost is on the record**: the collector's own job is the thinnest evidence in the folder |
+| **P2 — the receiver** · secondary | **None.** | **This is the finding of the section.** The receiver never opens this product: they are handed an archive, and **their entire surface is `SETUP.md` inside it** (E12) — the best-evidenced object we have, three receiving agents out of three. We design for P2 **without ever showing them a screen**, which is why every decision about the archive is a decision about somebody who cannot tell us anything |
+| **P3 — the empty-handed** · secondary `[?]` | **No screen of their own**: Library in its **Public** scope, and Projects for the **example project** | Nothing is built only for P3, and that is deliberate. The persona has never been observed, and the two clearest public beginners wrote their own material or asked to shadow a human rather than reach for a shelf. **A screen built only for them would be a place invented for somebody nobody has met** |
+
+### What is not a screen
+
+Listed because each one is a thing an information architecture is tempted to promote, and every
+promotion here would be a place with no job under it.
+
+- **The first run.** `My library` empty beside a full shelf, Projects holding only the example — these
+  are **states** of two screens (§11), and flow 08's rule scales the explanation to how new the
+  concept is. **Not an onboarding screen, not a tour, not a wizard.**
+- **The check in progress.** A **state** of Run, not a screen of its own. Neither is the unclean-export
+  confirmation, which §6 puts in the row below the finding that caused it.
+- **The example project.** An **instance** of Project with a label and a delete, not a place.
+- **The public shelf.** A **scope** of Library — same rows, same search, same filters, because it is
+  the same object seen in two places (§8). A second screen would say it is a different kind of thing.
+- **Settings, account, sync, team.** §9 refuses all of it and there is no job. **Not proposed.**
+- **A dashboard of what is working.** It would answer [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight)
+  — importance **3** for the primary persona, the highest the product cannot close — and §6 **runs
+  nothing on anyone's machine**, so it would be a promise we have no way to keep. **The job is real and
+  the screen is forbidden**, which is Q12.
+
+### Where this disagrees with §8, and it is one place
+
+`CLAUDE.md` §8 names **Library, Project, Run and Projects**. This derivation produces the same four
+**and one more: Item.** §8 folds an item's editing into the Library as an *add/edit form*.
+
+**The argument for a place rather than a form** is [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it),
+importance **3** for the primary persona: *fix it once and have the fix reach every copy* is an act
+with **blast radius**, and §5 requires that radius to be legible before the edit — *used in 3
+projects*, and since 2026-09-15 *this edit un-checks 3 checked projects* (§6). A form is opened to be
+filled and closed; that is a different thing from a place you go to in order to understand what you
+are about to disturb. **Q7's answer pushes the same way**: with the collector primary, the item is the
+unit the person lives among rather than something they fill in on the way to a project.
+
+**This is not decided here.** It is the question step 2b answers — *is Item a place somebody can be
+sent to, or a state of the Library* — and this section records that the jobs argue for a place while
+§8 currently says a form.
+
+**And one question today's decision forced into the open.** Since **the run is a moment and nothing is
+stored** (§6, decided 2026-09-15), **Run has nothing to be linked to afterwards.** So *is Run a place
+at all, or a mode the Project enters?* The tree draws it as a screen because it takes the whole
+surface and has its own content; **whether it is addressable is step 2b's**, and the honest note is
+that a place you can never return to is an unusual kind of place.
+
+---
+
 ## What this section establishes, and what it does not
 
 **Establishes.** **Fifteen entities, each with a job and a link to it**, and **eleven candidates
@@ -426,6 +551,15 @@ its place by closing a job. **The cost is recorded in the register**: the collec
 thinnest evidence in the folder, so the surfaces that now carry the most weight are the ones with the
 least under them.
 
-**Does not establish.** Anything about places, screens, routes or navigation — **none of that is in
-this file yet, by instruction.** Nor the shape of E1, which proposal **S-2** would change from a file
-to a directory, and which the sitting has not decided.
+**And the screen tree establishes five screens and one orphan**, each with the job it serves, grouped
+by the person's own three situations rather than by anything that could become a menu. **Its two
+findings are refusals rather than places:** the receiver needs **no screen at all** — their whole
+surface is `SETUP.md` inside the archive — and the highest-importance job the primary persona has is
+one **no screen may serve**, because a dashboard of *what is working* promises a runtime §6 does not
+have.
+
+**Does not establish.** **Routes, navigation, or what is addressable** — the tree is a hierarchy of
+screens and nothing more, and it deliberately leaves two questions open for step 2b: **is `Item` a
+place or a form** (the jobs argue for a place, §8 says a form), and **is `Run` a place at all**, now
+that nothing is stored and there is nothing to return to. Nor the shape of E1, which proposal **S-2**
+would change from a file to a directory, and which the sitting has not decided.
