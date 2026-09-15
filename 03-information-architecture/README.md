@@ -6,8 +6,10 @@ lesson 3 — object model, surface map, navigation, screen composition — adapt
 between them, decided 2026-09-01 and confirmed 2026-09-02. That fact is the whole difficulty of this
 lesson and it is dealt with under *What it is not*.
 
-**Status, 2026-09-15: nothing is written yet. This file is the plan and the only thing in the
-folder.**
+**Status, 2026-09-15: step 2a is written.** [`sitemap.md`](sitemap.md) holds the **entity
+inventory** — fifteen objects, each with its fields, the job that raises it and whose side it is on,
+plus **eleven candidates refused for a stated reason**. Nothing else has started, and no screen or
+route has been proposed.
 
 **Where this folder sits, and why.** [`research/`](../research/) holds lessons 01 and 02 as seven
 numbered stages. Every lesson after them is its own deliverable, so each gets a folder at the
@@ -108,26 +110,42 @@ different data model is a shape with no argument under it.
 ## Steps
 
 Nine, and the last three are one closing pass. Each step names its output section in
-[`ia.md`](ia.md) so the document is assembled rather than written.
+[`sitemap.md`](sitemap.md) so the document is assembled rather than written.
 
 ### 1. The fixed points — what this lesson may not re-decide
 
 Every structural commitment already in the spec, in one table: what it fixes, which section says so,
 and what it therefore forbids. Nothing is argued here; it is extracted.
 
-**Output:** `ia.md` §1. **Rule it sets up:** from here on, *the spec says so* is a citation with a
+**Output:** `sitemap.md` §1. **Rule it sets up:** from here on, *the spec says so* is a citation with a
 section number or it is not a reason.
 
-### 2. Nouns, and what kind of thing each one is
+### 2a. The entities — **done 2026-09-15**
 
-Item · Project · ProjectItem · Library · scope · Run · stage · finding · agent target · archive.
-For each: is it a **place** you can arrive at, a **state** of a place, a **mode**, or an **overlay**?
+**Before anything is classified, what are the objects?** Every entity the person handles in order to
+close a job, each with **its fields and parts**, **the job that raises it** with a link into
+[`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md), and **whose side it is on** — owner, consumer or
+external author.
+
+**The rule it obeys: an object earns its place by closing a job.** An object with no job goes to *In
+question* whatever the specification says about it, and nothing is added because products of this kind
+usually have one.
+
+**Output:** [`sitemap.md`](sitemap.md), *Entities* and *In question*. **Fifteen and eleven.** Two
+things came out of it that were not visible before: **§5 has no object for the check or for a finding**,
+which §8 gives a whole surface, and **the best-evidenced entity in the product — `SETUP.md` — belongs
+to the persona nobody has ever interviewed.**
+
+### 2b. Nouns, and what kind of thing each one is
+
+The same objects, classified: is each a **place** you can arrive at, a **state** of a place, a
+**mode**, or an **overlay**?
 
 **The rule that decides it:** *a noun is a place only if somebody could be sent there and arrive.*
 `ProjectItem` and `finding` are the interesting cases and each gets its argument written out rather
 than assumed.
 
-**Output:** `ia.md` §2.
+**Output:** `sitemap.md` §2b.
 
 ### 3. The surface map, and the route shape
 
@@ -137,7 +155,7 @@ addressable.** The questions this step must answer rather than leave: is a finis
 is item detail a page or an overlay · does the library scope live in the URL · what does a project row
 link to.
 
-**Output:** `ia.md` §3 — a tree and a route table.
+**Output:** `sitemap.md` §3 — a tree and a route table.
 
 ### 4. Getting between places, and what is remembered
 
@@ -146,7 +164,7 @@ a mechanism behind it), the seam at Check, what Back does from Run, what survive
 Library remembering where you were. **Each entry says which of §8's three load-bearing mitigations it
 implements**, so trap 4 is visible rather than avoided by silence.
 
-**Output:** `ia.md` §4.
+**Output:** `sitemap.md` §4.
 
 ### 5. What each surface is made of
 
@@ -156,7 +174,7 @@ hypothetical: `My library` empty beside a full shelf · Projects holding only th
 Project with nothing in it yet. Flow 08's rule governs the register of each — *scale the explanation
 to how new the concept is.*
 
-**Output:** `ia.md` §5.
+**Output:** `sitemap.md` §5.
 
 ### 6. The item, in every context and every state
 
@@ -169,7 +187,7 @@ facts it does carry.
 **This is the deliverable [`CLAUDE.md`](../CLAUDE.md) §1 names for this lesson** — *what an item card
 carries*. **And it is where S-2 lands:** if an item is a directory, this table changes. Say so in it.
 
-**Output:** `ia.md` §6.
+**Output:** `sitemap.md` §6.
 
 ### 7. Where a finding lives
 
@@ -180,7 +198,7 @@ the set. Run's stage list as a structure — verdict, duration, expansion, in fl
 handover stages, and where the unclean-export confirmation sits relative to the finding that caused
 it.
 
-**Output:** `ia.md` §7.
+**Output:** `sitemap.md` §7.
 
 ### 8. Taxonomy, filters, search — and the one sort we cannot decide
 
@@ -190,7 +208,7 @@ scopes. **And the shelf's sort order, which is Q9 and gets a marked placeholder 
 answer** — *provenance over volume* is the only shape any observed person has endorsed, on four
 practitioners in a self-selecting venue, and that is not enough to fix an order.
 
-**Output:** `ia.md` §8.
+**Output:** `sitemap.md` §8.
 
 ### 9. The closing pass — mark, audit, hand back
 
@@ -199,12 +217,12 @@ register entry it belongs to. This is the rule [`CLAUDE.md`](../CLAUDE.md) §1 n
 before the sitting: *name the missing cell at the point of the decision and leave the decision
 marked.*
 
-**9b — the audit.** Every claim in `ia.md` classified **fixed by the spec** / **derived, with the
+**9b — the audit.** Every claim in `sitemap.md` classified **fixed by the spec** / **derived, with the
 derivation shown** / **invented**, in the manner of
 [`personas-and-jobs-critique.md`](../research/personas-and-jobs-critique.md), which found 27 invented
 claims in 238. **An information architecture is where invention hides best, because a structure looks
 inevitable the moment it is drawn.** Filed as `ia-critique.md` so it can be read as an audit, and
-applied in place with the pass recorded in `ia.md`.
+applied in place with the pass recorded in `sitemap.md`.
 
 **9c — reconcile and hand back.** Proposals to the register, in the established form — *what was found
 · what is proposed · which entry it belongs to*. **Nothing is written into `CLAUDE.md`.** A lesson may
@@ -223,8 +241,8 @@ file added to `.vercelignore`, which is a whitelist. See [`tools/README.md`](../
 | File | What it is |
 |---|---|
 | `README.md` | This plan. |
-| `ia.md` | The work, sections 1–8 plus the marked list. The source of truth for structure, subordinate to `CLAUDE.md` in every conflict. |
-| `ia-critique.md` | Step 9b. Claim-by-claim, with its application recorded in `ia.md`. |
+| [`sitemap.md`](sitemap.md) | The work, sections 1–8 plus the marked list — **the entity inventory is written**. The source of truth for structure, subordinate to `CLAUDE.md` in every conflict. |
+| `ia-critique.md` | Step 9b. Claim-by-claim, with its application recorded in `sitemap.md`. |
 | `ia.html` | Step 10, if it is built. Generated — never hand-edited. |
 
 ---
@@ -250,7 +268,7 @@ obvious it looks once drawn. That is the failure mode step 9b exists to catch.
 **Three, and the first is new to this lesson.**
 
 **The spec has pending amendments, and one of them is the central noun.** S-2 would make an item a
-directory. The IA is drawn against the spec as it stands, so §6 of `ia.md` is being written against a
+directory. The IA is drawn against the spec as it stands, so §6 of `sitemap.md` is being written against a
 shape that has a known, unapplied proposal to change it. That is the cost of starting before the
 sitting, it is accepted deliberately, and the way it is paid is by naming the dependency wherever it
 touches rather than by guessing which way the sitting will go.
@@ -268,8 +286,10 @@ is a weaker test than it will feel while passing it.
 
 ## Definition of done
 
-- [ ] `ia.md` §1 lists every fixed point with its section number
-- [ ] Every noun in §2 classified, with the borderline cases argued rather than asserted
+- [ ] `sitemap.md` §1 lists every fixed point with its section number
+- [x] Every entity in §2a carries its fields, its job with a link, and its relation — and every
+      object with no job is refused in *In question* with a reason
+- [ ] Every noun in §2b classified, with the borderline cases argued rather than asserted
 - [ ] A route table, and every route a promise about something addressable
 - [ ] §8's three load-bearing mitigations each visible in the navigation model
 - [ ] Every surface composed in named regions, plus the three first-run states
