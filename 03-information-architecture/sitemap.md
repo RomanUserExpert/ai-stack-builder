@@ -53,7 +53,8 @@ One reusable block. The atomic unit, and the thing every other entity is about.
 
 - **Fields (§5).** `id` · `kind` — one of six, `skill | agent | prompt | mcp | script | app` · `name` ·
   `description` · `tags[]` · `visibility` · `source` — `inline | external` · `content` when inline ·
-  `repoUrl`, `path`, `ref` when external · `requires[]` · `conflicts[]` · `needsEnv[]` · `targetPath`.
+  `repoUrl`, `path`, `ref`, **`license`** when external · `requires[]` · `conflicts[]` · `needsEnv[]` ·
+  `targetPath`. *`license` added to §5 on 2026-09-15 — see E15.*
 - **Parts that are not fields.** Its **usage facts** (E14) and, when external, its **provenance**
   (E15). Both are derived or borrowed rather than authored.
 - **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — an item is what has to keep
@@ -326,8 +327,8 @@ The only per-item evidence the product ships. **Derived from the library, never 
 Where a piece of somebody else's work came from.
 
 - **Fields (§5).** `repoUrl` · `path` · **`ref`, pinned** — *this is the version we checked*, not
-  *this is current*, which is what keeps a shelf with no server behind it honest. §11: **shown, not
-  just stored.**
+  *this is current*, which is what keeps a shelf with no server behind it honest · **`license`, an
+  SPDX identifier, added 2026-09-15**. §11: **shown, not just stored.**
 - **Job.** [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
   `[?]` for the shelf, and [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) for the pin: an
   external item travels as an instruction to clone **at a named ref**.
@@ -337,8 +338,21 @@ Where a piece of somebody else's work came from.
   copy** — only **10% of 446** traced copies name their origin anywhere — and a pinned ref **did real
   work in front of us**: in the handover test the receiving agent used the pins to fetch back **both
   items the archive had silently lost to collisions.** So the thing is scarce *and* load-bearing.
-- **Open. `[?]`** The model has **no `license` field**, and a missing licence is not permission
-  (stage 6 proposal 6). Not applied.
+- **The licence — added 2026-09-15, and it is the one part of this inventory with no job under it.**
+  `license` holds an SPDX identifier, and **absence is shown as absence** — *no licence stated*, never
+  a blank row — because **a missing licence is not permission but the lack of it**. Stage 6's proposal
+  6, applied by the owner ahead of the register's sitting.
+  **Read what basis it has, since this file's own rule is that an object earns its place by closing a
+  job.** This one does not: nobody has asked for it, and it is not here because a persona needs it. It
+  is here because **we carry other people's work inside an archive the user then hands on**, which is a
+  legal constraint rather than a job — a different kind of reason, and the file says so rather than
+  inventing a job to cover it. §5 also fixes what it may not become: **a licence is not a trust signal
+  and must not be drawn as a badge**, or the refusal of scores comes back through the side door.
+- **Still open. `[?]`** **Whether a user's own external item with no stated licence produces a Note**
+  — the same shape §6 already gives *an external item with no pinned `ref`*. **Not decided, and
+  deliberately not taken here**: it would create a finding, and a new finding changes what the
+  validation pass claims. §11 covers the shelf by a build standard instead — an item whose licence we
+  cannot state does not ship on it.
 
 ---
 
@@ -354,7 +368,7 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 | **Q-E2** | **Stack** (§4) | **Not a second entity.** §4 calls it the *informal* name for the resolved set, which is **E6**. Two names for one object is how a vocabulary drifts | Nothing. Prefer *resolved set* in structure, keep *stack* as speech |
 | **Q-E3** | **Tag** | A **field on E1**, not an object. The only job that touches it is H-J1, whose importance is a **2** on one person — and nothing anybody has said requires tags to have a life of their own (rename, merge, describe, own a colour) | Somebody asked to manage tags rather than to use them |
 | **Q-E4** | **`visibility`** | **§9 keeps the field and does not show the control at all**, because there is no server to publish to. The only job behind it is [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp), scored **1** for the primary persona and **post-MVP** | A server, and a register decision |
-| **Q-E5** | **Licence of an external item** `[?]` | **Proposed, not applied** (stage 6 proposal 6). It closes no job — it is a legal constraint on shipping E3, which is a different kind of reason | The register's sitting |
+| ~~**Q-E5**~~ | ~~**Licence of an external item** `[?]`~~ | ~~**Proposed, not applied** (stage 6 proposal 6). It closes no job — it is a legal constraint on shipping E3, which is a different kind of reason~~ **Left this table on 2026-09-15: the owner applied it.** It is now a field of **E15**, and the reason it was refused here is still true — **it closes no job**, and §5 now says so in those words rather than acquiring one | — |
 | **Q-E6** | **A profile of the receiving machine** | **RJ-1 wants the *knowledge*, and the specification answers it with E12 rather than with an object.** RJ-1's importance for the primary is **`[?]`** — the cell was withdrawn by the audit, then hunted deliberately with six queries across two forums and **nobody says they wished they had known.** The market has such a surface (`asm doctor`); we do not need the object to close the job | One practitioner saying it plainly — which would also move RJ-1 into the core |
 | **Q-E7** | **An external requirement** — a client's linter, a repo convention | The conflict a practitioner actually described is with something **outside the set**, and §5 has nowhere to put it. That is **Q10**, live and standing on one person. **No object until the question is answered** | Q10 answered |
 | **Q-E8** | **An execution record** — what actually ran, per session | This is the highest-importance job the product **cannot** close: EJ-3 / H-J5 score **3** for the primary and **§6 runs nothing on anyone's machine.** An object here would be a promise we cannot keep. **This is Q12, and it is a positioning question rather than a backlog item** | A different product. Named here so nobody adds it later as *just a log* |
@@ -367,7 +381,8 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 ## What this section establishes, and what it does not
 
 **Establishes.** **Fifteen entities, each with a job and a link to it**, and **eleven candidates
-refused for a stated reason**. Three relations, not one: most of this product belongs to its owner,
+refused for a stated reason — of which one, the licence, was promoted on 2026-09-15 by an owner's
+decision rather than by evidence, and is recorded as such in both places.** Three relations, not one: most of this product belongs to its owner,
 **three entities exist for the receiver** — the archive, `SETUP.md` and the agent target — and **one
 points at an external author**.
 

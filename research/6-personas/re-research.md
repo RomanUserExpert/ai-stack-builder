@@ -528,6 +528,12 @@ outside this folder has been changed.**
    content, and the shelf needs a stated review standard.
 6. **A field the `Item` model lacks** (R11): `license`, for public items, with the rule that a
    missing licence is not permission. §5 currently carries `repoUrl`, `path`, `ref` and no licence.
+   **— APPLIED 2026-09-15, by the owner, ahead of the register's sitting.** §5 now carries `license`
+   as an SPDX identifier with absence shown as absence, §5 states that it is **not a trust signal and
+   may not be drawn as a badge**, and §11 makes it a build standard for the shelf: an item whose
+   licence we cannot state does not ship on it. **The other eight proposals in this list are
+   untouched**, and this one was applied on a legal basis rather than on evidence — it closes no job,
+   and §5 says so in those words.
 7. **A datum against stage 5's 300-item claim** (R4), which is what the chosen pattern's known cost
    was priced against.
 8. **A weakened premise under §6's *nothing blocks*** (R12): *the user's own machine, only party at

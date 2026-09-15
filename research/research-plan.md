@@ -586,6 +586,19 @@ cell.
 **And the protocol is unchanged.** Lesson 03 raises entries here; it does not edit
 [`CLAUDE.md`](../CLAUDE.md) §2–§11 in place. Two lists drift.
 
+**One proposal was applied ahead of the sitting — 2026-09-15, and it is recorded here so the sitting
+does not decide it twice.** **Stage 6's proposal 6** — *a `license` field the `Item` model lacks, with
+the rule that a missing licence is not permission* — was applied to
+[`CLAUDE.md`](../CLAUDE.md) §5 and §11 by the owner. **What it does not do:** it answers none of Q7 to
+Q12, it promotes no mark, and **the other eight proposals of that list, stage 7's nine, round 3's six
+and round 4's two movements are untouched.** **The basis is worth naming because it is not this
+register's usual one:** the licence closes **no job** — lesson 03's entity inventory had refused it for
+exactly that reason — and it was taken on a **legal** ground instead: we carry other people's work
+inside an archive the user hands on, and absence of a licence is absence of permission. **A second
+question was deliberately left open**: whether a user's *own* external item with no stated licence
+produces a **Note**, the way an external item with no pinned `ref` already does (§6). That would create
+a finding, and a new finding changes what the validation pass claims.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

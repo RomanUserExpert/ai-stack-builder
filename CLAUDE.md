@@ -15,7 +15,8 @@ There is still no application code, no information architecture, no design syste
 
 **Lesson 03 started on 2026-09-15, and the register's sitting was not held first.** That is the
 owner's decision, taken in these words — *we work with what we have* — and it changes standing, not
-evidence. **The sitting stays owed**, the four proposal lists stay unapplied, the *provisional* label
+evidence. **The sitting stays owed**, the four proposal lists stay unapplied **except stage 6's
+proposal 6, the `license` field, which the owner applied on 2026-09-15** (§5, §11), the *provisional* label
 stays on stages 6 and 7, and no mark is promoted. If lesson 03 finds that a section of this file has
 to change, it goes to the register as an entry rather than being edited in place; that is the protocol
 every lesson uses (§12). The cost to hold while working: **an information architecture built now
@@ -130,8 +131,11 @@ absences in instruments that cannot see presence, four sceptics on Hacker News a
 no beginner was asked anything. **Nothing is removed.** The finding bears on **what the shelf holds
 and how it sorts**, which is Q9 in the register and now has its first evidence.
 
-**Nothing has been applied to this file, and that is deliberate: the register's next sitting decides,
-not the stages.** There are now **two proposal lists and they are one input**. Stage 6's **nine
+**One thing has been applied and the rest has not, and that is deliberate: the register's next sitting
+decides, not the stages.** *Until 2026-09-15 this line read "nothing has been applied".* **The owner
+applied stage 6's proposal 6 — the `license` field — on 2026-09-15**, on a legal basis rather than an
+evidential one: it closes no job, and §5 says so in those words. **Nothing else is applied.** There
+are now **two proposal lists and they are one input**. Stage 6's **nine
 proposals** touch §2, §5, §6, §9 and §11 — including a narrowing of §2's *"nothing does this today"*
 and a new safety risk under §11's public shelf — and are collected in
 [`research/6-personas/re-research.md` §4](research/6-personas/re-research.md). Stage 7's **nine**, the
@@ -298,6 +302,7 @@ Item
   source        inline | external
   content                               // if inline
   repoUrl, path, ref                    // if external: repo, file, and a pinned commit/tag/version
+  license                               // if external: SPDX id. Absent = no licence stated, which is not permission
   requires: [itemId]
   conflicts: [itemId]
   needsEnv: [string]
@@ -371,10 +376,28 @@ and we have no way to run an item, so any number we invented would be decoration
 Some items are not the user's own. The **public library** (§8, §11) ships with the application and is
 **read-only**: an item there can be added to a project or copied into `My library`, but never edited
 in place and never published to. Public items are ordinary `Item`s in every other respect — the shape
-above already carries what they need, `repoUrl` and a pinned `ref`. Two things follow for design:
-each public item **shows its origin**, because it is someone else's work, and the pinned `ref` is
-what keeps a shelf with no server behind it honest — it says *this is the version we checked*, not
-*this is current*.
+above already carries what they need, `repoUrl`, a pinned `ref` and a `license`. Two things follow
+for design: each public item **shows its origin**, because it is someone else's work, and the pinned
+`ref` is what keeps a shelf with no server behind it honest — it says *this is the version we
+checked*, not *this is current*.
+
+**Every external item carries its licence, and a missing licence is not permission** (decided
+2026-09-15). `license` holds an SPDX identifier — `MIT`, `Apache-2.0` — and where a source states
+none, the field is **absent and shown as absent**: *no licence stated*, never a blank row. It rides
+beside `repoUrl`, `path` and `ref` because it is the same kind of fact — where this came from, and on
+what terms.
+
+**Its basis is stated plainly, because it is not the basis everything else on the card has.** No user
+has asked for this and it closes no job; the licence is the one thing on an item card that is there
+for a reason other than somebody's stated need. The reason is that we carry other people's work
+inside an archive the user then hands to somebody else, and **absence of a licence is absence of
+permission rather than a default grant**. Raised as proposal 6 of stage 6
+(`research/6-personas/re-research.md` §4) and applied by the owner ahead of the register's sitting.
+
+**It is not a trust signal and must not be drawn as one.** A licence says what you may do with an
+item, never whether the item is any good. The refusal of scores, ratings, eval results and badges
+above is unaffected — and a licence rendered as a badge would quietly reintroduce the thing that
+refusal exists to prevent.
 
 ### Relations
 
@@ -668,8 +691,10 @@ rather than in the library, because that is where being an example is honest.
 - **Real content from checked sources.** Placeholder lorem makes the whole product look pointless.
 - **Meaningful relations** — real `requires` edges, at least one genuine `conflicts` pair, several
   items with `needsEnv`, at least two items that write to the same target path.
-- **Provenance on every item.** These are other people's work: `repoUrl` and a pinned `ref`, shown,
-  not just stored (§5).
+- **Provenance on every item.** These are other people's work: `repoUrl`, a pinned `ref` **and the
+  licence**, shown, not just stored (§5). **An item whose licence we cannot state does not go on the
+  shelf**, because the shelf is ours to curate — that is a build standard, not something to leave the
+  user to discover.
 - **Enough of it to browse rather than to read** — the switch has to feel like a library, not a list.
   The **~30 realistic items** figure that used to live here as a mockup requirement is the right
   order of magnitude for this too, and the same set serves both jobs.

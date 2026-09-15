@@ -425,8 +425,11 @@ that it is *true*.
   still needs narrowing at the item level and is confirmed where it matters**, and the narrowing can
   now be written from a measurement.
 
-**None of it is applied.** Stages 6 and 7 audit the spec; the owner edits it. **The proposals now sit
-in two places and both are for the same sitting**: [`re-research.md`](6-personas/re-research.md) §4,
+**One of it is applied and the rest is not.** Stages 6 and 7 audit the spec; the owner edits it — and
+on 2026-09-15 the owner applied **stage 6's proposal 6, the `license` field**, ahead of the sitting,
+on a legal basis rather than an evidential one ([`research-plan.md`](research-plan.md), *The sitting
+was not held before lesson 03*). **Everything else stands unapplied. The proposals sit in two places
+and both are for the same sitting**: [`re-research.md`](6-personas/re-research.md) §4,
 nine of them from stage 6, and [`jtbd.md` §12](7-jobs-to-be-done/jtbd.md), nine more from stage 7 —
 the reconciliation, written as a table of *what was found · what is proposed · which register entry
 it belongs to*. **Read §12 first**; it is the shorter list and it names the sections.
