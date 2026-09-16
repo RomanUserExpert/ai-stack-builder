@@ -933,6 +933,44 @@ the last time your own rule and the project's tooling disagreed* is still on the
 conversations that cannot be run. **Building the mechanism does not promote the mark.** What it does
 remove is the sitting's outstanding item: **no disposition from 2026-09-15 is now owing a mechanism.**
 
+### `Item` stays a form — 2026-09-16, and §8 is kept as written
+
+**Lesson 03 raised it as a proposal and the owner rejected it, in three words: *we go by §8*.** The
+Library holds an **add/edit form**; there is no `Item` place, and the product's navigable surface drops
+from six addresses to **five** — Library with one address per scope, Projects, Project, and the two the
+link creates.
+
+**What was argued, so that the rejection is a decision and not an omission.** Two things pushed toward
+a place. *Used in 3 projects* is a **count that is also a link** — the benchmark's best consequence
+disclosure, VS Code Workspace Trust at C2 = 5 — and a count you cannot follow is Figma's *423
+instances*, scored a step lower for exactly that. And editing a linked item has **blast radius** that
+§5 wants legible *before* the edit, with a second half since 2026-09-15: the edit **un-checks every
+project whose resolved set contains the item** (§6).
+
+**The counter-argument, which is the one that won.** The primary persona keeps **tens of items, not
+hundreds** — counted, not assumed: four public trees hold 11, 25, 47 and 48. **An address per item is
+a place invented for a scale this product does not have**, and every place costs a route, a set of
+empty states and a decision about what lives on it.
+
+**What the decision costs, recorded rather than absorbed.** The requirement the argument rested on does
+not disappear with the place, so it is re-homed:
+
+- **The count expands where it stands.** *Used in 3 projects* opens on the Library row, naming the
+  three, and **each name leads to the Project**, which is a place. **The item is not addressable; what
+  the count is about still is.** This is weaker than a link to the item and it is named as weaker.
+- **Blast radius moves to the head of the form**, which is now its only possible home: §5 requires the
+  radius before the edit and never named a surface, so the form **states it before any field is
+  editable** — *used in 3 projects · saving un-checks all three* (§6). A form that discloses before it
+  accepts is not what the argument objected to; what it objected to was a form that discloses nothing.
+
+**One asymmetry worth keeping in view.** A **shared item** is a place — the link is its address (Q13) —
+while **the owner's own item is not.** The product can address an item, just never one of yours. Not a
+contradiction: the shared page exists because somebody outside holds nothing else. **But it is the seam
+to look at first if this is ever reconsidered**, since half the surface would already be built.
+
+**It unblocks steps 3 and 6** — routes, and the item in six contexts and six states — which were
+waiting on exactly this.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

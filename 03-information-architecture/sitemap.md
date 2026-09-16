@@ -79,8 +79,10 @@ One reusable block. The atomic unit, and the thing every other entity is about.
 
 - **Fields (§5).** `id` · `kind` — one of six, `skill | agent | prompt | mcp | script | app` · `name` ·
   `description` · `tags[]` · `visibility` · `source` — `inline | external` · `content` when inline ·
-  `repoUrl`, `path`, `ref`, **`license`** when external · `requires[]` · `conflicts[]` · `needsEnv[]` ·
-  `targetPath`. *`license` added to §5 on 2026-09-15 — see E15.*
+  `repoUrl`, `path`, `ref`, **`license`** when external · `requires[]` · `conflicts[]` ·
+  **`defersTo[]`** · `needsEnv[]` · `targetPath`. *`license` added to §5 on 2026-09-15 — see E15.
+  **`defersTo` added on 2026-09-16**, building Q10's answer: the external authorities this item yields
+  to, declared by hand, raising a Note wherever the item sits in a set (§6).*
 - **Parts that are not fields.** Its **usage facts** (E14) and, when external, its **provenance**
   (E15). Both are derived or borrowed rather than authored.
 - **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — an item is what has to keep
@@ -448,10 +450,12 @@ the point of the mark.
 ```
 1 · WHAT I KEEP  — the corpus I have accumulated
   │
-  ├── Library ......................................... [H-J1] [RJ-3]
+  ├── Library ......................................... [H-J1] [RJ-3] [EJ-3 partly]
   │     two scopes, one screen: My library · Public library  [H-J4 ?]
   │     │
-  │     └── Item .................................... [RJ-3] [EJ-3 partly]
+  │     └── Item — add / edit form, an overlay, not a screen
+  │           §8, kept 2026-09-16. It discloses blast radius
+  │           before it accepts an edit
   │
   └── Library import / export (whole library as JSON) . [orphan]
 
@@ -476,7 +480,10 @@ the point of the mark.
         a way to take it — the archive, or a copy into their own library
 ```
 
-**Five screens and one orphan.** The three groups are the person's own three situations, in the order
+**Six screens and one orphan, and the tree lists two nodes that are not screens** — the `Item`
+add/edit form, an **overlay** on the Library (§8, kept 2026-09-16), and the **detached row**, a mode
+inside Project. *An earlier count here said five and was stale: it predates the two surfaces Q13
+added.* The three groups are the person's own three situations, in the order
 [`personas.md`](../research/6-personas/personas.md) records them: *copying something out of the
 collection into a new project · adding a rule right after an agent did something annoying · hunting
 for something they know they wrote.* They are not navigation sections and should not become a menu in
@@ -487,7 +494,7 @@ step 3 — they are why the screens exist.
 | Screen | Job it serves | What the person arrived to do | Persona |
 |---|---|---|---|
 | **Library** | [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) · [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) | *Lay hands on the thing I know I wrote* — and reach the one copy that a fix has to land on | **P1** · P3 in its public scope `[?]` |
-| **Item** | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | *Fix this once*, and see who else it reaches before touching it | **P1** |
+| **Item** — *not a screen: an overlay* (§8, 2026-09-16) | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | *Fix this once*, and see who else it reaches before touching it — **which the form must say before it accepts the edit**, since there is no place to arrive at and read it | **P1** |
 | **Projects** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J2](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Get back to the set I keep for that piece of work* — and see whether it is still checked | **P1** · P3 for the example `[?]` |
 | **Project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *Put the set together and see what it drags in* — every row carrying its own state | **P1** |
 | **Detached row** — edit · reset · promote | [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | *Change it here only, without the others getting it* | **P1** |
@@ -508,7 +515,7 @@ the Library, is exactly the kind of thing step 2b decides.
 
 | | Screens | Reading |
 |---|---|---|
-| **P1 — the keeper of a corpus** · **primary** | **All five**, and Library and Item carry more weight than they did before 2026-09-15 | Q7 named the collector primary, so the corpus screens stop being the place you pass through on the way to Run. **The cost is on the record**: the collector's own job is the thinnest evidence in the folder |
+| **P1 — the keeper of a corpus** · **primary** | **All four of the owner's** — Library, Projects, Project, Run — and the Library carries more weight than it did before 2026-09-15, **now including the weight `Item` would have carried** (2026-09-16) | Q7 named the collector primary, so the corpus screens stop being the place you pass through on the way to Run. **The cost is on the record**: the collector's own job is the thinnest evidence in the folder |
 | **P2 — the receiver** · secondary | **Two, as of 2026-09-15: the shared project and the shared item** — plus `SETUP.md` inside the archive, which is not a screen | **The finding changed the same day it was written.** It read *the receiver needs no screen at all*; **Q13 answered yes to a link**, and P2 now has exactly the two surfaces a link can lead to. **And as of the same day they can do the product's central act on them**: the receiver runs **the same Check**, on the set in front of them, and takes the archive from its last stage. **Library-to-archive, performed by somebody who owns nothing.** **What has not changed is the hard part:** these screens are still designed for a person who, in five venues and four rounds, **has never spoken in the first person** — so they are the most `[?]`-laden places in the product, and the archive must still be complete on its own, because whoever gets the link may only ever get the file |
 | **P3 — the empty-handed** · secondary `[?]` | **No screen of their own**: Library in its **Public** scope, and Projects for the **example project** | Nothing is built only for P3, and that is deliberate. The persona has never been observed, and the two clearest public beginners wrote their own material or asked to shadow a human rather than reach for a shelf. **A screen built only for them would be a place invented for somebody nobody has met** |
 
@@ -597,9 +604,11 @@ filled and closed; that is a different thing from a place you go to in order to 
 are about to disturb. **Q7's answer pushes the same way**: with the collector primary, the item is the
 unit the person lives among rather than something they fill in on the way to a project.
 
-**This is not decided here.** It is the question step 2b answers — *is Item a place somebody can be
-sent to, or a state of the Library* — and this section records that the jobs argue for a place while
-§8 currently says a form.
+~~**This is not decided here.**~~ **Decided 2026-09-16: §8 stands and `Item` is a form.** The jobs
+argued for a place, the owner kept the form, and **the requirement the argument was built on does not
+go away with it** — the blast radius still has to be legible before the edit, so **the form discloses
+it before accepting one**. See *`Item` is a form* in the classification for what that costs and what
+carries it.
 
 **And one question today's decision forced into the open.** Since **the run is a moment and nothing is
 stored** (§6, decided 2026-09-15), **Run has nothing to be linked to afterwards.** So *is Run a place
@@ -639,12 +648,12 @@ much of the screen it occupies.
 |---|---|---|
 | **Library** | **Place** | Reload, Back and a written-down address all work, and §8 requires it to be *one keystroke away and remembering where you were* |
 | **Library scope** — `My library` · `Public library` | **Part of the Library's address**, not a toggle state | If the scope were transient, a reload would drop you into `My library` — which on first run is **empty by design** (§11), so the one situation the product must not dump you into is the one a reload would produce. Two addresses of one screen, same rows and same filters |
-| **Item** | **Place** | Decided below |
+| **Item** | **Overlay on the Library** — add *and* edit | **Decided 2026-09-16: §8 stands.** The proposal to make it a place was rejected; see below for what the decision costs and what carries it instead |
 | **Projects** | **Place** | The list you come back to, now carrying each project's verdict and date (§6) |
 | **Project** | **Place** | The set you work in; every row carries its own state (§7) |
 | **Run** | **Mode of the Project — and of the Shared project** | Decided below. Two places enter the same mode: the owner from their project, the receiver from the link. **Nothing is stored either way**, and for a visitor there is not even a project to carry the date |
-| **Editing an item that exists** | **Mode of the Item place** | You are still looking at the same object; leaving returns you to it |
-| **Creating an item** | **Overlay on the Library** | There is no object yet, so there is nothing to be a place for |
+| **Editing an item that exists** | **Overlay on the Library** | ~~Mode of the Item place.~~ **§8: the Library holds one add/edit form** (2026-09-16). Dismissing it returns you to the row you opened it from, and the Library's address never changed |
+| **Creating an item** | **Overlay on the Library** | There is no object yet, so there is nothing to be a place for — **and now the same overlay serves both**, which is what §8 said all along |
 | **A detached row — edit, reset, promote** | **Mode of the row, inside Project** | The override exists only in this project (§5), so it has no meaning without the project around it |
 | **The `⌘K` palette** | **Overlay** | Summoned, dismissed, never in the address — and it is *the only way the library reaches the Project screen* (§8), which makes it load-bearing rather than a convenience |
 | **A finding** | **Content**, not navigation | It annotates the row that owns it (§8); the ones that own no row belong to the set |
@@ -656,15 +665,20 @@ much of the screen it occupies.
 | **Sharing something, and revoking it** | **A state of the thing shared**, disclosed at the moment it changes | §5: sharing is a **standing decision**, so *shared* is how a project or item reads everywhere it appears — not a screen, and not a one-time dialog either |
 | **Library import / export** | **Two commands on the Library** — not a screen | This resolves the orphan's own open question: it is cheaper than it looked. **It is still an orphan** — no job raises it — but a command with no job is a smaller thing to carry than a place with no job |
 
-### `Item` is a place, and this is a proposal to §8
+### `Item` is a form — the proposal was raised and the owner kept §8
 
-**The rule answers it.** Being sent to an item and arriving is something the product needs internally:
-*used in 3 projects* is a **count that is also a link** — the best consequence disclosure in the whole
-benchmark (VS Code Workspace Trust, C2 = 5) — and what it links to is the item, or the projects. A
-count you cannot follow is Figma's *423 instances*, which the benchmark scored one step behind for
-exactly that reason.
+> **Decided 2026-09-16: *we go by §8*.** The proposal below was put to the owner and **rejected**.
+> **The Library holds an add/edit form, and there is no `Item` place.** The argument is left standing
+> because this file records what was weighed, not only what was chosen — and because the cost it names
+> is now a cost we carry, which is the next block.
 
-**The job argues the same way.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
+~~**The rule answers it.**~~ Being sent to an item and arriving is something the product **appeared to
+need** internally: *used in 3 projects* is a **count that is also a link** — the best consequence
+disclosure in the whole benchmark (VS Code Workspace Trust, C2 = 5) — and what it links to is the item,
+or the projects. A count you cannot follow is Figma's *423 instances*, which the benchmark scored one
+step behind for exactly that reason.
+
+**The job argued the same way.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
 is importance **3** for the primary persona, and editing a linked item has **blast radius**: §5 wants
 it legible *before* the edit, and since 2026-09-15 that radius has a second half — the edit **un-checks
 every project whose resolved set contains the item** (§6). *A form is opened in order to be filled and
@@ -672,9 +686,27 @@ closed. A place is where you go to understand what you are about to disturb.* An
 collector primary**, the item is the unit this person lives among rather than something filled in on
 the way to a project.
 
-**§8 currently says the Library holds an *add/edit form*.** This section proposes: **add** stays an
-overlay on the Library, **edit** becomes a mode of the Item place. **Not applied** — §8 is the
-owner's, and lesson 03 raises rather than edits.
+**What the decision costs, and it is named rather than absorbed.** Two things the place was carrying
+have to be carried by something else, and there are exactly two candidates: the **row** in the Library
+and the **head of the form**.
+
+- **The counter has nowhere to lead.** *Used in 3 projects* cannot open a place that does not exist.
+  **This is the Figma outcome we scored a product down for**, and pretending otherwise would be worse
+  than paying it. What survives is a weaker but real version: **the count expands where it stands** —
+  on the Library row, naming the three projects — and each name leads to the **Project**, which *is* a
+  place. **The item is not addressable; what the count is about still is.**
+- **Blast radius moves to the head of the form, and that is now its only possible home.** §5 requires
+  the radius to be legible **before** the edit and never named a surface; with no place to arrive at,
+  the form's own opening is the last moment before the change. So the form **states, before any field
+  is editable**: *used in 3 projects · saving un-checks all three* (§6). **A form that discloses
+  before it accepts is not the thing the argument above objected to** — what it objected to was a form
+  that discloses nothing.
+
+**One consequence to keep visible, because it is genuinely odd.** A **shared item** is a place — the
+link is its address (Q13) — while **your own item is not**. So the product can address an item, just
+never one of yours. It is not a contradiction: the shared page exists because somebody outside has
+nothing else to hold. **But it is the seam to look at first if `Item` is ever reconsidered**, because
+half the surface would already be built.
 
 ### `Run` is a mode, not a place — and that follows from the run being a moment
 
@@ -701,15 +733,19 @@ cannot be bookmarked or returned to** — re-reading it means checking again. Th
 decision, it is cheap because we run nothing on anyone's machine, and it is recorded here rather than
 discovered in step 5.
 
-### Six places, and that is the whole navigable surface
+### Five places, and that is the whole navigable surface
 
-**`Library` · `Item` · `Projects` · `Project`**, with the Library carrying two addresses, one per
-scope — **plus the two the link creates, `Shared project` and `Shared item`** (Q13, 2026-09-15).
+> **Was six until 2026-09-16.** `Item` left the list when the owner kept §8's form — see above for
+> what that costs and what carries it instead.
+
+**`Library` · `Projects` · `Project`**, with the Library carrying two addresses, one per scope —
+**plus the two the link creates, `Shared project` and `Shared item`** (Q13, 2026-09-15).
 **Everything else is a mode, an overlay, a state or content.** That is the shape step 3 will put
-routes on, and it is deliberately small: **four places for the owner, two for everybody else**, in a
-product whose primary persona keeps **tens of items, not hundreds**.
+routes on, and it is deliberately small: **three places for the owner, two for everybody else**, in a
+product whose primary persona keeps **tens of items, not hundreds** — which was always the strongest
+argument against giving each of them an address.
 
-**The split matters and step 3 has to honour it.** The owner's four are addressable **on one
+**The split matters and step 3 has to honour it.** The owner's three are addressable **on one
 machine** — reload, Back, a bookmark. The receiver's two are addressable **off it**: the link is
 written down, sent, and opened by somebody who has nothing else and no context. **That is the only
 line in this architecture where an address has to mean something to a person who did not make the
@@ -842,12 +878,15 @@ holds only while a shared link is out of scope, and that is Q13** in
 one **no screen may serve**, because a dashboard of *what is working* promises a runtime §6 does not
 have.
 
-**And the classification answers the two questions the tree raised. `Item` is a place** — a count
-that is also a link needs somewhere to lead, and an edit with blast radius needs somewhere to stand,
-which is a **proposal to §8** rather than an edit of it. **`Run` is a mode of the Project, not a
-place** — it fails two of the three tests because nothing is stored, and taking the whole surface is
-not the same property as being addressable. **Four places in the whole product**: Library with an
-address per scope, Item, Projects, Project.
+**And the classification answers the two questions the tree raised.** ~~**`Item` is a place**~~ —
+**`Item` is a form, decided by the owner on 2026-09-16: §8 stands.** The argument for a place was a
+count that needs somewhere to lead and an edit with blast radius that needs somewhere to stand; it was
+raised as a **proposal to §8** and rejected. **The count now expands in place on the Library row and
+its project names lead to the Project, and the radius is disclosed at the head of the form** — a
+weaker answer than a place, named as weaker, and the only one available without one. **`Run` is a mode
+of the Project, not a place** — it fails two of the three tests because nothing is stored, and taking
+the whole surface is not the same property as being addressable. **Five places in the whole product**:
+Library with an address per scope, Projects, Project, and the two the link creates.
 
 **Does not establish. Routes** — the strings themselves, and what each promises — which is step 3. Nor
 the shape of E1, which proposal **S-2** would change from a file to a directory, and which the sitting
