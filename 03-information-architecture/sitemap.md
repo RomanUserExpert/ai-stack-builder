@@ -5,8 +5,10 @@
 > corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
 > **Places, modes, overlays and states** — what kind of thing each node actually is, which is where
-> *four places* comes from. **Routes are still not here**: naming them is step 3, and it now has a
-> shape to put them on.
+> *five places* comes from — *this line said four when it was written, before Q13 added the two shared
+> surfaces; six with them, and **five since 2026-09-16**, when the owner kept §8 and `Item` stopped
+> being one.* **Routes are still not here**: naming them is step 3, and it now has a shape to put them
+> on and nothing left blocking it.
 
 **Sources read in full before writing this:**
 [`personas.md`](../research/6-personas/personas.md),
