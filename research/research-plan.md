@@ -800,7 +800,9 @@ the opposite outcome, as it should.
 surface **structurally cannot leak an env value**. That is a property of the model rather than a
 promise about our care, which makes it the strongest thing here.
 
-**Second, the one refusal in the product.** §6 refuses to block, and its stated premise is *the user's
+**Second, the one refusal in the product — and it lasted one day. Overruled 2026-09-16; see *The
+credential refusal is overruled* below. The paragraph is left as it was written, because the reasoning
+that fell is the point.** §6 refuses to block, and its stated premise is *the user's
 own library on their own machine* — **sharing breaks that premise**, which stage 6's **proposal 8**
 had already flagged as weakened. So: **a credential found in item content stops the share.** The
 reason is irreversibility, not tidiness — a bad archive sits on your own disk and can be rebuilt; a
@@ -851,6 +853,51 @@ so it is a decision with an unobserved person on the other end of it.
 check it, read what the machine still needs, take the archive — **is the product's whole spine
 performed by somebody who owns nothing.** It was not designed as an answer to cold start and it is not
 claimed as one: **H-J4 and P3 are exactly as `[?]` as they were.**
+
+### The credential refusal is overruled — 2026-09-16, and the product refuses nothing again
+
+**The owner's decision, answering the first of the two questions lesson 03 had left standing.** It was
+raised as *confirm or overrule*, and it is overruled. **§6's *nothing blocks* has no exception again.**
+
+**The reason given, in the owner's words.** GitHub takes everything, and *it is not realistic to check
+all of it*. **What that strikes is detection, not irreversibility** — the original argument's
+irreversibility half was never disputed and is still true. But the refusal rested on both halves, and
+with detection gone it rested on nothing: **a block standing on a scan we do not trust stops the file
+that was fine and lets through the one that was not**, and it spends the user's trust doing it,
+because a product that refuses is read as a product that looked.
+
+**And the specification was already contradicting itself on the point.** §6 said in one paragraph that
+a credential is detected and blocks, and in the next that the tangled private-and-reusable case
+**cannot be detected and must not be pretended at.** Only one of those two survives a hard look, and
+it is the second.
+
+**Two things the overrule exposed that the refusal had hidden.**
+
+1. **The guard was on the newer of two exits.** Content leaves this product in an **archive** and — as
+   of Q13 — on a **link**. The archive has never been checked for a key and nobody proposed that it
+   should be. Guarding the share alone was a guard against the exit we had just invented.
+2. **The nearest real system lands where the owner did.** GitHub's push protection scans, blocks —
+   **and is bypassed with a stated reason.** The best-resourced detector in the industry treats its own
+   finding as a warning.
+
+**What replaces it, and where.** A **warning at the moment the user's own material comes into the
+library** — one item, or the whole library as JSON — saying **check that these files carry no keys**,
+and naming why: what comes in this way goes out in every archive built from it and, if it is ever
+shared, onto an address anyone can open. **It is a reminder and it says so** — *we do not read your
+files looking for secrets* — so it is **not one of §6's three severities**, because nothing was
+checked. **It does not block.** Written into **§11**, with §6 recording the supersession.
+
+**What is unchanged.** The **disclosure at the moment of sharing** — which items, that their content is
+visible, which env key **names**, which external repos — stands exactly as written; it is now the
+sentence carrying the keys at the moment they stop being recallable. And the free guarantee stands:
+`needsEnv` holds **names and never values**, so a shared surface **structurally cannot leak an env
+value**.
+
+**The standing of this decision, stated plainly.** It is a product decision taken by the owner, on
+grounds of what is realistic to build, and **no instrument was run for it** — as against the original
+refusal, which also had none. Stage 6's **proposal 8** remains what it was: the observation that
+sharing weakens §6's *only the user is at risk* premise. **That premise is still weakened, and the
+answer to it is now a warning rather than a block.**
 
 ### Earlier decisions
 

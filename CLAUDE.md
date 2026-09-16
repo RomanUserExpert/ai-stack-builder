@@ -539,26 +539,38 @@ A grade — Port's `Basic → Low → Good → Great` — was considered and rej
 comparing many entities against one standard, and we check one set against itself, where there is
 no *better*, only *coherent* or *not*.
 
-### Sharing is checked too, and it is the one place the product refuses
+### Sharing is disclosed, and it refuses nothing — the exception was overruled
 
-**Decided 2026-09-15 with Q13's answer, and it is a deliberate exception to *nothing blocks*.**
+**Decided 2026-09-15 as the one place the product refuses; overruled by the owner on 2026-09-16.
+*Nothing blocks* is universal again, and the product refuses nothing anywhere.**
 
-**The premise under §6's refusal to block is that the only party at risk is the user, on their own
-machine.** Sharing breaks that premise — it was already named as a weakened premise by stage 6's
-proposal 8 — and it breaks it in a way export does not: **a bad archive sits on your own disk and can
-be rebuilt; a credential on an address anyone can open is out, and unsharing does not recall it.**
+~~**A credential found in item content is a Problem, and it stops the share.** Private-key blocks,
+provider-shaped tokens, bearer tokens, `.env`-shaped assignments with values. This is the only refusal
+in the product, and it is justified by irreversibility rather than by tidiness.~~ **Struck.**
 
-**So the same check runs before a link is created, with the same three severities, and one class
-refuses.**
+**Irreversibility was never the weak part of that argument — detection was.** *It is not realistic to
+check all of it*, in the owner's words. This section already said so about the tangled case — **we
+cannot detect these and must not pretend to** — and then claimed the opposite one paragraph above, for
+a class of string that is only marginally easier to see. **A block standing on a scan we do not trust
+stops the file that was fine and waves through the one that was not**, and it spends the user's trust
+to do it: a product that refuses is understood to have looked, and we would not have looked properly.
 
-- **A credential found in item content is a Problem, and it stops the share.** Private-key blocks,
-  provider-shaped tokens, bearer tokens, `.env`-shaped assignments with values. This is the **only**
-  refusal in the product, and it is justified by irreversibility rather than by tidiness.
-- **Everything else is disclosed and does not stop anything.** Above all the thing a practitioner
-  actually described: *the private and the reusable are tangled in the same files* — a client's
-  internal API shape in an example, a rule naming a client, **and an env key whose own name names a
-  customer**. We cannot detect these and must not pretend to; they are stated as a Note at the moment
-  of sharing.
+**The nearest real system ends where we now end.** GitHub scans pushes for secrets and stops them —
+**and lets the person through on a stated reason.** The best-resourced detector in this industry treats
+its own finding as a warning, because the false positive is the common case and the author is the only
+one who can tell.
+
+**And the guard was in the wrong place as well as on the wrong footing.** Content leaves this product
+by **two** exits, and the archive has been one of them since long before a link existed. Checking the
+share would have guarded the newer exit and left the older one open. **So the warning moves to where
+the material comes *in*** (§11): the only moment the person is looking at the file itself, the cheapest
+moment to fix it, and the one that covers every later use at once.
+
+**Everything the refusal was reaching for is disclosed instead, and that part is unchanged.** Above all
+the thing a practitioner actually described: *the private and the reusable are tangled in the same
+files* — a client's internal API shape in an example, a rule naming a client, **and an env key whose own
+name names a customer**. We cannot detect these and must not pretend to; they are stated as a Note at
+the moment of sharing.
 
 **The moment of sharing is a disclosure moment, in the register this file already uses.** Before the
 link exists, the product names in the present tense what becomes visible: which items, that their
@@ -566,6 +578,11 @@ link exists, the product names in the present tense what becomes visible: which 
 is Notion's *"anyone with the link can view this page's content and see contributor names"* — naming
 the second-order consequence the reader would not have thought of — and it is the trust trigger the
 research recorded for the receiving side.
+
+**That sentence is what carries the keys now.** *The content of these items is visible* is the plain
+form of *whatever is inside them goes with them*. The reminder was given when the material came in
+(§11); this is the last moment it is still true, because after the link exists it is no longer
+recallable (§5, *Revocable*).
 
 **What the product never has.** `needsEnv` holds **names and never values** (§5), so a shared surface
 **structurally cannot leak an env value** — there is none to leak. That is worth stating because it is
@@ -877,6 +894,22 @@ Two ways, and the second is new as of 2026-09-02.
 fills up this way. This was the known cold-start problem: an empty library kills the product, because
 there is nothing to validate.
 
+**And material coming in this way carries a warning about keys** (decided 2026-09-16, and it is what
+replaced §6's credential refusal). When the user brings their own files in — one item, or the whole
+library as JSON (§10) — the product says before it accepts them: **check that these files carry no
+keys.** The reason is stated rather than implied: what comes in this way **goes out in every archive
+built from it**, and, if the thing is ever shared, **onto an address anyone can open** — and neither
+exit is checked.
+
+**It is a reminder, and it says so.** *We do not read your files looking for secrets.* It must never be
+worded as though something had been scanned and come back clean; that is the unearned tick §6 exists to
+refuse, on the one subject where being wrong cannot be walked back. For the same reason it is **not one
+of §6's three severities** — nothing was checked, so there is no finding.
+
+**And it does not block.** Same discipline as an unclean export: name the consequence in the present
+tense before the step, then let the person act. **The person who wrote these files is the only one who
+can tell a key from an example**, which is the whole reason the check is theirs and not ours.
+
 **And from the public library, which ships with the application.** A curated, **read-only** set of
 real items — skills, agents, prompts, MCP servers — taken from sources we have checked, reachable
 from the first second behind the scope switch in §8. The user adds from it into a project, or copies
@@ -933,9 +966,10 @@ disposition still owing a mechanism.**
 
 **And one question was raised and answered after the sitting, the same day. Q13 — is sharing a link in
 the MVP — is answered yes**: a link to **a project and to an item**, **live**, openable by **anyone
-holding it**, with one refusal and one disclosure moment around secrets. It is written into §5
-(*Sharing*), §6 (the share check), §8 (two read-only surfaces) and §9 (the catalog refusal, narrowed
-rather than reversed). **It was raised because an argument in lesson 03 was found to rest on
+holding it**, with one disclosure moment around secrets — **and, since 2026-09-16, no refusal: the
+credential block was overruled by the owner and replaced by a warning where the material comes in**
+(§6, §11). It is written into §5 (*Sharing*), §6 (the share disclosure), §8 (two read-only surfaces)
+and §9 (the catalog refusal, narrowed rather than reversed). **It was raised because an argument in lesson 03 was found to rest on
 implementation rather than on the product**, which is recorded in the register with the evidence
 against the decision in full.
 
