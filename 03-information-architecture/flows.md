@@ -4,7 +4,8 @@
 > these diagrams is a screen, mode, overlay or state that section already established. **No new screen
 > was invented, and none was needed** — which is the first thing the exercise was meant to test.
 >
-> **Five flows: the main job, and four related ones.** Each is drawn from
+> **Five flows in six diagrams** — the main job and four related ones, with **RJ-2 split in two**
+> because one picture of it was too wide to read. Each is drawn from
 > [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md), named with the job's own wording rather than with
 > a feature name, and each ends in **both** kinds of ending — the one where the person is done, and the
 > ones where they are stuck.
@@ -22,6 +23,14 @@
 to 95 characters, which sprawls a `TD` flowchart sideways until it stops being readable.* **The diagram
 carries the shape; the numbered list under it carries the argument.** Every node is keyed to a line in
 that list.
+
+**Checked by rendering, not by parsing, and in a browser.** *A parser validates the grammar and will
+happily pass a diagram nobody can read.* Every diagram here was rendered at an **880-pixel column** —
+roughly what a repository page gives it — and measured: **no node box overlaps another**, no label
+overflows its shape, and **none is scaled below 0.74**, where text starts to disappear. Two things the
+render caught that nothing else would: **`⌘` has no glyph in the default stack and drew as an empty
+box**, so the palette node is just *Palette*; and RJ-2 was **1608 units wide, squeezed to 54%**, which
+is why it is now two diagrams.
 
 **One thing the colours do not mean.** A red branch is not a failure and a green one is not a success —
 *no* is often the right answer. The colour marks **which way the question was answered**, and the
@@ -45,7 +54,7 @@ flowchart TD
     F --> G{"Press Check anyway?"}
     G -->|"Yes"| H[/"All stages Skipped"/]
     H --> I(["Stuck: empty archive"])
-    G -->|"No"| J["Palette ⌘K"]
+    G -->|"No"| J["Palette"]
     E -->|"Yes"| K["Project: the set"]
     J --> L{"Palette offered anything?"}
     L -->|"No"| M[/"Filtered to zero"/]
@@ -137,7 +146,8 @@ flowchart TD
     E -->|"No"| D
     D --> G{"Every stage resolved?"}
     G -->|"No"| H["Run: findings"]
-    H --> A
+    H --> Z["Library: fix the item"]
+    Z --> A
     G -->|"Yes"| I["Run: handover"]
     I --> J{"Their agent target?"}
     J -->|"No"| K[/"Verdict void"/]
@@ -145,9 +155,7 @@ flowchart TD
     J -->|"Yes"| L["Run: SETUP.md preview"]
     L --> M{"Anything external unpinned?"}
     M -->|"Yes"| N[/"Note: no pinned ref"/]
-    N --> O["Library: My library"]
-    O --> P["Item: edit form"]
-    P --> A
+    N --> Z
     M -->|"No"| Q{"Anything defers outward?"}
     Q -->|"Yes"| R[/"Note: defers to"/]
     R --> S["Run: .env.example"]
@@ -160,9 +168,9 @@ flowchart TD
     classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
     classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
     classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
-    linkStyle 1,4,9,13,15,20,25 stroke:#16a34a,stroke-width:2px
-    linkStyle 3,5,7,11,19,22,24 stroke:#dc2626,stroke-width:2px
-    class A,H,I,L,O,P,S,V screen
+    linkStyle 1,4,10,14,16,19,24 stroke:#16a34a,stroke-width:2px
+    linkStyle 3,5,7,12,18,21,23 stroke:#dc2626,stroke-width:2px
+    class A,H,I,L,S,V,Z screen
     class C,D,K,N,R state
     class W win
     class F,U dead
@@ -179,7 +187,9 @@ flowchart TD
 4. **Their agent target?** — it selects the paths **and the reader**, since `SETUP.md` is addressed to
    an agent.
 5. **Anything external unpinned?** — a Note, and the one the handover test proved load-bearing: the
-   receiving agent used the pins to fetch back both items the archive had lost.
+   receiving agent used the pins to fetch back both items the archive had lost. Its fix and a finding's
+   fix are **the same act** — go to the Library, edit the item, come back to a set that has changed —
+   so the diagram gives them one return path rather than two.
 6. **Anything defers outward?** — Q10's Note, carried to the receiver because **the receiver is the
    person whose linter it is going to be.**
 7. **Read it before Export?** — the whole job in one question.
@@ -202,54 +212,80 @@ anyway, because nothing blocks.
 · **P1** · importance **3**, and `✓` that **nothing on the market has this object at all**: four skill
 managers were run against a deliberately broken set and none saw a set-level defect.
 
+**Two diagrams, because the job has two halves and one picture of it does not fit.** *Split
+2026-09-16: as one graph it was 1608 units wide, which a normal column scales to 54% — legible in
+nothing.* **2a is *what it drags in*. 2b is *where two of them fight*.**
+
+**2a · What it drags in, and the one row that will not go**
+
 ```mermaid
 flowchart TD
-    A["Project"] --> B["Palette ⌘K"]
+    A["Project"] --> B["Palette"]
     B --> C[/"Row selected manually"/]
     C --> D{"Does it require anything?"}
     D -->|"Yes"| E[/"Auto-added rows"/]
     D -->|"No"| F["Project: the set"]
     E --> F
     F --> G{"Want a row out of the set?"}
-    G -->|"Yes"| H{"Is that row auto-added?"}
-    H -->|"No"| I[/"Row removed"/]
-    I --> F
-    H -->|"Yes"| J{"Remove its puller instead?"}
-    J -->|"Yes"| I
-    J -->|"No"| K(["Stuck: auto-added row holds"])
-    G -->|"No"| L[/"Checking"/]
-    L --> M{"A cycle?"}
-    M -->|"Yes"| N[/"Travels together"/]
-    M -->|"No"| O["Run: findings"]
-    N --> O
-    O --> P{"Any of it a Problem?"}
-    P -->|"No"| Q(["Done: the set is legible"])
-    P -->|"Yes"| R{"Required item missing?"}
-    R -->|"Yes"| S[/"Unresolvable requirement"/]
-    S --> T["Library: My library"]
-    T --> U["Item: edit form"]
-    U --> A
-    R -->|"No"| V[/"Conflict or collision"/]
-    V --> W{"Fixable from its row?"}
-    W -->|"Yes"| X["Project: act on the row"]
-    X --> Y[/"Verdict void"/]
-    Y --> L
-    W -->|"No"| Z(["Stuck: the fix is elsewhere"])
+    G -->|"No"| H(["Done: what it drags in is visible"])
+    G -->|"Yes"| I{"Is that row auto-added?"}
+    I -->|"No"| J[/"Row removed"/]
+    J --> F
+    I -->|"Yes"| K{"Remove its puller instead?"}
+    K -->|"Yes"| J
+    K -->|"No"| L(["Stuck: auto-added row holds"])
     classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
     classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
     classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
     classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
-    linkStyle 3,7,10,11,15,20,21,27 stroke:#16a34a,stroke-width:2px
-    linkStyle 4,8,12,13,16,19,25,30 stroke:#dc2626,stroke-width:2px
-    class A,B,F,O,T,U,X screen
-    class C,E,I,L,N,S,V,Y state
-    class Q win
-    class K,Z dead
+    linkStyle 3,8,11,12 stroke:#16a34a,stroke-width:2px
+    linkStyle 4,7,9,13 stroke:#dc2626,stroke-width:2px
+    class A,B,F screen
+    class C,E,J state
+    class H win
+    class L dead
 ```
 
-**The decisions, in words.** *Redrawn 2026-09-16: the first version mixed the two moments — it asked
-about **check findings** on the Project screen, before and after the run. Every Problem in §6 is
-produced by the check and nowhere else, and the flow now says so.*
+**2b · Where two of them fight, while I can still act**
+
+```mermaid
+flowchart TD
+    A["Project: the set"] --> B[/"Checking"/]
+    B --> C{"A cycle?"}
+    C -->|"Yes"| D[/"Travels together"/]
+    C -->|"No"| E["Run: findings"]
+    D --> E
+    E --> F{"Any of it a Problem?"}
+    F -->|"No"| G(["Done: nothing will fight"])
+    F -->|"Yes"| H{"Required item missing?"}
+    H -->|"Yes"| I[/"Unresolvable requirement"/]
+    I --> J["Library: My library"]
+    J --> K["Item: edit form"]
+    K --> A
+    H -->|"No"| L[/"Conflict or collision"/]
+    L --> M{"Fixable from its row?"}
+    M -->|"Yes"| N["Project: act on the row"]
+    N --> O[/"Verdict void"/]
+    O --> B
+    M -->|"No"| P(["Stuck: the fix is elsewhere"])
+    classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
+    classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
+    classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
+    classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
+    linkStyle 2,7,8,14 stroke:#16a34a,stroke-width:2px
+    linkStyle 3,6,12,17 stroke:#dc2626,stroke-width:2px
+    class A,E,J,K,N screen
+    class B,D,I,L,O state
+    class G win
+    class P dead
+```
+
+**The decisions, in words.** *Redrawn 2026-09-16, twice. First because the diagram mixed the two
+moments — it asked about **check findings** on the Project screen, before and after the run, and every
+Problem in §6 is produced by the check and nowhere else. Then split in two, because one graph of it was
+too wide to read.*
+
+**In 2a — what it drags in.**
 
 1. **Does it require anything?** — the depth-first walk, run the moment the item is added. Auto-added
    rows appear on the Project screen **with no check involved**, each naming what pulled it in.
@@ -257,6 +293,9 @@ produced by the check and nowhere else, and the flow now says so.*
    where the product refuses an action.
 3. **Is that row auto-added?** and **remove its puller instead?** — the refusal has a shape worth
    drawing: **you do not remove the dependency, you remove what dragged it in.**
+
+**In 2b — where two of them fight.**
+
 4. **A cycle?** — **not an error.** A project is a set and never an execution order, so the answer is
    *these three always travel together*, reported as information.
 5. **Any of it a Problem?** — the only place the word appears, because **the check is the only thing
@@ -444,7 +483,7 @@ gap.**
    Skipped and an archive containing nothing. §6 gave *Skipped* its own neutral glyph for exactly this
    honesty, and the flow shows the one path where neutral glyphs all the way down is still a wasted
    afternoon.
-3. **Two of the eight dead ends are outside the product** (the env values on the receiving machine, the
+3. **Two of the ten dead ends are outside the product** (the env values on the receiving machine, the
    revoked link's copies). **Neither is a defect and neither can be designed away** — they are the shape
    of *checked, never works* and of *revoking recalls nothing*, drawn so that step 5 writes sentences
    for them instead of discovering them.
