@@ -55,7 +55,7 @@ flowchart TD
     C --> D["Project"]
     B -->|"Yes"| D
     D --> E{"Anything in the set?"}
-    E -->|"No"| F[/"No members"/]
+    E -->|"No"| F[/"Nothing in the set"/]
     F --> G{"Press Check anyway?"}
     G -->|"Yes"| H[/"All stages Skipped"/]
     H --> I(["Stuck: empty archive"])
@@ -122,7 +122,7 @@ flowchart TD
 10. **Env values on that machine?** — the product's ceiling, drawn as a decision it does not get to
     make.
 
-**The states, in words.** *Projects holding only the example* · *a project with no members* · *every
+**The states, in words.** *Projects holding only the example* · *a project with nothing in the set* · *every
 stage Skipped, on its own neutral glyph* · *the palette filtered to zero* · *`My library` empty on first
 run* · *the check in progress* · *the unclean-export confirmation, in the row below the finding that
 caused it* · *the verdict voided by a target change*.
