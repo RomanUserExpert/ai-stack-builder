@@ -4,7 +4,9 @@
 > 2026-09-16** — the credential refusal overruled, Q10 built as `defersTo`, and `Item` kept as a form.
 > Everything they touch is marked with that date. **The fifth section, Navigation, was written the same
 > day** out of the places the third established: two global entries, the click depth to the main job,
-> and the global / contextual / deep split. It decides nothing on implementation grounds:
+> and the global / contextual / deep split. **[`flows.md`](flows.md) then walked five paths through
+> all of it** — the main job and RJ-1 to RJ-4 — **and needed no screen this file did not already
+> have**, which is the closest thing to a test this section can be given. It decides nothing on implementation grounds:
 > what the product is comes first, and how it is built comes after — a rule this file had to be
 > corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
@@ -205,6 +207,10 @@ sentence.
 - **Standing.** `§`5, §7. `✓` that copies drift and stay drifted — **14% of 7,506 duplicated items out
   of sync now; 383 divergences open at a median of 121 days; four ever reconciled.** H-J3's importance
   is a **2**, raised from `[?]` on 2026-09-10.
+- **And the silence around it, found by [`flows.md`](flows.md) RJ-3. `[?]`** A detached row is
+  **deliberately not reached** by a fix made in the library — that is what it is for — but **nothing in
+  the Library says so at the moment of the edit** (E14). The flow draws it as a dead end: the old
+  version survives in a project the person did not open. **Step 5's question, not §5's.**
 - **Open. `[?]`** **Promotion** — a detached item lifted into the library as a *new* item, with this
   row re-linking to it (§5, §7) — **has no prior art in the survey and the thinnest demand of any
   mechanism in the specification.** It is invented rather than copied, which cuts both ways.
@@ -434,6 +440,12 @@ The only per-item evidence the product ships. **Derived from the library, never 
   read a blast radius, **the form states it before any field is editable** — *used in 3 projects ·
   saving un-checks all three* (§5, §6). So this entity is doing **two jobs on one surface**: telling the
   owner what they have, and telling them what they are about to disturb.
+- **Open, and [`flows.md`](flows.md) is what found it. `[?]`** *Used in 3 projects* counts **every**
+  project holding the item, linked and **detached** alike — and a detached copy **by design does not
+  receive the fix** (E5, §5). So the one number the owner reads before an edit with blast radius
+  **does not say which of those three will not get it.** The mechanism is correct and the disclosure is
+  missing. **Not decided here**: it is a question for step 5 about what the form's head says, not a
+  change to §5, and it is the sharpest thing the five user flows returned.
 - **Standing.** `§`5 · **`*`, n = 1, and the strongest `*` in the repository**: asked with our
   vocabulary deliberately forbidden, a practitioner invented this mechanism unprompted — *"Usage data,
   first… that alone would let me delete half of it with confidence"* — then extended it past our spec

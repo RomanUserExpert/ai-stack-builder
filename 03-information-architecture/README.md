@@ -17,8 +17,10 @@ further sections record where the decisions meet each other** — one for 2026-0
 three the owner took on **2026-09-16**, whose finding is that they all land on the same overlay.
 **Step 4, navigation, is written** — two global entries with the job cluster behind each, **three
 clicks from the first screen to an archive** and four on the persona's most frequent arrival, and the
-global / contextual / deep split. **Routes are still not written**, and the two questions the tree
-handed the classification are both answered: **`Item` is a form** and **`Run` is a mode**.
+global / contextual / deep split. **And [`flows.md`](flows.md) walks five real paths through it** —
+the main job and RJ-1 to RJ-4 — which **returned no new screen** and three consequences the static map
+could not show. **Routes are still not written**, and the two questions the tree handed the
+classification are both answered: **`Item` is a form** and **`Run` is a mode**.
 
 **The order moved, deliberately, and step 2b then closed what the tree opened.** The tree was drawn
 before the classification because the owner asked for the hierarchy first, and it worked: a screen tree
@@ -262,6 +264,7 @@ file added to `.vercelignore`, which is a whitelist. See [`tools/README.md`](../
 |---|---|
 | `README.md` | This plan. |
 | [`sitemap.md`](sitemap.md) | The work, sections 1–8 plus the marked list — **the entity inventory is written**. The source of truth for structure, subordinate to `CLAUDE.md` in every conflict. |
+| [`flows.md`](flows.md) | **User flows in Mermaid, written 2026-09-16** — the main job and four related ones, each with its decisions, its states and both kinds of ending. **Derived from `sitemap.md` and adding nothing to it**: every node is a screen, mode, overlay or state that already existed. |
 | `ia-critique.md` | Step 9b. Claim-by-claim, with its application recorded in `sitemap.md`. |
 | `ia.html` | Step 10, if it is built. Generated — never hand-edited. |
 
