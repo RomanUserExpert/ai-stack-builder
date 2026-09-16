@@ -899,6 +899,40 @@ refusal, which also had none. Stage 6's **proposal 8** remains what it was: the 
 sharing weakens §6's *only the user is at risk* premise. **That premise is still weakened, and the
 answer to it is now a warning rather than a block.**
 
+### Q10 gets its mechanism — 2026-09-16, and it is a Note
+
+**The sitting answered Q10 and left it unbuilt**, which made it the one disposition still owing a
+mechanism. Built today, in the shape the sitting itself specified: **a declared field and a Note.**
+
+**`defersTo` on `Item`** (§5, *Deference*) — a hand-declared list naming the external authorities this
+item yields to, in the user's own words: *the client's ESLint config*, *the repo's commit convention*.
+Declared exactly as `requires` and `conflicts` are, and for the sitting's stated reason: **§9 parses
+nothing and the other machine is never ours.**
+
+**The name is the answer.** Q10's content is **precedence** — the external one wins — so the field says
+that and nothing else. It is not a description of the external rule: we do not know what that rule
+says, whether it still holds, or whether it disagrees with anything here. **One fact: when these two
+disagree, that one wins.**
+
+**A Note, per the recommendation, and it is stated where four different readers meet the item.** The
+Note on the item's own row for the owner (§6, §8); the shared page for the receiver (§8); and
+**`SETUP.md` for the agent** (§6) — which on reflection is the sharpest of them, because it is the only
+reader **standing on the machine where the other rule lives**, and therefore the only one that can act
+on the sentence rather than note it. Acting on it is what the answer asks for.
+
+**One property recorded rather than discovered later.** This Note is unlike the other two: a missing
+env key clears by supplying it, an unpinned `ref` by pinning it, **a deference clears only by removing
+the declaration or the item.** A set with three deferring items carries three Notes at every check for
+as long as it exists. **That is intended** — the complaint being answered is *"there's no precedence
+anywhere"*, and a fact that stops being said stops working — but it means **the note count is not a
+to-do list**, and §6 says so where the counts are specified.
+
+**Standing, unchanged by building it.** The evidence under Q10 is **one practitioner, from memory** —
+`*`, the [interview Q26](6-personas/interviews.md#part-2-interview-1-of-5) aside — and *what happened
+the last time your own rule and the project's tooling disagreed* is still on the guide for the four
+conversations that cannot be run. **Building the mechanism does not promote the mark.** What it does
+remove is the sitting's outstanding item: **no disposition from 2026-09-15 is now owing a mechanism.**
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

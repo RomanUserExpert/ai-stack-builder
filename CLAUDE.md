@@ -330,6 +330,7 @@ Item
   license                               // if external: SPDX id. Absent = no licence stated, which is not permission
   requires: [itemId]
   conflicts: [itemId]
+  defersTo: [string]                    // external authorities this item yields to, declared by hand. Q10
   needsEnv: [string]
   targetPath                            // where it lands on export
 
@@ -473,6 +474,33 @@ somebody else's work onward is the case those fields were added for.
 `requires` and `conflicts` are filled in **manually** when adding or editing an item.
 Parsing metadata automatically is out of scope.
 
+### Deference — the rule that is not ours
+
+**Decided 2026-09-16, building Q10's answer.** The register answered it on 2026-09-15 — *where the
+user's own rule and an external requirement disagree, the external one wins, and the product must say
+so rather than resolve it silently* — and left the mechanism unbuilt. This is the mechanism.
+
+**It comes from one sentence.** *"My `CLAUDE.md` says one thing, the client's linter says another, and
+**there's no precedence anywhere**; it's resolved by whichever I remember at the time, which is a bad
+way to resolve anything."* One practitioner, from memory — `*`, and it has not been asked of anybody
+else.
+
+**`defersTo` holds the names of things this item yields to**, in the user's own words: *the client's
+ESLint config*, *the repo's commit convention*, *the team's Terraform standard*. It is declared by
+hand, exactly like `requires` and `conflicts`, and for the same reason: **§9 parses nothing, and the
+other machine is never ours.**
+
+**What it says is precedence, and that is the whole content of the answer.** The field is not a
+description of the external rule and must never be drawn as one — we do not know what that rule says,
+whether it is still in force, or whether it actually disagrees with anything here. **It records one
+fact: when this item and that authority disagree, that authority wins.** The name encodes the answer
+so the field cannot quietly drift into meaning something else.
+
+**We cannot detect a mismatch and must not imply that we have.** There is no moment where the product
+compares an item against a linter it has never seen. The user says *this one answers to something
+outside*, and the product **carries that sentence to everybody who later has to act on the item** —
+which is §6's Note, the row it sits on, the shared page, and `SETUP.md`.
+
 ---
 
 ## 6. Product logic (specification)
@@ -498,6 +526,19 @@ a hard conflict blocks and a soft one warns, which the data model had no way to 
 **Env variables.** Collect `needsEnv` across the set; missing ones are surfaced before
 export and written to `.env.example`.
 
+**Deference.** Collect `defersTo` across the set. **Each item that declares one raises a Note on its
+own row** (§8), in the plain form: *`code-style` defers to the client's ESLint config. Where they
+disagree, that wins.* **Nothing is compared and nothing is detected** — the product is repeating a
+sentence the user wrote, to the people who come after them (§5, *Deference*).
+
+**This Note behaves unlike the other two, and it is worth saying so rather than discovering it.** A
+missing env key is cleared by supplying it; an unpinned `ref` by pinning it. **A deference is cleared
+only by removing the declaration or the item**, because it reports a standing property of the set
+rather than a defect in it. So a set with three deferring items carries three Notes at every check,
+for as long as it exists. **That is intended** — it is the *"there's no precedence anywhere"* the
+answer exists to fix, and a fact that stops being said is a fact that stops working — but it means the
+note count is not a to-do list, and §8's surfaces must not read it as one.
+
 **Validation pass.** When the set is complete the user triggers a check that runs
 visibly — an animated sweep across dependencies, collisions and missing keys. This is a
 designed moment, not a spinner. Structurally it is a stack of stages, each carrying its own
@@ -511,7 +552,7 @@ Decided 2026-09-01. Every finding is one of:
 - **Problem** — the archive will be wrong. A duplicate command name, a target-path collision, a
   declared conflict, an unresolvable requirement.
 - **Note** — the archive is correct but incomplete. Missing env keys, an external item with no
-  pinned `ref`.
+  pinned `ref`, **an item that defers to something outside the set** (§5, `defersTo`).
 - **Skipped** — the check had nothing to check. It gets its own neutral glyph: not a green tick it
   did not earn, and not a red one it does not deserve.
 
@@ -651,8 +692,9 @@ tick all promise the receiving machine, and that promise belongs to nobody in th
 **The verdict is void the moment the set changes, and the product says what voided it.** It is void
 when an item is added to or removed from the project · when **any item in the resolved set** is edited
 in the library, including one the user never touched because `requires` pulled it in · when a
-`requires` or `conflicts` edge changes, because that changes the set itself · when `needsEnv` or a
-`targetPath` changes · when a detached item's `overrides` change · and **when the agent target
+`requires` or `conflicts` edge changes, because that changes the set itself · when `needsEnv`, a
+`targetPath` or a `defersTo` changes, each being an input to a finding · when a detached item's
+`overrides` change · and **when the agent target
 changes**, because a path collision is a collision *under a target* and two items may share a
 destination in one target and not in another.
 
@@ -683,8 +725,14 @@ it changes what the document is rather than only how long it is:
 
 > `SETUP.md` states, **per item in the resolved set**, what that item requires — its dependencies,
 > the MCP servers it needs, the env keys it expects, the external repos to clone **at their pinned
-> `ref`**, and where everything lands for the chosen agent target. On project init the agent reads it
-> and performs the setup.
+> `ref`**, **what it defers to** (§5), and where everything lands for the chosen agent target. On
+> project init the agent reads it and performs the setup.
+
+**Of the four places a deference is stated, this is the sharpest one** (added 2026-09-16 with Q10's
+mechanism). The Note tells the owner, the row tells whoever opens the project, the shared page tells
+the receiver — **and `SETUP.md` tells the thing standing on the machine where that other rule actually
+lives.** It is the only reader in a position to *act* on the sentence rather than note it, and acting
+on it is exactly what the answer asks for: the external one wins.
 
 The reasoning is in `research/FINAL.md` §3, Q2, and it rests on two things. The loudest pain in the
 ecosystem is *the archive lands on a machine and does not run* — 182 reactions for
@@ -798,8 +846,8 @@ to read the scores behind it: the rubric grades craft, not weight.
   expansion, and they are read **before** the irreversible step. See §6.
 - **Shared project** and **shared item** — **the receiving side's only surfaces** (added 2026-09-15,
   Q13). Read-only, opened by anyone holding the link, and built for somebody who did not write any of
-  it: what the set contains, what each item needs, what the receiving machine must still have, the
-  origin and licence of anything that is not the sharer's own — **the same Check the owner has** (§6),
+  it: what the set contains, what each item needs, what the receiving machine must still have, **what
+  any of it defers to** (§5), the origin and licence of anything that is not the sharer's own — **the same Check the owner has** (§6),
   because the only verdict worth anything to them is one taken on what they are looking at — and
   **a way to take it**, the archive or a copy into their own library, because a link that cannot be
   acted on is a brochure. **Run is therefore a mode of this surface too**, entered the same way and
@@ -960,9 +1008,11 @@ evidence produced is recorded in `jtbd.md` §1 and not adopted; **Q10 — an ext
 the user's own rule, and the product must say when it disagrees** — answered in its disclosure half,
 with detection named as unsolved, because §9 parses nothing and we never see the other machine.
 **Q9, Q11 and Q12 are deferred with stated reasons.** The dispositions and the reasoning are in
-[`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*. **Q10's answer
+[`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*. ~~**Q10's answer
 is not yet built into §5 or §6** — it needs a declared field and a Note, and **it is the one
-disposition still owing a mechanism.**
+disposition still owing a mechanism.**~~ **Built on 2026-09-16: `defersTo` on `Item` (§5,
+*Deference*), a Note on the item's own row (§6), and the sentence carried onward to the shared page
+(§8) and to `SETUP.md` (§6). No disposition from the sitting is owing a mechanism now.**
 
 **And one question was raised and answered after the sitting, the same day. Q13 — is sharing a link in
 the MVP — is answered yes**: a link to **a project and to an item**, **live**, openable by **anyone
