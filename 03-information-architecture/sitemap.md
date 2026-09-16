@@ -1,6 +1,8 @@
 # Sitemap — lesson 03, information architecture
 
-> **A draft, in four sections.** Written 2026-09-15. It decides nothing on implementation grounds:
+> **A draft, in four sections.** Written 2026-09-15, **re-checked against the owner's decisions of
+> 2026-09-16** — the credential refusal overruled, Q10 built as `defersTo`, and `Item` kept as a form.
+> Everything they touch is marked with that date. It decides nothing on implementation grounds:
 > what the product is comes first, and how it is built comes after — a rule this file had to be
 > corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
@@ -74,6 +76,16 @@ The address that makes a project or an item reachable by somebody who is not its
 - **Three properties with consequences.** **Live** — so sharing is a standing decision and every later
   edit is a publication. **Anyone holding it** — so the link is the credential. **Revocable, and
   revoking recalls nothing** already taken, which the product must say rather than imply otherwise.
+- **What the page carries, updated 2026-09-16.** Everything the set contains, what each item needs,
+  **what any of it defers to** (§5, `defersTo`) — and the receiver is precisely the person whose linter
+  it is likely to be, which makes this the sharpest place the deference is read after `SETUP.md` — plus
+  the origin and licence of anything that is not the sharer's own, and **the same Check the owner has**.
+- **And creating a link refuses nothing, as of 2026-09-16.** For one day §6 blocked a share on a
+  credential found in item content; **the owner overruled it** because detection was the unbuildable
+  half. **What remains is the disclosure** — before the link exists, the product names what becomes
+  visible, including that item **content** is visible — and the warning given far earlier, when the
+  material entered the library (E2). **So this entity has no gate on it at all**, which restores §6's
+  *nothing blocks* to being universal.
 
 ### E1 · Item
 
@@ -107,6 +119,13 @@ Everything the owner owns, across all projects.
 
 - **Fields and parts.** **None of its own.** It is the set of every Item whose owner is the user, plus
   the axes it is read along: `kind`, `tags`, free text. §11: it **starts genuinely empty on first run**.
+- **The way in carries a warning, and as of 2026-09-16 it is the product's answer on secrets.** Material
+  entering this library — one item, or the whole library as JSON — is met with *check that these files
+  carry no keys*, naming why: what comes in goes out in **every archive built from it** and, if the
+  thing is ever shared, **onto an address anyone can open** (§11). **It is a reminder, not a scan**, and
+  it says so; it is therefore **not one of §6's three severities**, and it does not block. *This
+  replaced the credential refusal §6 carried for one day — see §6 and the register.* **Structurally it
+  matters here because this entity has exactly one way in**, so there is exactly one place to say it.
 - **Job.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
   needs one home, or a fix has nowhere to land that reaches anything. The *finding* job —
   [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list),
@@ -205,7 +224,8 @@ What a project actually is once `requires` has been walked. **Derived, never aut
   because none has a set-level unit.**
 - **Note for later, not a decision.** An auto-added item cannot be removed while the item that pulled
   it in is still in the project (§6). That is a rule about this entity, and it is the only place in the
-  specification where the product refuses an action.
+  specification where the product refuses an action — **true when written, briefly false while §6
+  carried a credential refusal, and true again since 2026-09-16.**
 
 ### E7 · Declared relation — `requires` and `conflicts`
 
@@ -221,7 +241,16 @@ What a project actually is once `requires` has been walked. **Derived, never aut
 - **Relation.** Owner declares them; **the market consensus is that nobody draws them** — not one of
   fifteen products asks a human to author a graph, so relations are *derived and filtered*, never
   drawn.
-- **Standing.** `§`5, §6 · `✓`.
+- **And a third declared thing, added 2026-09-16, which points *outside* the set.** **`defersTo`** (§5,
+  *Deference*) names the external authorities an item yields to — *the client's ESLint config*, *the
+  repo's commit convention* — hand-filled exactly as these two are, and for the same reason: §9 parses
+  nothing. **The difference is structural and step 6 has to hold it.** `requires` and `conflicts` point
+  at objects **inside** the library, so the walk can read them and a finding can point at both ends.
+  `defersTo` points at something **we have never seen and can never compare against**, so it produces a
+  Note that is carried rather than computed. It is Q10's mechanism.
+- **Standing.** `§`5, §6 · `✓` for `requires` and `conflicts` · **`*`, n = 1, for `defersTo`** — one
+  practitioner's aside, *"there's no precedence anywhere"*, and **building the mechanism did not
+  promote the mark.**
 
 ### E8 · Check run
 
@@ -253,7 +282,8 @@ One execution of the validation pass over one resolved set.
 - **And the verdict is void the moment the set changes**, which makes invalidation a structural fact
   rather than a detail: editing one library item **un-checks every project whose resolved set contains
   it**, including projects that never named it, because `requires` pulled it in. That is §5's blast
-  radius with a consequence attached.
+  radius with a consequence attached. **`defersTo` joined the list of voiding edits on 2026-09-16**,
+  beside `needsEnv` and `targetPath`, because it is an input to a finding.
 
 ### E9 · Finding — Problem · Note · Skipped
 
@@ -276,6 +306,16 @@ One thing the check has to say.
   check again. And one structural fact the architecture must carry: §8
   says a finding annotates **the row that owns it**, but a missing env key and a merge collision are
   properties of **the set** and own no row.
+- **A fourth kind of Note, added 2026-09-16 with Q10's mechanism, and it behaves unlike the others.**
+  An item declaring `defersTo` raises a **Note on its own row** — *`code-style` defers to the client's
+  ESLint config. Where they disagree, that wins.* **Nothing is compared**: the product repeats a
+  sentence the user wrote. **And it never clears.** A missing env key clears by supplying it, an
+  unpinned `ref` by pinning it; **a deference clears only by removing the declaration or the item**,
+  because it reports a standing property of the set rather than a defect in it. **Two structural
+  consequences for step 5 and step 7.** A set with three deferring items shows **three Notes at every
+  check for as long as it exists**, so a project's `checkVerdict` counts may never reach `0 notes` —
+  **the count is not a to-do list and the surfaces must not draw it as one.** And it is the first
+  finding whose subject is **outside** everything the check can see.
 
 ### E10 · Env requirement
 
@@ -294,6 +334,13 @@ A named key the set needs and does not carry.
   record has never spent the *"couple of hours"* to separate the private from the reusable, and **2**
   for P2 on behaviour: four receivers were watched stripping the author's credentials out of inherited
   material.
+- **What the product does about the other half — content, not keys, decided 2026-09-16.** `needsEnv`
+  makes an **env value** structurally unleakable, but a key pasted into an item's `content` is not an
+  env requirement and this entity never sees it. **The answer is a warning where material enters the
+  library (E2), not a scan anywhere** — the credential refusal §6 carried for a day was overruled
+  because detection was the part that could not be built. **So this entity's guarantee is exact and
+  narrow, and must be stated as narrow**: we cannot leak a value we never hold; we can carry a key
+  somebody typed into a file.
 - **Open. `[?]`** Proposal **S-4**: a receiving agent, told only to set the project up, **read the
   machine's live OAuth token out of the keyring and wrote it into a plaintext file.** The risk runs
   both ways and the specification names only one of them.
@@ -322,8 +369,15 @@ What a project becomes. The product's stated wow moment (§2).
 The handover document, **addressed to the agent that opens the project** and not to a human reader.
 
 - **Fields and parts (§6).** **Per item in the resolved set**: its dependencies, the MCP servers it
-  needs, the env keys it expects, the external repos to clone **at their pinned `ref`**, and where
-  everything lands for the chosen target.
+  needs, the env keys it expects, the external repos to clone **at their pinned `ref`**, **what it
+  defers to** (§5, added 2026-09-16), and where everything lands for the chosen target.
+- **And the deference lands here harder than anywhere else.** Of the four readers told about a
+  `defersTo` — the Note for the owner, the row, the shared page, this document — **this is the only one
+  standing on the machine where the other rule actually lives.** It is therefore the only reader that
+  can *act* on the sentence rather than note it, and acting on it is what Q10's answer asks for: the
+  external one wins. **It is also the reader with a measured failure record** — Q-F watched one of
+  three mis-resolve a defect it had not been told about — which is the same argument as **S-1**, one
+  step over.
 - **Job.** [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
   and [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work)
   — *not be the missing manual for my own work.*
@@ -365,6 +419,18 @@ The only per-item evidence the product ships. **Derived from the library, never 
   anything***. EJ-3 scores **3** for the primary persona and **the product cannot close it**; that is
   **Q12**. Also [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list).
 - **Relation.** Owner.
+- **Where it is read, and what that cost on 2026-09-16.** These facts were the strongest argument for
+  making `Item` a place: *used in 3 projects* is **a count that is also a link**, the benchmark's best
+  consequence disclosure (VS Code Workspace Trust, C2 = 5), and a count you cannot follow is Figma's
+  *423 instances*, scored a step lower for exactly that. **The owner kept §8's form, so there is no item
+  to link to.** What this entity gets instead: **the count expands where it stands** — on the Library
+  row, naming the three projects — and **each name leads to the Project**, which is a place. **The item
+  is not addressable; what the count is about still is.** That is weaker than the benchmark's best and
+  is recorded as weaker.
+- **And it is read a second time, at the head of the add/edit form.** With no place to arrive at and
+  read a blast radius, **the form states it before any field is editable** — *used in 3 projects ·
+  saving un-checks all three* (§5, §6). So this entity is doing **two jobs on one surface**: telling the
+  owner what they have, and telling them what they are about to disturb.
 - **Standing.** `§`5 · **`*`, n = 1, and the strongest `*` in the repository**: asked with our
   vocabulary deliberately forbidden, a practitioner invented this mechanism unprompted — *"Usage data,
   first… that alone would let me delete half of it with confidence"* — then extended it past our spec
@@ -419,7 +485,7 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 | **Q-E4** | **`visibility`** | **§9 keeps the field and does not show the control at all.** *Its stated reason — that there is nothing to publish to — is the same kind of reason struck on 2026-09-15, so it is under review with **Q13**.* The job behind it is [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp), scored **1** for the primary persona | **Q13.** If a link is in the MVP, this control can act, and §9 hid it precisely because it could not |
 | ~~**Q-E5**~~ | ~~**Licence of an external item** `[?]`~~ | ~~**Proposed, not applied** (stage 6 proposal 6). It closes no job — it is a legal constraint on shipping E3, which is a different kind of reason~~ **Left this table on 2026-09-15: the owner applied it.** It is now a field of **E15**, and the reason it was refused here is still true — **it closes no job**, and §5 now says so in those words rather than acquiring one | — |
 | **Q-E6** | **A profile of the receiving machine** | **RJ-1 wants the *knowledge*, and the specification answers it with E12 rather than with an object.** RJ-1's importance for the primary is **`[?]`** — the cell was withdrawn by the audit, then hunted deliberately with six queries across two forums and **nobody says they wished they had known.** The market has such a surface (`asm doctor`); we do not need the object to close the job | One practitioner saying it plainly — which would also move RJ-1 into the core |
-| ~~**Q-E7**~~ | **An external requirement** — a client's linter, a repo convention | ~~That is **Q10**, live and standing on one person. **No object until the question is answered**~~ **Q10 was answered on 2026-09-15: the external requirement wins, and the product must say when it disagrees.** So an object *is* wanted — **a declared external constraint on an item**, hand-filled the way `requires` and `conflicts` are. **It is not in §5 yet**, and the reason it is still in this table is that detection is impossible in the MVP: §9 parses nothing and we never see the other machine, so what is buildable is **disclosure of a constraint the user declared**, never a comparison | The field, once §5 and §6 carry it |
+| ~~**Q-E7**~~ | ~~**An external requirement** — a client's linter, a repo convention~~ | ~~That is **Q10**, live and standing on one person.~~ ~~Q10 was answered on 2026-09-15 … **It is not in §5 yet**, and the reason it is still in this table is that detection is impossible in the MVP~~ **Left this table on 2026-09-16: §5 and §6 now carry it.** `defersTo[]` is a field of **E1** and a declared relation alongside `requires` and `conflicts` (**E7**), raising a Note that never clears (**E9**) and read on the shared page (E16) and in `SETUP.md` (E12). **The reason it sat here is unchanged and is now written into §5**: detection is impossible, so the field discloses a constraint the user declared and **never compares anything**. The mark stays **`*`, n = 1** | — |
 | **Q-E8** | **An execution record** — what actually ran, per session | This is the highest-importance job the product **cannot** close: EJ-3 / H-J5 score **3** for the primary and **§6 runs nothing on anyone's machine.** An object here would be a promise we cannot keep. **This is Q12, and it is a positioning question rather than a backlog item** | A different product. Named here so nobody adds it later as *just a log* |
 | **Q-E9** | **Version or history of an own item** | **§9 refuses it**, and `detached` + `overrides` (E5) already does the job a version number would. One datum against the refusal is recorded — **151 reactions** asking for history and rollback, from an organisation context — and the disposition is the owner's | The register |
 | **Q-E10** | **A project inside a project** | **§9 defers it over unbounded recursion**, and no pattern variant needed it. Decide the depth rule before the feature, not after | Post-MVP, with a depth rule first |
@@ -828,15 +894,47 @@ being passed onward**, and the page carries `repoUrl`, the pinned `ref` and the 
 taken for one reason turned out to be load-bearing for another, and that is worth recording rather
 than enjoying quietly.
 
-### And one thing that still owes a mechanism
+### ~~And one thing that still owes a mechanism~~ — built 2026-09-16
 
-**Q10 was answered and has nowhere to live yet.** *An external requirement beats the user's own rule,
-and the product must say when it disagrees* — but detection is impossible (§9 parses nothing, and the
-other machine is never ours), so what is buildable is a **constraint the user declares** and the
-product **shows wherever that item appears in a set.** With Q13 answered, that now includes **the
-shared page**, which is the one place a receiver could read it — and the receiver is precisely the
-person whose linter it is going to be. **It needs a field on `Item` and a line in §6, and it is the
-only disposition from the sitting still outstanding.**
+~~**Q10 was answered and has nowhere to live yet.**~~ **`defersTo[]` is now a field on `Item`** (§5,
+*Deference*), raising a **Note** on the item's row (§6) and read on the shared page (§8) and in
+`SETUP.md` (§6). The reasoning is unchanged and is now written into the specification rather than owed
+by it: detection is impossible — §9 parses nothing, the other machine is never ours — so the field
+**discloses a constraint the user declared and compares nothing.** **No disposition from the sitting is
+owing a mechanism now.**
+
+---
+
+## 2026-09-16 — three decisions, and they land on the same surface
+
+> **A second re-check, one day after the first.** The owner overruled the credential refusal, took
+> Q10's mechanism as a Note, and kept §8's form. **Recorded separately because what they do together is
+> not what any of them does alone.**
+
+### The `Item` add/edit overlay is now the product's busiest disclosure surface
+
+**It was described as *a form* and left at that.** After three decisions it carries, in order:
+
+1. **On the way in — *check that these files carry no keys*** (E2, §11). The refusal moved here, so
+   this overlay is the **only** place the product speaks about secrets before the material is inside.
+2. **Before an edit — the blast radius** (E14, §5): *used in 3 projects · saving un-checks all three*.
+   It landed here because the `Item` place that would have held it was not built.
+3. **As a field — `defersTo`** (E7, §5): the thing this item answers to outside the library, which
+   nothing else in the product can discover.
+
+**That is the finding, and it is a warning for step 5.** Two of the three were re-homed here *because a
+place was refused*, and nobody decided that this overlay should carry them — **it is where they fell.**
+An overlay is summoned and dismissed, it is not addressable, and **a person cannot be sent to it to
+read any of this.** It works, and it is thin ice: **step 5 must compose this surface deliberately
+rather than let three unrelated disclosures stack up in a dialog.**
+
+### And one count that can never reach zero
+
+A deference raises a Note **that never clears** (E9), and a project's row carries `checkVerdict` as
+**counts** (E4, §6). So a project holding three deferring items reads `0 problems · 3 notes` **for as
+long as it exists**. **Nothing is wrong with it and nothing can be done about it**, which makes it the
+first verdict in this product that is not a to-do list. **Projects and Run must not draw notes as
+work outstanding** — and this is the case that proves the rule, not an edge of it.
 
 ---
 
@@ -870,8 +968,10 @@ its place by closing a job. **The cost is recorded in the register**: the collec
 thinnest evidence in the folder, so the surfaces that now carry the most weight are the ones with the
 least under them.
 
-**And the screen tree establishes seven screens and one orphan** — five for the owner and **two for
-the receiver, added when Q13 was answered** — each with the job it serves, grouped
+**And the screen tree establishes six screens and one orphan, plus two nodes that are not screens** —
+four for the owner and **two for the receiver, added when Q13 was answered**; the two non-screens are
+the `Item` add/edit overlay (§8, kept 2026-09-16) and the detached row. Each screen carries the job it
+serves, grouped
 by the person's own three situations rather than by anything that could become a menu. **Its two
 findings are refusals rather than places, and one is now under review:** the receiver needs **no screen
 in the product as specified today** — their whole surface is `SETUP.md` inside the archive — **which
@@ -889,6 +989,17 @@ weaker answer than a place, named as weaker, and the only one available without 
 of the Project, not a place** — it fails two of the three tests because nothing is stored, and taking
 the whole surface is not the same property as being addressable. **Five places in the whole product**:
 Library with an address per scope, Projects, Project, and the two the link creates.
+
+**And one field was added to this inventory after it was written.** **`defersTo` on E1** — Q10's
+mechanism, built 2026-09-16 — which is the only object here that **points outside everything the
+product can see**, and therefore the only one whose finding is carried rather than computed. It left
+*In question* as Q-E7 the day §5 and §6 took it, the way the licence left as Q-E5 the day before.
+
+**A third finding, and it came from the decisions rather than from the objects.** The `Item` overlay
+now carries **three unrelated disclosures** — keys on the way in, blast radius before an edit, and a
+declared deference — **two of which were re-homed there because a place was refused, and none of which
+anybody chose to put there.** It is written up above as its own section, because the thing to avoid in
+step 5 is a dialog that accumulated its contents by default.
 
 **Does not establish. Routes** — the strings themselves, and what each promises — which is step 3. Nor
 the shape of E1, which proposal **S-2** would change from a file to a directory, and which the sitting

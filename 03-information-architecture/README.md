@@ -6,15 +6,17 @@ lesson 3 — object model, surface map, navigation, screen composition — adapt
 between them, decided 2026-09-01 and confirmed 2026-09-02. That fact is the whole difficulty of this
 lesson and it is dealt with under *What it is not*.
 
-**Status, 2026-09-15: step 2a and the tree half of step 3 are written.** [`sitemap.md`](sitemap.md)
-holds the **entity inventory** — **sixteen** objects with their fields, the job that raises each and
-whose side it is on, plus **eleven candidates refused for a stated reason** — and the **screen tree**:
-**seven screens and one orphan**, five for the owner and two for the receiver, derived from the jobs,
-grouped by the person's three situations, with the persona split and a list of the things that are
-states rather than screens. **A fourth section records where the day's decisions meet each other**,
-including one collision that still needs an answer. **Routes and the
-place/state classification are not done**, and the tree hands them two questions: *is `Item` a place or
-a form*, and *is `Run` a place at all* now that nothing is stored.
+**Status, 2026-09-16: steps 2a and 2b are written, and the tree half of step 3.**
+[`sitemap.md`](sitemap.md) holds the **entity inventory** — **sixteen** objects with their fields, the
+job that raises each and whose side it is on, plus **eleven candidates refused for a stated reason**,
+**two of which have since left the table because the owner applied them**: the licence and
+`defersTo` — and the **screen tree**: **six screens and one orphan**, four for the owner and two for
+the receiver, plus two nodes that are not screens, derived from the jobs, grouped by the person's three
+situations, with the persona split and a list of the things that are states rather than screens. **Two
+further sections record where the decisions meet each other** — one for 2026-09-15 and one for the
+three the owner took on **2026-09-16**, whose finding is that they all land on the same overlay.
+**Routes are still not written**, and the two questions the tree handed the classification are both
+answered: **`Item` is a form** and **`Run` is a mode**.
 
 **The order moved, deliberately, and step 2b then closed what the tree opened.** The tree was drawn
 before the classification because the owner asked for the hierarchy first, and it worked: a screen tree
