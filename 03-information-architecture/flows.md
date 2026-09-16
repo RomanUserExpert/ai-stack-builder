@@ -77,7 +77,7 @@ flowchart TD
     linkStyle 3,7,10,15,19,22,24,26,33,36 stroke:#16a34a,stroke-width:2px
     linkStyle 1,5,9,12,18,21,27,29,31,37 stroke:#dc2626,stroke-width:2px
     class A,D,J,K,N,Q,U,X,AA screen
-    class C,F,H,M,P,W,Z state
+    class C,F,H,M,P,S,W,Z state
     class AD,AB win
     class I,AE dead
 ```
@@ -202,72 +202,87 @@ managers were run against a deliberately broken set and none saw a set-level def
 ```mermaid
 flowchart TD
     A["Project"] --> B["Palette: ⌘K, opens cold on related items"]
-    B --> C["Project: the item added, selected manually"]
-    C --> D{"Does the new item require anything?"}
-    D -->|"Yes"| E["Project: auto-added rows, each showing what pulled it in"]
+    B --> C[/"Project: the row is selected manually"/]
+    C --> D{"Does it require anything?"}
+    D -->|"Yes"| E[/"Project: auto-added rows, each naming what pulled it in"/]
     D -->|"No"| F["Project: the set as it stands"]
-    E --> G{"Is a required item missing from the library?"}
-    G -->|"Yes"| H[/"Run: unresolvable requirement, a Problem"/]
-    H --> I["Library: My library"]
-    I --> J["Item: add or edit form"]
-    J --> A
-    G -->|"No"| F
-    F --> K{"Do two of them declare a conflict?"}
-    K -->|"Yes"| L[/"Project: the conflict state, on both rows"/]
-    K -->|"No"| M[/"Run: check in progress"/]
-    L --> M
-    M --> N{"Is there a cycle?"}
-    N -->|"Yes"| O[/"Run: these three always travel together, stated as information"/]
-    N -->|"No"| P["Run: findings, each annotating the row that owns it"]
-    O --> P
-    P --> Q{"Is the row you want to remove auto-added?"}
-    Q -->|"Yes"| R{"Is the item that pulled it in still in the set?"}
-    R -->|"Yes"| S(["Dead end: an auto-added item cannot be removed while its puller is present"])
-    R -->|"No"| T["Project: the row that pulled it in is gone"]
-    Q -->|"No"| T
-    T --> U{"Do two items write to the same target path?"}
-    U -->|"Yes"| V[/"Run: a target-path collision, a Problem naming which item wins"/]
-    V --> W{"Change one of the target paths?"}
-    W -->|"Yes"| A
-    W -->|"No"| X(["Dead end: the archive will contain only one of them, and it is exported anyway"])
-    U -->|"No"| Y(["The set is legible: what it drags in and where it fights, while there is still time to act"])
+    E --> F
+    F --> G{"Do you want one of those rows out of the set?"}
+    G -->|"Yes"| H{"Is that row auto-added?"}
+    H -->|"No"| I[/"Project: the row is gone"/]
+    I --> F
+    H -->|"Yes"| J{"Remove the item that pulled it in instead?"}
+    J -->|"Yes"| I
+    J -->|"No"| K(["Dead end: an auto-added row cannot be removed while its puller is in the set"])
+    G -->|"No"| L[/"Run: check in progress"/]
+    L --> M{"Did the walk find a cycle?"}
+    M -->|"Yes"| N[/"Run: these three always travel together, information and not a failure"/]
+    M -->|"No"| O["Run: findings, each annotating the row that owns it"]
+    N --> O
+    O --> P{"Is any of it a Problem?"}
+    P -->|"No"| Q(["The set is legible: what it drags in and where it would fight, while there is still time to act"])
+    P -->|"Yes"| R{"Is a required item missing from the library altogether?"}
+    R -->|"Yes"| S[/"Run: an unresolvable requirement"/]
+    S --> T["Library: My library"]
+    T --> U["Item: add or edit form"]
+    U --> A
+    R -->|"No"| V[/"Run: a declared conflict, a duplicate command name or a target-path collision"/]
+    V --> W{"Can you act on it from the row that owns it?"}
+    W -->|"Yes"| X["Project: drop one of them, or change a target path"]
+    X --> Y[/"Projects: the verdict is void, because the set changed"/]
+    Y --> L
+    W -->|"No"| Z(["Dead end: the fix is not in this project, and the archive will carry only one of the two"])
     classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
     classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
     classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
     classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
-    linkStyle 3,6,12,16,20,21,25,27 stroke:#16a34a,stroke-width:2px
-    linkStyle 4,10,13,17,22,23,28,29 stroke:#dc2626,stroke-width:2px
-    class A,B,C,E,F,I,J,P,T screen
-    class H,L,M,O,V state
-    class Y win
-    class S,X dead
+    linkStyle 3,7,10,11,15,20,21,27 stroke:#16a34a,stroke-width:2px
+    linkStyle 4,8,12,13,16,19,25,30 stroke:#dc2626,stroke-width:2px
+    class A,B,F,O,T,U,X screen
+    class C,E,I,L,N,S,V,Y state
+    class Q win
+    class K,Z dead
 ```
 
-**The decisions, in words.**
+**The decisions, in words.** *Rewritten 2026-09-16: the first version of this diagram mixed the two
+moments — it asked about **check findings** on the Project screen, before and after the run. Every
+Problem in §6 is produced by the check and nowhere else, and the flow now says so.*
 
-1. **Does the new item require anything?** — the depth-first walk, and every row it produces says what
-   pulled it in.
-2. **Is a required item missing from the library?** — an unresolvable requirement is a Problem, and the
-   route out of it leaves this flow entirely: you go and author the missing item.
-3. **Do two of them declare a conflict?** — a flat list with no hard/soft flag, because nothing blocks
-   and the distinction would have no work to do.
-4. **Is there a cycle?** — **not an error.** A project is a set and never an execution order, so the
-   answer is *these three always travel together*.
-5. **Is the row you want to remove auto-added?** and **is its puller still there?** — together, the
-   only place in the entire specification where the product refuses an action.
-6. **Do two items write to the same target path?** — the collision the market cannot see, because
-   nothing else has a set-level unit to see it with.
-7. **Change one of the target paths?** — a *no* is legitimate and exports anyway, with the consequence
-   named in the present tense.
+1. **Does it require anything?** — the depth-first walk, run at the moment the item is added. Auto-added
+   rows appear on the Project screen **with no check involved**, each naming what pulled it in.
+2. **Do you want one of those rows out of the set?** — the removal branch, and the only place in the
+   entire specification where the product refuses an action.
+3. **Is that row auto-added?** and **remove the item that pulled it in instead?** — the refusal has a
+   shape, and it is worth drawing: **you do not remove the dependency, you remove what dragged it in.**
+   A person who does not see that is genuinely stuck.
+4. **Did the walk find a cycle?** — **not an error.** A project is a set and never an execution order,
+   so the answer is *these three always travel together*, reported as information.
+5. **Is any of it a Problem?** — and this is the only place the word appears, because **the check is the
+   only thing that produces one.**
+6. **Is a required item missing from the library altogether?** — an unresolvable requirement, whose fix
+   leaves this flow entirely: you go and author the missing item, and come back to a set that has
+   changed.
+7. **Can you act on it from the row that owns it?** — §8 says a finding annotates its own row. When it
+   can be acted on, the set changes and **the verdict is void**, which is why the loop goes back through
+   the check rather than around it.
 
-**The states, in words.** *An unresolvable requirement* · *the conflict state on both rows* · *the
-check in progress* · *a cycle reported as information* · *a target-path collision naming which item
-wins*.
+**The states, in words.** *A row selected manually* · *auto-added rows naming what pulled them in* · *a
+row removed* · *the check in progress* · *a cycle reported as information* · *an unresolvable
+requirement* · *a conflict, a duplicate command name or a target-path collision* · *the verdict voided
+because the set changed*.
 
-**Where a person gets stuck.** **The auto-added row that will not go** — the product's one refusal,
-and the flow shows exactly the shape of it: you do not remove the dependency, you remove what dragged
-it in. **The collision they choose not to fix** — the archive is produced with one of the two items
-silently absent from the merged config, which is correct behaviour and still a bad afternoon.
+**Where a person gets stuck.** **The auto-added row that will not go** — the product's one refusal, and
+the dead end is real: if it does not occur to you to remove the puller instead, there is no other way
+out. **The Problem you cannot reach from here** — the fix is four items away or in another project, and
+the archive will carry only one of the two, which is correct behaviour and still a bad afternoon.
+
+**What changed in the redraw, since the first version was wrong rather than merely rough.** The old
+diagram asked *is a required item missing* and *do two items write to the same target path* as
+questions on the Project screen — but both are findings **§6 produces inside the check**. It also had a
+removal branch that made no sense (if the puller is gone, the row is not auto-added any more), and it
+asked about a path collision **immediately after removing a row**, which **voids the verdict** and makes
+the question unanswerable until a new check runs. The three moments are now separate: **assemble ·
+try to remove · check · act.**
 
 ---
 
@@ -376,7 +391,6 @@ flowchart TD
     T --> U["Item: add or edit form"]
     U --> Q
     S -->|"Yes"| V["Shared project"]
-    V --> W(["The work moved and the secrets did not"])
     V --> X{"Change your mind and revoke it?"}
     X -->|"Yes"| Y[/"Project: the address is dead, and nothing already taken comes back"/]
     Y --> Z(["Dead end: revoking recalls nothing, and the product says so at that moment"])
@@ -385,8 +399,8 @@ flowchart TD
     classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
     classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
     classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
-    linkStyle 2,6,11,17,23,26 stroke:#16a34a,stroke-width:2px
-    linkStyle 1,7,12,15,20,28 stroke:#dc2626,stroke-width:2px
+    linkStyle 2,6,11,17,23,25 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,7,12,15,20,27 stroke:#dc2626,stroke-width:2px
     class A,C,D,G,I,M,O,Q,U,V screen
     class E,J,L,R,T,Y state
     class P,W win
