@@ -15,9 +15,9 @@
 | Shape | Meaning |
 |---|---|
 | `[ rectangle ]` | **A screen, mode or overlay** — the name is the one [`sitemap.md`](sitemap.md) uses |
-| `[/ parallelogram /]` | **A state** of one of those — empty, checking, filtered to zero, stale, void |
+| `[/ parallelogram /]` | **A state** of one of those — empty, checking, filtered to zero, stale, void. Drawn with a **dashed amber outline** |
 | `{ diamond }` | **A decision**, always a yes/no question. **The green branch is *yes*, the red branch is *no*** |
-| `([ stadium ])` | **An ending.** `Done:` the job is closed · `Stuck:` a dead end |
+| `([ stadium ])` | **An ending**, outlined **green** for `Done:` and **red** for `Stuck:` |
 
 **Node labels are names, not sentences.** *Corrected 2026-09-16: the first version carried labels of up
 to 95 characters, which sprawls a `TD` flowchart sideways until it stops being readable.* **The diagram
@@ -31,6 +31,11 @@ overflows its shape, and **none is scaled below 0.74**, where text starts to dis
 render caught that nothing else would: **`⌘` has no glyph in the default stack and drew as an empty
 box**, so the palette node is just *Palette*; and RJ-2 was **1608 units wide, squeezed to 54%**, which
 is why it is now two diagrams.
+
+**Only outlines are coloured, never fills.** *Corrected 2026-09-16: the first version set dark fills and
+light text, which reads as intended on a dark page and as a row of black boxes on a light one.* Nodes
+keep the reader's own theme, and the shape plus the outline carry the meaning — which is the same rule
+§10 sets for the product itself: **two real themes, and neither is an inversion of the other.**
 
 **One thing the colours do not mean.** A red branch is not a failure and a green one is not a success —
 *no* is often the right answer. The colour marks **which way the question was answered**, and the
@@ -83,10 +88,10 @@ flowchart TD
     AB --> AC{"Env values on that machine?"}
     AC -->|"Yes"| AD(["Done: it keeps working"])
     AC -->|"No"| AE(["Stuck: keys named, not held"])
-    classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
-    classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
-    classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
-    classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 3,7,10,15,19,22,24,26,33,36 stroke:#16a34a,stroke-width:2px
     linkStyle 1,5,9,12,18,21,27,29,31,37 stroke:#dc2626,stroke-width:2px
     class A,D,J,K,N,Q,U,X,AA screen
@@ -164,10 +169,10 @@ flowchart TD
     T -->|"No"| U(["Stuck: exported unread"])
     T -->|"Yes"| V["Export"]
     V --> W(["Done: the other side is known"])
-    classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
-    classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
-    classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
-    classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 1,4,10,14,16,19,24 stroke:#16a34a,stroke-width:2px
     linkStyle 3,5,7,12,18,21,23 stroke:#dc2626,stroke-width:2px
     class A,H,I,L,S,V,Z screen
@@ -234,10 +239,10 @@ flowchart TD
     I -->|"Yes"| K{"Remove its puller instead?"}
     K -->|"Yes"| J
     K -->|"No"| L(["Stuck: auto-added row holds"])
-    classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
-    classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
-    classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
-    classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 3,8,11,12 stroke:#16a34a,stroke-width:2px
     linkStyle 4,7,9,13 stroke:#dc2626,stroke-width:2px
     class A,B,F screen
@@ -268,10 +273,10 @@ flowchart TD
     N --> O[/"Verdict void"/]
     O --> B
     M -->|"No"| P(["Stuck: the fix is elsewhere"])
-    classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
-    classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
-    classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
-    classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 2,7,8,14 stroke:#16a34a,stroke-width:2px
     linkStyle 3,6,12,17 stroke:#dc2626,stroke-width:2px
     class A,E,J,K,N screen
@@ -350,10 +355,10 @@ flowchart TD
     S --> N
     N --> T[/"Checking"/]
     T --> U(["Done: every linked copy has it"])
-    classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
-    classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
-    classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
-    classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 3,7,11,15,17,19 stroke:#16a34a,stroke-width:2px
     linkStyle 1,6,10,14,16,20 stroke:#dc2626,stroke-width:2px
     class A,E,F,H,K,N,Q screen
@@ -424,10 +429,10 @@ flowchart TD
     W -->|"No"| X(["Done: the secrets stayed"])
     W -->|"Yes"| Y[/"Address dead"/]
     Y --> Z(["Stuck: copies already taken"])
-    classDef screen fill:#12161c,stroke:#7c8899,stroke-width:1px,color:#e8edf4
-    classDef state fill:#1b1a12,stroke:#a8913f,stroke-width:1px,color:#f4efdd
-    classDef win fill:#0d2b1e,stroke:#16a34a,stroke-width:2px,color:#dff5e8
-    classDef dead fill:#2b1114,stroke:#dc2626,stroke-width:2px,color:#fadfe1
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 2,6,11,17,23,26 stroke:#16a34a,stroke-width:2px
     linkStyle 1,7,13,15,20,25 stroke:#dc2626,stroke-width:2px
     class A,C,D,G,I,M,O,Q,U,V screen
