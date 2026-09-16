@@ -15,8 +15,10 @@ the receiver, plus two nodes that are not screens, derived from the jobs, groupe
 situations, with the persona split and a list of the things that are states rather than screens. **Two
 further sections record where the decisions meet each other** — one for 2026-09-15 and one for the
 three the owner took on **2026-09-16**, whose finding is that they all land on the same overlay.
-**Routes are still not written**, and the two questions the tree handed the classification are both
-answered: **`Item` is a form** and **`Run` is a mode**.
+**Step 4, navigation, is written** — two global entries with the job cluster behind each, **three
+clicks from the first screen to an archive** and four on the persona's most frequent arrival, and the
+global / contextual / deep split. **Routes are still not written**, and the two questions the tree
+handed the classification are both answered: **`Item` is a form** and **`Run` is a mode**.
 
 **The order moved, deliberately, and step 2b then closed what the tree opened.** The tree was drawn
 before the classification because the owner asked for the hierarchy first, and it worked: a screen tree

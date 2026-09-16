@@ -1,16 +1,19 @@
 # Sitemap — lesson 03, information architecture
 
-> **A draft, in four sections.** Written 2026-09-15, **re-checked against the owner's decisions of
+> **A draft, in five sections.** Written 2026-09-15, **re-checked against the owner's decisions of
 > 2026-09-16** — the credential refusal overruled, Q10 built as `defersTo`, and `Item` kept as a form.
-> Everything they touch is marked with that date. It decides nothing on implementation grounds:
+> Everything they touch is marked with that date. **The fifth section, Navigation, was written the same
+> day** out of the places the third established: two global entries, the click depth to the main job,
+> and the global / contextual / deep split. It decides nothing on implementation grounds:
 > what the product is comes first, and how it is built comes after — a rule this file had to be
 > corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
 > **Places, modes, overlays and states** — what kind of thing each node actually is, which is where
 > *five places* comes from — *this line said four when it was written, before Q13 added the two shared
 > surfaces; six with them, and **five since 2026-09-16**, when the owner kept §8 and `Item` stopped
-> being one.* **Routes are still not here**: naming them is step 3, and it now has a shape to put them
-> on and nothing left blocking it.
+> being one.* **Routes are still not here**: naming them is step 3, and it now has both a shape to put
+> them on and a navigation model constraining them — **Navigation**, step 4, written first because the
+> owner asked for it and because it needed nothing step 3 produces.
 
 **Sources read in full before writing this:**
 [`personas.md`](../research/6-personas/personas.md),
@@ -818,6 +821,172 @@ machine** — reload, Back, a bookmark. The receiver's two are addressable **off
 written down, sent, and opened by somebody who has nothing else and no context. **That is the only
 line in this architecture where an address has to mean something to a person who did not make the
 thing it names.**
+
+---
+
+---
+
+## Navigation — the entries, the depth, and what is always there
+
+> **Step 4, written 2026-09-16, out of the five places step 2b established.** **No screen is invented
+> here and none is added.** Navigation is a question about the screens that already exist: which of
+> them a person may reach without being sent, how far the main job sits from the first one, and which
+> commands are on the surface at all times versus in the flow versus out of the way.
+
+**The rule this section obeys: an entry earns its place by opening a job cluster, and the cluster is
+named with a link.** Not because a product of this kind usually has a sidebar with four things in it.
+
+---
+
+### 1 · Global navigation — two entries, and the third cluster deliberately has none
+
+**The screen tree is grouped into three situations** — *what I keep*, *what I am putting together*,
+*what leaves*. **They do not become three nav items, and the tree said so when it was drawn**: they
+explain why the screens exist, they are not a menu. The navigation has **two entries**, and the third
+cluster is reached through the second.
+
+| Entry | The job cluster it opens | Which arrival it serves | Standing |
+|---|---|---|---|
+| **Library** | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) — *fix it once and have the fix reach every copy*, importance **3** for P1 · [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) — *lay hands on the thing I know I wrote*, **2** · [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | **Arrivals 2 and 3** of the three [`personas.md`](../research/6-personas/personas.md) records: *adding a rule right after an agent did something annoying*, and *hunting for something they know they wrote* | `§`8 · `✓` the corpus · **`*`/`[?]` the browse-and-find job** |
+| **Projects** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — the set is the unit that moves · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) — *what my pieces drag in*, **3** | **Arrival 1**, the most frequent one: *copying something out of the collection into a new project* — whose **destination** is a project even though the person describes it from the collection's end | `§`8 · `✓` |
+
+**Why *what leaves* gets no entry, and it is structural rather than a matter of taste.** **`Run` is a
+mode, not a place** — it fails two of the three addressability tests because no run is stored (§6). **A
+nav item pointing at a mode is an item you cannot be returned to**: press it twice and the second press
+means something different from the first. And there is nothing to point it at from a standing start —
+**you cannot check a set you have not assembled** — so the door to *what leaves* is **Check**, on a
+project, which is where §8 already put the seam. **The navigation restates the seam rather than adding
+one.**
+
+**Three things that are not entries, named because each is what a designer reaches for first.**
+
+- **`Public library` is not a third entry.** It is **the Library's second address** (step 2b) — same
+  rows, same search, same filters, one switch. Promoting it would say the shelf is a peer of the
+  corpus; **its job is `[?]` in all three persona columns** (E3) and the corpus's is not.
+- **`Run` is not an entry**, per above. Neither is **Export**: it is Run's final stage (§8), and an
+  entry beside Check would be a second door into one room.
+- **There is no Settings.** §9 refuses accounts, sync and teams, and nothing else has accumulated a
+  preference. **An empty settings screen is the clearest sign a navigation was copied rather than
+  derived.**
+
+**And the receiver has no global navigation at all — by construction, not by omission.** `Shared
+project` and `Shared item` are places whose address is the link (E16). **There is nowhere else for that
+person to go**: they own no library and no projects, and a nav bar would advertise an account §9 does
+not give them. What their page carries instead is **one way out that is not navigation** — take the
+archive, or copy it into a library of their own, which is the first act of becoming P1 rather than P2.
+
+---
+
+### 2 · Depth — clicks from the first screen to the main job, for P1
+
+**Where the count stops, stated before any number.** The main job is *something I already have working
+has to keep working somewhere else*. **The product cannot carry it to the end** — it never touches the
+receiving machine, which is why §6 says **checked, never works**. So the count runs to **the archive in
+hand**, which is the furthest point this product owns.
+
+**What the first screen is.** **Where you were last** — §8's own mitigation, *the Library one keystroke
+away and remembering where you were*, generalised to the whole product. **Only the first run ever needs
+a decision, and it is `Projects`**: `My library` is empty by design on first run (§11), and **the one
+thing in the product that demonstrates anything is the example project**, which ships in Projects and
+is built to produce a real Problem and a real Note. **Landing a new person in the one room we
+guaranteed would be empty is the mistake §11 exists to prevent.**
+
+| Path | Route | Clicks |
+|---|---|---|
+| **A · The set already exists** — and this is literally what the main job describes, *something I have already got working* | Projects → **Project** ① → **Check** ② → **Export** ③ | **3** |
+| **B · The set does not exist yet** | Projects → **New project** ① → `⌘K` × n, adding items → **Check** ② → **Export** ③ | **3 + n selections** |
+| **C · Arriving through the Library** — the persona's own description of their most frequent act | Library → **Projects** ① → **Project / New** ② → **Check** ③ → **Export** ④ | **4** |
+| **D · First run ever, owning nothing** | Projects → **the example project** ① → **Check** ② → **Export** ③ | **3** |
+| **P2 · The receiver, for contrast** | the link → **Check** ① → **take the archive** ② | **2** |
+
+**Four things fall out of the count, and three of them are findings rather than numbers.**
+
+1. **Three is the floor, and it does not move when the set does not exist.** B costs the same
+   *navigation* as A — the extra work is `⌘K` and n selections, which happen **inside one place without
+   going anywhere.** **The depth of this product is in selection, not in traversal**, which is the
+   strongest argument the click count makes for §8's list-plus-palette choice over a pane pair.
+2. **The only four-click path is the one the persona performs most often.** Arrival 1 — *copying
+   something out of the collection into a new project* — is described from the collection's end, and
+   the collection is **not part of the builder flow** (§8). **That decision shows up here as one click,
+   and it is named rather than absorbed.** What pays for it is mitigation 1: **the palette opens cold
+   on *related* items**, so the person who came to fetch from the collection has the relevant part of
+   the collection brought to them instead. **If that cold state is ever weakened, this row is where the
+   cost lands.**
+3. **The receiver is shallower than the owner — 2 against 3.** The person who owns nothing has the
+   shortest path to an archive in the whole product. **Recorded as an observation and not as a claim
+   about adoption**, exactly as §6 records the same shape: *Library-to-archive performed by somebody
+   who owns nothing.* **P2 has still never spoken in the first person**, so this is a number about our
+   structure, not about their experience.
+4. **No path to the main job passes through the Library.** That is the plainest statement of the
+   tension **Q7 created and did not resolve**: the sitting made **the collector primary**, and the
+   collector's own ground is the one place the product's central act does not touch. **Both are true
+   and neither is edited here.** It is the thing to watch in step 5 — if the Library ever starts
+   growing builder machinery to justify itself, this row is the reason why, and §8 refused exactly that
+   once already.
+
+**The three load-bearing mitigations, and where each is now doing its work** — §8 named them and this
+section is the first place they are accountable.
+
+| Mitigation (§8) | Where it pays | If it fails |
+|---|---|---|
+| **The palette opens cold on *related* items** | Path B's n selections, and the whole of path C's justification | Path C stops being worth its extra click, and the pane pair §8 rejected comes back as a request |
+| **The Library is one keystroke away and remembers where you were** | The first screen is *where you were*; arrivals 2 and 3 cost one keystroke from anywhere | Every corpus act starts with re-finding your place, and **EJ-3** — already unclosable — gets worse |
+| **Per-item usage facts do the work a visible pane would do** | The Library row: *used in 3 projects*, expanding in place, each name leading to the **Project** (E14) | You cannot see what you are not using, which is the cost §8 accepted with its eyes open |
+
+---
+
+### 3 · Global, contextual, deep
+
+**The rule.** **Global** — on the surface at all times, because leaving it out would strand somebody.
+**Contextual** — it appears where it can act, because §9's *an action that cannot act is not shown*
+applies to navigation as much as to a toggle. **Deep** — reachable, out of the way, because the
+evidence puts it far from anybody's week.
+
+| Tier | What is in it | Why it is there |
+|---|---|---|
+| **Global** | **Library** (two scopes) · **Projects** | The only two places nothing else has to hand you. Everything else in the product is reached *from* one of them |
+| **Contextual** | **Check** — on a Project with members; the seam (§8) · **Export** — Run's final stage, never a button beside the check · **`⌘K`** — in Project, where §8 gives it its one job · **add / edit** — the Library's overlay · **Edit · Reset · Promote** — only on a **detached** row, since an override exists nowhere else (§5) · **agent target** — inside Run, where it selects the paths *and the reader* (E13) · **share / revoke** — on a project or an item · **copy into `My library`** — on a `Public library` row · **the usage count expanding** — on a Library row | Each one is a command with a subject. **Off its subject it cannot act**, and §9's rule says it is then not shown — with the one documented exception that **context menus grey rather than hide** (benchmark finding 7) |
+| **Deep** | **Library import / export as JSON** — two commands on the Library, **the orphan**: §10 commits to it and **no job raises it** · **Promote a detached item** — *the thinnest demand of any mechanism in the specification*, and no prior art (E5) · **Revoke a share** — reversing a standing decision, and the product must say at that moment that revoking **recalls nothing already taken** (§5) · **Delete the example project** — once, ever (§11) | **Rarity is read off the evidence, not guessed.** Each of these is raised by no job at all, or by the thinnest evidence in the folder. **Deep does not mean hidden**: it means it does not compete with a command somebody uses weekly |
+
+**`⌘K` is contextual, and the temptation to make it global is named here so it is not taken by
+accident.** §8 gives the palette exactly one job: **the only way the library reaches the Project
+screen.** A palette that also navigates, searches the corpus and runs commands everywhere is a
+different object with no job behind it, and **it would quietly become the navigation this section just
+derived** — two entries on the surface and a hidden third way of reaching everything. **If a job ever
+asks for it, it is additive. Nothing asks now.**
+
+---
+
+### 4 · What survives leaving, and what does not
+
+**Decided in step 2b and restated here, because a navigation model is not complete without it.** **Back
+from Run returns to the Project** — there is nowhere else it could go. **A reload during a check returns
+to the Project and does not silently start a new one**, because a reload that re-runs is the product
+making a choice nobody made — [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools),
+importance **3**. **The Library's scope is part of its address**, so a reload cannot drop you into the
+room §11 guarantees is empty. **No finished run has an address** (E8), so nothing in this navigation may
+promise a way back to yesterday's result.
+
+**And one consequence this section inherits rather than causes.** The handover disclosure is read
+**during** a run (§6) — it cannot be bookmarked, linked or navigated to. **Re-reading it means checking
+again**, which is cheap because we run nothing. **No navigation may imply otherwise**, and a
+*"handover"* entry anywhere would.
+
+---
+
+### What this section establishes, and what it does not
+
+**Establishes.** **Two global entries**, each opening a named job cluster, with the third cluster
+deliberately entry-less because its screen is a mode. **A floor of three clicks** from the first screen
+to an archive, unchanged by whether the set exists, **four on the persona's most frequent arrival**, and
+**two for the receiver**. **A three-tier split** whose rarity is read off the evidence rather than
+guessed. And **the three §8 mitigations made accountable**, each with the row it pays for and what
+breaks without it.
+
+**Does not establish. Route strings** — the literal addresses — which are still step 3's, and which this
+section constrains without writing: five places, two of them addressable off this machine. Nor **what
+each surface is made of**, which is step 5, and which now has a warning waiting for it: the `Item`
+overlay is carrying three disclosures nobody chose to put together.
 
 ---
 
