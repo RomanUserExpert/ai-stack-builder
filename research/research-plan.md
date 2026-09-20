@@ -336,8 +336,9 @@ carries the twelve.*
 > Since then the sitting was held (2026-09-15) and lesson 03 has raised eight more entries. **Live now:
 > Q9 and Q11, deferred at the sitting, plus Q16 and Q17, each raised and part-answered on 2026-09-20
 > with one named question left open.** **Q12 is closed as *refused*** — not deferred a second time —
-> after the traceability matrix showed it at importance 3 with twelve blank cells. Q13 to Q15 and Q18
-> to Q23 are answered — **the traceability matrix's seven findings were all disposed of on 2026-09-20,
+> after the traceability matrix showed it at importance 3 with twelve blank cells. **Q25 is live and unanswered** — the online decision created sign-in, session and account, and nothing
+> has been asked about them. Q13 to Q15 and Q18
+> to Q24 are answered — **the traceability matrix's seven findings were all disposed of on 2026-09-20,
 > four of them building nothing.** **Read the dated sections at the end of this file for the current state; the
 > prose here is the protocol, not the status.**
 
@@ -1486,6 +1487,31 @@ grounds, labelled as such rather than dressed as a finding.
 by **storage** · **void** when the storage changed · kept on a **stated preference**. **Four
 standings in six days, and the measurement under it never moved once.** That is the difference between
 measuring and deciding, and both halves belong on the page.
+
+### Q25 — the product is online, and nobody has drawn the way in — raised 2026-09-20, unanswered
+
+**Raised by lesson 03's IA critique, hours after Q24.** Accounts and sync entered the MVP; **sign-in,
+session and account did not enter the screen tree, the entity inventory or the traceability matrix.**
+
+**They are orphans by the test that condemned the JSON export, and they arrived after the test was
+run.** No job in the matrix raises a sign-in — no job could, since the matrix was drawn against a
+product that had no accounts four hours earlier. **The finding is not that they are unjustified; it is
+that nothing has been asked about them at all.**
+
+**What it already breaks.** §Navigation counts **three taps to the archive** from the first screen, and
+**every path in that table begins at a screen.** With a session that can expire there is something
+before the first screen, so **the depth from a genuinely cold start is unknown**, and the table now says
+so rather than implying coverage it does not have.
+
+**What would answer it.** The minimum the decision forces, named rather than assumed: **a way in**, and
+**what happens when a session ends mid-work** — the second being the more interesting, because §6's
+configuring mode and `Run` are both unaddressable, so an expiry mid-assembly is a state nothing in this
+architecture has a word for. **And then the matrix is re-run over whatever is added**, or the coverage
+claim in §Traceability quietly stops being true.
+
+**Not answered here, and deliberately not designed here.** *Do not add screens to the tree by reflex* is
+the whole of lesson 03's method, and a sign-in invented on the evening of the decision that created it
+would be exactly the reflex.
 
 ### Earlier decisions
 

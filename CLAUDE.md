@@ -1335,7 +1335,11 @@ answered on 2026-09-20 with one named question left open. Q12 left the list the 
 matrix: **Q18**, the JSON route keeps its place on the architecture rather than on a job (§10);
 **Q19**, the shelf is built in full and designed only as far as the example needs (§11); and **Q20**,
 the shared surfaces get the product's most conservative treatment because their persona has never
-spoken (§8). **Three more followed the same day and none of them builds anything**: **Q21**, the
+spoken (§8). **And one is live and unanswered: Q25** — Q24 put the product online, and **sign-in, session and
+account exist in no screen tree, no entity inventory and no coverage matrix.** They are orphans by the
+test that condemned the JSON export and they arrived four hours after it ran. **Nothing is designed for
+them here**, because inventing a surface on the evening of the decision that created it is the reflex
+lesson 03 exists to refuse. **Three more followed the same day and none of them builds anything**: **Q21**, the
 detached row's `Edit`, `Reset` and `Promote` live in the configuring mode (§7, §8); **Q22**, the usage
 facts carry their own ceiling — they answer *is it used*, never *is it any good* (§5); and **Q23**,
 `SJ-2` stays in the backlog with the caution that it will be re-proposed as `H-J6`, in functional

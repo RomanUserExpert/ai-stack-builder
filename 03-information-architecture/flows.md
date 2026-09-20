@@ -4,9 +4,10 @@
 > these diagrams is a screen, mode, overlay or state that section already established. **No new screen
 > was invented, and none was needed** — which is the first thing the exercise was meant to test.
 >
-> **Six flows in seven diagrams** — the main job and four related ones, with **RJ-2 split in two**
-> because one picture of it was too wide to read, plus **the single-item export**, added 2026-09-20
-> with Q15. Each is drawn from
+> **Seven flows in eight diagrams** — the main job and four related ones, with **RJ-2 split in two**
+> because one picture of it was too wide to read; **the single-item export**, added 2026-09-20 with
+> Q15; and **the receiver's path**, added the same day by [the critique](ia-critique.md), which found
+> that the surface carrying the most jobs in the product had never been walked. Each is drawn from
 > [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md), named with the job's own wording rather than with
 > a feature name, and each ends in **both** kinds of ending — the one where the person is done, and the
 > ones where they are stuck.
@@ -18,7 +19,27 @@
 | `[ rectangle ]` | **A screen, mode or overlay** — the name is the one [`sitemap.md`](sitemap.md) uses |
 | `[/ parallelogram /]` | **A state** of one of those — empty, checking, filtered to zero, stale, void. Drawn with a **dashed amber outline** |
 | `{ diamond }` | **A decision**, always a yes/no question. **The green branch is *yes*, the red branch is *no*** |
-| `([ stadium ])` | **An ending**, outlined **green** for `Done:` and **red** for `Stuck:` |
+| `([ stadium ])` | **An ending**, in three kinds — see below |
+
+**Three kinds of ending, and the third was added 2026-09-20.** *The file shipped with two and the
+critique found endings that were neither.*
+
+| Outline | Means | Test |
+|---|---|---|
+| **Green** · `Done:` | The job closed | The person got what they came for |
+| **Amber** · `Cost:` | **The job did not close, and nothing stopped them** | They proceeded, knowingly or not, and paid for it |
+| **Red** · `Stuck:` | The person cannot proceed | There is no action left that the product offers |
+
+**Why the third was needed.** *Exported unread* was drawn red beside *cannot find it*, which flattened
+the distinction this product spends §6 building: **a cost you were told about is not an obstruction.**
+Applying the test moved four endings out of red and **left three genuine `Stuck:` in the whole file** —
+the auto-added row that will not go, the item that is nowhere, and the dead link. **Two of the three
+are outside our reach and one is the product's only refusal**, which is what *nothing blocks* looks
+like when it is drawn rather than asserted.
+
+**Two flows have no `Stuck:` at all — RJ-1 and RJ-2b — and that is a result, not a gap.** They are the
+flows about **findings**, and a finding never blocks anybody. *The rule this file used to state — every
+flow ends in both kinds — was written when the diagrams had dead ends they should not have had.*
 
 **Node labels are names, not sentences.** *Corrected 2026-09-16: the first version carried labels of up
 to 95 characters, which sprawls a `TD` flowchart sideways until it stops being readable.* **The diagram
@@ -33,28 +54,38 @@ render caught that nothing else would: **`⌘` has no glyph in the default stack
 box**, so the adding mechanism is named in prose; and RJ-2 was **1608 units wide, squeezed to 54%**,
 which is why it is now two diagrams.
 
-**Re-measured 2026-09-20, after the revision below, in the same way — and measured again the same
-evening**, when an independent review found the single-item flow stating a severity rule wrongly and it
-had to gain a fork. Seven diagrams, **no overlap anywhere, nothing below 0.74**:
+**Measured three times on 2026-09-20** — after the panel revision, after a review forced a fork into
+the single-item flow, and after [the critique](ia-critique.md) added a diagram and reshaped four.
+**Eight diagrams, no overlap anywhere, no parse errors:**
 
-| # | Diagram | Nodes | Width | Scale at 880 |
-|---|---|---|---|---|
-| 1 | The main job | 27 | **1008** — *was 1074* | **0.855** — *was 0.803* |
-| 2 | Single-item export — new | 20 | 942 | 0.915 |
-| 3 | RJ-1 | 22 | 1164 | **0.741** — unchanged, and **the tightest in the file** |
-| 4 | RJ-2a | 12 | 851 — *was 819* | 1.0 |
-| 5 | RJ-2b | 16 | 1131 | 0.762 — unchanged |
-| 6 | RJ-3 | 21 | 874 | 0.986 — unchanged |
-| 7 | RJ-4 | 26 | 961 | 0.897 — unchanged |
+| # | Diagram | Nodes | Width | Scale at 880 | Height |
+|---|---|---|---|---|---|
+| 1 | The main job | 31 | 1154 | 0.747 | **3528** |
+| 2 | Single-item export | 21 | 1205 | **0.716** | 1651 |
+| 3 | RJ-1 | 22 | 1157 | 0.745 | 2210 |
+| 4 | RJ-2a | 12 | 851 | **1.0** | 1806 |
+| 5 | RJ-2b | 18 | 1165 | 0.740 | 1323 |
+| 6 | RJ-3 | 21 | 874 | 0.986 | 2610 |
+| 7 | RJ-4 | 27 | 957 | 0.901 | 3022 |
+| 8 | The receiver — new | 20 | 836 | **1.0** | 2441 |
 
-**Two things in that table are worth reading rather than skipping.** **The main job got narrower and
-legibler and *taller*** — 3202 rendered pixels became **3521**, on four fewer nodes. Removing a wide
-side-branch makes a graph more linear, and a more linear `TD` graph grows downward. **So the owner's
-open question — whether the main job should be split by height, along *assemble · check · hand over* —
-is now sharper rather than answered**, and it is the only diagram in the file over 3,000 pixels.
-**And RJ-1 sits at 0.741**, a thousandth above the floor this file set for itself; it was there before
-this revision and nothing here moved it, but it is the next diagram to need splitting if anything is
-ever added to it.
+**The floor was wrong and rendering is what caught it.** *This file set itself two numbers — keep under
+about 900 units wide, nothing scaled below 0.74 — and the single-item flow broke both at 1205 and
+0.716.* **So it was rendered on its own and looked at**, which is this file's actual rule, and **every
+label reads without effort.** The reason is visible the moment you look: **its width is empty space
+generated by two back edges**, not density. *A wide sparse graph and a wide crowded one score the same
+and read nothing alike.*
+
+**So the numbers are demoted to what they always were — a screen, not a verdict.** `0.74` came from one
+observation (RJ-2 at 0.54 was mush) and `900 units` from another (RJ-3 at 874 read perfectly).
+**Neither was ever measured against a case in between.** **The rule, restated: a diagram under 0.74 or
+over about 1,100 units is rendered alone and looked at before it is accepted or split** — which is what
+happened here, and what would have happened anyway, because a parser was never going to settle it.
+
+**And the height question got worse, not better.** The main job is **3,528 pixels** on 31 nodes, and it
+is still the only diagram over 3,000. **The owner's open question — split it along *assemble · check ·
+hand over* — is the one thing in this file that three revisions have made more pressing and none has
+touched.**
 
 > **Revised 2026-09-20 against Q14–Q17.** The `⌘K` palette is gone and **the library panel** took its
 > place, which **removed a branch rather than adding one** — the excursion out to `Library` and
@@ -81,16 +112,22 @@ the loudest number in the evidence base sits inside it.
 ```mermaid
 flowchart TD
     A["Projects"] --> B{"A project for this work?"}
-    B -->|"No"| C[/"Only the example"/]
-    C --> D["Project"]
+    B -->|"No"| C{"Any projects at all?"}
+    C -->|"No"| C2[/"Projects empty"/]
+    C -->|"Yes"| C3[/"Only the example"/]
+    C2 --> D["Project"]
+    C3 --> D
     B -->|"Yes"| D
     D --> E{"Anything in the set?"}
     E -->|"No"| F[/"Empty: configure the project"/]
     F --> G["Project: configuring"]
     E -->|"Yes"| K["Project: the set"]
     G --> L{"Panel offering anything?"}
-    L -->|"No"| M[/"Filtered to zero"/]
-    M --> N{"Switch the scope to the shelf?"}
+    L -->|"No"| M{"Anything in My library yet?"}
+    M -->|"No"| M2[/"Empty on first run"/]
+    M -->|"Yes"| M3[/"Filtered to zero"/]
+    M2 --> N{"Switch the scope to the shelf?"}
+    M3 --> N
     N -->|"Yes"| O[/"Panel on Public library"/]
     O --> G
     N -->|"No"| P["Item: add form"]
@@ -117,23 +154,29 @@ flowchart TD
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
-    linkStyle 3,7,11,15,18,20,22,29,32 stroke:#16a34a,stroke-width:2px
-    linkStyle 1,5,9,13,17,23,25,27,33 stroke:#dc2626,stroke-width:2px
+    linkStyle 3,6,10,14,17,21,24,26,28,35,38 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,2,8,12,13,19,23,29,31,33,39 stroke:#dc2626,stroke-width:2px
     class A,D,G,K,P,U,X,AA screen
-    class C,F,M,O,S,W,Z state
+    class C2,C3,F,M2,M3,O,S,W,Z state
     class AB,AD win
     class AE dead
 ```
 
-**27 nodes, 34 edges — four nodes and four edges shorter than it was on 2026-09-16**, and the shortening
-is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
+**31 nodes, 40 edges.** *It was 31 and 38 on 2026-09-16, fell to 27 and 34 when Q14 and Q16 removed two
+branches, and came back up when the critique restored two states that had gone missing — one of them
+removed by my own fix that morning.* **The shape is not what it was: four fewer nodes of route, four
+more of state.**
 
 **The decisions, in words.**
 
 1. **A project for this work?** — the only fork at the top, and it is why `Projects` is the first screen
    on a first run rather than `Library` (§Navigation).
-2. **Anything in the set?** — the state nobody designs for. ~~*And the one that produces the product's
+2. **Any projects at all?** — *added 2026-09-20 by the critique.* §11's example project is
+   **deletable**, so *no projects at all* is reachable and was drawn nowhere. It is the emptiest surface
+   the owner can produce and **the only one with no shelf to fall back on.**
+3. **Anything in the set?** — the state nobody designs for. ~~*And the one that produces the product's
    emptiest possible result.*~~ **No longer:** an empty project is an empty state and **the control that
    enters Run is inert** (Q16), so the branch where somebody checks nothing — and the *empty archive*
    dead end at the end of it — **is gone from this diagram.** *One control, not two: `Export` is Run's
@@ -142,34 +185,39 @@ is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
    the owner's review, where it read `Empty: Check and Export inert` and named only the greyed control.*
    **The one action enters the configuring mode**, which is the next node and the only place items come
    from.
-3. **Configuring, and the panel offering anything?** — **the Project screen has two modes** (Q14,
+4. **Configuring, and the panel offering anything?** — **the Project screen has two modes** (Q14,
    amended 2026-09-20): *viewing* the set, and *configuring* it. **The panel exists only in the
    second**, and so does the `✕` that takes a row out — *a row being read is not a row being changed.*
    The panel is the only way the library reaches this screen (§8), so a panel with nothing in it is a
    wall and not an inconvenience. **What changed is what happens next.**
    **The one thing this costs is a click, and it is counted**: path B in `sitemap.md` §Navigation is
    **four**, not three, because a new project's one action is the entry into this mode.
-4. **Switch the scope to the shelf?** — **this one edge replaced three screens.** Until 2026-09-20 a
+5. **Anything in My library yet?** — *restored 2026-09-20, and it is a regression the critique caught.*
+   §11 guarantees that room is **empty on first run**, and removing the palette excursion that morning
+   took the state out of every diagram along with the detour. **The detour deserved to die; the fact did
+   not.** It now sits where it belongs, on the panel.
+6. **Switch the scope to the shelf?** — **this one edge replaced three screens.** Until 2026-09-20 a
    palette that matched nothing sent the person to `Library`, made them discover it was empty, sent them
    on to `Public library` and back. **The panel carries both scopes, so the person does not leave the
    Project.** §11 still guarantees `My library` is empty on first run; what changed is the distance to
    the answer.
-5. **The row that creates** — a zero result is not only a wall. The other way out is authoring the thing
+7. **The row that creates** — a zero result is not only a wall. The other way out is authoring the thing
    that was missing, which opens the add/edit overlay **over the Project**. It is the one moment
    assembly reaches the authoring surface, and it is honest: **creating is a corpus act, not an
    assembling one.**
-6. **Is the set complete?** — the loop back into **configuring**, and where this product's real depth
+8. **Is the set complete?** — the loop back into **configuring**, and where this product's real depth
    lives: **selection, not traversal.** *The loop re-enters a mode of the same place; it goes nowhere.*
-7. **Any Problems?** — three severities, and none of them blocks.
-8. **Fixable from this row?** — §8 says a finding annotates the row that owns it. When the fix is four
+9. **Any Problems?** — three severities, and none of them blocks.
+10. **Fixable from this row?** — §8 says a finding annotates the row that owns it. When the fix is four
    items away this is a *no*, and the unclean export is the honest route.
-9. **Right agent target?** — changing it **voids the verdict** (§6), because a path collision is a
+11. **Right agent target?** — changing it **voids the verdict** (§6), because a path collision is a
    collision *under a target*.
-10. **Env values on that machine?** — the product's ceiling, drawn as a decision it does not get to
+12. **Env values on that machine?** — the product's ceiling, drawn as a decision it does not get to
     make.
 
-**The states, in words.** *Projects holding only the example* · *an empty project offering one action,
-with its one primary control inert* · *the panel filtered to zero* · *the panel switched to the shelf* · *the check in
+**The states, in words.** *Projects with nothing in it* · *Projects holding only the example* · *an
+empty project offering one action, with its one primary control inert* · *`My library` empty on first
+run* · *the panel filtered to zero* · *the panel switched to the shelf* · *the check in
 progress* · *the unclean-export confirmation, in the row below the finding that caused it* · *the
 verdict voided by a target change*.
 
@@ -197,38 +245,40 @@ easy to state wrongly.
 ```mermaid
 flowchart TD
     A["Library: My library"] --> B{"Find the item?"}
-    B -->|"No"| C(["Stuck: cannot find it"])
+    B -->|"No"| B2{"Is it on the shelf?"}
+    B2 -->|"Yes"| B3["Library: copy to mine"]
+    B3 --> A
+    B2 -->|"No"| C(["Stuck: cannot find it"])
     B -->|"Yes"| D["Library: export this item"]
     D --> E{"Does it require anything?"}
     E -->|"No"| F[/"A set of one"/]
-    E -->|"Yes"| G{"Does everything it needs exist?"}
-    G -->|"No"| H[/"Unresolvable requirement"/]
-    G -->|"Yes"| I[/"Resolved set of N"/]
-    F --> J[/"Checking"/]
-    H --> J
-    I --> J
-    J --> K{"Any Problems?"}
-    K -->|"Yes"| L["Run: findings"]
-    L --> M["Library: fix the item"]
-    M --> A
-    K -->|"No"| N{"Anything the machine needs?"}
-    N -->|"Yes"| O[/"Notes: env, refs, deference"/]
-    O --> P["Run: handover"]
-    N -->|"No"| P
-    P --> Q{"Right agent target?"}
-    Q -->|"No"| R[/"Verdict void"/]
-    R --> J
-    Q -->|"Yes"| S["Export"]
-    S --> T(["Done: one block, ready to land"])
+    E -->|"Yes"| G[/"The walk builds a set"/]
+    F --> H[/"Checking"/]
+    G --> H
+    H --> I{"Any Problems?"}
+    I -->|"Yes"| J[/"Unresolvable, or a collision"/]
+    J --> K["Run: findings"]
+    K --> L["Library: fix the item"]
+    L --> A
+    I -->|"No"| M{"Anything the machine needs?"}
+    M -->|"Yes"| N[/"Notes: env, refs, deference"/]
+    N --> O["Run: handover"]
+    M -->|"No"| O
+    O --> P{"Right agent target?"}
+    P -->|"No"| Q[/"Verdict void"/]
+    Q --> H
+    P -->|"Yes"| R["Export"]
+    R --> S(["Done: one block, ready to land"])
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
-    linkStyle 2,5,7,12,16,22 stroke:#16a34a,stroke-width:2px
-    linkStyle 1,4,6,15,18,20 stroke:#dc2626,stroke-width:2px
-    class A,D,L,M,P,S screen
-    class F,H,I,J,O,R state
-    class T win
+    linkStyle 2,5,8,12,17,23 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,4,7,16,19,21 stroke:#dc2626,stroke-width:2px
+    class A,B3,D,K,L,O,R screen
+    class F,G,H,J,N,Q state
+    class S win
     class C dead
 ```
 
@@ -240,10 +290,13 @@ flowchart TD
 2. **Does it require anything?** — **the fork the whole answer turned on.** Shipping the bare file
    would hand somebody a block that does not run, which is the pain the product exists against. **So
    the walk runs**, and an item with `requires` leaves as a set of N **named as one**.
-3. **Does everything it needs exist?** — *added 2026-09-20 after a review found the rule below stated
-   wrongly.* A `requires` edge can point at something that is **no longer in the library**, because
-   Q17 lets an item be deleted while others still require it. **That is an unresolvable requirement,
-   and §6 lists it as a Problem** — raised by an item whose resolved set is only itself.
+3. **Any Problems? → *unresolvable, or a collision*** — *the fork was added 2026-09-20 after a review
+   found the rule below stated wrongly, and moved below the check the same evening because that is
+   where it belongs.* A `requires` edge can point at something **no longer in the library**, because
+   Q17 lets an item be deleted while others still require it — **and nobody knows that until the walk
+   runs.** The product does not ask *does everything exist*; **the check finds out.** Either way it is
+   an unresolvable requirement and §6 lists it as a Problem, **raised by an item whose resolved set is
+   only itself.**
 4. **Any Problems?** — and here is the part that is easy to get wrong, twice. **From *a set of one* the
    answer is always no**, not by luck but by construction: the other three Problems each need two items
    — a duplicate command name, a shared target path, a declared conflict — and nothing collides with
@@ -258,8 +311,9 @@ flowchart TD
    **There is no project to remember it on** (E13), which is why step 3 cannot answer *where the target
    lives* with *on the project*.
 
-**The states, in words.** *A set of one, where no Problem is possible* · *a resolved set of N* · *a
-requirement pointing at something deleted* · *the check in progress* · *Notes naming what the receiving machine still needs* · *the verdict voided by a
+**The states, in words.** *A set of one, where a collision is impossible* · *the set the walk built* ·
+*the check in progress* · *an unresolvable requirement, or a collision between two things it dragged
+in* · *Notes naming what the receiving machine still needs* · *the verdict voided by a
 target change*.
 
 **What is not here, and it is deliberate. Nothing is stored.** §6 puts the verdict on the **project**,
@@ -285,7 +339,8 @@ flowchart TD
     B -->|"Yes"| C[/"Verdict stale"/]
     C --> D[/"Checking"/]
     B -->|"No"| E{"Skip the check?"}
-    E -->|"Yes"| F(["Stuck: no run to re-read"])
+    E -->|"Yes"| F[/"No run to re-read"/]
+    F --> D
     E -->|"No"| D
     D --> G{"Every stage resolved?"}
     G -->|"No"| H["Run: findings"]
@@ -304,19 +359,20 @@ flowchart TD
     R --> S["Run: .env.example"]
     Q -->|"No"| S
     S --> T{"Read it before Export?"}
-    T -->|"No"| U(["Stuck: exported unread"])
+    T -->|"No"| U(["Cost: exported unread"])
     T -->|"Yes"| V["Export"]
     V --> W(["Done: the other side is known"])
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
-    linkStyle 1,4,10,14,16,19,24 stroke:#16a34a,stroke-width:2px
-    linkStyle 3,5,7,12,18,21,23 stroke:#dc2626,stroke-width:2px
+    linkStyle 1,4,11,15,17,20,25 stroke:#16a34a,stroke-width:2px
+    linkStyle 3,6,8,13,19,22,24 stroke:#dc2626,stroke-width:2px
     class A,H,I,L,S,V,Z screen
-    class C,D,K,N,R state
+    class C,D,F,K,N,R state
     class W win
-    class F,U dead
+    class U cost
 ```
 
 **The decisions, in words.**
@@ -380,6 +436,7 @@ flowchart TD
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 3,8,11,12 stroke:#16a34a,stroke-width:2px
     linkStyle 4,7,9,13 stroke:#dc2626,stroke-width:2px
@@ -410,17 +467,20 @@ flowchart TD
     M -->|"Yes"| N["Project: act on the row"]
     N --> O[/"Verdict void"/]
     O --> B
-    M -->|"No"| P(["Stuck: the fix is elsewhere"])
+    M -->|"No"| P[/"Unclean export confirmed"/]
+    P --> Q["Run: handover"]
+    Q --> R(["Cost: it ships with the collision"])
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 2,7,8,14 stroke:#16a34a,stroke-width:2px
     linkStyle 3,6,12,17 stroke:#dc2626,stroke-width:2px
-    class A,E,J,K,N screen
-    class B,D,I,L,O state
+    class A,E,J,K,N,Q screen
+    class B,D,I,L,O,P state
     class G win
-    class P dead
+    class R cost
 ```
 
 **The decisions, in words.** *Redrawn 2026-09-16, twice. First because the diagram mixed the two
@@ -461,7 +521,11 @@ requirement* · *a declared conflict, a duplicate command name or a target-path 
 voided because the set changed*.
 
 **Where a person gets stuck.** **The auto-added row that will not go** — the product's one refusal, and
-the dead end is real: if it does not occur to you to remove the puller instead, there is no other way
+the dead end is real. **It is also the only dead end in the product that our own rule creates**, which
+[the critique](ia-critique.md) asked to have marked: every other `Stuck:` in this file is either a
+machine we never touch or a thing that is simply not there. **So this is the one to re-test whenever
+*nothing blocks* is restated**, and the reason it survives is that the branch before it offers the way
+out — you remove what dragged it in. The dead end is what declining that offer looks like: if it does not occur to you to remove the puller instead, there is no other way
 out. **The Problem you cannot reach from here** — the fix is four items away or in another project, and
 the archive will carry only one of the two, which is correct behaviour and still a bad afternoon.
 
@@ -491,7 +555,7 @@ flowchart TD
     L --> M{"A copy detached anywhere?"}
     M -->|"No"| N["Project"]
     M -->|"Yes"| O{"Were you told about it?"}
-    O -->|"No"| P(["Stuck: detached keeps the old"])
+    O -->|"No"| P(["Cost: detached keeps the old"])
     O -->|"Yes"| Q["Detached row"]
     Q --> R{"Reset to the library version?"}
     R -->|"Yes"| N
@@ -502,13 +566,15 @@ flowchart TD
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
     linkStyle 3,7,11,15,17,19 stroke:#16a34a,stroke-width:2px
     linkStyle 1,6,10,14,16,20 stroke:#dc2626,stroke-width:2px
     class A,E,F,H,K,N,Q screen
     class C,I,L,S,T state
     class U win
-    class G,P dead
+    class P cost
+    class G dead
 ```
 
 **The decisions, in words.**
@@ -552,7 +618,9 @@ flowchart TD
     D --> E
     E --> F{"Did you take the keys out?"}
     F -->|"Yes"| G["Library: My library"]
-    F -->|"No"| H(["Stuck: nothing will catch it"])
+    F -->|"No"| F2{"Go back and take them out?"}
+    F2 -->|"Yes"| C
+    F2 -->|"No"| H(["Cost: nothing will catch it"])
     G --> I["Project"]
     I --> J[/"Checking"/]
     J --> K{"Env keys it does not carry?"}
@@ -572,17 +640,18 @@ flowchart TD
     V --> W{"Revoke it later?"}
     W -->|"No"| X(["Done: the secrets stayed"])
     W -->|"Yes"| Y[/"Address dead"/]
-    Y --> Z(["Stuck: copies already taken"])
+    Y --> Z(["Cost: copies already taken"])
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
-    linkStyle 2,6,11,17,23,26 stroke:#16a34a,stroke-width:2px
-    linkStyle 1,7,13,15,20,25 stroke:#dc2626,stroke-width:2px
+    linkStyle 2,6,8,13,19,25,28 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,7,9,15,17,22,27 stroke:#dc2626,stroke-width:2px
     class A,C,D,G,I,M,O,Q,U,V screen
     class E,J,L,R,T,Y state
     class P,X win
-    class H,Z dead
+    class H,Z cost
 ```
 
 **The decisions, in words.**
@@ -609,6 +678,98 @@ names as a Note* · *the sharing disclosure* · *the tangled-content Note* · *a
 flow says so out loud rather than drawing a scanner that does not exist. **The link they revoked** — the
 address dies and every copy already taken lives on, which the product must state **at the moment of
 revoking** rather than implying a recall.
+
+---
+
+## The receiver — "somebody sent me a link"
+
+**Added 2026-09-20 by [the critique](ia-critique.md), and it was the largest thing that document
+found.** Not a new job: it is [the main job](../research/7-jobs-to-be-done/jtbd.md#the-main-job) walked
+by **P2**, who owns nothing, together with
+[RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it),
+[RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
+[RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) and
+[SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work).
+
+**Why it had to exist.** The traceability matrix gives `Shared project` **seven jobs — more than
+`Projects`, more than the library panel** — and until now it appeared in this file only as a **node
+inside the sender's diagrams.** §6 specifies the path in prose and even names it — *Library-to-archive
+performed by somebody who owns nothing* — **and nobody had walked it.** Meanwhile **Q20, decided the
+same day, commits the product to its most conservative treatment on exactly these two surfaces**,
+because P2 has never spoken in the first person. *A surface we promised to be most careful with was the
+one surface with no flow.*
+
+```mermaid
+flowchart TD
+    A{"Does the link still open?"}
+    A -->|"No"| B[/"Revoked, or the project is gone"/]
+    B --> C(["Stuck: nothing to fall back on"])
+    A -->|"Yes"| D["Shared project"]
+    D --> E[/"Checked 3 days ago, changed since"/]
+    E --> F{"Check it yourself?"}
+    F -->|"Yes"| G[/"Checking"/]
+    G --> H{"Any Problems?"}
+    H -->|"Yes"| I["Run: findings"]
+    I --> J{"Take it anyway?"}
+    H -->|"No"| K["Run: handover"]
+    F -->|"No"| K
+    K --> L[/"What this machine still needs"/]
+    L --> J
+    J -->|"No"| M(["Cost: read it and left"])
+    J -->|"Yes"| N{"Archive, or copy to my library?"}
+    N -->|"Archive"| O["Export"]
+    N -->|"Copy"| P["Library: copy to mine"]
+    O --> Q{"Env values on this machine?"}
+    Q -->|"Yes"| R(["Done: it keeps working here"])
+    Q -->|"No"| S(["Stuck: keys named, not held"])
+    P --> T(["Done: it is mine now"])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 2,5,7,14,18 stroke:#16a34a,stroke-width:2px
+    linkStyle 0,9,10,13,19 stroke:#dc2626,stroke-width:2px
+    class D,I,K,O,P screen
+    class B,E,G,L state
+    class R,T win
+    class M cost
+    class C,S dead
+```
+
+**The decisions, in words.**
+
+1. **Does the link still open?** — **the first node, and the product's most exposed moment.** A link is
+   revocable and revoking kills the address (§5); the project can also simply be deleted. **This person
+   has no account, no context and no second surface** — they meet the product at a dead address or not
+   at all. **It was undrawn until today**, which is how a critique earns its place: the sender's side of
+   revoking is specified in detail, and the receiving side of the same event was nowhere.
+2. **Check it yourself?** — §6 gives the receiver **the same check the owner has**, on the set in front
+   of them, because *the only verdict worth anything is the one taken now, by the person looking at it.*
+   **Skipping is legitimate** and goes straight to the handover; the page has already told them when the
+   owner last checked.
+3. **Any Problems? → take it anyway?** — **a receiver is never stuck on a Problem either.** *Nothing
+   blocks* is not a rule about owners. They can see the collision and still take the archive; what they
+   cannot do is fix it, because **it is not theirs.**
+4. **Archive, or copy to my library?** — §8 gives the shared surfaces **a way to take it**, and since
+   **Q24** the second branch is ordinary rather than aspirational: the receiver has an account of their
+   own, so *copy into my library* lands somewhere.
+5. **Env values on this machine?** — **the same ceiling as the main job, and it belongs here more.**
+   `needsEnv` holds names and never values, so the archive arrives correct and possibly inert.
+   **Checked, never works** — said to the person with no other source of reassurance.
+
+**The states, in words.** *A revoked or deleted address* · *the page's own two facts — when the owner
+last checked and whether the set has changed since* (§6) · *the check in progress* · *what this machine
+still needs*.
+
+**Where a person gets stuck.** **The dead link** — and it is the only place in the product where
+somebody is left with nothing at all, no account to fall back into and no other surface. **The env
+values** — identical to the owner's ceiling and sharper, because they cannot go and ask the item's
+author what `STRIPE_KEY` was meant to be.
+
+**And one ending that is neither.** *Read it and left* — they opened it, understood it, and decided not
+to take it. **Nothing went wrong and the job did not close**, which is exactly what the third ending
+type exists for.
 
 ---
 

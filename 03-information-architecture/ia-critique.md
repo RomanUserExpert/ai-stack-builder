@@ -4,8 +4,10 @@
 > `7f03956`.** Four defect classes, in the order the lesson sets: **dead ends and missing states first,
 > because they are the dangerous ones.**
 >
-> **Nothing is fixed here.** The list comes first and the fixes are proposed separately at the end, in
-> an order, unapplied. **That is the method's own rule and it is worth keeping**: three times this week
+> **Nothing was fixed when this was written.** The list came first and the fixes were proposed
+> separately at the end, in an order, unapplied — **and then the owner read the list and approved them,
+> and what was done to each is recorded in *Applied* below.** *The list itself is left exactly as it was
+> written, defects and all, because a critique edited after the fact is not a critique.* **That is the method's own rule and it is worth keeping**: three times this week
 > a correction turned out to be wrong a day later, and each time the record survived because the
 > reasoning was on the page before the edit.
 >
@@ -105,10 +107,55 @@ it is the one I would do first.
 
 ---
 
-## Proposed fixes, in order — none applied
+## Applied — 2026-09-20, after the owner read the list
 
-**The method's rule: the list above is the deliverable, and these are proposals.** Nothing below has
-been done.
+**Everything below was proposed first and approved before anything was touched**, which is the method's
+rule and the reason this section exists underneath the list rather than instead of it.
+
+| Item | What was done |
+|---|---|
+| **The receiver's flow** | **Drawn** — an eighth diagram, with the dead link as its first node. 20 nodes, 836 units, **scale 1.0**, the cleanest in the file |
+| **1.1** RJ-2b's dead end | **Replaced** by the unclean-export route the main flow already had. RJ-2b now has **no `Stuck:` at all**, which is what *nothing blocks* looks like when it is drawn |
+| **1.2** RJ-4's keys branch | **Loops back** to the add form; declining still reaches the ending |
+| **1.3** single-item, *cannot find it* | **Gained the shelf branch**, as RJ-3 has it |
+| **1.4** RJ-1, *no run to re-read* | **Routed back into `Checking`** — a detour, not a terminus |
+| **1.5** RJ-1, *exported unread* | **Re-shaped**, and it produced a change to the file's own vocabulary — see below |
+| **1.6** RJ-2a's refusal | **Marked as unique** in the prose |
+| **2.4** first-run empty `My library` | **Restored**, on the panel where it now lives |
+| **2.5** empty `Projects` | **Added** |
+| **3.1–3.4** depth | **Four wording fixes**: the path-B trade, path C's stale description, the two-entry deviation named as one, and the cold-start gap recorded |
+| **4.1** sign-in | **Taken to the register as Q25**, unanswered. **No screen invented** |
+| **4.2, 4.3** | The *pair, not a habit* count and the shelf's changed basis, both written into §Traceability |
+| **2.1** `loading` | **Not applied, deliberately.** Lesson 04 |
+
+**Three things the fixes produced that the critique did not predict.**
+
+1. **The file needed a third kind of ending.** Applying *is this person actually stuck?* to all ten
+   endings moved **four** out of red, and the two-colour legend could not hold the difference between
+   *you were told and proceeded* and *there is nothing left to do*. **`Cost:` now exists, in amber**, and
+   **three genuine `Stuck:` remain in the whole file** — two outside our reach and one the product's
+   only refusal. **Two flows — RJ-1 and RJ-2b — now have no dead end at all**, which is a result rather
+   than a gap: they are the flows about findings, and a finding never blocks anybody.
+2. **The single-item flow was restructured rather than patched.** Adding the shelf branch pushed it to
+   **0.716**, below this file's own scale floor. **Narrowing the branch barely helped — the width was
+   the three-way fork**, so the fork moved **below the check**, which is also more accurate: nobody
+   knows a `requires` edge is dangling until the walk runs. **The product does not ask; the check finds
+   out.**
+3. **The scale floor turned out to be wrong, and rendering caught it.** At 0.716 the diagram was
+   rendered alone and looked at, and **every label reads without effort** — its width is empty space
+   from two back edges, not density. **`0.74` and `900 units` are demoted to a screen rather than a
+   verdict**, and the restated rule is in `flows.md`.
+
+**One thing got worse and is not fixed.** The main job is **3,528 pixels tall on 31 nodes** — the only
+diagram over 3,000, and three revisions have each made it taller. **The owner's open question about
+splitting it along *assemble · check · hand over* is the one item nothing has touched.**
+
+---
+
+## Proposed fixes, in order — the list as it stood before any of them was applied
+
+**The method's rule: the list above is the deliverable, and these are proposals.** *Kept unedited; what
+happened to each is in the table above.*
 
 1. **Draw the receiver's flow**, with the revoked-link state in it. *Largest gap, and it subsumes 2.3
    and 2.6.*

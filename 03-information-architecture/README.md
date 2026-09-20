@@ -281,15 +281,28 @@ separately. Dead ends and missing states are the most dangerous and go first.*
 plus **one finding outside them and it is the largest: the receiver's path is not drawn.** Seven jobs
 sit on `Shared project` and no diagram starts at *somebody sent me a link*.
 
-**The fixes are proposed and none is applied**, which is the method's rule and it has earned itself
-three times this week. **The list is ordered**; the sharpest items are that **RJ-2b's dead end
+**Written first, approved, then applied** — the method's rule, and it has earned itself three times
+this week. **What was done to each defect is in the document's *Applied* table**, and the list above it
+is untouched: a critique edited after the fact is not a critique. **The list is ordered**; the sharpest items are that **RJ-2b's dead end
 contradicts §6** — a Problem you cannot fix from its row is not an ending, because export is never
 disabled and the main flow draws exactly that route — and that **two pairs of diagrams answer the same
 situation two different ways.** **One defect is a regression from this morning**: removing the palette
 excursion took first-run empty `My library` out of every flow with it.
 
-**`loading` is deliberately not on the fix list.** It belongs to lesson 04: putting spinners in seven
+**`loading` is deliberately not on the fix list.** It belongs to lesson 04: putting spinners in eight
 diagrams before deciding what waiting looks like is trap 2.
+
+**Three things the fixes produced that the critique did not predict.** The file **needed a third kind
+of ending** — applying *is this person actually stuck?* moved four endings out of red, and **three
+genuine `Stuck:` remain in the whole file.** The single-item flow had to be **restructured rather than
+patched**, and the restructure is more accurate than what it replaced: **nobody knows a `requires` edge
+is dangling until the walk runs.** And **the scale floor turned out to be wrong** — at 0.716 a diagram
+was rendered alone, looked at, and read perfectly, so `0.74` and `900 units` are demoted to a screen
+rather than a verdict.
+
+**One thing got worse and is not fixed**: the main job is now **3,528 pixels tall**, the only diagram
+over 3,000, and three revisions have each added to it. **Splitting it along *assemble · check · hand
+over* is the one open item nothing has touched.**
 
 ### 7 · `ia.html` and the live documents — **not started**
 

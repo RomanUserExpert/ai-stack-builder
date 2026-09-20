@@ -1010,6 +1010,13 @@ guaranteed would be empty is the mistake §11 exists to prevent.**
 | **D · First run ever, owning nothing** | Projects → **the example project** ① → **Check** ② → **Export** ③ | **3** |
 | **P2 · The receiver, for contrast** | the link → **Check** ① → **take the archive** ② | **2** |
 
+**And one incompleteness, recorded rather than papered over** (2026-09-20, after Q24). **Every count in
+this table begins at a screen, and since the product is online with accounts there is something before
+the first screen: signing in.** If a session can expire, **the depth from a genuinely cold start is
+three plus whatever authentication costs**, and no row here begins there. **The table is not wrong — it
+measures the product — but *three taps to the archive* must not be quoted as covering a logged-out
+start.** The surface does not exist yet; see the register.
+
 **Four things fall out of the count, and three of them are findings rather than numbers.**
 
 1. **Three is the floor, and B stopped sitting on it on 2026-09-20.** *This row read "three is the
@@ -1019,6 +1026,15 @@ guaranteed would be empty is the mistake §11 exists to prevent.**
    still three, so **the floor holds; what fails is the claim that the floor is indifferent to whether
    the set exists.** *Recomputed rather than edited, which is what this table is for.*
 
+   **And the fourth tap is purchasable, which the row did not say until the critique asked** (2026-09-20).
+   **A project created a second ago is empty by definition, and §8 gives its empty state exactly one
+   action — enter configuring.** A screen whose only action is *go here next* is a screen that could
+   have gone there, and **auto-entering configuring on a brand-new project would put B back at three.**
+   **The trade, stated so the number is not mistaken for an oversight: buying the tap back means the
+   empty state is never seen on the path that creates it** — and that state is the one surface where a
+   new person learns what a project is for. **Four is kept, and what three would cost is now on the
+   page.**
+
    **The sentence underneath the number survives.** The fourth click is **a mode entry inside one place,
    not a traversal to another**, so *the depth of this product is in selection, not in traversal* still
    holds. *Until 2026-09-20 this finding also ended "which is the strongest argument for §8's
@@ -1026,8 +1042,11 @@ guaranteed would be empty is the mistake §11 exists to prevent.**
    an argument against *traversal*, and a pane inside the place you are already in adds none. What it
    still rules out is the shape where assembling means **going somewhere else**; entering a mode is not
    that, and the one click it costs is named here rather than absorbed.
-2. **The persona's most frequent arrival costs four — and since 2026-09-20 it is optional, and no
-   longer alone at four.** *This row said "the only four-click path"; B joined it the same day when the
+2. **The persona's most frequent arrival costs four — and since 2026-09-20 it is optional, no longer
+   alone at four, and no longer accurately described as most frequent.** *The description is the
+   persona's own and it predates the panel: the errand it names now runs as path B without ever opening
+   the Library.* **What the row records is what that arrival costs somebody who still chooses to make
+   it.** *This row said "the only four-click path"; B joined it the same day when the
    panel moved into a mode.* **The two fours are different in kind and that is the point**: C's fourth
    click is a **traversal** — you started in the wrong place — while B's is a **mode entry** in the
    right one. Arrival 1 — *copying something out of the collection into a new project* — is described
@@ -1087,6 +1106,12 @@ evidence puts it far from anybody's week.
 
 | Tier | What is in it | Why it is there |
 |---|---|---|
+> **Two entries, where the course's method asks for three to five — a deliberate deviation, named here
+> so it is not read as an oversight** (2026-09-20). **The third job cluster's screen is `Run`, and `Run`
+> is a mode**: an entry pointing at it would promise a place nobody can be sent to. **A navigation model
+> with an entry that cannot be arrived at is worse than one with two entries**, and this section's own
+> rule — *an action that cannot act is not shown* — settles it.
+
 | **Global** | **Library** (two scopes) · **Projects** | The only two places nothing else has to hand you. Everything else in the product is reached *from* one of them |
 | **Contextual** | **Check** — on a Project with members; the seam (§8) · **Export** — Run's final stage, never a button beside the check · **Configure** — on a Project, the mode where the set is changed (Q14, amended 2026-09-20) · **the panel's scope switch and `kind` tabs** — inside that mode, where the corpus reaches the builder · **add / edit** — the Library's overlay · **export this item on its own** — on a Library row (Q15) · **delete** — on a Library row, confirmed with its usage count (Q17) · **Edit · Reset · Promote** — only on a **detached** row, since an override exists nowhere else (§5) · **agent target** — inside Run, where it selects the paths *and the reader* (E13) · **share / revoke** — on a project or an item · **copy into `My library`** — on a `Public library` row · **the usage count expanding** — on a Library row | Each one is a command with a subject. **Off its subject it cannot act**, and §9's rule says it is then not shown — with the one documented exception that **context menus grey rather than hide** (benchmark finding 7) |
 | **Deep** | **Library import / export as JSON** — two commands on the Library, **the orphan**: §10 commits to it and **no job raises it** · **Promote a detached item** — *the thinnest demand of any mechanism in the specification*, and no prior art (E5) · **Revoke a share** — reversing a standing decision, and the product must say at that moment that revoking **recalls nothing already taken** (§5) · **Delete the example project** — once, ever (§11) | **Rarity is read off the evidence, not guessed.** Each of these is raised by no job at all, or by the thinnest evidence in the folder. **Deep does not mean hidden**: it means it does not compete with a command somebody uses weekly |
@@ -1219,6 +1244,13 @@ without moving the secrets*, which the warning closes and the JSON route only co
 it as a ✓ would launder an orphan into a feature.**
 
 ~~**Resolution: keep as two commands, in the deep tier, with a named trigger for removal.**~~
+> **And one count to keep visible** (added by the critique, 2026-09-20). **There are now two mechanisms
+> in this product with no evidenced job and a stated non-evidential basis**: the **`license` field**
+> (§5, a legal basis) and **this** (§10, portability). Both are labelled honestly and neither is a
+> defect. **Two is a pair. Three would be a habit** — and a habit is how a specification stops being
+> evidence-led without anybody deciding that it should. **The count is written here so the third one is
+> noticed when it arrives.**
+
 **Settled 2026-09-20 by the owner, and the answer overturns the question rather than the finding
 (Q18).** The finding stands exactly as measured: **no job raises it.** What changed is the standing of
 that measurement. **Coverage was measured against jobs, and this mechanism does not stand on one — it
@@ -1301,6 +1333,10 @@ decision, which is the part that was reachable.
   a scope switch, the panel now carries it into assembly, and lesson 03 has made it more load-bearing
   three times without it gaining a single point of evidence. **Not an orphan; the thinnest column in
   the product**, and E3 already says so in its own words.
+  **And it lost one more argument the same day**: Q24 put the product online, so *a read-only shelf
+  needs no server, no accounts and no moderation* — half of §11's justification — **stopped being true
+  hours after this matrix was drawn.** The shelf is read-only because **we curate it**, and that is now
+  the whole of the reason.
   **Settled 2026-09-20 (Q19): build the content in full, design the surface only as far as the example
   project needs.** The ~30 items with provenance and licences are built — **content is what makes an
   architecture arguable** — and **browsing, sorting, ranking and recommending get no design until Q9 has
