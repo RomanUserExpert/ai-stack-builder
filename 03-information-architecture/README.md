@@ -27,7 +27,9 @@ Four register entries were raised and answered the same day (Q14–Q17). **The `
 by a library panel inside `Project`** — a scope switch over `kind` tabs, `Related` first and default,
 read-and-add only — **and the Library leaves the assembly path**, becoming the curator's room.
 **A single item exports on its own**, the dependency walk still running. **An empty project is an
-empty state whose one primary control is inert**, the product's one named exception. **Deleting a
+empty state whose one primary control is inert**, the product's one named exception, **and its one
+action enters a *configuring* mode** — the panel, the checkbox and the `✕` live there and nowhere else,
+which costs path B a fourth click and is counted rather than absorbed. **Deleting a
 library item is confirmed rather than refused.** Every step that exists was re-checked against them —
 **steps 1 and 5 were never started, and steps 3 and 5 gained new questions rather than answers.**
 **The place count held at five**, and [`flows.md`](flows.md) now walks **six paths in seven diagrams** — the main

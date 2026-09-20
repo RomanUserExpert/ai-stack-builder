@@ -1028,6 +1028,28 @@ the only surface the corpus has, and if it is weak there is nowhere else to go.
   reporting their own experience — **`*`**, exactly like every other sentence from the same source.
   Nothing here is `✓`, and the panel is not evidenced, it is decided.
 
+**Amended the same day, in the owner's review of the flows: the panel lives in a mode.** Reading the
+main flow aloud, the owner rejected the empty-state node for naming a dead control, and then said the
+larger thing behind it: ***the project and its editing — adding and removing items — are separate
+states of the screen.*** **Taken, with one correction of vocabulary**: nothing about the *data* decides
+which one you are in, your *intent* does, so by this project's own four tests it is a **mode**, not a
+state.
+
+- **`Project` has two modes.** *Viewing* the set, and *configuring* it. **The panel, the membership
+  checkbox and the `✕` exist only in the second.** The set is not editable by accident.
+- **It is the same logic as the owner's other thought that morning** — that the main action should be
+  Export and the check a sub-process. **What a project is in repose is a thing you send; changing it is
+  an act you enter.**
+- **It adds a mode and no place.** Five still, re-checked against the same four tests.
+- **And it moves a number the navigation section had called immovable.** The empty project's one action
+  is the entry into configuring, so **path B is four clicks, not three.** A and D are still three, so
+  the floor holds; what fails is *the floor is indifferent to whether the set exists*. **The fourth
+  click is a mode entry, not a traversal**, so the finding under the number survives.
+- **`Run` stays reachable from both modes, and that part is derived rather than decided.** The
+  fix-and-recheck loop — find a Problem, act on the row, check again — is the busiest path in the
+  product, and charging it a mode exit every cycle would tax the flow §6 is built around. **Nobody
+  asked for this half; it is marked so it can be disagreed with.**
+
 **Three things the answer buys that were not the reason for it**, recorded because they are the kind
 of thing that later gets mistaken for the argument:
 

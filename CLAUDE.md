@@ -964,7 +964,21 @@ to read the scores behind it: the rubric grades craft, not weight.
   opens cold on **related** items.~~ **Superseded 2026-09-20, Q14: the library reaches this screen as a
   panel, and the palette is gone.**
 
-  **The library panel** sits beside the set and is the only corpus surface the builder has. It carries
+  **The Project screen has two modes, and the panel lives in the second** (decided 2026-09-20, amending
+  Q14 during the owner's review of the flows). **Viewing** is the set as it stands. **Configuring** is
+  where it is changed — the panel is present, rows can be removed, and it is entered by one named
+  action and left the same way. **The set is not editable by accident**, and *adding and removing items
+  is a thing you go into rather than a thing that is always available*, which is the owner's own
+  wording. It follows the same logic as Export being the screen's point and the check a sub-process:
+  **what a project is in repose is a thing you send; changing it is an act you enter.**
+
+  **`Run` stays reachable from both.** The fix-and-recheck loop is the busiest path in the product —
+  find a Problem, act on the row, check again — and charging it a mode exit every cycle would be a tax
+  on the flow §6 is built around. *That is derived rather than decided by the owner; it is the one part
+  of this amendment nobody asked for.*
+
+  **The library panel** is the configuring mode's own surface, and the only corpus surface the builder
+  has. It carries
   **two levels of filter and they are not the same kind of thing**: a **scope switch** above —
   `My library` · `Public library`, because that changes *whose work it is and what you may do with
   it* — and **tabs by `kind`** below, because that is only a typology. **The first tab is `Related`
@@ -989,13 +1003,15 @@ to read the scores behind it: the rubric grades craft, not weight.
 
   **Membership is shown in the panel and owned by the row.** A row already in the set reads as checked.
   **Removal is an `✕` on the project row, and it unchecks the panel** — one fact in two places, with
-  the action living where the membership does. **An auto-added row refuses**, exactly as §6 says: it
+  the action living where the membership does. **Both live in the configuring mode**: the `✕` is not on
+  a row you are only reading. **An auto-added row refuses**, exactly as §6 says: it
   cannot be unchecked from either side while the item that pulled it in is still in the project, and
   what it says is *remove what dragged it in*. That is the product's only refusal and the panel
   inherits it rather than softening it.
 
   **A project with nothing in it is an empty state** (2026-09-20, Q16). The body carries **one**
-  action, which leads to putting the first item in, and **the control that enters `Run` is inert** —
+  action — **it enters the configuring mode**, which is where the first item comes from — and **the
+  control that enters `Run` is inert** —
   one control, because `Export` is Run's final stage and not a button here, so an unreachable Run takes
   it with it. See §6 for why that is an exception to a rule this file otherwise holds to, the two tests
   it has to pass, and the naming question the owner deferred to lesson 05.

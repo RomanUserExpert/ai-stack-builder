@@ -85,8 +85,8 @@ flowchart TD
     C --> D["Project"]
     B -->|"Yes"| D
     D --> E{"Anything in the set?"}
-    E -->|"No"| F[/"Empty: the Run control is inert"/]
-    F --> G["Project: the panel"]
+    E -->|"No"| F[/"Empty: configure the project"/]
+    F --> G["Project: configuring"]
     E -->|"Yes"| K["Project: the set"]
     G --> L{"Panel offering anything?"}
     L -->|"No"| M[/"Filtered to zero"/]
@@ -137,11 +137,18 @@ is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
    emptiest possible result.*~~ **No longer:** an empty project is an empty state and **the control that
    enters Run is inert** (Q16), so the branch where somebody checks nothing — and the *empty archive*
    dead end at the end of it — **is gone from this diagram.** *One control, not two: `Export` is Run's
-   final stage, so it goes with Run rather than being greyed beside it.* The one action in the body
-   points at the panel, which is already on the screen.
-3. **Panel offering anything?** — ~~the palette~~ **the panel** is the only way the library reaches this
-   screen (§8, Q14), so a panel with nothing in it is a wall and not an inconvenience. **What changed is
-   what happens next.**
+   final stage, so it goes with Run rather than being greyed beside it.*
+   **The node names what the state offers rather than what is dead in it** — *corrected 2026-09-20 in
+   the owner's review, where it read `Empty: Check and Export inert` and named only the greyed control.*
+   **The one action enters the configuring mode**, which is the next node and the only place items come
+   from.
+3. **Configuring, and the panel offering anything?** — **the Project screen has two modes** (Q14,
+   amended 2026-09-20): *viewing* the set, and *configuring* it. **The panel exists only in the
+   second**, and so does the `✕` that takes a row out — *a row being read is not a row being changed.*
+   The panel is the only way the library reaches this screen (§8), so a panel with nothing in it is a
+   wall and not an inconvenience. **What changed is what happens next.**
+   **The one thing this costs is a click, and it is counted**: path B in `sitemap.md` §Navigation is
+   **four**, not three, because a new project's one action is the entry into this mode.
 4. **Switch the scope to the shelf?** — **this one edge replaced three screens.** Until 2026-09-20 a
    palette that matched nothing sent the person to `Library`, made them discover it was empty, sent them
    on to `Public library` and back. **The panel carries both scopes, so the person does not leave the
@@ -151,8 +158,8 @@ is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
    that was missing, which opens the add/edit overlay **over the Project**. It is the one moment
    assembly reaches the authoring surface, and it is honest: **creating is a corpus act, not an
    assembling one.**
-6. **Is the set complete?** — the loop back into the panel, and where this product's real depth lives:
-   **selection, not traversal.**
+6. **Is the set complete?** — the loop back into **configuring**, and where this product's real depth
+   lives: **selection, not traversal.** *The loop re-enters a mode of the same place; it goes nowhere.*
 7. **Any Problems?** — three severities, and none of them blocks.
 8. **Fixable from this row?** — §8 says a finding annotates the row that owns it. When the fix is four
    items away this is a *no*, and the unclean export is the honest route.
@@ -161,8 +168,8 @@ is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
 10. **Env values on that machine?** — the product's ceiling, drawn as a decision it does not get to
     make.
 
-**The states, in words.** *Projects holding only the example* · *an empty project with its one primary
-control inert* · *the panel filtered to zero* · *the panel switched to the shelf* · *the check in
+**The states, in words.** *Projects holding only the example* · *an empty project offering one action,
+with its one primary control inert* · *the panel filtered to zero* · *the panel switched to the shelf* · *the check in
 progress* · *the unclean-export confirmation, in the row below the finding that caused it* · *the
 verdict voided by a target change*.
 
@@ -356,7 +363,7 @@ nothing.* **2a is *what it drags in*. 2b is *where two of them fight*.**
 
 ```mermaid
 flowchart TD
-    A["Project"] --> B["Project: the panel"]
+    A["Project"] --> B["Project: configuring"]
     B --> C[/"Row checked in the panel"/]
     C --> D{"Does it require anything?"}
     D -->|"Yes"| E[/"Auto-added rows"/]
@@ -425,6 +432,8 @@ too wide to read.*
 
 1. **Does it require anything?** — the depth-first walk, run the moment the item is added. Auto-added
    rows appear on the Project screen **with no check involved**, each naming what pulled it in.
+   **The first node is the configuring mode** (Q14, amended 2026-09-20): the set is changed there and
+   nowhere else, so this whole flow happens inside one mode of one place.
 2. **Want a row out of the set?** — the removal branch, and the only place in the entire specification
    where the product refuses an action. **Since 2026-09-20 removal is an `✕` on the project row, and it
    unchecks the panel** (Q14): the row *is* the membership (E5), and the panel is a view of it, so the
