@@ -52,10 +52,12 @@ deciding.**
 
 **Two failures belong to every path, so they are named once here rather than eight times.**
 
-**A session that expires mid-work.** Q24 put accounts in the product, and **the configuring mode and
-`Run` are both unaddressable**: there is nowhere to send somebody back to after a sign-in, and no
-architecture word yet for *you were halfway through assembling a set*. **It is the sharpest unanswered
-consequence of going online** and it sits on **Q25** with the sign-in surface itself.
+**A session that expires mid-work — answered 2026-09-20, Q25.** **You return to where you were, nothing
+is re-run, and nothing saved is lost** — and because configuring and `Run` are **modes**, you return to
+**the place**, not into the act. *You were halfway through assembling a set* is **not** something this
+architecture can restore, and it does not pretend to. **The shape is borrowed rather than invented**:
+§Navigation already rules that a reload during a check returns to the Project and does not silently
+start a new one, *because a re-run is a choice nobody made* — EJ-1, importance 3.
 
 **A second tab on the same account.** Sync means one person can now disagree with themselves — edit an
 item in one window while exporting it in another. **Single user has stopped meaning single writer**,
@@ -868,10 +870,12 @@ type exists for.
   own library.
 - **Failures.** The one that is drawn — **a dead address** — plus: the check fails on somebody else's
   set, and they have no way to tell whether that is the set's fault or ours · the export fails.
-- **And one collision with Q25 that has no answer yet.** *Copy into my library* needs **their** library,
-  which needs **their** account. **So the second take branch may put a sign-in in front of a person who
-  arrived with nothing and did not come here to register.** Q20 says these surfaces get the most
-  conservative treatment in the product; **this is the first thing that rule will have to decide.**
+- **And one collision with the sign-in, now half answered.** *Copy into my library* needs **their**
+  library, which needs **their** account, **so that branch does put a sign-in in front of somebody who
+  arrived with nothing and did not come here to register.** Q25 builds a way in and nothing more, and
+  **Q20 governs what happens here**: on these two surfaces, invent nothing not derived from P1. **The
+  archive branch stays free of it**, which is what makes it the branch that must always work. *Whether
+  the copy branch is offered to a signed-out visitor at all is a step 5 question and is not answered.*
 
 ---
 

@@ -424,6 +424,14 @@ is **not built in the MVP**. Flow 05 found there is no prior art for a return pa
 origin at detach — so this one is invented rather than copied; see
 `research/2-flows/05-linked-vs-detached/NOTES.md`.
 
+**An edit and the verdicts it voids are one operation** (decided 2026-09-20, answering Q26). §5 puts
+the blast radius before the edit — *used in 3 projects · saving un-checks all three* — and the product
+is online, so **the save can fail after that sentence has been read.** Either the item changed and every
+affected verdict went with it, **or neither happened and the product says so.** No half-applied edit,
+because a half-applied one produces in three other places exactly the claim §6 refuses everywhere else:
+**a verdict that may no longer be true.** *How many of my projects are currently checked is a fact this
+product asserts, so it is the product's to get right.*
+
 **Deleting an item is confirmed, never refused** (decided 2026-09-20, answering Q17 — *this section had
 no delete at all*). A live link means a project's row depends on an item the project does not own, so
 removing the item from the Library reaches every project holding it, **and a `requires` edge from
@@ -876,6 +884,16 @@ paths, it chooses the reader.
 MVP** — we write instructions precise enough to be executed by something that can. Emitting a verify
 script later must be a new stage in the run, not a rewrite of the export; design it so.
 
+**A disclosure that could not be produced says so** (decided 2026-09-20, Q28). The `SETUP.md` preview,
+`.env.example` and the file tree of the future archive are **generated, not stored**, and online they
+can fail. **A generated disclosure that quietly renders short is an unearned tick delivered by
+omission** — the reader has no way to know that what they are looking at is incomplete because something
+broke rather than because there was nothing to say. **So the surface names what it could not produce**,
+in the present tense, in this section's own register. **It applies to all four generated disclosures**,
+including the share disclosure, and it matters most for the `SETUP.md` preview, because **that preview
+is the whole of RJ-1** — *know what the other side will still need, before I send it* — and a short page
+is the job silently not happening.
+
 **The handover is disclosed before Export, not after.** Run's last stages state what the archive
 contains and what the receiving machine must still do — `SETUP.md` preview, pinned `ref`s,
 target-correct paths, `.env.example` — read **before** the irreversible step, which is the
@@ -1184,6 +1202,15 @@ Kept in the architecture's line of sight, not built:
   spends a section refusing. **The nearest honest thing is already shipped and must not be grown into
   a claim**: *last exported 12 days ago* reports **what this product did**, never what an agent did
   with the archive afterwards.
+- **An account surface beyond a way in** (settled 2026-09-20, Q25). Accounts are in the MVP, and **a
+  profile, a settings screen and a session list are not**: no job in the matrix raises any of them, and
+  §9's own rule plus lesson 03's trap 3 say the same thing — **do not invent a place for a person nobody
+  has met.** What is built is **a way in**, and **a rule for a session that ends mid-work**: you return
+  to **where you were**, nothing is re-run, and nothing saved is lost. You return to **the place**, not
+  into the act — configuring and `Run` are modes, and *you were halfway through assembling a set* is not
+  a thing this product can restore, so it does not pretend to. *The shape is §Navigation's own: a reload
+  during a check returns to the Project and does not silently start a new one, because a re-run is a
+  choice nobody made — EJ-1.*
 - ~~**Accounts, sync, teams.** Single user, one workspace.~~ **Two of the three moved into the MVP on
   2026-09-20** (Q24): the product is online, so there is **a sign-in and a library reachable from any
   machine.** **Teams stay out**, and the line between them is kept on purpose — **a server needs
@@ -1218,7 +1245,14 @@ Do not build these. Do not design a screen that only makes sense once they exist
   that the user can leave with their work** (Q18, re-answered 2026-09-20 after the first answer died
   the same day).
 
-  **Its basis is stated plainly, because it is not an evidential one.** No job raises it, in a matrix
+  **Importing is all or nothing** (decided 2026-09-20, Q27). A part-filled library is refused as a state.
+**The reason is §11 and it is about the one subject where being wrong cannot be walked back**: material
+coming in is met with *check that these files carry no keys*, **a reminder addressed to a set of files
+the person is expected to know** — and after a half-finished import they cannot enumerate what arrived.
+**A warning about an unknown set is not a warning.** *The alternative — allow the partial import and
+report exactly what landed — is honest and needs a report surface nobody has designed.*
+
+**Its basis is stated plainly, because it is not an evidential one.** No job raises it, in a matrix
   that checked all seventeen. **It is kept because the product now holds other people's corpora on a
   server it does not let them out of otherwise** — §11 tells the user to pour everything in, and a
   hosted product that says *bring it all* and offers no way out is the lock-in people mean when they
@@ -1335,7 +1369,13 @@ answered on 2026-09-20 with one named question left open. Q12 left the list the 
 matrix: **Q18**, the JSON route keeps its place on the architecture rather than on a job (§10);
 **Q19**, the shelf is built in full and designed only as far as the example needs (§11); and **Q20**,
 the shared surfaces get the product's most conservative treatment because their persona has never
-spoken (§8). **And one is live and unanswered: Q25** — Q24 put the product online, and **sign-in, session and
+spoken (§8). **And four more were answered the same evening, three of them found by writing down what can go wrong
+on each flow.** **Q25** — the sign-in is built to the minimum the decision forces, and **it costs a
+place: there are six, not five**, because it passes all three of the addressability tests; §9.
+**Q26** — an edit and the verdicts it voids are **one operation**; §5. **Q27** — importing a library is
+**all or nothing**; §10. **Q28** — **a generated disclosure that could not be produced says so**, which
+covers the `SETUP.md` preview, `.env.example`, the archive tree and the share disclosure; §6.
+*Superseded below:* ~~**And one is live and unanswered: Q25**~~ — Q24 put the product online, and **sign-in, session and
 account exist in no screen tree, no entity inventory and no coverage matrix.** They are orphans by the
 test that condemned the JSON export and they arrived four hours after it ran. **Nothing is designed for
 them here**, because inventing a surface on the evening of the decision that created it is the reflex

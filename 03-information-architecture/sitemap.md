@@ -15,9 +15,11 @@
 > corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
 > **Places, modes, overlays and states** — what kind of thing each node actually is, which is where
-> *five places* comes from — *this line said four when it was written, before Q13 added the two shared
-> surfaces; six with them, and **five since 2026-09-16**, when the owner kept §8 and `Item` stopped
-> being one.* **Routes are still not here**: naming them is step 3, and it now has both a shape to put
+> the place count comes from — *this line said four when it was written, before Q13 added the two shared
+> surfaces; six with them, five from 2026-09-16 when the owner kept §8 and `Item` stopped being one, and
+> **six again since 2026-09-20**, when the product turned out to be online and the sign-in passed all
+> three tests. **The count has moved in both directions, which is the point of having a test rather than
+> a list.** **Routes are still not here**: naming them is step 3, and it now has both a shape to put
 > them on and a navigation model constraining them — **Navigation**, step 4, written first because the
 > owner asked for it and because it needed nothing step 3 produces.
 
@@ -746,7 +748,13 @@ promotion here would be a place with no job under it.
 - **The example project.** An **instance** of Project with a label and a delete, not a place.
 - **The public shelf.** A **scope** of Library — same rows, same search, same filters, because it is
   the same object seen in two places (§8). A second screen would say it is a different kind of thing.
-- **Settings, account, sync, team.** §9 refuses all of it and there is no job. **Not proposed.**
+- ~~**Settings, account, sync, team.** §9 refuses all of it and there is no job. **Not proposed.**~~
+  **Half of it stopped being true on 2026-09-20** (Q24): the product is online, with accounts and sync.
+  **The sentence survives for the rest, and it is now sharper rather than weaker** (Q25). **A profile, a
+  settings screen and a session list are still not proposed** — no job raises any of them, and *do not
+  invent a place for a person nobody has met* is this lesson's own trap 3. **A team is still refused.**
+  **What is built is one thing: a way in**, plus a rule for a session that ends mid-work — you return to
+  **where you were**, to the **place** and not into the mode, nothing re-run and nothing saved lost.
 - **A dashboard of what is working.** It would answer [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight)
   — importance **3** for the primary persona, the highest the product cannot close — and §6 **runs
   nothing on anyone's machine**, so it would be a promise we have no way to keep. **The job is real and
@@ -804,7 +812,7 @@ the same view tomorrow. Anything that fails those three is not a place, however 
 occupies.
 
 **What the backend does change is the scope of *tomorrow*.** An address now comes back to the same view
-**on another machine**, not only on this one, which makes the five places stronger rather than
+**on another machine**, not only on this one, which makes the six places stronger rather than
 different — **and the classification below was re-checked against that and did not move.**
 
 **Four kinds, and the difference that matters is addressability, not size.**
@@ -836,6 +844,7 @@ different — **and the classification below was re-checked against that and did
 | **The check running** | **State of the Run mode** | — |
 | **Empty `My library` · Projects holding only the example · a project with no members** | **States** | §11 and flow 08 — *scale the explanation to how new the concept is* |
 | **A stale verdict** | **State of a project row** | §6: the verdict is not shown, the date is, and what voided it is named |
+| **Sign-in** | **Place** — added 2026-09-20, Q25, and **it is the sixth** | **The tests decided this, not a preference.** A reload lands you on it, Back means something, and the address can be written down and come back tomorrow: **all three pass, so it is a place.** *The temptation was to invent a fourth kind — place, mode, overlay, **gate** — and it was refused: a classification that grows a category whenever something does not fit has stopped classifying.* **What is true and worth saying instead is that it is the only one of the six that exists for the product rather than for the person's work** — the other five are somewhere you go to get something done; this is somewhere you are sent and handed on from |
 | **Shared project** · **Shared item** | **Places**, and the most place-like things in the product | The link **is** the address — it is written down, sent, reloaded and bookmarked by somebody who has nothing else. They are the only places whose address has to survive leaving this machine |
 | **Sharing something, and revoking it** | **A state of the thing shared**, disclosed at the moment it changes | §5: sharing is a **standing decision**, so *shared* is how a project or item reads everywhere it appears — not a screen, and not a one-time dialog either |
 | **Library import / export** | **Two commands on the Library** — not a screen | This resolves the orphan's own open question: it is cheaper than it looked. **It is still an orphan** — no job raises it — but a command with no job is a smaller thing to carry than a place with no job |
@@ -908,10 +917,12 @@ cannot be bookmarked or returned to** — re-reading it means checking again. Th
 decision, it is cheap because we run nothing on anyone's machine, and it is recorded here rather than
 discovered in step 5.
 
-### Five places, and that is the whole navigable surface
+### Six places, and that is the whole navigable surface
 
-> **Was six until 2026-09-16.** `Item` left the list when the owner kept §8's form — see above for
-> what that costs and what carries it instead.
+> **Five from 2026-09-16 to 2026-09-20, and six before that.** `Item` left the list when the owner kept
+> §8's form. **Sign-in joined it on 2026-09-20** (Q25), when the product turned out to be online — and
+> it joined **by passing the three tests**, not by anybody deciding it should be a place. *The count has
+> now moved in both directions, which is the point of having a test rather than a list.*
 >
 > **Re-checked on 2026-09-20 against Q14, and it did not move.** The library panel is the biggest
 > change the builder has had, and **it adds no place**: it is a region of `Project`, which is a place
@@ -939,7 +950,8 @@ thing it names.**
 
 ## Navigation — the entries, the depth, and what is always there
 
-> **Step 4, written 2026-09-16, out of the five places step 2b established.** **No screen is invented
+> **Step 4, written 2026-09-16, out of the places step 2b established — five then, six since
+> 2026-09-20.** **No screen is invented
 > here and none is added.** Navigation is a question about the screens that already exist: which of
 > them a person may reach without being sent, how far the main job sits from the first one, and which
 > commands are on the surface at all times versus in the flow versus out of the way.
@@ -1010,12 +1022,13 @@ guaranteed would be empty is the mistake §11 exists to prevent.**
 | **D · First run ever, owning nothing** | Projects → **the example project** ① → **Check** ② → **Export** ③ | **3** |
 | **P2 · The receiver, for contrast** | the link → **Check** ① → **take the archive** ② | **2** |
 
-**And one incompleteness, recorded rather than papered over** (2026-09-20, after Q24). **Every count in
-this table begins at a screen, and since the product is online with accounts there is something before
-the first screen: signing in.** If a session can expire, **the depth from a genuinely cold start is
-three plus whatever authentication costs**, and no row here begins there. **The table is not wrong — it
-measures the product — but *three taps to the archive* must not be quoted as covering a logged-out
-start.** The surface does not exist yet; see the register.
+**And one thing the table does not measure, stated rather than papered over** (2026-09-20, Q24 then
+Q25). **Every count begins at a screen, and the product is online, so there is something before the
+first screen: signing in.** **Every path costs one more from a cold, signed-out start.** The floor of
+three is **a floor for somebody already signed in**, which is the ordinary case and the honest thing to
+say. **What a session ending mid-work costs is nothing extra in this table** — you come back to where
+you were, so the remaining distance is unchanged (Q25) — **and that is the whole reason the rule was
+written that way.**
 
 **Four things fall out of the count, and three of them are findings rather than numbers.**
 
@@ -1159,7 +1172,7 @@ guessed. And **the three §8 mitigations made accountable**, each with the row i
 breaks without it.
 
 **Does not establish. Route strings** — the literal addresses — which are still step 3's, and which this
-section constrains without writing: five places, two of them addressable off this machine. Nor **what
+section constrains without writing: six places, two of them addressable off this machine. Nor **what
 each surface is made of**, which is step 5, and which now has a warning waiting for it: the `Item`
 overlay is carrying three disclosures nobody chose to put together.
 
@@ -1641,8 +1654,9 @@ raised as a **proposal to §8** and rejected. **The count now expands in place o
 its project names lead to the Project, and the radius is disclosed at the head of the form** — a
 weaker answer than a place, named as weaker, and the only one available without one. **`Run` is a mode
 of the Project, not a place** — it fails two of the three tests because nothing is stored, and taking
-the whole surface is not the same property as being addressable. **Five places in the whole product**:
-Library with an address per scope, Projects, Project, and the two the link creates.
+the whole surface is not the same property as being addressable. **Six places in the whole product** (*five
+until 2026-09-20, when the sign-in joined by passing the tests — Q25*): Library with an address per
+scope, Projects, Project, the two the link creates, and the way in.
 
 **And one field was added to this inventory after it was written.** **`defersTo` on E1** — Q10's
 mechanism, built 2026-09-16 — which is the only object here that **points outside everything the

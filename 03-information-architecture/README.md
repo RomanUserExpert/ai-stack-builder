@@ -51,7 +51,8 @@ with no addressability in it **produced** the classification's hardest questions
 them answered first. Both are now answered — ~~**`Item` is a place** (a proposal to §8, which calls it
 a form)~~ **`Item` is a form: the proposal went to the owner on 2026-09-16 and §8 was kept** — and
 **`Run` is a mode of the Project**, because nothing is stored and there is nothing to return to.
-**Five places in the product**: Library with one address per scope, Projects, Project, and the two the
+**Six places in the product** (*five until 2026-09-20, when the sign-in passed the three tests*):
+Library with one address per scope, Projects, Project, and the two the
 shared link creates.
 
 **Where this folder sits, and why.** [`research/`](../research/) holds lessons 01 and 02 as seven
@@ -195,7 +196,7 @@ applied by the owner (the licence, `defersTo`).
 
 **Not in the course's seven, and kept.** The screen tree is a hierarchy; this asks what each node *is*,
 on one test — *could somebody be sent there and arrive*. **It earned its place three times**: it
-answered *is `Item` a place* and *is `Run` a place*, it kept the count at **five places** when the
+answered *is `Item` a place* and *is `Run` a place*, it moved the count deliberately twice and held it once, and each move was the tests deciding rather than anybody preferring — **five places** when the
 library panel replaced the palette, and it is what classified the configuring mode on 2026-09-20.
 
 **Output:** [`sitemap.md`](sitemap.md) §Places.

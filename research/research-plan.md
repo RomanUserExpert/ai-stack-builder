@@ -336,9 +336,10 @@ carries the twelve.*
 > Since then the sitting was held (2026-09-15) and lesson 03 has raised eight more entries. **Live now:
 > Q9 and Q11, deferred at the sitting, plus Q16 and Q17, each raised and part-answered on 2026-09-20
 > with one named question left open.** **Q12 is closed as *refused*** — not deferred a second time —
-> after the traceability matrix showed it at importance 3 with twelve blank cells. **Q25 is live and unanswered** — the online decision created sign-in, session and account, and nothing
-> has been asked about them. Q13 to Q15 and Q18
-> to Q24 are answered — **the traceability matrix's seven findings were all disposed of on 2026-09-20,
+> after the traceability matrix showed it at importance 3 with twelve blank cells. **Nothing is live from lesson 03 as of the evening of 2026-09-20** — Q25 was answered the same day it
+> was raised, along with Q26, Q27 and Q28, which the flows' waits-and-failures pass turned up. **Q9 and
+> Q11 remain deferred from the sitting, and Q16 and Q17 each keep one named open half.** Q13 to Q15 and
+> Q18 to Q28 are answered — **the traceability matrix's seven findings were all disposed of on 2026-09-20,
 > four of them building nothing.** **Read the dated sections at the end of this file for the current state; the
 > prose here is the protocol, not the status.**
 
@@ -1512,6 +1513,117 @@ claim in §Traceability quietly stops being true.
 **Not answered here, and deliberately not designed here.** *Do not add screens to the tree by reflex* is
 the whole of lesson 03's method, and a sign-in invented on the evening of the decision that created it
 would be exactly the reflex.
+
+### Q25 answered — the minimum a sign-in forces, and it costs a place — 2026-09-20
+
+**Answered: build the minimum the decision forces and nothing beyond it.** A **way in**, and a **rule
+for a session that ends mid-work.** **No account screen, no settings, no session list** — *no job in
+the matrix raises any of them*, and §9's rule plus this lesson's trap 3 both say the same thing: **do
+not invent a place for a person nobody has met.**
+
+**What happens when a session ends mid-work, derived rather than invented.** §Navigation already
+settles the shape of this for the nearest case: *a reload during a check returns to the Project and does
+not silently start a new one, because a reload that re-runs is the product making a choice nobody made*
+— **EJ-1, importance 3.** So: **after signing back in you return to where you were, nothing is re-run,
+and nothing that had been saved is lost.** And because **configuring and `Run` are modes, not places**,
+you return to **the Project** — not into the act. *You were halfway through assembling a set* is not a
+thing this architecture can restore, and pretending otherwise would be the same unearned claim §6 spends
+a section refusing.
+
+**And it costs a place, which is the part worth recording rather than hiding.** **Sign-in passes all
+three of this section's tests**: a reload lands you on it, Back means something, and the address can be
+written down and come back tomorrow. **By the section's own mechanical test it is a place, so there are
+six**, not five — for the first time since `Item` left the list on 2026-09-16.
+
+**It is also the only one of the six that exists for the product rather than for the person's work.**
+The other five are things somebody goes to in order to get something done; **this one is a gate you are
+sent to and handed on from.** *The temptation was to invent a fourth kind — place, mode, overlay, gate —
+and it was refused: a classification that grows a category every time something does not fit is not a
+classification.* **The tests decided it and the count moved.**
+
+**What it does to the depth count.** §Navigation measures from the first screen, and **there is now
+something before the first screen.** Every path costs **one more from a cold, signed-out start** — and
+the table says so rather than implying a coverage it does not have. **The floor of three is a floor for
+somebody already signed in**, which is the ordinary case and the honest thing to state.
+
+**What is not answered and is deliberately left open.** **What the way in actually is** — a password, a
+link, a provider — is not a product question this lesson can settle, and §10 already says *how it is
+served is deliberately not decided here.* **The matrix must be re-run over whatever is added**, or
+§Traceability's coverage claim quietly stops being true.
+
+### Q26 — an edit and the verdicts it voids are one operation — raised and answered 2026-09-20
+
+**Raised by writing the waits and failures under the flows.** §5 requires the blast radius to be legible
+**before** the edit — *used in 3 projects · saving un-checks all three* — and then the product is online
+(Q24), so **the save can fail after that sentence has been read.** **Did it un-check them or not?**
+Nothing on that screen can say, and the answer decides what three other projects currently claim about
+themselves.
+
+**Answered: the edit and the voiding are one operation, and on failure the product says that nothing
+landed.** Either the item changed and every affected verdict went with it, or neither happened.
+
+**The rule it follows is already in §6 and this is the same discipline one step earlier.** *A stale
+verdict is not shown, and the date still is* — **never display a claim that may no longer be true.** A
+half-applied edit produces exactly that claim in three other places at once.
+
+**Why it is a product decision and not an implementation one.** *How many of my projects are currently
+checked* is a fact the product states on the `Projects` screen. **A fact the product asserts is the
+product's to get right**, and this file's own rule is that the product decides what it is and the
+implementation follows.
+
+### Q27 — importing a library is all or nothing — raised and answered 2026-09-20
+
+**Raised the same way.** §10 commits to importing the whole library as JSON and **never says whether
+that is a transaction.** Online, it can fail halfway.
+
+**Answered: all or nothing.** A part-filled library is refused as a state.
+
+**The reason is §11 and it is about the one subject where being wrong cannot be walked back.** Material
+entering the library is met with *check that these files carry no keys* — **a reminder addressed to a
+set of files the person is expected to know.** After a half-finished import **they cannot enumerate what
+arrived**, so the warning has been given about something nobody can inspect. **A warning about an
+unknown set is not a warning.**
+
+**The alternative was available and is recorded as refused**: allow the partial import and report
+exactly what landed. **Honest, and it needs a report surface nobody has designed** — which is the reflex
+this lesson exists to refuse.
+
+### Q28 — a disclosure that failed must say it failed — raised and answered 2026-09-20
+
+**Raised by the same pass, and it generalises further than the case that found it.** `SETUP.md`'s
+preview is **generated, not stored.** If generation fails, the person does not see an error — **they see
+a page with less on it**, and they have no way to know that what they are reading is short because
+something broke.
+
+**Answered: the disclosure states what it could not produce.** In §6's own register, naming the gap in
+the present tense.
+
+**This is not microcopy, and calling it microcopy is how it would have been lost.** RJ-1's whole job is
+*know what the other side will still need, before I send it*, and **the preview is that knowledge.** A
+preview that quietly renders short is the job silently not happening — **an unearned tick delivered by
+omission**, which is the thing §6 spends a section refusing in its explicit form and had never
+considered in this one.
+
+**It generalises, and the general form is the entry.** **Any surface whose purpose is to disclose must
+say when it could not.** That covers the `SETUP.md` preview, `.env.example`, the file tree of the future
+archive, and the share disclosure — **all four are generated, and all four are read immediately before
+an irreversible step.**
+
+### Two decisions taken the same day that raised nothing — 2026-09-20
+
+**The main job is not split.** At **3,528 pixels** it is the tallest diagram in `flows.md` by some
+margin, and the question has been open since 2026-09-16. **Left whole, on this file's own restated
+rule**: the test is *render it and look*, **height does not hurt legibility and width does** — and its
+width passes at 0.747. §8 names exactly one seam in this product, **Check**, and cutting there was the
+only non-invented split available; **the owner declined it.** *Recorded so the question is closed rather
+than perpetually open.*
+
+**The wait on the dependency walk goes to lesson 04** with the rest of waiting. §2 calls the validation
+pass *a designed moment, not a spinner*, **which leaves open what ordinary waiting looks like**, and
+deciding that one interaction at a time is trap 2. **One thing is fixed in advance so it cannot be taken
+by default: the optimistic option — rows appear instantly and reconcile later — must not be chosen
+silently.** Rows that appear and then vanish are **EJ-1, *not be quietly overruled by my own tools*,
+importance 3.**
 
 ### Earlier decisions
 
