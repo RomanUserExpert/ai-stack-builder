@@ -356,6 +356,7 @@ as importance 3 with no surface, and `EJ-3` as touched-but-unclosable.
 | File | What it is |
 |---|---|
 | `README.md` | This plan. |
+| `PROGRESS-03.local.md` | **Gitignored, and closed rather than deleted on 2026-09-20.** The day-by-day: what was tried, what was wrong for a day, the regressions caught, and the order things happened in. **One per lesson from now on** — `CLAUDE.md` §13. |
 | [`sitemap.md`](sitemap.md) | The work, **six sections** — Entities, Screens, Places, Navigation, Traceability, plus the dated blocks recording where the decisions meet each other. The source of truth for structure, subordinate to `CLAUDE.md` in every conflict. |
 | [`flows.md`](flows.md) | **User flows in Mermaid** — six flows in seven diagrams, each with its decisions, its states and both kinds of ending. **Derived from `sitemap.md` and adding nothing to it**: every node is a screen, mode, overlay, region or state that already existed. |
 | `ia-critique.md` | **Step 6.** The defect table — where · what · how to fix — then the fixes proposed separately and applied visibly. |

@@ -43,6 +43,8 @@ tools/_research-page.build.html
 .vercel
 .env*
 
-# Local scratch for lesson 03 — progress and open questions, deleted when the
-# lesson closes. Never committed; the register and CLAUDE.md hold anything durable.
-03-information-architecture/PROGRESS.local.md
+# One scratch file per lesson: PROGRESS-NN.local.md, in that lesson's folder.
+# Never committed. It holds the day-by-day — what was tried, what was wrong for a
+# day, which regressions were caught — and is CLOSED rather than deleted when the
+# lesson closes. Anything durable lives in CLAUDE.md and in the register instead.
+**/PROGRESS-*.local.md

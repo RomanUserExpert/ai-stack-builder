@@ -1569,5 +1569,15 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
   started 2026-09-15, with the register's sitting not held and the evidence as it stands.** Do not
   start tokens, components, colour or a finished-looking screen before 03 and 04 are done, and do not
   scaffold the app before there is something for it to hold.
+- **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
+  2026-09-20). It is **gitignored** and it holds the day-by-day: what was tried, what was wrong for a
+  day, which regressions were caught, and the order things happened in. **It is closed on the day the
+  lesson is, not deleted** — lesson 03's is
+  [`03-information-architecture/PROGRESS-03.local.md`](03-information-architecture/PROGRESS-03.local.md).
+  **Nothing in one is a source of truth**, and nothing durable may live only there: decisions go to the
+  register, and what they change goes here.
+  *The reason is lesson 03. It renumbered its own plan mid-flight, voided one of its own answers within
+  hours of writing it, and caught three regressions it had introduced that morning. None of that belongs
+  in a specification and all of it was worth being able to read back.*
 - This file is the single source of truth for the product. The original brief has been
   folded into it and deleted; there is no other spec to reconcile against.
