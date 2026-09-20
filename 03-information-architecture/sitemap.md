@@ -1,12 +1,16 @@
 # Sitemap — lesson 03, information architecture
 
-> **A draft, in five sections.** Written 2026-09-15, **re-checked against the owner's decisions of
+> **A draft, in six sections.** Written 2026-09-15, **re-checked against the owner's decisions of
 > 2026-09-16** — the credential refusal overruled, Q10 built as `defersTo`, and `Item` kept as a form.
 > Everything they touch is marked with that date. **The fifth section, Navigation, was written the same
 > day** out of the places the third established: two global entries, the click depth to the main job,
 > and the global / contextual / deep split. **[`flows.md`](flows.md) then walked six paths through
 > all of it** — the main job, RJ-1 to RJ-4 and the single-item export — **and needed no screen this
-> file did not already have**, which is the closest thing to a test this section can be given. It decides nothing on implementation grounds:
+> file did not already have**, which is the closest thing to a test this section can be given.
+> **The sixth section, Traceability, was written on 2026-09-20** once the owner accepted those flows:
+> every job against every surface, the two orphan lists, and a decision for each orphan. **It is the
+> second test, and a harder one** — the flows asked whether the map has a gap, and this asks whether
+> anything on it is unearned. It decides nothing on implementation grounds:
 > what the product is comes first, and how it is built comes after — a rule this file had to be
 > corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
@@ -624,9 +628,10 @@ the point of the mark.
         a way to take it — the archive, or a copy into their own library
 ```
 
-**Six screens and one orphan, and the tree lists three nodes that are not screens** — the `Item`
+**Six screens and one orphan, and the tree lists four nodes that are not screens** — the `Item`
 add/edit form, an **overlay** on the Library (§8, kept 2026-09-16), the **detached row**, a mode
-inside Project, and, since 2026-09-20, the **library panel**, a region of Project (Q14). *An earlier
+inside Project, and, since 2026-09-20, the **configuring mode** and the **library panel**, a region
+inside it (Q14). *An earlier
 count here said five screens and was stale: it predates the two surfaces Q13 added. The non-screen
 count was two until the panel replaced the palette.* **The screen count did not change when the
 builder's mechanism did**, which is the thing worth noticing: a palette that was an overlay became a
@@ -1116,6 +1121,164 @@ overlay is carrying three disclosures nobody chose to put together.
 
 ---
 
+## Traceability — every job against every surface
+
+> **Written 2026-09-20, after the owner accepted the flows.** Not a numbered step: a **check across
+> steps 2a, 2b and 3**, run the only way a coverage claim can be run — by putting both lists side by
+> side and looking for the empty line. **Rows are every job in
+> [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md)** — one main, four related, three emotional, two
+> social, and the seven hypotheses in a block of their own. **Columns are every surface this file
+> establishes**, screens and non-screens alike.
+>
+> **Why non-screens are columns.** A matrix of screens only would hand `Project` the ✓ that belongs to
+> the library panel, and hand `Library` the one that belongs to the `Item` overlay. **The question is
+> which surface does the work**, not which of them has an address. Each column says what kind of thing
+> it is.
+>
+> **What a ✓ means, stated before the table so it cannot drift.** *This surface takes part in closing
+> this job* — the person is on it while the job is being done, and something on it moves the job
+> forward. **Being a route to the surface that does the work is not participation**, or every column
+> would be full and the exercise would return nothing.
+
+### The matrix — sourced jobs
+
+**P1** is the primary persona's importance, from `jtbd.md` §7. Surfaces: **`L-my`** `My library` ·
+**`L-pub`** `Public library`, the shelf · **`Item`** the add/edit overlay · **`Pj`** Projects ·
+**`P-v`** Project, viewing · **`P-c`** Project, configuring · **`Pan`** the library panel ·
+**`Det`** the detached row · **`Run`** · **`Sh-p`** shared project · **`Sh-i`** shared item ·
+**`JSON`** library import / export.
+
+| Job | P1 | L-my | L-pub | Item | Pj | P-v | P-c | Pan | Det | Run | Sh-p | Sh-i | JSON |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **MAIN** — make it keep working somewhere else | **3** | ✓ | | | ✓ | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | |
+| **RJ-1** — know what the other side needs | `[?]` | ✓ | | ✓ | ✓ | ✓ | | | | ✓ | ✓ | ✓ | |
+| **RJ-2** — what it drags in, where two fight | **3** | ✓ | | ✓ | | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | |
+| **RJ-3** — fix it once, reach every copy | **3** | ✓ | ✓ | ✓ | ✓ | ✓ | | | ✓ | ✓ | | | |
+| **RJ-4** — move the work, not the secrets | **2** | ✓ | | ✓ | ✓ | ✓ | | | | ✓ | ✓ | ✓ | |
+| **EJ-1** — not be quietly overruled | **3** | ✓ | | ✓ | ✓ | ✓ | ✓ | | | ✓ | | | |
+| **EJ-2** — believe a clean result was earned | **2** | | | | ✓ | ✓ | | | | ✓ | ✓ | ✓ | |
+| **EJ-3** — stop suspecting half is dead weight | **3** | ✓* | | ✓* | | | | | | | | | |
+| **SJ-1** — not be the missing manual | **2** | | | ✓ | | ✓ | | | | ✓ | ✓ | ✓ | |
+| **SJ-2** — something I would put my name to | **1** | | | | | | | | | | | | |
+
+`✓*` — **partial by construction, not by omission.** See EJ-3 below.
+
+### The matrix — hypothesis jobs
+
+**Kept in a block of their own**, because `jtbd.md` forbids citing them as findings and **four
+specified features close nothing else.** A column standing only on this block is a column standing on
+an assumption, and that is a defect of a third kind.
+
+| Job | P1 | L-my | L-pub | Item | Pj | P-v | P-c | Pan | Det | Run | Sh-p | Sh-i | JSON |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **H-J1** — lay hands on something I wrote | **2** | ✓ | | | | | | ✓ | | | | | |
+| **H-J2** — start from one I have done | `[?]` | | | | ✓ | | | | | | | | |
+| **H-J3** — change one copy for one project | **2** | | | | | ✓ | ✓ | | ✓ | | | | |
+| **H-J4** — get moving with somebody else's | `[?]` | | ✓ | | ✓ | | | ✓ | | | | ✓ | |
+| **H-J5** — watch what actually ran | **3** | | | | | | | | | | | | |
+| **H-J6** — my work counts as something | — | *the same job as SJ-2 in functional wording; not counted twice* | | | | | | | | | | | |
+| **H-J7** — the unwritten half travels too | **2** | | | ✓ | | ✓ | | | | ✓ | ✓ | ✓ | |
+
+---
+
+### Defect 1 · Orphan columns — a surface with no job
+
+**One, and it is the one already carrying the mark.**
+
+**`JSON` — library import / export.** Empty in both tables. `CLAUDE.md` §10 commits to *export and
+import of the whole library as JSON*, and **no job in either block raises it.** The entity inventory
+named it an orphan on 2026-09-15 and step 2b reduced it from a screen to **two commands on the
+Library**; this matrix is the third instrument to reach the same answer independently, which is worth
+more than any one of them.
+
+**One thing must not be mistaken for coverage.** [`flows.md`](flows.md) RJ-4 draws a path through it —
+*the whole library as JSON?* → the keys warning. **That is exposure, not closure**: the flow passes
+through this surface because material can get in that way, and the job it serves is *move the work
+without moving the secrets*, which the warning closes and the JSON route only complicates. **Counting
+it as a ✓ would launder an orphan into a feature.**
+
+**Resolution: keep as two commands, in the deep tier, with a named trigger for removal.** Not deleted,
+because §10 commits to it and deleting a spec commitment is the owner's call, not a matrix's. Not
+promoted, because three instruments now say the same thing. **The trigger: if lesson 04 or 05 finds
+itself drawing an affordance for it, that is the moment to take it to the register** — a surface that
+needs design and closes nothing is the definition of cost without return.
+
+### Defect 2 · Orphan rows — a job with no surface
+
+**Two, and they fail in opposite directions. Neither is fixed by adding a screen, and saying so is the
+result rather than an excuse.**
+
+**`SJ-2` — have something I would put my name to.** Importance **1** for P1, the lowest in the base,
+and `jtbd.md` marks it **post-MVP** in its own heading. `§9` refuses the catalog; the closest thing in
+the product, a **share link**, is deliberately *a handover, not a portfolio* — unlisted, unranked, not
+browsable. **The row is empty because the product declines the job, in writing, twice.**
+
+> **Resolution: backlog, and the empty row is correct.** It is the only row in this matrix where
+> emptiness is a decision already taken rather than a gap discovered here. **What this exercise adds is
+> one caution**: `SJ-2` and `H-J6` are the same job in two wordings, so **if a shelf, a profile or a
+> listing is ever proposed, it will arrive wearing the functional wording** and should be recognised.
+
+**`H-J5` — watch what actually ran.** **Importance 3, and this is the serious one.** It is the
+**surviving second main-job candidate** — the one `jtbd.md` §1 says makes two products — and
+`CLAUDE.md` §6 cannot close it: **we run nothing on anybody's machine.** The sitemap has already
+refused the screen that would answer it, under *What is not a screen*: *"the job is real and the screen
+is forbidden, which is Q12."*
+
+> **Resolution: refused with a stated reason, and it stays Q12 in the register — deferred, not
+> answered.** **The screen is forbidden rather than missing**, and the distinction is the whole point:
+> a product that drew it would be promising a runtime it does not have, which is the unearned tick §6
+> spends a section refusing. **This is the highest-importance job in the product that no surface
+> touches, and the matrix is the first document to state it as a number** — 3, with a row of twelve
+> blanks under it.
+
+**Both stay empty on purpose. The instruction this exercise was given asks for no empty row or column,
+and two rows cannot honestly be filled** — one because the product declines the job and one because it
+is incapable of it. **Inventing a ✓ for either would make the matrix a decoration.** Every orphan has a
+decision, which is the part that was reachable.
+
+### Defect 3 · The defect the exercise was not looking for — surfaces standing on assumptions
+
+**A column is not safe because it has a ✓. It matters which block the ✓ came from.**
+
+- **`L-pub`, the shelf — two ✓, and only one is from a sourced job.** `RJ-3` reaches it through a
+  single branch (*copy it into mine to make it fixable*), and everything else it carries is **H-J4,
+  whose importance is `[?]` in all three persona columns.** `CLAUDE.md` §11 commits to it, §8 gives it
+  a scope switch, the panel now carries it into assembly, and lesson 03 has made it more load-bearing
+  three times without it gaining a single point of evidence. **Not an orphan; the thinnest column in
+  the product**, and E3 already says so in its own words.
+- **`Det`, the detached row — two ✓, one sourced.** `RJ-3` at importance 3 carries it, and `H-J3`
+  supplies the rest. That is enough, and it is worth knowing it rests on one number.
+- **`Pan`, the library panel — four ✓, two of them MAIN and RJ-2 at importance 3.** Well founded, which
+  is worth recording given how recently it was added and how much it now carries.
+
+### Defect 4 · One row whose ✓ do not mean what the others mean
+
+**`EJ-3` — stop suspecting that half of what I keep is dead weight.** Importance **3**, and it has two
+ticks, both marked `✓*`. **Usage facts answer *is it used*; they do not answer *did it change
+anything*.** E14 says this in its own entry and the honest reading of the row is: **the product touches
+this job and cannot close it.** It is the same family as `H-J5` — Q12 — and the two together are the
+product's ceiling written as a matrix: **two of the four importance-3 emotional and hypothesis jobs are
+beyond what a thing that runs nothing can do.**
+
+### What the matrix found that nothing else had
+
+1. **`Run` and `P-v` are the busiest columns, and `Sh-p` is third** — the receiver's surface carries
+   seven jobs, which is more than `Projects` and more than the panel. **A surface built for somebody
+   who has never spoken in the first person is doing a third of the product's work**, and the evidence
+   under that person is the thinnest in the folder. Not a defect; the largest exposure on the board.
+2. **`P-c`, configuring, is thinner than expected — four ✓.** It was added hours before this matrix and
+   it does the work of assembling; most of what it enables is scored against `P-v` and `Pan` because
+   that is where the person is looking. **If configuring ever needs to justify itself, this is the row
+   count it will be asked about.**
+3. **`H-J3` needs a mode this file has not assigned it.** The detached row's **Edit, Reset and
+   Promote** are changes to the set's content. By the rule stated for the `✕` — *a row being read is not
+   a row being changed* — **they belong in configuring**, and nothing has said so. **Open, and it goes
+   to step 5** with the rest of the composition.
+
+---
+
+---
+
 ## Where the day's decisions meet each other
 
 > **Written 2026-09-15 as a re-check, after four decisions landed in one day.** Each was recorded
@@ -1347,8 +1510,8 @@ its place by closing a job. **The cost is recorded in the register**: the collec
 thinnest evidence in the folder, so the surfaces that now carry the most weight are the ones with the
 least under them.
 
-**And the screen tree establishes six screens and one orphan, plus three nodes that are not screens**
-(*two until the library panel arrived on 2026-09-20*) —
+**And the screen tree establishes six screens and one orphan, plus four nodes that are not screens**
+(*two until the library panel and the configuring mode arrived on 2026-09-20*) —
 four for the owner and **two for the receiver, added when Q13 was answered**; the two non-screens are
 the `Item` add/edit overlay (§8, kept 2026-09-16) and the detached row. Each screen carries the job it
 serves, grouped
