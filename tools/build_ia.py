@@ -101,7 +101,9 @@ def counts(src):
         nodes.add(mm.group(1))
     for mm in re.finditer(r"-->(?:\|\"[^\"]*\"\|)?\s*([A-Za-z][A-Za-z0-9]*)", src):
         nodes.add(mm.group(1))
-    edges = len(re.findall(r"-->", src)) - len(re.findall(r"(?m)^\s*linkStyle", src))
+    # count the arrows and nothing else: a linkStyle line has no arrow in it, and
+    # subtracting those was quietly reporting every diagram two edges short.
+    edges = len(re.findall(r"-->", src))
     ends = {
         "done": len(re.findall(r'\(\["Done:', src)),
         "cost": len(re.findall(r'\(\["Cost:', src)),

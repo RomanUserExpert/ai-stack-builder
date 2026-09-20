@@ -37,8 +37,47 @@ img{max-width:100%}
   font-size:13px;color:var(--ink-2);
 }
 .flow > figcaption b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:14px}
-.flow .dg{padding:18px 14px 22px;overflow-x:auto}
-.flow .mermaid{display:flex;justify-content:center;min-width:0}
+.flow .dg{position:relative;padding:0}
+.flow .mermaid{display:block;min-width:0}
+
+/* the window a diagram is explored through */
+.vp{
+  position:relative;overflow:hidden;background:var(--surface);
+  cursor:grab;touch-action:pan-y;outline:none;
+}
+.vp.grabbing{cursor:grabbing;user-select:none}
+.vp:focus-visible{box-shadow:inset 0 0 0 2px var(--accent)}
+.cv{transform-origin:0 0;will-change:transform;padding:16px 14px}
+.cv svg{display:block;max-width:100%;height:auto}
+
+/* controls, top right of the frame */
+.zoomer{
+  position:absolute;top:10px;right:12px;z-index:3;display:flex;align-items:center;gap:2px;
+  background:var(--surface);border:1px solid var(--rule);border-radius:8px;
+  box-shadow:var(--shadow);padding:2px;
+}
+.zoomer button{
+  appearance:none;border:0;background:transparent;color:var(--ink-2);
+  font-family:var(--font-mono);font-size:13px;line-height:1;
+  width:28px;height:26px;border-radius:6px;cursor:pointer;
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease);
+}
+.zoomer button:hover{background:var(--surface-hover);color:var(--ink)}
+.zoomer button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.zoomer button[disabled]{opacity:.35;cursor:default;background:transparent;color:var(--ink-2)}
+.zoomer .pct{
+  font-family:var(--font-mono);font-size:11px;color:var(--ink-3);
+  min-width:42px;text-align:center;font-variant-numeric:tabular-nums;
+}
+.zoomer .fit{width:auto;padding:0 9px;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase}
+.zoomhint{
+  position:absolute;left:14px;bottom:10px;z-index:2;pointer-events:none;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;color:var(--ink-3);
+  background:color-mix(in srgb, var(--surface) 86%, transparent);padding:3px 7px;border-radius:5px;
+  opacity:0;transition:opacity var(--dur) var(--ease);
+}
+.vp:hover + .zoomhint,.vp:focus-visible + .zoomhint{opacity:1}
+@media (max-width:760px){ .zoomhint{display:none} }
 .flowmeta{
   display:flex;flex-wrap:wrap;gap:6px 16px;padding:11px 18px;border-top:1px solid var(--rule-soft);
   font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
@@ -717,7 +756,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 <header class="mast">
   <p class="eyebrow">Phase 03 &middot; Information architecture</p>
   <h1>What the product is made of, and how somebody gets through it</h1>
-  <p class="phasemeta">Phase <strong>3 of 12</strong> &middot; six of the lesson&rsquo;s seven steps &middot; started <strong>15 Sep 2026</strong>, and <strong>rewritten hard on 20 Sep</strong> when the adding mechanism changed, the product turned out to be online, and a critique found sixteen defects &middot; source of truth: <strong>CLAUDE.md</strong></p>
+  <p class="phasemeta">Phase <strong>3 of 12</strong> &middot; all seven of the lesson&rsquo;s steps &middot; started <strong>15 Sep 2026</strong>, and <strong>rewritten hard on 20 Sep</strong> when the adding mechanism changed, the product turned out to be online, and a critique found sixteen defects &middot; source of truth: <strong>CLAUDE.md</strong></p>
   <p class="standfirst">Sixteen entities, seven screens, six places and seven flows for <strong>AI Stack Builder</strong> &mdash; derived from the jobs of phase 02 and never from anybody&rsquo;s product. <strong>Nothing here decides how it looks</strong>, and since 20 Sep nothing here decides how it is built either: every line is about what a person sees and what a surface may claim.</p>
   <dl class="facts">
     <div><dt>Entities</dt><dd>16<small>11 refused</small></dd></div>
@@ -900,6 +939,8 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
   <p><strong>Waits and failures are named in words under each flow and deliberately not drawn.</strong> The product is online, so every read and write crosses a network &mdash; and putting that in the diagrams would have doubled every graph to say one thing eight times. <em>What ordinary waiting looks like is a composition decision and belongs to phase 04.</em></p>
 
+  <p class="tnote"><strong>Every diagram is a window you can move around in.</strong> Drag to pan, <strong>Ctrl or &#8984; with the scroll wheel</strong> to zoom, <code>Fit</code> for the whole shape and <code>1:1</code> to come back &mdash; and the keyboard works too, once a frame has focus. <strong>The plain scroll wheel is left alone</strong>, because a diagram that eats the page scroll is a diagram you cannot get past. The tallest of these is <strong>3,528 pixels</strong> at full width; <em>a window is the honest way to show it, and it is why the page does not decide for you whether the shape or the labels matter more.</em></p>
+
   <figure class="flow">
   <figcaption><b>The main job — &quot;when something I have already got working has to live somewhere else, I want it to keep working there&quot;</b>Flow 1 of 8</figcaption>
   <div class="dg"><pre class="mermaid">flowchart TD
@@ -954,7 +995,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class C2,C3,F,M2,M3,O,S,W,Z state
     class AB,AD win
     class AE dead</pre></div>
-  <div class="flowmeta"><span>Nodes <b>31</b></span><span>Edges <b>38</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>31</b></span><span>Edges <b>40</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
 </figure>
 
   <figure class="flow">
@@ -996,7 +1037,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class F,G,H,J,N,Q state
     class S win
     class C dead</pre></div>
-  <div class="flowmeta"><span>Nodes <b>21</b></span><span>Edges <b>23</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>21</b></span><span>Edges <b>25</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
 </figure>
 
   <figure class="flow">
@@ -1040,7 +1081,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class C,D,F,K,N,R state
     class W win
     class U cost</pre></div>
-  <div class="flowmeta"><span>Nodes <b>22</b></span><span>Edges <b>25</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>none</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>22</b></span><span>Edges <b>27</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>none</b></span></div>
 </figure>
 
   <figure class="flow">
@@ -1071,7 +1112,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class C,E,J state
     class H win
     class L dead</pre></div>
-  <div class="flowmeta"><span>Nodes <b>12</b></span><span>Edges <b>12</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>12</b></span><span>Edges <b>14</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
 </figure>
 
   <figure class="flow">
@@ -1108,7 +1149,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class B,D,I,L,O,P state
     class G win
     class R cost</pre></div>
-  <div class="flowmeta"><span>Nodes <b>18</b></span><span>Edges <b>18</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>none</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>18</b></span><span>Edges <b>20</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>none</b></span></div>
 </figure>
 
   <figure class="flow">
@@ -1150,7 +1191,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class U win
     class P cost
     class G dead</pre></div>
-  <div class="flowmeta"><span>Nodes <b>21</b></span><span>Edges <b>22</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>1</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>21</b></span><span>Edges <b>24</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>1</b></span></div>
 </figure>
 
   <figure class="flow">
@@ -1197,7 +1238,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class E,J,L,R,T,Y state
     class P,X win
     class H,Z cost</pre></div>
-  <div class="flowmeta"><span>Nodes <b>27</b></span><span>Edges <b>28</b></span><span>Done <b>2</b></span><span>Cost <b>2</b></span><span>Stuck <b>none</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>27</b></span><span>Edges <b>30</b></span><span>Done <b>2</b></span><span>Cost <b>2</b></span><span>Stuck <b>none</b></span></div>
 </figure>
 
   <figure class="flow">
@@ -1237,7 +1278,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
     class R,T win
     class M cost
     class C,S dead</pre></div>
-  <div class="flowmeta"><span>Nodes <b>20</b></span><span>Edges <b>19</b></span><span>Done <b>2</b></span><span>Cost <b>1</b></span><span>Stuck <b>2</b></span></div>
+  <div class="flowmeta"><span>Nodes <b>20</b></span><span>Edges <b>21</b></span><span>Done <b>2</b></span><span>Cost <b>1</b></span><span>Stuck <b>2</b></span></div>
 </figure>
 
   <p class="tnote"><strong>Two failures belong to every path and are named once.</strong> <strong>A session that expires mid-work</strong> &mdash; you return to where you were, nothing is re-run, nothing saved is lost, and you return to the <em>place</em>, not into the act, because <em>you were halfway through assembling a set</em> is not something this architecture can restore and it does not pretend to. And <strong>a second tab on the same account</strong>: sync means one person can now disagree with themselves. <strong>Single user has stopped meaning single writer</strong>, and the model has not noticed yet.</p>
@@ -1583,7 +1624,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 <!-- ============ OPEN ============ -->
 <section id="open" class="col">
   <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
-  <p class="qline">Six of the lesson&rsquo;s seven steps are done. <strong>What is not settled is listed rather than smoothed over.</strong></p>
+  <p class="qline">The lesson is finished. <strong>What is not settled is listed rather than smoothed over.</strong></p>
 
   <div class="tw">
     <table>
@@ -1634,6 +1675,172 @@ mermaid.initialize({
 });
 try { await mermaid.run({ querySelector: '.mermaid' }); }
 catch (e) { console.error('[ia] mermaid failed', e); }
+
+/* ---------------------------------------------------------------------------
+   Pan and zoom, one instance per diagram frame.
+
+   Three rules this obeys, and each of them is a decision rather than a default.
+   The plain wheel is never hijacked — it scrolls the page, and zooming asks for
+   Ctrl or Cmd, because a diagram that eats the scroll is a diagram you cannot
+   get past. A press is a click until it has travelled 5px, and the move and up
+   handlers go on the window rather than on a captured pointer: the same rule the
+   horizontal bars on these pages already follow, and for the same reason.
+   And the default view is exactly what the page showed before this existed —
+   the diagram fitted to the column width — so nothing was traded for the
+   feature. What changed is that a tall one is now explored in a window instead
+   of pushing the rest of the page down; FIT is there for when the shape matters
+   more than the labels.
+--------------------------------------------------------------------------- */
+(function(){
+  var MIN = 0.35, MAX = 5, HARD = 0.08;
+  var CAP = Math.min(Math.round(window.innerHeight * 0.78), 760);
+
+  function make(fig){
+    var dg = fig.querySelector('.dg');
+    var host = dg.querySelector('.mermaid');
+    var svg = host && host.querySelector('svg');
+    if (!svg) return;
+
+    var vp = document.createElement('div');
+    vp.className = 'vp';
+    vp.tabIndex = 0;
+    vp.setAttribute('role', 'group');
+    vp.setAttribute('aria-label', 'Diagram, pan and zoom');
+    var cv = document.createElement('div');
+    cv.className = 'cv';
+    dg.insertBefore(vp, host);
+    vp.appendChild(cv);
+    cv.appendChild(host);
+
+    var bar = document.createElement('div');
+    bar.className = 'zoomer';
+    bar.innerHTML =
+      '<button type="button" data-a="out" title="Zoom out" aria-label="Zoom out">&minus;</button>' +
+      '<span class="pct">100%</span>' +
+      '<button type="button" data-a="in" title="Zoom in" aria-label="Zoom in">+</button>' +
+      '<button type="button" class="fit" data-a="fit" title="Fit the whole diagram">Fit</button>' +
+      '<button type="button" class="fit" data-a="reset" title="Back to full width">1:1</button>';
+    dg.appendChild(bar);
+
+    var hint = document.createElement('p');
+    hint.className = 'zoomhint';
+    hint.textContent = (navigator.platform.indexOf('Mac') === 0 ? '\u2318' : 'Ctrl') +
+                       ' + scroll to zoom \u00b7 drag to pan';
+    dg.appendChild(hint);
+
+    var k = 1, x = 0, y = 0, natural = 0;
+
+    /* The floor is 0.35 for anything the wheel or the buttons do — small enough to
+       take in a graph, large enough that nobody loses one by accident. But a tall
+       diagram does not fit at 0.35, and Fit is a deliberate request to see the whole
+       thing, so the floor follows it down rather than quietly zooming back in. */
+    function fitK(){
+      return Math.max(HARD, Math.min(1, (vp.clientHeight - 8) / Math.max(natural, 1)));
+    }
+    function floor(){ return Math.min(MIN, fitK()); }
+
+    function measure(){
+      var prev = cv.style.transform;
+      cv.style.transform = 'none';
+      natural = cv.scrollHeight;
+      cv.style.transform = prev;
+      vp.style.height = Math.min(natural, CAP) + 'px';
+    }
+
+    function clamp(){
+      var vw = vp.clientWidth, vh = vp.clientHeight;
+      var cw = cv.offsetWidth * k, ch = natural * k;
+      var edge = 48;
+      x = cw <= vw ? Math.max(Math.min(x, vw - cw), 0) || (vw - cw) / 2
+                   : Math.min(Math.max(x, vw - cw - edge), edge);
+      y = ch <= vh ? 0
+                   : Math.min(Math.max(y, vh - ch - edge), edge);
+    }
+
+    function apply(){
+      clamp();
+      cv.style.transform = 'translate(' + x + 'px,' + y + 'px) scale(' + k + ')';
+      bar.querySelector('.pct').textContent = Math.round(k * 100) + '%';
+      bar.querySelector('[data-a="out"]').disabled = k <= floor() + 1e-6;
+      bar.querySelector('[data-a="in"]').disabled = k >= MAX - 1e-6;
+    }
+
+    function zoomAt(f, px, py){
+      var nk = Math.min(MAX, Math.max(floor(), k * f));
+      if (nk === k) return;
+      x = px - (px - x) * (nk / k);
+      y = py - (py - y) * (nk / k);
+      k = nk;
+      apply();
+    }
+
+    function reset(){ k = 1; x = 0; y = 0; apply(); }
+    function fit(){
+      k = fitK();
+      x = (vp.clientWidth - cv.offsetWidth * k) / 2;
+      y = 0;
+      apply();
+    }
+
+    vp.addEventListener('wheel', function(e){
+      if (!(e.ctrlKey || e.metaKey)) return;      /* the page keeps the plain wheel */
+      e.preventDefault();
+      var r = vp.getBoundingClientRect();
+      zoomAt(Math.exp(-e.deltaY * 0.0022), e.clientX - r.left, e.clientY - r.top);
+    }, { passive: false });
+
+    vp.addEventListener('pointerdown', function(e){
+      if (e.button !== 0 || e.pointerType === 'touch') return;
+      var sx = e.clientX, sy = e.clientY, ox = x, oy = y, moved = false;
+      function mv(ev){
+        var dx = ev.clientX - sx, dy = ev.clientY - sy;
+        if (!moved && Math.abs(dx) + Math.abs(dy) < 5) return;
+        if (!moved) { moved = true; vp.classList.add('grabbing'); }
+        x = ox + dx; y = oy + dy; apply();
+      }
+      function up(){
+        window.removeEventListener('pointermove', mv);
+        window.removeEventListener('pointerup', up);
+        vp.classList.remove('grabbing');
+      }
+      window.addEventListener('pointermove', mv);
+      window.addEventListener('pointerup', up);
+    });
+
+    vp.addEventListener('keydown', function(e){
+      var step = e.shiftKey ? 90 : 32, used = true;
+      if (e.key === '+' || e.key === '=') zoomAt(1.2, vp.clientWidth / 2, vp.clientHeight / 2);
+      else if (e.key === '-' || e.key === '_') zoomAt(1 / 1.2, vp.clientWidth / 2, vp.clientHeight / 2);
+      else if (e.key === '0') reset();
+      else if (e.key === 'ArrowLeft')  { x += step; apply(); }
+      else if (e.key === 'ArrowRight') { x -= step; apply(); }
+      else if (e.key === 'ArrowUp')    { y += step; apply(); }
+      else if (e.key === 'ArrowDown')  { y -= step; apply(); }
+      else used = false;
+      if (used) e.preventDefault();
+    });
+
+    bar.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if (!b) return;
+      var a = b.getAttribute('data-a');
+      if (a === 'in')  zoomAt(1.25, vp.clientWidth / 2, vp.clientHeight / 2);
+      if (a === 'out') zoomAt(1 / 1.25, vp.clientWidth / 2, vp.clientHeight / 2);
+      if (a === 'fit') fit();
+      if (a === 'reset') reset();
+    });
+
+    var t;
+    window.addEventListener('resize', function(){
+      clearTimeout(t);
+      t = setTimeout(function(){ measure(); apply(); }, 150);
+    });
+
+    measure();
+    apply();
+  }
+
+  document.querySelectorAll('figure.flow').forEach(make);
+})();
 </script>
 
 <script>
