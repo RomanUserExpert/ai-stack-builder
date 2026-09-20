@@ -27,6 +27,18 @@ cells.** Where a structural decision would need one of those cells to be a numbe
 and leave the decision marked — do not invent the person. Recorded in the register at
 [`research/research-plan.md`](research/research-plan.md).
 
+**2026-09-20 — lesson 03 changed the builder's mechanism, and the protocol above was followed.** Four
+entries were raised and answered the same day (§12, Q14–Q17), and **two of them change this file**.
+**The `⌘K` palette is replaced by a library panel inside `Project`** — scope switch above tabs by
+`kind`, `Related` first and default, read-and-add only, drag still not the mechanism — and **the
+Library leaves the assembly path** and becomes the curator's room (§8). **A single item exports on its
+own** (§6). Two smaller ones follow: **an empty project is an empty state whose `Check` and `Export`
+are disabled**, the product's only such exception and written down as one (§6), and **deleting a
+library item is confirmed rather than refused** (§5). **The basis is the owner's judgement plus one
+correction of the record**: the score that killed a library pane in stage 5 — *half the screen is inert
+during the check* — assumed the check lived in the right-hand pane, and it has had its own surface
+since 2026-09-02. **No mark was promoted by any of it.**
+
 **Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
 the key flow takes. None of them established **who the person is** or **what they hire this product
 for**. Stages 6 and 7 do that:
@@ -169,7 +181,7 @@ product *is* before anything decides what it looks like.
 |---|---|---|
 | **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
 | **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
-| **03** | **Information architecture** | ← **under way**, started 2026-09-15 · [the plan](03-information-architecture/README.md). The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the palette reaches, what an item card carries |
+| **03** | **Information architecture** | ← **under way**, started 2026-09-15 · [the plan](03-information-architecture/README.md). The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
 | **04** | Prototyping and wireframing | Structure before appearance — no colour, no type scale, no components |
 | **05** | Tone of voice and microcopy | §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
 | **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
@@ -397,6 +409,24 @@ is **not built in the MVP**. Flow 05 found there is no prior art for a return pa
 origin at detach — so this one is invented rather than copied; see
 `research/2-flows/05-linked-vs-detached/NOTES.md`.
 
+**Deleting an item is confirmed, never refused** (decided 2026-09-20, answering Q17 — *this section had
+no delete at all*). A live link means a project's row depends on an item the project does not own, so
+removing the item from the Library reaches every project holding it, **and a `requires` edge from
+another item may be left pointing at nothing**, which §6 then reports as an unresolvable requirement in
+a set nobody touched. So the product names the consequence in the present tense and lets the person
+act:
+
+> **`db-migrate` is used in 3 projects. Deleting it may stop them working.** · **Delete** · **Cancel**
+
+Same discipline as an unclean export (§6) and as material coming in (§11): **name the cost before the
+irreversible step.** *Nothing blocks.* The count is the one the Library row already computes, and the
+dangling-`requires` half is stated too, because a project count does not cover it.
+
+**One thing is open and is not invented here.** A **detached** row holds its own content in
+`overrides`. When the library original is deleted, **does that row survive as a local copy or go with
+it?** Both are arguable, and nothing in this section answers it. Recorded in the register under Q17 and
+left to lesson 03's step 5.
+
 **What an item card claims, and what it never claims** (decided 2026-09-01). Trust in a *set* comes
 from the validation pass. The only per-item evidence we show is derived from the library itself —
 *used in 3 projects*, *2 items require this*, *last exported 12 days ago*. Those are usage facts, not
@@ -556,6 +586,15 @@ Decided 2026-09-01. Every finding is one of:
 - **Skipped** — the check had nothing to check. It gets its own neutral glyph: not a green tick it
   did not earn, and not a red one it does not deserve.
 
+**A Problem is a property of a set of two or more; a Note is a property of one item** (stated
+2026-09-20 with Q15, and it was always true). Every Problem in the list above needs **two** items — a
+duplicate command name, a shared target path, a declared conflict — or a `requires` edge with nothing
+on the far end. **So a bare item, one whose resolved set is itself, cannot produce a Problem at all.**
+Every Note can stand alone: a missing env name, an unpinned `ref`, a deference. **The care needed
+here:** an item that **drags things in** is no longer bare — the walk gives it a set, and that set
+collides like any other. *A single item is always safe* is therefore false, and the sentence to use is
+**a bare item cannot produce a Problem**.
+
 **Export is never disabled.** Almost nothing makes an archive impossible to produce — a missing env
 key still zips, a duplicate command still zips, it is simply wrong inside. Blocking is therefore
 almost always a choice, and we do not make it, for three reasons. It is the user's own library on
@@ -569,6 +608,16 @@ Figma's export dialog does exactly what we are refusing — `0 of 0 selected` be
 property of this second's selection rather than of the document, and re-exporting costs nothing. Our
 Problems are properties of the project, the fix may be four items away, and the archive is the whole
 point of the product. See `research/4-benchmark/NOTES-figma-export.md`.
+
+**And there is exactly one exception, added 2026-09-20 with Q16, written down as an exception so it
+cannot spread.** **On a project with nothing in it, `Check` and `Export` are disabled.** The rule above
+is untouched, because it is a rule about **findings**: a set with Problems still exports, and an empty
+project has no findings — **it has no content**, so there is nothing to be wrong. **The test is the
+three conditions this file just used to excuse Figma, and all three hold here**: the blocker is one
+named action away — put something in it — it is a property of this second rather than of the project,
+and checking again costs nothing. **None of the three holds for a set with Problems**, which is why
+that case is still confirmed rather than blocked. **Any future exception has to pass the same three**,
+and an exception that cannot is not one.
 
 **Instead, an unclean export is confirmed.** Pressing Export on a set with Problems opens a
 confirmation that names the consequence in the present tense, in GitHub's mergebox register:
@@ -764,6 +813,33 @@ generated docs adapt:
 
 External repos are **never vendored into the archive** — they are always instructions.
 
+### A single item exports on its own
+
+**Decided 2026-09-20, answering Q15.** An item can be exported from the Library **without a project
+being built around it**. The reasoning it came with is right about the important half: **the project
+is what gets checked**, because every Problem needs a set (see *Three severities*).
+
+**But an item is not unconditionally self-contained, and four of its fields say so.** `requires`,
+`needsEnv`, `defersTo` and `targetPath` all survive the item leaving every project — and the last
+means **an agent target is still chosen**, because without one there is nowhere to put the file. An
+**external** item is still not a file: it leaves as an instruction to clone at its pinned `ref`, the
+same as it does inside a project.
+
+**The walk still runs.** An item that requires another **exports as a set of N items, named as one** —
+never as a bare file that will not work on arrival, which is the pain the whole product exists
+against. Nothing new is built: **it enters `Run`**, the same mode, from a Library row, as a third
+entry beside `Project` and `Shared project`. The target selector, the `SETUP.md` preview,
+`.env.example` and Export-as-the-final-stage are all already there, and for a bare item **most stages
+are `Skipped`**, which is what that glyph exists for.
+
+**Nothing is stored.** §6 puts the verdict on the **project**, and there is no project here — the same
+rule that already governs a visitor's run on a shared page.
+
+**It is not a new concept, only a new direction.** §8 already gives the shared item page *a way to take
+it — the archive, or a copy into their own library*. A single-item archive is in the specification
+already; what this adds is that the **owner** can produce one, from their own Library, with no link and
+no project.
+
 ---
 
 ## 7. Item states in the list
@@ -814,9 +890,18 @@ to read the scores behind it: the rubric grades craft, not weight.
 
 - **Library** — the full collection. Filters by kind and tag, search, add/edit form, and the
   per-item usage facts of §5. It is where you keep things, and **it is not part of the builder
-  flow**. (This is the change: an earlier draft put a filtered library sidebar inside the builder and
+  flow**. ~~(This is the change: an earlier draft put a filtered library sidebar inside the builder and
   made drag the mechanism. Drag does not survive 300 items, and a pane that cannot act during a check
-  is the mistake §6 and §9 already refuse elsewhere.)
+  is the mistake §6 and §9 already refuse elsewhere.)~~
+
+  **That sentence stays true and its reason changed on 2026-09-20** (Q14). There **is** a library
+  panel inside the builder now — see `Project` below — and **drag is still not the mechanism**, which
+  was always the real objection. What the two surfaces do is **divide, not duplicate**: the panel
+  answers *what goes in this set*, and **the Library answers *what do I own*** — read, curate, edit,
+  add, delete, usage facts, copy from the shelf, share an item, JSON in and out. **Assembly does not
+  send you here**, in the owner's words: *during building a project we will not open the library,
+  there is no need.* The Library is the **curator's room**, which is the primary persona's own ground
+  (§3, Q7).
 
   **It has two scopes, and one switch between them** (decided 2026-09-02): **`My library`** and
   **`Public library`**. Visually identical — same rows, same search, same filters — because they are
@@ -826,14 +911,51 @@ to read the scores behind it: the rubric grades craft, not weight.
   and never publish to it. This is how the product has material from the first second without putting
   someone else's work in a space labelled *mine* — see §11 for what ships and §5 for how public items
   behave.
-- **Project** — the set as a **list**, not a canvas and not a pane pair. `⌘K` adds items by name; the
-  palette is the only way the library reaches this screen, and it opens cold on **related** items —
-  the ones that require, or are required by, what is already in the set. Every row carries its own
+- **Project** — the set as a **list**, not a canvas and not a node graph. Every row carries its own
   state, including *detached* with the differing fields named (§7), and a finding annotates the row
   that owns it. **A detached row is also where that item is edited, reset and promoted** (§5, §7) —
   the project is the only place a local override exists, so it is the only place it can be worked on.
   Still *not* a node canvas: no hand-drawn edges, no execution order. The set is a set; relations
   come from the items and are surfaced here, not authored here.
+
+  ~~`⌘K` adds items by name; the palette is the only way the library reaches this screen, and it
+  opens cold on **related** items.~~ **Superseded 2026-09-20, Q14: the library reaches this screen as a
+  panel, and the palette is gone.**
+
+  **The library panel** sits beside the set and is the only corpus surface the builder has. It carries
+  **two levels of filter and they are not the same kind of thing**: a **scope switch** above —
+  `My library` · `Public library`, because that changes *whose work it is and what you may do with
+  it* — and **tabs by `kind`** below, because that is only a typology. **The first tab is `Related`
+  and it is the default**: the items that require, or are required by, what is already in the set.
+  That tab **is** the mitigation the palette used to carry, and it is load-bearing for the same reason
+  — a typological index answers *what exists*, and `Related` answers *what belongs here*. Search
+  filters within the current scope and tab, and **a zero result still carries the row that creates**,
+  so the first item and the thousandth arrive through the same control.
+
+  **The panel reads and adds. It never edits.** Editing is the Library's add/edit overlay and stays
+  there — the panel would otherwise be a second library, and two renderings that can both change things
+  drift within a month.
+
+  **The one exception is the row that creates, and it is an exception to *where*, not to *what*.** A
+  zero result offers to author the missing item, and that opens **the same add/edit overlay, summoned
+  over the Project.** Nothing is edited in the panel; what the panel does is **summon the authoring
+  surface**, because **creating is a corpus act and assembling is not**, and the person needing it is
+  mid-assembly. **This is the overlay's third door** — after the Library row and the Library's *add* —
+  and the overlay is already the product's busiest disclosure surface, carrying the keys warning, the
+  blast radius and `defersTo` (§5, §11). **Lesson 03 recorded that as thin ice before this door
+  existed**; it is now one door thinner, and composing it is lesson 05's first job on this surface.
+
+  **Membership is shown in the panel and owned by the row.** A row already in the set reads as checked.
+  **Removal is an `✕` on the project row, and it unchecks the panel** — one fact in two places, with
+  the action living where the membership does. **An auto-added row refuses**, exactly as §6 says: it
+  cannot be unchecked from either side while the item that pulled it in is still in the project, and
+  what it says is *remove what dragged it in*. That is the product's only refusal and the panel
+  inherits it rather than softening it.
+
+  **A project with nothing in it is an empty state** (2026-09-20, Q16). The body carries **one**
+  action, which leads to putting the first item in, and **`Check` and `Export` are disabled** — see §6
+  for why that is an exception to a rule this file otherwise holds to, and what test any future
+  exception has to pass.
 - **Run** — entered by **Check**, and it takes the whole surface: a stack of stages, each with its
   own verdict, duration and expansion, in the shape of a Vercel deployment page. The file tree of the
   future archive, the env variable list and the agent target selector live here, and **Export is the
@@ -860,10 +982,28 @@ to read the scores behind it: the rubric grades craft, not weight.
   since — *what* changed instead of a verdict that is no longer true. Never *works*: **checked**. **Not visibility** — §9 keeps that control out
   of the MVP interface entirely, and this line used to say otherwise. Corrected 2026-09-02.
 
-**The known cost of this choice.** With no library pane in the builder, you cannot see what you are
-not using. Three things carry that weight and are therefore load-bearing, not decorative: the
-palette opening on related items, the Library being one keystroke away and remembering where you
-were, and per-item usage facts doing the work a visible pane would otherwise do.
+**The known cost of this choice — rewritten 2026-09-20, because the panel paid most of it.**
+~~With no library pane in the builder, you cannot see what you are not using.~~ That was the cost, and
+the three things that carried it were the palette opening on related items, the Library one keystroke
+away, and per-item usage facts. **Where each one went, because none of them may quietly disappear:**
+
+- **Opening on *related* — kept, and re-homed.** It is the panel's first and default tab. It was the
+  strongest of the three and it is the one thing the panel could most easily have lost by becoming a
+  plain alphabetical index of everything.
+- **The Library one keystroke away — changed in meaning.** It no longer pays for assembly, because
+  assembly does not go there (Q14). It still pays for the corpus acts: *the first screen is where you
+  were*, and the Library remembers its place.
+- **Per-item usage facts — unchanged and still load-bearing.** *Used in 3 projects*, *2 items require
+  this* do work no pane does: the panel shows what you own, and only the facts show what it costs to
+  touch it.
+
+**And the cost that replaced it, stated as plainly as the old one.** An item now **renders twice** —
+as a panel row and as a set row — and the panel structurally cannot show *detached*, *auto-added by
+X* or *conflicting*, because those are properties of membership and not of the item. **The set row is
+the only place an item's state is true.** The second cost is **width**: the project row is the widest
+thing in the product, and the room it needs for `item · rule · observed value` is now shared with a
+panel. That one is measurable rather than arguable and belongs to lesson 05 — write the longest real
+row and see whether it survives.
 
 ---
 
@@ -1001,7 +1141,19 @@ together in a sitting, once the picture is whole, rather than one at a time on p
 not keep a second list in this file; two lists drift, and this document has already been bitten by
 that twice. **The protocol outlived the research phase** — every lesson after it uses the same register.
 
-**None are live as of 2026-09-15 — the sitting was held.** **Q7 — the primary persona — is the
+**Live as of 2026-09-20: Q9, Q11 and Q12 — deferred at the sitting — plus Q16 and Q17, each raised and
+answered on 2026-09-20 with one named question left open.** *This line read "none are live" between
+2026-09-15 and 2026-09-20.* **Lesson 03 raised four entries on 2026-09-20 and the owner answered all
+four the same day**, on the precedent of the `license` field and `defersTo`: **Q14 — a library panel
+inside `Project` replaces the `⌘K` palette**, with the Library leaving the assembly path (§8);
+**Q15 — a single item exports on its own**, the walk still running (§6); **Q16 — an empty project is an
+empty state with `Check` and `Export` disabled**, the product's one named exception (§6), leaving open
+whether **counts are a wide enough channel for a verdict**, since `0 problems · 0 notes` reads the same
+on an empty set and a perfect one; and **Q17 — deleting a library item is confirmed, never refused**
+(§5), leaving open **what happens to a detached row whose original is deleted**. The reasoning is in
+[`research/research-plan.md`](research/research-plan.md), the four dated sections at the end.
+
+**None were live between 2026-09-15 and 2026-09-20 — the sitting had been held.** **Q7 — the primary persona — is the
 collector**, which resolves `personas.md`'s merge toward its collecting half; **Q8 — the main job — is
 *assemble a set that holds together*, so §2 stands as written** and the *transfer* wording the
 evidence produced is recorded in `jtbd.md` §1 and not adopted; **Q10 — an external requirement beats

@@ -22,6 +22,17 @@ the main job and RJ-1 to RJ-4 — which **returned no new screen** and three con
 could not show. **Routes are still not written**, and the two questions the tree handed the
 classification are both answered: **`Item` is a form** and **`Run` is a mode**.
 
+**Status, 2026-09-20: the builder's adding mechanism changed, and the record was brought up to it.**
+Four register entries were raised and answered the same day (Q14–Q17). **The `⌘K` palette is replaced
+by a library panel inside `Project`** — a scope switch over `kind` tabs, `Related` first and default,
+read-and-add only — **and the Library leaves the assembly path**, becoming the curator's room.
+**A single item exports on its own**, the dependency walk still running. **An empty project is an
+empty state with `Check` and `Export` inert**, the product's one named exception. **Deleting a library
+item is confirmed rather than refused.** Every step above was re-checked against them: **the place
+count held at five**, and [`flows.md`](flows.md) now walks **six paths in seven diagrams** — the main
+job **lost four nodes and four edges**, because the panel absorbed an excursion and Q16 removed a
+branch. **No numbered step advanced on 2026-09-20; the existing ones were made true again.**
+
 **The order moved, deliberately, and step 2b then closed what the tree opened.** The tree was drawn
 before the classification because the owner asked for the hierarchy first, and it worked: a screen tree
 with no addressability in it **produced** the classification's hardest questions rather than needing
@@ -51,7 +62,7 @@ nothing else.** Six register entries keep their dispositions, four proposal list
 ## What this lesson is for
 
 **§8 is a choice. A choice is not a structure.** Four surfaces and a seam tell you nothing about what
-is addressable, what a screen is made of, what the palette can reach, what an item card carries in the
+is addressable, what a screen is made of, what the library panel can reach, what an item card carries in the
 five places an item appears, or where a finding attaches. This lesson produces that, and produces it
 **without appearance**: no colour, no type scale, no grid, no layout, no component named in a way that
 implies a look. The boundary is the one [`5-patterns/patterns.md`](../research/5-patterns/patterns.md)
@@ -84,12 +95,19 @@ An onboarding tour, a getting-started surface, a *recommended for you* sort — 
 a person who has never been observed. They may be drawn, but only **marked `[?]` and named as
 hypotheses**, and never load-bearing for anything else in the map.
 
-**4. Smoothing over the load §8 deliberately took on.** §8 bought a known cost: *with no library pane
+**4. Smoothing over the load §8 deliberately took on.** ~~§8 bought a known cost: *with no library pane
 in the builder you cannot see what you are not using*, and three things carry that weight — the
 palette opening on **related** items, the Library being one keystroke away and remembering where you
-were, and per-item usage facts. **The IA has to show where that weight lands.** Quietly restoring a
-library pane, or a sidebar of *everything*, reverses a decision this lesson has no standing to
-reverse.
+were, and per-item usage facts.~~ **Superseded 2026-09-20, Q14 — and read the change carefully, because
+this trap is the one it is easiest to claim was sprung.** The owner **did** restore a library panel,
+and the lesson did **not** do it quietly: it went to the register as an entry, was answered by the
+owner, and carried a correction of the record — the score that killed a pane in stage 5 assumed the
+check lived in the right-hand pane, and it has had its own surface since 2026-09-02. **The trap was
+never *a pane is forbidden*; it was *a pane arriving by drift rather than by decision.*** The
+obligation the trap names survives intact: **the IA has to show where the weight lands**, and the
+three mitigations are rewritten rather than dropped in `sitemap.md` §Navigation — `Related` first in
+the panel, the Library one keystroke away for corpus acts only, and per-item usage facts unchanged.
+**A sidebar of *everything*, with no `Related` and no scope, would still spring it.**
 
 **5. Building on proposals that are not applied.** Four lists wait for the sitting, and one of them
 changes the shape of the central noun: **S-2 — an item addresses a directory, not a file**
@@ -179,9 +197,10 @@ link to.
 
 ### 4. Getting between places, and what is remembered
 
-The palette's reach and its **cold state** (§8 says *related* items — that is a structural claim with
-a mechanism behind it), the seam at Check, what Back does from Run, what survives a reload, and the
-Library remembering where you were. **Each entry says which of §8's three load-bearing mitigations it
+The **library panel's** reach and its **cold state** (§8 says *related* items, now the panel's first and
+default tab — that is a structural claim with a mechanism behind it; *this step was written when the
+mechanism was the `⌘K` palette, superseded 2026-09-20 by Q14*), the seam at Check, what Back does from
+Run, what survives a reload, and the Library remembering where you were. **Each entry says which of §8's three load-bearing mitigations it
 implements**, so trap 4 is visible rather than avoided by silence.
 
 **Output:** `sitemap.md` §4.
@@ -198,8 +217,9 @@ to how new the concept is.*
 
 ### 6. The item, in every context and every state
 
-One table of **six** contexts — library row, public-shelf row, project row, palette result,
-archive-tree leaf, **and the shared page somebody else opens** (added 2026-09-15 with Q13) — against
+One table of **six** contexts — library row, public-shelf row, project row, **panel row** (*was: palette
+result — Q14, 2026-09-20*), archive-tree leaf, **and the shared page somebody else opens** (added
+2026-09-15 with Q13) — against
 what an item carries in each. **The sixth is the hard one**: it is read by a person who wrote none of
 it, and it is the only context where getting it wrong is visible outside this machine. Then §7's six states against those contexts, saying
 **which context has to be able to render which state**, and where state 6's three commands live. Plus

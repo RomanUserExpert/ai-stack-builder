@@ -457,7 +457,8 @@ the category a natural home*. Full write-up:
 > single control — **Check** — which is the natural boundary anyway.
 
 **Library** (browse, filter, add, edit; two scopes, `My library` and `Public library`) → **Project**
-(the set as a list; `⌘K` adds by name; every row carries its own state) → **Run** (entered by Check;
+(the set as a list; **a library panel** adds by name — *`⌘K` until 2026-09-20, replaced by the panel
+under Q14*; every row carries its own state) → **Run** (entered by Check;
 stages with verdicts and durations; **Export is the final stage**, not a button beside the check).
 
 Written into [`CLAUDE.md`](../CLAUDE.md) §8, and confirmed 2026-09-02 when the open questions closed —

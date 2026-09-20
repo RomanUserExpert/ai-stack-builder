@@ -104,6 +104,12 @@ One reusable block. The atomic unit, and the thing every other entity is about.
   to, declared by hand, raising a Note wherever the item sits in a set (§6).*
 - **Parts that are not fields.** Its **usage facts** (E14) and, when external, its **provenance**
   (E15). Both are derived or borrowed rather than authored.
+- **It can leave on its own, and it can be deleted** — both added 2026-09-20. **Export (Q15):** an item
+  exports from the Library without a project, **the dependency walk still running**, so an item with
+  `requires` leaves as a set of N named as one; an agent target is still chosen because `targetPath`
+  needs one, and an external item still leaves as an instruction. **A bare item cannot produce a
+  Problem** — every Problem needs two — but it produces any Note. **Delete (Q17):** confirmed, never
+  refused, naming the projects that hold it *and* that a `requires` edge may be left dangling (§5).
 - **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — an item is what has to keep
   working somewhere else. And [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it):
   *fix it once and have the fix reach every copy* is only possible because the item exists **once** and
@@ -131,6 +137,13 @@ Everything the owner owns, across all projects.
   it says so; it is therefore **not one of §6's three severities**, and it does not block. *This
   replaced the credential refusal §6 carried for one day — see §6 and the register.* **Structurally it
   matters here because this entity has exactly one way in**, so there is exactly one place to say it.
+- **And as of 2026-09-20 it has three ways out, which is one more than it had.** The archive built from
+  a project (E11), **a single item exported on its own** (Q15, E1), and a **share link** (E16). *This
+  matters to the warning above*: it was justified by *what comes in goes out in every archive built from
+  it*, and that sentence now covers one more exit than when it was written. **Nothing about the warning
+  changes** — it was never exit-specific, which was the point of putting it at the entrance.
+- **The way out that is not an exit: delete** (Q17, 2026-09-20). Confirmed rather than refused, and the
+  count it names is E14's. **What happens to a detached row whose original is deleted is open.**
 - **Job.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
   needs one home, or a fix has nowhere to land that reaches anything. The *finding* job —
   [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list),
@@ -152,6 +165,12 @@ A curated, read-only set that ships with the application.
   items writing to one target path.
 - **Job.** [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
   — *get moving with material somebody else made.*
+- **Reachable during assembly since 2026-09-20** (Q14). The library panel carries the same scope
+  switch the Library screen does, so the shelf is one control away **inside the Project**, which is
+  what makes it answer cold start where it actually bites: `My library` is empty on first run by §11,
+  and until now the way to the shelf led out of the builder and back. **This raises the shelf's
+  stakes rather than its evidence** — it is more load-bearing and no better established, and Q9, what
+  it holds and how it sorts, is still unanswered.
 - **Relation.** **Consumer** of somebody else's work, and **External author** for every item on it.
   The user is a consumer here and an owner everywhere else, which is the only place in this inventory
   where that flips.
@@ -198,6 +217,13 @@ sentence.
 - **Parts.** `overrides` is **keyed by field**, which is what lets a row **name the fields that
   differ** rather than only that some do (§7, flow 05). Revert therefore exists at **two
   granularities** — the whole item and a single field.
+- **This entity is what the library panel's checkbox is about** (Q14, 2026-09-20), and saying so
+  prevents a misreading. A checked row in the panel does not mean *this item is special*; it means
+  **a `ProjectItem` exists for it in this project**. That is why **removal lives on the project row as
+  an `✕`** and merely unchecks the panel: the row *is* the membership, and the panel is a view of it.
+  And it is why `addedBy: dependency` **refuses** — you cannot delete a membership the walk will
+  recreate while its puller is there (§6). **A checkbox that refuses to clear is the honest rendering
+  of this field**, not a defect in the control.
 - **Job.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
   — the live link is *the one mechanism in the specification that exists for exactly that job*. And
   [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
@@ -362,6 +388,12 @@ What a project becomes. The product's stated wow moment (§2).
   never vendored** · **all MCP servers merged into one config**, where a key collision is a Problem and
   **two items declaring the same key at different `ref`s is a collision too** · **`.env.example`** ·
   **`SETUP.md`** (E12) · everything named for the chosen **agent target** (E13).
+- **It has a second source since 2026-09-20** (Q15). An archive is normally what a **project**
+  becomes; it can now also be what a **single item** becomes, exported from the Library with no
+  project around it. **The parts are identical** — the walk runs, the target is chosen, external stays
+  an instruction, `.env.example` and `SETUP.md` are produced — and for a bare item most of them are
+  empty, which the run reports as `Skipped`. **What differs is what is left behind: nothing**, because
+  §6 puts the verdict on the project and there is no project (E4, E8).
 - **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — this is the move ·
   [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work).
 - **Relation.** **Consumer.** It is the only thing in this inventory that leaves the owner's machine,
@@ -409,6 +441,10 @@ The handover document, **addressed to the agent that opens the project** and not
   §6 made `SETUP.md` an agent's document, **it also selects the reader**.
 - **Not a record in §5.** It is a choice made before export. **Where it lives — on the project, on the
   run, or nowhere but the moment — is `[?]`** and is a question for step 3, not for this section.
+- **A single-item export needs one too** (Q15, 2026-09-20), and that sharpens the open question rather
+  than answering it: `targetPath` is meaningless without a target, so **even one item cannot leave
+  without this choice** — and there is no project to hold it. **Whichever way step 3 goes, *on the
+  project* cannot be the whole answer.**
 - **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job). *A second tool* is the first
   clause of the main job.
 - **Relation.** Consumer — it describes the receiving environment; the owner chooses it.
@@ -440,6 +476,13 @@ The only per-item evidence the product ships. **Derived from the library, never 
   read a blast radius, **the form states it before any field is editable** — *used in 3 projects ·
   saving un-checks all three* (§5, §6). So this entity is doing **two jobs on one surface**: telling the
   owner what they have, and telling them what they are about to disturb.
+- **A third reading was added on 2026-09-20: the delete confirmation** (Q17). *`db-migrate` is used in
+  3 projects. Deleting it may stop them working.* **The count now carries three different weights on
+  three different surfaces** — informative on the row, cautionary before an edit, and consequential
+  before a deletion — **and the open question below bites hardest on the third.** A count that silently
+  includes detached copies understates an edit's reach; on a deletion it **overstates** it, because a
+  detached row holds its own `overrides` and may not break at all. **Two surfaces reading one number in
+  opposite directions is a step 5 problem, and it is named here rather than discovered there.**
 - **Open, and [`flows.md`](flows.md) is what found it. `[?]`** *Used in 3 projects* counts **every**
   project holding the item, linked and **detached** alike — and a detached copy **by design does not
   receive the fix** (E5, §5). So the one number the owner reads before an edit with blast radius
@@ -548,6 +591,10 @@ the point of the mark.
         │
         └── Project ................................... [MAIN] [RJ-2]
               │
+              ├── Library panel — a region, not a screen  [MAIN] [RJ-2]
+              │     Q14, 2026-09-20. Scope switch over kind tabs,
+              │     Related first. Reads and adds; never edits
+              │
               └── Detached row — edit, reset, promote .. [H-J3]
 
 3 · WHAT LEAVES  — the thing that has to work somewhere else
@@ -563,10 +610,13 @@ the point of the mark.
         a way to take it — the archive, or a copy into their own library
 ```
 
-**Six screens and one orphan, and the tree lists two nodes that are not screens** — the `Item`
-add/edit form, an **overlay** on the Library (§8, kept 2026-09-16), and the **detached row**, a mode
-inside Project. *An earlier count here said five and was stale: it predates the two surfaces Q13
-added.* The three groups are the person's own three situations, in the order
+**Six screens and one orphan, and the tree lists three nodes that are not screens** — the `Item`
+add/edit form, an **overlay** on the Library (§8, kept 2026-09-16), the **detached row**, a mode
+inside Project, and, since 2026-09-20, the **library panel**, a region of Project (Q14). *An earlier
+count here said five screens and was stale: it predates the two surfaces Q13 added. The non-screen
+count was two until the panel replaced the palette.* **The screen count did not change when the
+builder's mechanism did**, which is the thing worth noticing: a palette that was an overlay became a
+panel that is a region, and no place was created by either. The three groups are the person's own three situations, in the order
 [`personas.md`](../research/6-personas/personas.md) records them: *copying something out of the
 collection into a new project · adding a rule right after an agent did something annoying · hunting
 for something they know they wrote.* They are not navigation sections and should not become a menu in
@@ -580,6 +630,7 @@ step 3 — they are why the screens exist.
 | **Item** — *not a screen: an overlay* (§8, 2026-09-16) | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | *Fix this once*, and see who else it reaches before touching it — **which the form must say before it accepts the edit**, since there is no place to arrive at and read it | **P1** |
 | **Projects** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J2](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Get back to the set I keep for that piece of work* — and see whether it is still checked | **P1** · P3 for the example `[?]` |
 | **Project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *Put the set together and see what it drags in* — every row carrying its own state | **P1** |
+| **Library panel** — *not a screen: a region of Project* (Q14, 2026-09-20) | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *See what I own that fits here, and put it in* — **the question the palette could not answer**, and the reason the corpus is present during assembly at all | **P1** · P3 through the shelf scope `[?]` |
 | **Detached row** — edit · reset · promote | [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | *Change it here only, without the others getting it* | **P1** |
 | **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
 | **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, does it hold together, what do I still need, how do I take it* | **P2**, and it is their only surface |
@@ -738,7 +789,7 @@ much of the screen it occupies.
 | **Editing an item that exists** | **Overlay on the Library** | ~~Mode of the Item place.~~ **§8: the Library holds one add/edit form** (2026-09-16). Dismissing it returns you to the row you opened it from, and the Library's address never changed |
 | **Creating an item** | **Overlay on the Library** | There is no object yet, so there is nothing to be a place for — **and now the same overlay serves both**, which is what §8 said all along |
 | **A detached row — edit, reset, promote** | **Mode of the row, inside Project** | The override exists only in this project (§5), so it has no meaning without the project around it |
-| **The `⌘K` palette** | **Overlay** | Summoned, dismissed, never in the address — and it is *the only way the library reaches the Project screen* (§8), which makes it load-bearing rather than a convenience |
+| ~~**The `⌘K` palette**~~ · **The library panel** | **Part of the `Project` place** — not an overlay, and not a place of its own | **Changed 2026-09-20, Q14.** The palette was an overlay: summoned, dismissed, never in the address. **The panel is none of those things** — it is on the screen whenever the Project is, it is not summoned and cannot be dismissed onto what you were doing, and it has no address of its own because **the Project already is one.** By this section's four tests it fails *place* (reload restores the Project, not the panel), fails *mode* (it takes no surface and there is nothing to leave), and fails *overlay* (it covers nothing). What is left is what it is: **a region of a place.** Its scope and tab are **candidates for the Project's address** and that is step 3's, not this row's |
 | **A finding** | **Content**, not navigation | It annotates the row that owns it (§8); the ones that own no row belong to the set |
 | **The unclean-export confirmation** | **State of a row inside Run** | §8 puts it *in the row below the finding that caused it* — **not a modal**, and this is where somebody would otherwise draw one |
 | **The check running** | **State of the Run mode** | — |
@@ -820,6 +871,13 @@ discovered in step 5.
 
 > **Was six until 2026-09-16.** `Item` left the list when the owner kept §8's form — see above for
 > what that costs and what carries it instead.
+>
+> **Re-checked on 2026-09-20 against Q14, and it did not move.** The library panel is the biggest
+> change the builder has had, and **it adds no place**: it is a region of `Project`, which is a place
+> already. The check was run the only way it can be — **by putting the panel through the four tests
+> above**, not by counting screens — and it failed place, mode and overlay in turn. **What *does* move
+> is a step 3 question**: if the panel's scope and tab are to survive a reload, they belong in the
+> Project's address, exactly as the Library's scope belongs in the Library's.
 
 **`Library` · `Projects` · `Project`**, with the Library carrying two addresses, one per scope —
 **plus the two the link creates, `Shared project` and `Shared item`** (Q13, 2026-09-15).
@@ -906,7 +964,7 @@ guaranteed would be empty is the mistake §11 exists to prevent.**
 | Path | Route | Clicks |
 |---|---|---|
 | **A · The set already exists** — and this is literally what the main job describes, *something I have already got working* | Projects → **Project** ① → **Check** ② → **Export** ③ | **3** |
-| **B · The set does not exist yet** | Projects → **New project** ① → `⌘K` × n, adding items → **Check** ② → **Export** ③ | **3 + n selections** |
+| **B · The set does not exist yet** | Projects → **New project** ① → **the panel** × n, adding items → **Check** ② → **Export** ③ | **3 + n selections** |
 | **C · Arriving through the Library** — the persona's own description of their most frequent act | Library → **Projects** ① → **Project / New** ② → **Check** ③ → **Export** ④ | **4** |
 | **D · First run ever, owning nothing** | Projects → **the example project** ① → **Check** ② → **Export** ③ | **3** |
 | **P2 · The receiver, for contrast** | the link → **Check** ① → **take the archive** ② | **2** |
@@ -914,36 +972,59 @@ guaranteed would be empty is the mistake §11 exists to prevent.**
 **Four things fall out of the count, and three of them are findings rather than numbers.**
 
 1. **Three is the floor, and it does not move when the set does not exist.** B costs the same
-   *navigation* as A — the extra work is `⌘K` and n selections, which happen **inside one place without
-   going anywhere.** **The depth of this product is in selection, not in traversal**, which is the
-   strongest argument the click count makes for §8's list-plus-palette choice over a pane pair.
-2. **The only four-click path is the one the persona performs most often.** Arrival 1 — *copying
-   something out of the collection into a new project* — is described from the collection's end, and
-   the collection is **not part of the builder flow** (§8). **That decision shows up here as one click,
-   and it is named rather than absorbed.** What pays for it is mitigation 1: **the palette opens cold
-   on *related* items**, so the person who came to fetch from the collection has the relevant part of
-   the collection brought to them instead. **If that cold state is ever weakened, this row is where the
-   cost lands.**
+   *navigation* as A — the extra work is **the panel** and n selections, which happen **inside one place
+   without going anywhere.** **The depth of this product is in selection, not in traversal**, and the
+   click count is what makes that arguable at all. *Until 2026-09-20 this sentence ended "which is the
+   strongest argument for §8's list-plus-palette choice over a pane pair."* **It is not an argument
+   against a pane and never was** — it is an argument against *traversal*, and a pane inside the place
+   you are already in adds none. What it still rules out is the shape where assembling means going
+   somewhere: the count would rise, and it has not.
+2. **The only four-click path is the one the persona performs most often — and since 2026-09-20 it is
+   optional.** Arrival 1 — *copying something out of the collection into a new project* — is described
+   from the collection's end, and the collection is **not part of the builder flow** (§8). **That
+   decision shows up here as one click, and it is named rather than absorbed.** ~~What pays for it is
+   mitigation 1: the palette opens cold on related items.~~ **What changed with Q14 is better than a
+   payment.** The corpus is now present *inside* the Project as a panel, with `Related` first and the
+   shelf one switch away, **so the person who would have started in the collection no longer has to**:
+   the same errand runs as path B, at three clicks. **Path C is not shortened — it is made
+   unnecessary**, and it stays in this table because a person who *chooses* to start in their
+   collection still pays the fourth click, and because it is the row that records what the choice
+   costs.
 3. **The receiver is shallower than the owner — 2 against 3.** The person who owns nothing has the
    shortest path to an archive in the whole product. **Recorded as an observation and not as a claim
    about adoption**, exactly as §6 records the same shape: *Library-to-archive performed by somebody
    who owns nothing.* **P2 has still never spoken in the first person**, so this is a number about our
    structure, not about their experience.
-4. **No path to the main job passes through the Library.** That is the plainest statement of the
-   tension **Q7 created and did not resolve**: the sitting made **the collector primary**, and the
-   collector's own ground is the one place the product's central act does not touch. **Both are true
-   and neither is edited here.** It is the thing to watch in step 5 — if the Library ever starts
-   growing builder machinery to justify itself, this row is the reason why, and §8 refused exactly that
-   once already.
+4. **No path to the main job passes through the Library — and as of 2026-09-20 that is deliberate
+   rather than a tension.** It was the plainest statement of what **Q7 created and did not resolve**:
+   the sitting made **the collector primary**, and the collector's own ground was the one place the
+   product's central act did not touch. **Q14 resolved it from the other side.** The corpus reaches
+   assembly as a panel, so **the Library does not need to be on the route in order to be present in the
+   work** — and the owner said it in those terms: *during building a project we will not open the
+   library, there is no need.* The Library is the **curator's room**: read, curate, edit, add, delete,
+   usage facts, copy from the shelf, share, JSON. **The warning below it survives intact and is now
+   sharper**: if the Library ever grows builder machinery to justify itself, this row is the reason
+   why — and it has **two** refusals behind it now, §8's original one and a panel built specifically so
+   the Library would not have to.
 
 **The three load-bearing mitigations, and where each is now doing its work** — §8 named them and this
 section is the first place they are accountable.
 
-| Mitigation (§8) | Where it pays | If it fails |
+> **Rewritten 2026-09-20 against Q14.** These three existed to pay for **not having a pane**. One is
+> now paid by the pane, one has changed what it pays for, and one is untouched — **and none of them
+> silently disappeared**, which is the only way this table can be rewritten honestly.
+
+| Mitigation (§8) | Where it pays now | If it fails |
 |---|---|---|
-| **The palette opens cold on *related* items** | Path B's n selections, and the whole of path C's justification | Path C stops being worth its extra click, and the pane pair §8 rejected comes back as a request |
-| **The Library is one keystroke away and remembers where you were** | The first screen is *where you were*; arrivals 2 and 3 cost one keystroke from anywhere | Every corpus act starts with re-finding your place, and **EJ-3** — already unclosable — gets worse |
-| **Per-item usage facts do the work a visible pane would do** | The Library row: *used in 3 projects*, expanding in place, each name leading to the **Project** (E14) | You cannot see what you are not using, which is the cost §8 accepted with its eyes open |
+| **`Related` first and default in the panel** — *was: the palette opens cold on related items* | Path B's n selections. **It is the same mitigation in a new home**, and it is the one thing that stops the panel being a typological index of everything you own | The panel answers *what exists* instead of *what belongs here*, and n selections become n searches |
+| **The Library is one keystroke away and remembers where you were** | **No longer pays for assembly at all** — assembly does not go there. It pays for the corpus acts: the first screen is *where you were*, and arrivals 2 and 3 cost one keystroke | Every corpus act starts with re-finding your place, and **EJ-3** — already unclosable — gets worse |
+| **Per-item usage facts do the work a visible pane would do** | **Unchanged, and now doing the half a pane cannot.** The panel shows what you own; only the facts say what it costs to touch it — on the row, at the head of the form, and in the delete confirmation (E14) | The panel makes the corpus visible and the consequences invisible, which is a worse trade than the one §8 started from |
+
+**And the two costs that replaced them, because a rewritten mitigation table that lists no new cost is
+a table that stopped looking.** The item **renders twice** — panel row and set row — and only the set
+row can be true about *detached*, *auto-added by X* and *conflicting*. And the **width** the Project
+row needs for `item · rule · observed value` is now shared with a panel; that is measurable and belongs
+to step 5.
 
 ---
 
@@ -957,15 +1038,22 @@ evidence puts it far from anybody's week.
 | Tier | What is in it | Why it is there |
 |---|---|---|
 | **Global** | **Library** (two scopes) · **Projects** | The only two places nothing else has to hand you. Everything else in the product is reached *from* one of them |
-| **Contextual** | **Check** — on a Project with members; the seam (§8) · **Export** — Run's final stage, never a button beside the check · **`⌘K`** — in Project, where §8 gives it its one job · **add / edit** — the Library's overlay · **Edit · Reset · Promote** — only on a **detached** row, since an override exists nowhere else (§5) · **agent target** — inside Run, where it selects the paths *and the reader* (E13) · **share / revoke** — on a project or an item · **copy into `My library`** — on a `Public library` row · **the usage count expanding** — on a Library row | Each one is a command with a subject. **Off its subject it cannot act**, and §9's rule says it is then not shown — with the one documented exception that **context menus grey rather than hide** (benchmark finding 7) |
+| **Contextual** | **Check** — on a Project with members; the seam (§8) · **Export** — Run's final stage, never a button beside the check · **the panel's scope switch and `kind` tabs** — in Project, where the corpus reaches the builder (Q14) · **add / edit** — the Library's overlay · **export this item on its own** — on a Library row (Q15) · **delete** — on a Library row, confirmed with its usage count (Q17) · **Edit · Reset · Promote** — only on a **detached** row, since an override exists nowhere else (§5) · **agent target** — inside Run, where it selects the paths *and the reader* (E13) · **share / revoke** — on a project or an item · **copy into `My library`** — on a `Public library` row · **the usage count expanding** — on a Library row | Each one is a command with a subject. **Off its subject it cannot act**, and §9's rule says it is then not shown — with the one documented exception that **context menus grey rather than hide** (benchmark finding 7) |
 | **Deep** | **Library import / export as JSON** — two commands on the Library, **the orphan**: §10 commits to it and **no job raises it** · **Promote a detached item** — *the thinnest demand of any mechanism in the specification*, and no prior art (E5) · **Revoke a share** — reversing a standing decision, and the product must say at that moment that revoking **recalls nothing already taken** (§5) · **Delete the example project** — once, ever (§11) | **Rarity is read off the evidence, not guessed.** Each of these is raised by no job at all, or by the thinnest evidence in the folder. **Deep does not mean hidden**: it means it does not compete with a command somebody uses weekly |
 
-**`⌘K` is contextual, and the temptation to make it global is named here so it is not taken by
-accident.** §8 gives the palette exactly one job: **the only way the library reaches the Project
-screen.** A palette that also navigates, searches the corpus and runs commands everywhere is a
-different object with no job behind it, and **it would quietly become the navigation this section just
-derived** — two entries on the surface and a hidden third way of reaching everything. **If a job ever
-asks for it, it is additive. Nothing asks now.**
+~~**`⌘K` is contextual, and the temptation to make it global is named here so it is not taken by
+accident.**~~ **Superseded 2026-09-20, Q14 — and the warning it carried survives the change, pointed at
+a different object.** The palette had exactly one job: the only way the library reaches the Project
+screen. **The panel has the same one**, and the same temptation applies to it in a new form: **a panel
+that also navigates — projects in it, recent things, a way to jump anywhere — would quietly become the
+navigation this section just derived**, two entries on the surface and a hidden third way of reaching
+everything. **The panel shows items, in the current scope and tab, and adds them. Nothing else.**
+If a job ever asks for more, it is additive. **Nothing asks now.**
+
+**And one thing the panel must not become, which the palette could not have been.** The Library is the
+only place an item is edited (§8, Q14). **A panel that grows an inline edit is a second library**, and
+two renderings that can both change things drift. The division is the decision: **the panel answers
+*what goes in this set*; the Library answers *what do I own*.**
 
 ---
 
@@ -1103,6 +1191,14 @@ owing a mechanism now.**
 3. **As a field — `defersTo`** (E7, §5): the thing this item answers to outside the library, which
    nothing else in the product can discover.
 
+**A fourth thing arrived on 2026-09-20, and it is a door rather than a disclosure.** The library
+panel's **row that creates** — a zero result offering to author the missing item — opens **this
+overlay, over the Project** (Q14). The panel never edits, and this is not an exception to that: it
+**summons the authoring surface** rather than becoming one, because creating is a corpus act. **But it
+is the overlay's third door**, after the Library row and the Library's *add*, and it is the first one
+reached from **inside assembly**. The person who arrives through it is mid-set, not mid-curation, and
+**every disclosure listed above is waiting for them there.**
+
 **That is the finding, and it is a warning for step 5.** Two of the three were re-homed here *because a
 place was refused*, and nobody decided that this overlay should carry them — **it is where they fell.**
 An overlay is summoned and dismissed, it is not addressable, and **a person cannot be sent to it to
@@ -1116,6 +1212,75 @@ A deference raises a Note **that never clears** (E9), and a project's row carrie
 long as it exists**. **Nothing is wrong with it and nothing can be done about it**, which makes it the
 first verdict in this product that is not a to-do list. **Projects and Run must not draw notes as
 work outstanding** — and this is the case that proves the rule, not an edge of it.
+
+---
+
+## 2026-09-20 — the panel, and what it moved
+
+> **A third re-check, four days after the second.** The owner replaced the builder's adding mechanism,
+> took the Library off the assembly path, let a single item leave on its own, and settled the empty
+> project and the delete. **Recorded here because what they do together is again not what any of them
+> does alone.**
+
+### The architecture survived its biggest mechanical change without gaining a place
+
+**The palette was an overlay; the panel is a region of `Project`.** Between them sits the whole way the
+corpus reaches the builder, and **the place count did not move**: five, exactly as on 2026-09-16.
+That is not luck and it is not a boast — **it is what the four tests are for.** The panel fails *place*
+(a reload restores the Project, not the panel), fails *mode* (it takes no surface, and there is nothing
+to leave), and fails *overlay* (it covers nothing and dismisses to nothing). **A thing that fails all
+three and is still on the screen is a region**, and regions are composed in step 5, not navigated in
+step 3.
+
+**What step 3 inherits instead is one sharpened question.** The Library's scope is **part of its
+address**, because a reload must not drop you into the room §11 guarantees is empty. **The panel now
+has a scope of its own**, and on first run it is the shelf that carries the material. So: **does the
+panel's scope — and its tab — belong in the Project's address?** The argument that settled the Library
+applies here word for word, and step 3 should not have to rediscover it.
+
+### The panel absorbed a detour and inherited a debt
+
+**What it absorbed.** In the main flow, a palette that matched nothing sent the person to `Library`, on
+to `Public library`, and back — **three screens of detour in the middle of assembly**, drawn honestly
+because it was real, and existing only because the palette searched one scope. **A scope switch inside
+the panel ends it.** The person does not leave the Project. That branch is gone from
+[`flows.md`](flows.md), and **it is the first time a decision has removed a path from these diagrams
+rather than adding one.**
+
+**What it inherited.** The panel is now **the only corpus surface the builder has** (Q14, D2). The
+palette was one channel among the Library's; the panel has no fallback behind it, because the fallback
+*was* the Library and assembly no longer goes there. **Load-bearing is the right word and it should be
+read as a warning**: every weakness of the panel is now a weakness with nowhere to route around it.
+
+### One number, three surfaces, and now two directions
+
+**E14's *used in 3 projects* is read in three places** — on the Library row, at the head of the
+add/edit form before an edit, and, since today, in the **delete confirmation** (Q17). The open question
+that [`flows.md`](flows.md) found — **the count includes detached copies, which by design do not
+receive a fix** — was one-directional when it was found. **It is not any more.**
+
+- **Before an edit, the count overstates the reach of the fix**: one of the three will not get it.
+- **Before a deletion, the same count overstates the damage**: a detached row holds its own
+  `overrides` and may lose nothing at all — **though whether it survives the deletion is itself open**
+  (Q17).
+
+**One number cannot be wrong in two directions and still be one number.** That is a step 5 finding with
+a sharper edge than the one it came from, and it is recorded here rather than left to be met twice.
+
+### And the product's first shown-but-disabled action
+
+**An empty project disables `Check` and `Export`** (Q16). This architecture has been built on *an
+action that cannot act is not shown*, and §6 refuses a greyed primary control in the strongest terms it
+uses anywhere. **The exception holds because §6 supplied the test itself**: the three conditions it
+used to excuse Figma's `0 of 0 selected` — the blocker is one named action away, it is a property of
+this second rather than of the document, and re-doing it costs nothing — **are all three true of an
+empty project, and none of them is true of a set with Problems.**
+
+**The consequence for this section is small and worth writing down.** *A project with no members* was
+already classified as a **state** (see the classification), and it stays one. **What changed is that
+the state now has a defined composition**: one action in the body, and two primary controls visible
+and inert. **The action points at the panel, which is already on the screen** — so it exists to say
+*what to do*, not to reach anywhere, and step 5 should not draw it as navigation.
 
 ---
 

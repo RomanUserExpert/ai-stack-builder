@@ -332,6 +332,12 @@ carries the twelve.*
 
 ## Open questions — the register
 
+> **Where it stands, 2026-09-20.** The paragraph below describes the register as it was in 2026-09-06.
+> Since then the sitting was held (2026-09-15) and lesson 03 has raised five more entries. **Live now:
+> Q9, Q11 and Q12, deferred at the sitting, plus Q16 and Q17, raised and part-answered on 2026-09-20 —
+> each leaving one named question open.** Q13, Q14 and Q15 are answered. **Read the dated sections at
+> the end of this file for the current state; the prose here is the protocol, not the status.**
+
 **This is the last section on purpose, and it is a running list.** Questions land here as stages
 raise them. They are **not** answered as they arrive. The six that stood here were closed on
 2026-09-02 and are recorded below with their dispositions. **Six more are live** — Q7, Q8 and Q9,
@@ -970,6 +976,214 @@ to look at first if this is ever reconsidered**, since half the surface would al
 
 **It unblocks steps 3 and 6** — routes, and the item in six contexts and six states — which were
 waiting on exactly this.
+
+### Q14 — the library panel replaces the palette — raised and answered 2026-09-20
+
+**Raised by lesson 03, and by the owner saying plainly that the mechanism did not feel usable.** The
+chosen shape put **no library surface inside the builder**: `⌘K` summoned a palette, the palette added
+by name, and the corpus was otherwise absent from the Project screen. **Answered the same day, because
+two of the three things that had held the refusal turned out not to be holding it any more.**
+
+**The answer. A library panel lives inside `Project`.** A scope switch — `My library` · `Public
+library` — **above** tabs by `kind`, with **`Related` first and default**: the ones that require, or
+are required by, what is already in the set. Search filters within the current scope and tab. **A zero
+result still carries the row that creates**, which is P2's Obsidian finding kept rather than dropped.
+**The panel reads and adds. It never edits.** And **drag is not the mechanism** — a row is checked, or
+it is added from its row; the gesture that killed P1 does not come back with the pane.
+
+**Removal is owned by the project row.** An `✕` on the row takes the item out of the set, **and that
+unchecks it in the panel**. One fact, two places, and the place that owns the action is the one where
+the item's membership actually lives. **The auto-added row still refuses** — §6's only refusal in the
+whole product — and the panel inherits it rather than softening it: a checked row held by a puller
+cannot be unchecked from either side, and what it says is *remove what dragged it in*.
+
+**`Library` leaves the assembly path, and that is the second half of the answer.** In the owner's
+words, *during building a project we will not open the library, there is no need*. So the two surfaces
+divide rather than duplicate: **the panel answers *what goes in this set*; the Library answers *what do
+I own*** — read, curate, edit, add, delete, usage facts, copy from the shelf, share an item, JSON in
+and out. **The panel is therefore load-bearing in a way the palette was not**: during assembly it is
+the only surface the corpus has, and if it is weak there is nowhere else to go.
+
+**What shifted, stated separately from what was decided, because they are different kinds of thing.**
+
+- **Evidence, and it is a correction rather than a new finding.** P1 — *two-pane drag* — lost stage 5
+  on two scores, and one of them **no longer applies**. **C5 = 2**, *economy*, was awarded because
+  *"half the screen is inert during the check and during export"*. That was true of P1 as drawn, where
+  validation lived in the right-hand pane. **The chosen hybrid moved the check onto its own surface**:
+  `Run` takes the whole screen and the Project is not on it. **A pane that is not on screen during the
+  check cannot be inert during it.** The score stands as the historical record of P1-as-drawn; it is
+  not an argument against a pane in today's architecture, and anybody reaching for it should be told
+  so. See the dated note at the end of [`5-patterns/patterns.md`](5-patterns/patterns.md).
+- **And what the proposal is *not*.** It is **not P1**. `patterns.md` says of P1 that the mitigation
+  for drag-at-scale *"is click-to-add — at which point drag is no longer the mechanism and P1 has
+  quietly become P2 with an extra pane."* **A checkbox is click-to-add.** So what was decided here is
+  **the chosen variant plus a pane**, not the rejected variant restored, and the question it turns on
+  is narrower than the one stage 5 answered: *is the pane worth what it costs?*
+- **Judgement, and it is the owner's.** The cost is real and is not waved away: the item **renders
+  twice** — as a panel row and as a set row — and the panel structurally cannot show *detached*,
+  *auto-added by X* or *conflicting*, which is why P1 scored C1 = 4 rather than 5. **What buys it** is
+  C1 itself: *what else do I own that fits here* is the one question the palette could not answer, and
+  it is the primary persona's own ground.
+- **No mark is promoted by any of this.** The owner's discomfort with the palette is a practitioner
+  reporting their own experience — **`*`**, exactly like every other sentence from the same source.
+  Nothing here is `✓`, and the panel is not evidenced, it is decided.
+
+**Three things the answer buys that were not the reason for it**, recorded because they are the kind
+of thing that later gets mistaken for the argument:
+
+1. **The excursion dies.** In the main flow, a palette that matched nothing sent the person out to
+   `Library`, on to `Public library` and back — **three screens of detour in the middle of assembly**,
+   which existed only because the palette searched one scope. A scope switch inside the panel absorbs
+   it, and **the person never leaves the Project screen.**
+2. **Cold start is answered inside the builder.** `My library` is empty on first run by §11; a panel
+   opening on `Public library` puts real material where it is needed in the first second. P1 could not
+   do this — an empty pane was its worst moment — and it is only possible because the shelf exists.
+3. **The Library becomes what Q7 made primary.** With assembly served by the panel, the Library stops
+   being a station on a route and becomes **the curator's room**, which is the collector's own ground.
+   **Navigation finding 4 — *no path to the main job passes through the Library* — stays true and
+   becomes deliberate**, where it was previously a tension to watch.
+
+**What it does not settle, and both go to step 5.** Whether the control is a checkbox or a click, and
+how a **held** row — checked, and refusing to uncheck because a puller holds it — reads without looking
+broken. And **the width**: the Project row is the widest thing in the product — name, kind, *required
+by X*, *detached* with its differing fields named, plus a finding's `item · rule · observed value` — and
+C3 = 5 was awarded for having the full width for it. **That is measurable rather than arguable**: write
+the longest real row and see whether it survives 1440 minus the panel.
+
+**One idea parked.** **`⌘K` surviving as a keystroke that focuses the panel's filter** is kept as an
+idea and **deferred to lesson 04**, to be looked at in a wireframe rather than argued in prose. It is
+not in the spec.
+
+### Q15 — a single item exports on its own — raised and answered 2026-09-20
+
+**Raised by the owner, from the Library's side**: an item is a block, and a block should be able to
+leave without a project being built around it. **Answered yes**, with the one fork named and taken.
+
+**The reasoning the question came with, and the part of it that is exactly right.** *The project is
+what gets checked and set up; a single item is independent.* The first half is the product's whole
+claim: **every Problem in §6 — a duplicate command name, a target-path collision, a declared conflict —
+needs at least two items.** One item cannot collide with itself. That is the set-level object the
+benchmark found nobody has: four skill managers run against a deliberately broken set, and **not one
+saw a defect of the set**.
+
+**The part that is not right, and it is where the fork is.** An item is **not** unconditionally
+self-contained. Four fields on `Item` survive its removal from any project: **`requires`**,
+**`needsEnv`**, **`defersTo`** and **`targetPath`** — and the last means **an agent target must still
+be chosen**, because without one there is nowhere to put the file. An **external** item is not a file
+at all: it leaves as an instruction to clone at a pinned `ref`, exactly as it does inside a project.
+
+**The fork: what happens when the one item requires another.**
+
+- **Ship the bare file.** Hand over something that will not run — which is precisely the pain the whole
+  product exists against: *the archive lands on a machine and does not work.*
+- **Run the walk anyway.** Then one item becomes a set, and a set is what we already know how to
+  handle.
+
+**Answered: the walk runs**, and the result is **named honestly as a set of N items** rather than
+presented as one. Nothing new is invented; it is the existing mechanism with an unnamed set.
+
+**Two consequences, and they are derived here rather than stated by the owner** — flagged so they can
+be disagreed with on their own:
+
+1. **The severity rule needs its exact form, because the loose one is wrong.** *A single item cannot
+   produce a Problem* holds only for an item whose resolved set is **itself**. With the walk running,
+   an item that pulls in two others can produce a collision between them like any other set. **The
+   correct statement: a bare item cannot produce a Problem; an item that drags things in produces a
+   set, and a set is checked like any other.** `Notes` — a missing env name, an unpinned `ref`, a
+   deference — are item-level throughout and survive alone, so a single-item export producing
+   **Notes and no Problems** is the ordinary case rather than a special one.
+2. **It enters `Run`.** The same mode, from a Library row, as a **third entry point** beside `Project`
+   and `Shared project`. Everything it needs is already there — the target selector, the `SETUP.md`
+   preview, `.env.example`, Export as the final stage — and for a bare item most stages are `Skipped`,
+   which is what that glyph is for. The alternative, **a lightweight export dialog, is a new surface**,
+   and this architecture has gone five flows without adding one. **Nothing is stored either way**: §6
+   puts the verdict on the **project**, and there is no project here — the same rule that already
+   governs a visitor's run.
+
+**And it is not a new concept from the receiver's side.** §8 already gives the **shared item** page *a
+way to take it — the archive, or a copy into their own library*. **A single-item archive is in the
+specification already**; what this answers is that the owner can produce one too, from their own
+Library, without a link and without a project.
+
+### Q16 — the empty project — raised and answered 2026-09-20
+
+**Raised by reading the main flow aloud**: it draws a branch where somebody presses `Check` on a
+project with nothing in it, gets a column of `Skipped` and exports an archive containing nothing.
+**Two questions fell out of it, and the second is the one worth keeping.**
+
+**First: how does a project come to be empty at all?** Three ways, and they are not of equal quality.
+**Creating and filling are two acts**, so every project is empty for its first moment — this is the
+normal initial state and not an edge. **A manually added row can always be removed**, so the last one
+can be. And **§11's example project is deletable and re-usable**, so *empty it out and build my own in
+it* is a plausible path. **Q17 adds a fourth** and it is the one nothing answers.
+
+**The answer. An empty project is an empty state, and `Check` and `Export` are disabled on it.** The
+body carries **one** action, whose label is step 5's to settle — the owner's candidates were *edit* and
+*configure*, and whatever it is called it has to lead to putting the first item in.
+
+**This is the product's one place where a primary action is shown and cannot act, and it is written
+down as an exception rather than smuggled.** §9's rule is *an action that cannot act is not shown*, and
+§6 refuses a greyed `Export` in the strongest terms. **Both stay as written**, because §6's rule is
+about **findings** — *a missing env key still zips, a duplicate command still zips, it is simply wrong
+inside* — and an empty project has no findings, it has no content. **There is nothing to be wrong.**
+
+**The basis is §6's own analysis of the case it refused.** §6 records why Figma's greyed `Export`
+beside `0 of 0 selected` gets away with it: **the blocker is one named action away**, **it is a
+property of this second's selection rather than of the document**, and **re-doing it costs nothing.**
+Those three were given as the reasons our Problems are *not* that case. **All three hold for an empty
+project** — the action is *add an item*, emptiness is this second's state, and checking again is free.
+**The same three conditions that excused Figma excuse this, and they are the test any future exception
+has to pass.**
+
+**And the second question, which is not answered and stays live.** §6 keeps the verdict on the project
+as **counts** — `checkVerdict`, *problems · notes · skipped*. **An empty set and a perfectly assembled
+one both read `0 problems · 0 notes`.** On `Projects`, a row for an empty project would say *checked*
+and look like a clean one. **That is the unearned green tick §6 spends a section refusing, arriving
+through the counters rather than through a glyph.** Disabling `Check` on an empty project removes the
+only way to *reach* that state today — but the shape is still there, and it is the same family as **the
+count that can never reach zero** (`defersTo` raising a Note that never clears). **Left open: whether
+counts are a wide enough channel to carry a verdict.** It belongs to step 5 and to whoever writes what
+a project row says.
+
+### Q17 — deleting an item from the library — raised and answered 2026-09-20
+
+**Raised because §5 has no delete.** The data model describes a live link from a project row to a
+library item and **says nothing about the item going away.** So a project could be emptied, or broken,
+without anybody opening it — and a `requires` edge could be left pointing at nothing, which §6 reports
+as an **unresolvable requirement**, a Problem produced by a set nobody touched.
+
+**Answered: it is confirmed, never refused.** The product states the consequence in the present tense —
+***used in 3 projects. Deleting it may stop them working.*** — and offers **Delete** and **Cancel**.
+This is the register §6 already uses for an unclean export and §11 for material coming in: **name the
+cost before the irreversible step, then let the person act.** *Nothing blocks* is untouched.
+
+**What the confirmation must carry**: **how many projects hold it**, because that is the fact the
+Library row already computes (E14), and **that a `requires` edge from another item may be left
+dangling**, because that is the half a project count does not cover.
+
+**One thing is recorded open rather than invented.** A **detached** row holds its own content in
+`overrides` (§5). When the library original is deleted, **does that row survive as a local copy, or go
+with it?** Both are arguable — the override is the project's own work, and a row whose original is gone
+is a thing the model has no word for. **Nothing in §5 answers it, and this entry does not either.** It
+goes to step 5, and it is the second question in two days to come out of `detached` being a state that
+the rest of the model does not fully see — the first being *used in 3 projects* counting copies that a
+fix will not reach.
+
+### Stage 5's basis shifted — recorded 2026-09-20
+
+**Not a question and not an answer. A note, so that a signed-off document is not read as saying
+something it no longer says.**
+
+[`5-patterns/patterns.md`](5-patterns/patterns.md) scored **P1, two-pane drag**, at **C5 = 2** on the
+stated ground that *"half the screen is inert during the check and during export"*. **That assumed P1's
+own answer to validation** — a live strip in the right-hand pane, with the designed pass having
+nowhere to expand. **The hybrid that was chosen does not do that**: `Run` is entered by `Check` and
+takes the whole surface, so **the Project screen, and anything on it, is not present during a check.**
+
+**The score is left exactly as it is**, because it is the record of what was weighed on 2026-09-02 and
+it was correct about P1-as-drawn. **What is added is a pointer**, at *The choice*, saying that one of
+the five categories no longer bears on a pane in today's architecture, and naming Q14 as where that was
+used. **Nothing else in stage 5 is rewritten** — not the variants, not the scores, not the comparison.
 
 ### Earlier decisions
 

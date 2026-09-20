@@ -4,8 +4,9 @@
 > these diagrams is a screen, mode, overlay or state that section already established. **No new screen
 > was invented, and none was needed** — which is the first thing the exercise was meant to test.
 >
-> **Five flows in six diagrams** — the main job and four related ones, with **RJ-2 split in two**
-> because one picture of it was too wide to read. Each is drawn from
+> **Six flows in seven diagrams** — the main job and four related ones, with **RJ-2 split in two**
+> because one picture of it was too wide to read, plus **the single-item export**, added 2026-09-20
+> with Q15. Each is drawn from
 > [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md), named with the job's own wording rather than with
 > a feature name, and each ends in **both** kinds of ending — the one where the person is done, and the
 > ones where they are stuck.
@@ -29,8 +30,36 @@ happily pass a diagram nobody can read.* Every diagram here was rendered at an *
 roughly what a repository page gives it — and measured: **no node box overlaps another**, no label
 overflows its shape, and **none is scaled below 0.74**, where text starts to disappear. Two things the
 render caught that nothing else would: **`⌘` has no glyph in the default stack and drew as an empty
-box**, so the palette node is just *Palette*; and RJ-2 was **1608 units wide, squeezed to 54%**, which
-is why it is now two diagrams.
+box**, so the adding mechanism is named in prose; and RJ-2 was **1608 units wide, squeezed to 54%**,
+which is why it is now two diagrams.
+
+**Re-measured 2026-09-20, after the revision below, in the same way.** Seven diagrams, **no overlap
+anywhere, nothing below 0.74**:
+
+| # | Diagram | Nodes | Width | Scale at 880 |
+|---|---|---|---|---|
+| 1 | The main job | 27 | **1008** — *was 1074* | **0.855** — *was 0.803* |
+| 2 | Single-item export — new | 18 | 856 | **1.0** |
+| 3 | RJ-1 | 22 | 1164 | **0.741** — unchanged, and **the tightest in the file** |
+| 4 | RJ-2a | 12 | 851 — *was 819* | 1.0 |
+| 5 | RJ-2b | 16 | 1131 | 0.762 — unchanged |
+| 6 | RJ-3 | 21 | 874 | 0.986 — unchanged |
+| 7 | RJ-4 | 26 | 961 | 0.897 — unchanged |
+
+**Two things in that table are worth reading rather than skipping.** **The main job got narrower and
+legibler and *taller*** — 3202 rendered pixels became **3521**, on four fewer nodes. Removing a wide
+side-branch makes a graph more linear, and a more linear `TD` graph grows downward. **So the owner's
+open question — whether the main job should be split by height, along *assemble · check · hand over* —
+is now sharper rather than answered**, and it is the only diagram in the file over 3,000 pixels.
+**And RJ-1 sits at 0.741**, a thousandth above the floor this file set for itself; it was there before
+this revision and nothing here moved it, but it is the next diagram to need splitting if anything is
+ever added to it.
+
+> **Revised 2026-09-20 against Q14–Q17.** The `⌘K` palette is gone and **the library panel** took its
+> place, which **removed a branch rather than adding one** — the excursion out to `Library` and
+> `Public library` and back is now a scope switch inside the Project. **An empty project no longer
+> offers `Check`** (Q16), so the *empty archive* dead end is gone too. **A seventh diagram was added**
+> for the single-item export (Q15). Everything else is as it was.
 
 **Only outlines are coloured, never fills.** *Corrected 2026-09-16: the first version set dark fills and
 light text, which reads as intended on a dark page and as a row of black boxes on a light one.* Nodes
@@ -55,23 +84,19 @@ flowchart TD
     C --> D["Project"]
     B -->|"Yes"| D
     D --> E{"Anything in the set?"}
-    E -->|"No"| F[/"Nothing in the set"/]
-    F --> G{"Press Check anyway?"}
-    G -->|"Yes"| H[/"All stages Skipped"/]
-    H --> I(["Stuck: empty archive"])
-    G -->|"No"| J["Palette"]
+    E -->|"No"| F[/"Empty: Check and Export inert"/]
+    F --> G["Project: the panel"]
     E -->|"Yes"| K["Project: the set"]
-    J --> L{"Palette offered anything?"}
+    G --> L{"Panel offering anything?"}
     L -->|"No"| M[/"Filtered to zero"/]
-    M --> N["Library: My library"]
-    N --> O{"Is My library empty?"}
-    O -->|"Yes"| P[/"Empty on first run"/]
-    P --> Q["Library: Public library"]
-    Q --> J
-    O -->|"No"| J
+    M --> N{"Switch the scope to the shelf?"}
+    N -->|"Yes"| O[/"Panel on Public library"/]
+    O --> G
+    N -->|"No"| P["Item: add form"]
+    P --> K
     L -->|"Yes"| K
     K --> R{"Is the set complete?"}
-    R -->|"No"| J
+    R -->|"No"| G
     R -->|"Yes"| S[/"Checking"/]
     S --> T{"Any Problems?"}
     T -->|"Yes"| U["Run: findings"]
@@ -92,27 +117,39 @@ flowchart TD
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
-    linkStyle 3,7,10,15,19,22,24,26,33,36 stroke:#16a34a,stroke-width:2px
-    linkStyle 1,5,9,12,18,21,27,29,31,37 stroke:#dc2626,stroke-width:2px
-    class A,D,J,K,N,Q,U,X,AA screen
-    class C,F,H,M,P,S,W,Z state
+    linkStyle 3,7,11,15,18,20,22,29,32 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,5,9,13,17,23,25,27,33 stroke:#dc2626,stroke-width:2px
+    class A,D,G,K,P,U,X,AA screen
+    class C,F,M,O,S,W,Z state
     class AB,AD win
-    class I,AE dead
+    class AE dead
 ```
+
+**27 nodes, 34 edges — four nodes and four edges shorter than it was on 2026-09-16**, and the shortening
+is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
 
 **The decisions, in words.**
 
 1. **A project for this work?** — the only fork at the top, and it is why `Projects` is the first screen
    on a first run rather than `Library` (§Navigation).
-2. **Anything in the set?** — the state nobody designs for, and the one that produces the product's
-   emptiest possible result.
-3. **Press Check anyway?** — a real branch, because nothing blocks: the button is live on an empty set
-   exactly as it is on a full one.
-4. **Palette offered anything?** — the palette is *the only way the library reaches this screen* (§8),
-   so a cold palette is a wall and not an inconvenience.
-5. **Is My library empty?** — §11 guarantees it is, on first run. The way out is the `Public library`
-   scope, which is why the shelf exists at all.
-6. **Is the set complete?** — the loop back into the palette, and where this product's real depth lives:
+2. **Anything in the set?** — the state nobody designs for. ~~*And the one that produces the product's
+   emptiest possible result.*~~ **No longer:** an empty project is an empty state with **`Check` and
+   `Export` inert** (Q16), so the branch where somebody checks nothing — and the *empty archive* dead
+   end at the end of it — **is gone from this diagram.** The one action in the body points at the panel,
+   which is already on the screen.
+3. **Panel offering anything?** — ~~the palette~~ **the panel** is the only way the library reaches this
+   screen (§8, Q14), so a panel with nothing in it is a wall and not an inconvenience. **What changed is
+   what happens next.**
+4. **Switch the scope to the shelf?** — **this one edge replaced three screens.** Until 2026-09-20 a
+   palette that matched nothing sent the person to `Library`, made them discover it was empty, sent them
+   on to `Public library` and back. **The panel carries both scopes, so the person does not leave the
+   Project.** §11 still guarantees `My library` is empty on first run; what changed is the distance to
+   the answer.
+5. **The row that creates** — a zero result is not only a wall. The other way out is authoring the thing
+   that was missing, which opens the add/edit overlay **over the Project**. It is the one moment
+   assembly reaches the authoring surface, and it is honest: **creating is a corpus act, not an
+   assembling one.**
+6. **Is the set complete?** — the loop back into the panel, and where this product's real depth lives:
    **selection, not traversal.**
 7. **Any Problems?** — three severities, and none of them blocks.
 8. **Fixable from this row?** — §8 says a finding annotates the row that owns it. When the fix is four
@@ -122,16 +159,99 @@ flowchart TD
 10. **Env values on that machine?** — the product's ceiling, drawn as a decision it does not get to
     make.
 
-**The states, in words.** *Projects holding only the example* · *a project with nothing in the set* · *every
-stage Skipped, on its own neutral glyph* · *the palette filtered to zero* · *`My library` empty on first
-run* · *the check in progress* · *the unclean-export confirmation, in the row below the finding that
-caused it* · *the verdict voided by a target change*.
+**The states, in words.** *Projects holding only the example* · *an empty project with its two primary
+controls inert* · *the panel filtered to zero* · *the panel switched to the shelf* · *the check in
+progress* · *the unclean-export confirmation, in the row below the finding that caused it* · *the
+verdict voided by a target change*.
 
-**Where a person gets stuck.** **The empty archive** — they checked a set with nothing in it, got a
-column of neutral glyphs, and exported a zip that teaches nothing. **The env values on the other side**
-— the archive is correct, `.env.example` names the keys, and the product has nothing to give them
-because `needsEnv` holds names and never values. That second one is the main job's own ceiling:
-**checked, never works.**
+**Where a person gets stuck — and there is now one place, not two.** ~~**The empty archive** — they
+checked a set with nothing in it, got a column of neutral glyphs, and exported a zip that teaches
+nothing.~~ **Removed by Q16**, and it was removed for the reason this diagram exposed: the person
+pressing `Check` on an empty project was not making a mistake, they were **asking what the product
+does**, and a column of grey glyphs is a poor answer to the only free question anybody asks.
+**The env values on the other side** — the archive is correct, `.env.example` names the keys, and the
+product has nothing to give them because `needsEnv` holds names and never values. That one stays, and
+it is the main job's own ceiling: **checked, never works.**
+
+---
+
+## The single-item export — the main job at its smallest scale
+
+**Added 2026-09-20 with [Q15](../research/research-plan.md).** Not a job of its own: it is
+[the main job](../research/7-jobs-to-be-done/jtbd.md#the-main-job) performed on **one block**, from the
+Library, with no project built around it — and, through the shelf, the nearest thing the product has to
+[H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]`.
+**It is drawn because it is the first path that starts in the Library and ends in an archive**, and
+because the thing it teaches — *what a check can and cannot find when there is only one item* — is
+easy to state wrongly.
+
+```mermaid
+flowchart TD
+    A["Library: My library"] --> B{"Find the item?"}
+    B -->|"No"| C(["Stuck: cannot find it"])
+    B -->|"Yes"| D["Library: export this item"]
+    D --> E{"Does it require anything?"}
+    E -->|"No"| F[/"A set of one"/]
+    E -->|"Yes"| G[/"Resolved set of N"/]
+    F --> H[/"Checking"/]
+    G --> H
+    H --> I{"Any Problems?"}
+    I -->|"Yes"| J["Run: findings"]
+    J --> K["Library: fix the item"]
+    K --> A
+    I -->|"No"| L{"Anything the machine needs?"}
+    L -->|"Yes"| M[/"Notes: env, refs, deference"/]
+    M --> N["Run: handover"]
+    L -->|"No"| N
+    N --> O{"Right agent target?"}
+    O -->|"No"| P[/"Verdict void"/]
+    P --> H
+    O -->|"Yes"| Q["Export"]
+    Q --> R(["Done: one block, ready to land"])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 2,5,9,13,19 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,4,12,15,17 stroke:#dc2626,stroke-width:2px
+    class A,D,J,K,N,Q screen
+    class F,G,H,M,P state
+    class R win
+    class C dead
+```
+
+**The decisions, in words.**
+
+1. **Find the item?** — the same H-J1 as RJ-3, importance **2**, and the thinnest evidence behind any
+   screen in the product. **The dead end is the same one**, and it is reached here from a person who
+   knows exactly what they want.
+2. **Does it require anything?** — **the fork the whole answer turned on.** Shipping the bare file
+   would hand somebody a block that does not run, which is the pain the product exists against. **So
+   the walk runs**, and an item with `requires` leaves as a set of N **named as one**.
+3. **Any Problems?** — and here is the part that is easy to get wrong. **From *a set of one* the answer
+   is always no**, not by luck but by construction: every Problem in §6 needs two items — a duplicate
+   command name, a shared target path, a declared conflict. **From *a resolved set of N* it is an
+   ordinary question**, because two things the walk dragged in can collide exactly like two things a
+   person chose. *A single item is always safe* is false; **a bare item cannot produce a Problem** is
+   true.
+4. **Anything the machine needs?** — `Notes` are item-level and survive alone: a missing env **name**,
+   an unpinned `ref`, a deference. **This is the branch a single item actually uses.**
+5. **Right agent target?** — it must still be chosen, because `targetPath` means nothing without one.
+   **There is no project to remember it on** (E13), which is why step 3 cannot answer *where the target
+   lives* with *on the project*.
+
+**The states, in words.** *A set of one, where no Problem is possible* · *a resolved set of N* · *the
+check in progress* · *Notes naming what the receiving machine still needs* · *the verdict voided by a
+target change*.
+
+**What is not here, and it is deliberate. Nothing is stored.** §6 puts the verdict on the **project**,
+and there is no project — so this run leaves **no `checkedAt`, no counts, no target**, exactly like a
+visitor's run on a shared page. **The archive is the only thing that survives it.**
+
+**Where a person gets stuck.** **The item they cannot find** — unchanged, and it is the one dead end
+this flow has. Everything else loops: a Problem sends them to the Library to fix the item and back, and
+a wrong target re-runs the check. **That is what a short flow looks like when nothing blocks and the
+only irreversible step is the last one.**
 
 ---
 
@@ -225,8 +345,8 @@ nothing.* **2a is *what it drags in*. 2b is *where two of them fight*.**
 
 ```mermaid
 flowchart TD
-    A["Project"] --> B["Palette"]
-    B --> C[/"Row selected manually"/]
+    A["Project"] --> B["Project: the panel"]
+    B --> C[/"Row checked in the panel"/]
     C --> D{"Does it require anything?"}
     D -->|"Yes"| E[/"Auto-added rows"/]
     D -->|"No"| F["Project: the set"]
@@ -234,7 +354,7 @@ flowchart TD
     F --> G{"Want a row out of the set?"}
     G -->|"No"| H(["Done: what it drags in is visible"])
     G -->|"Yes"| I{"Is that row auto-added?"}
-    I -->|"No"| J[/"Row removed"/]
+    I -->|"No"| J[/"Removed, the panel unchecks"/]
     J --> F
     I -->|"Yes"| K{"Remove its puller instead?"}
     K -->|"Yes"| J
@@ -295,9 +415,13 @@ too wide to read.*
 1. **Does it require anything?** — the depth-first walk, run the moment the item is added. Auto-added
    rows appear on the Project screen **with no check involved**, each naming what pulled it in.
 2. **Want a row out of the set?** — the removal branch, and the only place in the entire specification
-   where the product refuses an action.
+   where the product refuses an action. **Since 2026-09-20 removal is an `✕` on the project row, and it
+   unchecks the panel** (Q14): the row *is* the membership (E5), and the panel is a view of it, so the
+   action lives where the fact does.
 3. **Is that row auto-added?** and **remove its puller instead?** — the refusal has a shape worth
-   drawing: **you do not remove the dependency, you remove what dragged it in.**
+   drawing: **you do not remove the dependency, you remove what dragged it in.** **The panel inherits
+   it rather than softening it** — a held row cannot be unchecked from either side, and **a checkbox
+   that refuses to clear is the honest rendering of `addedBy: dependency`**, not a broken control.
 
 **In 2b — where two of them fight.**
 
@@ -311,8 +435,8 @@ too wide to read.*
    changes and **the verdict is void**, which is why the loop goes back **through** the check rather
    than around it.
 
-**The states, in words.** *A row selected manually* · *auto-added rows naming what pulled them in* · *a
-row removed* · *the check in progress* · *a cycle reported as information* · *an unresolvable
+**The states, in words.** *A row checked in the panel* · *auto-added rows naming what pulled them in* ·
+*a row removed and its panel checkbox clearing with it* · *the check in progress* · *a cycle reported as information* · *an unresolvable
 requirement* · *a declared conflict, a duplicate command name or a target-path collision* · *the verdict
 voided because the set changed*.
 
@@ -468,13 +592,20 @@ revoking** rather than implying a recall.
 
 ---
 
-## What these five flows did to the sitemap
+## What these flows did to the sitemap
 
-**Nothing, and that is the result worth recording.** Every node above is a screen, mode, overlay or
-state that [`sitemap.md`](sitemap.md) had already established — **no new screen appeared, in five flows
-covering the main job and four related ones.** An information architecture that needs a new place the
-moment somebody walks a real path through it is an architecture that was drawn from a product rather
-than from jobs.
+**Nothing, and that is the result worth recording.** Every node above is a screen, mode, overlay, region
+or state that [`sitemap.md`](sitemap.md) had already established — **no new screen appeared, in six
+flows covering the main job, four related ones and the single-item export.** An information architecture
+that needs a new place the moment somebody walks a real path through it is an architecture that was
+drawn from a product rather than from jobs.
+
+**And it held through a change of mechanism, which is the harder test** (2026-09-20, Q14). The way the
+corpus reaches the builder was replaced outright — an overlay summoned by a keystroke became a region of
+the screen — **and the place count did not move.** What moved was the opposite of what a reader would
+expect: **the main job lost four nodes and four edges**, because the panel absorbed an excursion to two
+other screens and Q16 removed a branch that ended in a wasted archive. **This is the first revision in
+which decisions subtracted from these diagrams.**
 
 **Three things the flows surfaced that the static map did not, and each is a consequence rather than a
 gap.**
@@ -488,7 +619,23 @@ gap.**
    Skipped and an archive containing nothing. §6 gave *Skipped* its own neutral glyph for exactly this
    honesty, and the flow shows the one path where neutral glyphs all the way down is still a wasted
    afternoon.
-3. **Two of the ten dead ends are outside the product** (the env values on the receiving machine, the
+3. **Two of the dead ends are outside the product** (the env values on the receiving machine, the
    revoked link's copies). **Neither is a defect and neither can be designed away** — they are the shape
    of *checked, never works* and of *revoking recalls nothing*, drawn so that step 5 writes sentences
    for them instead of discovering them.
+
+**What the 2026-09-20 revision changed in that list.** Finding 2 — **the empty set that checks clean** —
+**is answered rather than outstanding**: `Check` and `Export` are inert on an empty project (Q16), so
+the path no longer exists. **The reasoning behind it does not go away and is worth keeping in view**:
+`0 problems · 0 notes` still reads the same on an empty set and a perfect one, and that is a property of
+**counts as a verdict**, not of the empty project. It is recorded open in the register under Q16.
+Finding 1 — **the detached copy nobody is told about** — **got worse rather than better**: the same
+count is now read in a **third** place, the delete confirmation (Q17), where it errs in the **opposite**
+direction, overstating the damage where an edit understated the reach. See `sitemap.md`,
+*2026-09-20 — the panel, and what it moved*.
+
+**One path is deliberately not drawn: deleting an item from the library** (Q17). It is a confirmation
+with two outcomes and no branching of consequence, and drawing it would add a diagram that teaches
+nothing these six do not. **What makes it worth naming rather than omitting** is the question it leaves
+open — *what happens to a detached row whose original is deleted* — which has no answer in §5 and
+therefore no honest node. **When it is answered, this is the flow to draw.**

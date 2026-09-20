@@ -392,6 +392,21 @@ second and third thirds of the spine.
 > [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md) still governs how to read the scores: the
 > rubric grades craft, not weight.
 
+> **One of the five scores no longer bears on a live decision — read this before reusing them.**
+> *Added 2026-09-20 with [Q14](../research-plan.md).* **P1 scored C5 = 2 because *"half the screen is
+> inert during the check and during export"*** — which was true of **P1 as drawn**, where validation
+> lived in the right-hand pane. **The hybrid chosen below moved the check onto its own surface**: `Run`
+> is entered by Check and takes the whole screen, so the Project, and anything on it, **is not present
+> during a check.** A pane that is not on screen cannot be inert.
+>
+> **Nothing here is rewritten.** The variants, the scores and the comparison are the record of what was
+> weighed on 2026-09-02 and they were right about what they judged. What has changed is the use they
+> can be put to: **on 2026-09-20 the owner put a library panel back inside the Project**, and C5 = 2
+> was not available as an argument against it. Note also what `patterns.md` already says of P1 — the
+> mitigation for drag at scale *"is click-to-add, at which point drag is no longer the mechanism and P1
+> has quietly become P2 with an extra pane."* **That is what was built: P2 with a pane, not P1
+> restored.** See `CLAUDE.md` §8 and the register's Q14.
+
 **A hybrid, and it is stated as a choice rather than a failure to choose — as the plan required.**
 
 > **P2 wins the spine. P5 becomes the check-and-export surface. P3 donates one mechanism.**
