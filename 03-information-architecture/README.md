@@ -1,8 +1,11 @@
 # Lesson 03 — Information architecture
 
-**A plan, not a result.** Written 2026-09-15, the day lesson 03 started. The method is the course's
-lesson 3 — object model, surface map, navigation, screen composition — adapted to a product whose
-**surfaces are already chosen**. [`CLAUDE.md`](../CLAUDE.md) §8 names four of them and the seam
+**A plan, not a result.** Written 2026-09-15, the day lesson 03 started, and **renumbered on
+2026-09-20 to the course's own seven steps** once its prompt pack was read — the ten steps this file
+opened with were our invention, and five of the seven were already done under other numbers. The
+mapping, and where our four extra steps went, is in *Steps*. The method is the course's
+lesson 3 — entities, sitemap from jobs, navigation, flows, traceability, critique, page — adapted to a
+product whose **surfaces are already chosen**. [`CLAUDE.md`](../CLAUDE.md) §8 names four of them and the seam
 between them, decided 2026-09-01 and confirmed 2026-09-02. That fact is the whole difficulty of this
 lesson and it is dealt with under *What it is not*.
 
@@ -156,134 +159,160 @@ different data model is a shape with no argument under it.
 
 ## Steps
 
-Nine, and the last three are one closing pass. Each step names its output section in
-[`sitemap.md`](sitemap.md) so the document is assembled rather than written.
+> **Renumbered 2026-09-20 to the course's own seven.** This plan was written on 2026-09-15 with **ten
+> steps of our own invention**, before the lesson's prompt pack was read. The pack has **seven**, and
+> since this work is homework for that course, **its list wins.** Nothing that was done is discarded:
+> five of the seven were already finished under other numbers, one addition we made is kept and marked
+> as an addition, and **four of our ten leave the lesson** — with where each went written down rather
+> than dropped. **The old numbers appear in `sitemap.md`, `flows.md` and the register**, and the
+> mapping below is what reconciles them.
 
-### 1. The fixed points — what this lesson may not re-decide
+| Course step | Output | Our old number | State |
+|---|---|---|---|
+| **1** Entity inventory | `sitemap.md` §Entities | 2a | **done** 2026-09-15 |
+| **—** *our addition:* place / mode / overlay / state | `sitemap.md` §Places | 2b | **done** 2026-09-15, amended 09-16 and 09-20 |
+| **2** Sitemap from jobs, not from a menu | `sitemap.md` §Screens | 3, tree half | **done** 2026-09-15 |
+| **3** Navigation model | `sitemap.md` §Navigation | 4 | **done** 2026-09-16, recounted 09-20 |
+| **4** User flows in Mermaid | `flows.md` | unnumbered | **done** 2026-09-16, revised and accepted 09-20 |
+| **5** Traceability matrix | `sitemap.md` §Traceability | unnumbered | **done** 2026-09-20, all seven findings disposed of |
+| **6** IA critique | a defect table, then separate fixes | 9 | **not started** |
+| **7** `ia.html` and the live documents | `ia.html`, `CLAUDE.md`, `README.md` | 10 | **not started** |
 
-Every structural commitment already in the spec, in one table: what it fixes, which section says so,
-and what it therefore forbids. Nothing is argued here; it is extracted.
+---
 
-**Output:** `sitemap.md` §1. **Rule it sets up:** from here on, *the spec says so* is a citation with a
-section number or it is not a reason.
+### 1 · Entity inventory — **done 2026-09-15**
 
-### 2a. The entities — **done 2026-09-15**
+The course's first step: *before designing screens, inventory the objects a person deals with in order
+to close their jobs.* Each entity with its fields, **the job that raises it**, and what it is related
+to. An entity with no job goes to a *in question* section, not the main list; anything assumed is
+marked `[?]`.
 
-**Before anything is classified, what are the objects?** Every entity the person handles in order to
-close a job, each with **its fields and parts**, **the job that raises it** with a link into
-[`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md), and **whose side it is on** — owner, consumer or
-external author.
+**Output:** [`sitemap.md`](sitemap.md) §Entities — **sixteen entities**, each with fields, job, relation
+and standing, plus **eleven candidates refused for a stated reason**. Two of the eleven have since been
+applied by the owner (the licence, `defersTo`).
 
-**The rule it obeys: an object earns its place by closing a job.** An object with no job goes to *In
-question* whatever the specification says about it, and nothing is added because products of this kind
-usually have one.
+### — · Places, modes, overlays and states — **our addition, done 2026-09-15**
 
-**Output:** [`sitemap.md`](sitemap.md), *Entities* and *In question*. **Fifteen and eleven.** Two
-things came out of it that were not visible before: **§5 has no object for the check or for a finding**,
-which §8 gives a whole surface, and **the best-evidenced entity in the product — `SETUP.md` — belongs
-to the persona nobody has ever interviewed.**
+**Not in the course's seven, and kept.** The screen tree is a hierarchy; this asks what each node *is*,
+on one test — *could somebody be sent there and arrive*. **It earned its place three times**: it
+answered *is `Item` a place* and *is `Run` a place*, it kept the count at **five places** when the
+library panel replaced the palette, and it is what classified the configuring mode on 2026-09-20.
 
-### 2b. Nouns, and what kind of thing each one is
+**Output:** [`sitemap.md`](sitemap.md) §Places.
 
-The same objects, classified: is each a **place** you can arrive at, a **state** of a place, a
-**mode**, or an **overlay**?
+### 2 · Sitemap from jobs, not from a menu — **done 2026-09-15**
 
-**The rule that decides it:** *a noun is a place only if somebody could be sent there and arrive.*
-`ProjectItem` and `finding` are the interesting cases and each gets its argument written out rather
-than assumed.
+*An indented text tree, every node carrying the job it serves, grouped by the person's logic and not by
+site sections; a screen with no job is marked `[ORPHAN]`; states are not screens; depth kept minimal.*
 
-**Output:** `sitemap.md` §2b.
+**Output:** [`sitemap.md`](sitemap.md) §Screens — six screens, one orphan, four nodes that are not
+screens, with the persona split and a list of the things that are states rather than screens.
 
-### 3. The surface map, and the route shape
+**What our old plan added here and the course does not ask for: route strings.** Literal addresses were
+our own idea. **They are not written and this lesson does not owe them** — the course asks for a
+*navigation model*, which is step 3, and the addressability rules are in §Places. **The three open
+address questions stay recorded and unanswered**: whether the panel's scope and tab belong in the
+Project's address, whether the configuring mode survives a reload, and where the agent target lives now
+that a single item can be exported without a project.
 
-The four surfaces plus whatever is global, with nesting, and **page versus overlay** decided for each.
-Then the route shape: §10 is Next.js, so a route is real and **a route is a promise about what is
-addressable.** The questions this step must answer rather than leave: is a finished Run addressable ·
-is item detail a page or an overlay · does the library scope live in the URL · what does a project row
-link to.
+### 3 · Navigation model — **done 2026-09-16, recounted 2026-09-20**
 
-**Output:** `sitemap.md` §3 — a tree and a route table.
+*Three to five global entries, each an entrance to a job cluster with the job named; **count the taps**
+from the first screen to the main job for the primary persona; if more than three, restructure and
+explain the compromise; then split global / contextual / deep.*
 
-### 4. Getting between places, and what is remembered
+**Output:** [`sitemap.md`](sitemap.md) §Navigation. **Two global entries, not three to five** — and the
+deviation is argued rather than quietly taken: a third cluster exists and its screen is a mode, so an
+entry would point at something you cannot be sent to. **Depth: three to the archive**, which is the
+furthest point this product owns, **four on the persona's most frequent arrival** and **four for a set
+that does not exist yet** since the configuring mode was added. **Both fours are named with their
+compromise**, as the course asks.
 
-The **library panel's** reach and its **cold state** (§8 says *related* items, now the panel's first and
-default tab — that is a structural claim with a mechanism behind it; *this step was written when the
-mechanism was the `⌘K` palette, superseded 2026-09-20 by Q14*), the seam at Check, what Back does from
-Run, what survives a reload, and the Library remembering where you were. **Each entry says which of §8's three load-bearing mitigations it
-implements**, so trap 4 is visible rather than avoided by silence.
+### 4 · User flows in Mermaid — **done 2026-09-16, revised and accepted 2026-09-20**
 
-**Output:** `sitemap.md` §4.
+*The main job in full plus two or three related ones; screens as nodes named from the sitemap; decisions
+as diamonds with yes/no branches; **states as their own nodes** — empty, error, loading; **both kinds of
+ending**, success and the places a person gets stuck; every node must exist in the sitemap; valid
+Mermaid that renders on GitHub; a list of decisions and states in words under each diagram.*
 
-### 5. What each surface is made of
+**Output:** [`flows.md`](flows.md) — **six flows in seven diagrams**, more than the course asks for: the
+main job, RJ-1 to RJ-4 and the single-item export. **Rendered and measured in a browser at an 880-pixel
+column**, not merely parsed, because a parser passes a diagram nobody can read.
 
-Named regions in reading order, per surface: what is always there, what appears only in a state, and
-what each region is *for*. Then **the three first-run states**, which §11 makes real rather than
-hypothetical: `My library` empty beside a full shelf · Projects holding only the example project · a
-Project with nothing in it yet. Flow 08's rule governs the register of each — *scale the explanation
-to how new the concept is.*
+**One thing to carry into step 6 rather than defend.** The course names **empty, error and loading** as
+the states a flow must show. Ours have **empty** in several forms and **void**, **stale** and
+**checking** besides — and **no `loading` node anywhere, and no `error` node anywhere.** Some of that is
+honest (the product is local, with no network in the MVP) and **some of it will not survive the
+critique**: a revoked link opened by a receiver, an archive that fails to build, a browser with
+IndexedDB unavailable. **Step 6 is where that gets settled, not here.**
 
-**Output:** `sitemap.md` §5.
+### 5 · Traceability matrix — **done 2026-09-20**
 
-### 6. The item, in every context and every state
+*Rows are every job, columns every screen, `✓` where the screen really takes part in closing the job;
+then two defect lists — orphan screens and orphan jobs — and a decision for each: delete, add, attach,
+or backlog.*
 
-One table of **six** contexts — library row, public-shelf row, project row, **panel row** (*was: palette
-result — Q14, 2026-09-20*), archive-tree leaf, **and the shared page somebody else opens** (added
-2026-09-15 with Q13) — against
-what an item carries in each. **The sixth is the hard one**: it is read by a person who wrote none of
-it, and it is the only context where getting it wrong is visible outside this machine. Then §7's six states against those contexts, saying
-**which context has to be able to render which state**, and where state 6's three commands live. Plus
-what a card **never** claims: no score, no rating, no eval result, no badge (§5), against the usage
-facts it does carry.
+**Output:** [`sitemap.md`](sitemap.md) §Traceability — 17 jobs against 12 surfaces, sourced jobs and
+hypotheses in separate blocks. **One orphan column, two orphan rows, and two defect classes the exercise
+was not asked for.** All seven findings were put to the owner and disposed of the same day: Q12 closed
+as refused, Q18 to Q23 answered.
 
-**This is the deliverable [`CLAUDE.md`](../CLAUDE.md) §1 names for this lesson** — *what an item card
-carries*. **And it is where S-2 lands:** if an item is a directory, this table changes. Say so in it.
+**Where we did not reach the course's goal, and it is deliberate.** *No empty row and no empty column*
+is achievable for the column and **not for two of the rows**: `SJ-2` is a job the product declines in
+writing and `H-J5` is one it is incapable of. **Inventing a `✓` for either would make the matrix a
+decoration.** Every orphan carries a decision instead, which is the part that was reachable.
 
-**Output:** `sitemap.md` §6.
+### 6 · IA critique — **not started, and it is next**
 
-### 7. Where a finding lives
+*A close reading of `sitemap.md` and `flows.md` against four defect classes, returned as a table of
+**where · what · how to fix**. **Change nothing silently**: the list first, the fixes proposed
+separately. Dead ends and missing states are the most dangerous and go first.*
 
-Three severities (§6) against three candidate homes: the row that owns it, the stage that found it,
-and the set. §8 already says a finding annotates the row that owns it — this step has to handle the
-finding that belongs to **no** row, since a missing env key and a merge collision are properties of
-the set. Run's stage list as a structure — verdict, duration, expansion, in flow 04's shape — the
-handover stages, and where the unclean-export confirmation sits relative to the finding that caused
-it.
+| # | Class | What it will probably bite on here |
+|---|---|---|
+| **1** | **Dead ends** — a *no* branch that leads nowhere, an error or empty with no way on | Ten endings across seven diagrams, and **two are outside the product by design** (env values on the receiving machine, copies a revoked link cannot recall). The critique has to separate *a dead end we built* from *a limit we drew honestly* — and **the auto-added row that will not go** is the one to argue about |
+| **2** | **Missing states** — a happy path with no empty, error or loading | **The known gap**, stated in step 4 above. No `loading` node and no `error` node in the whole file |
+| **3** | **Excess depth** — the main job or a frequent related job further than three taps | **Two paths sit at four** and both are already named with their compromise. The critique's job is to decide whether naming is enough |
+| **4** | **Orphans** — check against the matrix, **do not build a new one** | One orphan column re-justified as `[§10]`, two orphan rows disposed of. The critique should test whether the re-justification holds or is special pleading |
 
-**Output:** `sitemap.md` §7.
+**Output:** `ia-critique.md`, then the fixes applied to `sitemap.md` and `flows.md` **separately and
+visibly**.
 
-### 8. Taxonomy, filters, search — and the one sort we cannot decide
+### 7 · `ia.html` and the live documents — **not started**
 
-Six kinds, tags, what a filter chip says, and flow 02's rule that a filtered-to-zero state **names how
-many items are hidden** and never claims there are none. Search scope: does it cross the two library
-scopes. **And the shelf's sort order, which is Q9 and gets a marked placeholder rather than an
-answer** — *provenance over volume* is the only shape any observed person has endorsed, on four
-practitioners in a self-selecting venue, and that is not enough to fix an order.
+*One clean page assembled from `sitemap.md` and `flows.md`: the tree with the job beside each screen,
+every flow rendered as Mermaid, the traceability matrix as a table with orphans highlighted. Dark,
+clean, in the language of `research.html` and `personas.html`. Then update the live documents.*
 
-**Output:** `sitemap.md` §8.
+**Three deliverables, and two of them are not the page:**
 
-### 9. The closing pass — mark, audit, hand back
+1. **`ia.html`** — built the way the other two pages are, by a script in [`tools/`](../tools/), never
+   hand-edited, and carrying the **twelve-phase strip** both page templates already have. **Mermaid
+   from a CDN, initialised on the dark theme** — and note the diagrams were authored **outline-only**
+   so they read on either theme, which is the same rule §10 sets for the product.
+2. **`CLAUDE.md`** — the course asks for the top-level sitemap, the main flow, the global navigation and
+   the depth to the main job, stated briefly. **Most of this file's IA content arrived piecemeal
+   through Q14 to Q23**; this is where it gets one coherent place instead of eight dated amendments.
+3. **`README.md`** at the repository root — a *Structure* section saying what lives in `sitemap.md` and
+   `flows.md`.
 
-**9a — the marked list.** Every structural decision that needed a cell nobody has filled, with the
-register entry it belongs to. This is the rule [`CLAUDE.md`](../CLAUDE.md) §1 now sets for work done
-before the sitting: *name the missing cell at the point of the decision and leave the decision
-marked.*
+**And one conditional the course states and we should honour**: *if building the IA found a hole in the
+data, patch `research.md`.* **It did** — the traceability matrix is the first document to state `H-J5`
+as importance 3 with no surface, and `EJ-3` as touched-but-unclosable.
 
-**9b — the audit.** Every claim in `sitemap.md` classified **fixed by the spec** / **derived, with the
-derivation shown** / **invented**, in the manner of
-[`personas-and-jobs-critique.md`](../research/personas-and-jobs-critique.md), which found 27 invented
-claims in 238. **An information architecture is where invention hides best, because a structure looks
-inevitable the moment it is drawn.** Filed as `ia-critique.md` so it can be read as an audit, and
-applied in place with the pass recorded in `sitemap.md`.
+---
 
-**9c — reconcile and hand back.** Proposals to the register, in the established form — *what was found
-· what is proposed · which entry it belongs to*. **Nothing is written into `CLAUDE.md`.** A lesson may
-narrow a claim and raise an entry; the owner edits the spec.
+### What left the lesson, and where each piece went
 
-### 10. The page — phase 03
+**Four of our ten steps are not in the course's list.** None is deleted; each has a home.
 
-Last, and not part of the IA's correctness. Built the way the other two are: the shared `<style>`
-block lifted from `research-page.tpl.html`, the twelve-phase strip updated in **both** templates, the
-file added to `.vercelignore`, which is a whitelist. See [`tools/README.md`](../tools/README.md).
+| Our old step | Where it goes | Why |
+|---|---|---|
+| **1** Fixed points — what this lesson may not re-decide | **Dropped, and the reason is that the work it was insurance against did not happen.** It was a guard against transcribing §8 instead of deriving from it. **The lesson demonstrably derived**: it produced a panel, a mode, a matrix and eight register entries, and §8 was changed by the register rather than copied into a tree. *A guard that was never needed is cheaper to retire than to perform.* |
+| **5** What each surface is made of, in named regions | **Lesson 04, prototyping and wireframing** | *What a screen is made of* is a wireframe. It arrives there carrying four things lesson 03 found: the `Item` overlay's three disclosures and its third door, the note count that can never reach zero, the detached copy nobody is told about, and the panel's width against the project row |
+| **6** The item in six contexts and six states | **Lesson 04** | The same reason, and it is still **partly blocked by S-2** — whether an item addresses a directory rather than a file |
+| **7** Where a finding lives | **Half answered already, half to lesson 04** | §8 settles the common case — *a finding annotates the row that owns it* — and the flows confirmed it. What is left is the finding belonging to no row, which is a composition question |
+| **8** Taxonomy, filters, the shelf's sort | **Lesson 04, and partly blocked** | **Q19 settled on 2026-09-20 that sorting, ranking and recommending get no design until Q9 has an answer**, and Q9 is deferred |
 
 ---
 
@@ -292,10 +321,10 @@ file added to `.vercelignore`, which is a whitelist. See [`tools/README.md`](../
 | File | What it is |
 |---|---|
 | `README.md` | This plan. |
-| [`sitemap.md`](sitemap.md) | The work, sections 1–8 plus the marked list — **the entity inventory is written**. The source of truth for structure, subordinate to `CLAUDE.md` in every conflict. |
-| [`flows.md`](flows.md) | **User flows in Mermaid, written 2026-09-16** — the main job and four related ones, each with its decisions, its states and both kinds of ending. **Derived from `sitemap.md` and adding nothing to it**: every node is a screen, mode, overlay or state that already existed. |
-| `ia-critique.md` | Step 9b. Claim-by-claim, with its application recorded in `sitemap.md`. |
-| `ia.html` | Step 10, if it is built. Generated — never hand-edited. |
+| [`sitemap.md`](sitemap.md) | The work, **six sections** — Entities, Screens, Places, Navigation, Traceability, plus the dated blocks recording where the decisions meet each other. The source of truth for structure, subordinate to `CLAUDE.md` in every conflict. |
+| [`flows.md`](flows.md) | **User flows in Mermaid** — six flows in seven diagrams, each with its decisions, its states and both kinds of ending. **Derived from `sitemap.md` and adding nothing to it**: every node is a screen, mode, overlay, region or state that already existed. |
+| `ia-critique.md` | **Step 6.** The defect table — where · what · how to fix — then the fixes proposed separately and applied visibly. |
+| `ia.html` | **Step 7.** Generated by a script in [`tools/`](../tools/) — never hand-edited. |
 
 ---
 
@@ -338,16 +367,30 @@ is a weaker test than it will feel while passing it.
 
 ## Definition of done
 
-- [ ] `sitemap.md` §1 lists every fixed point with its section number
-- [x] Every entity in §2a carries its fields, its job with a link, and its relation — and every
-      object with no job is refused in *In question* with a reason
-- [x] Every noun in §2b classified, with the borderline cases argued rather than asserted
-- [ ] A route table, and every route a promise about something addressable
-- [ ] §8's three load-bearing mitigations each visible in the navigation model
-- [ ] Every surface composed in named regions, plus the three first-run states
-- [ ] The item table complete across six contexts and six states, with S-2's dependency named
-- [ ] Every one of §6's three severities has a home, including the finding that belongs to no row
-- [ ] Nothing in the map requires a feature §9 refuses
-- [ ] The marked list written, each entry naming its register entry
-- [ ] `ia-critique.md` written and applied, with the pass recorded
-- [ ] Proposals handed to the register; **`CLAUDE.md` untouched**
+**Rewritten 2026-09-20 against the course's seven steps.** Four lines left with the four steps that
+left the lesson; they are in lesson 04's brief instead.
+
+- [x] Every entity carries its fields, its job with a link, and its relation — and every object with
+      no job is refused in *In question* with a reason
+- [x] Every noun classified as place, mode, overlay, region or state, with the borderline cases argued
+      rather than asserted
+- [x] Every screen in the tree carries the job it serves, or the mark that says it does not
+- [x] A navigation model with the taps to the main job counted, and every count above three named with
+      its compromise
+- [x] §8's three load-bearing mitigations each visible in the navigation model, and each re-homed or
+      struck when the panel replaced the palette
+- [x] User flows in valid Mermaid, every node existing in `sitemap.md`, decisions and states listed in
+      words underneath, **and both kinds of ending**
+- [x] A coverage matrix with both orphan lists, and **a decision for every orphan**
+- [x] Nothing in the map requires a feature §9 refuses
+- [ ] `ia-critique.md` written — four defect classes, a table of where · what · how to fix — and the
+      fixes applied **separately and visibly**, nothing changed silently
+- [ ] `ia.html` generated, carrying the tree, all seven diagrams and the matrix
+- [ ] `CLAUDE.md` carrying the top-level sitemap, the main flow, the global navigation and the depth
+      to the main job **in one place** rather than in eight dated amendments
+- [ ] The root `README.md` carrying a *Structure* section
+- [x] ~~Proposals handed to the register; **`CLAUDE.md` untouched**~~ — **superseded.** The owner
+      answered ten register entries between 2026-09-15 and 2026-09-20 and applied them to `CLAUDE.md`
+      the same days. **The protocol held**: every change went through the register first, which is what
+      the line was protecting; what it got wrong was assuming the sitting would be late rather than
+      continuous.
