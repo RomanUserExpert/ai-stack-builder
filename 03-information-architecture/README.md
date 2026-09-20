@@ -13,7 +13,8 @@ lesson and it is dealt with under *What it is not*.
 [`sitemap.md`](sitemap.md) holds the **entity inventory** — **sixteen** objects with their fields, the
 job that raises each and whose side it is on, plus **eleven candidates refused for a stated reason**,
 **two of which have since left the table because the owner applied them**: the licence and
-`defersTo` — and the **screen tree**: **six screens and one orphan**, four for the owner and two for
+`defersTo` — and the **screen tree**: **seven screens and one orphan** *(six until the sign-in arrived
+on 2026-09-20)*, four for the owner and two for
 the receiver, plus two nodes that are not screens, derived from the jobs, grouped by the person's three
 situations, with the persona split and a list of the things that are states rather than screens. **Two
 further sections record where the decisions meet each other** — one for 2026-09-15 and one for the
@@ -39,9 +40,9 @@ library item is confirmed rather than refused.** Every step that exists was re-c
 job **lost four nodes and four edges**, because the panel absorbed an excursion and Q16 removed a
 branch. **No numbered step advanced on 2026-09-20; the existing ones were made true again** — and then the
 owner accepted the flows and **a sixth section, Traceability, was added to `sitemap.md`**: every job
-against every surface, with the orphan lists. **One orphan column** — library import/export as JSON,
-which three separate instruments have now called an orphan — and **two orphan rows**, `SJ-2` and
-`H-J5`, **neither of which can be honestly filled**: the product declines the first and is incapable
+against every surface, with the orphan lists. **Two orphan columns** — library import/export as JSON, which three separate instruments have now
+called an orphan, and **the sign-in, added when the matrix was re-run over Q25** — and **two orphan
+rows**, `SJ-2` and `H-J5`, **neither of which can be honestly filled**: the product declines the first and is incapable
 of the second. Each orphan carries a decision. **Like `flows.md`, it is a check across steps rather
 than a numbered step of its own.**
 
@@ -212,7 +213,7 @@ library panel replaced the palette, and it is what classified the configuring mo
 *An indented text tree, every node carrying the job it serves, grouped by the person's logic and not by
 site sections; a screen with no job is marked `[ORPHAN]`; states are not screens; depth kept minimal.*
 
-**Output:** [`sitemap.md`](sitemap.md) §Screens — six screens, one orphan, four nodes that are not
+**Output:** [`sitemap.md`](sitemap.md) §Screens — seven screens, one orphan, four nodes that are not
 screens, with the persona split and a list of the things that are states rather than screens.
 
 **What our old plan added here and the course does not ask for: route strings.** Literal addresses were
@@ -261,9 +262,10 @@ written to expect.** **Step 6 is where that gets settled, not here.**
 then two defect lists — orphan screens and orphan jobs — and a decision for each: delete, add, attach,
 or backlog.*
 
-**Output:** [`sitemap.md`](sitemap.md) §Traceability — 17 jobs against 12 surfaces, sourced jobs and
-hypotheses in separate blocks. **One orphan column, two orphan rows, and two defect classes the exercise
-was not asked for.** All seven findings were put to the owner and disposed of the same day: Q12 closed
+**Output:** [`sitemap.md`](sitemap.md) §Traceability — 17 jobs against 13 surfaces, sourced jobs and
+hypotheses in separate blocks. **Two orphan columns, two orphan rows, and two defect classes the
+exercise was not asked for** — and the two empty columns are empty for **opposite reasons**, which the
+re-run over the sign-in is what forced anybody to notice. All seven findings were put to the owner and disposed of the same day: Q12 closed
 as refused, Q18 to Q23 answered.
 
 **Where we did not reach the course's goal, and it is deliberate.** *No empty row and no empty column*

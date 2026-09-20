@@ -605,6 +605,15 @@ the point of the mark.
 ### The tree
 
 ```
+0 · THE DOOR  — not one of the person's situations
+  │
+  └── Sign in ......................................... [no job] [§9]
+        Q25, 2026-09-20. A place by all three tests, and the
+        only one here that exists for the product rather than
+        for somebody's work. You are sent to it and handed on.
+        The owner passes through it; the receiver does not —
+        a shared link is opened anonymously (Q13)
+
 1 · WHAT I KEEP  — the corpus I have accumulated
   │
   ├── Library ......................................... [H-J1] [RJ-3] [EJ-3 partly]
@@ -651,14 +660,18 @@ the point of the mark.
         a way to take it — the archive, or a copy into their own library
 ```
 
-**Six screens and one orphan, and the tree lists four nodes that are not screens** — the `Item`
+**Seven screens and one orphan, and the tree lists four nodes that are not screens** *(six screens
+until 2026-09-20, when the sign-in arrived with Q25)* — the `Item`
 add/edit form, an **overlay** on the Library (§8, kept 2026-09-16), the **detached row**, a mode
 inside Project, and, since 2026-09-20, the **configuring mode** and the **library panel**, a region
 inside it (Q14). *An earlier
 count here said five screens and was stale: it predates the two surfaces Q13 added. The non-screen
 count was two until the panel replaced the palette.* **The screen count did not change when the
 builder's mechanism did**, which is the thing worth noticing: a palette that was an overlay became a
-panel that is a region, and no place was created by either. The three groups are the person's own three situations, in the order
+panel that is a region, and no place was created by either. **Group 0 is not a fourth situation and is marked so it cannot be read as one.** The person has no
+situation called *I would like to sign in*; **the door exists because Q24 gave the product a server**,
+and it is grouped apart because every other node in this tree answers to something somebody wants. The
+three groups below are the person's own three situations, in the order
 [`personas.md`](../research/6-personas/personas.md) records them: *copying something out of the
 collection into a new project · adding a rule right after an agent did something annoying · hunting
 for something they know they wrote.* They are not navigation sections and should not become a menu in
@@ -677,6 +690,7 @@ step 3 — they are why the screens exist.
 | **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
 | **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, does it hold together, what do I still need, how do I take it* | **P2**, and it is their only surface |
 | **Shared item** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Somebody sent me one block — what is it, whose is it, may I use it* | **P2** · P3 `[?]` |
+| **Sign in** — *added 2026-09-20, Q25* | **`[no job]`** — and **no job could**: §9 | *Nothing. Nobody arrives wanting to sign in* — **it is the door the online decision put in front of the owner's work**, and the only screen here that serves the product rather than a person | **P1, P3 — and P2 only if they choose to keep a copy** |
 | **Library import / export** | ~~`[orphan]`~~ **`[§10]`** — Q18, re-answered 2026-09-20 | *Leave with my work* — **not a job anybody stated.** Kept on a non-evidential basis, like the `license` field: the product holds the corpus on a server and §11 tells the user to pour everything into it | P1 |
 
 **The orphan, named rather than quietly dropped.** `CLAUDE.md` §10 commits to **export and import of
@@ -691,6 +705,7 @@ the Library, is exactly the kind of thing step 2b decides.
 
 | | Screens | Reading |
 |---|---|---|
+| **The owner, before anything — and the receiver, never** | **Sign in** — *added 2026-09-20 with Q25* | **P1 and P3 pass through it to reach anything. P2 does not**: Q13 keeps the viewer of a shared link **anonymous**, and the archive branch stays free of it. **The only way a receiver meets this screen is by choosing *copy into my library*** — and at that moment they have stopped being P2 and become somebody with a corpus of their own. **It answers to no persona's job, which is why it has a row here and no column in the matrix** |
 | **P1 — the keeper of a corpus** · **primary** | **All four of the owner's** — Library, Projects, Project, Run — and the Library carries more weight than it did before 2026-09-15, **now including the weight `Item` would have carried** (2026-09-16) | Q7 named the collector primary, so the corpus screens stop being the place you pass through on the way to Run. **The cost is on the record**: the collector's own job is the thinnest evidence in the folder |
 | **P2 — the receiver** · secondary | **Two, as of 2026-09-15: the shared project and the shared item** — plus `SETUP.md` inside the archive, which is not a screen | **The finding changed the same day it was written.** It read *the receiver needs no screen at all*; **Q13 answered yes to a link**, and P2 now has exactly the two surfaces a link can lead to. **And as of the same day they can do the product's central act on them**: the receiver runs **the same Check**, on the set in front of them, and takes the archive from its last stage. **Library-to-archive, performed by somebody who owns nothing.** **What has not changed is the hard part:** these screens are still designed for a person who, in five venues and four rounds, **has never spoken in the first person** — so they are the most `[?]`-laden places in the product, and the archive must still be complete on its own, because whoever gets the link may only ever get the file |
 | **P3 — the empty-handed** · secondary `[?]` | **No screen of their own**: Library in its **Public** scope, and Projects for the **example project** | Nothing is built only for P3, and that is deliberate. The persona has never been observed, and the two clearest public beginners wrote their own material or asked to shadow a human rather than reach for a shelf. **A screen built only for them would be a place invented for somebody nobody has met** |
@@ -1220,20 +1235,24 @@ overlay is carrying three disclosures nobody chose to put together.
 **`L-pub`** `Public library`, the shelf · **`Item`** the add/edit overlay · **`Pj`** Projects ·
 **`P-v`** Project, viewing · **`P-c`** Project, configuring · **`Pan`** the library panel ·
 **`Det`** the detached row · **`Run`** · **`Sh-p`** shared project · **`Sh-i`** shared item ·
-**`JSON`** library import / export.
+**`JSON`** library import / export · **`In`** sign in.
 
-| Job | P1 | L-my | L-pub | Item | Pj | P-v | P-c | Pan | Det | Run | Sh-p | Sh-i | JSON |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **MAIN** — make it keep working somewhere else | **3** | ✓ | | | ✓ | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | |
-| **RJ-1** — know what the other side needs | `[?]` | ✓ | | ✓ | ✓ | ✓ | | | | ✓ | ✓ | ✓ | |
-| **RJ-2** — what it drags in, where two fight | **3** | ✓ | | ✓ | | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | |
-| **RJ-3** — fix it once, reach every copy | **3** | ✓ | ✓ | ✓ | ✓ | ✓ | | | ✓ | ✓ | | | |
-| **RJ-4** — move the work, not the secrets | **2** | ✓ | | ✓ | ✓ | ✓ | | | | ✓ | ✓ | ✓ | |
-| **EJ-1** — not be quietly overruled | **3** | ✓ | | ✓ | ✓ | ✓ | ✓ | | | ✓ | | | |
-| **EJ-2** — believe a clean result was earned | **2** | | | | ✓ | ✓ | | | | ✓ | ✓ | ✓ | |
-| **EJ-3** — stop suspecting half is dead weight | **3** | ✓* | | ✓* | | | | | | | | | |
-| **SJ-1** — not be the missing manual | **2** | | | ✓ | | ✓ | | | | ✓ | ✓ | ✓ | |
-| **SJ-2** — something I would put my name to | **1** | | | | | | | | | | | | |
+**`In` was added on 2026-09-20 and the matrix was re-run over it**, which Q25 required of itself:
+*the matrix must be re-run over whatever the sign-in adds, or this section's coverage claim quietly
+stops being true.* **Its column is empty in both tables.**
+
+| Job | P1 | L-my | L-pub | Item | Pj | P-v | P-c | Pan | Det | Run | Sh-p | Sh-i | JSON | In |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **MAIN** — make it keep working somewhere else | **3** | ✓ | | | ✓ | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | | |
+| **RJ-1** — know what the other side needs | `[?]` | ✓ | | ✓ | ✓ | ✓ | | | | ✓ | ✓ | ✓ | | |
+| **RJ-2** — what it drags in, where two fight | **3** | ✓ | | ✓ | | ✓ | ✓ | ✓ | | ✓ | ✓ | ✓ | | |
+| **RJ-3** — fix it once, reach every copy | **3** | ✓ | ✓ | ✓ | ✓ | ✓ | | | ✓ | ✓ | | | | |
+| **RJ-4** — move the work, not the secrets | **2** | ✓ | | ✓ | ✓ | ✓ | | | | ✓ | ✓ | ✓ | | |
+| **EJ-1** — not be quietly overruled | **3** | ✓ | | ✓ | ✓ | ✓ | ✓ | | | ✓ | | | | |
+| **EJ-2** — believe a clean result was earned | **2** | | | | ✓ | ✓ | | | | ✓ | ✓ | ✓ | | |
+| **EJ-3** — stop suspecting half is dead weight | **3** | ✓* | | ✓* | | | | | | | | | | |
+| **SJ-1** — not be the missing manual | **2** | | | ✓ | | ✓ | | | | ✓ | ✓ | ✓ | | |
+| **SJ-2** — something I would put my name to | **1** | | | | | | | | | | | | | |
 
 `✓*` — **partial by construction, not by omission.** See EJ-3 below.
 
@@ -1243,21 +1262,23 @@ overlay is carrying three disclosures nobody chose to put together.
 specified features close nothing else.** A column standing only on this block is a column standing on
 an assumption, and that is a defect of a third kind.
 
-| Job | P1 | L-my | L-pub | Item | Pj | P-v | P-c | Pan | Det | Run | Sh-p | Sh-i | JSON |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **H-J1** — lay hands on something I wrote | **2** | ✓ | | | | | | ✓ | | | | | |
-| **H-J2** — start from one I have done | `[?]` | | | | ✓ | | | | | | | | |
-| **H-J3** — change one copy for one project | **2** | | | | | ✓ | ✓ | | ✓ | | | | |
-| **H-J4** — get moving with somebody else's | `[?]` | | ✓ | | ✓ | | | ✓ | | | | ✓ | |
-| **H-J5** — watch what actually ran | **3** | | | | | | | | | | | | |
-| **H-J6** — my work counts as something | — | *the same job as SJ-2 in functional wording; not counted twice* | | | | | | | | | | | |
-| **H-J7** — the unwritten half travels too | **2** | | | ✓ | | ✓ | | | | ✓ | ✓ | ✓ | |
+| Job | P1 | L-my | L-pub | Item | Pj | P-v | P-c | Pan | Det | Run | Sh-p | Sh-i | JSON | In |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **H-J1** — lay hands on something I wrote | **2** | ✓ | | | | | | ✓ | | | | | | |
+| **H-J2** — start from one I have done | `[?]` | | | | ✓ | | | | | | | | | |
+| **H-J3** — change one copy for one project | **2** | | | | | ✓ | ✓ | | ✓ | | | | | |
+| **H-J4** — get moving with somebody else's | `[?]` | | ✓ | | ✓ | | | ✓ | | | | ✓ | | |
+| **H-J5** — watch what actually ran | **3** | | | | | | | | | | | | | |
+| **H-J6** — my work counts as something | — | *the same job as SJ-2 in functional wording; not counted twice* | | | | | | | | | | | | |
+| **H-J7** — the unwritten half travels too | **2** | | | ✓ | | ✓ | | | | ✓ | ✓ | ✓ | | |
 
 ---
 
 ### Defect 1 · Orphan columns — a surface with no job
 
-**One, and it is the one already carrying the mark.**
+**Two, and they are empty for opposite reasons** — *the second was added on 2026-09-20 when the matrix
+was re-run over the sign-in.* **One is a mechanism we chose without a job. The other is a place another
+decision forced on us.** **Those are not the same defect and must not be counted as one.**
 
 **`JSON` — library import / export.** Empty in both tables. `CLAUDE.md` §10 commits to *export and
 import of the whole library as JSON*, and **no job in either block raises it.** The entity inventory
@@ -1307,6 +1328,27 @@ exists* is what a share link does now (Q13). **What is left is durability, and t
 
 **One thing this does not license.** It remains in the **deep** tier and gets no more design than two
 commands need. A warrant is not a promotion.
+
+**`In` — the sign-in.** Empty in both tables, and **it will never be anything else.** No job in
+`jtbd.md` says *I would like to sign in*, and none could: **it exists because Q24 gave the product a
+server**, and a server needs to know whose library it is showing.
+
+**It is a different kind of empty from the one above, and conflating them would be the expensive
+mistake.** The JSON route is **a mechanism nobody asked for that we chose to keep** — it could be cut
+tomorrow and the product would still work. **The sign-in is not optional and was never chosen on its
+own**: it is the tail of a decision about what the product is. **So it is not a candidate for removal,
+and it does not join the *two is a pair, three is a habit* count**, which is about things shipped on a
+stated preference. *A forced consequence and an unforced choice look identical in a coverage matrix and
+have nothing else in common.*
+
+**What it does earn is the treatment Q25 already gave it**: the minimum the decision forces and nothing
+beyond. **An empty column is exactly the right argument against a profile screen, a settings page and a
+session list** — each of those would be a second empty column with a real design cost behind it.
+
+**And the honest note about this matrix's own limits.** *A coverage matrix measures against jobs, and
+two of its thirteen columns stand on something else — the architecture.* **That is a property of the
+instrument, not a fault in the product**, and it is worth keeping in view the next time an empty column
+is read as a verdict.
 
 ### Defect 2 · Orphan rows — a job with no surface
 
@@ -1649,7 +1691,7 @@ its place by closing a job. **The cost is recorded in the register**: the collec
 thinnest evidence in the folder, so the surfaces that now carry the most weight are the ones with the
 least under them.
 
-**And the screen tree establishes six screens and one orphan, plus four nodes that are not screens**
+**And the screen tree establishes seven screens and one orphan, plus four nodes that are not screens**
 (*two until the library panel and the configuring mode arrived on 2026-09-20*) —
 four for the owner and **two for the receiver, added when Q13 was answered**; the two non-screens are
 the `Item` add/edit overlay (§8, kept 2026-09-16) and the detached row. Each screen carries the job it

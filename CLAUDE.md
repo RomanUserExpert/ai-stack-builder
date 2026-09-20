@@ -1218,7 +1218,14 @@ Kept in the architecture's line of sight, not built:
 - **An account surface beyond a way in** (settled 2026-09-20, Q25). Accounts are in the MVP, and **a
   profile, a settings screen and a session list are not**: no job in the matrix raises any of them, and
   §9's own rule plus lesson 03's trap 3 say the same thing — **do not invent a place for a person nobody
-  has met.** What is built is **a way in**, and **a rule for a session that ends mid-work**: you return
+  has met.**
+
+  **And the receiver never meets it.** §5's link keeps the viewer **anonymous** (Q13), and an owner's
+  account does not give them one — **the archive branch of a shared page stays free of any door**, which
+  is what makes it the branch that must always work. **The only way somebody who arrived by link meets a
+  sign-in is by choosing *copy into my library***, and at that moment they are no longer a visitor.
+
+  What is built is **a way in**, and **a rule for a session that ends mid-work**: you return
   to **where you were**, nothing is re-run, and nothing saved is lost. You return to **the place**, not
   into the act — configuring and `Run` are modes, and *you were halfway through assembling a set* is not
   a thing this product can restore, so it does not pretend to. *The shape is §Navigation's own: a reload

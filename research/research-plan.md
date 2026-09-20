@@ -1238,7 +1238,9 @@ used. **Nothing else in stage 5 is rewritten** — not the variants, not the sco
 **Lesson 03 ran a coverage check after the owner accepted the flows**: every job in
 [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) against every surface in
 [`sitemap.md`](../03-information-architecture/sitemap.md), sourced jobs and hypotheses in separate
-blocks. **One orphan column, two orphan rows, and two further defects nobody asked it to look for.**
+blocks. **One orphan column, two orphan rows, and two further defects nobody asked it to look for** —
+*and a second orphan column later the same day, when Q25 added the sign-in and the matrix was re-run
+over it, as that entry required of itself.*
 The matrix is in `sitemap.md` §Traceability; the dispositions are here. **All four were put to the
 owner as options and answered the same day.**
 
@@ -1530,6 +1532,14 @@ you return to **the Project** — not into the act. *You were halfway through as
 thing this architecture can restore, and pretending otherwise would be the same unearned claim §6 spends
 a section refusing.
 
+**One persona never meets it, and that is worth stating because it is easy to lose.** **The receiver
+does not sign in.** Q13 keeps the viewer of a shared link **anonymous**, Q24 gave the *owner* an
+account, and the two do not touch. **The archive branch of the receiver's flow stays free of any door**
+— which is what makes it the branch that must always work. **The only way P2 meets this screen is by
+choosing *copy into my library***, and at that moment they have stopped being P2: they are somebody with
+a corpus of their own. *That is the cleanest statement yet of where the receiver ends and an owner
+begins, and it fell out of a sign-in rather than out of anything about receivers.*
+
 **And it costs a place, which is the part worth recording rather than hiding.** **Sign-in passes all
 three of this section's tests**: a reload lands you on it, Back means something, and the address can be
 written down and come back tomorrow. **By the section's own mechanical test it is a place, so there are
@@ -1545,6 +1555,14 @@ classification.* **The tests decided it and the count moved.**
 something before the first screen.** Every path costs **one more from a cold, signed-out start** — and
 the table says so rather than implying a coverage it does not have. **The floor of three is a floor for
 somebody already signed in**, which is the ordinary case and the honest thing to state.
+
+**The matrix was re-run, the same day.** `In` is a column in both blocks of §Traceability and **it is
+empty in both**, which was never in doubt. **What the re-run is for is the distinction it forced**: an
+empty column can mean *we chose a mechanism nobody asked for* — the JSON route — or *another decision
+forced a place on us*, which is this. **The first is a candidate for removal and the second is not**,
+they look identical in the table, and **they are now labelled apart.** *And the empty column turns out
+to be the sharpest available argument against a profile screen and a settings page: each would be
+another one, with a real design cost behind it.*
 
 **What is not answered and is deliberately left open.** **What the way in actually is** — a password, a
 link, a provider — is not a product question this lesson can settle, and §10 already says *how it is
