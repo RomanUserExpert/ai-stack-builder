@@ -41,6 +41,26 @@ like when it is drawn rather than asserted.
 flows about **findings**, and a finding never blocks anybody. *The rule this file used to state — every
 flow ends in both kinds — was written when the diagrams had dead ends they should not have had.*
 
+**Waits and failures are named in words under each flow, and deliberately not drawn.** *Added
+2026-09-20 after [the critique](ia-critique.md) found no `loading` node and only one `error` node in
+eight diagrams.* **Both classes are real** — the product is online (Q24), so every read and write
+crosses a network — **and putting them in the diagrams would have doubled every graph to say the same
+thing eight times.** §2 already calls the validation pass *a designed moment, not a spinner*, which
+leaves open what ordinary waiting looks like; **that is a composition decision and it belongs to lesson
+04.** So each flow carries a short list instead, and **the diagrams stay about what the person is
+deciding.**
+
+**Two failures belong to every path, so they are named once here rather than eight times.**
+
+**A session that expires mid-work.** Q24 put accounts in the product, and **the configuring mode and
+`Run` are both unaddressable**: there is nowhere to send somebody back to after a sign-in, and no
+architecture word yet for *you were halfway through assembling a set*. **It is the sharpest unanswered
+consequence of going online** and it sits on **Q25** with the sign-in surface itself.
+
+**A second tab on the same account.** Sync means one person can now disagree with themselves — edit an
+item in one window while exporting it in another. **Single user has stopped meaning single writer**,
+and nothing in §5, §6 or the sitemap has noticed.
+
 **Node labels are names, not sentences.** *Corrected 2026-09-16: the first version carried labels of up
 to 95 characters, which sprawls a `TD` flowchart sideways until it stops being readable.* **The diagram
 carries the shape; the numbered list under it carries the argument.** Every node is keyed to a line in
@@ -230,6 +250,19 @@ does**, and a column of grey glyphs is a poor answer to the only free question a
 product has nothing to give them because `needsEnv` holds names and never values. That one stays, and
 it is the main job's own ceiling: **checked, never works.**
 
+**Waits and failures on this path — named, not drawn.** *`Checking` is the only wait with a node,
+because §6 makes it a designed moment; everything below is a wait the product has never described.*
+
+- **Waits.** The `Projects` list on arrival · **opening a project** — the set plus every row's state ·
+  **the panel's first fill**, which needs the resolved set before it can order `Related` · filtering as
+  you type · **saving a new item** from the add form · **building the archive** at Export.
+- **The wait nobody has noticed.** **The dependency walk runs on the server now**, so *auto-added rows
+  appear with no check involved* hides a round trip **in the middle of the busiest interaction in the
+  product.** If it is slow, the panel's checkbox and the set disagree for as long as it takes.
+- **Failures.** Creating the project · the panel cannot load the corpus · an add that does not persist ·
+  an item that fails to save · **an export that fails to build**, which is the one that costs the most,
+  because it is the last step and the person has already read the handover.
+
 ---
 
 ## The single-item export — the main job at its smallest scale
@@ -325,6 +358,15 @@ this flow has. Everything else loops: a Problem sends them to the Library to fix
 a wrong target re-runs the check. **That is what a short flow looks like when nothing blocks and the
 only irreversible step is the last one.**
 
+**Waits and failures on this path — named, not drawn.**
+
+- **Waits.** The library list · the filter · **the walk**, which is a server read even for one item ·
+  the archive build.
+- **Failures.** The copy from the shelf does not land · the walk fails · the export fails.
+- **And one that is new since Q24 and belongs to no single flow.** **The product is online with
+  accounts, so the same person can have two tabs open**, and the item being exported here may have been
+  edited or deleted in the other one. **Nothing in this architecture has a word for that yet.**
+
 ---
 
 ## RJ-1 — "know what the other side will still need, before I send it"
@@ -402,6 +444,17 @@ last week's handover can be re-read; re-reading means checking again, and a pers
 that will look for a link that does not exist. **Exporting unread** — the disclosure was placed before
 the irreversible step precisely so this could not happen quietly, and the flow draws it as reachable
 anyway, because nothing blocks.
+
+**Waits and failures on this path — named, not drawn.**
+
+- **Waits.** The project · the check · **the `SETUP.md` preview**, which is generated rather than
+  stored · `.env.example` · the archive.
+- **Failures.** The check cannot run · **the preview fails to generate**, which matters more than it
+  looks: the preview *is* the disclosure this whole job is about, so a failure here is not a cosmetic
+  one — it is the job silently not happening · the export fails.
+- **Note the asymmetry.** A failed check is recoverable by pressing again. **A failed preview looks
+  like a page with less on it**, and nothing tells the person that what they are reading is short
+  because something broke.
 
 ---
 
@@ -529,6 +582,18 @@ out — you remove what dragged it in. The dead end is what declining that offer
 out. **The Problem you cannot reach from here** — the fix is four items away or in another project, and
 the archive will carry only one of the two, which is correct behaviour and still a bad afternoon.
 
+**Waits and failures on these two paths — named, not drawn.**
+
+- **2a, waits.** The panel · **the dependency walk after every add**, which is the one that matters:
+  the auto-added rows are the whole point of this half, and they arrive from a server.
+- **2a, failures.** The add does not persist · the walk fails and the set is silently under-resolved ·
+  **the `✕` does not persist**, so a row the person removed comes back on reload.
+- **2b, waits.** The check, and **the check again after every fix** — this is the loop the product runs
+  most often, so its wait is the one felt most.
+- **2b, failures.** The check fails · the fix in the Library does not save · the row action does not
+  persist. **In all three the verdict is the casualty**: §6 voids it on any change, so a change that
+  half-happened leaves a project whose verdict is void for a reason nobody can name.
+
 ---
 
 ## RJ-3 — "fix something once and have the fix reach every copy of it"
@@ -600,6 +665,18 @@ of the corpus, which the practitioner on record says plainly: *"I basically neve
 review."* **The detached copy nobody mentioned** — the fix reaches every **linked** copy and by design
 skips the detached one, and this flow is where that design decision becomes a person discovering it
 weeks later. **It is the sharpest thing these five diagrams found.**
+
+**Waits and failures on this path — named, not drawn.**
+
+- **Waits.** The library · **the usage facts**, which are computed rather than stored — *used in 3
+  projects* is a read, and it is read at the head of the form where the person is waiting to be allowed
+  to type · the save · the copy from the shelf.
+- **The failure that matters most in the product.** **A save that does not land after the blast radius
+  was shown.** The person was told *saving un-checks 3 projects*, pressed save, and nothing came back.
+  **Did it un-check them or not?** §6 voids a verdict on an edit, so the answer decides what three other
+  projects now say about themselves, **and the person has no way to find out from this screen.**
+- **Failures.** The save · the delete · **a concurrent edit from the person's other tab**, which Q24
+  made possible and nothing has addressed.
 
 ---
 
@@ -678,6 +755,19 @@ names as a Note* · *the sharing disclosure* · *the tangled-content Note* · *a
 flow says so out loud rather than drawing a scanner that does not exist. **The link they revoked** — the
 address dies and every copy already taken lives on, which the product must state **at the moment of
 revoking** rather than implying a recall.
+
+**Waits and failures on this path — named, not drawn, and two of them are safety-relevant.**
+
+- **Waits.** **Importing the whole library as JSON** — potentially the longest wait in the product, and
+  the one place a person hands over everything at once · creating the share link · revoking it.
+- **The nastiest state this product can reach.** **An import that fails halfway.** A library
+  part-filled with material, and **§10 says nothing about whether that is a transaction.** The person
+  cannot tell what arrived, and §11's keys warning was given about material they can no longer
+  enumerate.
+- **A failure that is not cosmetic. Revoke fails, and the person believes it succeeded.** §5 already
+  requires the product to say that revoking recalls nothing already taken; **a revoke that silently did
+  not happen is worse than that and is not covered by it.**
+- **Failures.** Import · export · share creation · **revoke**.
 
 ---
 
@@ -770,6 +860,18 @@ author what `STRIPE_KEY` was meant to be.
 **And one ending that is neither.** *Read it and left* — they opened it, understood it, and decided not
 to take it. **Nothing went wrong and the job did not close**, which is exactly what the third ending
 type exists for.
+
+**Waits and failures on this path — named, not drawn, and this is the person they land on hardest.**
+
+- **Waits.** **Opening the shared page**, which is their first impression of the product and happens
+  before they know what it is · the check they run themselves · the archive build · the copy into their
+  own library.
+- **Failures.** The one that is drawn — **a dead address** — plus: the check fails on somebody else's
+  set, and they have no way to tell whether that is the set's fault or ours · the export fails.
+- **And one collision with Q25 that has no answer yet.** *Copy into my library* needs **their** library,
+  which needs **their** account. **So the second take branch may put a sign-in in front of a person who
+  arrived with nothing and did not come here to register.** Q20 says these surfaces get the most
+  conservative treatment in the product; **this is the first thing that rule will have to decide.**
 
 ---
 

@@ -126,7 +126,8 @@ rule and the reason this section exists underneath the list rather than instead 
 | **3.1–3.4** depth | **Four wording fixes**: the path-B trade, path C's stale description, the two-entry deviation named as one, and the cold-start gap recorded |
 | **4.1** sign-in | **Taken to the register as Q25**, unanswered. **No screen invented** |
 | **4.2, 4.3** | The *pair, not a habit* count and the shelf's changed basis, both written into §Traceability |
-| **2.1** `loading` | **Not applied, deliberately.** Lesson 04 |
+| **2.1** `loading` | **No nodes, deliberately — but no longer undescribed.** Every flow now carries a short **Waits and failures** list in words, so the waits are named where they happen while the composition decision stays with lesson 04 |
+| **2.2** `error` | **One drawn, the rest named.** The dead link is a node in the receiver's flow; the other failures are in each flow's list, including two that are cross-cutting — **an expired session** and **a second tab on the same account** |
 
 **Three things the fixes produced that the critique did not predict.**
 
