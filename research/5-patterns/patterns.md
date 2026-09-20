@@ -60,8 +60,16 @@ Set by the plan, so the variants can be compared rather than admired.
 
 ## The constraints that are not up for negotiation
 
-Desktop-first · dark from day one · **not a node canvas** · single user · local only · custom design
+Desktop-first · dark from day one · **not a node canvas** · single user · ~~local only~~ · custom design
 system. A variant that scores well and violates one of these loses regardless of its score.
+
+> **`local only` fell on 2026-09-20 — Q24, the product is online with a backend and accounts.** *Left
+> struck rather than removed, because it is the record of what the five variants were judged under.*
+> **No score moves and no variant changes rank**, and the reason is worth stating rather than assuming:
+> P1 to P5 are five shapes for **one screen's interaction** — a pane pair, a palette, a manifest, a
+> wizard, a run surface — and **not one of them was scored on where the bytes live.** The constraint was
+> real and it bound nothing here. **Contrast `C5 = 2`** at *The choice*, which **was** load-bearing and
+> **did** stop applying; two constraints fell in one day and only one of them mattered.
 
 ---
 

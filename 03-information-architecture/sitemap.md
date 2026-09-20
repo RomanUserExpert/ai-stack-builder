@@ -512,7 +512,9 @@ The only per-item evidence the product ships. **Derived from the library, never 
 Where a piece of somebody else's work came from.
 
 - **Fields (§5).** `repoUrl` · `path` · **`ref`, pinned** — *this is the version we checked*, not
-  *this is current*, which is what keeps a shelf with no server behind it honest · **`license`, an
+  *this is current*, which is what keeps the shelf honest — *"with no server behind it" until Q24,
+  2026-09-20; a pin is a claim about what was examined, and a backend examines nothing for us* ·
+  **`license`, an
   SPDX identifier, added 2026-09-15**. §11: **shown, not just stored.**
 - **Job.** [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
   `[?]` for the shelf, and [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) for the pin: an
@@ -599,6 +601,8 @@ the point of the mark.
         no job raises it — and that stopped being the test
         on 2026-09-20 (Q18): its warrant is IndexedDB with
         no backend, so one browser profile holds everything
+        — VOID 2026-09-20 (Q24): there is a backend now,
+        and the warrant went with it. Reopened
 
 2 · WHAT I AM PUTTING TOGETHER  — the set for one piece of work
   │
@@ -679,7 +683,9 @@ the Library, is exactly the kind of thing step 2b decides.
 
 > **Written, corrected and answered in one day, and the sequence is left visible.** This block first
 > argued that a shared link is out of the MVP, and **two of its three reasons were about
-> implementation** — there is no server, storage is one browser. **That is not a reason; both are
+> implementation** — there is no server, storage is one browser. *(Both were true when this was
+> written and neither is now — Q24, 2026-09-20 — which makes the point below sharper rather than
+> stale.)* **That is not a reason; both are
 > struck.** The product decides what it is and the implementation follows. The question that survived
 > became **Q13**, and **the owner answered it: yes.** A link to a project **and** to an item, **live**,
 > openable by **anyone holding it**.
@@ -783,15 +789,24 @@ that a place you can never return to is an unusual kind of place.
 ## Places, modes, overlays and states — what kind of thing each one is
 
 > **Step 2b, written 2026-09-15.** The screen tree above is a hierarchy; this is what each node
-> actually *is*. No backend is involved and none is assumed: everything here is client-side logic,
+> actually *is*. ~~No backend is involved and none is assumed:~~ **There is a backend since
+> 2026-09-20 (Q24), and this section did not move** — the four tests are about *reload, Back and a
+> written-down address*, which a server changes only by making *tomorrow* mean *on another machine*.
+> Everything here is
 > flow and experience.
 
-**The rule, restated for a product with no server.** *A thing is a **place** only if somebody could be
-sent there and arrive.* With storage in one browser and nothing to share, *being sent* does not mean a
-link to another person — it means **the three things a place owes you on your own machine**: you can
-**reload** and still be where you were, **Back** means something, and the address can be **written
-down** and come back to the same view tomorrow. Anything that fails those three is not a place, however
-much of the screen it occupies.
+~~**The rule, restated for a product with no server.**~~ **The rule, and its framing was corrected
+twice** — by Q13 on 2026-09-15, when a link made *being sent* literal, and by **Q24 on 2026-09-20**,
+when the product turned out to have a backend and accounts. *A thing is a **place** only if somebody
+could be sent there and arrive.* ~~With storage in one browser and nothing to share,~~ **the test itself
+never depended on either**: it is **the three things a place owes you** — you can **reload** and still
+be where you were, **Back** means something, and the address can be **written down** and come back to
+the same view tomorrow. Anything that fails those three is not a place, however much of the screen it
+occupies.
+
+**What the backend does change is the scope of *tomorrow*.** An address now comes back to the same view
+**on another machine**, not only on this one, which makes the five places stronger rather than
+different — **and the classification below was re-checked against that and did not move.**
 
 **Four kinds, and the difference that matters is addressability, not size.**
 
@@ -1208,9 +1223,14 @@ it as a ✓ would launder an orphan into a feature.**
 **Settled 2026-09-20 by the owner, and the answer overturns the question rather than the finding
 (Q18).** The finding stands exactly as measured: **no job raises it.** What changed is the standing of
 that measurement. **Coverage was measured against jobs, and this mechanism does not stand on one — it
-stands on §10.** Storage is **IndexedDB with no backend**, so the only copy of everything a person has
-accumulated sits in **one browser profile**, which clears. That is a property of the architecture, not
-somebody's stated need, and **no instrument pointed at people was ever going to find it.**
+stands on §10.** ~~Storage is **IndexedDB with no backend**, so the only copy of everything a person
+has accumulated sits in **one browser profile**, which clears. That is a property of the architecture,
+not somebody's stated need, and no instrument pointed at people was ever going to find it.~~
+**Void the same day — Q24: the product is online, with a backend and accounts, so there is no single
+browser profile holding the only copy.** The finding this entry was answering is untouched — **the
+column is still empty and no job still raises it** — and the mechanism is back to standing on nothing.
+**Reopened, and it is the owner's**: either *portability*, which nobody in the evidence base has asked
+for, or it is cut.
 
 **So it keeps its place, and its entry keeps its honesty**: the column is empty, the mark changes from
 `[orphan]` to `[§10]`, and the sentence to remember is **it is not unjustified, it was being measured

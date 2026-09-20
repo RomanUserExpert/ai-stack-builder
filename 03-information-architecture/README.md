@@ -241,10 +241,12 @@ column**, not merely parsed, because a parser passes a diagram nobody can read.
 
 **One thing to carry into step 6 rather than defend.** The course names **empty, error and loading** as
 the states a flow must show. Ours have **empty** in several forms and **void**, **stale** and
-**checking** besides — and **no `loading` node anywhere, and no `error` node anywhere.** Some of that is
-honest (the product is local, with no network in the MVP) and **some of it will not survive the
-critique**: a revoked link opened by a receiver, an archive that fails to build, a browser with
-IndexedDB unavailable. **Step 6 is where that gets settled, not here.**
+**checking** besides — and **no `loading` node anywhere, and no `error` node anywhere.** ~~Some of that is honest (the product is local, with no network in the MVP)~~ — **struck the same day
+by Q24: the product is online, with a backend and accounts, so none of it is honest.** **Every read and
+every write crosses a network**, which makes `loading` a real state on every surface and `error` a real
+state wherever a request can fail: a revoked link opened by a receiver, an archive that fails to build,
+a save that does not land, a session that has expired. **Step 6 inherits a larger gap than it was
+written to expect.** **Step 6 is where that gets settled, not here.**
 
 ### 5 · Traceability matrix — **done 2026-09-20**
 

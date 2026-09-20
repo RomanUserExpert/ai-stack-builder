@@ -40,6 +40,15 @@ correction of the record**: the score that killed a library pane in stage 5 — 
 during the check* — assumed the check lived in the right-hand pane, and it has had its own surface
 since 2026-09-02. **No mark was promoted by any of it.**
 
+**And late the same day the largest correction of all: the product is online** (§12, Q24). **A backend
+and accounts**, so a person's library follows them between machines. **§9 loses accounts and sync and
+keeps teams out; §10's *IndexedDB, no backend* is gone; a piece of §2's long-term ambition moves into
+the MVP.** **Q18, answered that morning, is void** — the JSON export stood on there being no server.
+**What survives, and was checked rather than assumed**: the run is still a moment, the catalog is still
+refused, *checked, never works* still holds, and the receiver of a shared link is still anonymous.
+**And `loading` and `error` are now real states on every surface**, which is the first thing lesson 03's
+critique will find.
+
 **Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
 the key flow takes. None of them established **who the person is** or **what they hire this product
 for**. Stages 6 and 7 do that:
@@ -267,6 +276,10 @@ independently of any one machine, keep it as a portfolio, make it public or priv
 reuse and recombine it across projects. **One piece of that sentence is now in the MVP rather than in
 the ambition — *public or private*, as a link rather than as a catalog (§5, §9).**
 
+**One more piece of that sentence moved into the MVP on 2026-09-20** (Q24): *store your work
+independently of any one machine* is what a backend is for, and the product is online. **What stays in
+the ambition is the catalog and the team.**
+
 The MVP ambition is narrower: a personal, single-user library plus a builder — **and, since
 2026-09-15, one way out of it.** *This line read "personal, local, single-user" until Q13 was
 answered.* A project or an item can be **shared by link** (§5, *Sharing*), which is the one place the
@@ -458,8 +471,10 @@ Some items are not the user's own. The **public library** (§8, §11) ships with
 in place and never published to. Public items are ordinary `Item`s in every other respect — the shape
 above already carries what they need, `repoUrl`, a pinned `ref` and a `license`. Two things follow
 for design: each public item **shows its origin**, because it is someone else's work, and the pinned
-`ref` is what keeps a shelf with no server behind it honest — it says *this is the version we
-checked*, not *this is current*.
+`ref` is what keeps the shelf honest — it says *this is the version we checked*, not *this is
+current*. *This sentence used to read "a shelf with no server behind it", which stopped being the
+reason on 2026-09-20 (Q24) and was never the whole of it:* **a pin is a claim about what was examined,
+and a server would not let us examine anything we have not examined.**
 
 **Every external item carries its licence, and a missing licence is not permission** (decided
 2026-09-15). `license` holds an SPDX identifier — `MIT`, `Apache-2.0` — and where a source states
@@ -499,8 +514,12 @@ thing, and nothing is listed, searched, browsed, ranked or moderated. **This is 
   consequence is that sharing is a standing decision rather than a single act:** every later edit is
   also a publication, and §5's blast radius therefore has a third altitude — *used in 3 projects* ·
   *this edit un-checks 3 projects* · **and one of them is shared.**
-- **Anyone holding the link.** No accounts, no named viewers, no sign-in — §9's refusal of accounts
-  stands untouched, because the viewer is anonymous and the owner is still the only user. **The link
+- **Anyone holding the link.** No accounts, no named viewers, no sign-in **for the viewer** — and
+  **that is the half that matters, which 2026-09-20 made worth separating** (Q24). The product now has
+  a backend and the owner signs in; **the receiver does not, and nothing about a link changes.** ~~§9's
+  refusal of accounts stands untouched~~ — §9's accounts bullet fell, and **this did not fall with it**:
+  the viewer is anonymous, the owner is still the only user of their own workspace, and *how the link is
+  served* has simply stopped being undecided. **The link
   is therefore the credential, so it must not be guessable**, which is what `shareRef` is for.
 - **Revocable, and honest about what revoking cannot do.** Stopping the share kills the address.
   It does **not** reach anything anybody already copied or downloaded, and the product must say so at
@@ -740,8 +759,8 @@ front of them.
 **There was never an obstacle, and the question is worth recording because we nearly invented one.**
 The check is a walk along `requires`, a comparison of `conflicts`, duplicate command names, target
 paths, and the collection of `needsEnv` **names**. Every input is data the shared page already
-carries. It touches nothing on anybody's machine, needs no server and reveals nothing the page was not
-already showing — §6's disclosure at the moment of sharing states that item **content** is visible, so
+carries. It touches nothing on anybody's machine, **needs nothing the page does not already hold**, and
+reveals nothing the page was not already showing — §6's disclosure at the moment of sharing states that item **content** is visible, so
 the check exposes nothing further.
 
 **Why it is better than the page computing quietly for them.** The validation pass is specified as a
@@ -773,6 +792,12 @@ an observation, not as a claim about anybody's adoption.
 
 Decided 2026-09-15, answering the question lesson 03's entity inventory raised: §6 and §8 give the
 check a whole surface and §5 had no object for it.
+
+**A backend does not change this, and it is worth saying so** (2026-09-20, Q24). A server makes storing
+runs trivial, which is exactly why the refusal has to be re-read rather than assumed: **its reason was
+never that we had nowhere to put them.** It is §9's refusal of a second mechanism for *what was true
+earlier*. **The argument was a product argument, and it survives the thing that would have made it easy
+to break.**
 
 **No run is stored.** Run is a surface, not a record — opening it starts a check, and closing it ends
 one. There is no run id, no run list, no history of checks, and **nothing to link to afterwards**.
@@ -1137,8 +1162,12 @@ Kept in the architecture's line of sight, not built:
   **`visibility` is now a control the user can touch**, and the rule it was justified by is satisfied
   rather than broken: *an action that cannot act is not shown* — this one can.
   **Note the asymmetry, added 2026-09-02: consuming a curated public library is in the MVP (§8, §11);
-  publishing to one is not.** A read-only shelf that ships with the application needs no server,
-  no accounts and no moderation. Nothing about it makes `visibility` a control the user can touch.
+  publishing to one is not.** ~~A read-only shelf that ships with the application needs no server,
+  no accounts and no moderation.~~ **Half of that was an argument from absence, and the absence ended
+  on 2026-09-20** (Q24): there is a server and there are accounts. **The shelf is still read-only and
+  publishing to it is still out, and both now stand on what they always should have**: we **curate** it,
+  which is why an item whose licence we cannot state does not go on it; and §9 refuses the catalog **on
+  the evidence**, which it has done since 2026-09-15. Nothing about it makes `visibility` a control the user can touch.
   A switch that cannot act does not belong on a primary surface: Linear, Figma and GitHub all hide
   an action there until it has something to do. Do not ship a dead toggle on the most load-bearing
   word in the model. (The rule has one documented exception and it does not apply here — **context
@@ -1155,7 +1184,12 @@ Kept in the architecture's line of sight, not built:
   spends a section refusing. **The nearest honest thing is already shipped and must not be grown into
   a claim**: *last exported 12 days ago* reports **what this product did**, never what an agent did
   with the archive afterwards.
-- **Accounts, sync, teams.** Single user, one workspace.
+- ~~**Accounts, sync, teams.** Single user, one workspace.~~ **Two of the three moved into the MVP on
+  2026-09-20** (Q24): the product is online, so there is **a sign-in and a library reachable from any
+  machine.** **Teams stay out**, and the line between them is kept on purpose — **a server needs
+  identity, and identity is not a team.** §4 still says a workspace is **one per user and not a team
+  concept**, and no job in the matrix raises a second person inside one workspace. **Still single
+  user, still one workspace; it now follows them between machines.**
 - **Automatic metadata parsing** from item content.
 
 Do not build these. Do not design a screen that only makes sense once they exist.
@@ -1173,18 +1207,31 @@ Do not build these. Do not design a screen that only makes sense once they exist
 - **No UI kits.** No MUI, no shadcn, no Chakra. The design system is custom and is part of
   the product's value.
 - **No Figma upstream.** Design happens in code and in whatever mockups we produce here.
-- **Storage:** IndexedDB, once we get to logic. No backend.
-- **Archive:** built in the browser (JSZip).
-- **Library portability:** export/import of the whole library as JSON. **Its warrant is this list,
-  not a job** (settled 2026-09-20, Q18). Three separate instruments in lesson 03 called it an orphan
-  because **no job in the matrix raises it** — and that is the wrong test for it. **Storage is
-  IndexedDB and there is no backend**, so the only copy of everything a person has accumulated lives
-  in **one browser profile**, which clears. *This is a property of the architecture above, not somebody's
-  stated need*, and a product that offers no way out of that profile is one bad afternoon from losing a
-  corpus it spent §11 telling the user to build. **The 2026-09-15 half of its old justification is gone
-  and is not missed**: *informal sharing* is what a share link does now (§5, Q13). What remains is
-  durability. ~~this covers both
-  backup and informal sharing before any server exists.~~
+- **Storage: a backend, and the library is reachable from any machine** (decided 2026-09-20, Q24).
+  ~~IndexedDB, once we get to logic. No backend.~~ **Which backend is deliberately not decided here**,
+  in the same words this file already uses about serving shared links: **the product decides what it
+  is, and the implementation follows.** IndexedDB may survive as a local cache; that is an
+  implementation question and not a product one.
+- **Archive: built in the browser (JSZip) — now a choice rather than a constraint** (2026-09-20).
+  Nothing in §6 depends on where the zip is assembled, and nothing is decided here.
+- **Library portability:** export/import of the whole library as JSON. ~~**Its warrant is this list,
+  not a job** (settled 2026-09-20, Q18).~~ **Void the same day, Q24 — and this is the sharpest example
+  of the rule at the end of §12.** The warrant below rested on one sentence: *storage is IndexedDB with
+  no backend, so the only copy lives in one browser profile, which clears.* **There is a backend now,
+  and that sentence is false.** The finding underneath is unchanged — **no job raises it** — so the
+  mechanism is back to standing on nothing until a different warrant is found. **Two candidates, neither
+  taken: *portability*, meaning the user can leave with their data, which nobody in the evidence base
+  has asked for; or nothing, in which case it is cut.** Q18 is reopened and is the owner's.
+  *The reasoning below is kept, struck, because it is a good argument that stopped being true — which
+  is worth more on the page than a deleted one.*
+  ~~Three separate instruments in lesson 03 called it an orphan because **no job in the matrix raises
+  it** — and that is the wrong test for it. **Storage is IndexedDB and there is no backend**, so the
+  only copy of everything a person has accumulated lives in **one browser profile**, which clears.
+  *This is a property of the architecture above, not somebody's stated need*, and a product that offers
+  no way out of that profile is one bad afternoon from losing a corpus it spent §11 telling the user to
+  build. The 2026-09-15 half of its old justification is gone and is not missed: informal sharing is
+  what a share link does now (§5, Q13). What remains is durability.~~
+  ~~this covers both backup and informal sharing before any server exists.~~
 - **Styling engine — deferred to lesson 08, design tokens** (2026-09-02), decided on two built
   components rather than in the abstract. The criterion is fixed now: **tokens and two real themes
   must be first-class**, and the engine must not push utility classes into components that are
@@ -1203,7 +1250,9 @@ there is nothing to validate.
 **And material coming in this way carries a warning about keys** (decided 2026-09-16, and it is what
 replaced §6's credential refusal). When the user brings their own files in — one item, or the whole
 library as JSON (§10) — the product says before it accepts them: **check that these files carry no
-keys.** The reason is stated rather than implied: what comes in this way **goes out in every archive
+keys.** **There are two reasons now** (the second added 2026-09-20, Q24). The material **leaves the
+person's machine the moment it is accepted**, onto a server we run — *that is new, and it strengthens
+the reminder rather than replacing anything.* And, as before: what comes in this way **goes out in every archive
 built from it**, and, if the thing is ever shared, **onto an address anyone can open** — and neither
 exit is checked.
 
@@ -1307,6 +1356,14 @@ is not yet built into §5 or §6** — it needs a declared field and a Note, and
 disposition still owing a mechanism.**~~ **Built on 2026-09-16: `defersTo` on `Item` (§5,
 *Deference*), a Note on the item's own row (§6), and the sentence carried onward to the shared page
 (§8) and to `SETUP.md` (§6). No disposition from the sitting is owing a mechanism now.**
+
+**And one rule, written down on 2026-09-20 because it caught two things in one day** (Q24). **Any
+argument in this file of the form *we cannot, because there is no X* is only as durable as the absence
+of X.** On that day **`no backend` ended** and **`the check lives in the right-hand pane` turned out
+never to have been true of the chosen shape** — and each had a refusal resting on it. **The rule: when
+an absence ends, every refusal that leaned on it is re-argued or dropped, in writing.** Three were
+re-argued and survived on other grounds — the run being a moment, the catalog, and *checked, never
+works*. **One did not and is void: Q18.**
 
 **And one question was raised and answered after the sitting, the same day. Q13 — is sharing a link in
 the MVP — is answered yes**: a link to **a project and to an item**, **live**, openable by **anyone

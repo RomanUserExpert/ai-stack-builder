@@ -1389,6 +1389,85 @@ count it twice. **The first is easy to refuse and the second is not.** *Portfoli
 where work is seen is this refusal being tested in functional clothing**, and the caution now sits in
 **§9, beside the refusal**, rather than in a matrix nobody will re-read.
 
+### Q24 — the product is online: a backend and accounts — 2026-09-20
+
+**Raised by the owner in four words, correcting a sentence of mine.** Lesson 03's plan said, in passing,
+*the product is local, with no network in the MVP*, and the answer was: **it is not local, it will be
+online.** Put as a question with three readings — hosting only, a backend without accounts, or a backend
+with accounts — **the owner chose the third.**
+
+**The answer. Data lives on a server, there is a sign-in, and a person's library is reachable from any
+machine.** `CLAUDE.md` §9's *accounts, sync, teams* bullet loses two of its three, and §10's *storage:
+IndexedDB, no backend* is gone.
+
+**This is a decision, not a finding, and the mark discipline applies as always.** No evidence was
+produced and none is promoted. **What it is is an implementation fact with product consequences** —
+which is exactly the class of thing this repository has twice been bitten by, so the consequences are
+enumerated rather than left to be discovered.
+
+#### What falls
+
+- **§9 — accounts and sync move into the MVP.** **Teams do not**, and the distinction is kept on
+  purpose: a server needs identity, and identity is not a team. §4 still says a workspace is **one per
+  user and not a team concept**, and no job in the matrix raises a second person inside one workspace.
+- **§10 — storage.** *IndexedDB, once we get to logic. No backend* is replaced. **Which backend is
+  deliberately not decided here**, in the same words §5 already uses about serving shared links: the
+  product decides what it is, the implementation follows. **IndexedDB may survive as a local cache** and
+  that is an implementation question, not a product one.
+- **§10 — the archive.** *Built in the browser (JSZip)* becomes **a choice rather than a constraint.**
+  Nothing in §6 depends on where the zip is assembled, and no decision is taken here.
+- **§2 — a piece of the long-term ambition moves into the MVP.** *Store your work independently of any
+  one machine* was written as the ambition; **a backend is what that sentence asked for**, and it
+  arrives before the catalog and before teams, which stay in the ambition.
+- **§11 — the shelf's justification, not the shelf.** *A read-only shelf that ships with the application
+  needs no server, no accounts and no moderation* was half an argument from absence. **The absence is
+  gone.** The shelf is still read-only and publishing to it is still out, **but those now have to stand
+  on curation and on evidence** — which they can, and §9's refusal of the catalog already does.
+- **§11 — the keys warning gets sharper and must say so.** It was justified by *what comes in goes out in
+  every archive built from it*. **Now the material also leaves the person's machine the moment it is
+  accepted**, onto a server we run. **That is a second reason, not a replacement**, and it strengthens
+  the case for the reminder rather than weakening it.
+
+#### What stands, and why each survives
+
+- **§6 — *we run nothing on anybody's machine*.** A backend of ours is not the user's agent runtime.
+  **Q12 stays closed**: *watch what actually ran* is still a job about a machine we never touch.
+- **§6 — *the run is a moment; nothing is stored*.** A server makes storing runs trivial, so it is worth
+  saying why this is unaffected: **its reason was never that we had nowhere to put them.** It was §9's
+  refusal of a second mechanism for *what was true earlier*. **The argument was a product argument and
+  it survives the thing that would have made it easy to break.**
+- **§5, Q13 — the shared link.** *No accounts, no named viewers, no sign-in* was about **the viewer**,
+  and the viewer is still anonymous. **The owner having an account does not give the receiver one**, and
+  nothing about a link changes: it is still the credential, still unguessable, still revocable, still
+  live. **How it is served stops being undecided and becomes ordinary.**
+- **§9 — the catalog refusal.** It already stopped leaning on *there is no server to publish to* on
+  2026-09-15. **Now the implementation excuse is gone entirely and the evidence carries it alone** —
+  which is where it should have been, and where it already is.
+- **§3, §7, §8** — untouched. Desktop-first, the six item states, and every surface in the flow are
+  indifferent to where the bytes live.
+
+#### What it reopens
+
+- **Q18, answered earlier the same day, is void and must be re-answered.** The JSON export kept its
+  place on **one sentence**: *storage is IndexedDB with no backend, so the only copy of everything a
+  person has accumulated lives in one browser profile, which clears.* **That sentence is now false.**
+  The finding underneath it is unchanged — **no job raises it** — so the mechanism is back to standing
+  on nothing unless a different warrant is found. **Two candidates and neither is taken here**:
+  *portability*, meaning the user can leave with their data and is not locked in, which is a real
+  argument nobody in the evidence base has made; and *nothing*, in which case it is cut. **Put to the
+  owner.**
+- **`loading` and `error` become real states everywhere**, not only on a shared page. Lesson 03's step 6
+  — the IA critique — already names missing states as a defect class, and **the excuse written into the
+  plan that morning, *the product is local, with no network in the MVP*, is struck.**
+
+#### One more thing to watch, recorded now so it is not discovered later
+
+**Every argument in this repository of the form *we cannot, because there is no server* is now
+suspect.** Three were checked above and all three survive on other grounds — the run being a moment, the
+catalog, and *checked, never works*. **The rule going forward: if a refusal's reason is an absence, and
+the absence ends, the refusal has to be re-argued or dropped.** That is what happened to stage 5's
+C5 = 2 on 2026-09-20, and it is the second time in one day.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions
