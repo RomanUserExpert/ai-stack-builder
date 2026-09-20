@@ -673,10 +673,12 @@ weeks later. **It is the sharpest thing these five diagrams found.**
 - **Waits.** The library · **the usage facts**, which are computed rather than stored — *used in 3
   projects* is a read, and it is read at the head of the form where the person is waiting to be allowed
   to type · the save · the copy from the shelf.
-- **The failure that matters most in the product.** **A save that does not land after the blast radius
-  was shown.** The person was told *saving un-checks 3 projects*, pressed save, and nothing came back.
-  **Did it un-check them or not?** §6 voids a verdict on an edit, so the answer decides what three other
-  projects now say about themselves, **and the person has no way to find out from this screen.**
+- **The failure that matters most in the product — and it was answered the same day** (Q26). A save
+  that does not land after the blast radius was shown: the person was told *saving un-checks 3
+  projects*, pressed save, and nothing came back. **The screen says the edit did not land**, and those
+  three projects are shown **neither as checked nor as un-checked on the strength of it.** *The product
+  does not show a verdict state it is not sure of* — which is §6's *a stale verdict is not shown, the
+  date still is*, one step earlier.
 - **Failures.** The save · the delete · **a concurrent edit from the person's other tab**, which Q24
   made possible and nothing has addressed.
 
@@ -762,10 +764,10 @@ revoking** rather than implying a recall.
 
 - **Waits.** **Importing the whole library as JSON** — potentially the longest wait in the product, and
   the one place a person hands over everything at once · creating the share link · revoking it.
-- **The nastiest state this product can reach.** **An import that fails halfway.** A library
-  part-filled with material, and **§10 says nothing about whether that is a transaction.** The person
-  cannot tell what arrived, and §11's keys warning was given about material they can no longer
-  enumerate.
+- **The nastiest state this product could reach — closed the same day** (Q27). An import that fails
+  halfway leaves a library part-filled with material the person cannot enumerate, **and §11's keys
+  warning would have been given about exactly that.** **Now: either the import finished, or the library
+  reads as it did before it started.** *A warning about a set nobody can inspect is not a warning.*
 - **A failure that is not cosmetic. Revoke fails, and the person believes it succeeded.** §5 already
   requires the product to say that revoking recalls nothing already taken; **a revoke that silently did
   not happen is worse than that and is not covered by it.**

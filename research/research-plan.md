@@ -1551,7 +1551,7 @@ link, a provider — is not a product question this lesson can settle, and §10 
 served is deliberately not decided here.* **The matrix must be re-run over whatever is added**, or
 §Traceability's coverage claim quietly stops being true.
 
-### Q26 — an edit and the verdicts it voids are one operation — raised and answered 2026-09-20
+### Q26 — the product never shows a verdict state it is not sure of — raised and answered 2026-09-20
 
 **Raised by writing the waits and failures under the flows.** §5 requires the blast radius to be legible
 **before** the edit — *used in 3 projects · saving un-checks all three* — and then the product is online
@@ -1559,8 +1559,14 @@ served is deliberately not decided here.* **The matrix must be re-run over whate
 Nothing on that screen can say, and the answer decides what three other projects currently claim about
 themselves.
 
-**Answered: the edit and the voiding are one operation, and on failure the product says that nothing
-landed.** Either the item changed and every affected verdict went with it, or neither happened.
+**Answered: when the result of the save is unknown, the screen says the edit did not land, and the
+three projects are shown neither as checked nor as un-checked on the strength of it.**
+
+*Restated the same evening.* **The first wording was *the edit and the voiding are one operation*, which
+is a sentence about storage, and the owner set the working rule that we are designing the interface and
+not the backend.** **What is decided has not changed**; what changed is that it is now expressed as
+what a surface may claim, which is the only form this specification is entitled to use. *If a line here
+can only be satisfied by one storage design, it is written wrongly.*
 
 **The rule it follows is already in §6 and this is the same discipline one step earlier.** *A stale
 verdict is not shown, and the date still is* — **never display a claim that may no longer be true.** A
@@ -1571,12 +1577,16 @@ checked* is a fact the product states on the `Projects` screen. **A fact the pro
 product's to get right**, and this file's own rule is that the product decides what it is and the
 implementation follows.
 
-### Q27 — importing a library is all or nothing — raised and answered 2026-09-20
+### Q27 — a person is never left in front of a library they cannot account for — 2026-09-20
 
 **Raised the same way.** §10 commits to importing the whole library as JSON and **never says whether
 that is a transaction.** Online, it can fail halfway.
 
-**Answered: all or nothing.** A part-filled library is refused as a state.
+**Answered: either the import finished, or the library reads as it did before it started.**
+
+*Restated the same evening, for the same reason as Q26.* **The first wording was *all or nothing*, which
+describes a transaction.** The decision is unchanged and is now about **what the person is looking at**;
+how it is arranged underneath is not this file's business.
 
 **The reason is §11 and it is about the one subject where being wrong cannot be walked back.** Material
 entering the library is met with *check that these files carry no keys* — **a reminder addressed to a

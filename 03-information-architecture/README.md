@@ -100,6 +100,12 @@ already settled.** Step 1 exists to make that distinction cheap rather than a ma
 **2. Appearance creep.** A region is *what is in it and what it is for*, never *a 280px left rail*.
 The moment a sentence needs a pixel, a colour or a font to be true, it belongs to lesson 06 or later.
 
+**2b. Backend creep, and it is the same mistake pointed the other way** (added 2026-09-20). Q24 gave the
+product a server, and **within an afternoon two decisions had been phrased as guarantees about storage**
+— *one operation*, *all or nothing* — rather than as what a person sees. **They were restated the same
+evening and neither changed.** **The test is the same shape as trap 2**: if a sentence can only be made
+true by one storage design, it belongs to whoever builds it. **We are designing the interface.**
+
 **3. Inventing places for people nobody has met.** **P3's column in the jobs matrix is `[?]` in all
 ten rows**, and the two clearest public beginners anyone found *wrote their own material on day one or
 asked to shadow a human* rather than reaching for a shelf

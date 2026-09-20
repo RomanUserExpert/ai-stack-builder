@@ -40,6 +40,14 @@ correction of the record**: the score that killed a library pane in stage 5 — 
 during the check* — assumed the check lived in the right-hand pane, and it has had its own surface
 since 2026-09-02. **No mark was promoted by any of it.**
 
+**And one working rule set the same evening, after the four entries below were written** (2026-09-20).
+**We are designing the interface, and we are not designing the backend.** Q24 settled that a server
+exists; **what it is and how it behaves is deliberately not decided anywhere in this file**, which is
+what §10 already says about serving shared links. **So every decision here is phrased as what a person
+sees and what a surface may claim**, never as a guarantee about storage — *two entries written before
+this rule were phrased as mechanics and were restated the same evening; they are Q26 and Q27, and what
+they decide is unchanged.*
+
 **And late the same day the largest correction of all: the product is online** (§12, Q24). **A backend
 and accounts**, so a person's library follows them between machines. **§9 loses accounts and sync and
 keeps teams out; §10's *IndexedDB, no backend* is gone; a piece of §2's long-term ambition moves into
@@ -424,13 +432,18 @@ is **not built in the MVP**. Flow 05 found there is no prior art for a return pa
 origin at detach — so this one is invented rather than copied; see
 `research/2-flows/05-linked-vs-detached/NOTES.md`.
 
-**An edit and the verdicts it voids are one operation** (decided 2026-09-20, answering Q26). §5 puts
-the blast radius before the edit — *used in 3 projects · saving un-checks all three* — and the product
-is online, so **the save can fail after that sentence has been read.** Either the item changed and every
-affected verdict went with it, **or neither happened and the product says so.** No half-applied edit,
-because a half-applied one produces in three other places exactly the claim §6 refuses everywhere else:
-**a verdict that may no longer be true.** *How many of my projects are currently checked is a fact this
-product asserts, so it is the product's to get right.*
+**The product never shows a verdict state it is not sure of** (decided 2026-09-20, answering Q26;
+*restated the same evening from a sentence about operations into one about what the screen claims*). §5
+puts the blast radius before the edit — *used in 3 projects · saving un-checks all three* — and the
+product is online, so **the save can fail after that sentence has been read.** When the result is
+unknown, **the screen says the edit did not land**, and those three projects are shown **neither as
+checked nor as un-checked on the strength of it.** *Whatever makes that true underneath is not decided
+here.*
+
+**It is the same discipline §6 already applies one step later.** *A stale verdict is not shown, and the
+date still is.* **A half-applied edit would produce, in three other places at once, exactly the claim
+that rule exists to suppress** — and *how many of my projects are currently checked* is a fact this
+product states on a screen, so it is the product's to get right.
 
 **Deleting an item is confirmed, never refused** (decided 2026-09-20, answering Q17 — *this section had
 no delete at all*). A live link means a project's row depends on an item the project does not own, so
@@ -1230,7 +1243,10 @@ Do not build these. Do not design a screen that only makes sense once they exist
   that sentence is no longer "later": shared links are in the MVP** (§5, *Sharing*; Q13), and the
   choice made in advance turns out to have been the right one. **How they are served is deliberately
   not decided here** — the product decides what it is, the implementation follows, and nothing in §5,
-  §6, §8 or §9 depends on which way it goes. The catalog is still refused (§9).
+  §6, §8 or §9 depends on which way it goes. **Since 2026-09-20 that sentence
+  governs the whole file, not just links**: there is a backend (Q24) and **nothing in this specification
+  describes it.** Every rule here is about **what a person sees and what a surface may claim.** *If a
+  line in this file can only be satisfied by a particular storage design, it is written wrongly.* The catalog is still refused (§9).
 - **No UI kits.** No MUI, no shadcn, no Chakra. The design system is custom and is part of
   the product's value.
 - **No Figma upstream.** Design happens in code and in whatever mockups we produce here.
@@ -1245,12 +1261,17 @@ Do not build these. Do not design a screen that only makes sense once they exist
   that the user can leave with their work** (Q18, re-answered 2026-09-20 after the first answer died
   the same day).
 
-  **Importing is all or nothing** (decided 2026-09-20, Q27). A part-filled library is refused as a state.
-**The reason is §11 and it is about the one subject where being wrong cannot be walked back**: material
-coming in is met with *check that these files carry no keys*, **a reminder addressed to a set of files
-the person is expected to know** — and after a half-finished import they cannot enumerate what arrived.
-**A warning about an unknown set is not a warning.** *The alternative — allow the partial import and
-report exactly what landed — is honest and needs a report surface nobody has designed.*
+  **A person is never left in front of a library they cannot account for** (decided 2026-09-20, Q27;
+*restated the same evening from a sentence about transactions into one about what the person sees*).
+**Either the import finished, or the library reads as it did before it started.** *How that is arranged
+is not decided here.*
+
+**The reason is §11 and it is about the one subject where being wrong cannot be walked back.** Material
+coming in is met with *check that these files carry no keys* — **a reminder addressed to a set of files
+the person is expected to know.** After a half-finished import **they cannot enumerate what arrived**,
+so the reminder has been given about something nobody can inspect. **A warning about an unknown set is
+not a warning.** *The alternative — show the partial import and report exactly what landed — is honest,
+and it needs a report surface nobody has designed.*
 
 **Its basis is stated plainly, because it is not an evidential one.** No job raises it, in a matrix
   that checked all seventeen. **It is kept because the product now holds other people's corpora on a
@@ -1372,8 +1393,10 @@ the shared surfaces get the product's most conservative treatment because their 
 spoken (§8). **And four more were answered the same evening, three of them found by writing down what can go wrong
 on each flow.** **Q25** — the sign-in is built to the minimum the decision forces, and **it costs a
 place: there are six, not five**, because it passes all three of the addressability tests; §9.
-**Q26** — an edit and the verdicts it voids are **one operation**; §5. **Q27** — importing a library is
-**all or nothing**; §10. **Q28** — **a generated disclosure that could not be produced says so**, which
+**Q26** — **the product never shows a verdict state it is not sure of**; §5. **Q27** — **a person is
+never left in front of a library they cannot account for**; §10. *Both were first written as guarantees
+about storage and restated the same evening, when the owner set the working rule that we are designing
+the interface and not the backend; neither changed what it decides.* **Q28** — **a generated disclosure that could not be produced says so**, which
 covers the `SETUP.md` preview, `.env.example`, the archive tree and the share disclosure; §6.
 *Superseded below:* ~~**And one is live and unanswered: Q25**~~ — Q24 put the product online, and **sign-in, session and
 account exist in no screen tree, no entity inventory and no coverage matrix.** They are orphans by the

@@ -12,7 +12,11 @@
 > second test, and a harder one** — the flows asked whether the map has a gap, and this asks whether
 > anything on it is unearned. It decides nothing on implementation grounds:
 > what the product is comes first, and how it is built comes after — a rule this file had to be
-> corrected against once already, see *The screen P2 would have*. **Entities** — the objects a person handles in order to close a
+> corrected against once already, see *The screen P2 would have*. **Restated as a working rule on
+> 2026-09-20, after Q24 gave the product a backend: we are designing the interface and not the backend,
+> so every line here is about what a person sees and what a surface may claim.** *Two decisions taken
+> that afternoon were phrased as mechanics and were restated the same evening — Q26 and Q27 — and
+> neither changed what it decides.* **Entities** — the objects a person handles in order to close a
 > job. **Screens** — derived from those objects and from the jobs, never from anybody's product.
 > **Places, modes, overlays and states** — what kind of thing each node actually is, which is where
 > the place count comes from — *this line said four when it was written, before Q13 added the two shared
@@ -150,6 +154,11 @@ Everything the owner owns, across all projects.
   matters to the warning above*: it was justified by *what comes in goes out in every archive built from
   it*, and that sentence now covers one more exit than when it was written. **Nothing about the warning
   changes** — it was never exit-specific, which was the point of putting it at the entrance.
+- **And one thing the way in may never leave behind** (Q27, 2026-09-20). **Either an import finished, or
+  this entity reads as it did before it started.** *The rule is about what the person is looking at, not
+  about how it is arranged.* It exists because of the warning above: that reminder is **addressed to a
+  set of files the person is expected to know**, and a part-filled library is one they cannot enumerate.
+  **A warning about a set nobody can inspect is not a warning.**
 - **The way out that is not an exit: delete** (Q17, 2026-09-20). Confirmed rather than refused, and the
   count it names is E14's. **What happens to a detached row whose original is deleted is open.**
 - **Job.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
@@ -204,6 +213,12 @@ A named set of items that exports as an archive.
   **`checkedAt`, `checkVerdict`, `checkTarget`** — added 2026-09-15, when the run was decided to be a
   moment. The project is where a check leaves its trace, because **the run leaves none of its own**
   (E8).
+- **And one rule about those three fields rather than about their values** (Q26, 2026-09-20). **This
+  entity never shows a verdict state the product is not sure of.** An edit to an item in the resolved
+  set voids the verdict (§6); the product is online, so **the edit can fail after the person has been
+  told it would.** When that happens the project reads as **neither checked nor un-checked on the
+  strength of it**, and the screen that failed says so. *Same discipline as §6's stale verdict, one step
+  earlier: never display a claim that may no longer be true.*
 - **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — the project is **the unit that
   moves**; and [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
   because a collision is a property of a *set* and this is the set.
