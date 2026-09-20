@@ -123,7 +123,8 @@ them. Round 3 approaches that column from the other side, by reading **forks as 
 [`research/7-jobs-to-be-done/jtbd.md`](research/7-jobs-to-be-done/jtbd.md) holds **one main job, four
 related, three emotional and two social**, each with its persona, its source and its mark, plus seven
 hypothesis jobs, **and the matrix**. **Two main-job candidates survived, which by the method's own
-rule means two products** — the second is Q12 and it is the one §6 forbids us to build. The main job
+rule means two products** — the second is Q12, the one §6 forbids us to build, and on **2026-09-20 it
+was closed as refused rather than deferred** and written into §9 as a product we are not building. The main job
 is worded as a **transfer** job where §2 words the value as **assembly with validation**; that
 difference is stated in `jtbd.md` §1 and **is not applied here.**
 
@@ -1036,6 +1037,15 @@ to read the scores behind it: the rubric grades craft, not weight.
   acted on is a brochure. **Run is therefore a mode of this surface too**, entered the same way and
   ending the same way. It is the same shape as the read-only public item (§5), pointed at one
   person's work rather than at the shelf.
+
+  **And one rule for whoever designs them** (added 2026-09-20, Q20). Lesson 03's traceability matrix
+  found **the shared project carrying seven jobs — more than `Projects`, more than the library panel**
+  — while **P2 has never spoken in the first person**: after four rounds and five venues, every account
+  of a handover in the evidence base was written by the sender. **So these two surfaces are the largest
+  exposure in the product, and they get the most conservative treatment anywhere in it: invent nothing
+  here that is not derived from what P1 needs.** Where a choice has no answer in P1's evidence, make
+  the one that shows more and promises less, and mark it — **do not design for a person nobody has
+  met.**
 - **Projects** — saved projects and duplication, plus **the example project that ships on first
   run** (§11), labelled as an example and deletable. **A shared project reads as shared here**, and
   everywhere else it appears, because sharing is live and every later edit is also a publication (§5). **Each row carries its check verdict and when**
@@ -1106,6 +1116,17 @@ Kept in the architecture's line of sight, not built:
   word in the model. (The rule has one documented exception and it does not apply here — **context
   menus grey rather than hide**, because a stable item order is worth more than a short list. See
   finding 7 in `research/4-benchmark/benchmark.md`.)
+- **Observability of what actually ran — refused, and it is a different product** (settled
+  2026-09-20, closing Q12). *When I depend on something I cannot see working, I want to watch what it
+  actually did* is **importance 3 for the primary persona** and the **second main-job candidate that
+  survived** stage 7's method — which by that method's own rule means two products, and this is the
+  other one. **No surface in this product touches it**, which lesson 03's traceability matrix states as
+  a row of twelve blanks under a 3. **It is refused rather than deferred**, because the answer cannot
+  change without something this product does not have and will not get: we **run nothing on anybody's
+  machine**, so any screen answering it would promise a runtime we do not own — the unearned tick §6
+  spends a section refusing. **The nearest honest thing is already shipped and must not be grown into
+  a claim**: *last exported 12 days ago* reports **what this product did**, never what an agent did
+  with the archive afterwards.
 - **Accounts, sync, teams.** Single user, one workspace.
 - **Automatic metadata parsing** from item content.
 
@@ -1126,8 +1147,16 @@ Do not build these. Do not design a screen that only makes sense once they exist
 - **No Figma upstream.** Design happens in code and in whatever mockups we produce here.
 - **Storage:** IndexedDB, once we get to logic. No backend.
 - **Archive:** built in the browser (JSZip).
-- **Library portability:** export/import of the whole library as JSON — this covers both
-  backup and informal sharing before any server exists.
+- **Library portability:** export/import of the whole library as JSON. **Its warrant is this list,
+  not a job** (settled 2026-09-20, Q18). Three separate instruments in lesson 03 called it an orphan
+  because **no job in the matrix raises it** — and that is the wrong test for it. **Storage is
+  IndexedDB and there is no backend**, so the only copy of everything a person has accumulated lives
+  in **one browser profile**, which clears. *This is a property of the architecture above, not somebody's
+  stated need*, and a product that offers no way out of that profile is one bad afternoon from losing a
+  corpus it spent §11 telling the user to build. **The 2026-09-15 half of its old justification is gone
+  and is not missed**: *informal sharing* is what a share link does now (§5, Q13). What remains is
+  durability. ~~this covers both
+  backup and informal sharing before any server exists.~~
 - **Styling engine — deferred to lesson 08, design tokens** (2026-09-02), decided on two built
   components rather than in the abstract. The criterion is fixed now: **tokens and two real themes
   must be first-class**, and the engine must not push utility classes into components that are
@@ -1185,6 +1214,20 @@ rather than in the library, because that is where being an example is honest.
   The **~30 realistic items** figure that used to live here as a mockup requirement is the right
   order of magnitude for this too, and the same set serves both jobs.
 
+**How far to design it, and it is deliberately not as far as the content goes** (settled 2026-09-20,
+Q19). **Build the ~30 items in full** — the content is what makes an information architecture
+arguable. **Design the browsing surface only as far as the example project needs**, and no further.
+
+**The reason is a number.** Lesson 03's traceability matrix gives the shelf **two ticks, and only one
+comes from a job anybody has evidenced** — RJ-3 reaches it through a single branch, *copy it into mine
+to make it fixable*. Everything else it carries is **H-J4, whose importance is `[?]` in all three
+persona columns.** Meanwhile lesson 03 made the shelf more load-bearing **three times** — the scope
+switch in §8, the panel carrying it into assembly, cold start answered inside the builder — **and it
+gained no evidence at all while that happened.** **A surface that keeps getting heavier without getting
+better founded is where design effort goes to be wasted**, and **Q9 — what it holds and how it sorts —
+is still unanswered.** Sorting, ranking, recommending and curating are all downstream of Q9; none of
+them is designed before it.
+
 **Out of the library and to another person: a link, and that is in the MVP** (§5, *Sharing*, decided
 2026-09-15). **Out of the library and into a catalog — listed, searched, ranked, moderated — is still
 refused**; see §9 for the boundary. *This paragraph used to put both on the far side of "later".*
@@ -1202,8 +1245,13 @@ together in a sitting, once the picture is whole, rather than one at a time on p
 not keep a second list in this file; two lists drift, and this document has already been bitten by
 that twice. **The protocol outlived the research phase** — every lesson after it uses the same register.
 
-**Live as of 2026-09-20: Q9, Q11 and Q12 — deferred at the sitting — plus Q16 and Q17, each raised and
-answered on 2026-09-20 with one named question left open.** *This line read "none are live" between
+**Live as of 2026-09-20: Q9 and Q11 — deferred at the sitting — plus Q16 and Q17, each raised and
+answered on 2026-09-20 with one named question left open. Q12 left the list the same day: it is
+**closed as refused**, not deferred — see §9. Three more were raised and answered by the traceability
+matrix: **Q18**, the JSON route keeps its place on the architecture rather than on a job (§10);
+**Q19**, the shelf is built in full and designed only as far as the example needs (§11); and **Q20**,
+the shared surfaces get the product's most conservative treatment because their persona has never
+spoken (§8).** *This line read "none are live" between
 2026-09-15 and 2026-09-20.* **Lesson 03 raised four entries on 2026-09-20 and the owner answered all
 four the same day**, on the precedent of the `license` field and `defersTo`: **Q14 — a library panel
 inside `Project` replaces the `⌘K` palette**, with the Library leaving the assembly path (§8);
@@ -1220,7 +1268,8 @@ collector**, which resolves `personas.md`'s merge toward its collecting half; **
 evidence produced is recorded in `jtbd.md` §1 and not adopted; **Q10 — an external requirement beats
 the user's own rule, and the product must say when it disagrees** — answered in its disclosure half,
 with detection named as unsolved, because §9 parses nothing and we never see the other machine.
-**Q9, Q11 and Q12 are deferred with stated reasons.** The dispositions and the reasoning are in
+~~**Q9, Q11 and Q12 are deferred with stated reasons.**~~ **Q9 and Q11 are deferred; Q12 was closed as
+*refused* on 2026-09-20** and moved into §9 — see the traceability matrix.** The dispositions and the reasoning are in
 [`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*. ~~**Q10's answer
 is not yet built into §5 or §6** — it needs a declared field and a Note, and **it is the one
 disposition still owing a mechanism.**~~ **Built on 2026-09-16: `defersTo` on `Item` (§5,

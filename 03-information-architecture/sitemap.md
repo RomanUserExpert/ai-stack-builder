@@ -595,7 +595,10 @@ the point of the mark.
   │           §8, kept 2026-09-16. It discloses blast radius
   │           before it accepts an edit
   │
-  └── Library import / export (whole library as JSON) . [orphan]
+  └── Library import / export (whole library as JSON) . [§10]
+        no job raises it — and that stopped being the test
+        on 2026-09-20 (Q18): its warrant is IndexedDB with
+        no backend, so one browser profile holds everything
 
 2 · WHAT I AM PUTTING TOGETHER  — the set for one piece of work
   │
@@ -654,7 +657,7 @@ step 3 — they are why the screens exist.
 | **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
 | **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, does it hold together, what do I still need, how do I take it* | **P2**, and it is their only surface |
 | **Shared item** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Somebody sent me one block — what is it, whose is it, may I use it* | **P2** · P3 `[?]` |
-| **Library import / export** | **`[orphan]`** | — | — |
+| **Library import / export** | ~~`[orphan]`~~ **`[§10]`** — settled 2026-09-20, Q18 | *Get my corpus out of the one browser profile that holds it* — **not a job anybody stated; a consequence of the storage decision** | P1 |
 
 **The orphan, named rather than quietly dropped.** `CLAUDE.md` §10 commits to **export and import of
 the whole library as JSON**, *"which covers both backup and informal sharing before any server
@@ -742,7 +745,11 @@ promotion here would be a place with no job under it.
 - **A dashboard of what is working.** It would answer [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight)
   — importance **3** for the primary persona, the highest the product cannot close — and §6 **runs
   nothing on anyone's machine**, so it would be a promise we have no way to keep. **The job is real and
-  the screen is forbidden**, which is Q12.
+  the screen is forbidden**, ~~which is Q12~~ — **and on 2026-09-20 Q12 was closed as *refused* rather
+  than deferred** (§9). The traceability matrix below is what settled it: `H-J5` is **importance 3 with
+  twelve blank cells**, and an open question at that importance would otherwise be asked again on every
+  surface in lessons 04 to 09. **It is a second product**, in stage 7's own words, and this one does not
+  build it.
 
 ### Where this disagrees with §8, and it is one place
 
@@ -1197,11 +1204,21 @@ through this surface because material can get in that way, and the job it serves
 without moving the secrets*, which the warning closes and the JSON route only complicates. **Counting
 it as a ✓ would launder an orphan into a feature.**
 
-**Resolution: keep as two commands, in the deep tier, with a named trigger for removal.** Not deleted,
-because §10 commits to it and deleting a spec commitment is the owner's call, not a matrix's. Not
-promoted, because three instruments now say the same thing. **The trigger: if lesson 04 or 05 finds
-itself drawing an affordance for it, that is the moment to take it to the register** — a surface that
-needs design and closes nothing is the definition of cost without return.
+~~**Resolution: keep as two commands, in the deep tier, with a named trigger for removal.**~~
+**Settled 2026-09-20 by the owner, and the answer overturns the question rather than the finding
+(Q18).** The finding stands exactly as measured: **no job raises it.** What changed is the standing of
+that measurement. **Coverage was measured against jobs, and this mechanism does not stand on one — it
+stands on §10.** Storage is **IndexedDB with no backend**, so the only copy of everything a person has
+accumulated sits in **one browser profile**, which clears. That is a property of the architecture, not
+somebody's stated need, and **no instrument pointed at people was ever going to find it.**
+
+**So it keeps its place, and its entry keeps its honesty**: the column is empty, the mark changes from
+`[orphan]` to `[§10]`, and the sentence to remember is **it is not unjustified, it was being measured
+with the wrong instrument.** Half of its old justification did go: *informal sharing before any server
+exists* is what a share link does now (Q13). **What is left is durability, and that is enough.**
+
+**One thing this does not license.** It remains in the **deep** tier and gets no more design than two
+commands need. A warrant is not a promotion.
 
 ### Defect 2 · Orphan rows — a job with no surface
 
@@ -1224,12 +1241,19 @@ browsable. **The row is empty because the product declines the job, in writing, 
 refused the screen that would answer it, under *What is not a screen*: *"the job is real and the screen
 is forbidden, which is Q12."*
 
-> **Resolution: refused with a stated reason, and it stays Q12 in the register — deferred, not
-> answered.** **The screen is forbidden rather than missing**, and the distinction is the whole point:
-> a product that drew it would be promising a runtime it does not have, which is the unearned tick §6
-> spends a section refusing. **This is the highest-importance job in the product that no surface
-> touches, and the matrix is the first document to state it as a number** — 3, with a row of twelve
-> blanks under it.
+> **Resolution, settled 2026-09-20: Q12 is closed as *refused*, not deferred, and it moves into §9.**
+> **The screen is forbidden rather than missing**, and the distinction is the whole point: a product
+> that drew it would be promising a runtime it does not have, which is the unearned tick §6 spends a
+> section refusing. **This is the highest-importance job in the product that no surface touches, and
+> the matrix is the first document to state it as a number** — 3, with a row of twelve blanks under it.
+>
+> **Why it is closed rather than deferred a second time.** The answer cannot change without a runtime
+> the MVP will never have, and **an open question at importance 3 gets asked again on every surface in
+> lessons 04 to 09** — *should this show what ran?* — which is a tax with no possible payoff. Stage 7's
+> method says two surviving main-job candidates mean **two products**; this is the other one, and
+> naming it that is cheaper than carrying it. **The nearest honest thing is already shipped and must not
+> grow**: *last exported 12 days ago* reports what **this product** did, never what an agent did
+> afterwards.
 
 **Both stay empty on purpose. The instruction this exercise was given asks for no empty row or column,
 and two rows cannot honestly be filled** — one because the product declines the job and one because it
@@ -1246,6 +1270,12 @@ decision, which is the part that was reachable.
   a scope switch, the panel now carries it into assembly, and lesson 03 has made it more load-bearing
   three times without it gaining a single point of evidence. **Not an orphan; the thinnest column in
   the product**, and E3 already says so in its own words.
+  **Settled 2026-09-20 (Q19): build the content in full, design the surface only as far as the example
+  project needs.** The ~30 items with provenance and licences are built — **content is what makes an
+  architecture arguable** — and **browsing, sorting, ranking and recommending get no design until Q9 has
+  an answer.** A surface that keeps getting heavier without getting better founded is where design
+  effort goes to be wasted, and this is the one place in the product where that is measurably
+  happening. See `CLAUDE.md` §11.
 - **`Det`, the detached row — two ✓, one sourced.** `RJ-3` at importance 3 carries it, and `H-J3`
   supplies the rest. That is enough, and it is worth knowing it rests on one number.
 - **`Pan`, the library panel — four ✓, two of them MAIN and RJ-2 at importance 3.** Well founded, which
@@ -1266,6 +1296,11 @@ beyond what a thing that runs nothing can do.**
    seven jobs, which is more than `Projects` and more than the panel. **A surface built for somebody
    who has never spoken in the first person is doing a third of the product's work**, and the evidence
    under that person is the thinnest in the folder. Not a defect; the largest exposure on the board.
+   **Settled 2026-09-20 (Q20) as a design constraint rather than as a worry**: on the two shared
+   surfaces, **invent nothing that is not derived from what P1 needs.** Where a choice has no answer in
+   P1's evidence, take the one that **shows more and promises less**, and mark it. **Do not design for
+   a person nobody has met** — which is trap 3 in this lesson's own plan, and this is the column where
+   it would be easiest to spring. Written into `CLAUDE.md` §8.
 2. **`P-c`, configuring, is thinner than expected — four ✓.** It was added hours before this matrix and
    it does the work of assembling; most of what it enables is scored against `P-v` and `Pan` because
    that is where the person is looking. **If configuring ever needs to justify itself, this is the row

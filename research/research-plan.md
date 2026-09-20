@@ -333,10 +333,12 @@ carries the twelve.*
 ## Open questions — the register
 
 > **Where it stands, 2026-09-20.** The paragraph below describes the register as it was in 2026-09-06.
-> Since then the sitting was held (2026-09-15) and lesson 03 has raised five more entries. **Live now:
-> Q9, Q11 and Q12, deferred at the sitting, plus Q16 and Q17, raised and part-answered on 2026-09-20 —
-> each leaving one named question open.** Q13, Q14 and Q15 are answered. **Read the dated sections at
-> the end of this file for the current state; the prose here is the protocol, not the status.**
+> Since then the sitting was held (2026-09-15) and lesson 03 has raised eight more entries. **Live now:
+> Q9 and Q11, deferred at the sitting, plus Q16 and Q17, each raised and part-answered on 2026-09-20
+> with one named question left open.** **Q12 is closed as *refused*** — not deferred a second time —
+> after the traceability matrix showed it at importance 3 with twelve blank cells. Q13 to Q15 and Q18
+> to Q20 are answered. **Read the dated sections at the end of this file for the current state; the
+> prose here is the protocol, not the status.**
 
 **This is the last section on purpose, and it is a running list.** Questions land here as stages
 raise them. They are **not** answered as they arrive. The six that stood here were closed on
@@ -1227,6 +1229,102 @@ takes the whole surface, so **the Project screen, and anything on it, is not pre
 it was correct about P1-as-drawn. **What is added is a pointer**, at *The choice*, saying that one of
 the five categories no longer bears on a pane in today's architecture, and naming Q14 as where that was
 used. **Nothing else in stage 5 is rewritten** — not the variants, not the scores, not the comparison.
+
+### The traceability matrix — 2026-09-20, and it closed one entry and raised three
+
+**Lesson 03 ran a coverage check after the owner accepted the flows**: every job in
+[`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) against every surface in
+[`sitemap.md`](../03-information-architecture/sitemap.md), sourced jobs and hypotheses in separate
+blocks. **One orphan column, two orphan rows, and two further defects nobody asked it to look for.**
+The matrix is in `sitemap.md` §Traceability; the dispositions are here. **All four were put to the
+owner as options and answered the same day.**
+
+#### Q12 is closed as *refused*, not deferred a second time
+
+**`H-J5` — *watch what actually ran* — is importance 3 for the primary persona and has twelve blank
+cells.** It is the **second main-job candidate that survived** stage 7's method, which by that method's
+own rule means **two products**. §6 runs nothing on anybody's machine, so no surface here can touch it,
+and the sitemap had already refused the screen — *the job is real and the screen is forbidden*.
+
+**Why it is closed rather than deferred again.** The answer **cannot change** without a runtime the MVP
+will never have. **An open question at importance 3 gets asked again on every surface in lessons 04 to
+09** — *should this show what ran?* — and that is a tax with no possible payoff. **It moves into
+`CLAUDE.md` §9** with the other refusals, and it is the first entry on that list that is refused
+**because the product is incapable of it** rather than because the MVP is narrow.
+
+**What must not grow into it.** *Last exported 12 days ago* (§5) reports **what this product did**,
+never what an agent did with the archive afterwards. That boundary is the whole of what is shippable
+here, and it is already shipped.
+
+#### Q18 — the JSON route keeps its place, on the architecture rather than on a job
+
+**Answered: keep it, and stop calling it an orphan — the measurement was pointed at the wrong thing.**
+
+**The finding stands as measured.** `Library import / export as JSON` is empty in both blocks of the
+matrix, and **three separate instruments** now say so independently: the entity inventory on
+2026-09-15, step 2b reducing it from a screen to two commands, and this matrix.
+
+**What changed is the standing of that measurement, not the measurement.** Coverage was measured
+**against jobs**. This mechanism does not stand on one. **§10 puts storage in IndexedDB with no
+backend**, so the only copy of everything a person has accumulated lives in **one browser profile,
+which clears.** That is a property of the architecture, and **no instrument pointed at people was ever
+going to find it** — nobody says *I would like a way to survive my browser clearing site data* until
+the afternoon it happens.
+
+**Half of its old justification did go, and is not missed.** §10 justified it as *backup and informal
+sharing before any server exists*; **informal sharing is what a share link does now** (Q13). What
+remains is **durability**, and that is enough on its own.
+
+**It is not promoted by being justified.** It stays in the **deep** tier and gets no more design than
+two commands need. **The mark changes from `[orphan]` to `[§10]`** and the empty column stays empty.
+
+#### Q19 — the shelf is built in full and designed only as far as the example needs
+
+**Answered: build the ~30 items; design the browsing surface no further than the example project
+requires; touch nothing downstream of Q9.**
+
+**The number that decided it.** `Public library` has **two ticks in the matrix, and only one comes from
+a job anybody has evidenced** — RJ-3 reaches it through the single branch *copy it into mine to make it
+fixable*. Everything else is **H-J4, whose importance is `[?]` in all three persona columns**.
+
+**Against that, lesson 03 made it more load-bearing three times in five days** — the scope switch in
+§8, the panel carrying it into assembly, cold start answered inside the builder — **and it gained no
+evidence at all while that happened.** **A surface that keeps getting heavier without getting better
+founded is where design effort goes to be wasted.**
+
+**So the split is between content and surface.** The **content is built in full**, because §11 is right
+that an information architecture argued against an empty library is argued against nothing, and because
+the example project needs real `requires` edges, a real conflict and a real target-path collision.
+**The surface waits**: sorting, ranking, recommending and curating are all downstream of **Q9**, which
+is unanswered, and **its only evidence is *provenance over volume*.**
+
+#### Q20 — the shared surfaces get the product's most conservative treatment
+
+**Answered: on `Shared project` and `Shared item`, invent nothing that is not derived from what P1
+needs.**
+
+**The exposure, as a number.** `Shared project` carries **seven jobs** in the matrix — **more than
+`Projects` and more than the library panel** — and `Shared item` nearly as many. Together the
+receiver's two surfaces do about a third of the product's job-closing work.
+
+**And the evidence under them is the thinnest in the folder. P2 has never spoken in the first person.**
+After four rounds and five venues, **every account of a handover in this repository was written by the
+sender.** Round 3 went looking for the receiving side deliberately, by reading forks as handovers, and
+what it found was machines performing setups — not a person describing one.
+
+**The rule, therefore.** Where a choice on those surfaces has no answer in P1's evidence, **make the
+one that shows more and promises less, and mark it.** This is lesson 03's own **trap 3 — inventing
+places for people nobody has met** — and the matrix says this is the column where it would be easiest
+to spring. Written into `CLAUDE.md` §8.
+
+#### Two defects recorded without a disposition, because the owner has not ruled on them
+
+**`EJ-3`'s ticks are partial by construction** — usage facts answer *is it used*, not *did it change
+anything* — and **the detached row's `Edit`, `Reset` and `Promote` have not been assigned to a mode**,
+although the rule written for the `✕` on 2026-09-20 implies they belong in configuring. **Both are put
+to the owner and neither is decided here.** A third, `SJ-2`, is empty in the matrix and already
+post-MVP by stage 7's own heading; the only thing the matrix adds is that **`SJ-2` and `H-J6` are one
+job in two wordings**, so a proposal for a profile or a listing will arrive in the functional one.
 
 ### Earlier decisions
 
