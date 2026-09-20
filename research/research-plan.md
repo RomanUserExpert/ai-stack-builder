@@ -1085,13 +1085,18 @@ presented as one. Nothing new is invented; it is the existing mechanism with an 
 **Two consequences, and they are derived here rather than stated by the owner** — flagged so they can
 be disagreed with on their own:
 
-1. **The severity rule needs its exact form, because the loose one is wrong.** *A single item cannot
-   produce a Problem* holds only for an item whose resolved set is **itself**. With the walk running,
-   an item that pulls in two others can produce a collision between them like any other set. **The
-   correct statement: a bare item cannot produce a Problem; an item that drags things in produces a
-   set, and a set is checked like any other.** `Notes` — a missing env name, an unpinned `ref`, a
-   deference — are item-level throughout and survive alone, so a single-item export producing
-   **Notes and no Problems** is the ordinary case rather than a special one.
+1. **The severity rule needs its exact form, and it took two attempts to get it.** *A single item
+   cannot produce a Problem* is loose. **The first correction was also wrong** — it said *a bare item,
+   one whose resolved set is itself, cannot produce a Problem*, and **Q17, answered the same hour,
+   creates the counter-example**: an item whose only `requires` points at something deleted has a
+   resolved set of exactly itself **and raises an unresolvable requirement**, which §6 lists as a
+   Problem. *Found by the review of 2026-09-20 and corrected in §6, in E1, and in the single-item
+   flow.*
+   **The rule is about the field, not the count. An item with an empty `requires` cannot produce a
+   Problem. Any `requires` edge makes it a set question**: resolved, the walk builds a set that
+   collides like any other; dangling, the edge fails on its own. `Notes` — a missing env name, an
+   unpinned `ref`, a deference — are item-level throughout and survive alone, so a single-item export
+   producing **Notes and no Problems** remains the ordinary case.
 2. **It enters `Run`.** The same mode, from a Library row, as a **third entry point** beside `Project`
    and `Shared project`. Everything it needs is already there — the target selector, the `SETUP.md`
    preview, `.env.example`, Export as the final stage — and for a bare item most stages are `Skipped`,
@@ -1117,9 +1122,20 @@ normal initial state and not an edge. **A manually added row can always be remov
 can be. And **§11's example project is deletable and re-usable**, so *empty it out and build my own in
 it* is a plausible path. **Q17 adds a fourth** and it is the one nothing answers.
 
-**The answer. An empty project is an empty state, and `Check` and `Export` are disabled on it.** The
+**The answer. An empty project is an empty state, and the control that enters `Run` is inert.** The
 body carries **one** action, whose label is step 5's to settle — the owner's candidates were *edit* and
 *configure*, and whatever it is called it has to lead to putting the first item in.
+
+**It is one control and not two.** *The first wording of this answer said "`Check` and `Export` are
+disabled", and the review of 2026-09-20 pointed out that it named a control the Project screen does not
+have*: §8 puts `Export` inside `Run` as its final stage, never a button beside the check, so an
+unreachable Run takes Export with it and there is nothing else to grey.
+
+**And one thing the owner deferred in the same breath.** *The main action should be Export, and checks
+and runs are sub-processes* — called a naming question and **sent to lesson 05, tone of voice and
+microcopy**, with the control named `Run` until then. **It is recorded here because it may not stay a
+naming question**: if `Export` ever becomes a control on the Project screen, §8 has to be reopened,
+since §8 puts it inside Run deliberately.
 
 **This is the product's one place where a primary action is shown and cannot act, and it is written
 down as an exception rather than smuggled.** §9's rule is *an action that cannot act is not shown*, and
@@ -1144,6 +1160,11 @@ only way to *reach* that state today — but the shape is still there, and it is
 count that can never reach zero** (`defersTo` raising a Note that never clears). **Left open: whether
 counts are a wide enough channel to carry a verdict.** It belongs to step 5 and to whoever writes what
 a project row says.
+
+**And the state is reachable by a second route, which the first wording of this entry missed** (found
+by the review). Check a full set, then remove every row: §6 voids the verdict, so the counts go — **but
+`checkedAt` survives on a project that is now empty.** So *disabling the control removes the only way to
+reach it* was too strong. **Disabling removes the way in; it does not remove the shape.**
 
 ### Q17 — deleting an item from the library — raised and answered 2026-09-20
 

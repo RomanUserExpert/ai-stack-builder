@@ -28,7 +28,8 @@ and leave the decision marked — do not invent the person. Recorded in the regi
 [`research/research-plan.md`](research/research-plan.md).
 
 **2026-09-20 — lesson 03 changed the builder's mechanism, and the protocol above was followed.** Four
-entries were raised and answered the same day (§12, Q14–Q17), and **two of them change this file**.
+entries were raised and answered the same day (§12, Q14–Q17), and **all four change this file** — §5,
+§6 twice, and §8.
 **The `⌘K` palette is replaced by a library panel inside `Project`** — scope switch above tabs by
 `kind`, `Related` first and default, read-and-add only, drag still not the mechanism — and **the
 Library leaves the assembly path** and becomes the curator's room (§8). **A single item exports on its
@@ -418,6 +419,9 @@ act:
 
 > **`db-migrate` is used in 3 projects. Deleting it may stop them working.** · **Delete** · **Cancel**
 
+The count **expands to name the three**, as it does on the Library row (§5, usage facts), because a
+person deciding this needs to know *which*.
+
 Same discipline as an unclean export (§6) and as material coming in (§11): **name the cost before the
 irreversible step.** *Nothing blocks.* The count is the one the Library row already computes, and the
 dangling-`requires` half is stated too, because a project count does not cover it.
@@ -586,14 +590,22 @@ Decided 2026-09-01. Every finding is one of:
 - **Skipped** — the check had nothing to check. It gets its own neutral glyph: not a green tick it
   did not earn, and not a red one it does not deserve.
 
-**A Problem is a property of a set of two or more; a Note is a property of one item** (stated
-2026-09-20 with Q15, and it was always true). Every Problem in the list above needs **two** items — a
-duplicate command name, a shared target path, a declared conflict — or a `requires` edge with nothing
-on the far end. **So a bare item, one whose resolved set is itself, cannot produce a Problem at all.**
-Every Note can stand alone: a missing env name, an unpinned `ref`, a deference. **The care needed
-here:** an item that **drags things in** is no longer bare — the walk gives it a set, and that set
-collides like any other. *A single item is always safe* is therefore false, and the sentence to use is
-**a bare item cannot produce a Problem**.
+**A Note is a property of one item; a Problem is a property of `requires`** (stated 2026-09-20 with
+Q15; *corrected the same day, and the correction is the point*). Every Note can stand alone — a missing
+env name, an unpinned `ref`, a deference. **The rule for Problems is about the field, not about the
+count.**
+
+- **An item with an empty `requires` cannot produce a Problem at all.** The other three need two items
+  — a duplicate command name, a shared target path, a declared conflict — and nothing collides with
+  itself.
+- **Any `requires` edge makes it a set question, and there are two ways it goes wrong.** Resolved, the
+  walk builds a set and that set collides like any other. **Dangling — the far end deleted (§5, Q17) —
+  and the edge is itself an unresolvable requirement**, which is a Problem raised by an item whose
+  resolved set is only itself.
+
+**The wording this replaced said *a bare item, one whose resolved set is itself, cannot produce a
+Problem*, and it was wrong in exactly the case Q17 created on the same day.** A dangling edge adds
+nothing to the set and still fails the check. **Count the edges, not the members.**
 
 **Export is never disabled.** Almost nothing makes an archive impossible to produce — a missing env
 key still zips, a duplicate command still zips, it is simply wrong inside. Blocking is therefore
@@ -610,14 +622,36 @@ Problems are properties of the project, the fix may be four items away, and the 
 point of the product. See `research/4-benchmark/NOTES-figma-export.md`.
 
 **And there is exactly one exception, added 2026-09-20 with Q16, written down as an exception so it
-cannot spread.** **On a project with nothing in it, `Check` and `Export` are disabled.** The rule above
-is untouched, because it is a rule about **findings**: a set with Problems still exports, and an empty
-project has no findings — **it has no content**, so there is nothing to be wrong. **The test is the
-three conditions this file just used to excuse Figma, and all three hold here**: the blocker is one
-named action away — put something in it — it is a property of this second rather than of the project,
-and checking again costs nothing. **None of the three holds for a set with Problems**, which is why
-that case is still confirmed rather than blocked. **Any future exception has to pass the same three**,
-and an exception that cannot is not one.
+cannot spread.** **On a project with nothing in it, the control that enters `Run` is inert.** It is
+**one** control, not two: `Export` is Run's final stage and not a button beside the check (§8), so an
+unreachable Run makes it unreachable too and there is nothing else to disable. *An earlier wording here
+said "Check and Export are disabled", which named a control the Project screen does not have.*
+
+**The rule above is untouched**, because it is a rule about **findings**: a set with Problems still
+exports, and an empty project has no findings — **it has no content**, so there is nothing to be wrong.
+
+**The first test is the three conditions this file used to excuse Figma, and all three hold here**: the
+blocker is one named action away — put something in it — it is a property of this second rather than of
+the project, and re-doing it costs nothing. **For a set with Problems, two of the three fail** — the
+blocker may be four items away and it is a property of the project, while re-checking is free either
+way — *and an earlier wording here claimed all three failed, which overstated a test this file had just
+borrowed.* **Two failures out of three is the line**, and any future exception has to clear it.
+
+**The second test is §9's, and it is the one actually in tension**, because §9 says an action that
+cannot act is **not shown** — Linear, Figma and GitHub all hide it until it has something to do. **Here
+it is greyed, and the reason is the one §9's own documented exception already uses.** Context menus grey
+rather than hide *because a stable item order is worth more than a short list*: **stability of the
+surface beats brevity.** The same holds, harder, for a screen's single primary verb. §9's precedents are
+secondary and contextual actions; **this is the whole reason the screen exists**, and somebody who has
+never seen it cannot learn what a Project is for from a screen offering nothing to do. **Showing it
+inert teaches; hiding it leaves an empty room.** *The person pressing it on an empty project is not
+making a mistake — they are asking what the product does, which is the only free question anybody asks.*
+
+**One thing the owner deferred rather than decided** (2026-09-20). *The main action should be Export,
+and checks and runs are sub-processes* — held to be a naming question and sent to **lesson 05, tone of
+voice and microcopy**, with the control called `Run` until then. **If it turns out to be more than
+naming — if `Export` becomes a control on the Project screen — it reopens §8**, because §8 puts Export
+inside Run on purpose.
 
 **Instead, an unclean export is confirmed.** Pressing Export on a set with Problems opens a
 confirmation that names the consequence in the present tense, in GitHub's mergebox register:
@@ -633,6 +667,12 @@ no *better*, only *coherent* or *not*.
 
 **Decided 2026-09-15 as the one place the product refuses; overruled by the owner on 2026-09-16.
 *Nothing blocks* is universal again, and the product refuses nothing anywhere.**
+> **Read *anywhere* as *on the way out*** (clarified 2026-09-20). This sentence is about **content
+> leaving or entering**: no export is refused, no share is refused, nothing coming into the library is
+> refused. **It is not a claim that no action in the product is ever refused** — §6's dependency walk
+> still refuses to remove an auto-added row while its puller is present, which is a rule about the
+> **coherence of a set** and not about anybody's content. **Two different things**, and §8 calls the
+> second *the product's only refusal*, which is true of the kind it is.
 
 ~~**A credential found in item content is a Problem, and it stops the share.** Private-key blocks,
 provider-shaped tokens, bearer tokens, `.env`-shaped assignments with values. This is the only refusal
@@ -877,7 +917,9 @@ Chosen 2026-09-01 at the end of the research phase. Five shapes for the key flow
 → check it → export** — were compared on the benchmark's five categories; the reasoning, the four
 rejected variants and what each donated are in [`research/5-patterns/patterns.md`](research/5-patterns/patterns.md).
 
-The result is a hybrid, stated as a choice: **command-first assembly, and a run-centric check that
+The result is a hybrid, stated as a choice: ~~**command-first assembly**~~ — **list-and-panel assembly
+since 2026-09-20, Q14; what stage 5 called command-first is what the register calls *P2 with a pane***
+— **and a run-centric check that
 ends in the export.** Three surfaces in the flow, plus Projects.
 
 **Confirmed 2026-09-02, when the open-question register was closed.** This section was provisional
@@ -953,10 +995,13 @@ to read the scores behind it: the rubric grades craft, not weight.
   inherits it rather than softening it.
 
   **A project with nothing in it is an empty state** (2026-09-20, Q16). The body carries **one**
-  action, which leads to putting the first item in, and **`Check` and `Export` are disabled** — see §6
-  for why that is an exception to a rule this file otherwise holds to, and what test any future
-  exception has to pass.
-- **Run** — entered by **Check**, and it takes the whole surface: a stack of stages, each with its
+  action, which leads to putting the first item in, and **the control that enters `Run` is inert** —
+  one control, because `Export` is Run's final stage and not a button here, so an unreachable Run takes
+  it with it. See §6 for why that is an exception to a rule this file otherwise holds to, the two tests
+  it has to pass, and the naming question the owner deferred to lesson 05.
+- **Run** — entered by **Check** from a Project, by the same control on a **shared project**, and,
+  since 2026-09-20, **from a Library row exporting a single item** (§6, Q15). It takes the whole
+  surface: a stack of stages, each with its
   own verdict, duration and expansion, in the shape of a Vercel deployment page. The file tree of the
   future archive, the env variable list and the agent target selector live here, and **Export is the
   final stage** rather than a button beside the check. Export is always live (§6); an unclean set is

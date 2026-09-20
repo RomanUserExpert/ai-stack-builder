@@ -27,9 +27,10 @@ Four register entries were raised and answered the same day (Q14–Q17). **The `
 by a library panel inside `Project`** — a scope switch over `kind` tabs, `Related` first and default,
 read-and-add only — **and the Library leaves the assembly path**, becoming the curator's room.
 **A single item exports on its own**, the dependency walk still running. **An empty project is an
-empty state with `Check` and `Export` inert**, the product's one named exception. **Deleting a library
-item is confirmed rather than refused.** Every step above was re-checked against them: **the place
-count held at five**, and [`flows.md`](flows.md) now walks **six paths in seven diagrams** — the main
+empty state whose one primary control is inert**, the product's one named exception. **Deleting a
+library item is confirmed rather than refused.** Every step that exists was re-checked against them —
+**steps 1 and 5 were never started, and steps 3 and 5 gained new questions rather than answers.**
+**The place count held at five**, and [`flows.md`](flows.md) now walks **six paths in seven diagrams** — the main
 job **lost four nodes and four edges**, because the panel absorbed an excursion and Q16 removed a
 branch. **No numbered step advanced on 2026-09-20; the existing ones were made true again.**
 

@@ -477,6 +477,13 @@ refuse controls that cannot act — that is why the `visibility` toggle is not s
 cannot act while a validation pass is running**, so P1 scores C5 = 2 by making half the screen inert at
 the product's most important moment. Applying our own rule to our own design is what removed the pane.
 
+> **Superseded 2026-09-20 — Q14.** *The paragraph above is the record of 2026-09-02 and is left as it
+> stands.* The reasoning no longer applies to the product: **the check took a whole surface of its own**,
+> so the Project screen — and anything on it — **is not on screen during a validation pass**, and a pane
+> that is not there cannot be inert. **A library panel now sits inside the Project**, with the scope
+> switch and a `Related` tab, and `visibility` has also become a control that can act (§9). See
+> [`research-plan.md`](research-plan.md), Q14.
+
 **3. It puts the wow moment on a whole surface.** [`CLAUDE.md`](../CLAUDE.md) §2 names the export as the
 wow moment and the validation pass as a designed moment rather than a spinner. P5 scores straight 5s on
 four categories and **owns both of the two thirds that carry the pain** (B3 and B4 above). Export as
@@ -509,6 +516,12 @@ using.** Three things carry that weight, and if all three fail the choice was wr
    would otherwise do.
 
 Source: [`patterns.md`](5-patterns/patterns.md), *What this costs us, said plainly*.
+
+> **Superseded 2026-09-20 — Q14.** **The cost above was paid by building the pane.** Of the three,
+> the first **moved into the panel** as its first and default tab, the second **stopped paying for
+> assembly** and now pays only for corpus work, and the third is **unchanged**. Two new costs replaced
+> them: an item **renders twice**, and the width the project row needs is now shared. The live version
+> is [`CLAUDE.md`](../CLAUDE.md) §8; this digest records what was true until then.
 
 ---
 

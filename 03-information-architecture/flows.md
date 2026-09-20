@@ -33,13 +33,14 @@ render caught that nothing else would: **`⌘` has no glyph in the default stack
 box**, so the adding mechanism is named in prose; and RJ-2 was **1608 units wide, squeezed to 54%**,
 which is why it is now two diagrams.
 
-**Re-measured 2026-09-20, after the revision below, in the same way.** Seven diagrams, **no overlap
-anywhere, nothing below 0.74**:
+**Re-measured 2026-09-20, after the revision below, in the same way — and measured again the same
+evening**, when an independent review found the single-item flow stating a severity rule wrongly and it
+had to gain a fork. Seven diagrams, **no overlap anywhere, nothing below 0.74**:
 
 | # | Diagram | Nodes | Width | Scale at 880 |
 |---|---|---|---|---|
 | 1 | The main job | 27 | **1008** — *was 1074* | **0.855** — *was 0.803* |
-| 2 | Single-item export — new | 18 | 856 | **1.0** |
+| 2 | Single-item export — new | 20 | 942 | 0.915 |
 | 3 | RJ-1 | 22 | 1164 | **0.741** — unchanged, and **the tightest in the file** |
 | 4 | RJ-2a | 12 | 851 — *was 819* | 1.0 |
 | 5 | RJ-2b | 16 | 1131 | 0.762 — unchanged |
@@ -84,7 +85,7 @@ flowchart TD
     C --> D["Project"]
     B -->|"Yes"| D
     D --> E{"Anything in the set?"}
-    E -->|"No"| F[/"Empty: Check and Export inert"/]
+    E -->|"No"| F[/"Empty: the Run control is inert"/]
     F --> G["Project: the panel"]
     E -->|"Yes"| K["Project: the set"]
     G --> L{"Panel offering anything?"}
@@ -133,10 +134,11 @@ is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
 1. **A project for this work?** — the only fork at the top, and it is why `Projects` is the first screen
    on a first run rather than `Library` (§Navigation).
 2. **Anything in the set?** — the state nobody designs for. ~~*And the one that produces the product's
-   emptiest possible result.*~~ **No longer:** an empty project is an empty state with **`Check` and
-   `Export` inert** (Q16), so the branch where somebody checks nothing — and the *empty archive* dead
-   end at the end of it — **is gone from this diagram.** The one action in the body points at the panel,
-   which is already on the screen.
+   emptiest possible result.*~~ **No longer:** an empty project is an empty state and **the control that
+   enters Run is inert** (Q16), so the branch where somebody checks nothing — and the *empty archive*
+   dead end at the end of it — **is gone from this diagram.** *One control, not two: `Export` is Run's
+   final stage, so it goes with Run rather than being greyed beside it.* The one action in the body
+   points at the panel, which is already on the screen.
 3. **Panel offering anything?** — ~~the palette~~ **the panel** is the only way the library reaches this
    screen (§8, Q14), so a panel with nothing in it is a wall and not an inconvenience. **What changed is
    what happens next.**
@@ -159,8 +161,8 @@ is the finding. *Two branches were removed by Q14 and Q16 and none was added.*
 10. **Env values on that machine?** — the product's ceiling, drawn as a decision it does not get to
     make.
 
-**The states, in words.** *Projects holding only the example* · *an empty project with its two primary
-controls inert* · *the panel filtered to zero* · *the panel switched to the shelf* · *the check in
+**The states, in words.** *Projects holding only the example* · *an empty project with its one primary
+control inert* · *the panel filtered to zero* · *the panel switched to the shelf* · *the check in
 progress* · *the unclean-export confirmation, in the row below the finding that caused it* · *the
 verdict voided by a target change*.
 
@@ -192,31 +194,34 @@ flowchart TD
     B -->|"Yes"| D["Library: export this item"]
     D --> E{"Does it require anything?"}
     E -->|"No"| F[/"A set of one"/]
-    E -->|"Yes"| G[/"Resolved set of N"/]
-    F --> H[/"Checking"/]
-    G --> H
-    H --> I{"Any Problems?"}
-    I -->|"Yes"| J["Run: findings"]
-    J --> K["Library: fix the item"]
-    K --> A
-    I -->|"No"| L{"Anything the machine needs?"}
-    L -->|"Yes"| M[/"Notes: env, refs, deference"/]
-    M --> N["Run: handover"]
-    L -->|"No"| N
-    N --> O{"Right agent target?"}
-    O -->|"No"| P[/"Verdict void"/]
-    P --> H
-    O -->|"Yes"| Q["Export"]
-    Q --> R(["Done: one block, ready to land"])
+    E -->|"Yes"| G{"Does everything it needs exist?"}
+    G -->|"No"| H[/"Unresolvable requirement"/]
+    G -->|"Yes"| I[/"Resolved set of N"/]
+    F --> J[/"Checking"/]
+    H --> J
+    I --> J
+    J --> K{"Any Problems?"}
+    K -->|"Yes"| L["Run: findings"]
+    L --> M["Library: fix the item"]
+    M --> A
+    K -->|"No"| N{"Anything the machine needs?"}
+    N -->|"Yes"| O[/"Notes: env, refs, deference"/]
+    O --> P["Run: handover"]
+    N -->|"No"| P
+    P --> Q{"Right agent target?"}
+    Q -->|"No"| R[/"Verdict void"/]
+    R --> J
+    Q -->|"Yes"| S["Export"]
+    S --> T(["Done: one block, ready to land"])
     classDef screen stroke:#6b7a8f,stroke-width:2px
     classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
     classDef win stroke:#16a34a,stroke-width:3px
     classDef dead stroke:#dc2626,stroke-width:3px
-    linkStyle 2,5,9,13,19 stroke:#16a34a,stroke-width:2px
-    linkStyle 1,4,12,15,17 stroke:#dc2626,stroke-width:2px
-    class A,D,J,K,N,Q screen
-    class F,G,H,M,P state
-    class R win
+    linkStyle 2,5,7,12,16,22 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,4,6,15,18,20 stroke:#dc2626,stroke-width:2px
+    class A,D,L,M,P,S screen
+    class F,H,I,J,O,R state
+    class T win
     class C dead
 ```
 
@@ -228,20 +233,26 @@ flowchart TD
 2. **Does it require anything?** — **the fork the whole answer turned on.** Shipping the bare file
    would hand somebody a block that does not run, which is the pain the product exists against. **So
    the walk runs**, and an item with `requires` leaves as a set of N **named as one**.
-3. **Any Problems?** — and here is the part that is easy to get wrong. **From *a set of one* the answer
-   is always no**, not by luck but by construction: every Problem in §6 needs two items — a duplicate
-   command name, a shared target path, a declared conflict. **From *a resolved set of N* it is an
-   ordinary question**, because two things the walk dragged in can collide exactly like two things a
-   person chose. *A single item is always safe* is false; **a bare item cannot produce a Problem** is
-   true.
-4. **Anything the machine needs?** — `Notes` are item-level and survive alone: a missing env **name**,
+3. **Does everything it needs exist?** — *added 2026-09-20 after a review found the rule below stated
+   wrongly.* A `requires` edge can point at something that is **no longer in the library**, because
+   Q17 lets an item be deleted while others still require it. **That is an unresolvable requirement,
+   and §6 lists it as a Problem** — raised by an item whose resolved set is only itself.
+4. **Any Problems?** — and here is the part that is easy to get wrong, twice. **From *a set of one* the
+   answer is always no**, not by luck but by construction: the other three Problems each need two items
+   — a duplicate command name, a shared target path, a declared conflict — and nothing collides with
+   itself. **From *a resolved set of N* it is an ordinary question.** **And from a dangling edge it is
+   always yes.** So the rule is about the **field, not the count**: *a single item is always safe* is
+   false, and so was the first correction of it — ***an item with an empty `requires` cannot produce a
+   Problem*** is the form that survives. **The diagram reaches each of the three by rule rather than by
+   accident, which is why the fork above it exists.**
+5. **Anything the machine needs?** — `Notes` are item-level and survive alone: a missing env **name**,
    an unpinned `ref`, a deference. **This is the branch a single item actually uses.**
-5. **Right agent target?** — it must still be chosen, because `targetPath` means nothing without one.
+6. **Right agent target?** — it must still be chosen, because `targetPath` means nothing without one.
    **There is no project to remember it on** (E13), which is why step 3 cannot answer *where the target
    lives* with *on the project*.
 
-**The states, in words.** *A set of one, where no Problem is possible* · *a resolved set of N* · *the
-check in progress* · *Notes naming what the receiving machine still needs* · *the verdict voided by a
+**The states, in words.** *A set of one, where no Problem is possible* · *a resolved set of N* · *a
+requirement pointing at something deleted* · *the check in progress* · *Notes naming what the receiving machine still needs* · *the verdict voided by a
 target change*.
 
 **What is not here, and it is deliberate. Nothing is stored.** §6 puts the verdict on the **project**,
