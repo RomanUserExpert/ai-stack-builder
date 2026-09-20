@@ -1,0 +1,1756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The information architecture for AI Stack Builder: sixteen entities, seven screens, six places and seven user flows derived from jobs to be done, with a coverage matrix that names every surface no job raises and every job no surface closes.">
+<style>
+/* Baseline the artifact host normally supplies. */
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Phase 3 &mdash; Information architecture &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only the three things this page has and the others do not live here. */
+
+/* --- the screen tree, printed as it is written --- */
+.tree{
+  overflow-x:auto;margin:22px 0 10px;padding:20px 22px;
+  border:1px solid var(--rule);border-radius:10px;background:var(--surface);
+}
+.tree pre{
+  margin:0;font-family:var(--font-mono);font-size:12.5px;line-height:1.75;
+  color:var(--ink-2);white-space:pre;
+}
+.tree pre b{color:var(--ink);font-weight:600}
+.tree pre i{color:var(--accent);font-style:normal}
+.tree pre u{color:var(--ink-3);text-decoration:none}
+
+/* --- a flow, framed --- */
+.flow{margin:26px 0 30px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.flow > figcaption{
+  padding:13px 18px;border-bottom:1px solid var(--rule-soft);background:var(--sunken);
+  font-size:13px;color:var(--ink-2);
+}
+.flow > figcaption b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:14px}
+.flow .dg{padding:18px 14px 22px;overflow-x:auto}
+.flow .mermaid{display:flex;justify-content:center;min-width:0}
+.flowmeta{
+  display:flex;flex-wrap:wrap;gap:6px 16px;padding:11px 18px;border-top:1px solid var(--rule-soft);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+}
+.flowmeta span b{color:var(--ink-2);font-weight:600}
+
+/* --- endings legend --- */
+.ends{display:grid;gap:10px;margin:18px 0 8px}
+.ends div{display:flex;gap:12px;align-items:flex-start;font-size:14.5px}
+.ends .pill{
+  flex:0 0 auto;min-width:74px;text-align:center;padding:4px 10px;border-radius:999px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+}
+.ends .e-done{border:2px solid #16a34a;color:#15803d}
+.ends .e-cost{border:2px solid #b8860b;color:#8a6508}
+.ends .e-stuck{border:2px solid #dc2626;color:#b91c1c}
+
+/* --- traceability: orphans highlighted --- */
+table.trace{border-collapse:collapse;width:100%;min-width:1040px;font-size:13px;background:var(--surface)}
+table.trace th,table.trace td{border-bottom:1px solid var(--rule-soft);padding:9px 8px;text-align:center;vertical-align:middle}
+table.trace thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;white-space:nowrap;
+}
+table.trace td.job,table.trace th.job{text-align:left;width:30%;min-width:290px;font-weight:500;color:var(--ink)}
+table.trace td.imp{font-family:var(--font-mono);font-weight:700;color:var(--ink)}
+table.trace td.y{color:var(--accent);font-weight:700}
+table.trace tbody tr.hypo td{background:var(--sunken)}
+table.trace tbody tr.hypo td.job{color:var(--ink-2)}
+table.trace tbody tr.orow td{background:var(--bad-soft)}
+table.trace tbody tr.orow td.job{color:var(--bad);font-weight:600}
+table.trace th.ocol,table.trace td.ocol{background:var(--bad-soft)}
+table.trace thead th.ocol{color:var(--bad)}
+table.trace tr.note td{text-align:left;color:var(--ink-3);font-style:italic;background:var(--sunken)}
+.orphankey{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 14px;font-size:13px;color:var(--ink-3)}
+.orphankey b{color:var(--bad)}
+.swatch{display:inline-block;width:13px;height:13px;border:1px solid var(--rule);background:var(--bad-soft);vertical-align:-2px;margin-right:5px}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&display=swap">
+
+<style>
+/* ------------------------------------------------------------------
+   Design language carried over from r-o-design.tech — the same tokens,
+   the same type pairing, the same border-led component grammar.
+------------------------------------------------------------------ */
+:root{
+  --bg:#f9f9f7;
+  --paper:#f9f9f7;
+  --surface:#fdfdfb;
+  --sunken:#f0f0ee;
+  --surface-hover:#ebebea;
+  --ink:#0d0d0d;
+  --ink-2:#3f3f3d;
+  --ink-3:#5a5a56;
+  --rule:#d4d4cf;
+  --rule-soft:#e2e2dd;
+  --accent:#e05f03;
+  --accent-hover:#c45200;
+  --accent-06:#e05f0312;
+  --accent-18:#e05f0330;
+  --accent-45:#e05f0378;
+  --bad:#a3342a;
+  --bad-soft:#f4e3e0;
+  --fill-strong:#c45200;   /* white on the brand orange is only 3.6:1 — this is 5.2 */
+  --fill-bad:#a3342a;
+  --on-fill:#ffffff;
+  --shadow:0 2px 12px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur:.18s;
+  --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Symbol",sans-serif;
+  --font-display:"Special Gothic Expanded One",Inter,-apple-system,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614;
+    --paper:#161614;
+    --surface:#1e1e1c;
+    --sunken:#121210;
+    --surface-hover:#232321;
+    --ink:#f0efe9;
+    --ink-2:#ababab;
+    --ink-3:#909090;
+    --rule:#52524f;
+    --rule-soft:#3a3a37;
+    --accent:#f57722;
+    --accent-hover:#ff8c3d;
+    --accent-06:#e05f0326;
+    --accent-18:#e05f0347;
+    --accent-45:#e05f0385;
+    --bad:#e88b80;
+    --bad-soft:#3a201d;
+    --fill-strong:#f57722;
+    --fill-bad:#e0655a;
+    --on-fill:#161614;     /* on a bright fill, dark text is the legible one */
+    --shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614;
+  --paper:#161614;
+  --surface:#1e1e1c;
+  --sunken:#121210;
+  --surface-hover:#232321;
+  --ink:#f0efe9;
+  --ink-2:#ababab;
+  --ink-3:#909090;
+  --rule:#52524f;
+  --rule-soft:#3a3a37;
+  --accent:#f57722;
+  --accent-hover:#ff8c3d;
+  --accent-06:#e05f0326;
+  --accent-18:#e05f0347;
+  --accent-45:#e05f0385;
+  --bad:#e88b80;
+  --bad-soft:#3a201d;
+  --fill-strong:#f57722;
+  --fill-bad:#e0655a;
+  --on-fill:#161614;
+  --shadow:0 2px 12px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--font-display);font-weight:400}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:3px
+}
+
+/* ---------- shell ---------- */
+.shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
+@media (min-width:1080px){
+  .shell{display:grid;grid-template-columns:208px minmax(0,1fr);gap:44px;padding:0 32px 120px}
+  .phases{grid-column:1;grid-row:1 / span 4}
+  .mast{grid-column:2;grid-row:1}
+  .rail{grid-column:2;grid-row:2}
+  main{grid-column:2;grid-row:3}
+  .foot{grid-column:2;grid-row:4}
+}
+.col{max-width:100%}
+.col>*{max-width:74ch}
+.col>.wide{max-width:100%}
+
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 44px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px
+}
+.mast h1{
+  font-size:clamp(30px,4.4vw,54px);line-height:1.02;letter-spacing:-.005em;
+  margin:0 0 26px;text-wrap:balance;max-width:17ch
+}
+.standfirst{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:62ch;margin:0 0 36px}
+.standfirst strong{color:var(--ink);font-weight:500}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));
+  gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)
+}
+.facts div{padding:14px 16px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts dt{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 6px;font-weight:600
+}
+.facts dd{
+  margin:0;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;
+  color:var(--ink);line-height:1;letter-spacing:-.01em
+}
+.facts dd small{font-size:11.5px;color:var(--ink-3);display:block;margin-top:6px;font-weight:400;letter-spacing:0}
+
+.rail{
+  position:sticky;top:0;z-index:20;margin:0;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+}
+.rail::after{
+  content:"";position:absolute;right:0;top:0;bottom:1px;width:40px;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--paper) 72%);
+}
+.rail ol{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail ol::-webkit-scrollbar{display:none}
+.rail li{flex:0 0 auto;margin:0}
+.rail a{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap;
+  padding:9px 14px 8px;border:0;border-bottom:2px solid transparent;border-radius:0;
+  font-size:13px;line-height:1.3;font-weight:500;color:var(--ink-3);background:none;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.rail a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.rail a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.rail a b{
+  display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:600;
+}
+.rail a.on b{color:var(--accent)}
+.railhead{display:none}
+
+/* --- both horizontal bars are dragged with the mouse, not only wheeled --- */
+.rail ol.grabbable,.phases ol.grabbable{cursor:grab}
+.rail ol.dragging,.phases ol.dragging,
+.rail ol.dragging *,.phases ol.dragging *{cursor:grabbing;user-select:none}
+
+/* ---------- sections ---------- */
+section{padding:64px 0 8px;scroll-margin-top:80px}
+@media (min-width:1080px){section{scroll-margin-top:70px}}
+section+section{border-top:1px solid var(--rule-soft)}
+.stagehead{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.stagenum{
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:4px;padding:3px 8px;white-space:nowrap;background:var(--accent-06)
+}
+h2{font-size:clamp(24px,2.9vw,34px);line-height:1.06;letter-spacing:-.004em;margin:0;text-wrap:balance}
+.qline{color:var(--ink-2);font-size:16px;margin:14px 0 32px;max-width:64ch}
+h3{
+  font-family:var(--font);font-size:18px;line-height:1.3;font-weight:600;
+  letter-spacing:-.005em;margin:48px 0 14px;text-wrap:balance
+}
+h4{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);font-weight:600;margin:38px 0 14px
+}
+p{margin:0 0 18px}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:10px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+
+/* ---------- per-stage conclusion ---------- */
+.verdict{
+  margin:44px 0 8px;padding:24px 26px 22px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:10px
+}
+.verdict .vh{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--accent);margin:0 0 14px
+}
+.verdict p{margin:0 0 12px;font-size:15.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict ul{margin:0;font-size:15.5px}
+.verdict li:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
+.band td{
+  background:var(--sunken);font-size:10.5px;letter-spacing:.13em;font-weight:600;
+  text-transform:uppercase;color:var(--ink-3);padding:8px 14px
+}
+.tnote{font-size:13px;color:var(--ink-2);margin:-14px 0 28px;line-height:1.6}
+
+/* the score scale is one hue — the accent — because it measures magnitude.
+   Only the single 1 is a different colour, because it means something else. */
+td.s,th.s{
+  text-align:center;font-variant-numeric:tabular-nums;font-weight:600;
+  width:10%;min-width:58px;font-size:14px;color:var(--ink)
+}
+td.s5{background:var(--fill-strong);color:var(--on-fill)}
+td.s4{background:var(--accent-45);color:var(--ink)}
+td.s3{background:var(--accent-18)}
+td.s2{background:var(--accent-06)}
+td.s1{background:var(--fill-bad);color:var(--on-fill)}
+td.sx{color:var(--ink-3);font-weight:400}
+
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 26px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.chip{width:24px;height:15px;border-radius:3px;border:1px solid var(--rule);display:inline-block}
+
+/* ---------- flows: the site's numbered process list ---------- */
+.flows{margin:28px 0 0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)}
+details{border-bottom:1px solid var(--rule-soft)}
+details:last-child{border-bottom:none}
+summary{
+  list-style:none;cursor:pointer;padding:16px 46px 16px 20px;display:grid;
+  grid-template-columns:40px 1fr auto;gap:16px;align-items:center;position:relative;
+  transition:background var(--dur) var(--ease)
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--surface-hover)}
+summary:hover .chev::before{border-color:var(--accent)}
+.chev{position:absolute;right:19px;top:50%;width:16px;height:16px;transform:translateY(-50%);pointer-events:none}
+.chev::before{
+  content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;
+  margin:-5px 0 0 -4px;border-right:1.7px solid var(--ink-3);border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease)
+}
+details[open] .chev::before{transform:rotate(-135deg);margin:-2px 0 0 -4px;border-color:var(--accent)}
+details[open] summary{background:var(--sunken)}
+.fnum{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
+.ftitle{font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+.ftitle span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+.fstat{
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid var(--rule);
+  background:var(--sunken);color:var(--ink-3)
+}
+.st-closed{border-color:var(--accent);color:var(--accent);background:var(--accent-06)}
+.fbody{padding:2px 20px 24px 76px}
+@media (max-width:640px){
+  summary{grid-template-columns:32px 1fr;grid-template-rows:auto auto;gap:8px 12px;padding-right:44px}
+  .fstat{grid-column:2;justify-self:start}
+  .fbody{padding:2px 18px 22px 18px}
+}
+.fbody p{font-size:15.5px;margin:0 0 15px}
+.fbody .src{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+.fbody .src a{color:var(--ink-2)}
+
+/* ---------- captures ---------- */
+.shots{
+  max-height:480px;overflow-y:auto;background:var(--sunken);border:1px solid var(--rule);
+  border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:16px;margin:0 0 18px
+}
+.shots figure{margin:0}
+.shots img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;
+  background:#fff;cursor:zoom-in;transition:border-color var(--dur) var(--ease)
+}
+.shots img:hover,.shots img:focus-visible{border-color:var(--accent)}
+.shots figcaption{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+.scrollhint{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);margin:0 0 9px;display:flex;align-items:center;gap:9px
+}
+.scrollhint::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+.scrollhint em{font-style:normal;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--ink-3)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(13,13,13,.94);overflow:auto;padding:60px 24px 48px;display:flex}
+.lb[hidden]{display:none}
+.lb-inner{width:min(1360px,94vw);margin:auto}
+.lb-inner img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:#fff}
+.lb-cap{font-family:var(--font-mono);font-size:12px;line-height:1.65;color:#cfcdc6;margin:16px 0 0;max-width:96ch}
+.lb-close{
+  position:fixed;top:16px;right:20px;width:38px;height:38px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.45);color:#f0efe9;
+  font:600 15px/1 var(--font);cursor:pointer
+}
+.lb-close:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ---------- pain bars ---------- */
+.bars{margin:10px 0 26px;display:flex;flex-direction:column;gap:10px;max-width:66ch}
+.bar{display:grid;grid-template-columns:1fr 52px;gap:14px;align-items:center}
+.bar .lbl{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.bar .lbl b{color:var(--ink);font-weight:600}
+.bar .track{grid-column:1/-1;height:10px;background:var(--sunken);border:1px solid var(--rule-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink-3);border-radius:2px}
+.bar .fill.loud{background:var(--bad)}
+.bar .fill.ours{background:var(--accent)}
+.bar .n{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.barlegend{font-size:12.5px;color:var(--ink-3);margin:-16px 0 28px}
+
+/* ---------- pull quote ---------- */
+blockquote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid var(--accent);font-size:18px;line-height:1.5;color:var(--ink)}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+
+/* ---------- chosen shape ---------- */
+.shape{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0;background:var(--surface)
+}
+.shape div{padding:18px 18px 20px;border-right:1px solid var(--rule)}
+.shape div:last-child{border-right:0}
+.shape h5{font-size:14px;font-weight:600;margin:0 0 5px;color:var(--ink)}
+.shape .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-weight:600}
+.shape p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+
+/* ---------- decisions ---------- */
+.decisions{border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0 8px;background:var(--surface)}
+.dec{padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;border-bottom:1px solid var(--rule-soft)}
+.dec:last-child{border-bottom:0}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:10px}}
+.dec .what{font-size:14.5px;font-weight:600;line-height:1.45;color:var(--ink)}
+.dec .what b{
+  display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:6px
+}
+.dec .why{font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.dec .why em{color:var(--ink);font-style:italic}
+
+/* ---------- gaps ---------- */
+.gaps{display:flex;flex-direction:column;gap:14px;margin:26px 0 8px}
+.gap{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;border-top:2px solid var(--accent)}
+.gap.unverified{border-top-color:var(--bad)}
+.gaphead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.gid{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em}
+.gaphead h5{font-size:15.5px;font-weight:600;margin:0;line-height:1.35;color:var(--ink)}
+.gap p{font-size:15px;margin:0 0 12px;color:var(--ink-2)}
+.gap p:last-child{margin:0}
+.gap .hyp{color:var(--ink);padding:13px 16px;background:var(--sunken);border-radius:6px;font-size:14.5px;line-height:1.6}
+.gap .hyp b{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:6px;font-weight:600
+}
+.gap .from{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);margin-top:12px}
+.nd{
+  font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+  color:var(--bad);background:var(--bad-soft);border:1px solid var(--bad);
+  padding:2px 7px;border-radius:4px;white-space:nowrap
+}
+
+/* ---------- footer ---------- */
+.foot{
+  grid-column:1/-1;margin-top:72px;padding-top:28px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==================================================================
+   Personas & jobs-to-be-done components — shared with personas.html.
+   Both pages are built from this block; edit it once.
+================================================================== */
+
+/* ------------------------------------------------------------------
+   Personas & JTBD — components this page adds on top of the shared
+   design language pulled from research-page.tpl.html at build time.
+------------------------------------------------------------------ */
+
+/* --- evidence marks, the spine of both documents --- */
+.m{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.35em;height:1.35em;padding:0 .3em;margin:0 .12em;
+  border:1px solid var(--rule);border-radius:3px;
+  font-family:var(--font-mono);font-size:.72em;line-height:1;
+  vertical-align:.08em;font-weight:600;
+}
+.m-y{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.m-s{border-color:var(--rule);background:var(--sunken);color:var(--ink-2)}
+.m-q{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+
+.legend{
+  display:grid;gap:10px;margin:22px 0 0;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--surface);
+}
+.legend .lrow{display:grid;grid-template-columns:2.4em 1fr;gap:12px;align-items:start}
+.legend b{color:var(--ink)}
+.legend p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+/* --- persona cards --- */
+.people{display:grid;gap:20px;margin-top:26px;max-width:100%}
+@media (min-width:1180px){ .people{grid-template-columns:1fr 1fr} .people .pc.primary{grid-column:1 / -1} }
+
+.pc{border:1px solid var(--rule);background:var(--surface);display:flex;flex-direction:column}
+.pc.primary{border-color:var(--accent-45);box-shadow:var(--shadow)}
+.pc > header{padding:20px 22px 16px;border-bottom:1px solid var(--rule-soft)}
+.pc.primary > header{background:var(--accent-06)}
+.pc .tag{
+  display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+}
+.pc.primary .tag{color:var(--accent);font-weight:700}
+.pc h3{font-family:var(--font-display);font-weight:400;font-size:23px;line-height:1.2;margin:0 0 8px}
+.pc .axes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.pc .axes span{
+  font-family:var(--font-mono);font-size:11px;padding:3px 7px;
+  border:1px solid var(--rule-soft);background:var(--sunken);color:var(--ink-2);
+}
+.pc .standing{margin:12px 0 0;font-size:14px;color:var(--ink-2)}
+
+.pblock{padding:16px 22px;border-bottom:1px solid var(--rule-soft)}
+.pblock:last-child{border-bottom:0}
+.pblock h4{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 10px;font-weight:600;
+}
+.pblock p{margin:0 0 10px;font-size:15px}
+.pblock p:last-child{margin-bottom:0}
+.pblock ul{margin:0;padding-left:1.15em;font-size:15px}
+.pblock li{margin:0 0 8px}
+.pblock li:last-child{margin-bottom:0}
+.pblock .src{color:var(--ink-3);font-size:13.5px}
+
+.pq{
+  margin:0;padding:14px 16px;border-left:3px solid var(--accent);
+  background:var(--sunken);font-size:15.5px;line-height:1.55;
+}
+.pq cite{display:block;margin-top:10px;font-style:normal;font-size:13px;color:var(--ink-3)}
+.pq.empty{border-left-color:var(--bad)}
+
+.warn{
+  margin:0 0 14px;padding:12px 14px;border:1px solid var(--bad);
+  background:var(--bad-soft);font-size:14.5px;
+}
+
+/* --- a .warn that folds away: <details class="warn"> --- */
+details.warn{padding:0}
+details.warn>summary{
+  cursor:pointer;padding:11px 14px;font-weight:600;
+  list-style:none;display:flex;gap:9px;align-items:baseline;
+}
+details.warn>summary::-webkit-details-marker{display:none}
+details.warn>summary::before{
+  content:"▸";font-size:11px;opacity:.7;flex:none;
+  transition:transform .12s ease;
+}
+details.warn[open]>summary::before{transform:rotate(90deg)}
+details.warn>summary:hover{background:rgba(128,128,128,.09)}
+details.warn>summary:focus-visible{outline:2px solid var(--bad);outline-offset:-2px}
+details.warn>summary .sub{font-weight:400;opacity:.72;font-size:13.5px}
+details.warn[open]>summary{border-bottom:1px solid var(--bad)}
+details.warn>.inner{padding:11px 14px 12px}
+@media (prefers-reduced-motion:reduce){details.warn>summary::before{transition:none}}
+
+/* --- jobs hierarchy --- */
+.mainjob{
+  margin:26px 0 0;padding:26px 28px;border:1px solid var(--accent-45);background:var(--accent-06);
+}
+.mainjob .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mainjob p.j{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.34;margin:12px 0 0}
+@media (max-width:700px){ .mainjob p.j{font-size:18px} }
+.mainjob .note{margin:16px 0 0;font-size:14.5px;color:var(--ink-2)}
+
+.jobs{display:grid;gap:14px;margin-top:22px}
+.job{border:1px solid var(--rule);background:var(--surface);padding:18px 20px}
+.job .jid{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);
+  display:block;margin-bottom:8px;
+}
+.job p.j{margin:0;font-size:16px;line-height:1.5}
+.job .ev{margin:12px 0 0;font-size:13.5px;color:var(--ink-2)}
+.job.hyp{background:var(--sunken);border-style:dashed}
+
+.grouphead{
+  display:flex;align-items:baseline;gap:12px;margin:34px 0 0;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.grouphead h3{font-family:var(--font-display);font-weight:400;font-size:20px;margin:0}
+.grouphead span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.05em}
+
+/* --- the matrix --- */
+.mwrap{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);max-width:100%}
+table.matrix{border-collapse:collapse;width:100%;min-width:880px;font-size:13.5px;background:var(--surface)}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--rule-soft);padding:11px 12px;text-align:left;vertical-align:top}
+table.matrix thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+table.matrix tbody tr:last-child td{border-bottom:0}
+table.matrix td.job{width:22%;font-weight:500}
+table.matrix td.p{width:10%;text-align:center;white-space:nowrap}
+table.matrix td.f,table.matrix td.c{width:19%;font-size:13px;color:var(--ink-2)}
+table.matrix tr.hypo td{background:var(--sunken)}
+table.matrix tr.hypo td.job{color:var(--ink-2)}
+.score{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:1px solid var(--rule);
+  font-family:var(--font-mono);font-weight:700;font-size:13px;
+}
+.score.s3{border-color:var(--accent-45);background:var(--accent-18);color:var(--accent)}
+.score.s2{border-color:var(--rule);background:var(--sunken);color:var(--ink)}
+.score.s1{border-color:var(--rule-soft);background:transparent;color:var(--ink-3)}
+.score.sq{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);white-space:normal;text-align:left}
+.none{color:var(--bad);font-weight:600}
+
+/* --- conclusions --- */
+.picks{display:grid;gap:14px;margin-top:22px}
+@media (min-width:900px){ .picks{grid-template-columns:repeat(3,1fr)} }
+.pick{border:1px solid var(--accent-45);background:var(--surface);padding:18px 20px}
+.pick .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em;font-weight:700}
+.pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
+.pick p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* --- the course phases: a left sidebar on wide screens, a strip below --- */
+.phases{
+  border-bottom:1px solid var(--rule);background:var(--sunken);
+  margin:0 -32px 0;padding:0 32px;
+}
+.phases ol{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+  list-style:none;margin:0;padding:0;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+}
+.phases ol::-webkit-scrollbar{display:none}
+.phases li{margin:0;flex:0 0 auto}
+.phases a,.phases span{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
+  border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
+  white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.phases a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases b{font-weight:700;color:var(--ink-2)}
+.phases a:hover b{color:var(--ink)}
+.phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.phases .now b{color:var(--accent)}
+.phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
+.phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.phaseshead{display:none}
+
+@media (min-width:1080px){
+  .phases{
+    position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;
+    margin:0;padding:66px 0 32px;background:none;border:0;
+  }
+  .phaseshead{
+    display:block;font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 14px;padding-left:13px;
+  }
+  .phases ol{display:block;overflow:visible;border-left:1px solid var(--rule);font-size:12.5px}
+  .phases a,.phases span{
+    display:block;padding:7px 0 8px 13px;margin-left:-1px;white-space:normal;line-height:1.32;
+    border-bottom:0;border-left:2px solid transparent;
+  }
+  .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
+  .phases a:hover{border-left-color:var(--rule)}
+  .phases .now{border-left-color:var(--accent)}
+  .phases .soon{opacity:.42}
+  .phases .soon em{display:none}
+}
+
+/* --- skip link and the phase meta line --- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:20;padding:12px 18px;
+  background:var(--accent);color:var(--on-fill);font-weight:600;
+}
+.skip:focus{left:0}
+.phasemeta{
+  font-family:var(--font-mono);font-size:12px;color:var(--ink-3);
+  margin:0 0 18px;letter-spacing:.02em;
+}
+.phasemeta strong{color:var(--ink-2);font-weight:600}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <p class="phaseshead">Phases</p>
+    <ol>
+      <li><a href="../research/research.html"><b>01</b>Research and benchmark</a></li>
+      <li><a href="../research/6-personas/personas.html"><b>02</b>Personas and JTBD</a></li>
+      <li><span class="now"><b>03</b>Information architecture</span></li>
+      <li><span class="soon"><b>04</b>Prototyping and wireframing <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>05</b>Tone of voice and microcopy <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>06</b>Concept <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>07</b>UI assembly <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>08</b>Design tokens <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>09</b>Design system <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>10</b>Responsive <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>11</b>Animation and micro-interactions <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>12</b>Handoff and documentation <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+
+<header class="mast">
+  <p class="eyebrow">Phase 03 &middot; Information architecture</p>
+  <h1>What the product is made of, and how somebody gets through it</h1>
+  <p class="phasemeta">Phase <strong>3 of 12</strong> &middot; six of the lesson&rsquo;s seven steps &middot; started <strong>15 Sep 2026</strong>, and <strong>rewritten hard on 20 Sep</strong> when the adding mechanism changed, the product turned out to be online, and a critique found sixteen defects &middot; source of truth: <strong>CLAUDE.md</strong></p>
+  <p class="standfirst">Sixteen entities, seven screens, six places and seven flows for <strong>AI Stack Builder</strong> &mdash; derived from the jobs of phase 02 and never from anybody&rsquo;s product. <strong>Nothing here decides how it looks</strong>, and since 20 Sep nothing here decides how it is built either: every line is about what a person sees and what a surface may claim.</p>
+  <dl class="facts">
+    <div><dt>Entities</dt><dd>16<small>11 refused</small></dd></div>
+    <div><dt>Screens</dt><dd>7<small>+1 orphan</small></dd></div>
+    <div><dt>Places</dt><dd>6<small>of everything drawn</small></dd></div>
+    <div><dt>Flows</dt><dd>7<small>8 diagrams</small></dd></div>
+    <div><dt>Taps to an archive</dt><dd>3<small>signed in</small></dd></div>
+    <div><dt>Register entries</dt><dd>15<small>Q14&ndash;Q28</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#read"><b>Start</b>How to read this</a></li>
+    <li><a href="#tree"><b>Step 02</b>The screens</a></li>
+    <li><a href="#kinds"><b>Step 02b</b>What each thing is</a></li>
+    <li><a href="#nav"><b>Step 03</b>Navigation and depth</a></li>
+    <li><a href="#flows"><b>Step 04</b>The flows</a></li>
+    <li><a href="#matrix"><b>Step 05</b>Traceability</a></li>
+    <li><a href="#critique"><b>Step 06</b>The critique</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ HOW TO READ ============ -->
+<section id="read" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>How to read this</h2></div>
+  <p class="qline">Every screen here exists because a job needs it. <strong>A screen with no job and a job with no screen are the same defect</strong>, and both are counted at the end.</p>
+
+  <p><strong>This page is derived, not composed.</strong> The tree, the diagrams and the matrix below are read out of <code>sitemap.md</code> and <code>flows.md</code> when the page is built, so it cannot drift from the work. Nothing was redrawn for the page.</p>
+
+  <p><strong>Two boundaries hold everywhere on it.</strong> <strong>No appearance</strong> &mdash; no colour, no type scale, no component named in a way that implies a look; that starts at phase 06. And, since <strong>20 Sep 2026</strong>, <strong>no backend</strong>: the product is online and what the server is stays undecided, so every rule is phrased as what a person sees and what a surface may claim. <em>Two decisions taken that afternoon were phrased as guarantees about storage and were restated the same evening. Neither changed what it decided.</em></p>
+
+  <h3>Three kinds of ending</h3>
+  <p>The flows end in three ways, and the third was added on <strong>20 Sep</strong> when applying one question &mdash; <em>is this person actually stuck?</em> &mdash; moved four endings out of red.</p>
+
+  <div class="ends">
+    <div><span class="pill e-done">Done</span><p><strong>The job closed.</strong> The person got what they came for.</p></div>
+    <div><span class="pill e-cost">Cost</span><p><strong>The job did not close, and nothing stopped them.</strong> They proceeded, knowingly or not, and paid for it. <em>A cost you were told about is not an obstruction.</em></p></div>
+    <div><span class="pill e-stuck">Stuck</span><p><strong>The person cannot proceed.</strong> There is no action left that the product offers. <strong>Three of these survive in eight diagrams</strong> &mdash; two are outside our reach, and one is the product&rsquo;s only refusal.</p></div>
+  </div>
+
+  <p class="tnote"><strong>Two flows have no <em>Stuck</em> at all, and that is a result rather than a gap.</strong> They are the flows about <strong>findings</strong>, and a finding never blocks anybody: the specification says export is never disabled, so a problem you cannot fix from its row is confirmed and shipped, not refused. <em>Until 20 Sep one of those two ended in a wall, which contradicted the specification and the diagram beside it.</em></p>
+</section>
+
+<!-- ============ THE TREE ============ -->
+<section id="tree" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>The screens</h2></div>
+  <p class="qline">Derived from what the person is trying to do. <strong>No competitor&rsquo;s sitemap was opened while writing it.</strong></p>
+
+  <p>Grouped by the person&rsquo;s own situations rather than by sections of a site, and <strong>depth is deliberately shallow</strong>: three levels. Each screen carries the job it serves; a node with none is marked, not quietly kept.</p>
+
+  <div class="tree"><pre><b>0 · THE DOOR  — not one of the person&#x27;s situations</b>
+  │
+  └── Sign in ......................................... <i>[no job]</i> <i>[§9]</i>
+<u>        Q25, 2026-09-20. A place by all three tests, and the</u>
+<u>        only one here that exists for the product rather than</u>
+<u>        for somebody&#x27;s work. You are sent to it and handed on.</u>
+<u>        The owner passes through it; the receiver does not —</u>
+<u>        a shared link is opened anonymously (Q13)</u>
+
+<b>1 · WHAT I KEEP  — the corpus I have accumulated</b>
+  │
+  ├── Library ......................................... <i>[H-J1]</i> <i>[RJ-3]</i> <i>[EJ-3 partly]</i>
+  │     two scopes, one screen: My library · Public library  <i>[H-J4 ?]</i>
+  │     │
+  │     └── Item — add / edit form, an overlay, not a screen
+  │           §8, kept 2026-09-16. It discloses blast radius
+  │           before it accepts an edit
+  │
+  └── Library import / export (whole library as JSON) . <i>[§10]</i>
+<u>        no job raises it, in a matrix that checked all</u>
+<u>        seventeen. It ships anyway: the user can leave</u>
+<u>        with their work (Q18). Same class as `license` —</u>
+<u>        no evidenced job, a stated non-evidential basis</u>
+
+<b>2 · WHAT I AM PUTTING TOGETHER  — the set for one piece of work</b>
+  │
+  └── Projects ........................................ <i>[MAIN]</i> <i>[H-J2 ?]</i>
+<u>        │</u>
+        └── Project ................................... <i>[MAIN]</i> <i>[RJ-2]</i>
+<u>              │</u>
+              ├── Configuring the set — a mode ........... <i>[MAIN]</i> <i>[RJ-2]</i>
+<u>              │     Q14 amended 2026-09-20. Entered and left by a</u>
+<u>              │     named action; the set is not editable outside it</u>
+<u>              │     │</u>
+              │     └── Library panel — a region, not a screen
+<u>              │           Scope switch over kind tabs, Related first.</u>
+<u>              │           Reads and adds; never edits</u>
+<u>              │</u>
+              └── Detached row — edit, reset, promote .. <i>[H-J3]</i>
+
+<b>3 · WHAT LEAVES  — the thing that has to work somewhere else</b>
+  │
+  └── Run ............................................. <i>[MAIN]</i> <i>[RJ-2]</i> <i>[RJ-1]</i> <i>[RJ-4]</i> <i>[SJ-1]</i>
+<u>        entered by Check from a Project, from a shared</u>
+<u>        project, and — Q15, 2026-09-20 — from a Library</u>
+<u>        row exporting one item. Ends in Export.</u>
+
+<b>4 · WHAT SOMEBODY ELSE OPENS  — the receiver&#x27;s only surfaces</b>
+  │
+  ├── Shared project .................................. <i>[MAIN]</i> <i>[RJ-1]</i> <i>[SJ-1]</i>
+  └── Shared item ..................................... <i>[MAIN]</i> <i>[H-J4 ?]</i>
+<u>        read-only, opened by anyone holding the link, and each offers</u>
+<u>        a way to take it — the archive, or a copy into their own library</u></pre></div>
+
+  <p><strong>Seven screens and one orphan</strong>, plus four nodes that are not screens &mdash; the <code>Item</code> add/edit overlay, the <em>configuring</em> mode, the library panel inside it, and the detached row. <em>Six screens until 20 Sep, when the product turned out to be online and a door appeared in front of everything.</em></p>
+
+  <p class="tnote"><strong>Group 0 is not a fourth situation and is marked so it cannot be read as one.</strong> Nobody has a situation called <em>I would like to sign in</em>. The door exists because the product has a server, and every other node in the tree answers to something somebody wants. <strong>The receiver never passes through it</strong>: a shared link is opened anonymously, and the branch where they take the archive stays free of any door &mdash; which is what makes it the branch that must always work. The only way they meet it is by choosing to keep a copy, and at that moment they have stopped being a receiver.</p>
+</section>
+
+<!-- ============ KINDS ============ -->
+<section id="kinds" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02b</span><h2>What each thing is</h2></div>
+  <p class="qline">A tree is a hierarchy. This asks what each node <em>is</em>, on one test: <strong>could somebody be sent there and arrive?</strong></p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Kind</th><th>Test it passes</th><th>Test it fails</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Place</td><td>Reload lands you here &middot; Back is meaningful &middot; the address survives</td><td class="sx">&mdash;</td></tr>
+        <tr><td class="name">Mode</td><td>Takes the surface, has a way out</td><td><strong>Not addressable</strong> &mdash; a reload cannot restore it</td></tr>
+        <tr><td class="name">Overlay</td><td>Summoned over what you were doing, dismissed back onto it</td><td>Never in the address; loses nothing when dismissed</td></tr>
+        <tr><td class="name">Region</td><td>On the screen whenever its place is</td><td>Fails all three of the others &mdash; it is part of a place</td></tr>
+        <tr><td class="name">State</td><td>A place or a mode looking different <em>because of the data</em></td><td>Not navigated to at all</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Six places, and that is the whole navigable surface</h3>
+  <p><strong><code>Library</code></strong> with one address per scope &middot; <strong><code>Projects</code></strong> &middot; <strong><code>Project</code></strong> &middot; the two the shared link creates, <strong><code>Shared project</code></strong> and <strong><code>Shared item</code></strong> &middot; and <strong><code>Sign in</code></strong>. <strong>Everything else is a mode, an overlay, a region, a state or content.</strong></p>
+
+  <p><strong>The count has moved in both directions, which is the point of having a test rather than a list.</strong> It was six, fell to five when the owner kept the item as a form rather than a place, and returned to six when the sign-in passed all three tests. <strong>The biggest mechanical change the builder has had &mdash; a command palette replaced by a library panel &mdash; moved it by nothing at all</strong>, because a panel that is on screen whenever its place is fails <em>place</em>, <em>mode</em> and <em>overlay</em> in turn, and what is left is a region.</p>
+
+  <p class="tnote"><strong>The temptation was to invent a fourth kind for the door</strong> &mdash; place, mode, overlay, <em>gate</em> &mdash; <strong>and it was refused.</strong> A classification that grows a category whenever something does not fit has stopped classifying. What is true instead is worth saying plainly: <strong>the sign-in is the only one of the six that exists for the product rather than for the person&rsquo;s work.</strong></p>
+</section>
+
+<!-- ============ NAVIGATION ============ -->
+<section id="nav" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03</span><h2>Navigation and depth</h2></div>
+  <p class="qline">Which places a person may reach without being sent, and how far the main job sits from the first screen.</p>
+
+  <h3>Two global entries, where the method asks for three to five</h3>
+  <p><strong>A deliberate deviation, named so it is not read as an oversight.</strong> <code>Library</code> and <code>Projects</code> are the only two places nothing else has to hand you. The third job cluster&rsquo;s screen is <code>Run</code>, and <strong><code>Run</code> is a mode</strong>: an entry pointing at it would promise a place nobody can be sent to. <em>A navigation model with an entry that cannot be arrived at is worse than one with two entries.</em></p>
+
+  <h3>Depth to the thing the product exists for</h3>
+  <p>The count runs to <strong>the archive in hand</strong>, which is the furthest point this product owns &mdash; it never touches the receiving machine.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Path</th><th>Route</th><th class="s">Taps</th></tr></thead>
+      <tbody>
+        <tr><td class="name">A &middot; the set exists</td><td>Projects &rarr; <b>Project</b> &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s5">3</td></tr>
+        <tr><td class="name">B &middot; the set does not</td><td>Projects &rarr; <b>New project</b> &rarr; <b>Configure</b> &rarr; n selections &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s3">4</td></tr>
+        <tr><td class="name">C &middot; arriving through the Library</td><td>Library &rarr; <b>Projects</b> &rarr; <b>Project</b> &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s3">4</td></tr>
+        <tr><td class="name">D &middot; first run, owning nothing</td><td>Projects &rarr; <b>the example project</b> &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s5">3</td></tr>
+        <tr><td class="name">The receiver, for contrast</td><td>the link &rarr; <b>Check</b> &rarr; <b>take the archive</b></td><td class="s s5">2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Three is the floor, and it is a floor for somebody already signed in.</strong> Every path costs one more from a cold, signed-out start; that is the honest thing to say rather than quoting three as though it covered everything.</p>
+
+  <p><strong>The two fours are different in kind.</strong> <strong>C&rsquo;s fourth tap is a traversal</strong> &mdash; you started in the wrong place &mdash; and it became <em>optional</em> when the corpus arrived inside the builder: the same errand now runs as path&nbsp;B. <strong>B&rsquo;s fourth is a mode entry in the right place</strong>, and it is purchasable: a project created a second ago is empty by definition, so entering the configuring mode automatically would put B back at three. <strong>The trade is that the empty state is never seen on the path that creates it</strong> &mdash; and that state is the one surface where somebody learns what a project is for. <em>Four is kept, and what three would cost is on the page.</em></p>
+
+  <p><strong>The depth of this product is in selection, not in traversal</strong>, and the count is what makes that arguable rather than a slogan.</p>
+
+  <p class="tnote"><strong>No path to the main job passes through the Library, and since 20 Sep that is deliberate rather than a tension.</strong> The primary persona is the keeper of a corpus, and their own ground was the one place the product&rsquo;s central act did not touch. The corpus now reaches assembly as a panel, so <strong>the Library does not need to be on the route in order to be present in the work</strong>. It is the curator&rsquo;s room: read, curate, edit, add, delete, usage facts, copy from the shelf, share. <strong>If it ever starts growing builder machinery to justify itself, this is the paragraph that explains why.</strong></p>
+</section>
+
+<!-- ============ FLOWS ============ -->
+<section id="flows" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 04</span><h2>The flows</h2></div>
+  <p class="qline">Seven paths in eight diagrams. <strong>Every node is a screen, mode, overlay, region or state the map already had</strong> &mdash; no new place appeared in any of them.</p>
+
+  <p><strong>That held through a change of mechanism, which is the harder test.</strong> The way the corpus reaches the builder was replaced outright &mdash; an overlay summoned by a keystroke became a region of the screen &mdash; and the place count did not move. What moved was the opposite of what a reader would expect: <strong>the main job lost four nodes and four edges</strong>, because the panel absorbed an excursion to two other screens and a branch that ended in a wasted archive was removed.</p>
+
+  <p><strong>Waits and failures are named in words under each flow and deliberately not drawn.</strong> The product is online, so every read and write crosses a network &mdash; and putting that in the diagrams would have doubled every graph to say one thing eight times. <em>What ordinary waiting looks like is a composition decision and belongs to phase 04.</em></p>
+
+  <figure class="flow">
+  <figcaption><b>The main job — &quot;when something I have already got working has to live somewhere else, I want it to keep working there&quot;</b>Flow 1 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A[&quot;Projects&quot;] --&gt; B{&quot;A project for this work?&quot;}
+    B --&gt;|&quot;No&quot;| C{&quot;Any projects at all?&quot;}
+    C --&gt;|&quot;No&quot;| C2[/&quot;Projects empty&quot;/]
+    C --&gt;|&quot;Yes&quot;| C3[/&quot;Only the example&quot;/]
+    C2 --&gt; D[&quot;Project&quot;]
+    C3 --&gt; D
+    B --&gt;|&quot;Yes&quot;| D
+    D --&gt; E{&quot;Anything in the set?&quot;}
+    E --&gt;|&quot;No&quot;| F[/&quot;Empty: configure the project&quot;/]
+    F --&gt; G[&quot;Project: configuring&quot;]
+    E --&gt;|&quot;Yes&quot;| K[&quot;Project: the set&quot;]
+    G --&gt; L{&quot;Panel offering anything?&quot;}
+    L --&gt;|&quot;No&quot;| M{&quot;Anything in My library yet?&quot;}
+    M --&gt;|&quot;No&quot;| M2[/&quot;Empty on first run&quot;/]
+    M --&gt;|&quot;Yes&quot;| M3[/&quot;Filtered to zero&quot;/]
+    M2 --&gt; N{&quot;Switch the scope to the shelf?&quot;}
+    M3 --&gt; N
+    N --&gt;|&quot;Yes&quot;| O[/&quot;Panel on Public library&quot;/]
+    O --&gt; G
+    N --&gt;|&quot;No&quot;| P[&quot;Item: add form&quot;]
+    P --&gt; K
+    L --&gt;|&quot;Yes&quot;| K
+    K --&gt; R{&quot;Is the set complete?&quot;}
+    R --&gt;|&quot;No&quot;| G
+    R --&gt;|&quot;Yes&quot;| S[/&quot;Checking&quot;/]
+    S --&gt; T{&quot;Any Problems?&quot;}
+    T --&gt;|&quot;Yes&quot;| U[&quot;Run: findings&quot;]
+    U --&gt; V{&quot;Fixable from this row?&quot;}
+    V --&gt;|&quot;Yes&quot;| K
+    V --&gt;|&quot;No&quot;| W[/&quot;Unclean export confirmed&quot;/]
+    W --&gt; X[&quot;Run: handover&quot;]
+    T --&gt;|&quot;No&quot;| X
+    X --&gt; Y{&quot;Right agent target?&quot;}
+    Y --&gt;|&quot;No&quot;| Z[/&quot;Verdict void&quot;/]
+    Z --&gt; S
+    Y --&gt;|&quot;Yes&quot;| AA[&quot;Export&quot;]
+    AA --&gt; AB([&quot;Archive in hand&quot;])
+    AB --&gt; AC{&quot;Env values on that machine?&quot;}
+    AC --&gt;|&quot;Yes&quot;| AD([&quot;Done: it keeps working&quot;])
+    AC --&gt;|&quot;No&quot;| AE([&quot;Stuck: keys named, not held&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 3,6,10,14,17,21,24,26,28,35,38 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,2,8,12,13,19,23,29,31,33,39 stroke:#dc2626,stroke-width:2px
+    class A,D,G,K,P,U,X,AA screen
+    class C2,C3,F,M2,M3,O,S,W,Z state
+    class AB,AD win
+    class AE dead</pre></div>
+  <div class="flowmeta"><span>Nodes <b>31</b></span><span>Edges <b>38</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
+</figure>
+
+  <figure class="flow">
+  <figcaption><b>The single-item export — the main job at its smallest scale</b>Flow 2 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A[&quot;Library: My library&quot;] --&gt; B{&quot;Find the item?&quot;}
+    B --&gt;|&quot;No&quot;| B2{&quot;Is it on the shelf?&quot;}
+    B2 --&gt;|&quot;Yes&quot;| B3[&quot;Library: copy to mine&quot;]
+    B3 --&gt; A
+    B2 --&gt;|&quot;No&quot;| C([&quot;Stuck: cannot find it&quot;])
+    B --&gt;|&quot;Yes&quot;| D[&quot;Library: export this item&quot;]
+    D --&gt; E{&quot;Does it require anything?&quot;}
+    E --&gt;|&quot;No&quot;| F[/&quot;A set of one&quot;/]
+    E --&gt;|&quot;Yes&quot;| G[/&quot;The walk builds a set&quot;/]
+    F --&gt; H[/&quot;Checking&quot;/]
+    G --&gt; H
+    H --&gt; I{&quot;Any Problems?&quot;}
+    I --&gt;|&quot;Yes&quot;| J[/&quot;Unresolvable, or a collision&quot;/]
+    J --&gt; K[&quot;Run: findings&quot;]
+    K --&gt; L[&quot;Library: fix the item&quot;]
+    L --&gt; A
+    I --&gt;|&quot;No&quot;| M{&quot;Anything the machine needs?&quot;}
+    M --&gt;|&quot;Yes&quot;| N[/&quot;Notes: env, refs, deference&quot;/]
+    N --&gt; O[&quot;Run: handover&quot;]
+    M --&gt;|&quot;No&quot;| O
+    O --&gt; P{&quot;Right agent target?&quot;}
+    P --&gt;|&quot;No&quot;| Q[/&quot;Verdict void&quot;/]
+    Q --&gt; H
+    P --&gt;|&quot;Yes&quot;| R[&quot;Export&quot;]
+    R --&gt; S([&quot;Done: one block, ready to land&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 2,5,8,12,17,23 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,4,7,16,19,21 stroke:#dc2626,stroke-width:2px
+    class A,B3,D,K,L,O,R screen
+    class F,G,H,J,N,Q state
+    class S win
+    class C dead</pre></div>
+  <div class="flowmeta"><span>Nodes <b>21</b></span><span>Edges <b>23</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
+</figure>
+
+  <figure class="flow">
+  <figcaption><b>RJ-1 — &quot;know what the other side will still need, before I send it&quot;</b>Flow 3 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A[&quot;Project&quot;] --&gt; B{&quot;Changed since the last check?&quot;}
+    B --&gt;|&quot;Yes&quot;| C[/&quot;Verdict stale&quot;/]
+    C --&gt; D[/&quot;Checking&quot;/]
+    B --&gt;|&quot;No&quot;| E{&quot;Skip the check?&quot;}
+    E --&gt;|&quot;Yes&quot;| F[/&quot;No run to re-read&quot;/]
+    F --&gt; D
+    E --&gt;|&quot;No&quot;| D
+    D --&gt; G{&quot;Every stage resolved?&quot;}
+    G --&gt;|&quot;No&quot;| H[&quot;Run: findings&quot;]
+    H --&gt; Z[&quot;Library: fix the item&quot;]
+    Z --&gt; A
+    G --&gt;|&quot;Yes&quot;| I[&quot;Run: handover&quot;]
+    I --&gt; J{&quot;Their agent target?&quot;}
+    J --&gt;|&quot;No&quot;| K[/&quot;Verdict void&quot;/]
+    K --&gt; D
+    J --&gt;|&quot;Yes&quot;| L[&quot;Run: SETUP.md preview&quot;]
+    L --&gt; M{&quot;Anything external unpinned?&quot;}
+    M --&gt;|&quot;Yes&quot;| N[/&quot;Note: no pinned ref&quot;/]
+    N --&gt; Z
+    M --&gt;|&quot;No&quot;| Q{&quot;Anything defers outward?&quot;}
+    Q --&gt;|&quot;Yes&quot;| R[/&quot;Note: defers to&quot;/]
+    R --&gt; S[&quot;Run: .env.example&quot;]
+    Q --&gt;|&quot;No&quot;| S
+    S --&gt; T{&quot;Read it before Export?&quot;}
+    T --&gt;|&quot;No&quot;| U([&quot;Cost: exported unread&quot;])
+    T --&gt;|&quot;Yes&quot;| V[&quot;Export&quot;]
+    V --&gt; W([&quot;Done: the other side is known&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 1,4,11,15,17,20,25 stroke:#16a34a,stroke-width:2px
+    linkStyle 3,6,8,13,19,22,24 stroke:#dc2626,stroke-width:2px
+    class A,H,I,L,S,V,Z screen
+    class C,D,F,K,N,R state
+    class W win
+    class U cost</pre></div>
+  <div class="flowmeta"><span>Nodes <b>22</b></span><span>Edges <b>25</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>none</b></span></div>
+</figure>
+
+  <figure class="flow">
+  <figcaption><b>RJ-2 — &quot;find out what my pieces drag in, and where two of them will fight, while I can still act&quot; · 2a</b>Flow 4 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A[&quot;Project&quot;] --&gt; B[&quot;Project: configuring&quot;]
+    B --&gt; C[/&quot;Row checked in the panel&quot;/]
+    C --&gt; D{&quot;Does it require anything?&quot;}
+    D --&gt;|&quot;Yes&quot;| E[/&quot;Auto-added rows&quot;/]
+    D --&gt;|&quot;No&quot;| F[&quot;Project: the set&quot;]
+    E --&gt; F
+    F --&gt; G{&quot;Want a row out of the set?&quot;}
+    G --&gt;|&quot;No&quot;| H([&quot;Done: what it drags in is visible&quot;])
+    G --&gt;|&quot;Yes&quot;| I{&quot;Is that row auto-added?&quot;}
+    I --&gt;|&quot;No&quot;| J[/&quot;Removed, the panel unchecks&quot;/]
+    J --&gt; F
+    I --&gt;|&quot;Yes&quot;| K{&quot;Remove its puller instead?&quot;}
+    K --&gt;|&quot;Yes&quot;| J
+    K --&gt;|&quot;No&quot;| L([&quot;Stuck: auto-added row holds&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 3,8,11,12 stroke:#16a34a,stroke-width:2px
+    linkStyle 4,7,9,13 stroke:#dc2626,stroke-width:2px
+    class A,B,F screen
+    class C,E,J state
+    class H win
+    class L dead</pre></div>
+  <div class="flowmeta"><span>Nodes <b>12</b></span><span>Edges <b>12</b></span><span>Done <b>1</b></span><span>Stuck <b>1</b></span></div>
+</figure>
+
+  <figure class="flow">
+  <figcaption><b>RJ-2 — &quot;find out what my pieces drag in, and where two of them will fight, while I can still act&quot; · 2b</b>Flow 5 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A[&quot;Project: the set&quot;] --&gt; B[/&quot;Checking&quot;/]
+    B --&gt; C{&quot;A cycle?&quot;}
+    C --&gt;|&quot;Yes&quot;| D[/&quot;Travels together&quot;/]
+    C --&gt;|&quot;No&quot;| E[&quot;Run: findings&quot;]
+    D --&gt; E
+    E --&gt; F{&quot;Any of it a Problem?&quot;}
+    F --&gt;|&quot;No&quot;| G([&quot;Done: nothing will fight&quot;])
+    F --&gt;|&quot;Yes&quot;| H{&quot;Required item missing?&quot;}
+    H --&gt;|&quot;Yes&quot;| I[/&quot;Unresolvable requirement&quot;/]
+    I --&gt; J[&quot;Library: My library&quot;]
+    J --&gt; K[&quot;Item: edit form&quot;]
+    K --&gt; A
+    H --&gt;|&quot;No&quot;| L[/&quot;Conflict or collision&quot;/]
+    L --&gt; M{&quot;Fixable from its row?&quot;}
+    M --&gt;|&quot;Yes&quot;| N[&quot;Project: act on the row&quot;]
+    N --&gt; O[/&quot;Verdict void&quot;/]
+    O --&gt; B
+    M --&gt;|&quot;No&quot;| P[/&quot;Unclean export confirmed&quot;/]
+    P --&gt; Q[&quot;Run: handover&quot;]
+    Q --&gt; R([&quot;Cost: it ships with the collision&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 2,7,8,14 stroke:#16a34a,stroke-width:2px
+    linkStyle 3,6,12,17 stroke:#dc2626,stroke-width:2px
+    class A,E,J,K,N,Q screen
+    class B,D,I,L,O,P state
+    class G win
+    class R cost</pre></div>
+  <div class="flowmeta"><span>Nodes <b>18</b></span><span>Edges <b>18</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>none</b></span></div>
+</figure>
+
+  <figure class="flow">
+  <figcaption><b>RJ-3 — &quot;fix something once and have the fix reach every copy of it&quot;</b>Flow 6 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A[&quot;Library: My library&quot;] --&gt; B{&quot;Can you find the item?&quot;}
+    B --&gt;|&quot;No&quot;| C[/&quot;Filtered to zero&quot;/]
+    C --&gt; D{&quot;Is it on the shelf?&quot;}
+    D --&gt;|&quot;Yes&quot;| E[&quot;Library: Public library&quot;]
+    E --&gt; F[&quot;Library: copy to mine&quot;]
+    F --&gt; A
+    D --&gt;|&quot;No&quot;| G([&quot;Stuck: cannot find it&quot;])
+    B --&gt;|&quot;Yes&quot;| H[&quot;Item: edit form&quot;]
+    H --&gt; I[/&quot;Used in 3 projects&quot;/]
+    I --&gt; J{&quot;Still change it?&quot;}
+    J --&gt;|&quot;No&quot;| A
+    J --&gt;|&quot;Yes&quot;| K[&quot;Library: saved once&quot;]
+    K --&gt; L[/&quot;3 projects out of date&quot;/]
+    L --&gt; M{&quot;A copy detached anywhere?&quot;}
+    M --&gt;|&quot;No&quot;| N[&quot;Project&quot;]
+    M --&gt;|&quot;Yes&quot;| O{&quot;Were you told about it?&quot;}
+    O --&gt;|&quot;No&quot;| P([&quot;Cost: detached keeps the old&quot;])
+    O --&gt;|&quot;Yes&quot;| Q[&quot;Detached row&quot;]
+    Q --&gt; R{&quot;Reset to the library version?&quot;}
+    R --&gt;|&quot;Yes&quot;| N
+    R --&gt;|&quot;No&quot;| S[/&quot;Kept as an exception&quot;/]
+    S --&gt; N
+    N --&gt; T[/&quot;Checking&quot;/]
+    T --&gt; U([&quot;Done: every linked copy has it&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 3,7,11,15,17,19 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,6,10,14,16,20 stroke:#dc2626,stroke-width:2px
+    class A,E,F,H,K,N,Q screen
+    class C,I,L,S,T state
+    class U win
+    class P cost
+    class G dead</pre></div>
+  <div class="flowmeta"><span>Nodes <b>21</b></span><span>Edges <b>22</b></span><span>Done <b>1</b></span><span>Cost <b>1</b></span><span>Stuck <b>1</b></span></div>
+</figure>
+
+  <figure class="flow">
+  <figcaption><b>RJ-4 — &quot;move my work without moving my secrets or my client&#x27;s business with it&quot;</b>Flow 7 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A[&quot;Library: My library&quot;] --&gt; B{&quot;The whole library as JSON?&quot;}
+    B --&gt;|&quot;No&quot;| C[&quot;Item: add form&quot;]
+    B --&gt;|&quot;Yes&quot;| D[&quot;Library: import and export&quot;]
+    C --&gt; E[/&quot;Warning: check for keys&quot;/]
+    D --&gt; E
+    E --&gt; F{&quot;Did you take the keys out?&quot;}
+    F --&gt;|&quot;Yes&quot;| G[&quot;Library: My library&quot;]
+    F --&gt;|&quot;No&quot;| F2{&quot;Go back and take them out?&quot;}
+    F2 --&gt;|&quot;Yes&quot;| C
+    F2 --&gt;|&quot;No&quot;| H([&quot;Cost: nothing will catch it&quot;])
+    G --&gt; I[&quot;Project&quot;]
+    I --&gt; J[/&quot;Checking&quot;/]
+    J --&gt; K{&quot;Env keys it does not carry?&quot;}
+    K --&gt;|&quot;Yes&quot;| L[/&quot;Note: names, never values&quot;/]
+    L --&gt; M[&quot;Run: handover&quot;]
+    K --&gt;|&quot;No&quot;| M
+    M --&gt; N{&quot;Share a link instead?&quot;}
+    N --&gt;|&quot;No&quot;| O[&quot;Export&quot;]
+    O --&gt; P([&quot;Done: no value ever moved&quot;])
+    N --&gt;|&quot;Yes&quot;| Q[&quot;Project: share&quot;]
+    Q --&gt; R[/&quot;Disclosure: content is visible&quot;/]
+    R --&gt; S{&quot;Is that content yours to publish?&quot;}
+    S --&gt;|&quot;No&quot;| T[/&quot;Note: tangled, undetectable&quot;/]
+    T --&gt; U[&quot;Item: edit form&quot;]
+    U --&gt; Q
+    S --&gt;|&quot;Yes&quot;| V[&quot;Shared project&quot;]
+    V --&gt; W{&quot;Revoke it later?&quot;}
+    W --&gt;|&quot;No&quot;| X([&quot;Done: the secrets stayed&quot;])
+    W --&gt;|&quot;Yes&quot;| Y[/&quot;Address dead&quot;/]
+    Y --&gt; Z([&quot;Cost: copies already taken&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 2,6,8,13,19,25,28 stroke:#16a34a,stroke-width:2px
+    linkStyle 1,7,9,15,17,22,27 stroke:#dc2626,stroke-width:2px
+    class A,C,D,G,I,M,O,Q,U,V screen
+    class E,J,L,R,T,Y state
+    class P,X win
+    class H,Z cost</pre></div>
+  <div class="flowmeta"><span>Nodes <b>27</b></span><span>Edges <b>28</b></span><span>Done <b>2</b></span><span>Cost <b>2</b></span><span>Stuck <b>none</b></span></div>
+</figure>
+
+  <figure class="flow">
+  <figcaption><b>The receiver — &quot;somebody sent me a link&quot;</b>Flow 8 of 8</figcaption>
+  <div class="dg"><pre class="mermaid">flowchart TD
+    A{&quot;Does the link still open?&quot;}
+    A --&gt;|&quot;No&quot;| B[/&quot;Revoked, or the project is gone&quot;/]
+    B --&gt; C([&quot;Stuck: nothing to fall back on&quot;])
+    A --&gt;|&quot;Yes&quot;| D[&quot;Shared project&quot;]
+    D --&gt; E[/&quot;Checked 3 days ago, changed since&quot;/]
+    E --&gt; F{&quot;Check it yourself?&quot;}
+    F --&gt;|&quot;Yes&quot;| G[/&quot;Checking&quot;/]
+    G --&gt; H{&quot;Any Problems?&quot;}
+    H --&gt;|&quot;Yes&quot;| I[&quot;Run: findings&quot;]
+    I --&gt; J{&quot;Take it anyway?&quot;}
+    H --&gt;|&quot;No&quot;| K[&quot;Run: handover&quot;]
+    F --&gt;|&quot;No&quot;| K
+    K --&gt; L[/&quot;What this machine still needs&quot;/]
+    L --&gt; J
+    J --&gt;|&quot;No&quot;| M([&quot;Cost: read it and left&quot;])
+    J --&gt;|&quot;Yes&quot;| N{&quot;Archive, or copy to my library?&quot;}
+    N --&gt;|&quot;Archive&quot;| O[&quot;Export&quot;]
+    N --&gt;|&quot;Copy&quot;| P[&quot;Library: copy to mine&quot;]
+    O --&gt; Q{&quot;Env values on this machine?&quot;}
+    Q --&gt;|&quot;Yes&quot;| R([&quot;Done: it keeps working here&quot;])
+    Q --&gt;|&quot;No&quot;| S([&quot;Stuck: keys named, not held&quot;])
+    P --&gt; T([&quot;Done: it is mine now&quot;])
+    classDef screen stroke:#6b7a8f,stroke-width:2px
+    classDef state stroke:#b8860b,stroke-width:2px,stroke-dasharray:4 3
+    classDef win stroke:#16a34a,stroke-width:3px
+    classDef cost stroke:#b8860b,stroke-width:3px
+    classDef dead stroke:#dc2626,stroke-width:3px
+    linkStyle 2,5,7,14,18 stroke:#16a34a,stroke-width:2px
+    linkStyle 0,9,10,13,19 stroke:#dc2626,stroke-width:2px
+    class D,I,K,O,P screen
+    class B,E,G,L state
+    class R,T win
+    class M cost
+    class C,S dead</pre></div>
+  <div class="flowmeta"><span>Nodes <b>20</b></span><span>Edges <b>19</b></span><span>Done <b>2</b></span><span>Cost <b>1</b></span><span>Stuck <b>2</b></span></div>
+</figure>
+
+  <p class="tnote"><strong>Two failures belong to every path and are named once.</strong> <strong>A session that expires mid-work</strong> &mdash; you return to where you were, nothing is re-run, nothing saved is lost, and you return to the <em>place</em>, not into the act, because <em>you were halfway through assembling a set</em> is not something this architecture can restore and it does not pretend to. And <strong>a second tab on the same account</strong>: sync means one person can now disagree with themselves. <strong>Single user has stopped meaning single writer</strong>, and the model has not noticed yet.</p>
+</section>
+
+<!-- ============ MATRIX ============ -->
+<section id="matrix" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>Traceability</h2></div>
+  <p class="qline">Every job against every surface. <strong>A tick means the surface takes part in closing the job</strong> &mdash; being a route to the surface that does the work is not participation, or every column would be full and the exercise would return nothing.</p>
+
+  <p><strong>Non-screens are columns too.</strong> A matrix of screens only would hand <code>Project</code> the tick that belongs to the panel, and <code>Library</code> the one that belongs to the item overlay. The question is <em>which surface does the work</em>, not which of them has an address.</p>
+
+  <p><strong>Sourced jobs and hypotheses are kept apart</strong>, because a column standing only on the second block is a column standing on an assumption. That is a third kind of defect and the exercise was not asked to look for it.</p>
+
+  <p class="orphankey"><span><span class="swatch"></span><b>Orphans highlighted</b> &mdash; a column with no tick is a surface no job raises; a row with no tick is a job no surface closes. <strong>Both are defects, not &ldquo;fine&rdquo;.</strong></span></p>
+
+  <div class="mwrap"><table class="trace">
+<thead><tr>
+<th class="job">Job</th><th>P1</th>
+<th title="My library">L-my</th>
+<th title="Public library">L-pub</th>
+<th title="Item overlay">Item</th>
+<th title="Projects">Pj</th>
+<th title="Project, viewing">P-v</th>
+<th title="Project, configuring">P-c</th>
+<th title="Library panel">Pan</th>
+<th title="Detached row">Det</th>
+<th title="Run">Run</th>
+<th title="Shared project">Sh-p</th>
+<th title="Shared item">Sh-i</th>
+<th class="ocol" title="Library JSON">JSON</th>
+<th class="ocol" title="Sign in">In</th>
+</tr></thead><tbody>
+<tr>
+<td class="job"><strong>MAIN</strong> — make it keep working somewhere else</td>
+<td class="imp"><strong>3</strong></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>RJ-1</strong> — know what the other side needs</td>
+<td class="imp"><code>[?]</code></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>RJ-2</strong> — what it drags in, where two fight</td>
+<td class="imp"><strong>3</strong></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>RJ-3</strong> — fix it once, reach every copy</td>
+<td class="imp"><strong>3</strong></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>RJ-4</strong> — move the work, not the secrets</td>
+<td class="imp"><strong>2</strong></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>EJ-1</strong> — not be quietly overruled</td>
+<td class="imp"><strong>3</strong></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>EJ-2</strong> — believe a clean result was earned</td>
+<td class="imp"><strong>2</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>EJ-3</strong> — stop suspecting half is dead weight</td>
+<td class="imp"><strong>3</strong></td>
+<td class="y">✓*</td>
+<td></td>
+<td class="y">✓*</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr>
+<td class="job"><strong>SJ-1</strong> — not be the missing manual</td>
+<td class="imp"><strong>2</strong></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr class="orow">
+<td class="job"><strong>SJ-2</strong> — something I would put my name to</td>
+<td class="imp"><strong>1</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr class="hypo">
+<td class="job"><strong>H-J1</strong> — lay hands on something I wrote</td>
+<td class="imp"><strong>2</strong></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr class="hypo">
+<td class="job"><strong>H-J2</strong> — start from one I have done</td>
+<td class="imp"><code>[?]</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr class="hypo">
+<td class="job"><strong>H-J3</strong> — change one copy for one project</td>
+<td class="imp"><strong>2</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr class="hypo">
+<td class="job"><strong>H-J4</strong> — get moving with somebody else&#x27;s</td>
+<td class="imp"><code>[?]</code></td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr class="hypo orow">
+<td class="job"><strong>H-J5</strong> — watch what actually ran</td>
+<td class="imp"><strong>3</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+<tr class="note"><td class="job"><strong>H-J6</strong> — my work counts as something</td><td colspan="14"><em>the same job as SJ-2 in functional wording; not counted twice</em></td></tr>
+<tr class="hypo">
+<td class="job"><strong>H-J7</strong> — the unwritten half travels too</td>
+<td class="imp"><strong>2</strong></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td class="y">✓</td>
+<td></td>
+<td></td>
+<td></td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="y">✓</td>
+<td class="ocol"></td>
+<td class="ocol"></td>
+</tr>
+</tbody></table></div>
+
+  <h3>Four orphans, and each has a decision</h3>
+  <p><strong>Two empty columns, and they are empty for opposite reasons.</strong> <strong><code>JSON</code></strong>, the library import and export, is <em>a mechanism nobody asked for that we chose to keep</em> &mdash; it could be cut tomorrow and the product would work. Its warrant is not a job: the product holds somebody&rsquo;s accumulated corpus on a server and tells them to pour everything into it, and one that offers no way out is the lock-in the word was invented for. <strong><code>In</code></strong>, the sign-in, is <em>a place another decision forced on us</em>. <strong>It is not a candidate for removal and never will be</strong>, and the two must not be counted as one defect &mdash; <em>a forced consequence and an unforced choice look identical in a coverage matrix and have nothing else in common.</em></p>
+
+  <p><strong>Two empty rows, and neither can be honestly filled.</strong> <strong><code>SJ-2</code></strong> &mdash; <em>have something I would put my name to</em> &mdash; is declined in writing twice: importance 1, established by absence in two instruments, and the catalog is refused. <strong><code>H-J5</code></strong> &mdash; <em>watch what actually ran</em> &mdash; is <strong>importance 3 with twelve blank cells</strong>, and it is the second main-job candidate that survived the method, which by that method&rsquo;s own rule means <strong>two products</strong>. The product runs nothing on anybody&rsquo;s machine, so <strong>the screen is forbidden rather than missing</strong>. <em>Inventing a tick for either would make the matrix a decoration.</em></p>
+
+  <p class="tnote"><strong>And one row whose ticks do not mean what the others mean.</strong> <code>EJ-3</code> &mdash; <em>stop suspecting that half of what I keep is dead weight</em> &mdash; is importance 3, and what answers it is usage facts. <strong>Those answer <em>is it used</em>. The job asks <em>is it any good</em>.</strong> An item can sit in three projects and be useless in all three. <strong>The product touches this job and cannot close it</strong>, the ceiling is now written beside the facts themselves, and nothing was added to narrow it: counting exports would still be <em>used</em> and would read as <em>useful</em>.</p>
+</section>
+
+<!-- ============ CRITIQUE ============ -->
+<section id="critique" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>The critique</h2></div>
+  <p class="qline">Sixteen defects in four classes, plus one finding outside them that was larger than any of them. <strong>Written first, approved, then applied</strong> &mdash; and the list was left untouched underneath, because a critique edited after the fact is not a critique.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Class</th><th>What it found</th><th class="s">Fixed</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Dead ends</td><td><strong>Four of ten endings did not survive.</strong> One flow ended on a problem that cannot be fixed from its row &mdash; which contradicts the specification <em>and</em> the diagram beside it, since export is never disabled. Another contradicted itself two branches apart: the same act looped back in one case and ended in the other. One ended where a sibling diagram asks a second question. One ended where the specification supplies a free remedy.</td><td class="s s5">6/6</td></tr>
+        <tr><td class="name">Missing states</td><td><strong>The worst class, and it got worse rather than being discovered.</strong> No <code>loading</code> node in 144, and no <code>error</code> node &mdash; and the product had just turned out to be online. The sharpest: <strong>a receiver opening a revoked link</strong>, the one person with no account, no context and no second surface, was undrawn. <em>And one defect was a regression from that morning:</em> removing an excursion took the first-run empty library out of every flow with it.</td><td class="s s4">4/6</td></tr>
+        <tr><td class="name">Excess depth</td><td>Two paths at four taps, both already named with their compromise. The critique&rsquo;s job was to decide whether naming is enough &mdash; and to notice that one of the two is purchasable.</td><td class="s s5">4/4</td></tr>
+        <tr><td class="name">Orphans</td><td>Checked against the matrix, <strong>no new matrix built.</strong> One column re-justified, two rows disposed of &mdash; and then a brand-new orphan class that the matrix had never seen, because the online decision created a door four hours after the matrix was drawn.</td><td class="s s5">4/4</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The largest finding was outside the four classes</h3>
+  <p><strong>The receiver&rsquo;s path was not drawn.</strong> Their surface carries <strong>seven jobs &mdash; more than <code>Projects</code>, more than the library panel</strong> &mdash; and it appeared in the file only as nodes inside the sender&rsquo;s diagrams. The specification describes that path in prose and even names it &mdash; <em>library-to-archive performed by somebody who owns nothing</em> &mdash; <strong>and nobody had ever walked it.</strong> Meanwhile a decision taken the same day commits the product to its <strong>most conservative treatment anywhere</strong> on exactly those surfaces, because that person has never spoken in the first person in four rounds of research across five venues. <em>A surface we had promised to be most careful with was the one surface with no flow.</em></p>
+
+  <h3>Three things the fixes produced that the critique did not predict</h3>
+  <p><strong>The file needed a third kind of ending.</strong> Applying <em>is this person actually stuck?</em> moved four endings out of red, and two colours could not hold the difference between <em>you were told and proceeded</em> and <em>there is nothing left to do</em>.</p>
+  <p><strong>One flow had to be restructured rather than patched</strong>, and the restructure is more accurate than what it replaced: <strong>nobody knows a requirement is dangling until the walk runs.</strong> The product does not ask; the check finds out.</p>
+  <p><strong>And a measurement rule turned out to be wrong.</strong> A diagram fell below the scale floor this work had set itself, so it was rendered on its own and <em>looked at</em> &mdash; and every label read without effort, because its width was empty space from two back edges rather than density. <strong>The numbers are a screen, not a verdict</strong>; the rule is render it and look.</p>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">Six of the lesson&rsquo;s seven steps are done. <strong>What is not settled is listed rather than smoothed over.</strong></p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>What would settle it</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Can counts carry a verdict?</td><td><code>0 problems &middot; 0 notes</code> reads the same on an empty set and on a perfectly assembled one. The channel may be too narrow for what it is asked to say.</td></tr>
+        <tr><td class="name">The detached row whose original is deleted</td><td>It holds its own overrides. Does it survive, or go with the original? Nothing in the model answers it, and inventing an answer would be worse than recording the gap.</td></tr>
+        <tr><td class="name">What the shelf holds, and how it sorts</td><td>Deferred. Its only evidence is <em>provenance over volume</em>, and the shelf gained load three times this phase without gaining a point of evidence.</td></tr>
+        <tr><td class="name">What the way in actually is</td><td>Password, link, provider. The rule was built and the mechanism deliberately was not &mdash; how things are served is not decided in this work.</td></tr>
+        <tr><td class="name">What ordinary waiting looks like</td><td>Phase 04. The validation pass is specified as a designed moment rather than a spinner, which leaves everything else open.</td></tr>
+        <tr><td class="name">The matrix owes a re-run</td><td>Whatever the sign-in surface eventually adds has to go through it, or the coverage claim on this page quietly stops being true.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>And one piece of work rather than a question.</strong> The public shelf has to be <em>built</em> &mdash; around thirty real items from checked sources, each with its origin, a pinned reference and a licence, composed so the example project produces a genuine problem and a genuine note. <strong>An information architecture argued against an empty library is argued against nothing.</strong> It does not block this phase and it is needed by the next one.</p>
+
+  <p class="tnote"><strong>One rule came out of this phase and it is the one most likely to be needed again.</strong> <strong>Any argument of the form <em>we cannot, because there is no X</em> is only as durable as the absence of X.</strong> Two absences ended on a single day &mdash; the product had no server, and a score assumed the check lived somewhere it had not lived for weeks &mdash; and each had a refusal resting on it. <strong>Three were re-argued and survived on other grounds. One did not and was void within hours of being written.</strong> When an absence ends, every refusal leaning on it is re-argued or dropped, in writing.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 03 of twelve.</strong> Built from <code>03-information-architecture/sitemap.md</code>, <code>flows.md</code> and <code>ia-critique.md</code>. The specification is <code>CLAUDE.md</code>; the open questions live in one register, <code>research/research-plan.md</code>, and nowhere else.</p>
+  <p>Phase 01 &mdash; <a href="../research/research.html">research and benchmark</a> &middot; Phase 02 &mdash; <a href="../research/6-personas/personas.html">personas and jobs to be done</a></p>
+</footer>
+
+</div>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+/* The diagrams set stroke colours only and never fills, so the theme supplies the
+   fill and they read correctly on either. This page is light, like phases 01 and 02. */
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  securityLevel: 'strict',
+  flowchart: { useMaxWidth: true, htmlLabels: true },
+  themeVariables: {
+    background: '#fdfdfb',
+    primaryColor: '#f0f0ee',
+    primaryTextColor: '#0d0d0d',
+    primaryBorderColor: '#d4d4cf',
+    lineColor: '#5a5a56',
+    fontFamily: 'Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif',
+    fontSize: '14px'
+  }
+});
+try { await mermaid.run({ querySelector: '.mermaid' }); }
+catch (e) { console.error('[ia] mermaid failed', e); }
+</script>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  if(!links.length) return;
+  var rail = document.querySelector('.rail');
+  var ol   = rail ? rail.querySelector('ol') : null;
+
+  var map = links.map(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    return el ? { a:a, el:el } : null;
+  }).filter(Boolean);
+  if(!map.length) return;
+
+  var current = null;
+  var smoothly = !window.matchMedia
+              || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* One tab is always active: the last section whose top has passed the bar.
+     An IntersectionObserver band leaves the indicator blank between sections,
+     which is wrong for something shaped like tabs. */
+  function sync(){
+    /* a section becomes current once its top reaches the upper third of the
+       viewport, not when it touches the bar - otherwise the heading is already
+       well in view while the tabs still point at the section above it. */
+    var line = Math.max(110, window.innerHeight * 0.32), best = map[0], i;
+    for(i = 0; i < map.length; i++){
+      if(map[i].el.getBoundingClientRect().top <= line) best = map[i];
+    }
+    if(best === current) return;
+    current = best;
+    for(i = 0; i < links.length; i++) links[i].classList.remove('on');
+    best.a.classList.add('on');
+
+    /* keep the active tab inside the horizontal scroller */
+    if(ol && ol.scrollWidth > ol.clientWidth + 4){
+      var t = best.a.getBoundingClientRect(), o = ol.getBoundingClientRect(), to = null;
+      if(t.left < o.left + 12)        to = ol.scrollLeft + t.left  - o.left  - 28;
+      else if(t.right > o.right - 48) to = ol.scrollLeft + t.right - o.right + 56;
+      if(to !== null){
+        /* the bar is dragged by hand at 1:1, so smoothness is asked for here
+           rather than set on the element */
+        if(ol.scrollTo) ol.scrollTo({ left:to, behavior:smoothly ? 'smooth' : 'auto' });
+        else ol.scrollLeft = to;
+      }
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ sync(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  /* a click on a tab jumps without always producing a scroll event the throttle
+     can see, so the bar would keep pointing at the section we just left */
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(sync); });
+
+  /* Drag the horizontal bars with the mouse. They overflow at most widths and a
+     wheel alone only moves them with shift held, which nobody discovers. Touch
+     already scrolls them natively, so this is mouse-only; a drag of more than a
+     few pixels swallows the click it would otherwise end in. */
+  function dragScroll(box){
+    if(!box) return;
+    var SLOP = 5;                         /* a press only becomes a drag past this */
+    var down = false, dragging = false, swallow = false, startX = 0, startLeft = 0;
+    function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
+    function mark(){ box.classList.toggle('grabbable', !fits()); }
+
+    /* No setPointerCapture: a captured pointer retargets the click at the
+       scroller, and the tab under the cursor never receives it. The move and up
+       handlers go on the window instead, so a drag still survives leaving the
+       bar, and a plain click stays a plain click on the link. */
+    function move(e){
+      var dx = e.clientX - startX;
+      if(!dragging){
+        if(Math.abs(dx) < SLOP) return;
+        dragging = true; swallow = true;
+        box.classList.add('dragging');
+      }
+      box.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    }
+    function up(){
+      down = false; dragging = false;
+      box.classList.remove('dragging');
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    }
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; dragging = false; swallow = false;
+      startX = e.clientX; startLeft = box.scrollLeft;
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+    });
+    /* only a press that actually moved eats its click */
+    box.addEventListener('click', function(e){
+      if(!swallow) return;
+      swallow = false;
+      e.preventDefault(); e.stopPropagation();
+    }, true);
+    box.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    mark();
+    window.addEventListener('resize', mark);
+  }
+  dragScroll(ol);
+  dragScroll(document.querySelector('.phases ol'));
+
+  sync();
+})();
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
-# tools — the research page generators
+# tools — the course page generators
 
-**Two generated pages, one design language, published as phases 01 and 02 of the course.**
+**Three generated pages, one design language, published as phases 01, 02 and 03 of the course.**
 **The phase list is a left sidebar; the section anchors are a sticky horizontal tab bar.** *Phase* is
 what the pages call the course's *lesson* — the label changed on 2026-09-09, the twelve entries did
 not, and they are still the course's twelve and never this project's build phases (`CLAUDE.md` §1).
@@ -23,8 +23,10 @@ scroll-spy, because that is the block `build_personas.py` lifts across.
 inherit, so the two horizontal bars keep their 1:1 drag, and the spy asks for smoothness explicitly
 when it glides the active tab into view. An `IntersectionObserver` band was tried first and left the indicator
 blank between sections, which is wrong for something shaped like tabs. **That list is the course's and is fixed** — it is not the
-project's build phases. **Adding a third page means editing the strip in both templates and adding
-the file to `.vercelignore`, which is a whitelist.**
+project's build phases. **Adding a page means editing the strip in *every* template and in the generated pages beside them,
+and adding the file to `.vercelignore`, which is a whitelist.** *Phase 03 was added on 2026-09-20 and
+that is five files, not two: two templates, the build artifact, and the two standalone pages, because
+neither of the first two is rebuilt casually.*
 [`../research/research.html`](../research/research.html) is phase 01, research stages 1–5;
 [`../research/6-personas/personas.html`](../research/6-personas/personas.html) is stages 6 and 7 —
 the persona cards, the job hierarchy and the jobs-against-personas matrix. **The second one pulls its
@@ -39,15 +41,18 @@ file with nothing to fetch. Do not hand-edit it — edit the template and rebuil
 python tools/build_page.py        # compress + embed the captures  -> tools/_research-page.build.html
 python tools/make_standalone.py   # wrap in a full HTML document   -> research/research.html
 python tools/build_personas.py    # personas + jobs, no captures   -> research/6-personas/personas.html
+python tools/build_ia.py          # the IA, derived from its sources -> 03-information-architecture/ia.html
 ```
 
-**Run all three after touching `research-page.tpl.html`**, because its `<style>` block is shared.
+**Run all four after touching `research-page.tpl.html`**, because its `<style>` block is shared.
 
 | File | What it is |
 |---|---|
 | `research-page.tpl.html` | The research page — content, **the CSS both pages share**, the small scroll-spy script. Captures are referenced as `{{IMG:key}}` placeholders. |
 | `personas-page.tpl.html` | The personas-and-jobs page: a title and a body, and **no styles of its own**. Everything visual comes from the shared block. |
 | `build_personas.py` | Lifts the shared `<style>` and the scroll-spy out of `research-page.tpl.html`, wraps this page's body in a standalone document, and asserts the tokens, the primary card, the matrix and every rail anchor survived. No images, so no embedding step. |
+| `ia-page.tpl.html` | The information-architecture page: a title, **three components of its own** — the screen tree, a framed flow, and the traceability table with its orphan highlighting — and nothing else visual. |
+| `build_ia.py` | **The only builder that reads the work rather than a template.** It lifts the shared style and spy like `build_personas.py`, and then **substitutes three things out of `sitemap.md` and `flows.md` at build time**: the screen tree verbatim, the **eight** Mermaid diagrams with their titles and their node and ending counts, and the traceability matrix as a table. **The orphan highlighting is computed, not annotated** — a column with no tick and a row with no tick are found by reading the tables — so the page cannot claim a coverage the work does not have. Mermaid comes from a CDN and is initialised on the **light** theme these pages use; the diagrams set stroke colours only and never fills, so the same source renders correctly on GitHub's light page and here. |
 | `build_page.py` | Resolves each placeholder: reads the capture from `research/`, resizes to `MAXW`, re-encodes as JPEG at `QUALITY`, embeds it as a data URI. Fails loudly on a missing file, an unknown placeholder or an unsubstituted one. |
 | `make_standalone.py` | Wraps the build output in `<!doctype html>` with a charset, a viewport and the small reset the artifact host would otherwise supply. **Without this step the page mojibakes** — every em dash, `×` and `⌘` in it depends on the charset declaration. |
 

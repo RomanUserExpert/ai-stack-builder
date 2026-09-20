@@ -11,4 +11,7 @@ research/*
 !research/6-personas
 research/6-personas/*
 !research/6-personas/personas.html
+!03-information-architecture
+03-information-architecture/*
+!03-information-architecture/ia.html
 !vercel.json

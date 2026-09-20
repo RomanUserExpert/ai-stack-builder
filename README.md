@@ -36,10 +36,18 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research is done; the design work has not started.** Stages 1–5 were signed off on
-2026-09-02, and stages 6 and 7 — personas and jobs to be done — on 2026-09-09. Those two ship
-marked *provisional*: the five practitioner conversations that would lift the label cannot be
-run. No code, no information architecture, no design system, no mockups yet.
+**Research is done and the information architecture is nearly done. There is still no code.**
+Stages 1–5 were signed off on 2026-09-02 and stages 6 and 7 — personas and jobs to be done — on
+2026-09-09. *The blanket* provisional *label on those two was dropped on 2026-09-15 and no mark moved
+with it*: the warning is carried per claim now, which is where it was always finer. **Lesson 03,
+information architecture, ran from 15 to 20 September** and six of its seven steps are done — see
+*Structure* below. No design system and no mockups yet, and **nothing so far decides how anything
+looks.**
+
+**One decision from 20 September changes the shape of everything after it: the product is online**, a
+backend with accounts, so a person's library follows them between machines. **What the backend is
+stays undecided on purpose** — this work designs the interface, and every rule in it is phrased as what
+a person sees and what a surface may claim.
 
 Roadmap — the twelve lessons of the course this work is homework for. *Corrected 2026-09-15;
 this line used to read `research → design system → mockups → frontend → logic`, which put the
@@ -54,8 +62,51 @@ The library is not empty on first run: a curated, read-only **public library** s
 the app beside your own, along with one example project that deliberately contains a real
 problem to find.
 
-Planned stack: Next.js + React + TypeScript, client-side only, IndexedDB for storage,
-JSZip for the archive. Custom design system, no UI kits.
+A project or a single item can also be **shared by link** — an unlisted address, live rather than a
+snapshot, openable by anyone holding it and revocable. **The receiver never signs in**, and they can
+run the same check the owner has on the set in front of them. There is no catalog: a link is a
+handover, and a catalog is a marketplace.
+
+Planned stack: Next.js + React + TypeScript, with a backend. **Which backend is deliberately not
+decided** — the product decides what it is and the implementation follows. JSZip for the archive, as a
+choice rather than a constraint. Custom design system, no UI kits. *This line said `client-side only,
+IndexedDB` until 2026-09-20.*
+
+## Structure
+
+**The information architecture lives in two documents, and they are ordered: one is derived from the
+other.**
+
+**[`03-information-architecture/sitemap.md`](03-information-architecture/sitemap.md) — the map, in six
+sections.** **Entities**: sixteen objects a person handles in order to close a job, each with its
+fields, the job that raises it and how well that job is known, plus **eleven candidates refused with a
+stated reason**. **Screens**: a tree of **seven screens and one orphan**, grouped by the person's own
+situations rather than by sections of a site, every node carrying the job it serves. **Places, modes,
+overlays and states**: what each node *is*, on one test — *could somebody be sent there and arrive* —
+which yields **six places and nothing else navigable**. **Navigation**: two global entries, the split
+into global, contextual and deep, and **three taps from the first screen to an archive** for somebody
+already signed in. **Traceability**: every job against every surface, with **two orphan columns and two
+orphan rows**, each carrying a decision. And dated blocks recording where the decisions met each other,
+because several of them arrived on the same afternoon and changed one another.
+
+**[`03-information-architecture/flows.md`](03-information-architecture/flows.md) — seven paths in eight
+Mermaid diagrams**, written out of the sitemap and nothing else. The main job, four related ones, the
+single-item export and **the receiver's path**. Every node is a screen, mode, overlay, region or state
+the map already had: **no new place appeared in any of them**, which is the closest thing to a test an
+architecture like this can be given. Each diagram is followed by its decisions and states in words, and
+by **what can go slowly and what can fail on that path** — named rather than drawn, because the product
+is online and drawing it would have doubled every graph to say one thing eight times.
+
+**Read them on GitHub or on the page**, not in a terminal preview: the diagrams need a renderer.
+
+**[`03-information-architecture/ia-critique.md`](03-information-architecture/ia-critique.md)** is the
+audit of both — sixteen defects in four classes plus one larger finding outside them, **written and
+approved before anything was changed**, with what was done to each recorded underneath and the original
+list left untouched.
+
+**[`03-information-architecture/ia.html`](03-information-architecture/ia.html)** is all of it as one
+page. **It is derived at build time from the two documents above**, so it cannot drift from them, and
+the orphan highlighting in its matrix is computed rather than annotated.
 
 ## Files
 
@@ -79,4 +130,6 @@ JSZip for the archive. Custom design system, no UI kits.
   - `research/6-personas/personas.html` — the same two documents as one generated page.
   - `research/personas-and-jobs-critique.md` — the audit of those two: 238 claims
     classified, 27 found invented, applied in full.
-- `tools/` — the generators for both pages, and how to rebuild them.
+- `03-information-architecture/` — lesson 03, described under *Structure* above: `sitemap.md`,
+  `flows.md`, `ia-critique.md`, the plan in `README.md`, and the generated `ia.html`.
+- `tools/` — the generators for all three pages, and how to rebuild them.

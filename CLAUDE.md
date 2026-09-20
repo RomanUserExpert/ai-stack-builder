@@ -11,7 +11,9 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 two more — personas and jobs to be done. Those two are lesson 02, and the next lesson is 03,
 information architecture — not the design system, which is lesson 09.**
 
-There is still no application code, no information architecture, no design system, no mockups.
+There is still no application code, no design system and no mockups. ~~no information architecture~~
+**— the information architecture exists as of 2026-09-20**: six of lesson 03's seven steps are done and
+the summary is at the end of §8. What remains of the lesson is its page.
 
 **Lesson 03 started on 2026-09-15, and the register's sitting was not held first.** That is the
 owner's decision, taken in these words — *we work with what we have* — and it changes standing, not
@@ -1128,6 +1130,55 @@ to read the scores behind it: the rubric grades craft, not weight.
   (§6, added 2026-09-15): the counts from the last check, the date, and — where the set has changed
   since — *what* changed instead of a verdict that is no longer true. Never *works*: **checked**. **Not visibility** — §9 keeps that control out
   of the MVP interface entirely, and this line used to say otherwise. Corrected 2026-09-02.
+
+### The information architecture, in one place
+
+**Added 2026-09-20, and the reason for it is that it did not exist in one place.** Lesson 03 produced
+its answers through **fifteen register entries between 15 and 20 September**, and this file absorbed
+them as dated amendments scattered across §1, §5, §6, §8, §9, §10 and §12. **This is the summary a
+person needs before reading any of them.** The work itself is
+[`03-information-architecture/sitemap.md`](03-information-architecture/sitemap.md) and
+[`flows.md`](03-information-architecture/flows.md); **this is a digest and never a source of truth**,
+exactly as `research.md` is for the research.
+
+**The top-level map — seven screens, grouped by the person's own situations.**
+
+```
+0 · the door           Sign in — no job raises it; the owner passes through, the receiver never does
+1 · what I keep        Library — My library · Public library   ( + the Item add/edit overlay )
+                       Library import / export as JSON — no job raises it either
+2 · what I assemble    Projects → Project   ( + the configuring mode, the library panel, a detached row )
+3 · what leaves        Run — a mode, entered by Check, ending in Export
+4 · what somebody
+    else opens         Shared project · Shared item
+```
+
+**Six places, and that is the whole navigable surface**: `Library` with one address per scope,
+`Projects`, `Project`, `Shared project`, `Shared item`, `Sign in`. **Everything else is a mode, an
+overlay, a region, a state or content** — including `Run`, which takes the whole screen and is still
+not a place, because nothing is stored and no address returns you to it.
+
+**The main flow, in one line.** `Projects` → a `Project` → **configure** it, adding from the library
+panel until the set is complete → **Check**, which enters `Run` → read the findings, fix what is
+fixable from its row, confirm the rest → read the handover → **Export**. **Nothing blocks anywhere
+along it**, and the one thing it cannot promise is the end: the archive is correct, and whether the env
+values exist on the receiving machine is a fact about a machine we never touch. **Checked, never
+works.**
+
+**Global navigation: two entries — `Library` and `Projects`.** The method asks for three to five and
+this is a deliberate deviation: the third cluster's screen is `Run`, and an entry pointing at a mode
+would promise a place nobody can be sent to.
+
+**Depth to the archive: three taps**, for somebody already signed in — `Projects` → `Project` →
+`Check` → `Export`. **Four** when the set does not exist yet, because a new project's empty state has
+one action and it enters the configuring mode; **four** when arriving through the Library, which the
+panel made optional rather than merely paid for; **two for the receiver**, who owns nothing and has the
+shortest path in the product. **Every path costs one more from a cold, signed-out start.**
+
+**And the one number that is not a compliment.** `Shared project` carries **seven jobs** in the
+coverage matrix — more than `Projects`, more than the library panel — while **P2 has never spoken in
+the first person** in four rounds of research across five venues. That is why §8's shared surfaces
+carry the most conservative rule in the product.
 
 **The known cost of this choice — rewritten 2026-09-20, because the panel paid most of it.**
 ~~With no library pane in the builder, you cannot see what you are not using.~~ That was the cost, and

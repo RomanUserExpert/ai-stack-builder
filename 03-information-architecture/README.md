@@ -313,7 +313,7 @@ rather than a verdict.
 over 3,000, and three revisions have each added to it. **Splitting it along *assemble · check · hand
 over* is the one open item nothing has touched.**
 
-### 7 · `ia.html` and the live documents — **not started**
+### 7 · `ia.html` and the live documents — **done 2026-09-20**
 
 *One clean page assembled from `sitemap.md` and `flows.md`: the tree with the job beside each screen,
 every flow rendered as Mermaid, the traceability matrix as a table with orphans highlighted. Dark,

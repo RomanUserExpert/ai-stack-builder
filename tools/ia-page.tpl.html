@@ -1,0 +1,335 @@
+<title>Phase 3 &mdash; Information architecture &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only the three things this page has and the others do not live here. */
+
+/* --- the screen tree, printed as it is written --- */
+.tree{
+  overflow-x:auto;margin:22px 0 10px;padding:20px 22px;
+  border:1px solid var(--rule);border-radius:10px;background:var(--surface);
+}
+.tree pre{
+  margin:0;font-family:var(--font-mono);font-size:12.5px;line-height:1.75;
+  color:var(--ink-2);white-space:pre;
+}
+.tree pre b{color:var(--ink);font-weight:600}
+.tree pre i{color:var(--accent);font-style:normal}
+.tree pre u{color:var(--ink-3);text-decoration:none}
+
+/* --- a flow, framed --- */
+.flow{margin:26px 0 30px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.flow > figcaption{
+  padding:13px 18px;border-bottom:1px solid var(--rule-soft);background:var(--sunken);
+  font-size:13px;color:var(--ink-2);
+}
+.flow > figcaption b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:14px}
+.flow .dg{padding:18px 14px 22px;overflow-x:auto}
+.flow .mermaid{display:flex;justify-content:center;min-width:0}
+.flowmeta{
+  display:flex;flex-wrap:wrap;gap:6px 16px;padding:11px 18px;border-top:1px solid var(--rule-soft);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+}
+.flowmeta span b{color:var(--ink-2);font-weight:600}
+
+/* --- endings legend --- */
+.ends{display:grid;gap:10px;margin:18px 0 8px}
+.ends div{display:flex;gap:12px;align-items:flex-start;font-size:14.5px}
+.ends .pill{
+  flex:0 0 auto;min-width:74px;text-align:center;padding:4px 10px;border-radius:999px;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+}
+.ends .e-done{border:2px solid #16a34a;color:#15803d}
+.ends .e-cost{border:2px solid #b8860b;color:#8a6508}
+.ends .e-stuck{border:2px solid #dc2626;color:#b91c1c}
+
+/* --- traceability: orphans highlighted --- */
+table.trace{border-collapse:collapse;width:100%;min-width:1040px;font-size:13px;background:var(--surface)}
+table.trace th,table.trace td{border-bottom:1px solid var(--rule-soft);padding:9px 8px;text-align:center;vertical-align:middle}
+table.trace thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;white-space:nowrap;
+}
+table.trace td.job,table.trace th.job{text-align:left;width:30%;min-width:290px;font-weight:500;color:var(--ink)}
+table.trace td.imp{font-family:var(--font-mono);font-weight:700;color:var(--ink)}
+table.trace td.y{color:var(--accent);font-weight:700}
+table.trace tbody tr.hypo td{background:var(--sunken)}
+table.trace tbody tr.hypo td.job{color:var(--ink-2)}
+table.trace tbody tr.orow td{background:var(--bad-soft)}
+table.trace tbody tr.orow td.job{color:var(--bad);font-weight:600}
+table.trace th.ocol,table.trace td.ocol{background:var(--bad-soft)}
+table.trace thead th.ocol{color:var(--bad)}
+table.trace tr.note td{text-align:left;color:var(--ink-3);font-style:italic;background:var(--sunken)}
+.orphankey{display:flex;flex-wrap:wrap;gap:8px 20px;margin:0 0 14px;font-size:13px;color:var(--ink-3)}
+.orphankey b{color:var(--bad)}
+.swatch{display:inline-block;width:13px;height:13px;border:1px solid var(--rule);background:var(--bad-soft);vertical-align:-2px;margin-right:5px}
+</style>
+
+
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <p class="phaseshead">Phases</p>
+    <ol>
+      <li><a href="../research/research.html"><b>01</b>Research and benchmark</a></li>
+      <li><a href="../research/6-personas/personas.html"><b>02</b>Personas and JTBD</a></li>
+      <li><span class="now"><b>03</b>Information architecture</span></li>
+      <li><span class="soon"><b>04</b>Prototyping and wireframing <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>05</b>Tone of voice and microcopy <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>06</b>Concept <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>07</b>UI assembly <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>08</b>Design tokens <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>09</b>Design system <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>10</b>Responsive <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>11</b>Animation and micro-interactions <em>&middot; soon</em></span></li>
+      <li><span class="soon"><b>12</b>Handoff and documentation <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+
+<header class="mast">
+  <p class="eyebrow">Phase 03 &middot; Information architecture</p>
+  <h1>What the product is made of, and how somebody gets through it</h1>
+  <p class="phasemeta">Phase <strong>3 of 12</strong> &middot; six of the lesson&rsquo;s seven steps &middot; started <strong>15 Sep 2026</strong>, and <strong>rewritten hard on 20 Sep</strong> when the adding mechanism changed, the product turned out to be online, and a critique found sixteen defects &middot; source of truth: <strong>CLAUDE.md</strong></p>
+  <p class="standfirst">Sixteen entities, seven screens, six places and seven flows for <strong>AI Stack Builder</strong> &mdash; derived from the jobs of phase 02 and never from anybody&rsquo;s product. <strong>Nothing here decides how it looks</strong>, and since 20 Sep nothing here decides how it is built either: every line is about what a person sees and what a surface may claim.</p>
+  <dl class="facts">
+    <div><dt>Entities</dt><dd>16<small>11 refused</small></dd></div>
+    <div><dt>Screens</dt><dd>7<small>+1 orphan</small></dd></div>
+    <div><dt>Places</dt><dd>6<small>of everything drawn</small></dd></div>
+    <div><dt>Flows</dt><dd>7<small>8 diagrams</small></dd></div>
+    <div><dt>Taps to an archive</dt><dd>3<small>signed in</small></dd></div>
+    <div><dt>Register entries</dt><dd>15<small>Q14&ndash;Q28</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#read"><b>Start</b>How to read this</a></li>
+    <li><a href="#tree"><b>Step 02</b>The screens</a></li>
+    <li><a href="#kinds"><b>Step 02b</b>What each thing is</a></li>
+    <li><a href="#nav"><b>Step 03</b>Navigation and depth</a></li>
+    <li><a href="#flows"><b>Step 04</b>The flows</a></li>
+    <li><a href="#matrix"><b>Step 05</b>Traceability</a></li>
+    <li><a href="#critique"><b>Step 06</b>The critique</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ HOW TO READ ============ -->
+<section id="read" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>How to read this</h2></div>
+  <p class="qline">Every screen here exists because a job needs it. <strong>A screen with no job and a job with no screen are the same defect</strong>, and both are counted at the end.</p>
+
+  <p><strong>This page is derived, not composed.</strong> The tree, the diagrams and the matrix below are read out of <code>sitemap.md</code> and <code>flows.md</code> when the page is built, so it cannot drift from the work. Nothing was redrawn for the page.</p>
+
+  <p><strong>Two boundaries hold everywhere on it.</strong> <strong>No appearance</strong> &mdash; no colour, no type scale, no component named in a way that implies a look; that starts at phase 06. And, since <strong>20 Sep 2026</strong>, <strong>no backend</strong>: the product is online and what the server is stays undecided, so every rule is phrased as what a person sees and what a surface may claim. <em>Two decisions taken that afternoon were phrased as guarantees about storage and were restated the same evening. Neither changed what it decided.</em></p>
+
+  <h3>Three kinds of ending</h3>
+  <p>The flows end in three ways, and the third was added on <strong>20 Sep</strong> when applying one question &mdash; <em>is this person actually stuck?</em> &mdash; moved four endings out of red.</p>
+
+  <div class="ends">
+    <div><span class="pill e-done">Done</span><p><strong>The job closed.</strong> The person got what they came for.</p></div>
+    <div><span class="pill e-cost">Cost</span><p><strong>The job did not close, and nothing stopped them.</strong> They proceeded, knowingly or not, and paid for it. <em>A cost you were told about is not an obstruction.</em></p></div>
+    <div><span class="pill e-stuck">Stuck</span><p><strong>The person cannot proceed.</strong> There is no action left that the product offers. <strong>Three of these survive in eight diagrams</strong> &mdash; two are outside our reach, and one is the product&rsquo;s only refusal.</p></div>
+  </div>
+
+  <p class="tnote"><strong>Two flows have no <em>Stuck</em> at all, and that is a result rather than a gap.</strong> They are the flows about <strong>findings</strong>, and a finding never blocks anybody: the specification says export is never disabled, so a problem you cannot fix from its row is confirmed and shipped, not refused. <em>Until 20 Sep one of those two ended in a wall, which contradicted the specification and the diagram beside it.</em></p>
+</section>
+
+<!-- ============ THE TREE ============ -->
+<section id="tree" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>The screens</h2></div>
+  <p class="qline">Derived from what the person is trying to do. <strong>No competitor&rsquo;s sitemap was opened while writing it.</strong></p>
+
+  <p>Grouped by the person&rsquo;s own situations rather than by sections of a site, and <strong>depth is deliberately shallow</strong>: three levels. Each screen carries the job it serves; a node with none is marked, not quietly kept.</p>
+
+  <div class="tree"><pre>{{TREE}}</pre></div>
+
+  <p><strong>Seven screens and one orphan</strong>, plus four nodes that are not screens &mdash; the <code>Item</code> add/edit overlay, the <em>configuring</em> mode, the library panel inside it, and the detached row. <em>Six screens until 20 Sep, when the product turned out to be online and a door appeared in front of everything.</em></p>
+
+  <p class="tnote"><strong>Group 0 is not a fourth situation and is marked so it cannot be read as one.</strong> Nobody has a situation called <em>I would like to sign in</em>. The door exists because the product has a server, and every other node in the tree answers to something somebody wants. <strong>The receiver never passes through it</strong>: a shared link is opened anonymously, and the branch where they take the archive stays free of any door &mdash; which is what makes it the branch that must always work. The only way they meet it is by choosing to keep a copy, and at that moment they have stopped being a receiver.</p>
+</section>
+
+<!-- ============ KINDS ============ -->
+<section id="kinds" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02b</span><h2>What each thing is</h2></div>
+  <p class="qline">A tree is a hierarchy. This asks what each node <em>is</em>, on one test: <strong>could somebody be sent there and arrive?</strong></p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Kind</th><th>Test it passes</th><th>Test it fails</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Place</td><td>Reload lands you here &middot; Back is meaningful &middot; the address survives</td><td class="sx">&mdash;</td></tr>
+        <tr><td class="name">Mode</td><td>Takes the surface, has a way out</td><td><strong>Not addressable</strong> &mdash; a reload cannot restore it</td></tr>
+        <tr><td class="name">Overlay</td><td>Summoned over what you were doing, dismissed back onto it</td><td>Never in the address; loses nothing when dismissed</td></tr>
+        <tr><td class="name">Region</td><td>On the screen whenever its place is</td><td>Fails all three of the others &mdash; it is part of a place</td></tr>
+        <tr><td class="name">State</td><td>A place or a mode looking different <em>because of the data</em></td><td>Not navigated to at all</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Six places, and that is the whole navigable surface</h3>
+  <p><strong><code>Library</code></strong> with one address per scope &middot; <strong><code>Projects</code></strong> &middot; <strong><code>Project</code></strong> &middot; the two the shared link creates, <strong><code>Shared project</code></strong> and <strong><code>Shared item</code></strong> &middot; and <strong><code>Sign in</code></strong>. <strong>Everything else is a mode, an overlay, a region, a state or content.</strong></p>
+
+  <p><strong>The count has moved in both directions, which is the point of having a test rather than a list.</strong> It was six, fell to five when the owner kept the item as a form rather than a place, and returned to six when the sign-in passed all three tests. <strong>The biggest mechanical change the builder has had &mdash; a command palette replaced by a library panel &mdash; moved it by nothing at all</strong>, because a panel that is on screen whenever its place is fails <em>place</em>, <em>mode</em> and <em>overlay</em> in turn, and what is left is a region.</p>
+
+  <p class="tnote"><strong>The temptation was to invent a fourth kind for the door</strong> &mdash; place, mode, overlay, <em>gate</em> &mdash; <strong>and it was refused.</strong> A classification that grows a category whenever something does not fit has stopped classifying. What is true instead is worth saying plainly: <strong>the sign-in is the only one of the six that exists for the product rather than for the person&rsquo;s work.</strong></p>
+</section>
+
+<!-- ============ NAVIGATION ============ -->
+<section id="nav" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03</span><h2>Navigation and depth</h2></div>
+  <p class="qline">Which places a person may reach without being sent, and how far the main job sits from the first screen.</p>
+
+  <h3>Two global entries, where the method asks for three to five</h3>
+  <p><strong>A deliberate deviation, named so it is not read as an oversight.</strong> <code>Library</code> and <code>Projects</code> are the only two places nothing else has to hand you. The third job cluster&rsquo;s screen is <code>Run</code>, and <strong><code>Run</code> is a mode</strong>: an entry pointing at it would promise a place nobody can be sent to. <em>A navigation model with an entry that cannot be arrived at is worse than one with two entries.</em></p>
+
+  <h3>Depth to the thing the product exists for</h3>
+  <p>The count runs to <strong>the archive in hand</strong>, which is the furthest point this product owns &mdash; it never touches the receiving machine.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Path</th><th>Route</th><th class="s">Taps</th></tr></thead>
+      <tbody>
+        <tr><td class="name">A &middot; the set exists</td><td>Projects &rarr; <b>Project</b> &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s5">3</td></tr>
+        <tr><td class="name">B &middot; the set does not</td><td>Projects &rarr; <b>New project</b> &rarr; <b>Configure</b> &rarr; n selections &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s3">4</td></tr>
+        <tr><td class="name">C &middot; arriving through the Library</td><td>Library &rarr; <b>Projects</b> &rarr; <b>Project</b> &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s3">4</td></tr>
+        <tr><td class="name">D &middot; first run, owning nothing</td><td>Projects &rarr; <b>the example project</b> &rarr; <b>Check</b> &rarr; <b>Export</b></td><td class="s s5">3</td></tr>
+        <tr><td class="name">The receiver, for contrast</td><td>the link &rarr; <b>Check</b> &rarr; <b>take the archive</b></td><td class="s s5">2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Three is the floor, and it is a floor for somebody already signed in.</strong> Every path costs one more from a cold, signed-out start; that is the honest thing to say rather than quoting three as though it covered everything.</p>
+
+  <p><strong>The two fours are different in kind.</strong> <strong>C&rsquo;s fourth tap is a traversal</strong> &mdash; you started in the wrong place &mdash; and it became <em>optional</em> when the corpus arrived inside the builder: the same errand now runs as path&nbsp;B. <strong>B&rsquo;s fourth is a mode entry in the right place</strong>, and it is purchasable: a project created a second ago is empty by definition, so entering the configuring mode automatically would put B back at three. <strong>The trade is that the empty state is never seen on the path that creates it</strong> &mdash; and that state is the one surface where somebody learns what a project is for. <em>Four is kept, and what three would cost is on the page.</em></p>
+
+  <p><strong>The depth of this product is in selection, not in traversal</strong>, and the count is what makes that arguable rather than a slogan.</p>
+
+  <p class="tnote"><strong>No path to the main job passes through the Library, and since 20 Sep that is deliberate rather than a tension.</strong> The primary persona is the keeper of a corpus, and their own ground was the one place the product&rsquo;s central act did not touch. The corpus now reaches assembly as a panel, so <strong>the Library does not need to be on the route in order to be present in the work</strong>. It is the curator&rsquo;s room: read, curate, edit, add, delete, usage facts, copy from the shelf, share. <strong>If it ever starts growing builder machinery to justify itself, this is the paragraph that explains why.</strong></p>
+</section>
+
+<!-- ============ FLOWS ============ -->
+<section id="flows" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 04</span><h2>The flows</h2></div>
+  <p class="qline">Seven paths in eight diagrams. <strong>Every node is a screen, mode, overlay, region or state the map already had</strong> &mdash; no new place appeared in any of them.</p>
+
+  <p><strong>That held through a change of mechanism, which is the harder test.</strong> The way the corpus reaches the builder was replaced outright &mdash; an overlay summoned by a keystroke became a region of the screen &mdash; and the place count did not move. What moved was the opposite of what a reader would expect: <strong>the main job lost four nodes and four edges</strong>, because the panel absorbed an excursion to two other screens and a branch that ended in a wasted archive was removed.</p>
+
+  <p><strong>Waits and failures are named in words under each flow and deliberately not drawn.</strong> The product is online, so every read and write crosses a network &mdash; and putting that in the diagrams would have doubled every graph to say one thing eight times. <em>What ordinary waiting looks like is a composition decision and belongs to phase 04.</em></p>
+
+  {{FLOWS}}
+
+  <p class="tnote"><strong>Two failures belong to every path and are named once.</strong> <strong>A session that expires mid-work</strong> &mdash; you return to where you were, nothing is re-run, nothing saved is lost, and you return to the <em>place</em>, not into the act, because <em>you were halfway through assembling a set</em> is not something this architecture can restore and it does not pretend to. And <strong>a second tab on the same account</strong>: sync means one person can now disagree with themselves. <strong>Single user has stopped meaning single writer</strong>, and the model has not noticed yet.</p>
+</section>
+
+<!-- ============ MATRIX ============ -->
+<section id="matrix" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>Traceability</h2></div>
+  <p class="qline">Every job against every surface. <strong>A tick means the surface takes part in closing the job</strong> &mdash; being a route to the surface that does the work is not participation, or every column would be full and the exercise would return nothing.</p>
+
+  <p><strong>Non-screens are columns too.</strong> A matrix of screens only would hand <code>Project</code> the tick that belongs to the panel, and <code>Library</code> the one that belongs to the item overlay. The question is <em>which surface does the work</em>, not which of them has an address.</p>
+
+  <p><strong>Sourced jobs and hypotheses are kept apart</strong>, because a column standing only on the second block is a column standing on an assumption. That is a third kind of defect and the exercise was not asked to look for it.</p>
+
+  <p class="orphankey"><span><span class="swatch"></span><b>Orphans highlighted</b> &mdash; a column with no tick is a surface no job raises; a row with no tick is a job no surface closes. <strong>Both are defects, not &ldquo;fine&rdquo;.</strong></span></p>
+
+  <div class="mwrap">{{MATRIX}}</div>
+
+  <h3>Four orphans, and each has a decision</h3>
+  <p><strong>Two empty columns, and they are empty for opposite reasons.</strong> <strong><code>JSON</code></strong>, the library import and export, is <em>a mechanism nobody asked for that we chose to keep</em> &mdash; it could be cut tomorrow and the product would work. Its warrant is not a job: the product holds somebody&rsquo;s accumulated corpus on a server and tells them to pour everything into it, and one that offers no way out is the lock-in the word was invented for. <strong><code>In</code></strong>, the sign-in, is <em>a place another decision forced on us</em>. <strong>It is not a candidate for removal and never will be</strong>, and the two must not be counted as one defect &mdash; <em>a forced consequence and an unforced choice look identical in a coverage matrix and have nothing else in common.</em></p>
+
+  <p><strong>Two empty rows, and neither can be honestly filled.</strong> <strong><code>SJ-2</code></strong> &mdash; <em>have something I would put my name to</em> &mdash; is declined in writing twice: importance 1, established by absence in two instruments, and the catalog is refused. <strong><code>H-J5</code></strong> &mdash; <em>watch what actually ran</em> &mdash; is <strong>importance 3 with twelve blank cells</strong>, and it is the second main-job candidate that survived the method, which by that method&rsquo;s own rule means <strong>two products</strong>. The product runs nothing on anybody&rsquo;s machine, so <strong>the screen is forbidden rather than missing</strong>. <em>Inventing a tick for either would make the matrix a decoration.</em></p>
+
+  <p class="tnote"><strong>And one row whose ticks do not mean what the others mean.</strong> <code>EJ-3</code> &mdash; <em>stop suspecting that half of what I keep is dead weight</em> &mdash; is importance 3, and what answers it is usage facts. <strong>Those answer <em>is it used</em>. The job asks <em>is it any good</em>.</strong> An item can sit in three projects and be useless in all three. <strong>The product touches this job and cannot close it</strong>, the ceiling is now written beside the facts themselves, and nothing was added to narrow it: counting exports would still be <em>used</em> and would read as <em>useful</em>.</p>
+</section>
+
+<!-- ============ CRITIQUE ============ -->
+<section id="critique" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>The critique</h2></div>
+  <p class="qline">Sixteen defects in four classes, plus one finding outside them that was larger than any of them. <strong>Written first, approved, then applied</strong> &mdash; and the list was left untouched underneath, because a critique edited after the fact is not a critique.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Class</th><th>What it found</th><th class="s">Fixed</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Dead ends</td><td><strong>Four of ten endings did not survive.</strong> One flow ended on a problem that cannot be fixed from its row &mdash; which contradicts the specification <em>and</em> the diagram beside it, since export is never disabled. Another contradicted itself two branches apart: the same act looped back in one case and ended in the other. One ended where a sibling diagram asks a second question. One ended where the specification supplies a free remedy.</td><td class="s s5">6/6</td></tr>
+        <tr><td class="name">Missing states</td><td><strong>The worst class, and it got worse rather than being discovered.</strong> No <code>loading</code> node in 144, and no <code>error</code> node &mdash; and the product had just turned out to be online. The sharpest: <strong>a receiver opening a revoked link</strong>, the one person with no account, no context and no second surface, was undrawn. <em>And one defect was a regression from that morning:</em> removing an excursion took the first-run empty library out of every flow with it.</td><td class="s s4">4/6</td></tr>
+        <tr><td class="name">Excess depth</td><td>Two paths at four taps, both already named with their compromise. The critique&rsquo;s job was to decide whether naming is enough &mdash; and to notice that one of the two is purchasable.</td><td class="s s5">4/4</td></tr>
+        <tr><td class="name">Orphans</td><td>Checked against the matrix, <strong>no new matrix built.</strong> One column re-justified, two rows disposed of &mdash; and then a brand-new orphan class that the matrix had never seen, because the online decision created a door four hours after the matrix was drawn.</td><td class="s s5">4/4</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The largest finding was outside the four classes</h3>
+  <p><strong>The receiver&rsquo;s path was not drawn.</strong> Their surface carries <strong>seven jobs &mdash; more than <code>Projects</code>, more than the library panel</strong> &mdash; and it appeared in the file only as nodes inside the sender&rsquo;s diagrams. The specification describes that path in prose and even names it &mdash; <em>library-to-archive performed by somebody who owns nothing</em> &mdash; <strong>and nobody had ever walked it.</strong> Meanwhile a decision taken the same day commits the product to its <strong>most conservative treatment anywhere</strong> on exactly those surfaces, because that person has never spoken in the first person in four rounds of research across five venues. <em>A surface we had promised to be most careful with was the one surface with no flow.</em></p>
+
+  <h3>Three things the fixes produced that the critique did not predict</h3>
+  <p><strong>The file needed a third kind of ending.</strong> Applying <em>is this person actually stuck?</em> moved four endings out of red, and two colours could not hold the difference between <em>you were told and proceeded</em> and <em>there is nothing left to do</em>.</p>
+  <p><strong>One flow had to be restructured rather than patched</strong>, and the restructure is more accurate than what it replaced: <strong>nobody knows a requirement is dangling until the walk runs.</strong> The product does not ask; the check finds out.</p>
+  <p><strong>And a measurement rule turned out to be wrong.</strong> A diagram fell below the scale floor this work had set itself, so it was rendered on its own and <em>looked at</em> &mdash; and every label read without effort, because its width was empty space from two back edges rather than density. <strong>The numbers are a screen, not a verdict</strong>; the rule is render it and look.</p>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">Six of the lesson&rsquo;s seven steps are done. <strong>What is not settled is listed rather than smoothed over.</strong></p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>What would settle it</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Can counts carry a verdict?</td><td><code>0 problems &middot; 0 notes</code> reads the same on an empty set and on a perfectly assembled one. The channel may be too narrow for what it is asked to say.</td></tr>
+        <tr><td class="name">The detached row whose original is deleted</td><td>It holds its own overrides. Does it survive, or go with the original? Nothing in the model answers it, and inventing an answer would be worse than recording the gap.</td></tr>
+        <tr><td class="name">What the shelf holds, and how it sorts</td><td>Deferred. Its only evidence is <em>provenance over volume</em>, and the shelf gained load three times this phase without gaining a point of evidence.</td></tr>
+        <tr><td class="name">What the way in actually is</td><td>Password, link, provider. The rule was built and the mechanism deliberately was not &mdash; how things are served is not decided in this work.</td></tr>
+        <tr><td class="name">What ordinary waiting looks like</td><td>Phase 04. The validation pass is specified as a designed moment rather than a spinner, which leaves everything else open.</td></tr>
+        <tr><td class="name">The matrix owes a re-run</td><td>Whatever the sign-in surface eventually adds has to go through it, or the coverage claim on this page quietly stops being true.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>And one piece of work rather than a question.</strong> The public shelf has to be <em>built</em> &mdash; around thirty real items from checked sources, each with its origin, a pinned reference and a licence, composed so the example project produces a genuine problem and a genuine note. <strong>An information architecture argued against an empty library is argued against nothing.</strong> It does not block this phase and it is needed by the next one.</p>
+
+  <p class="tnote"><strong>One rule came out of this phase and it is the one most likely to be needed again.</strong> <strong>Any argument of the form <em>we cannot, because there is no X</em> is only as durable as the absence of X.</strong> Two absences ended on a single day &mdash; the product had no server, and a score assumed the check lived somewhere it had not lived for weeks &mdash; and each had a refusal resting on it. <strong>Three were re-argued and survived on other grounds. One did not and was void within hours of being written.</strong> When an absence ends, every refusal leaning on it is re-argued or dropped, in writing.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 03 of twelve.</strong> Built from <code>03-information-architecture/sitemap.md</code>, <code>flows.md</code> and <code>ia-critique.md</code>. The specification is <code>CLAUDE.md</code>; the open questions live in one register, <code>research/research-plan.md</code>, and nowhere else.</p>
+  <p>Phase 01 &mdash; <a href="../research/research.html">research and benchmark</a> &middot; Phase 02 &mdash; <a href="../research/6-personas/personas.html">personas and jobs to be done</a></p>
+</footer>
+
+</div>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+/* The diagrams set stroke colours only and never fills, so the theme supplies the
+   fill and they read correctly on either. This page is light, like phases 01 and 02. */
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'base',
+  securityLevel: 'strict',
+  flowchart: { useMaxWidth: true, htmlLabels: true },
+  themeVariables: {
+    background: '#fdfdfb',
+    primaryColor: '#f0f0ee',
+    primaryTextColor: '#0d0d0d',
+    primaryBorderColor: '#d4d4cf',
+    lineColor: '#5a5a56',
+    fontFamily: 'Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif',
+    fontSize: '14px'
+  }
+});
+try { await mermaid.run({ querySelector: '.mermaid' }); }
+catch (e) { console.error('[ia] mermaid failed', e); }
+</script>
