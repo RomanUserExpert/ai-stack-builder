@@ -434,7 +434,19 @@ left to lesson 03's step 5.
 
 **What an item card claims, and what it never claims** (decided 2026-09-01). Trust in a *set* comes
 from the validation pass. The only per-item evidence we show is derived from the library itself —
-*used in 3 projects*, *2 items require this*, *last exported 12 days ago*. Those are usage facts, not
+*used in 3 projects*, *2 items require this*, *last exported 12 days ago*.
+
+**And here is their ceiling, written beside them on purpose** (added 2026-09-20, Q22). **These facts
+answer *is it used*. They do not answer *is it any good*, and they must never be read as though they
+did.** The job underneath them — *stop suspecting that half of what I keep is dead weight* — is
+**importance 3 for the primary persona**, one of the highest in the base, and **this product touches it
+and cannot close it**: an item can sit in three projects and be useless in all three, and the counter
+will still read three. **We cannot tell the difference, because we run nothing.** Lesson 03's
+traceability matrix marks both of these ticks partial for exactly this reason. **So the facts are
+shipped, the ceiling is stated, and nothing is built on top of them that would imply more** — the
+neighbouring refusal of scores and badges is the same discipline and exists for the same reason.
+
+Those are usage facts, not
 quality judgements, and they need no network. We ship **no score, no rating, no eval result and no
 badge**: the market has converged on measured trust (Tessl scores every skill, Smithery every server),
 and we have no way to run an item, so any number we invented would be decoration.
@@ -901,6 +913,13 @@ card carries it — and names the fields that differ, not just the fact that som
 granularities, the whole item and a single field, with Reset kept next to Detach as the two halves
 of one axis. See `research/2-flows/05-linked-vs-detached/NOTES.md`.
 
+**All three live in the configuring mode** (settled 2026-09-20, Q21). They change the content of the
+set, and §8's rule for the `✕` covers them without amendment: **a row being read is not a row being
+changed.** *A detached row is not an exception to that rule* — the proposal to let it be edited from
+the viewing mode was put and rejected, because a viewing mode that can change the set is not a viewing
+mode, and the separation leaks on its first day. **The cost is one entry into configuring for a person
+who spotted the difference while reading**, and it is named rather than absorbed.
+
 **State 6 carries three commands, and they are one axis, not three features** (2026-09-02): **Edit**
 here, in the project, which is the only place a detached item is editable and the reason the state
 exists at all; **Reset**, whole-item or single-field, which walks the change back; and **Promote**,
@@ -957,6 +976,7 @@ to read the scores behind it: the rubric grades craft, not weight.
 - **Project** — the set as a **list**, not a canvas and not a node graph. Every row carries its own
   state, including *detached* with the differing fields named (§7), and a finding annotates the row
   that owns it. **A detached row is also where that item is edited, reset and promoted** (§5, §7) —
+  **in the configuring mode, like every other change to the set** (Q21) —
   the project is the only place a local override exists, so it is the only place it can be worked on.
   Still *not* a node canvas: no hand-drawn edges, no execution order. The set is a set; relations
   come from the items and are surfaced here, not authored here.
@@ -1100,7 +1120,15 @@ Kept in the architecture's line of sight, not built:
   project or an item is now in the MVP** (§5, *Sharing*; Q13): an unlisted address, anyone who holds
   it can open it, nothing is listed. **What stays out is the catalog** — discovery, search, ranking,
   a place where other people's work is *found* rather than *given to you*, and the moderation that
-  any of it would require. **A link is a handover; a catalog is a marketplace**, and only the first is
+  any of it would require. **And the request will not arrive wearing this word** (noted 2026-09-20,
+  Q23): stage 7 lists the same job twice, as **`SJ-2` — *have something I would put my name to*** and
+  as **`H-J6` — *my work counts as something I can show*.** They are one job in two wordings and
+  `jtbd.md` says not to count it twice. **The first is easy to refuse and the second is not**, so a
+  proposal for a profile, a listing or a place where work is *visible* is this refusal being tested in
+  functional clothing, and should be recognised as such before it is weighed. **Its importance is 1 —
+  the lowest in the base, and established by absence**: looked for deliberately in two instruments,
+  **0 of 1,762** Hacker News comments and a `portfolio in:title` search returning two unrelated issues.
+  **A link is a handover; a catalog is a marketplace**, and only the first is
   a thing the evidence puts anybody in need of.
   ~~`visibility` stays in the model, and there is no server to
   publish to — so **the control is not shown in the MVP interface at all** (decided 2026-09-01).~~
@@ -1251,7 +1279,11 @@ answered on 2026-09-20 with one named question left open. Q12 left the list the 
 matrix: **Q18**, the JSON route keeps its place on the architecture rather than on a job (§10);
 **Q19**, the shelf is built in full and designed only as far as the example needs (§11); and **Q20**,
 the shared surfaces get the product's most conservative treatment because their persona has never
-spoken (§8).** *This line read "none are live" between
+spoken (§8). **Three more followed the same day and none of them builds anything**: **Q21**, the
+detached row's `Edit`, `Reset` and `Promote` live in the configuring mode (§7, §8); **Q22**, the usage
+facts carry their own ceiling — they answer *is it used*, never *is it any good* (§5); and **Q23**,
+`SJ-2` stays in the backlog with the caution that it will be re-proposed as `H-J6`, in functional
+wording (§9).** *This line read "none are live" between
 2026-09-15 and 2026-09-20.* **Lesson 03 raised four entries on 2026-09-20 and the owner answered all
 four the same day**, on the precedent of the `license` field and `defersTo`: **Q14 — a library panel
 inside `Project` replaces the `⌘K` palette**, with the Library leaving the assembly path (§8);

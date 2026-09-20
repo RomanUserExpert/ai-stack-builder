@@ -814,7 +814,7 @@ much of the screen it occupies.
 | **Run** | **Mode of the Project, of the Shared project — and, since 2026-09-20, of the Library** | Decided below. **Three** places now enter the same mode: the owner from their project, the receiver from the link, and the owner again from a Library row exporting a single item (Q15). *The third was added by the review of 2026-09-20, which found it written into §6 and nowhere else.* **Nothing is stored in any of the three** — the verdict lives on a project, and two of the three have none. **The argument that Run is a mode rather than a place is unaffected and is now better supported**: a thing that three different places enter, and that no address returns you to, is not a place |
 | **Editing an item that exists** | **Overlay on the Library** | ~~Mode of the Item place.~~ **§8: the Library holds one add/edit form** (2026-09-16). Dismissing it returns you to the row you opened it from, and the Library's address never changed |
 | **Creating an item** | **The same overlay — from the Library, or from the panel's zero result** | There is no object yet, so there is nothing to be a place for — **and the same overlay serves both**, which is what §8 said all along. **The panel's door (Q14, 2026-09-20) does not make the panel an editor**: it summons the authoring surface, because creating is a corpus act and assembling is not. **It does mean a person can reach this overlay without ever opening the Library** |
-| **A detached row — edit, reset, promote** | **Mode of the row, inside Project** | The override exists only in this project (§5), so it has no meaning without the project around it |
+| **A detached row — edit, reset, promote** | **Mode of the row, inside Project's configuring mode** | The override exists only in this project (§5), so it has no meaning without the project around it. **All three commands live in configuring** (Q21, 2026-09-20): they change the content of the set, and the rule written for the `✕` covers them — *a row being read is not a row being changed*. **A detached row is not an exception to it**, because a viewing mode that can change the set is not one |
 | **Configuring the set** | **Mode of the `Project` place** — added 2026-09-20 | **The screen has two modes**: *viewing* the set, and *configuring* it. By the four tests it is a mode and not a state — **nothing about the data decides which one you are in, your intent does** — and not a place, because a reload returns you to the Project, not to the act. It takes the surface in the sense that matters: **the panel is present and rows can be removed, and neither is true outside it.** Whether it survives a reload is **step 3's**, and the honest default is the one already set for `Run`: it does not. **`Run` remains reachable from both modes**, so the fix-and-recheck loop is not charged an exit per cycle |
 | ~~**The `⌘K` palette**~~ · **The library panel** | **Part of the `Project` place, in its configuring mode** — not an overlay, and not a place of its own | **Changed 2026-09-20, Q14.** The palette was an overlay: summoned, dismissed, never in the address. **The panel is none of those things** — it is on the screen whenever the Project is, it is not summoned and cannot be dismissed onto what you were doing, and it has no address of its own because **the Project already is one.** By this section's four tests it fails *place* (reload restores the Project, not the panel), fails *mode* (it takes no surface and there is nothing to leave), and fails *overlay* (it covers nothing). What is left is what it is: **a region of a place.** Its scope and tab are **candidates for the Project's address** and that is step 3's, not this row's |
 | **A finding** | **Content**, not navigation | It annotates the row that owns it (§8); the ones that own no row belong to the set |
@@ -1230,10 +1230,13 @@ and `jtbd.md` marks it **post-MVP** in its own heading. `§9` refuses the catalo
 the product, a **share link**, is deliberately *a handover, not a portfolio* — unlisted, unranked, not
 browsable. **The row is empty because the product declines the job, in writing, twice.**
 
-> **Resolution: backlog, and the empty row is correct.** It is the only row in this matrix where
-> emptiness is a decision already taken rather than a gap discovered here. **What this exercise adds is
-> one caution**: `SJ-2` and `H-J6` are the same job in two wordings, so **if a shelf, a profile or a
-> listing is ever proposed, it will arrive wearing the functional wording** and should be recognised.
+> **Resolution, settled 2026-09-20 (Q23): backlog, and the empty row is correct.** It is the only row
+> in this matrix where emptiness is a decision already taken rather than a gap discovered here.
+> **What this exercise adds is one caution, and it is now written into §9 rather than left here**:
+> `SJ-2` and `H-J6` are the same job in two wordings, and `jtbd.md` says not to count it twice.
+> **The first is easy to refuse and the second is not.** So a proposal for a profile, a listing or a
+> place where work is *visible* is this refusal being tested in functional clothing, and the caution
+> lives next to the refusal it protects.
 
 **`H-J5` — watch what actually ran.** **Importance 3, and this is the serious one.** It is the
 **surviving second main-job candidate** — the one `jtbd.md` §1 says makes two products — and
@@ -1290,6 +1293,13 @@ this job and cannot close it.** It is the same family as `H-J5` — Q12 — and 
 product's ceiling written as a matrix: **two of the four importance-3 emotional and hypothesis jobs are
 beyond what a thing that runs nothing can do.**
 
+> **Resolution, settled 2026-09-20 (Q22): accept it, and write the ceiling beside the facts
+> themselves.** Not in a research file where nobody building a screen will meet it — **in `CLAUDE.md`
+> §5, next to *used in 3 projects*,** so that the sentence *these answer* is it used, *not* is it any
+> good *is read by whoever draws the row.* **Nothing is added to the facts to close the gap**: the
+> obvious extension — counting exports, or whether an item was ever in a checked set — is still
+> *used*, and would read as *useful*, which is the decoration §5 refuses two paragraphs later.
+
 ### What the matrix found that nothing else had
 
 1. **`Run` and `P-v` are the busiest columns, and `Sh-p` is third** — the receiver's surface carries
@@ -1305,10 +1315,12 @@ beyond what a thing that runs nothing can do.**
    it does the work of assembling; most of what it enables is scored against `P-v` and `Pan` because
    that is where the person is looking. **If configuring ever needs to justify itself, this is the row
    count it will be asked about.**
-3. **`H-J3` needs a mode this file has not assigned it.** The detached row's **Edit, Reset and
-   Promote** are changes to the set's content. By the rule stated for the `✕` — *a row being read is not
-   a row being changed* — **they belong in configuring**, and nothing has said so. **Open, and it goes
-   to step 5** with the rest of the composition.
+3. ~~**`H-J3` needs a mode this file has not assigned it.**~~ **Answered the same day, Q21.** The
+   detached row's **Edit, Reset and Promote** are changes to the set's content, and by the rule stated
+   for the `✕` — *a row being read is not a row being changed* — **they live in configuring.** The
+   alternative was put and rejected: a detached row as an exception to the rule would mean a viewing
+   mode that can change the set, which is not a viewing mode. **The cost is one entry into configuring
+   for somebody who spotted the difference while reading**, named rather than absorbed.
 
 ---
 

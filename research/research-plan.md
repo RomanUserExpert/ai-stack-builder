@@ -337,7 +337,8 @@ carries the twelve.*
 > Q9 and Q11, deferred at the sitting, plus Q16 and Q17, each raised and part-answered on 2026-09-20
 > with one named question left open.** **Q12 is closed as *refused*** — not deferred a second time —
 > after the traceability matrix showed it at importance 3 with twelve blank cells. Q13 to Q15 and Q18
-> to Q20 are answered. **Read the dated sections at the end of this file for the current state; the
+> to Q23 are answered — **the traceability matrix's seven findings were all disposed of on 2026-09-20,
+> four of them building nothing.** **Read the dated sections at the end of this file for the current state; the
 > prose here is the protocol, not the status.**
 
 **This is the last section on purpose, and it is a running list.** Questions land here as stages
@@ -1325,6 +1326,68 @@ although the rule written for the `✕` on 2026-09-20 implies they belong in con
 to the owner and neither is decided here.** A third, `SJ-2`, is empty in the matrix and already
 post-MVP by stage 7's own heading; the only thing the matrix adds is that **`SJ-2` and `H-J6` are one
 job in two wordings**, so a proposal for a profile or a listing will arrive in the functional one.
+
+### The matrix's last three — 2026-09-20, and none of them adds anything to the product
+
+**The traceability matrix put seven things to the owner. Four were answered the same afternoon and are
+above; these are the remaining three, answered after being explained a second time.** What they have in
+common is worth stating: **not one of them builds anything.** Two write down a limit and one closes a
+rule that was left half-written. **A matrix whose findings all ended in new features would have been a
+wishlist, not a check.**
+
+#### Q21 — the detached row's three commands live in the configuring mode
+
+**Answered: all three, in configuring, and a detached row is not an exception.**
+
+**What was open.** `Edit`, `Reset` and `Promote` (§7, state 6) change the content of the set, and
+nothing had said which of `Project`'s two modes they belong to. The rule written for the `✕` on the
+same day — ***a row being read is not a row being changed*** — implies configuring, and an implication
+is not a decision.
+
+**What was rejected, and why it mattered.** The alternative was to treat the detached row as **the one
+exception**: you notice the difference while reading, so you fix it while reading. **A viewing mode
+that can change the set is not a viewing mode**, and the separation the owner introduced hours earlier
+would have leaked on its first day.
+
+**What it costs, named rather than absorbed.** Somebody who spots a divergence while reading has to
+enter configuring before acting on it. **One entry, and the rule stays whole.**
+
+#### Q22 — `EJ-3`'s ceiling is written beside the usage facts, and nothing is added to close it
+
+**Answered: accept the partial coverage and state it where it will be read.**
+
+**The gap.** *Stop suspecting that half of what I keep is dead weight* is **importance 3** — one of the
+highest in the base, and the only sighting of it is a person saying *"mostly useless… 50/50"*. What the
+product shows against it is **usage facts**: *used in 3 projects*, *2 items require this*, *last
+exported 12 days ago*. **Those answer *is it used*. The job asks *is it any good*.** An item can sit in
+three projects and be useless in all three; the counter still reads three. **We cannot tell the
+difference, because we run nothing** — which is the same wall as Q12, one importance-3 job away.
+
+**Where the sentence goes, and why the location is the decision.** Into **`CLAUDE.md` §5, immediately
+beside the facts** — not into a research file that nobody drawing a row will open. The people this
+protects are in lessons 05, 07 and 09, reading *used in 3 projects* and deciding what it means.
+
+**And nothing is added to narrow the gap.** The obvious extension — count the exports, or flag whether
+an item was ever in a checked set — is **still *used*, and would read as *useful***. That is the
+decoration §5 refuses two paragraphs later when it refuses scores and badges, and it would be worse
+here because it would look earned.
+
+#### Q23 — `SJ-2` stays in the backlog, and the caution moves next to the refusal it protects
+
+**Answered: backlog, and write into §9 that the request will arrive in the other wording.**
+
+**Nothing here is a new decision.** `SJ-2` — *have something I would put my name to* — is **importance
+1, the lowest in the base**, and it was established **by absence, looked for deliberately in two
+instruments**: **0 of 1,762** Hacker News comments, and `portfolio in:title` returning two unrelated
+issues. `jtbd.md` marks it **post-MVP** in its own heading and §9 refuses the catalog. Its row in the
+matrix is empty because **the product declines the job in writing, twice.**
+
+**What the matrix added is one recognition, and it is the whole entry.** Stage 7 carries the same job
+**twice** — as `SJ-2` and as **`H-J6` — *my work counts as something I can show*** — and says not to
+count it twice. **The first is easy to refuse and the second is not.** *Portfolio* sounds like vanity;
+*visibility of work* sounds like a need. **So a future proposal for a profile, a listing or a place
+where work is seen is this refusal being tested in functional clothing**, and the caution now sits in
+**§9, beside the refusal**, rather than in a matrix nobody will re-read.
 
 ### Earlier decisions
 
