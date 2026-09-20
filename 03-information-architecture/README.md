@@ -284,7 +284,7 @@ separately. Dead ends and missing states are the most dangerous and go first.*
 | **1** | **Dead ends** — a *no* branch that leads nowhere, an error or empty with no way on | Ten endings across seven diagrams, and **two are outside the product by design** (env values on the receiving machine, copies a revoked link cannot recall). The critique has to separate *a dead end we built* from *a limit we drew honestly* — and **the auto-added row that will not go** is the one to argue about |
 | **2** | **Missing states** — a happy path with no empty, error or loading | **The known gap**, stated in step 4 above. No `loading` node and no `error` node in the whole file |
 | **3** | **Excess depth** — the main job or a frequent related job further than three taps | **Two paths sit at four** and both are already named with their compromise. The critique's job is to decide whether naming is enough |
-| **4** | **Orphans** — check against the matrix, **do not build a new one** | One orphan column re-justified as `[§10]`, two orphan rows disposed of. The critique should test whether the re-justification holds or is special pleading |
+| **4** | **Orphans** — check against the matrix, **do not build a new one** | One orphan column re-justified as `[§10]`, two orphan rows disposed of. The critique should test whether the re-justification holds or is special pleading. *It held — and the critique then found a **second** orphan column the matrix had never seen, because Q24 created the sign-in four hours after the matrix was drawn* |
 
 **Output:** [`ia-critique.md`](ia-critique.md) — **written**. Sixteen defects across the four classes,
 plus **one finding outside them and it is the largest: the receiver's path is not drawn.** Seven jobs
