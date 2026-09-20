@@ -34,7 +34,13 @@ library item is confirmed rather than refused.** Every step that exists was re-c
 **steps 1 and 5 were never started, and steps 3 and 5 gained new questions rather than answers.**
 **The place count held at five**, and [`flows.md`](flows.md) now walks **six paths in seven diagrams** — the main
 job **lost four nodes and four edges**, because the panel absorbed an excursion and Q16 removed a
-branch. **No numbered step advanced on 2026-09-20; the existing ones were made true again.**
+branch. **No numbered step advanced on 2026-09-20; the existing ones were made true again** — and then the
+owner accepted the flows and **a sixth section, Traceability, was added to `sitemap.md`**: every job
+against every surface, with the orphan lists. **One orphan column** — library import/export as JSON,
+which three separate instruments have now called an orphan — and **two orphan rows**, `SJ-2` and
+`H-J5`, **neither of which can be honestly filled**: the product declines the first and is incapable
+of the second. Each orphan carries a decision. **Like `flows.md`, it is a check across steps rather
+than a numbered step of its own.**
 
 **The order moved, deliberately, and step 2b then closed what the tree opened.** The tree was drawn
 before the classification because the owner asked for the hierarchy first, and it worked: a screen tree
