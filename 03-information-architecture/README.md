@@ -264,7 +264,7 @@ is achievable for the column and **not for two of the rows**: `SJ-2` is a job th
 writing and `H-J5` is one it is incapable of. **Inventing a `✓` for either would make the matrix a
 decoration.** Every orphan carries a decision instead, which is the part that was reachable.
 
-### 6 · IA critique — **not started, and it is next**
+### 6 · IA critique — **written 2026-09-20, fixes not applied**
 
 *A close reading of `sitemap.md` and `flows.md` against four defect classes, returned as a table of
 **where · what · how to fix**. **Change nothing silently**: the list first, the fixes proposed
@@ -277,8 +277,19 @@ separately. Dead ends and missing states are the most dangerous and go first.*
 | **3** | **Excess depth** — the main job or a frequent related job further than three taps | **Two paths sit at four** and both are already named with their compromise. The critique's job is to decide whether naming is enough |
 | **4** | **Orphans** — check against the matrix, **do not build a new one** | One orphan column re-justified as `[§10]`, two orphan rows disposed of. The critique should test whether the re-justification holds or is special pleading |
 
-**Output:** `ia-critique.md`, then the fixes applied to `sitemap.md` and `flows.md` **separately and
-visibly**.
+**Output:** [`ia-critique.md`](ia-critique.md) — **written**. Sixteen defects across the four classes,
+plus **one finding outside them and it is the largest: the receiver's path is not drawn.** Seven jobs
+sit on `Shared project` and no diagram starts at *somebody sent me a link*.
+
+**The fixes are proposed and none is applied**, which is the method's rule and it has earned itself
+three times this week. **The list is ordered**; the sharpest items are that **RJ-2b's dead end
+contradicts §6** — a Problem you cannot fix from its row is not an ending, because export is never
+disabled and the main flow draws exactly that route — and that **two pairs of diagrams answer the same
+situation two different ways.** **One defect is a regression from this morning**: removing the palette
+excursion took first-run empty `My library` out of every flow with it.
+
+**`loading` is deliberately not on the fix list.** It belongs to lesson 04: putting spinners in seven
+diagrams before deciding what waiting looks like is trap 2.
 
 ### 7 · `ia.html` and the live documents — **not started**
 
