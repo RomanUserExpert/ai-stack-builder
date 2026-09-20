@@ -1468,6 +1468,25 @@ catalog, and *checked, never works*. **The rule going forward: if a refusal's re
 the absence ends, the refusal has to be re-argued or dropped.** That is what happened to stage 5's
 C5 = 2 on 2026-09-20, and it is the second time in one day.
 
+### Q18 re-answered — portability, and the mechanism outlived three justifications — 2026-09-20
+
+**Void for one evening, kept by the owner the same night.** Q24 destroyed the warrant this entry was
+given that morning; the question went back with two candidates and **the first was taken: it ships, on
+portability — the user can leave with their work.**
+
+**The basis is declared non-evidential, and that is the whole of the honesty here.** **No job raises
+it**, in a matrix that checked all seventeen, and the empty column stays empty on the page. What
+changed is not the measurement but what the product became: **it now holds somebody's accumulated
+corpus on a server**, and §11 spends a section telling them to put it all there. **A hosted product
+that says *bring it all* and offers no way out is the lock-in the word was invented for.** It is the
+same class of decision as the **`license` field** (§5) — closes no evidenced job, taken on other
+grounds, labelled as such rather than dressed as a finding.
+
+**Worth keeping as a specimen.** This mechanism has now been: an **orphan** by job coverage · justified
+by **storage** · **void** when the storage changed · kept on a **stated preference**. **Four
+standings in six days, and the measurement under it never moved once.** That is the difference between
+measuring and deciding, and both halves belong on the page.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

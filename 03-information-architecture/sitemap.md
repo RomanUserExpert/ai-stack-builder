@@ -598,11 +598,10 @@ the point of the mark.
   │           before it accepts an edit
   │
   └── Library import / export (whole library as JSON) . [§10]
-        no job raises it — and that stopped being the test
-        on 2026-09-20 (Q18): its warrant is IndexedDB with
-        no backend, so one browser profile holds everything
-        — VOID 2026-09-20 (Q24): there is a backend now,
-        and the warrant went with it. Reopened
+        no job raises it, in a matrix that checked all
+        seventeen. It ships anyway: the user can leave
+        with their work (Q18). Same class as `license` —
+        no evidenced job, a stated non-evidential basis
 
 2 · WHAT I AM PUTTING TOGETHER  — the set for one piece of work
   │
@@ -661,7 +660,7 @@ step 3 — they are why the screens exist.
 | **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
 | **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, does it hold together, what do I still need, how do I take it* | **P2**, and it is their only surface |
 | **Shared item** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Somebody sent me one block — what is it, whose is it, may I use it* | **P2** · P3 `[?]` |
-| **Library import / export** | ~~`[orphan]`~~ **`[§10]`** — settled 2026-09-20, Q18 | *Get my corpus out of the one browser profile that holds it* — **not a job anybody stated; a consequence of the storage decision** | P1 |
+| **Library import / export** | ~~`[orphan]`~~ **`[§10]`** — Q18, re-answered 2026-09-20 | *Leave with my work* — **not a job anybody stated.** Kept on a non-evidential basis, like the `license` field: the product holds the corpus on a server and §11 tells the user to pour everything into it | P1 |
 
 **The orphan, named rather than quietly dropped.** `CLAUDE.md` §10 commits to **export and import of
 the whole library as JSON**, *"which covers both backup and informal sharing before any server
@@ -1227,10 +1226,19 @@ stands on §10.** ~~Storage is **IndexedDB with no backend**, so the only copy o
 has accumulated sits in **one browser profile**, which clears. That is a property of the architecture,
 not somebody's stated need, and no instrument pointed at people was ever going to find it.~~
 **Void the same day — Q24: the product is online, with a backend and accounts, so there is no single
-browser profile holding the only copy.** The finding this entry was answering is untouched — **the
-column is still empty and no job still raises it** — and the mechanism is back to standing on nothing.
-**Reopened, and it is the owner's**: either *portability*, which nobody in the evidence base has asked
-for, or it is cut.
+browser profile holding the only copy.**
+
+**Re-answered the same evening, and the mechanism survives its own justification.** **It ships, on
+portability**: the user can leave with their work. **The finding is untouched and stays on the page —
+the column is empty and no job raises it** — and the basis is **declared non-evidential**, exactly as
+the `license` field's is. **What the product now has that it did not this morning is somebody else's
+corpus on a server**, and §11 spends a section telling them to put it there. *A hosted product that
+says bring it all and offers no way out is the thing the word lock-in was invented for.*
+
+**This entry is the clearest case in the folder of a finding outliving three justifications.** Orphan
+by job coverage, then justified by storage, then void, then kept on a stated preference — **and the
+empty column never moved.** That is the difference between measuring and deciding, and both are on the
+page.
 
 **So it keeps its place, and its entry keeps its honesty**: the column is empty, the mark changes from
 `[orphan]` to `[§10]`, and the sentence to remember is **it is not unjustified, it was being measured

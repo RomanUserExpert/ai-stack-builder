@@ -1214,14 +1214,21 @@ Do not build these. Do not design a screen that only makes sense once they exist
   implementation question and not a product one.
 - **Archive: built in the browser (JSZip) — now a choice rather than a constraint** (2026-09-20).
   Nothing in §6 depends on where the zip is assembled, and nothing is decided here.
-- **Library portability:** export/import of the whole library as JSON. ~~**Its warrant is this list,
-  not a job** (settled 2026-09-20, Q18).~~ **Void the same day, Q24 — and this is the sharpest example
-  of the rule at the end of §12.** The warrant below rested on one sentence: *storage is IndexedDB with
-  no backend, so the only copy lives in one browser profile, which clears.* **There is a backend now,
-  and that sentence is false.** The finding underneath is unchanged — **no job raises it** — so the
-  mechanism is back to standing on nothing until a different warrant is found. **Two candidates, neither
-  taken: *portability*, meaning the user can leave with their data, which nobody in the evidence base
-  has asked for; or nothing, in which case it is cut.** Q18 is reopened and is the owner's.
+- **Library portability:** export/import of the whole library as JSON. **It ships, and its warrant is
+  that the user can leave with their work** (Q18, re-answered 2026-09-20 after the first answer died
+  the same day).
+
+  **Its basis is stated plainly, because it is not an evidential one.** No job raises it, in a matrix
+  that checked all seventeen. **It is kept because the product now holds other people's corpora on a
+  server it does not let them out of otherwise** — §11 tells the user to pour everything in, and a
+  hosted product that says *bring it all* and offers no way out is the lock-in people mean when they
+  say the word. **This is the same class of decision as the `license` field** (§5): something that
+  closes no evidenced job, taken on a non-evidential basis, and **labelled as such rather than dressed
+  up as a finding.**
+
+  *Its first warrant lasted one day and is worth keeping visible: it was justified by §10's own
+  storage — IndexedDB with no backend, one browser profile holding the only copy — and Q24 made that
+  false by the evening. The mechanism survived; the reason for it did not.*
   *The reasoning below is kept, struck, because it is a good argument that stopped being true — which
   is worth more on the page than a deleted one.*
   ~~Three separate instruments in lesson 03 called it an orphan because **no job in the matrix raises
