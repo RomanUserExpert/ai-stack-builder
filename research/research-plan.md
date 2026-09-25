@@ -324,7 +324,7 @@ The research phase is finished when:
 - [ ] Every register entry raised by stages 6–7 marked **answered** or **deferred with a stated
       reason**, in one sitting, once both stages are in
 
-Next after that: **lesson 03, information architecture** — not started. *Corrected 2026-09-09: this
+Next after that: **lesson 03, information architecture** — ~~not started~~ started 2026-09-15, closed 2026-09-20. *Corrected 2026-09-09: this
 said "design system", which is lesson 09. Five lessons stand between the two, and CLAUDE.md §1 now
 carries the twelve.*
 

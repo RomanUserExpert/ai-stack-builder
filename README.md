@@ -40,7 +40,7 @@ than they can keep straight. Desktop-first, dark theme.
 Stages 1–5 were signed off on 2026-09-02 and stages 6 and 7 — personas and jobs to be done — on
 2026-09-09. *The blanket* provisional *label on those two was dropped on 2026-09-15 and no mark moved
 with it*: the warning is carried per claim now, which is where it was always finer. **Lesson 03,
-information architecture, ran from 15 to 20 September** and six of its seven steps are done — see
+information architecture, ran from 15 to 20 September** and is closed, all seven of its steps done — see
 *Structure* below. No design system and no mockups yet, and **nothing so far decides how anything
 looks.**
 
@@ -53,8 +53,8 @@ Roadmap — the twelve lessons of the course this work is homework for. *Correct
 this line used to read `research → design system → mockups → frontend → logic`, which put the
 design system second when it is ninth.*
 
-~~01 research and benchmark~~ → ~~02 personas and JTBD~~ → **03 information architecture** →
-04 prototyping → 05 tone of voice → 06 concept → 07 UI assembly → 08 design tokens →
+~~01 research and benchmark~~ → ~~02 personas and JTBD~~ → ~~03 information architecture~~ →
+**04 prototyping** → 05 tone of voice → 06 concept → 07 UI assembly → 08 design tokens →
 09 design system → 10 responsive → 11 animation → 12 handoff. Product logic — state,
 storage, validation, export — comes after all twelve.
 

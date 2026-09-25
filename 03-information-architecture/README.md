@@ -183,8 +183,8 @@ different data model is a shape with no argument under it.
 | **3** Navigation model | `sitemap.md` §Navigation | 4 | **done** 2026-09-16, recounted 09-20 |
 | **4** User flows in Mermaid | `flows.md` | unnumbered | **done** 2026-09-16, revised and accepted 09-20 |
 | **5** Traceability matrix | `sitemap.md` §Traceability | unnumbered | **done** 2026-09-20, all seven findings disposed of |
-| **6** IA critique | a defect table, then separate fixes | 9 | **not started** |
-| **7** `ia.html` and the live documents | `ia.html`, `CLAUDE.md`, `README.md` | 10 | **not started** |
+| **6** IA critique | a defect table, then separate fixes | 9 | **done** 2026-09-20, fixes approved and applied |
+| **7** `ia.html` and the live documents | `ia.html`, `CLAUDE.md`, `README.md` | 10 | **done** 2026-09-20 |
 
 ---
 
@@ -273,7 +273,7 @@ is achievable for the column and **not for two of the rows**: `SJ-2` is a job th
 writing and `H-J5` is one it is incapable of. **Inventing a `✓` for either would make the matrix a
 decoration.** Every orphan carries a decision instead, which is the part that was reachable.
 
-### 6 · IA critique — **written 2026-09-20, fixes not applied**
+### 6 · IA critique — **done 2026-09-20**: written, approved, fixes applied
 
 *A close reading of `sitemap.md` and `flows.md` against four defect classes, returned as a table of
 **where · what · how to fix**. **Change nothing silently**: the list first, the fixes proposed
