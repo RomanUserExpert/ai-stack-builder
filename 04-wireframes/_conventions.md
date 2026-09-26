@@ -77,19 +77,37 @@
   - **`default`** is the screen filled with real data. `_screens.md` keeps *success* for a real
     *it worked*, so the filled view needs a name of its own.
   - **`success`** exists only where `_screens.md` marks it — in the main flow, only `run-success.html`.
-- Examples: `projects-default.html`, `projects-empty.html`, `project-configuring-loading.html`,
-  `run-success.html`.
+  - **A state with more than one cause takes the cause as a suffix**: `<name>-<state>-<cause>.html`.
+    Projects has two errors that ask for different ways out, so it has `projects-error-filtered.html`
+    and `projects-error-server.html`, never one page trying to be both.
+- Examples: `projects-default.html`, `projects-empty.html`, `projects-error-server.html`,
+  `project-configuring-loading.html`, `run-success.html`.
 
 ## 5 · States — each one its own page
 
 - **One state, one page.** Same structure, different content — the zones do not move between states.
 - **Only the states `_screens.md` marks `✓`.** A `—` means no page.
-- **Empty and error always carry a way out**, and that way out is one `flows.md` already has.
+- **No state is a dead end** (2026-09-26). **Every empty and every error carries at least one action
+  that moves the person on**, and that way out is one `flows.md` already has. Where the first way out
+  can itself fail — *Try again* on a server error — **a second one goes somewhere that does not depend
+  on it** (*Open My library*).
+- **The block says what happened, in the present tense, then the way out.** One heading, one sentence,
+  the actions. For a server error, the code and time in small grey text under it — the person can quote
+  it; it is not the message.
+- **Filtered to zero is an error, not an empty** (owner, 2026-09-26). The things exist; the person's own
+  search and filter hide them. The page keeps what was typed and which filters are on, says so, and its
+  way out is **Clear filters**.
+- **An action that cannot act is hidden in that state, not greyed.** Search and `Filters` are not drawn
+  on an empty list or on a list that did not load — there is nothing to search. This is §9's rule, and
+  it is the one case where a zone may be absent from a state; it never *moves*.
 - **Error is real** — the product is online (Q24) — and uses the shapes already decided: *the edit did
   not land* (Q26), *the library reads as before* (Q27), *what could not be produced says so* (Q28).
 - **A Problem is not an error.** A check that found Problems is a check that worked.
-- **`Run` loading is the stage stack mid-sweep**, not a spinner (§6). Ordinary waits elsewhere are
-  decided on the first screen that has one, then written here.
+- **`Run` loading is the stage stack mid-sweep**, not a spinner (§6). **Every other wait is a
+  skeleton** (decided on Projects, 2026-09-26): grey bars in the real rows' columns, at the real rows'
+  heights, so nothing moves when the content arrives. The chrome, the page head and the controls are
+  real; only the content is skeleton. **No spinner, and no row shown before it is real** — the
+  optimistic option is not taken silently (register, *Waits*).
 - **Nothing is disabled** except the empty project's control into `Run` (Q16), and it is labelled
   inert rather than hidden.
 - **States that live inside a page are content, not pages**: §7's item states, the stale verdict, the
@@ -121,8 +139,9 @@ started deciding things it was not asked to.
   The product has three global entries, `My library`, `Public library` and `Projects` (Q29), drawn
   inside the canvas; the tree must never read as another menu.
 - **The stage**: the screen's name and its state as the title, and **Open as a page** — then **the
-  frame**. **States are chosen in the tree only**; a second switcher above the frame would say the same
-  thing twice.
+  frame**. **Under Persona · Job · Flow, a row of the current screen's states** (restored 2026-09-26,
+  owner) — one click between states without opening the tree. **It is generated from the tree**, so the
+  two cannot say different things; states not drawn yet are faded in both.
 - **Under the title, always three lines — Persona · Job · Flow.** Which persona the screen is for, which
   job from `jtbd.md` it closes, and where it sits in `flows.md`, taken from `_screens.md`. **Where a
   screen has none, the line says so in words** — *No job — and no job could (§9, Q25)* — **never blank

@@ -57,9 +57,14 @@ surface. A mode can be wireframed; it just has no address.
   - **Empty ✓** — *no projects at all*. The example project is **deletable** (§11), so this is
     reachable; `flows.md` decision 2 calls it *the emptiest surface the owner can produce and the only
     one with no shelf to fall back on*. Way out: create a project.
-  - **Error ✓** — the list fails to load, or **creating a project** fails (`flows.md`, *Waits and
-    failures*). The product is online (Q24).
-  - **Loading ✓** — *the `Projects` list on arrival* is a named wait.
+  - **Error · filtered ✓** — search and filters hide every project (owner, 2026-09-26). What was typed
+    and the filter stay on screen; the way out is **Clear filters**. `projects-error-filtered.html`.
+  - **Error · server ✓** — the list fails to load (`flows.md`, *Waits and failures*; Q24). Ways out:
+    **Try again**, and **Open My library**, which does not depend on this list.
+    `projects-error-server.html`. *Creating a project failing is Project's error, not this one.*
+  - **Loading ✓** — *the `Projects` list on arrival* is a named wait — **a skeleton of the rows**, with
+    the page head and Find real.
+  - Empty's ways out: **Create project** and **Explore Public library**.
   - **Success —** — a list is not an outcome. Creating a project lands you in `Project`, not on a
     confirmation.
 - **Inside the filled page, as content rather than pages:** *only the example project* on first run ·
@@ -69,8 +74,8 @@ surface. A mode can be wireframed; it just has no address.
   items inside them**; one filter by what the last check said — *All · Problems at last check · Out of
   date · Not checked yet · Shared*; *Checked for* a target; sort by *Last changed · Last checked ·
   Name*. **All of it but search sits behind one `Filters` button in the far right corner** (owner,
-  same day) — the screen shows search and the list, nothing more. **Filtered to zero is content, not a
-  page** — one line and *Clear filters*.
+  same day) — the screen shows search and the list, nothing more. **Filtered to zero is its own
+  state**, *error · filtered*, above.
 
 ### 2 · Project
 

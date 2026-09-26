@@ -1705,11 +1705,15 @@ the set I keep for that piece of work — and see whether it is still checked.*
 sort **into a single `Filters` button in the far right corner of the search row.** The screen shows
 search and the list; the rest is one click away. *What the button opens is not drawn yet.*
 
+**And filtered to zero became a state of its own, the same day.** The entry first said *filtered to
+zero is content, not a page*; the owner drew it as **an error with one way out — Clear filters** —
+beside the server error, because the two ask for different actions. `projects-error-filtered.html`.
+
 **What it costs, named.** **How many projects a person keeps is `[?]`** — the counted band is for
 items (*tens, not hundreds; design for fifty*), not projects, and at five rows a find bar is heavier
 than the list it finds in. **It is drawn because the owner reads the screen as one people come back
-to, and the bar costs one row** — *which folding everything but search into `Filters` keeps to one.* **Filtered to zero is content, not a page**, as it already is in the
-Library. **The Library's own search and filters (§8) are not touched by this entry** and come next.
+to, and the bar costs one row** — *which folding everything but search into `Filters` keeps to one.* ~~**Filtered to zero is content, not a page**, as it already is in the
+Library.~~ *Overruled the same day — see above.* **The Library's own search and filters (§8) are not touched by this entry** and come next.
 
 ### Earlier decisions
 

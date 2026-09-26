@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · error · filtered — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+  <style>
+    /* Page-specific layout only. Shared rules live in wireframe.css. */
+    .page-head { display: flex; align-items: center; gap: 24px; }
+    .page-head h1 { font-size: 24px; line-height: 32px; font-weight: 600; }
+    .page-head .button { margin-left: auto; }
+
+    .project-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+    .project-row {
+      display: grid;
+      grid-template-columns: 1fr 360px 200px;
+      gap: 24px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line-2);
+    }
+    .project-row h2 { font-size: 16px; line-height: 24px; font-weight: 600; display: flex; gap: 8px; align-items: center; }
+    .project-row h2 a { text-decoration: none; }
+    .project-row .description { margin-top: 4px; color: var(--ink-2); max-width: 640px; }
+    .project-row .facts { margin-top: 8px; display: flex; gap: 16px; }
+
+    .verdict dt { font-size: 11px; line-height: 16px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; }
+    .verdict dd + dt { margin-top: 8px; }
+    .verdict dd { margin-top: 4px; }
+
+    /* Find (Q30): search on the left, Filters in the far right corner. */
+    .find { display: flex; gap: 16px; align-items: center; }
+    .search { flex: 1; max-width: 480px; display: flex; gap: 8px; align-items: center;
+      padding: 8px 12px; border: 1px solid var(--ink-2); }
+    .search input { flex: 1; border: 0; padding: 0; font: inherit; color: var(--ink); background: transparent; outline: none; }
+    .search input::placeholder { color: var(--ink-3); }
+    .filters-button { margin-left: auto; }
+
+    .row-actions { display: flex; gap: 8px; justify-content: flex-end; }
+    .row-actions button { padding: 4px 8px; font-size: 12px; line-height: 16px; }
+  </style>
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <h1 id="projects-title">Projects</h1>
+          <a class="button button-primary" href="project-empty.html">
+            <span class="icon" aria-hidden="true"></span>New project
+          </a>
+        </div>
+      </section>
+
+      <!-- Find, as it was left: "stripe" typed, one filter on — Not checked yet. -->
+      <section aria-label="Find projects">
+        <form class="find" role="search" action="projects-default.html">
+          <label class="search">
+            <span class="icon" aria-hidden="true"></span>
+            <input type="search" name="q" value="stripe" placeholder="Search projects and the items in them — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters · 1</button>
+        </form>
+      </section>
+
+      <!-- Error: filtered to nothing. The projects exist; the search and filter hide all of them.
+           Way out: clear filters — back to the full list. -->
+      <section class="state-block" aria-labelledby="none-title">
+        <span class="icon state-icon" aria-hidden="true"></span>
+        <h2 id="none-title">No projects match</h2>
+        <p>Nothing matches “stripe” among projects that are <strong>Not checked yet</strong>.
+          You have 5 projects — the search and the filter hide all of them.</p>
+        <div class="state-actions">
+          <a class="button button-primary" href="projects-default.html">Clear filters</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
