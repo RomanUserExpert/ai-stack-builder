@@ -32,13 +32,13 @@
 
     <div class="config-layout">
     <!-- The library panel as a full left sidebar (owner, 2026-09-26): the height of the screen, under the
-       header, beside the set. Reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
+       header, beside the set. Reads and adds, never edits (§8). Scope above, kind tabs below. On an empty set it opens on All: there is nothing yet for Related to relate to. -->
     <aside class="panel library-sidebar" aria-label="Library panel">
       <div class="panel-head">
         <h2>Add from</h2>
         <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
         <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library"></label>
-        <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+        <nav class="tabs" aria-label="Kind"><a href="#">Related</a><a href="#" aria-current="page">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
       </div>
       <div class="panel-body">
         <!-- The panel offers nothing: My library is empty on first run (§11). Two ways out, both in the flow:
@@ -74,8 +74,12 @@
       </section>
 
       <section aria-label="The set">
-      <!-- The set is empty too; what it needs comes from the panel. -->
-      <p class="meta" style="padding: 20px 0; border-top: 1px solid var(--line)">Nothing in the set yet. Items you tick in the library on the left appear here.</p>
+        <!-- The set is empty: said in the body, with the image placeholder, and pointing at the sidebar. -->
+        <div class="state-block">
+          <span class="image state-image" aria-hidden="true"></span>
+          <h2>No items added yet</h2>
+          <p>Tick items in the library on the left to add them. Anything they require comes in with them.</p>
+        </div>
       </section>
 
     </main>
