@@ -643,3 +643,9 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .row-tight.row-1 { grid-template-columns: minmax(0, 1fr); }
 .usage { color: var(--ink-2); }
 .row-list .row { padding: 16px 0; }
+
+/* Drop zone in the Add item sheet: a file or a folder from the computer (owner, 2026-09-26) */
+.dropzone { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 32px 24px; border: 1px dashed var(--ink-2); background: var(--fill); text-align: center; cursor: pointer; }
+.dropzone-image { width: 64px; height: 48px; background-color: var(--paper); }
+.or { display: flex; align-items: center; gap: 12px; }
+.or::before, .or::after { content: ""; flex: 1; border-top: 1px solid var(--line-2); }

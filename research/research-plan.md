@@ -1715,6 +1715,26 @@ than the list it finds in. **It is drawn because the owner reads the screen as o
 to, and the bar costs one row** — *which folding everything but search into `Filters` keeps to one.* ~~**Filtered to zero is content, not a page**, as it already is in the
 Library.~~ *Overruled the same day — see above.* **The Library's own search and filters (§8) are not touched by this entry** and come next.
 
+### Q31 — an item can be added as a folder — raised 2026-09-26, answered in the interface only
+
+**Raised by the owner in lesson 04, on the Add item sheet:** *there should be drag and drop for files —
+a file or a folder from the computer.* Drawn on `item-empty.html` as a drop zone above the form, with
+the fields still editable by hand.
+
+**The file half changes nothing.** Dropping one file is another way to fill `content`.
+
+**The folder half is proposal S-2, arriving through the interface.** Round 3 found that an item which
+is one file loses what it points at — the `pdf` skill instructs the agent to read eight further files,
+`content` held one blob, `targetPath` one destination, and the export was **silently incomplete**. S-2
+proposed that **an item addresses a directory, not a file**, and it was never applied. **A drop zone
+that accepts a folder only makes sense if S-2 is true**, so this entry records that the owner has taken
+it in the interface — and that **`CLAUDE.md` §5 has not been amended yet**: `content` and `targetPath`
+still describe a single file. *The wireframe is ahead of the model, on purpose, and says so.*
+
+**What stays open, for §5:** what an item's content is when it is a folder (a tree of files), where it
+lands (a directory under the target), and how the edit sheet and the detached row's diff show more than
+one file.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

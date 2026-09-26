@@ -235,6 +235,10 @@ three* · **error** — **Q26: the edit did not land**, and those projects read 
 un-checked · **loading** — the usage facts at the head of the form, and the save · **no success** — you
 return to the row you came from.
 
+*Add item gains a drop zone* (owner, 2026-09-26): **a file or a whole folder from the computer**, above
+the form, which stays editable by hand. The folder half is **S-2** — an item as a directory — taken in
+the interface ahead of `CLAUDE.md` §5; register **Q31**.
+
 **Library import / export** — `[§10]`, no job; kept so the user can leave with their work (Q18). **Two
 commands on the Library, not a screen** — drawn because the import carries the §11 keys warning and a
 state nobody else has. **Flow:** RJ-4. **Loading** — *potentially the longest wait in the product* ·

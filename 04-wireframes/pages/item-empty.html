@@ -226,6 +226,16 @@
           <span><strong>Check that these files carry no keys.</strong> We don’t read your files looking for secrets. What you add here is stored on our server, goes out in every archive built from it, and — if you ever share it — onto a link anyone can open.</span>
         </div>
         <form class="form">
+          <!-- Drop zone (owner, 2026-09-26): a file or a whole folder from the computer. Dropping fills the
+               name, the kind where it can be read from the path, and the content; everything stays editable.
+               A folder is taken whole — a skill that points at eight more files arrives with them (S-2). -->
+          <label class="dropzone">
+            <input type="file" name="files" multiple class="visually-hidden">
+            <span class="image dropzone-image" aria-hidden="true"></span>
+            <strong>Drop a file or a folder here</strong>
+            <span class="meta">SKILL.md, an agent’s .md, a script, or a skill’s whole folder · or <u>choose from your computer</u></span>
+          </label>
+          <p class="or meta">or fill it in by hand</p>
           <div class="field-row">
             <label class="field"><span>Name</span><input name="name" placeholder="release-notes"></label>
             <label class="field"><span>Kind</span><select name="kind"><option selected>skill</option><option>agent</option><option>prompt</option><option>mcp</option><option>script</option><option>app</option></select></label>
@@ -239,7 +249,7 @@
               <label><input type="radio" name="source" checked> Inline — the content lives here</label>
               <label><input type="radio" name="source"> External — a repo, pinned</label>
             </div>
-            <label class="field"><span>Content</span><textarea name="content" placeholder="Paste the file, or drop it here"></textarea></label>
+            <label class="field"><span>Content</span><textarea name="content" placeholder="Paste the content here"></textarea></label>
           </fieldset>
 
           <div class="form-section">
