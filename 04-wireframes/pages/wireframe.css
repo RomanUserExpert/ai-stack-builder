@@ -373,3 +373,25 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
 .wf-meta div { display: contents; }
 .wf-meta dt { font: 600 10.5px/16px var(--site-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
 .wf-meta dd { margin: 0; color: var(--ink-2); }
+
+/* Tree hierarchy — three levels, three weights, one step apart each.
+   Section: the heaviest. Screen: medium. State: regular and quieter. */
+.wf-section > details > summary {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+.wf-section > details > summary .wf-ico { color: var(--ink-2); }
+.wf-section > details > summary .wf-name { padding: 4px 0; }
+.wf-screen > details > summary {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.wf-screen > details > summary .wf-ico { color: var(--ink-3); }
+.wf-screen li a { font-size: 12.5px; font-weight: 400; color: var(--ink-2); min-height: 26px; }
+.wf-screen li a .wf-ico { width: 14px; height: 14px; color: var(--ink-3); }
+.wf-section + .wf-section { margin-top: 8px; }
+.wf-tree a[aria-current="page"] { font-weight: 600; color: var(--site-accent); }
