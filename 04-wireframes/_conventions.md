@@ -147,8 +147,11 @@ started deciding things it was not asked to.
 
 - **`pages/<name>-<state>.html` is the product and nothing else** — the 1440 canvas, no chrome, no
   script. It opens directly as a page of its own, which is what later lessons grow.
-- **`pages/index.html` is the viewer** — the only page with chrome, and the one phase 04 links to. It
-  shows one wireframe at a time by its address, `index.html#projects-default`.
+- **`pages/wireframes.html` is the viewer** — the only page with chrome, and the one phase 04 links to. It
+  shows one wireframe at a time by its address, `wireframes.html#projects-default`. **It is not called
+  `index.html`**: with `cleanUrls` and no trailing slash, Vercel serves an index at `/04-wireframes/pages`,
+  and every relative path on it — the stylesheet, the frame, the page check — then resolves one folder
+  too high. *Renamed 2026-09-26, after the deployed viewer came up unstyled.*
 
 **The viewer, left to right:**
 
