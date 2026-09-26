@@ -70,6 +70,7 @@ surface. A mode can be wireframed; it just has no address.
 - **Inside the filled page, as content rather than pages:** *only the example project* on first run ·
   each row's verdict as counts and date — **checked, never works** · **a stale verdict**, which shows the
   date and *what* voided it, never the old verdict greyed (§6) · a shared project reading as shared.
+- **Cards, not rows** (owner, 2026-09-26) — so a project never reads as an item. Three to a row; the loading skeleton is the same grid.
 - **Find — search, filter, sort** (Q30, 2026-09-26). Search over project names, descriptions **and the
   items inside them**; one filter by what the last check said — *All · Problems at last check · Out of
   date · Not checked yet · Shared*; *Checked for* a target; sort by *Last changed · Last checked ·

@@ -52,22 +52,22 @@
         </form>
       </section>
 
-      <!-- Loading: a skeleton of the same rows, in the same columns — no spinner, and no row is
+      <!-- Loading: a skeleton of the same cards, in the same grid — no spinner, and no row is
            shown before it is real (the optimistic option is not taken silently — register, Waits). -->
       <section aria-label="Projects" aria-busy="true">
         <p class="visually-hidden" role="status">Loading projects</p>
-        <ol class="row-list">
+        <ol class="card-grid">
           <li>
-            <article class="row" aria-hidden="true">
+            <article class="card" aria-hidden="true">
               <div>
-                <span class="skeleton" style="width: 240px; height: 24px"></span>
-                <span class="skeleton" style="width: 560px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 200px; height: 12px; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
               </div>
-              <div>
+              <div class="verdict">
                 <span class="skeleton" style="width: 80px; height: 12px"></span>
-                <span class="skeleton" style="width: 240px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
               </div>
               <div class="row-actions">
                 <span class="skeleton" style="width: 72px; height: 24px"></span>
@@ -76,16 +76,16 @@
             </article>
           </li>
           <li>
-            <article class="row" aria-hidden="true">
+            <article class="card" aria-hidden="true">
               <div>
-                <span class="skeleton" style="width: 240px; height: 24px"></span>
-                <span class="skeleton" style="width: 560px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 200px; height: 12px; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
               </div>
-              <div>
+              <div class="verdict">
                 <span class="skeleton" style="width: 80px; height: 12px"></span>
-                <span class="skeleton" style="width: 240px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
               </div>
               <div class="row-actions">
                 <span class="skeleton" style="width: 72px; height: 24px"></span>
@@ -94,16 +94,16 @@
             </article>
           </li>
           <li>
-            <article class="row" aria-hidden="true">
+            <article class="card" aria-hidden="true">
               <div>
-                <span class="skeleton" style="width: 240px; height: 24px"></span>
-                <span class="skeleton" style="width: 560px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 200px; height: 12px; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
               </div>
-              <div>
+              <div class="verdict">
                 <span class="skeleton" style="width: 80px; height: 12px"></span>
-                <span class="skeleton" style="width: 240px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
               </div>
               <div class="row-actions">
                 <span class="skeleton" style="width: 72px; height: 24px"></span>
@@ -112,16 +112,52 @@
             </article>
           </li>
           <li>
-            <article class="row" aria-hidden="true">
+            <article class="card" aria-hidden="true">
               <div>
-                <span class="skeleton" style="width: 240px; height: 24px"></span>
-                <span class="skeleton" style="width: 560px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 200px; height: 12px; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
               </div>
-              <div>
+              <div class="verdict">
                 <span class="skeleton" style="width: 80px; height: 12px"></span>
-                <span class="skeleton" style="width: 240px; margin-top: 8px"></span>
-                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
               </div>
               <div class="row-actions">
                 <span class="skeleton" style="width: 72px; height: 24px"></span>
