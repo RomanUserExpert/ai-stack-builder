@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Detached row · default — wireframe</title>
+  <title>Configuring the set · item open — wireframe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -124,7 +124,7 @@
           <!-- Auto-added items sit under the item that pulled them in (owner, 2026-09-26): a row with
                sub-rows. They have no remove of their own — removing the parent takes them with it. -->
           <li>
-            <article class="row row-tight set-item">
+            <article class="row row-tight set-item is-selected">
               <div>
                 <h3><a href="project-configuring-item.html">code-style</a><span class="tag">skill</span></h3>
                 <p class="description">How I want TypeScript written: naming, imports, error handling.</p>
@@ -205,7 +205,7 @@
             </article>
           </li>
           <li>
-            <article class="row row-tight set-item is-selected">
+            <article class="row row-tight set-item">
               <div>
                 <h3><a href="project-detached-default.html">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
                 <p class="description">Reviews Acme pull requests against their billing rules.</p>
@@ -283,44 +283,47 @@
           </li>
         </ol>
       </section>
-        <!-- A detached row, in the side panel (owner, 2026-09-26). Edited here, for this project only; the
-             edits are kept with the project's Save. Reset walks a field or the whole item back; Promote
-             lifts this copy into My library as a new item (§5, §7). -->
+        <!-- The item beside the set, in Configuring (owner, 2026-09-26). A linked item offers Detach here —
+             the one place a row can become a local copy (§5, §7). -->
         <aside class="drawer" aria-labelledby="drawer-title">
           <div class="drawer-head">
-            <h2 id="drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <h2 id="drawer-title">code-style <span class="tag">skill</span></h2>
             <a class="button close" href="project-configuring-default.html" aria-label="Close"><span class="icon" aria-hidden="true"></span></a>
           </div>
-          <p class="meta">Modified in this project. My library and the other project that uses <code>pr-reviewer</code> don’t get these changes.</p>
+          <p class="description">How I want TypeScript written: naming, imports, error handling.</p>
+          <p class="meta">Linked to the library — an edit in My library reaches this project and the 2 others that use it.</p>
 
-          <section class="drawer-section" aria-labelledby="d-diff">
-            <h3 id="d-diff">2 fields differ from the library</h3>
-            <label class="field"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
-            <p class="meta">Library: <code>.claude/agents/pr-reviewer.md</code> · <button type="button" class="link-button">Reset this field</button></p>
-            <label class="field"><span>Content</span><textarea>---
-name: pr-reviewer
-description: Review Acme pull requests against their billing rules.
+          <div class="callout callout-quiet">
+            <span class="severity"><span class="glyph glyph-note" aria-hidden="true"></span>Note at last check</span>
+            <span>Where <code>code-style</code> and the client’s ESLint config disagree, the ESLint config wins.</span>
+          </div>
+
+          <section class="drawer-section" aria-labelledby="d-contents">
+            <h3 id="d-contents">Contents</h3>
+            <pre class="file">---
+name: code-style
+description: How TypeScript is written in my projects.
 ---
-Read the diff. Flag any change to invoice rounding, currency handling or
-the retry policy of the Stripe webhook consumer — Acme treats those as
-release-blocking. Otherwise comment the way Maya would.</textarea></label>
-            <details class="library-version">
-              <summary class="meta">Library version · <span class="link-button">Reset this field</span></summary>
-              <pre class="file">---
-name: pr-reviewer
-description: Review a pull request the way I would.
----
-Read the diff. Comment the way Maya would: short,
-specific, one suggestion per comment.</pre>
-            </details>
+- Named exports only. No default exports.
+- Imports: built-ins, then packages, then local.
+- Throw typed errors from lib code; catch only at the edge.</pre>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="d-deps">
+            <h3 id="d-deps">Dependencies</h3>
+            <dl class="drawer-facts">
+              <dt>Requires</dt><dd>Nothing</dd>
+              <dt>Defers to</dt><dd>the client’s ESLint config</dd>
+              <dt>Lands at</dt><dd><code>.claude/skills/code-style/SKILL.md</code></dd>
+            </dl>
           </section>
 
           <div class="drawer-actions">
-            <button type="button">Reset whole item</button>
-            <button type="button">Promote to My library…</button>
+            <a class="button button-primary" href="project-detached-default.html">Detach to edit here</a>
+            <a class="button" href="item-default.html">Open in My library</a>
             <button type="button" class="button-quiet">Remove from the set</button>
           </div>
-          <p class="meta">Changes here are kept when you save the project.</p>
+          <p class="meta">Detach makes a copy for this project only. My library and the other projects keep the original.</p>
         </aside>
       </div>
 

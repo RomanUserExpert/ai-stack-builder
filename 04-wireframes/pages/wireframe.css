@@ -696,3 +696,10 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .sub-rows > li:last-child > .set-item { border-bottom: 0; }
 .row-list > li > .set-item:has(+ .sub-rows) { border-bottom: 0; }
 .row-list > li:has(> .sub-rows) { border-bottom: 1px solid var(--line-2); }
+
+/* Configuring with the side panel open: three columns — library, set, item */
+.config-layout .with-drawer { grid-template-columns: minmax(0, 1fr) 420px; gap: 24px; }
+.drawer textarea { min-height: 140px; }
+.library-version summary { cursor: pointer; list-style: none; }
+.library-version summary::-webkit-details-marker { display: none; }
+.library-version .file { margin-top: 8px; }

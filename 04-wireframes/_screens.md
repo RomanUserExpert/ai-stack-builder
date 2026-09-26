@@ -260,6 +260,13 @@ or the file is in hand: a real outcome · no empty.
 
 **Projects**, **Project**, **Configuring the set**, **Run** — the main flow, above.
 
+*Moved into the side panel* (owner, 2026-09-26): the detached row is no longer a page of its own. In
+Configuring, a click on a row opens it beside the set — **a linked row offers *Detach to edit here***
+(`project-configuring-item.html`), which is **where a row becomes detached — the action the wireframes
+had been missing**; a detached row shows its differing fields, editable, with Reset per field, Reset
+whole item and Promote (`project-detached-default.html`). Edits are kept with the project's *Save*, so
+the second *Save here* is gone. **Error** is now *Promote didn't land* — the one immediate action here.
+
 **Detached row — edit · reset · promote** — **H-J3** *change it here only, without the others getting
 it*. A **mode of the row, inside configuring** (Q21). **Flow:** RJ-3's *a detached row kept
 deliberately*. **Default** — the override with **the differing fields named**, and Reset beside Detach
