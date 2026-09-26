@@ -129,6 +129,9 @@ button, .button {
 .app-nav a { text-decoration: none; color: var(--ink-2); padding: 4px 0; }
 .app-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--ink); }
 
+.app-header .account { margin-left: auto; display: flex; gap: 8px; align-items: center; color: var(--ink-2); }
+.avatar { width: 32px; height: 32px; border-radius: 50%; }
+
 .app-main { padding: 32px; display: flex; flex-direction: column; gap: 24px; }
 
 /* ── Wireframe layout ────────────────────────────────────────────────

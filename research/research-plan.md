@@ -1653,6 +1653,33 @@ by default: the optimistic option — rows appear instantly and reconcile later 
 silently.** Rows that appear and then vanish are **EJ-1, *not be quietly overruled by my own tools*,
 importance 3.**
 
+### Q29 — the Library's two scopes become two entries — raised and answered 2026-09-26
+
+**Raised by the owner in lesson 04, on the first wireframe, and answered in the same sentence.** The
+global navigation goes from two entries to three: **`My library` · `Public library` · `Projects`.**
+
+**It reverses one line of lesson 03 and leaves the structure under it alone.** `sitemap.md`
+§Navigation said *`Public library` is not a third entry* — promoting it would say the shelf is a peer
+of the corpus, while the shelf's job is `[?]` in all three persona columns. **That argument is recorded
+and overruled, not refuted**: the owner's reading is that a person should reach either room in one
+click, and that the switch hiding the shelf behind `My library` is the heavier cost.
+
+**What does not move.** The two scopes **were already two addresses of one place** (step 2b), so **the
+place count stays six** and no new screen exists — the entries now point at addresses the architecture
+already had. **They are still one screen**: same rows, same search, same filters. The library panel
+inside `Project` keeps its own scope switch. **The shelf is still read-only**, and nothing here touches
+Q9 or Q19 — **what it holds and how far it is designed are unchanged.**
+
+**What it costs, named.** The shelf now sits at the same altitude as the corpus while its evidence is
+the thinnest in the base — which is exactly the objection lesson 03 raised, now paid on purpose.
+**And first run changes shape**: `My library` is empty by design (§11), and it is now one click from
+anywhere, so its empty state has to point at `Public library` rather than rely on a switch.
+
+**And one thing added on the same wireframe that is not a surface.** The header shows **the signed-in
+person — an avatar placeholder and a name.** It opens nothing: Q25 builds a way in and **no profile, no
+settings, no session list**, and a name on the screen is none of those. *Whether signing out lives
+there is not decided, and nothing is drawn for it.*
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

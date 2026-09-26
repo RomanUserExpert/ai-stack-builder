@@ -1167,9 +1167,11 @@ along it**, and the one thing it cannot promise is the end: the archive is corre
 values exist on the receiving machine is a fact about a machine we never touch. **Checked, never
 works.**
 
-**Global navigation: two entries — `Library` and `Projects`.** The method asks for three to five and
-this is a deliberate deviation: the third cluster's screen is `Run`, and an entry pointing at a mode
-would promise a place nobody can be sent to.
+~~**Global navigation: two entries — `Library` and `Projects`.**~~ **Global navigation: three entries —
+`My library` · `Public library` · `Projects`** (changed 2026-09-26, Q29). The Library's two scopes were
+already two addresses of one place, so **the place count stays six**; what changed is that the shelf is
+one click away rather than behind a switch, **and it is still one screen, read-only.** `Run` still has
+no entry: an entry pointing at a mode would promise a place nobody can be sent to.
 
 **Depth to the archive: three taps**, for somebody already signed in — `Projects` → `Project` →
 `Check` → `Export`. **Four** when the set does not exist yet, because a new project's empty state has

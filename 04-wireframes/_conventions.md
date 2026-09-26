@@ -109,8 +109,8 @@ started deciding things it was not asked to.
     numbers**, which stay links; the state is remembered across pages. *This toggle is the one piece of
     script on a wireframe page, and it belongs to the chrome, not to the product.*
   - **The wireframe tree**, to the right of the rail (step 4): section → screen → state, current page
-    marked. **It is the wireframe's navigation, not the product's.** The product has two global
-    entries, `Library` and `Projects`, drawn inside the canvas; the tree must never read as a third menu.
+    marked. **It is the wireframe's navigation, not the product's.** The product has three global
+    entries, `My library`, `Public library` and `Projects` (Q29), drawn inside the canvas; the tree must never read as a third menu.
   - Both use the site's background, mono and accent. **That accent is chrome and never crosses into
     the canvas.**
 - **Inside the canvas is product, and only product.**
