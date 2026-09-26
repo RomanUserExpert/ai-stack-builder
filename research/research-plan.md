@@ -1735,6 +1735,29 @@ still describe a single file. *The wireframe is ahead of the model, on purpose, 
 lands (a directory under the target), and how the edit sheet and the detached row's diff show more than
 one file.
 
+### Q32 — an item has no source switch; it is made of any mix — raised 2026-09-26, answered in the interface only
+
+**Raised by the owner in lesson 04, on the Add / edit item sheet.** §5 gives an item **`source: inline |
+external`** — one or the other. The owner's reading: a real item is often **mixed** — a skill cloned from
+a repo **plus** a file of your own beside it, or a script **plus** its templates. **So there is no
+Source switch.** An item is made of **three optional parts, in any mix, at least one**:
+
+- **Content** — written or pasted in the form;
+- **Files** — dropped or chosen from the computer, a file or a whole folder (Q31);
+- **Repository** — *Attach a repo*, cloned at a pinned `ref` when the archive is set up, never vendored
+  (§6).
+
+**Drawn on all four `item-*` pages.** The library rows lost their *Inline · / External ·* prefix and
+read what the item is made of (*`scripts/db-migrate.sh` + 2 files*, or *repo @ ref · licence*); the My
+library filter *Source* became *Made of*.
+
+**`CLAUDE.md` §5 is not amended**, and this entry says what would change there: `source` goes;
+`content`, a file list and `repoUrl · path · ref · license` become three optional parts; **`license`
+belongs to the repo part**, not to the item; and **`targetPath` — one destination — is now the open
+question Q31 already named**, sharper, because a mixed item may land in more than one place. **Nothing
+in §6 depends on the switch**: the export already writes inline parts as files and external parts as
+instructions in `SETUP.md`; a mixed item simply does both.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

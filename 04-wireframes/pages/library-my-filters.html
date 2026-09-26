@@ -69,9 +69,10 @@
               <label><input type="radio" name="use" checked> In no project</label>
             </fieldset>
             <fieldset class="popover-group">
-              <legend>Source</legend>
-              <label><input type="checkbox" name="source" checked> Inline — mine</label>
-              <label><input type="checkbox" name="source" checked> External — pinned to a repo</label>
+              <legend>Made of</legend>
+              <label><input type="checkbox" name="made"> Content written here</label>
+              <label><input type="checkbox" name="made"> Files from my computer</label>
+              <label><input type="checkbox" name="made"> A pinned repo</label>
             </fieldset>
             <fieldset class="popover-group">
               <legend>Needs</legend>
@@ -117,7 +118,7 @@
               <div>
                 <h2><a href="item-default.html">code-style</a><span class="tag">skill</span></h2>
                 <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
-                <p class="facts meta"><span>Inline · <code>.claude/skills/code-style/SKILL.md</code></span><span>Defers to <em>the client’s ESLint config</em></span></p>
+                <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code></span><span>Defers to <em>the client’s ESLint config</em></span></p>
               </div>
               <p class="usage meta">Used in 3 projects · last exported 2 days ago</p>
               <div class="row-actions">
@@ -132,7 +133,7 @@
               <div>
                 <h2><a href="item-default.html">db-migrate</a><span class="tag">script</span></h2>
                 <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
-                <p class="facts meta"><span>Inline · <code>scripts/db-migrate.sh</code></span></p>
+                <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files</span></p>
               </div>
               <p class="usage meta">Used in 3 projects · 2 items require this · last exported 12 days ago</p>
               <div class="row-actions">
@@ -147,7 +148,7 @@
               <div>
                 <h2><a href="item-default.html">migration-reviewer</a><span class="tag">agent</span></h2>
                 <p class="description">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
-                <p class="facts meta"><span>Inline · requires <code>db-migrate</code>, <code>postgres-mcp</code></span></p>
+                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code></span></p>
               </div>
               <p class="usage meta">Used in 1 project</p>
               <div class="row-actions">
@@ -162,7 +163,7 @@
               <div>
                 <h2><a href="item-default.html">postgres-mcp</a><span class="tag">mcp</span></h2>
                 <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
-                <p class="facts meta"><span>External · <code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT</span><span>Needs <code>DATABASE_URL</code></span></p>
+                <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT</span><span>Needs <code>DATABASE_URL</code></span></p>
               </div>
               <p class="usage meta">Used in 2 projects · 1 item requires this</p>
               <div class="row-actions">
@@ -177,7 +178,7 @@
               <div>
                 <h2><a href="item-default.html">github-mcp</a><span class="tag">mcp</span><span class="tag">Shared</span></h2>
                 <p class="description">Issues, pull requests and code search on GitHub, through GitHub’s own server.</p>
-                <p class="facts meta"><span>External · <code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT</span><span>Needs <code>GITHUB_TOKEN</code></span></p>
+                <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT</span><span>Needs <code>GITHUB_TOKEN</code></span></p>
               </div>
               <p class="usage meta">Used in 3 projects · copied from the Public library</p>
               <div class="row-actions">
@@ -192,7 +193,7 @@
               <div>
                 <h2><a href="item-default.html">pr-reviewer</a><span class="tag">agent</span></h2>
                 <p class="description">Reads a pull request diff and leaves review comments the way I would write them.</p>
-                <p class="facts meta"><span>Inline · <code>.claude/agents/pr-reviewer.md</code></span></p>
+                <p class="facts meta"><span><code>.claude/agents/pr-reviewer.md</code></span></p>
               </div>
               <p class="usage meta">Used in 2 projects · detached in 1</p>
               <div class="row-actions">
@@ -207,7 +208,7 @@
               <div>
                 <h2><a href="item-default.html">commit-conventions</a><span class="tag">prompt</span></h2>
                 <p class="description">Conventional commits, imperative mood, and a body that says why rather than what.</p>
-                <p class="facts meta"><span>Inline · <code>CLAUDE.md</code>, appended</span></p>
+                <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
               </div>
               <p class="usage meta">Used in 4 projects · last exported 2 days ago</p>
               <div class="row-actions">
@@ -222,7 +223,7 @@
               <div>
                 <h2><a href="item-default.html">writing-style</a><span class="tag">prompt</span></h2>
                 <p class="description">Plain English for docs: short sentences, no marketing words, an example before every rule.</p>
-                <p class="facts meta"><span>Inline · <code>CLAUDE.md</code>, appended</span></p>
+                <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
               </div>
               <p class="usage meta">Used in 1 project</p>
               <div class="row-actions">
@@ -237,7 +238,7 @@
               <div>
                 <h2><a href="item-default.html">link-checker</a><span class="tag">script</span></h2>
                 <p class="description">Crawls the built docs and lists every broken internal and external link, with the page it is on.</p>
-                <p class="facts meta"><span>Inline · <code>scripts/check-links.mjs</code></span></p>
+                <p class="facts meta"><span><code>scripts/check-links.mjs</code></span></p>
               </div>
               <p class="usage meta">Used in 1 project</p>
               <div class="row-actions">
@@ -252,7 +253,7 @@
               <div>
                 <h2><a href="item-default.html">whisper</a><span class="tag">app</span></h2>
                 <p class="description">Speech-to-text, run locally on voice memos before they are summarised.</p>
-                <p class="facts meta"><span>External · <code>openai/whisper</code> @ <code>v20240930</code> · MIT</span></p>
+                <p class="facts meta"><span><code>openai/whisper</code> @ <code>v20240930</code> · MIT</span></p>
               </div>
               <p class="usage meta">Used in 1 project · last exported 3 weeks ago</p>
               <div class="row-actions">

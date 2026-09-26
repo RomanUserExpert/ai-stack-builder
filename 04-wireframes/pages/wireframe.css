@@ -649,3 +649,10 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .dropzone-image { width: 64px; height: 48px; background-color: var(--paper); }
 .or { display: flex; align-items: center; gap: 12px; }
 .or::before, .or::after { content: ""; flex: 1; border-top: 1px solid var(--line-2); }
+
+/* What an item is made of: content · files · repo, any mix (Q32) */
+.dropzone-small { padding: 16px; gap: 4px; }
+.file-list { display: flex; flex-direction: column; border-top: 1px solid var(--line-2); margin-bottom: 8px; }
+.file-list li { display: flex; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line-2); }
+.file-list .meta { margin-left: auto; }
+.attach { align-self: flex-start; }
