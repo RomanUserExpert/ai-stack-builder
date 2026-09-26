@@ -138,7 +138,7 @@ the pieces it established, and **all of them live in `pages/wireframe.css`** —
 | **State block** | Projects empty / error | Icon or image, one heading, one sentence, the ways out. Server errors add the code and time in grey |
 | **Skeleton** | Projects loading | Grey bars in the real rows' columns; head and controls real |
 | **Callout** | Project, Run | A finding or a disclosure: a rule on the left, the severity **as a word** — *Problem*, *Note*, *Before you add it* |
-| **Split + panel** | Configuring | The set on the left, the library panel on the right: scope switch, kind tabs, search |
+| **Library sidebar** | Configuring | **The library panel is a full left sidebar** (owner, 2026-09-26), the height of the screen under the header — scope switch, search, kind tabs, rows with a tick. The set and its head sit to the right |
 | **Sheet / dialog** | Item, Import | `<dialog open>` over a dimmed page: a sheet on the right for a form, a dialog in the middle for a command |
 | **Run bar + stages** | Run | A bar that replaces the navigation, then an `ol` of `details` stages, then Export as the last stage |
 | **Receiver's header** | Shared | The product's mark and *Shared by …*. No navigation, no sign-in |

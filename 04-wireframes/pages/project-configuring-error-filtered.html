@@ -30,6 +30,30 @@
       </p>
     </header>
 
+    <div class="config-layout">
+    <!-- The library panel as a full left sidebar (owner, 2026-09-26): the height of the screen, under the
+       header, beside the set. Reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
+    <aside class="panel library-sidebar" aria-label="Library panel">
+      <div class="panel-head">
+        <h2>Add from</h2>
+        <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
+        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" value="sentry" placeholder="Search My library"></label>
+        <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+      </div>
+      <div class="panel-body">
+        <!-- Filtered to zero in the panel. The zero result still carries the row that creates (§8). -->
+    <section class="state-block" aria-label="Nothing called “sentry” here">
+      <span class="icon state-icon" aria-hidden="true"></span>
+      <h2>Nothing called “sentry” here</h2>
+      <p>No item related to this set matches “sentry”. It may be under another kind, on the shelf, or not written yet.</p>
+      <div class="state-actions">
+        <a class="button button-primary" href="project-configuring-default.html">Clear search</a>
+        <a class="button" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Create “sentry” as a new item</a>
+      </div>
+    </section>
+      </div>
+    </aside>
+
     <main class="app-main">
 
       <section aria-labelledby="page-title">
@@ -46,189 +70,167 @@
         </div>
       </section>
 
-      <div class="split">
-        <section aria-label="The set">
-        <ol class="row-list">
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>code-style<span class="tag">skill</span></h3>
-                <p class="description">How I want TypeScript written: naming, imports, error handling.</p>
-                <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
-              </div>
-              <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove code-style"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>eslint-autofix<span class="tag">script</span><span class="tag tag-state">Conflict</span></h3>
-                <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
-                <p class="facts meta"><span><code>scripts/eslint-autofix.sh</code> · conflicts with <code>code-style</code></span></p>
-              </div>
-              <p class="marks"><span class="mark"><span class="glyph glyph-problem" aria-hidden="true"></span>Problem</span></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove eslint-autofix"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>migration-reviewer<span class="tag">agent</span></h3>
-                <p class="description">Reads a migration before it runs and flags long locks and missing down steps.</p>
-                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove migration-reviewer"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>db-migrate<span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
-                <p class="description">Generates a Postgres migration from a schema diff and runs it, dry run first.</p>
-                <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · required by <code>migration-reviewer</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><p class="refusal">Remove <code>migration-reviewer</code> first</p></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>postgres-mcp<span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
-                <p class="description">Read-only Postgres access: schema, explain plans, sample rows.</p>
-                <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
-              </div>
-              <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
-              <div class="row-actions"><p class="refusal">Remove <code>migration-reviewer</code> first</p></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>seed-data<span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
-                <p class="description">Loads a small, realistic dataset into a fresh database.</p>
-                <p class="facts meta"><span><code>scripts/seed-data.sh</code> · required by <code>db-migrate</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><p class="refusal">Remove <code>db-migrate</code> first</p></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>github-mcp<span class="tag">mcp</span></h3>
-                <p class="description">Issues, pull requests and code search on GitHub.</p>
-                <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT · needs <code>GITHUB_TOKEN</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove github-mcp"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>pr-reviewer<span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
-                <p class="description">Reviews Acme pull requests against their billing rules.</p>
-                <p class="facts meta"><span>differs from the library in <em>content</em> and <em>lands at</em></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><a class="button" href="project-detached-default.html">Edit</a><button type="button">Reset</button><button type="button">Promote</button><button type="button" class="remove" aria-label="Remove pr-reviewer"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>commit-conventions<span class="tag">prompt</span></h3>
-                <p class="description">Conventional commits, imperative mood, a body that says why.</p>
-                <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove commit-conventions"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>test-runner<span class="tag">agent</span></h3>
-                <p class="description">Runs the affected tests after a change and reports only the failures.</p>
-                <p class="facts meta"><span><code>.claude/agents/test-runner.md</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove test-runner"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>changelog-writer<span class="tag">skill</span></h3>
-                <p class="description">Writes the changelog entry from merged pull requests since the last tag.</p>
-                <p class="facts meta"><span><code>.claude/skills/changelog-writer/SKILL.md</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove changelog-writer"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>api-contracts<span class="tag">prompt</span></h3>
-                <p class="description">The billing API’s rules: idempotency keys, money as integer cents.</p>
-                <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove api-contracts"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>openapi-lint<span class="tag">script</span></h3>
-                <p class="description">Lints the OpenAPI spec and fails on breaking changes.</p>
-                <p class="facts meta"><span><code>scripts/openapi-lint.sh</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove openapi-lint"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-          <li>
-            <article class="row row-tight set-item">
-              <div>
-                <h3>sentry-mcp<span class="tag">mcp</span></h3>
-                <p class="description">Reads Sentry issues and stack traces for the service.</p>
-                <p class="facts meta"><span><code>getsentry/sentry-mcp</code> @ <code>0.17.1</code> · Apache-2.0 · needs <code>SENTRY_AUTH_TOKEN</code></span></p>
-              </div>
-              <p class="marks"></p>
-              <div class="row-actions"><button type="button" class="remove" aria-label="Remove sentry-mcp"><span class="icon" aria-hidden="true"></span></button></div>
-            </article>
-          </li>
-        </ol>
-        </section>
-      <!-- The library panel: reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
-      <aside class="panel" aria-label="Library panel">
-        <div class="panel-head">
-          <h2>Add from</h2>
-          <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
-          <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" value="sentry" placeholder="Search My library"></label>
-          <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
-        </div>
-        <div class="panel-body">
-          <!-- Filtered to zero in the panel. The zero result still carries the row that creates (§8). -->
-      <section class="state-block" aria-label="Nothing called “sentry” here">
-        <span class="icon state-icon" aria-hidden="true"></span>
-        <h2>Nothing called “sentry” here</h2>
-        <p>No item related to this set matches “sentry”. It may be under another kind, on the shelf, or not written yet.</p>
-        <div class="state-actions">
-          <a class="button button-primary" href="project-configuring-default.html">Clear search</a>
-          <a class="button" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Create “sentry” as a new item</a>
-        </div>
+      <section aria-label="The set">
+      <ol class="row-list">
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>code-style<span class="tag">skill</span></h3>
+              <p class="description">How I want TypeScript written: naming, imports, error handling.</p>
+              <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
+            </div>
+            <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove code-style"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>eslint-autofix<span class="tag">script</span><span class="tag tag-state">Conflict</span></h3>
+              <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+              <p class="facts meta"><span><code>scripts/eslint-autofix.sh</code> · conflicts with <code>code-style</code></span></p>
+            </div>
+            <p class="marks"><span class="mark"><span class="glyph glyph-problem" aria-hidden="true"></span>Problem</span></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove eslint-autofix"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>migration-reviewer<span class="tag">agent</span></h3>
+              <p class="description">Reads a migration before it runs and flags long locks and missing down steps.</p>
+              <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove migration-reviewer"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>db-migrate<span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+              <p class="description">Generates a Postgres migration from a schema diff and runs it, dry run first.</p>
+              <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · required by <code>migration-reviewer</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><p class="refusal">Remove <code>migration-reviewer</code> first</p></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>postgres-mcp<span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
+              <p class="description">Read-only Postgres access: schema, explain plans, sample rows.</p>
+              <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
+            </div>
+            <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
+            <div class="row-actions"><p class="refusal">Remove <code>migration-reviewer</code> first</p></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>seed-data<span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+              <p class="description">Loads a small, realistic dataset into a fresh database.</p>
+              <p class="facts meta"><span><code>scripts/seed-data.sh</code> · required by <code>db-migrate</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><p class="refusal">Remove <code>db-migrate</code> first</p></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>github-mcp<span class="tag">mcp</span></h3>
+              <p class="description">Issues, pull requests and code search on GitHub.</p>
+              <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT · needs <code>GITHUB_TOKEN</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove github-mcp"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>pr-reviewer<span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
+              <p class="description">Reviews Acme pull requests against their billing rules.</p>
+              <p class="facts meta"><span>differs from the library in <em>content</em> and <em>lands at</em></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><a class="button" href="project-detached-default.html">Edit</a><button type="button">Reset</button><button type="button">Promote</button><button type="button" class="remove" aria-label="Remove pr-reviewer"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>commit-conventions<span class="tag">prompt</span></h3>
+              <p class="description">Conventional commits, imperative mood, a body that says why.</p>
+              <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove commit-conventions"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>test-runner<span class="tag">agent</span></h3>
+              <p class="description">Runs the affected tests after a change and reports only the failures.</p>
+              <p class="facts meta"><span><code>.claude/agents/test-runner.md</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove test-runner"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>changelog-writer<span class="tag">skill</span></h3>
+              <p class="description">Writes the changelog entry from merged pull requests since the last tag.</p>
+              <p class="facts meta"><span><code>.claude/skills/changelog-writer/SKILL.md</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove changelog-writer"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>api-contracts<span class="tag">prompt</span></h3>
+              <p class="description">The billing API’s rules: idempotency keys, money as integer cents.</p>
+              <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove api-contracts"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>openapi-lint<span class="tag">script</span></h3>
+              <p class="description">Lints the OpenAPI spec and fails on breaking changes.</p>
+              <p class="facts meta"><span><code>scripts/openapi-lint.sh</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove openapi-lint"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+        <li>
+          <article class="row row-tight set-item">
+            <div>
+              <h3>sentry-mcp<span class="tag">mcp</span></h3>
+              <p class="description">Reads Sentry issues and stack traces for the service.</p>
+              <p class="facts meta"><span><code>getsentry/sentry-mcp</code> @ <code>0.17.1</code> · Apache-2.0 · needs <code>SENTRY_AUTH_TOKEN</code></span></p>
+            </div>
+            <p class="marks"></p>
+            <div class="row-actions"><button type="button" class="remove" aria-label="Remove sentry-mcp"><span class="icon" aria-hidden="true"></span></button></div>
+          </article>
+        </li>
+      </ol>
       </section>
-        </div>
-      </aside>
-      </div>
 
     </main>
+    </div>
 
   </div>
 

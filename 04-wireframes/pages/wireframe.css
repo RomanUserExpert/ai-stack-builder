@@ -681,3 +681,11 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .drawer-facts dt { color: var(--ink-2); }
 .drawer-actions { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--line); }
 .severity .glyph { margin-right: 6px; }
+
+/* Configuring: the library panel is a full left sidebar, not a box (owner, 2026-09-26) */
+.config-layout { flex: 1; display: grid; grid-template-columns: 440px minmax(0, 1fr); align-items: stretch; }
+.config-layout > .app-main { min-width: 0; }
+.library-sidebar { border: 0; border-right: 1px solid var(--line); background: var(--paper); }
+.library-sidebar .panel-head { position: sticky; top: 0; background: var(--paper); z-index: 1; padding: 24px 24px 16px; }
+.library-sidebar .panel-body { padding: 0 24px; }
+.library-sidebar h2 { font-size: 16px; line-height: 24px; }

@@ -30,6 +30,31 @@
       </p>
     </header>
 
+    <div class="config-layout">
+    <!-- The library panel as a full left sidebar (owner, 2026-09-26): the height of the screen, under the
+       header, beside the set. Reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
+    <aside class="panel library-sidebar" aria-label="Library panel">
+      <div class="panel-head">
+        <h2>Add from</h2>
+        <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
+        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library"></label>
+        <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+      </div>
+      <div class="panel-body">
+        <!-- The panel offers nothing: My library is empty on first run (§11). Two ways out, both in the flow:
+             switch to the shelf, or the row that creates — the add form, summoned over the Project. -->
+        <section class="state-block" aria-label="My library is empty">
+      <span class="icon state-icon" aria-hidden="true"></span>
+      <h2>My library is empty</h2>
+      <p>Your own items appear here once you add them. The Public library has 8 checked items you can add right now.</p>
+      <div class="state-actions">
+        <a class="button button-primary" href="#">Switch to Public library</a>
+        <a class="button" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Create an item</a>
+      </div>
+    </section>
+      </div>
+    </aside>
+
     <main class="app-main">
 
       <section aria-labelledby="page-title">
@@ -46,36 +71,13 @@
         </div>
       </section>
 
-      <div class="split">
-        <section aria-label="The set">
-        <!-- The set is empty too; what it needs comes from the panel. -->
-        <p class="meta" style="padding: 20px 0; border-top: 1px solid var(--line)">Nothing in the set yet. Items you tick in the panel appear here.</p>
-        </section>
-      <!-- The library panel: reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
-      <aside class="panel" aria-label="Library panel">
-        <div class="panel-head">
-          <h2>Add from</h2>
-          <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
-          <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library"></label>
-          <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
-        </div>
-        <div class="panel-body">
-          <!-- The panel offers nothing: My library is empty on first run (§11). Two ways out, both in the flow:
-               switch to the shelf, or the row that creates — the add form, summoned over the Project. -->
-          <section class="state-block" aria-label="My library is empty">
-        <span class="icon state-icon" aria-hidden="true"></span>
-        <h2>My library is empty</h2>
-        <p>Your own items appear here once you add them. The Public library has 8 checked items you can add right now.</p>
-        <div class="state-actions">
-          <a class="button button-primary" href="#">Switch to Public library</a>
-          <a class="button" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Create an item</a>
-        </div>
+      <section aria-label="The set">
+      <!-- The set is empty too; what it needs comes from the panel. -->
+      <p class="meta" style="padding: 20px 0; border-top: 1px solid var(--line)">Nothing in the set yet. Items you tick in the library on the left appear here.</p>
       </section>
-        </div>
-      </aside>
-      </div>
 
     </main>
+    </div>
 
   </div>
 

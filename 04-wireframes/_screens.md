@@ -130,6 +130,8 @@ surface. A mode can be wireframed; it just has no address.
   the product's only one — *remove what dragged it in* · the detached row's `Edit`, `Reset`, `Promote`
   (Q21), marked but not designed here.
 
+- **The panel is a full left sidebar** (owner, 2026-09-26), not a box beside the set.
+
 ### 4 · Run
 
 - **Name in `sitemap.md`:** `Run` — a mode of the Project, entered by **Check**, ending in **Export**.
