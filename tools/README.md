@@ -24,7 +24,7 @@ inherit, so the two horizontal bars keep their 1:1 drag, and the spy asks for sm
 when it glides the active tab into view. An `IntersectionObserver` band was tried first and left the indicator
 blank between sections, which is wrong for something shaped like tabs. **That list is the course's and is fixed** — it is not the
 project's build phases. **Adding a page means editing the strip in *every* template and in the generated pages beside them,
-and adding the file to `.vercelignore`, which is a whitelist.** *Phase 04 became a link on 2026-09-26 — to `04-wireframes/pages/projects-default.html`, whose own left panel nests the wireframe tree under 04; the wireframes are hand-written HTML, not generated.* *Phase 03 was added on 2026-09-20 and
+and adding the file to `.vercelignore`, which is a whitelist.** *Phase 04 became a link on 2026-09-26 — to `04-wireframes/pages/index.html`, the wireframe viewer, which carries the same rail plus the wireframe tree; the wireframes are hand-written HTML, not generated.* *Phase 03 was added on 2026-09-20 and
 that is five files, not two: two templates, the build artifact, and the two standalone pages, because
 neither of the first two is rebuilt casually.*
 [`../research/research.html`](../research/research.html) is phase 01, research stages 1–5;

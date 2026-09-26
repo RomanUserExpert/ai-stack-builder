@@ -36,7 +36,8 @@
   another page is a link — which is how step 7 wires the flow.
 - **A row in a set is an `article` or a list item**, carrying its own state in its text.
 - **Stages of `Run` are an ordered list**, each expandable with `details` — the Vercel shape (§6).
-- **No JavaScript** beyond what a link does. A state is a page, not a toggle.
+- **No JavaScript in a product page** beyond what a link does. A state is a page, not a toggle. The
+  viewer (§7) has script; it is chrome.
 - **The wireframe's own chrome is outside the product markup** — see §7 below.
 
 ## 3 · Text — real, from the domain
@@ -99,18 +100,28 @@ started deciding things it was not asked to.
 
 ## 7 · The frame around a wireframe
 
-- **Desktop-first, one fixed canvas: 1440 px wide** (§3). Responsive is lesson 10. No horizontal
-  scroll, and no scroll inside scroll.
-- **Above the canvas, outside it**: the state switcher — links to every state of this screen, the
-  current one marked.
-- **Left of the canvas, outside it — two columns of chrome.**
-  - **The phase rail**, fixed to the left edge of the window: the course's twelve phases, the same list
-    `research.html`, `personas.html` and `ia.html` carry, with 04 current. **It collapses to its
-    numbers**, which stay links; the state is remembered across pages. *This toggle is the one piece of
-    script on a wireframe page, and it belongs to the chrome, not to the product.*
-  - **The wireframe tree**, to the right of the rail (step 4): section → screen → state, current page
-    marked. **It is the wireframe's navigation, not the product's.** The product has three global
-    entries, `My library`, `Public library` and `Projects` (Q29), drawn inside the canvas; the tree must never read as a third menu.
-  - Both use the site's background, mono and accent. **That accent is chrome and never crosses into
-    the canvas.**
-- **Inside the canvas is product, and only product.**
+**Two kinds of file, and only one of them is product.**
+
+- **`pages/<name>-<state>.html` is the product and nothing else** — the 1440 canvas, no chrome, no
+  script. It opens directly as a page of its own, which is what later lessons grow.
+- **`pages/index.html` is the viewer** — the only page with chrome, and the one phase 04 links to. It
+  shows one wireframe at a time by its address, `index.html#projects-default`.
+
+**The viewer, left to right:**
+
+- **The phase rail**, fixed to the window's left edge: the course's twelve phases, the same rail
+  `research.html`, `personas.html` and `ia.html` carry, with 04 current. **It collapses to its
+  numbers**, and the state is shared with the phase pages.
+- **The wireframe tree** (step 4): section → screen → state, current page marked. **Written once, in the
+  viewer**, so it cannot drift between pages. **It is the wireframe's navigation, not the product's.**
+  The product has three global entries, `My library`, `Public library` and `Projects` (Q29), drawn
+  inside the canvas; the tree must never read as another menu.
+- **The stage**: the screen's name, its states as a switcher, where it sits in the flow, and **Open as a
+  page** — then **the frame**.
+
+**The frame is 16:9 and shows the canvas at 70%**, scaled down further only when the window is too
+small to hold it. **The viewer page never scrolls** — not sideways, not down. **Only the wireframe
+scrolls, vertically, inside its frame.**
+
+The rail, the tree and the stage use the site's background, mono and accent. **That accent is chrome and
+never crosses into the canvas.** Desktop-first, one 1440 canvas (§3); responsive is lesson 10.

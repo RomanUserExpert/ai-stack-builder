@@ -214,17 +214,41 @@ html.phases-collapsed .wf-rail a,
 html.phases-collapsed .wf-rail .wf-soon { padding: 10px 0; text-align: center; }
 html.phases-collapsed .wf-rail b { margin: 0; }
 
-/* 2 + 3 · Tree beside the chrome and canvas */
+/* 2 + 3 · The viewer: tree, then the stage — chrome above a 16:9 frame.
+   The page never scrolls; the wireframe scrolls inside its frame. */
+body.viewer { height: 100vh; overflow: hidden; }
 .wf-layout {
   display: grid;
-  grid-template-columns: var(--tree-w) var(--canvas);
+  grid-template-columns: var(--tree-w) minmax(0, 1fr);
   gap: 24px;
-  width: max-content;
+  height: 100vh;
   margin-left: calc(var(--rail-w) + 24px);
   padding-right: 24px;
 }
-.wf-layout .wf-chrome,
-.wf-layout .canvas { width: var(--canvas); margin-left: 0; margin-right: 0; }
+.wf-stage { min-width: 0; }
+.wf-stage .wf-chrome { width: auto; margin: 0; flex-wrap: wrap; row-gap: 8px; }
+.wf-open {
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #fdfdfb;
+  box-shadow: inset 0 0 0 1px var(--site-rule);
+  text-decoration: none;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+.wf-open:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.wf-frame {
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px var(--line);
+}
+.wf-frame iframe { display: block; border: 0; transform-origin: 0 0; }
+
+/* The product page on its own, and inside the frame */
+/* The canvas is 1440 wide; inside the frame a vertical scrollbar takes its own width, so the
+   canvas yields that width rather than causing a horizontal scroll. */
+body.product-page { overflow-x: hidden; }
+body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 auto; }
 
 .wf-tree {
   position: sticky;

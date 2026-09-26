@@ -36,98 +36,8 @@
     .row-actions { display: flex; gap: 8px; justify-content: flex-end; }
     .row-actions button { padding: 4px 8px; font-size: 12px; line-height: 16px; }
   </style>
-  <script>
-    /* Chrome only: restore the phase rail's collapsed state before paint. */
-    try { if (localStorage.getItem("phases") === "collapsed") document.documentElement.classList.add("phases-collapsed"); } catch (e) {}
-  </script>
 </head>
-<body>
-
-<!-- 1 · Phase rail — fixed to the left edge, collapsible to its numbers.
-     The same twelve phases as research.html / personas.html / ia.html. Chrome, not product. -->
-<nav class="wf-rail" aria-label="Course phases">
-  <div class="wf-rail-head">
-    <span>Phases</span>
-    <button type="button" class="wf-rail-toggle" aria-expanded="true" aria-controls="wf-rail-list" title="Collapse phases">&laquo;</button>
-  </div>
-  <ol id="wf-rail-list">
-    <li><a href="../../research/research.html" title="01 · Research and benchmark"><b>01</b><span class="wf-label">Research and benchmark</span></a></li>
-    <li><a href="../../research/6-personas/personas.html" title="02 · Personas and JTBD"><b>02</b><span class="wf-label">Personas and JTBD</span></a></li>
-    <li><a href="../../03-information-architecture/ia.html" title="03 · Information architecture"><b>03</b><span class="wf-label">Information architecture</span></a></li>
-    <li><a class="wf-now" href="projects-default.html" aria-current="true" title="04 · Prototyping and wireframing"><b>04</b><span class="wf-label">Prototyping and wireframing</span></a></li>
-    <li><span class="wf-soon" title="05 · Tone of voice and microcopy — soon"><b>05</b><span class="wf-label">Tone of voice and microcopy</span></span></li>
-    <li><span class="wf-soon" title="06 · Concept — soon"><b>06</b><span class="wf-label">Concept</span></span></li>
-    <li><span class="wf-soon" title="07 · UI assembly — soon"><b>07</b><span class="wf-label">UI assembly</span></span></li>
-    <li><span class="wf-soon" title="08 · Design tokens — soon"><b>08</b><span class="wf-label">Design tokens</span></span></li>
-    <li><span class="wf-soon" title="09 · Design system — soon"><b>09</b><span class="wf-label">Design system</span></span></li>
-    <li><span class="wf-soon" title="10 · Responsive — soon"><b>10</b><span class="wf-label">Responsive</span></span></li>
-    <li><span class="wf-soon" title="11 · Animation and micro-interactions — soon"><b>11</b><span class="wf-label">Animation and micro-interactions</span></span></li>
-    <li><span class="wf-soon" title="12 · Handoff and documentation — soon"><b>12</b><span class="wf-label">Handoff and documentation</span></span></li>
-  </ol>
-</nav>
-
-<div class="wf-layout">
-
-  <!-- 2 · Wireframe tree — the second level, beside the canvas. Identical on every page.
-       Section → screen → state, from _screens.md + sitemap.md. Main flow only; the rest in step 8. -->
-  <nav class="wf-tree" aria-label="Wireframe pages">
-    <p class="wf-tree-head">04 · Wireframes</p>
-    <ul>
-      <li class="wf-section"><a href="projects-default.html">2 · What I am putting together</a>
-        <ul>
-          <li class="wf-screen"><a href="projects-default.html">Projects</a>
-            <ul>
-              <li><a href="projects-default.html" aria-current="page">default</a></li>
-              <li><a href="projects-empty.html">empty</a></li>
-              <li><a href="projects-error.html">error</a></li>
-              <li><a href="projects-loading.html">loading</a></li>
-            </ul>
-          </li>
-          <li class="wf-screen"><a href="project-default.html">Project</a>
-            <ul>
-              <li><a href="project-default.html">default</a></li>
-              <li><a href="project-empty.html">empty</a></li>
-              <li><a href="project-error.html">error</a></li>
-              <li><a href="project-loading.html">loading</a></li>
-            </ul>
-          </li>
-          <li class="wf-screen"><a href="project-configuring-default.html">Configuring the set <span class="wf-kind">— a mode</span></a>
-            <ul>
-              <li><a href="project-configuring-default.html">default</a></li>
-              <li><a href="project-configuring-empty.html">empty</a></li>
-              <li><a href="project-configuring-error.html">error</a></li>
-              <li><a href="project-configuring-loading.html">loading</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-      <li class="wf-section"><a href="run-default.html">3 · What leaves</a>
-        <ul>
-          <li class="wf-screen"><a href="run-default.html">Run <span class="wf-kind">— a mode</span></a>
-            <ul>
-              <li><a href="run-default.html">default</a></li>
-              <li><a href="run-error.html">error</a></li>
-              <li><a href="run-loading.html">loading</a></li>
-              <li><a href="run-success.html">success</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <div>
-  <!-- Wireframe chrome — outside the product. Not product markup. -->
-  <div class="wf-chrome" role="note" aria-label="Wireframe controls">
-    <strong>Projects</strong>
-    <nav class="wf-states" aria-label="States of this screen">
-      <a href="projects-default.html" aria-current="page">default</a>
-      <a href="projects-empty.html">empty</a>
-      <a href="projects-error.html">error</a>
-      <a href="projects-loading.html">loading</a>
-    </nav>
-    <span class="wf-flow">Main flow · first screen · decision: <em>A project for this work?</em></span>
-  </div>
+<body class="product-page">
 
   <!-- Product canvas, 1440 wide -->
   <div class="canvas">
@@ -273,27 +183,6 @@
 
     </main>
   </div>
-  </div>
 
-</div>
-<script>
-  /* Chrome only: the phase rail's collapse toggle, remembered across pages.
-     The product canvas has no script (_conventions.md §2). */
-  (function () {
-    var root = document.documentElement, btn = document.querySelector(".wf-rail-toggle");
-    function sync() {
-      var c = root.classList.contains("phases-collapsed");
-      btn.setAttribute("aria-expanded", String(!c));
-      btn.innerHTML = c ? "&raquo;" : "&laquo;";
-      btn.title = c ? "Expand phases" : "Collapse phases";
-    }
-    btn.addEventListener("click", function () {
-      root.classList.toggle("phases-collapsed");
-      try { localStorage.setItem("phases", root.classList.contains("phases-collapsed") ? "collapsed" : "open"); } catch (e) {}
-      sync();
-    });
-    sync();
-  })();
-</script>
 </body>
 </html>

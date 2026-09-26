@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 04 · Wireframes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+  <script>
+    /* Restore the phase rail's collapsed state before paint — same key as the phase pages. */
+    try { if (localStorage.getItem("phases") === "collapsed") document.documentElement.classList.add("phases-collapsed"); } catch (e) {}
+  </script>
+</head>
+<body class="viewer">
+
+<!-- The wireframe viewer. Everything here is chrome; the product is the page inside the frame,
+     which is a real page of its own (_conventions.md §7). -->
+
+<!-- 1 · Phase rail — fixed to the left edge, collapsible to its numbers. -->
+<nav class="wf-rail" aria-label="Course phases">
+  <div class="wf-rail-head">
+    <span>Phases</span>
+    <button type="button" class="wf-rail-toggle" aria-expanded="true" aria-controls="wf-rail-list" title="Collapse phases">&laquo;</button>
+  </div>
+  <ol id="wf-rail-list">
+    <li><a href="../../research/research.html" title="01 · Research and benchmark"><b>01</b><span class="wf-label">Research and benchmark</span></a></li>
+    <li><a href="../../research/6-personas/personas.html" title="02 · Personas and JTBD"><b>02</b><span class="wf-label">Personas and JTBD</span></a></li>
+    <li><a href="../../03-information-architecture/ia.html" title="03 · Information architecture"><b>03</b><span class="wf-label">Information architecture</span></a></li>
+    <li><a class="wf-now" href="index.html" aria-current="true" title="04 · Prototyping and wireframing"><b>04</b><span class="wf-label">Prototyping and wireframing</span></a></li>
+    <li><span class="wf-soon" title="05 · Tone of voice and microcopy — soon"><b>05</b><span class="wf-label">Tone of voice and microcopy</span></span></li>
+    <li><span class="wf-soon" title="06 · Concept — soon"><b>06</b><span class="wf-label">Concept</span></span></li>
+    <li><span class="wf-soon" title="07 · UI assembly — soon"><b>07</b><span class="wf-label">UI assembly</span></span></li>
+    <li><span class="wf-soon" title="08 · Design tokens — soon"><b>08</b><span class="wf-label">Design tokens</span></span></li>
+    <li><span class="wf-soon" title="09 · Design system — soon"><b>09</b><span class="wf-label">Design system</span></span></li>
+    <li><span class="wf-soon" title="10 · Responsive — soon"><b>10</b><span class="wf-label">Responsive</span></span></li>
+    <li><span class="wf-soon" title="11 · Animation and micro-interactions — soon"><b>11</b><span class="wf-label">Animation and micro-interactions</span></span></li>
+    <li><span class="wf-soon" title="12 · Handoff and documentation — soon"><b>12</b><span class="wf-label">Handoff and documentation</span></span></li>
+  </ol>
+</nav>
+
+<div class="wf-layout">
+
+  <!-- 2 · Wireframe tree — section → screen → state, from _screens.md + sitemap.md.
+       Written once, here. Main flow only; the rest in step 8. -->
+  <nav class="wf-tree" aria-label="Wireframe pages">
+    <p class="wf-tree-head">04 · Wireframes</p>
+    <ul>
+      <li class="wf-section"><a href="#projects-default">2 · What I am putting together</a>
+        <ul>
+          <li class="wf-screen" data-flow="Main flow · first screen · decision: A project for this work?"><a href="#projects-default">Projects</a>
+            <ul>
+              <li><a href="#projects-default">default</a></li>
+              <li><a href="#projects-empty">empty</a></li>
+              <li><a href="#projects-error">error</a></li>
+              <li><a href="#projects-loading">loading</a></li>
+            </ul>
+          </li>
+          <li class="wf-screen" data-flow="Main flow · Anything in the set? → the set, or the empty state"><a href="#project-default">Project</a>
+            <ul>
+              <li><a href="#project-default">default</a></li>
+              <li><a href="#project-empty">empty</a></li>
+              <li><a href="#project-error">error</a></li>
+              <li><a href="#project-loading">loading</a></li>
+            </ul>
+          </li>
+          <li class="wf-screen" data-flow="Main flow · configuring · Panel offering anything? · Is the set complete?"><a href="#project-configuring-default">Configuring the set <span class="wf-kind">— a mode</span></a>
+            <ul>
+              <li><a href="#project-configuring-default">default</a></li>
+              <li><a href="#project-configuring-empty">empty</a></li>
+              <li><a href="#project-configuring-error">error</a></li>
+              <li><a href="#project-configuring-loading">loading</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="wf-section"><a href="#run-default">3 · What leaves</a>
+        <ul>
+          <li class="wf-screen" data-flow="Main flow · Check → findings → handover → Export"><a href="#run-default">Run <span class="wf-kind">— a mode</span></a>
+            <ul>
+              <li><a href="#run-default">default</a></li>
+              <li><a href="#run-error">error</a></li>
+              <li><a href="#run-loading">loading</a></li>
+              <li><a href="#run-success">success</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 3 · The screen: its states, where it sits in the flow, and the frame -->
+  <section class="wf-stage" aria-label="Wireframe">
+    <div class="wf-chrome">
+      <strong id="wf-screen-name">Projects</strong>
+      <nav class="wf-states" id="wf-states" aria-label="States of this screen"></nav>
+      <span class="wf-flow" id="wf-flow"></span>
+      <a class="wf-open" id="wf-open" href="projects-default.html" target="_blank" rel="noopener">Open as a page &nearr;</a>
+    </div>
+    <div class="wf-frame" id="wf-frame">
+      <iframe id="wf-iframe" title="Wireframe" src="projects-default.html"></iframe>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  /* Chrome only. The product pages have no script (_conventions.md §2). */
+  (function () {
+    var CANVAS = 1440, MAX = 0.7, RATIO = 9 / 16;
+    var iframe = document.getElementById("wf-iframe"),
+        frame = document.getElementById("wf-frame"),
+        stage = document.querySelector(".wf-stage"),
+        states = document.getElementById("wf-states"),
+        flow = document.getElementById("wf-flow"),
+        name = document.getElementById("wf-screen-name"),
+        open = document.getElementById("wf-open"),
+        tree = document.querySelector(".wf-tree");
+
+    /* 70% of the 1440 canvas, never wider or taller than the room left for it; the frame is 16:9 */
+    function fit() {
+      var w = stage.clientWidth,
+          h = window.innerHeight - frame.getBoundingClientRect().top - 24;
+      var scale = Math.min(MAX, w / CANVAS, h / (CANVAS * RATIO));
+      frame.style.width = Math.floor(CANVAS * scale) + "px";
+      frame.style.height = Math.floor(CANVAS * RATIO * scale) + "px";
+      iframe.style.width = CANVAS + "px";
+      iframe.style.height = Math.ceil(CANVAS * RATIO) + "px";
+      iframe.style.transform = "scale(" + scale + ")";
+    }
+
+    function show() {
+      var page = (location.hash || "#projects-default").slice(1);
+      var link = tree.querySelector('.wf-screen ul a[href="#' + page + '"]');
+      iframe.src = page + ".html";
+      open.href = page + ".html";
+      tree.querySelectorAll("a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
+      var screen = link ? link.closest(".wf-screen") : null;
+      var stateLink = link;
+      if (stateLink) stateLink.setAttribute("aria-current", "page");
+      states.innerHTML = "";
+      if (screen) {
+        name.textContent = screen.firstElementChild.firstChild.textContent.trim();
+        flow.textContent = screen.getAttribute("data-flow") || "";
+        screen.querySelectorAll(":scope > ul a").forEach(function (a) {
+          var s = document.createElement("a");
+          s.href = a.getAttribute("href");
+          s.textContent = a.textContent;
+          if (a === stateLink) s.setAttribute("aria-current", "page");
+          states.appendChild(s);
+        });
+      }
+      document.title = name.textContent + " · " + page.replace(/^.*-/, "") + " — Phase 04 · Wireframes";
+    }
+
+    window.addEventListener("hashchange", show);
+    window.addEventListener("resize", fit);
+    show();
+    fit();
+  })();
+
+  /* The phase rail's collapse toggle, remembered across pages — the same key ("phases") and
+     class as research.html / personas.html / ia.html. */
+  (function () {
+    var root = document.documentElement, btn = document.querySelector(".wf-rail-toggle");
+    function sync() {
+      var c = root.classList.contains("phases-collapsed");
+      btn.setAttribute("aria-expanded", String(!c));
+      btn.innerHTML = c ? "&raquo;" : "&laquo;";
+      btn.title = c ? "Expand phases" : "Collapse phases";
+    }
+    btn.addEventListener("click", function () {
+      root.classList.toggle("phases-collapsed");
+      try { localStorage.setItem("phases", root.classList.contains("phases-collapsed") ? "collapsed" : "open"); } catch (e) {}
+      sync();
+      window.dispatchEvent(new Event("resize"));
+    });
+    sync();
+  })();
+</script>
+</body>
+</html>
