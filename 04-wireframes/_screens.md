@@ -68,7 +68,9 @@ surface. A mode can be wireframed; it just has no address.
 - **Find — search, filter, sort** (Q30, 2026-09-26). Search over project names, descriptions **and the
   items inside them**; one filter by what the last check said — *All · Problems at last check · Out of
   date · Not checked yet · Shared*; *Checked for* a target; sort by *Last changed · Last checked ·
-  Name*. **Filtered to zero is content, not a page** — one line and *Clear filters*.
+  Name*. **All of it but search sits behind one `Filters` button in the far right corner** (owner,
+  same day) — the screen shows search and the list, nothing more. **Filtered to zero is content, not a
+  page** — one line and *Clear filters*.
 
 ### 2 · Project
 

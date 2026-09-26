@@ -33,23 +33,13 @@
     .verdict dd + dt { margin-top: 8px; }
     .verdict dd { margin-top: 4px; }
 
-    /* Find: search, filter, sort (Q30). One row; the list under it is the result. */
-    .find { display: flex; flex-direction: column; gap: 12px; }
-    .find-row { display: flex; gap: 16px; align-items: center; }
+    /* Find (Q30): search on the left, Filters in the far right corner. */
+    .find { display: flex; gap: 16px; align-items: center; }
     .search { flex: 1; max-width: 480px; display: flex; gap: 8px; align-items: center;
       padding: 8px 12px; border: 1px solid var(--ink-2); }
     .search input { flex: 1; border: 0; padding: 0; font: inherit; color: var(--ink); background: transparent; outline: none; }
     .search input::placeholder { color: var(--ink-3); }
-    .filters { display: flex; gap: 8px; border: 0; margin: 0; padding: 0; }
-    .filters legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-    .filters label { display: inline-flex; gap: 8px; align-items: center; padding: 4px 12px;
-      border: 1px solid var(--line); font-size: 12px; line-height: 20px; color: var(--ink-2); cursor: pointer; }
-    .filters input { position: absolute; opacity: 0; pointer-events: none; }
-    .filters label:has(input:checked) { border-color: var(--ink); color: var(--ink); font-weight: 600; box-shadow: inset 0 0 0 1px var(--ink); }
-    .filters .count { color: var(--ink-3); font-weight: 400; }
-    .pick { display: flex; gap: 8px; align-items: center; font-size: 12px; line-height: 16px; color: var(--ink-2); }
-    .pick select { font: inherit; font-size: 13px; color: var(--ink); background: var(--paper); border: 1px solid var(--ink-2); padding: 4px 8px; }
-    .find-row .pick:first-of-type { margin-left: auto; }
+    .filters-button { margin-left: auto; }
 
     .row-actions { display: flex; gap: 8px; justify-content: flex-end; }
     .row-actions button { padding: 4px 8px; font-size: 12px; line-height: 16px; }
@@ -90,46 +80,16 @@
         </div>
       </section>
 
-      <!-- Find (Q30): search, filter by what the last check said, target, sort.
-           Shown in its resting state: nothing typed, All selected. Filtered to zero is content,
-           not a page — the list is replaced by one line and Clear filters. -->
+      <!-- Find (Q30): search, and one Filters button in the far right corner. Filters opens the
+           verdict filter (All · Problems at last check · Out of date · Not checked yet · Shared),
+           Checked for a target, and sort — not drawn here. Filtered to zero is content, not a page. -->
       <section aria-label="Find projects">
         <form class="find" role="search" action="projects-default.html">
-          <div class="find-row">
-            <label class="search">
-              <span class="icon" aria-hidden="true"></span>
-              <input type="search" name="q" placeholder="Search projects and the items in them — db-migrate, .mcp.json, acme">
-            </label>
-
-            <fieldset class="filters">
-              <legend>Show</legend>
-              <label><input type="radio" name="show" value="all" checked>All <span class="count">5</span></label>
-              <label><input type="radio" name="show" value="problems">Problems at last check <span class="count">1</span></label>
-              <label><input type="radio" name="show" value="stale">Out of date <span class="count">1</span></label>
-              <label><input type="radio" name="show" value="unchecked">Not checked yet <span class="count">2</span></label>
-              <label><input type="radio" name="show" value="shared">Shared <span class="count">1</span></label>
-            </fieldset>
-          </div>
-
-          <div class="find-row">
-            <p class="meta">Showing 5 of 5 projects</p>
-            <label class="pick">Checked for
-              <select name="target">
-                <option selected>Any target</option>
-                <option>Claude Code</option>
-                <option>Cursor</option>
-                <option>Codex</option>
-                <option>Universal</option>
-              </select>
-            </label>
-            <label class="pick">Sort
-              <select name="sort">
-                <option selected>Last changed</option>
-                <option>Last checked</option>
-                <option>Name</option>
-              </select>
-            </label>
-          </div>
+          <label class="search">
+            <span class="icon" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Search projects and the items in them — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters</button>
         </form>
       </section>
 

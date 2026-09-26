@@ -1701,10 +1701,14 @@ the set I keep for that piece of work — and see whether it is still checked.*
 - **Sort** — *Last changed* by default, then *Last checked* and *Name*. **No sort by counts**: a note
   count is not a to-do list (§6, *Deference*), and ordering by it would draw one.
 
+**And the same day, where it lives: behind one button.** The owner moved the filter, *Checked for* and
+sort **into a single `Filters` button in the far right corner of the search row.** The screen shows
+search and the list; the rest is one click away. *What the button opens is not drawn yet.*
+
 **What it costs, named.** **How many projects a person keeps is `[?]`** — the counted band is for
 items (*tens, not hundreds; design for fifty*), not projects, and at five rows a find bar is heavier
 than the list it finds in. **It is drawn because the owner reads the screen as one people come back
-to, and the bar costs one row.** **Filtered to zero is content, not a page**, as it already is in the
+to, and the bar costs one row** — *which folding everything but search into `Filters` keeps to one.* **Filtered to zero is content, not a page**, as it already is in the
 Library. **The Library's own search and filters (§8) are not touched by this entry** and come next.
 
 ### Earlier decisions
