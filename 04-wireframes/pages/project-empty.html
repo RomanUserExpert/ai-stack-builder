@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects · empty — wireframe</title>
+  <title>Project · empty — wireframe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -32,27 +32,34 @@
 
     <main class="app-main">
 
-      <section aria-labelledby="projects-title">
+      <section aria-labelledby="page-title">
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
         <div class="page-head">
-          <h1 id="projects-title">Projects</h1>
+          <div>
+            <h1 id="page-title">stripe-webhooks</h1>
+            <p class="meta head-meta"><span>Created just now · nothing in it yet</span></p>
+          </div>
+          <div class="head-actions">
+                        <button type="button">Share</button>
+            <button type="button">Duplicate</button>
+            <button type="button" class="button-primary" disabled title="Add an item first"><span class="icon" aria-hidden="true"></span>Check — add an item first</button>
+          </div>
         </div>
       </section>
 
-      <!-- Empty: no projects at all — reachable because the example project is deletable (§11).
-           No Find: there is nothing to search. No New project in the head: the body carries it,
-           next to the second way out. -->
-      <section class="state-block" aria-labelledby="empty-title">
+      <!-- Empty (Q16): one action, and it enters configuring. Check is inert and says why — the product's one
+           disabled control. The state names what it offers, not what is dead in it. -->
+      <section class="state-block" aria-label="Nothing in this project yet">
         <span class="image state-image" aria-hidden="true"></span>
-        <h2 id="empty-title">No projects yet</h2>
-        <p>A project is a set of items from your library, checked together and exported as one archive.
-          Start one now, or see what the Public library already holds.</p>
+        <h2>Nothing in this project yet</h2>
+        <p>Add items from your library or the Public library. Anything they require comes in with them, and Check opens once the set has something in it.</p>
         <div class="state-actions">
-          <a class="button button-primary" href="project-empty.html"><span class="icon" aria-hidden="true"></span>Create project</a>
-          <a class="button" href="library-public-default.html">Explore Public library</a>
+          <a class="button button-primary" href="project-configuring-empty.html"><span class="icon" aria-hidden="true"></span>Add items</a>
         </div>
       </section>
 
     </main>
+
   </div>
 
 </body>

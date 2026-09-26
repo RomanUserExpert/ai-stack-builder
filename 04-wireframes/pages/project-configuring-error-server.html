@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configuring the set · error · server — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">acme-billing-api<span class="tag">Configuring</span></h1>
+            <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="project-default.html">Done</a>
+            <a class="button button-primary" href="run-loading.html"><span class="icon" aria-hidden="true"></span>Check</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="split">
+        <section aria-label="The set">
+        <ol class="row-list">
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>query-explainer<span class="tag">agent</span></h3>
+                <div class="callout" role="alert" style="margin-top: 8px">
+                  <span class="severity">Not added</span>
+                  <span>The server didn’t confirm it, so <code>query-explainer</code> is not in the set and the panel shows it unticked. Nothing else changed.</span>
+                  <div class="row-actions"><button type="button" class="button-primary">Add again</button><button type="button">Dismiss</button></div>
+                </div>
+              </div>
+              <p class="meta">Tried just now</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>code-style<span class="tag">skill</span></h3>
+                <p class="state-line">Defers to <em>the client’s ESLint config</em></p>
+                <div class="callout" style="margin-top: 8px">
+                  <span class="severity">Note at last check</span>
+                  <span>Where <code>code-style</code> and the client’s ESLint config disagree, the ESLint config wins.</span>
+                </div>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove code-style"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>eslint-autofix<span class="tag">script</span></h3>
+                <p class="state-line"><strong>Conflicts with <code>code-style</code></strong></p>
+                <div class="callout" style="margin-top: 8px">
+                  <span class="severity">Problem at last check</span>
+                  <span>Declared conflict: <code>eslint-autofix</code> rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both.</span>
+                </div>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove eslint-autofix"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>migration-reviewer<span class="tag">agent</span></h3>
+                <p class="state-line">Requires <code>db-migrate</code>, <code>postgres-mcp</code></p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove migration-reviewer"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>db-migrate<span class="tag">script</span></h3>
+                <p class="state-line">Used in 3 projects</p>
+              </div>
+              <p class="meta">Auto-added — required by <code>migration-reviewer</code></p>
+              <div class="row-actions"><p class="refusal">Can’t be removed while <code>migration-reviewer</code> is in the set — remove that first</p></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>postgres-mcp<span class="tag">mcp</span></h3>
+                <p class="state-line"><strong>Needs <code>DATABASE_URL</code></strong> — not set anywhere in this project</p>
+                <div class="callout" style="margin-top: 8px">
+                  <span class="severity">Note at last check</span>
+                  <span><code>DATABASE_URL</code> goes into <code>.env.example</code> as a name. The receiving machine has to supply the value.</span>
+                </div>
+              </div>
+              <p class="meta">Auto-added — required by <code>migration-reviewer</code></p>
+              <div class="row-actions"><p class="refusal">Can’t be removed while <code>migration-reviewer</code> is in the set — remove that first</p></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>github-mcp<span class="tag">mcp</span></h3>
+                <p class="state-line">Needs <code>GITHUB_TOKEN</code> · pinned at <code>v0.9.0</code></p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove github-mcp"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>pr-reviewer<span class="tag">agent</span></h3>
+                <p class="state-line"><strong>Detached</strong> — <em>content</em> and <em>lands at</em> differ from the library version</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><a class="button" href="project-detached-default.html">Edit</a><button type="button">Reset</button><button type="button">Promote</button><button type="button" class="remove" aria-label="Remove pr-reviewer"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>commit-conventions<span class="tag">prompt</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove commit-conventions"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>seed-data<span class="tag">script</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Auto-added — required by <code>db-migrate</code></p>
+              <div class="row-actions"><p class="refusal">Can’t be removed while <code>db-migrate</code> is in the set — remove that first</p></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>test-runner<span class="tag">agent</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove test-runner"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>changelog-writer<span class="tag">skill</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove changelog-writer"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>api-contracts<span class="tag">prompt</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove api-contracts"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>openapi-lint<span class="tag">script</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove openapi-lint"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>sentry-mcp<span class="tag">mcp</span></h3>
+                <p class="state-line">Needs <code>SENTRY_AUTH_TOKEN</code> · pinned at <code>0.17.1</code></p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove sentry-mcp"><span class="icon" aria-hidden="true"></span></button></div>
+            </article>
+          </li>
+        </ol>
+        </section>
+      <!-- The library panel: reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
+      <aside class="panel" aria-label="Library panel">
+        <div class="panel-head">
+          <h2>Add from</h2>
+          <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
+          <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library"></label>
+          <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+        </div>
+        <div class="panel-body">
+          <ol class="row-list">
+            <li>
+              <article class="row row-compact">
+                <div>
+                  <h3>db-migrate<span class="tag">script</span></h3>
+                  <p class="state-line">Required by <code>migration-reviewer</code></p>
+                </div>
+                <label class="check"><input type="checkbox" checked> In the set</label>
+              </article>
+            </li>
+            <li>
+              <article class="row row-compact">
+                <div>
+                  <h3>postgres-mcp<span class="tag">mcp</span></h3>
+                  <p class="state-line">Required by <code>migration-reviewer</code></p>
+                </div>
+                <label class="check"><input type="checkbox" checked> In the set</label>
+              </article>
+            </li>
+            <li>
+              <article class="row row-compact">
+                <div>
+                  <h3>seed-data<span class="tag">script</span></h3>
+                  <p class="state-line">Required by <code>db-migrate</code></p>
+                </div>
+                <label class="check"><input type="checkbox" checked> In the set</label>
+              </article>
+            </li>
+            <li>
+              <article class="row row-compact">
+                <div>
+                  <h3>schema-docs<span class="tag">prompt</span></h3>
+                  <p class="state-line">Requires <code>postgres-mcp</code></p>
+                </div>
+                <label class="check"><input type="checkbox"> Add</label>
+              </article>
+            </li>
+            <li>
+              <article class="row row-compact">
+                <div>
+                  <h3>query-explainer<span class="tag">agent</span></h3>
+                  <p class="state-line">Requires <code>postgres-mcp</code></p>
+                </div>
+                <label class="check"><input type="checkbox"> Add</label>
+              </article>
+            </li>
+            <li>
+              <article class="row row-compact">
+                <div>
+                  <h3>pr-reviewer<span class="tag">agent</span></h3>
+                  <p class="state-line">Used with <code>github-mcp</code> in 2 projects</p>
+                </div>
+                <label class="check"><input type="checkbox" checked> In the set</label>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </aside>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

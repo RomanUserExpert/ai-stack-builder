@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects · empty — wireframe</title>
+  <title>My library · error · server — wireframe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -18,9 +18,9 @@
       <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
       <nav class="app-nav" aria-label="Global">
         <ul>
-          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-my-default.html" aria-current="page">My library</a></li>
           <li><a href="library-public-default.html">Public library</a></li>
-          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+          <li><a href="projects-default.html">Projects</a></li>
         </ul>
       </nav>
       <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
@@ -32,27 +32,30 @@
 
     <main class="app-main">
 
-      <section aria-labelledby="projects-title">
+      <section aria-labelledby="page-title">
         <div class="page-head">
-          <h1 id="projects-title">Projects</h1>
+          <h1 id="page-title">My library</h1>
+          <div class="head-actions">
+            <a class="button button-primary" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Add item</a>
+          </div>
         </div>
       </section>
 
-      <!-- Empty: no projects at all — reachable because the example project is deletable (§11).
-           No Find: there is nothing to search. No New project in the head: the body carries it,
-           next to the second way out. -->
-      <section class="state-block" aria-labelledby="empty-title">
-        <span class="image state-image" aria-hidden="true"></span>
-        <h2 id="empty-title">No projects yet</h2>
-        <p>A project is a set of items from your library, checked together and exported as one archive.
-          Start one now, or see what the Public library already holds.</p>
+      <!-- Error: the corpus did not load. No Find, no JSON export: neither can act on a list that is not here.
+           Two ways out — try again, or Projects, which does not depend on this list. -->
+      <section class="state-block" role="alert" aria-label="Your library didn’t load">
+        <span class="icon state-icon" aria-hidden="true"></span>
+        <h2>Your library didn’t load</h2>
+        <p>The server did not answer, so your items can’t be shown right now.</p>
+        <p class="meta">503 · Service unavailable · 14:02</p>
         <div class="state-actions">
-          <a class="button button-primary" href="project-empty.html"><span class="icon" aria-hidden="true"></span>Create project</a>
-          <a class="button" href="library-public-default.html">Explore Public library</a>
+          <a class="button button-primary" href="library-my-loading.html"><span class="icon" aria-hidden="true"></span>Try again</a>
+          <a class="button" href="projects-default.html">Open Projects</a>
         </div>
       </section>
 
     </main>
+
   </div>
 
 </body>

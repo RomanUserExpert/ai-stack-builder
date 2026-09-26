@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects · error · filtered — wireframe</title>
+  <title>Public library · error · filtered — wireframe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
       <nav class="app-nav" aria-label="Global">
         <ul>
           <li><a href="library-my-default.html">My library</a></li>
-          <li><a href="library-public-default.html">Public library</a></li>
-          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+          <li><a href="library-public-default.html" aria-current="page">Public library</a></li>
+          <li><a href="projects-default.html">Projects</a></li>
         </ul>
       </nav>
       <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
@@ -32,39 +32,36 @@
 
     <main class="app-main">
 
-      <section aria-labelledby="projects-title">
+      <section aria-labelledby="page-title">
         <div class="page-head">
-          <h1 id="projects-title">Projects</h1>
-          <a class="button button-primary" href="project-empty.html">
-            <span class="icon" aria-hidden="true"></span>New project
-          </a>
+          <div>
+            <h1 id="page-title">Public library</h1>
+            <p class="meta head-meta">Read-only. Every item is pinned to the version we checked — not the latest one.</p>
+          </div>
         </div>
       </section>
 
-      <!-- Find, as it was left: "stripe" typed, one filter on — Not checked yet. -->
-      <section aria-label="Find projects">
-        <form class="find" role="search" action="projects-default.html">
+      <section aria-label="Find">
+        <form class="find" role="search">
           <label class="search">
             <span class="icon" aria-hidden="true"></span>
-            <input type="search" name="q" value="stripe" placeholder="Search projects and the items in them — db-migrate, .mcp.json, acme">
+            <input type="search" name="q" value="linear" placeholder="Search the shelf by name, kind or source — filesystem, playwright, anthropics">
           </label>
           <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters · 1</button>
         </form>
       </section>
-
-      <!-- Error: filtered to nothing. The projects exist; the search and filter hide all of them.
-           Way out: clear filters — back to the full list. -->
-      <section class="state-block" aria-labelledby="none-title">
+      <section class="state-block" aria-label="No items match">
         <span class="icon state-icon" aria-hidden="true"></span>
-        <h2 id="none-title">No projects match</h2>
-        <p>Nothing matches “stripe” among projects that are <strong>Not checked yet</strong>.
-          You have 5 projects — the search and the filter hide all of them.</p>
+        <h2>No items match</h2>
+        <p>Nothing on the shelf matches “linear” among <strong>skills</strong>. The shelf holds 8 items — the search and the filter hide all of them.</p>
         <div class="state-actions">
-          <a class="button button-primary" href="projects-default.html">Clear filters</a>
+          <a class="button button-primary" href="library-public-default.html">Clear filters</a>
+          <a class="button" href="library-my-default.html">Search My library instead</a>
         </div>
       </section>
 
     </main>
+
   </div>
 
 </body>

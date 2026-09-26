@@ -26,7 +26,7 @@
   to the reader, no *main action: …* labels — **every word on the canvas is a word the person using the
   product would read.** Zones are told apart by structure and spacing; what a zone is for goes in an
   HTML comment or an `aria-label`, and explanations about the screen go in the viewer's
-  Persona · Job · Flow lines (§7) or in `_screens.md`. *The captions were in the first draft of this
+  Persona · Job · Flow lines (§8) or in `_screens.md`. *The captions were in the first draft of this
   rule and came out after the first wireframe: they read as part of the screen.*
 - **Neutral, not themed.** §3 says dark from day one; a wireframe is not a theme, and two real themes
   are designed in lesson 06, not inverted from this.
@@ -41,8 +41,8 @@
 - **A row in a set is an `article` or a list item**, carrying its own state in its text.
 - **Stages of `Run` are an ordered list**, each expandable with `details` — the Vercel shape (§6).
 - **No JavaScript in a product page** beyond what a link does. A state is a page, not a toggle. The
-  viewer (§7) has script; it is chrome.
-- **The wireframe's own chrome is outside the product markup** — see §7 below.
+  viewer (§8) has script; it is chrome.
+- **The wireframe's own chrome is outside the product markup** — see §8 below.
 
 ## 3 · Text — real, from the domain
 
@@ -113,14 +113,33 @@
 - **States that live inside a page are content, not pages**: §7's item states, the stale verdict, the
   example project, the unclean-export confirmation in the row under its finding.
 
-## 6 · What waits
+## 6 · Patterns — Projects is the example
+
+**`projects-default.html` is the reference page** (owner, 2026-09-26). Every other screen is built out of
+the pieces it established, and **all of them live in `pages/wireframe.css`** — a product page carries no
+`<style>` of its own. A new screen reuses a pattern before it invents one.
+
+| Pattern | Where it is first | What it is |
+|---|---|---|
+| **Page head** | Projects | The title, and the page's actions on the right. A line of facts under it only when they are product facts (*14 items · checked 2 days ago*), never a caption |
+| **Find** | Projects | Search on the left, one `Filters` button in the far right corner. Everything else is behind it |
+| **Row list** | Projects | `ol` of `article`s: what it is · what it says (a `dl`) · what you can do. Kinds as a small outlined tag |
+| **State block** | Projects empty / error | Icon or image, one heading, one sentence, the ways out. Server errors add the code and time in grey |
+| **Skeleton** | Projects loading | Grey bars in the real rows' columns; head and controls real |
+| **Callout** | Project, Run | A finding or a disclosure: a rule on the left, the severity **as a word** — *Problem*, *Note*, *Before you add it* |
+| **Split + panel** | Configuring | The set on the left, the library panel on the right: scope switch, kind tabs, search |
+| **Sheet / dialog** | Item, Import | `<dialog open>` over a dimmed page: a sheet on the right for a form, a dialog in the middle for a command |
+| **Run bar + stages** | Run | A bar that replaces the navigation, then an `ol` of `details` stages, then Export as the last stage |
+| **Receiver's header** | Shared | The product's mark and *Shared by …*. No navigation, no sign-in |
+
+## 7 · What waits
 
 **Final UI, final fonts and icons, colour, shadows, radii beyond the icon placeholder, motion, the
 type scale, tokens and components.** Each has its lesson — 05 text, 06 concept, 07 UI, 08 tokens,
 09 design system, 11 animation. A wireframe that starts to look finished is a wireframe that has
 started deciding things it was not asked to.
 
-## 7 · The frame around a wireframe
+## 8 · The frame around a wireframe
 
 **Two kinds of file, and only one of them is product.**
 

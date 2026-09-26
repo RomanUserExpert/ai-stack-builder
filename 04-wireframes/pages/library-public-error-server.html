@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects · empty — wireframe</title>
+  <title>Public library · error · server — wireframe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
       <nav class="app-nav" aria-label="Global">
         <ul>
           <li><a href="library-my-default.html">My library</a></li>
-          <li><a href="library-public-default.html">Public library</a></li>
-          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+          <li><a href="library-public-default.html" aria-current="page">Public library</a></li>
+          <li><a href="projects-default.html">Projects</a></li>
         </ul>
       </nav>
       <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
@@ -32,27 +32,28 @@
 
     <main class="app-main">
 
-      <section aria-labelledby="projects-title">
+      <section aria-labelledby="page-title">
         <div class="page-head">
-          <h1 id="projects-title">Projects</h1>
+          <div>
+            <h1 id="page-title">Public library</h1>
+            <p class="meta head-meta">Read-only. Every item is pinned to the version we checked — not the latest one.</p>
+          </div>
         </div>
       </section>
 
-      <!-- Empty: no projects at all — reachable because the example project is deletable (§11).
-           No Find: there is nothing to search. No New project in the head: the body carries it,
-           next to the second way out. -->
-      <section class="state-block" aria-labelledby="empty-title">
-        <span class="image state-image" aria-hidden="true"></span>
-        <h2 id="empty-title">No projects yet</h2>
-        <p>A project is a set of items from your library, checked together and exported as one archive.
-          Start one now, or see what the Public library already holds.</p>
+      <section class="state-block" role="alert" aria-label="The Public library didn’t load">
+        <span class="icon state-icon" aria-hidden="true"></span>
+        <h2>The Public library didn’t load</h2>
+        <p>The server did not answer, so the shelf can’t be shown right now. Your own items are not affected.</p>
+        <p class="meta">503 · Service unavailable · 14:02</p>
         <div class="state-actions">
-          <a class="button button-primary" href="project-empty.html"><span class="icon" aria-hidden="true"></span>Create project</a>
-          <a class="button" href="library-public-default.html">Explore Public library</a>
+          <a class="button button-primary" href="library-public-loading.html"><span class="icon" aria-hidden="true"></span>Try again</a>
+          <a class="button" href="library-my-default.html">Open My library</a>
         </div>
       </section>
 
     </main>
+
   </div>
 
 </body>

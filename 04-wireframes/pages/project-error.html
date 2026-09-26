@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects · error · filtered — wireframe</title>
+  <title>Project · error — wireframe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -32,39 +32,34 @@
 
     <main class="app-main">
 
-      <section aria-labelledby="projects-title">
+      <section aria-labelledby="page-title">
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
         <div class="page-head">
-          <h1 id="projects-title">Projects</h1>
-          <a class="button button-primary" href="project-empty.html">
-            <span class="icon" aria-hidden="true"></span>New project
-          </a>
+          <div>
+            <h1 id="page-title">acme-billing-api</h1>
+            <p class="meta head-meta"><span>Last check not shown — the project didn’t load</span></p>
+          </div>
+          <div class="head-actions">
+
+          </div>
         </div>
       </section>
 
-      <!-- Find, as it was left: "stripe" typed, one filter on — Not checked yet. -->
-      <section aria-label="Find projects">
-        <form class="find" role="search" action="projects-default.html">
-          <label class="search">
-            <span class="icon" aria-hidden="true"></span>
-            <input type="search" name="q" value="stripe" placeholder="Search projects and the items in them — db-migrate, .mcp.json, acme">
-          </label>
-          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters · 1</button>
-        </form>
-      </section>
-
-      <!-- Error: filtered to nothing. The projects exist; the search and filter hide all of them.
-           Way out: clear filters — back to the full list. -->
-      <section class="state-block" aria-labelledby="none-title">
+      <!-- Error: the set did not load. Q26 — no verdict is shown on the strength of a failed read, neither
+           checked nor un-checked. No Configure, Share or Check: none of them can act on a set that is not here. -->
+      <section class="state-block" role="alert" aria-label="This project didn’t load">
         <span class="icon state-icon" aria-hidden="true"></span>
-        <h2 id="none-title">No projects match</h2>
-        <p>Nothing matches “stripe” among projects that are <strong>Not checked yet</strong>.
-          You have 5 projects — the search and the filter hide all of them.</p>
+        <h2>This project didn’t load</h2>
+        <p>The server did not answer, so the set and its last check can’t be shown. Nothing in the project was changed.</p>
+        <p class="meta">503 · Service unavailable · 14:02</p>
         <div class="state-actions">
-          <a class="button button-primary" href="projects-default.html">Clear filters</a>
+          <a class="button button-primary" href="project-loading.html"><span class="icon" aria-hidden="true"></span>Try again</a>
+          <a class="button" href="projects-default.html">Back to Projects</a>
         </div>
       </section>
 
     </main>
+
   </div>
 
 </body>

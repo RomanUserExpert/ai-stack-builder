@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Run · error — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
+    <header class="run-bar">
+      <a class="back" href="project-default.html"><span class="icon" aria-hidden="true"></span>acme-billing-api</a>
+      <span class="title">Check</span>
+      <label class="pick">Agent target
+        <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
+      </label>
+    </header>
+
+    <main class="app-main">
+
+      <section class="summary" aria-label="Verdict">
+        <h1>Checked just now</h1>
+        <p><strong>1 problem · 2 notes · 1 skipped</strong></p>
+        <p class="meta">acme-billing-api · 14 items · for Claude Code · 1.8 s</p>
+      </section>
+
+      <section class="stage-group" aria-labelledby="g-find">
+        <h2 id="g-find">Findings</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>14 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
+              <div class="stage-body">
+                <p>You chose 11. The walk along <code>requires</code> added 3: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary><span class="n">02</span><span class="name">Declared conflicts</span><span class="result"><span class="glyph glyph-problem" aria-hidden="true"></span>1 problem</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout">
+                  <span class="severity">Problem</span>
+                  <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+                  <div class="row-actions"><a class="button" href="project-configuring-default.html">Remove eslint-autofix in the project</a></div>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no item declares a command</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.2 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note · 2 keys named</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet">
+                  <span class="severity">Note</span>
+                  <span><code>DATABASE_URL</code> (postgres-mcp) and <code>GITHUB_TOKEN</code> (github-mcp) are needed. They go into <code>.env.example</code> as names; the receiving machine supplies the values.</span>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet">
+                  <span class="severity">Note</span>
+                  <span><code>code-style</code> defers to the client’s ESLint config. Where they disagree, that wins.</span>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.4 s</span></summary>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <!-- The handover is read before Export, never after it (§6). -->
+      <section class="stage-group" aria-labelledby="g-hand">
+        <h2 id="g-hand">Handover — what the receiving machine still needs</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">08</span><span class="name">What the archive contains</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>18 files for Claude Code</span><span class="time">0.2 s</span></summary>
+              <div class="stage-body">
+                <pre class="file">acme-billing-api/
+├── CLAUDE.md                       commit-conventions, api-contracts
+├── SETUP.md
+├── .env.example                    DATABASE_URL, GITHUB_TOKEN, SENTRY_AUTH_TOKEN
+├── .mcp.json                       postgres-mcp, github-mcp, sentry-mcp
+├── .claude/skills/code-style/SKILL.md
+├── .claude/skills/changelog-writer/SKILL.md
+├── .claude/agents/migration-reviewer.md
+├── .claude/agents/acme-pr-reviewer.md     detached
+├── .claude/agents/test-runner.md
+└── scripts/  db-migrate.sh · seed-data.sh · eslint-autofix.sh · openapi-lint.sh</pre>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Written · 14 items</span><span class="time">0.3 s</span></summary>
+              <div class="stage-body">
+                <pre class="file"># Setup — acme-billing-api (Claude Code)
+
+Read this first and perform each step.
+
+## postgres-mcp
+- External. Clone modelcontextprotocol/servers-archived at 9be4674.
+- Needs DATABASE_URL. Ask the person for it; do not invent one.
+- Required by migration-reviewer.
+
+## code-style
+- Defers to the client’s ESLint config. Where they disagree, the ESLint config wins.
+…</pre>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">10</span><span class="name">.env.example</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>3 keys, names only</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <pre class="file">DATABASE_URL=
+GITHUB_TOKEN=
+SENTRY_AUTH_TOKEN=</pre>
+              </div>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Error: the archive failed to build — the most expensive failure, because the handover has been read.
+           The check stands (nothing in the set changed); the way out is to build again, or go back. -->
+      <section class="export-stage" aria-labelledby="export-title" role="alert">
+        <h2 id="export-title">11 · Export — the archive didn’t build</h2>
+        <p>The server stopped at 12 of 18 files. Nothing was downloaded. The check above still stands — nothing in the set changed.</p>
+        <p class="meta">503 · 14:07</p>
+        <div class="export-actions">
+          <a class="button button-primary" href="run-success.html"><span class="icon" aria-hidden="true"></span>Build the archive again</a>
+          <a class="button" href="project-default.html">Back to acme-billing-api</a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

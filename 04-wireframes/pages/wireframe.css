@@ -430,3 +430,166 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
   border: 0;
 }
 .wf-stage .wf-states a.wf-todo { opacity: 0.45; }
+
+/* ════════════════════════════════════════════════════════════════════
+   Shared product patterns — first drawn on Projects, reused everywhere.
+   ════════════════════════════════════════════════════════════════════ */
+
+.canvas { position: relative; }
+
+/* Page head: the title, and the page's actions on the right */
+.page-head { display: flex; align-items: center; gap: 24px; }
+.page-head h1 { font-size: 24px; line-height: 32px; font-weight: 600; display: flex; gap: 12px; align-items: center; }
+.page-head .head-actions,
+.page-head > .button { margin-left: auto; }
+.head-actions { display: flex; gap: 8px; align-items: center; }
+.head-meta { margin-top: 4px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Find: search on the left, Filters in the far right corner (Q30) */
+.find { display: flex; gap: 16px; align-items: center; }
+.search { flex: 1; max-width: 480px; display: flex; gap: 8px; align-items: center; padding: 8px 12px; border: 1px solid var(--ink-2); }
+.search input { flex: 1; border: 0; padding: 0; font: inherit; color: var(--ink); background: transparent; outline: none; }
+.search input::placeholder { color: var(--ink-3); }
+.filters-button { margin-left: auto; }
+
+/* A list of rows: what it is · what it says · what you can do */
+.row-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 1fr 360px 200px; gap: 24px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--line-2); }
+.row h2, .row h3 { font-size: 16px; line-height: 24px; font-weight: 600; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.row h2 a, .row h3 a { text-decoration: none; }
+.row .description { margin-top: 4px; color: var(--ink-2); max-width: 640px; }
+.row .facts { margin-top: 8px; display: flex; gap: 16px; flex-wrap: wrap; }
+.row-compact { padding: 12px 0; grid-template-columns: 1fr auto; gap: 16px; }
+.row-compact h3 { font-size: 14px; line-height: 20px; }
+
+.verdict dt { font-size: 11px; line-height: 16px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; }
+.verdict dd + dt { margin-top: 8px; }
+.verdict dd { margin-top: 4px; }
+
+.row-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; align-items: center; }
+.row-actions button, .row-actions .button { padding: 4px 8px; font-size: 12px; line-height: 16px; }
+
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; background: var(--fill); padding: 0 4px; }
+
+/* Inert — the one disabled control the product has (Q16). Labelled, never hidden. */
+button[disabled], .button[aria-disabled="true"] { border-style: dashed; border-color: var(--line); color: var(--ink-3); background: var(--paper); cursor: not-allowed; }
+button[disabled] .icon, .button[aria-disabled="true"] .icon { background: var(--line); }
+
+/* A finding or a disclosure attached to something: a rule on the left, words carry the severity */
+.callout { border-left: 2px solid var(--ink); padding: 8px 12px; background: var(--fill); display: flex; flex-direction: column; gap: 4px; }
+.callout strong { font-weight: 600; }
+.callout-quiet { border-left-color: var(--line); background: transparent; }
+.callout .row-actions { justify-content: flex-start; margin-top: 4px; }
+.severity { font-size: 11px; line-height: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Two columns: the work, and a panel beside it */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 480px; gap: 32px; align-items: start; }
+.panel { border: 1px solid var(--line); display: flex; flex-direction: column; }
+.panel > * + * { border-top: 1px solid var(--line-2); }
+.panel-head { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.panel-body { padding: 0 16px; }
+.panel-body .row-list { border-top: 0; }
+.panel-body .state-block { border-top: 0; padding: 48px 16px; }
+.panel h2 { font-size: 14px; line-height: 20px; font-weight: 600; }
+
+/* Segmented scope switch and kind tabs — structure only */
+.scope { display: flex; border: 1px solid var(--ink-2); }
+.scope a { flex: 1; text-align: center; padding: 4px 8px; text-decoration: none; color: var(--ink-2); font-size: 13px; }
+.scope a[aria-current="page"] { background: var(--ink); color: var(--paper); font-weight: 600; }
+.tabs { display: flex; gap: 16px; border-bottom: 1px solid var(--line-2); flex-wrap: wrap; }
+.tabs a { padding: 4px 0 8px; text-decoration: none; color: var(--ink-2); font-size: 13px; }
+.tabs a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--ink); }
+.panel .search { max-width: none; }
+
+/* The set: a row with its state line, and a ✕ that lives on the row */
+.set-row { grid-template-columns: 1fr 360px 200px; }
+.state-line { margin-top: 4px; display: flex; gap: 8px; flex-wrap: wrap; font-size: 12px; line-height: 16px; color: var(--ink-2); }
+.state-line strong { color: var(--ink); font-weight: 600; }
+.remove { width: 32px; height: 32px; padding: 0; justify-content: center; }
+.refusal { font-size: 12px; line-height: 16px; color: var(--ink-2); text-align: right; max-width: 200px; }
+.pending { opacity: 0.6; }
+
+/* Checkbox and form fields — native, structure only */
+input[type="checkbox"], input[type="radio"] { width: 16px; height: 16px; margin: 0; accent-color: var(--ink); }
+.check { display: inline-flex; gap: 8px; align-items: center; font-size: 12px; line-height: 16px; white-space: nowrap; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field > span:first-child { font-size: 12px; line-height: 16px; font-weight: 600; }
+.field .hint { font-size: 12px; line-height: 16px; color: var(--ink-3); }
+.field input:not([type="checkbox"]):not([type="radio"]), .field select, .field textarea {
+  font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--ink-2); padding: 8px 12px; width: 100%;
+}
+.field textarea { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 16px; min-height: 160px; resize: vertical; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field-row-3 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; }
+.radios { display: flex; gap: 16px; }
+.radios label { display: inline-flex; gap: 8px; align-items: center; }
+fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+legend { padding: 0; font-size: 12px; line-height: 16px; font-weight: 600; margin-bottom: 4px; }
+.form { display: flex; flex-direction: column; gap: 16px; }
+.form-section { display: flex; flex-direction: column; gap: 16px; padding-top: 16px; border-top: 1px solid var(--line-2); }
+.form-section > h3 { font-size: 14px; line-height: 20px; font-weight: 600; }
+.form-actions { display: flex; gap: 8px; align-items: center; padding-top: 16px; border-top: 1px solid var(--line); }
+.form-actions .push { margin-left: auto; }
+
+/* Overlay: a sheet on the right, or a dialog in the middle, over a dimmed page. <dialog open>, no script. */
+.scrim { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.24); }
+dialog.sheet { position: absolute; top: 0; right: 0; bottom: 0; left: auto; width: 640px; max-width: none; max-height: none; height: auto; margin: 0; padding: 32px; border: 0; border-left: 1px solid var(--ink-2); background: var(--paper); color: var(--ink); overflow: auto; display: flex; flex-direction: column; gap: 24px; }
+dialog.modal { position: absolute; top: 160px; left: 0; right: 0; width: 560px; max-width: none; margin: 0 auto; padding: 32px; border: 1px solid var(--ink-2); background: var(--paper); color: var(--ink); display: flex; flex-direction: column; gap: 16px; }
+.sheet-head { display: flex; gap: 16px; align-items: flex-start; }
+.sheet-head h2, dialog.modal h2 { font-size: 20px; line-height: 28px; font-weight: 600; }
+.sheet-head .close { margin-left: auto; }
+dialog.modal .state-block { border-top: 0; padding: 16px 0 0; }
+
+/* Run: a bar that takes the screen, then a stack of stages (the Vercel shape, §6) */
+.run-bar { display: flex; align-items: center; gap: 24px; padding: 16px 32px; border-bottom: 1px solid var(--line); }
+.run-bar .back { display: flex; gap: 8px; align-items: center; text-decoration: none; color: var(--ink-2); }
+.run-bar .title { font-weight: 600; }
+.run-bar .pick { margin-left: auto; display: flex; gap: 8px; align-items: center; font-size: 12px; color: var(--ink-2); }
+.run-bar select { font: inherit; font-size: 13px; color: var(--ink); background: var(--paper); border: 1px solid var(--ink-2); padding: 4px 8px; }
+.summary { display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap; }
+.summary h1 { font-size: 24px; line-height: 32px; font-weight: 600; }
+.stage-group { display: flex; flex-direction: column; gap: 8px; }
+.stage-group > h2 { font-size: 11px; line-height: 16px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+.stages { border-top: 1px solid var(--line); }
+.stages > li { border-bottom: 1px solid var(--line-2); }
+.stages summary { display: grid; grid-template-columns: 32px 240px 1fr 64px; gap: 16px; align-items: center; padding: 12px 0; cursor: pointer; list-style: none; }
+.stages summary::-webkit-details-marker { display: none; }
+.stages summary .n { color: var(--ink-3); font-size: 12px; }
+.stages summary .name { font-weight: 600; }
+.stages summary .result { color: var(--ink-2); }
+.stages summary .time { color: var(--ink-3); font-size: 12px; text-align: right; }
+.stage-body { padding: 0 0 16px 48px; display: flex; flex-direction: column; gap: 12px; }
+.stages .waiting summary { color: var(--ink-3); cursor: default; }
+.stages .waiting summary .name { font-weight: 400; }
+.glyph { display: inline-block; width: 12px; height: 12px; border: 1px solid var(--ink-2); margin-right: 8px; vertical-align: -1px; flex: none; }
+.glyph-problem { background: var(--ink); border-color: var(--ink); }
+.glyph-note { background: linear-gradient(to right, var(--ink) 50%, transparent 50%); }
+.glyph-skipped { border-style: dashed; }
+.glyph-running { border-radius: 50%; border-top-color: transparent; }
+.glyph-waiting { border-color: var(--line); }
+pre.file { margin: 0; padding: 12px 16px; background: var(--fill); font: 12px/16px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; }
+.export-stage { padding: 24px; border: 1px solid var(--ink-2); display: flex; flex-direction: column; gap: 12px; }
+.export-stage h2 { font-size: 16px; line-height: 24px; font-weight: 600; }
+.export-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.plain-list { display: flex; flex-direction: column; gap: 4px; }
+.plain-list li::before { content: "– "; color: var(--ink-3); }
+
+/* Receiver's header: the product's mark and whose this is. No global navigation (§8). */
+.shared-header { display: flex; align-items: center; gap: 24px; padding: 16px 32px; border-bottom: 1px solid var(--line); }
+.shared-header .product { display: flex; gap: 8px; align-items: center; font-weight: 600; }
+.shared-header .owner { margin-left: auto; display: flex; gap: 8px; align-items: center; color: var(--ink-2); }
+
+/* Sign in: one narrow column */
+.door { width: 400px; margin: 120px auto 0; display: flex; flex-direction: column; gap: 24px; }
+.door h1 { font-size: 24px; line-height: 32px; font-weight: 600; }
+.door .button-primary { justify-content: center; }
+
+/* Main content with an aside */
+.with-aside { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; align-items: start; }
+.aside-box { border: 1px solid var(--line); padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.aside-box h2 { font-size: 14px; line-height: 20px; font-weight: 600; }
+.diff { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.diff h4 { font-size: 12px; line-height: 16px; font-weight: 600; margin: 0 0 4px; color: var(--ink-2); }
+.glyph-checked { border-color: var(--ink); }
+.split .set-row { grid-template-columns: minmax(0, 1fr) 200px auto; }
+.state-line { display: block; }

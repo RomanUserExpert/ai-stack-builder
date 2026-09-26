@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configuring the set · empty — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">stripe-webhooks<span class="tag">Configuring</span></h1>
+            <p class="meta head-meta"><span>Nothing in it yet</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="project-default.html">Done</a>
+            <button type="button" class="button-primary" disabled title="Add an item first"><span class="icon" aria-hidden="true"></span>Check — add an item first</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="split">
+        <section aria-label="The set">
+        <!-- The set is empty too; what it needs comes from the panel. -->
+        <p class="meta" style="padding: 20px 0; border-top: 1px solid var(--line)">Nothing in the set yet. Items you tick in the panel appear here.</p>
+        </section>
+      <!-- The library panel: reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
+      <aside class="panel" aria-label="Library panel">
+        <div class="panel-head">
+          <h2>Add from</h2>
+          <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
+          <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library"></label>
+          <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+        </div>
+        <div class="panel-body">
+          <!-- The panel offers nothing: My library is empty on first run (§11). Two ways out, both in the flow:
+               switch to the shelf, or the row that creates — the add form, summoned over the Project. -->
+          <section class="state-block" aria-label="My library is empty">
+        <span class="icon state-icon" aria-hidden="true"></span>
+        <h2>My library is empty</h2>
+        <p>Your own items appear here once you add them. The Public library has 8 checked items you can add right now.</p>
+        <div class="state-actions">
+          <a class="button button-primary" href="#">Switch to Public library</a>
+          <a class="button" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Create an item</a>
+        </div>
+      </section>
+        </div>
+      </aside>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

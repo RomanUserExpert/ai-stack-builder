@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Item · loading — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html" aria-current="page">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <div class="page-head">
+          <h1 id="page-title">My library</h1>
+          <div class="head-actions">
+            <a class="button" href="library-json-default.html">Import JSON</a>
+            <button type="button">Export JSON</button>
+            <a class="button button-primary" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Add item</a>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Find">
+        <form class="find" role="search">
+          <label class="search">
+            <span class="icon" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Search your items by name, description or tag — migrate, GITHUB_TOKEN, review">
+          </label>
+          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters</button>
+        </form>
+      </section>
+
+      <section aria-label="Items">
+        <ol class="row-list">
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">code-style</a><span class="tag">skill</span></h2>
+                <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
+                <p class="facts meta"><span>Defers to <em>the client’s ESLint config</em></span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 3 projects · last exported 2 days ago</dd>
+                <dt>Source</dt>
+                <dd class="meta">Inline · <code>.claude/skills/code-style/SKILL.md</code></dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">db-migrate</a><span class="tag">script</span></h2>
+                <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 3 projects · 2 items require this · last exported 12 days ago</dd>
+                <dt>Source</dt>
+                <dd class="meta">Inline · <code>scripts/db-migrate.sh</code></dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">migration-reviewer</a><span class="tag">agent</span></h2>
+                <p class="description">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 1 project</dd>
+                <dt>Source</dt>
+                <dd class="meta">Inline · requires <code>db-migrate</code>, <code>postgres-mcp</code></dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">postgres-mcp</a><span class="tag">mcp</span></h2>
+                <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
+                <p class="facts meta"><span>Needs <code>DATABASE_URL</code></span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 2 projects · 1 item requires this</dd>
+                <dt>Source</dt>
+                <dd class="meta">External · <code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">github-mcp</a><span class="tag">mcp</span><span class="tag">Shared</span></h2>
+                <p class="description">Issues, pull requests and code search on GitHub, through GitHub’s own server.</p>
+                <p class="facts meta"><span>Needs <code>GITHUB_TOKEN</code></span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 3 projects · copied from the Public library</dd>
+                <dt>Source</dt>
+                <dd class="meta">External · <code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">pr-reviewer</a><span class="tag">agent</span></h2>
+                <p class="description">Reads a pull request diff and leaves review comments the way I would write them.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 2 projects · detached in 1</dd>
+                <dt>Source</dt>
+                <dd class="meta">Inline · <code>.claude/agents/pr-reviewer.md</code></dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">commit-conventions</a><span class="tag">prompt</span></h2>
+                <p class="description">Conventional commits, imperative mood, and a body that says why rather than what.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 4 projects · last exported 2 days ago</dd>
+                <dt>Source</dt>
+                <dd class="meta">Inline · <code>CLAUDE.md</code>, appended</dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">writing-style</a><span class="tag">prompt</span></h2>
+                <p class="description">Plain English for docs: short sentences, no marketing words, an example before every rule.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 1 project</dd>
+                <dt>Source</dt>
+                <dd class="meta">Inline · <code>CLAUDE.md</code>, appended</dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">link-checker</a><span class="tag">script</span></h2>
+                <p class="description">Crawls the built docs and lists every broken internal and external link, with the page it is on.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 1 project</dd>
+                <dt>Source</dt>
+                <dd class="meta">Inline · <code>scripts/check-links.mjs</code></dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2><a href="item-default.html">whisper</a><span class="tag">app</span></h2>
+                <p class="description">Speech-to-text, run locally on voice memos before they are summarised.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Use</dt>
+                <dd>Used in 1 project · last exported 3 weeks ago</dd>
+                <dt>Source</dt>
+                <dd class="meta">External · <code>openai/whisper</code> @ <code>v20240930</code> · MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <a class="button" href="item-default.html">Edit</a>
+                <a class="button" href="run-item-default.html">Export</a>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+
+    <!-- Overlay: the Item add/edit form, over the Library. Closing returns you to the row you came from. -->
+    <div class="scrim" aria-hidden="true"></div>
+    <dialog class="sheet" open aria-labelledby="sheet-title">
+      <div class="sheet-head">
+        <h2 id="sheet-title">Edit db-migrate</h2>
+        <a class="button close" href="library-my-default.html" aria-label="Close"><span class="icon" aria-hidden="true"></span></a>
+      </div>
+        <!-- Loading: the usage facts are computed, so the blast radius arrives a moment after the form.
+             No field is editable until it has — a form that discloses after the edit is too late (§5). -->
+        <div class="callout callout-quiet" aria-busy="true">
+          <span class="skeleton" style="width: 280px; height: 12px"></span>
+          <span class="skeleton" style="width: 440px"></span>
+          <p class="visually-hidden" role="status">Counting the projects that use db-migrate</p>
+        </div>
+        <form class="form">
+          <div class="field-row">
+            <label class="field"><span>Name</span><input name="name" value="db-migrate" placeholder="release-notes"></label>
+            <label class="field"><span>Kind</span><select name="kind"><option>skill</option><option>agent</option><option>prompt</option><option>mcp</option><option selected>script</option><option>app</option></select></label>
+          </div>
+          <label class="field"><span>Description</span><input name="description" value="Generates a Postgres migration from a schema diff and runs it — dry run first, then for real." placeholder="One line: what it does and when it is used"></label>
+          <label class="field"><span>Tags</span><input name="tags" value="postgres, migrations" placeholder="postgres, review"></label>
+
+          <fieldset class="form-section">
+            <legend>Source</legend>
+            <div class="radios">
+              <label><input type="radio" name="source" checked> Inline — the content lives here</label>
+              <label><input type="radio" name="source"> External — a repo, pinned</label>
+            </div>
+            <label class="field"><span>Content</span><textarea name="content" placeholder="Paste the file, or drop it here">#!/usr/bin/env bash
+# db-migrate — diff the schema, write a migration, dry-run it, then apply.
+set -euo pipefail
+
+npx drizzle-kit generate --name "$1"
+psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.sql" --echo-errors --dry-run
+</textarea></label>
+          </fieldset>
+
+          <div class="form-section">
+            <h3>What it needs, and what it answers to</h3>
+            <div class="field-row">
+              <label class="field"><span>Requires</span><input name="requires" placeholder="Items this one needs — postgres-mcp"><span class="hint">Pulled into every project that holds this one</span></label>
+              <label class="field"><span>Conflicts with</span><input name="conflicts" placeholder="Items it must not travel with"></label>
+            </div>
+            <div class="field-row">
+              <label class="field"><span>Env keys it needs</span><input name="env" value="DATABASE_URL" placeholder="GITHUB_TOKEN"><span class="hint">Names only. Values never live here.</span></label>
+              <label class="field"><span>Defers to</span><input name="defers" placeholder="the client’s ESLint config"><span class="hint">Where they disagree, that wins</span></label>
+            </div>
+            <label class="field"><span>Lands at</span><input name="target" value="scripts/db-migrate.sh" placeholder=".claude/skills/release-notes/SKILL.md"></label>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="button-quiet">Delete item…</button>
+            <a class="button push" href="library-my-default.html">Cancel</a>
+            <button type="submit" class="button-primary">Save</button>
+          </div>
+        </form>
+    </dialog>
+
+  </div>
+
+</body>
+</html>

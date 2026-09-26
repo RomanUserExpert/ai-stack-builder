@@ -160,9 +160,8 @@ surface. A mode can be wireframed; it just has no address.
 
 ## The whole map — every screen in `sitemap.md`
 
-> **Added 2026-09-26, as structure only.** The main flow above is drawn first; everything here is the
-> order for step 8. **No page below exists yet**, and the viewer's tree lists them all so the gaps are
-> visible rather than forgotten. Same rules: a name from `sitemap.md`, a job or a stated reason for
+> **Added 2026-09-26, as structure only — and drawn the same day.** Every screen below has its pages,
+> built on Projects as the example (owner, 2026-09-26): base states and cases, not every edge. Same rules: a name from `sitemap.md`, a job or a stated reason for
 > having none, a place in `flows.md`, and a state only where a flow produces it.
 
 **Grouped by the sitemap's situations** (0 the door · 1 what I keep · 2 what I assemble · 3 what
@@ -172,13 +171,13 @@ scopes two global entries — they are still **one screen with two addresses**, 
 | # | Screen | Kind | `<name>` | Empty | Error | Loading | Success |
 |---|---|---|---|:-:|:-:|:-:|:-:|
 | 0 | **Sign in** | place | `sign-in` | — | ✓ | ✓ | — |
-| 1 | **Library · My library** | place | `library-my` | ✓ | ✓ | ✓ | — |
-| 1 | **Library · Public library** | place | `library-public` | — | ✓ | ✓ | — |
+| 1 | **Library · My library** | place | `library-my` | ✓ | ✓ ×2 | ✓ | — |
+| 1 | **Library · Public library** | place | `library-public` | — | ✓ ×2 | ✓ | — |
 | 1 | **Item — add / edit** | overlay | `item` | ✓ | ✓ | ✓ | — |
 | 1 | **Library import / export** | commands | `library-json` | — | ✓ | ✓ | ✓ |
-| 2 | **Projects** | place | `projects` | ✓ | ✓ | ✓ | — |
+| 2 | **Projects** | place | `projects` | ✓ | ✓ ×2 | ✓ | — |
 | 2 | **Project** | place | `project` | ✓ | ✓ | ✓ | — |
-| 2 | **Configuring the set** | mode | `project-configuring` | ✓ | ✓ | ✓ | — |
+| 2 | **Configuring the set** | mode | `project-configuring` | ✓ | ✓ ×2 | ✓ | — |
 | 2 | **Detached row — edit · reset · promote** | mode of a row | `project-detached` | — | ✓ | ✓ | — |
 | 3 | **Run** — from a Project | mode | `run` | — | ✓ | ✓ | ✓ |
 | 3 | **Run — one item**, from a Library row | mode | `run-item` | — | ✓ | ✓ | ✓ |
@@ -186,9 +185,12 @@ scopes two global entries — they are still **one screen with two addresses**, 
 | 4 | **Shared project** | place | `shared-project` | — | ✓ | ✓ | — |
 | 4 | **Shared item** | place | `shared-item` | — | ✓ | ✓ | — |
 
-**Fourteen screens and 51 pages** — every state marked `✓` plus a `default` for each. *The course's
-advice is 20–30 pages to learn the method*; the main flow is 16 of these, and **which of the rest get
-drawn is decided at step 8, not by this table.**
+**Fourteen screens and 55 pages, all drawn** — every state marked `✓` plus a `default` for each, and
+**`✓ ×2` where one state has two causes that ask for different ways out**: *filtered to nothing*
+(**Clear filters**) and *the server didn't answer* (**Try again**, plus a second way that does not
+depend on it). The files are `<name>-error-filtered.html` and `<name>-error-server.html`
+(`_conventions.md` §4). *The course's advice is 20–30 pages to learn the method; the owner asked for
+the whole map at base depth.*
 
 ### What each one is for, and why its states are the ones marked
 
@@ -201,8 +203,9 @@ empty — a form is never empty of anything.
 once and have the fix reach every copy*. **Flow:** RJ-3, the single-item export, and *Anything in My
 library yet?* in the main job. **Empty ✓** — **first run, guaranteed by §11**; since Q29 its way out is
 the `Public library` entry, not a switch · **error** — the corpus fails to load · **loading** — the list
-and its usage facts, which are computed · **no success** — a list is not an outcome. *Filtered to zero
-is content, and carries the row that creates.*
+and its usage facts, which are computed · **no success** — a list is not an outcome. **Filtered to zero
+is an error** (the Projects rule), and its second way out is **the row that creates** — *Add
+"terraform" as a new item*.
 
 **Library · Public library** — **H-J4** `[?]` · **RJ-3** through *copy it into mine*. **Flow:** the
 single-item export's *Is it on the shelf?*, the panel's scope switch. **No empty** — the shelf ships
@@ -258,3 +261,26 @@ what it is, **whose it is** (origin, pinned `ref`, **licence**), what it needs, 
 **Two things on the map that are not in this table, on purpose.** **The library panel** is a region of
 *Configuring the set* and is drawn inside it. **Sharing and revoking** are a state of the thing shared,
 disclosed where it changes (§5) — they appear on the Project and the Item, not as screens.
+
+### Decisions taken while drawing the rest of the map — 2026-09-26
+
+- **Configuring, loading — the add's round trip.** The row you added appears **at once, marked
+  *Adding — finding what it requires…*** — it is what you did, not a guess. **What it pulls in is not
+  shown until the server returns**: auto-added rows that appear and then vanish would be EJ-1, so the
+  optimistic option is not taken. This was *this lesson's decision* (§3 above).
+- **Configuring, errors.** *Filtered to zero* in the panel keeps **the row that creates**; *an add that
+  did not persist* is told on the row that failed — *Not added*, the panel unticked, **Add again**.
+- **Item, error (Q26).** The edit did not land; **the changes stay in the form**, and the three projects
+  it would have un-checked **show no verdict** until a save goes through.
+- **Import, loading (Q27).** Said **while** it runs, not only when it fails: *if this stops, your library
+  stays exactly as it was.*
+- **Run.** The bar replaces the global navigation — Run takes the surface, and its way out is back to
+  where it was entered. A clean stage reads *Checked — nothing found* with its own glyph; `Skipped` has
+  a dashed one; nothing is coloured. **The unclean export is confirmed inside the Export stage**, naming
+  the cost: *Export with 1 problem*. **Errors say whose failure it is** — *this is our failure, not the
+  set's* — because on a shared set the receiver cannot tell otherwise.
+- **Shared surfaces (Q20).** No global navigation and no sign-in; the only door is *Copy into my
+  library*. The owner's last check is a dated fact, never a verdict for today. **The dead link says what
+  the person still has** — *if you already downloaded an archive, that copy is still yours*.
+- **The acme-billing-api project gained a declared conflict** (`eslint-autofix` ↔ `code-style`) so the
+  main flow has a real Problem; its row on Projects reads *1 problem · 2 notes · 1 skipped*.

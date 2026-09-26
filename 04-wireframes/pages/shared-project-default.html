@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shared project · default — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <!-- The receiver's header: no global navigation, no sign-in — the viewer is anonymous (§5, Q25). -->
+    <header class="shared-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <p class="owner"><span class="image avatar" aria-hidden="true"></span><span>Shared by Maya Chen</span></p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">agent-dotfiles</h1>
+            <p class="meta head-meta"><span>9 items</span><span>Changed 1 day ago</span><span>Maya last checked it 5 days ago, for Claude Code — the set has changed since</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="sign-in-default.html">Copy into my library</a>
+            <a class="button button-primary" href="run-shared-loading.html"><span class="icon" aria-hidden="true"></span>Check this set</a>
+          </div>
+        </div>
+      </section>
+
+      <p class="description" style="max-width: 800px">My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers.</p>
+
+      <!-- What the owner's last check found is shown as a fact with its date, not as a verdict for today (§6).
+           The only verdict worth anything to the receiver is the one they take now — Check this set. -->
+      <div class="with-aside">
+        <section aria-label="What the set contains">
+          <ol class="row-list">
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>commit-conventions<span class="tag">prompt</span></h3>
+                <p class="description">Conventional commits, imperative mood, and a body that says why.</p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta">Maya’s own</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>pr-reviewer<span class="tag">agent</span></h3>
+                <p class="description">Reads a pull request diff and leaves review comments.</p>
+                <p class="state-line">Requires <code>github-mcp</code></p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta">Maya’s own</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>code-style<span class="tag">skill</span></h3>
+                <p class="description">How TypeScript is written: naming, imports, error handling.</p>
+                <p class="state-line">Defers to <em>the client’s ESLint config</em> — where they disagree, that wins</p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta">Maya’s own</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>github-mcp<span class="tag">mcp</span></h3>
+                <p class="description">Issues, pull requests and code search on GitHub.</p>
+                <p class="state-line">Needs <code>GITHUB_TOKEN</code> · auto-added — required by <code>pr-reviewer</code></p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta"><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>filesystem<span class="tag">mcp</span></h3>
+                <p class="description">Read and write files inside the directories you allow.</p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta"><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code> · MIT</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>memory<span class="tag">mcp</span></h3>
+                <p class="description">A knowledge graph the agent writes to and reads back.</p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta"><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code> · MIT</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>session-notes<span class="tag">skill</span></h3>
+                <p class="description">Keeps a running log of decisions in <code>NOTES.md</code> at the end of each session.</p>
+                <p class="state-line">Requires <code>memory</code></p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta">Maya’s own</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>shell-safety<span class="tag">prompt</span></h3>
+                <p class="description">Never run destructive commands without saying what they delete first.</p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta">Maya’s own</dd></dl>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" style="grid-template-columns: 1fr 360px">
+              <div>
+                <h3>dotfiles-sync<span class="tag">script</span></h3>
+                <p class="description">Links the agent config into <code>~/.claude</code> on a new machine.</p>
+              </div>
+              <dl class="verdict"><dt>Origin</dt><dd class="meta">Maya’s own</dd></dl>
+            </article>
+          </li>
+          </ol>
+        </section>
+        <aside class="aside-box" aria-labelledby="needs-title">
+          <h2 id="needs-title">What your machine will need</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 repos cloned at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live: it shows the set as Maya has it now. An archive you take is a snapshot of this moment.</p>
+          <a class="button button-primary" href="run-shared-loading.html">Check it, then take the archive</a>
+        </aside>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

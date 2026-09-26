@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public library · default — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html" aria-current="page">Public library</a></li>
+          <li><a href="projects-default.html">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">Public library</h1>
+            <p class="meta head-meta">Read-only. Every item is pinned to the version we checked — not the latest one.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Find">
+        <form class="find" role="search">
+          <label class="search">
+            <span class="icon" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Search the shelf by name, kind or source — filesystem, playwright, anthropics">
+          </label>
+          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters</button>
+        </form>
+      </section>
+
+      <!-- The shelf: read-only (§5). Copy into My library, or export one item on its own (Q15).
+           Adding to a project happens from the library panel, not from here (Q14).
+           Designed only as far as the example project needs (Q19) — no sort, no ranking, no picks. -->
+      <section aria-label="Items">
+        <ol class="row-list">
+          <li>
+            <article class="row">
+              <div>
+                <h2>filesystem<span class="tag">mcp</span></h2>
+                <p class="description">Read and write files inside the directories you allow, and nowhere else.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2>memory<span class="tag">mcp</span></h2>
+                <p class="description">A knowledge graph the agent can write to and read back between sessions.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2>fetch<span class="tag">mcp</span></h2>
+                <p class="description">Fetches a URL and hands the agent the page as Markdown.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2>github-mcp-server<span class="tag">mcp</span></h2>
+                <p class="description">GitHub’s own MCP server: issues, pull requests, Actions and code search.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>github/github-mcp-server</code> @ <code>v0.9.0</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <span class="meta">In My library as <code>github-mcp</code></span>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2>playwright-mcp<span class="tag">mcp</span></h2>
+                <p class="description">Drives a real browser through the accessibility tree rather than screenshots.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>microsoft/playwright-mcp</code> @ <code>v0.0.40</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">Apache-2.0</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2>context7<span class="tag">mcp</span></h2>
+                <p class="description">Pulls current, version-specific library documentation into the prompt.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>upstash/context7</code> @ <code>v1.0.20</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">MIT</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2>mcp-builder<span class="tag">skill</span></h2>
+                <p class="description">A guide for building an MCP server: tool design, error messages, evaluation.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>anthropics/skills</code> @ <code>c74d647</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">Apache-2.0</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row">
+              <div>
+                <h2>webapp-testing<span class="tag">skill</span></h2>
+                <p class="description">Tests a local web app with Playwright: start the server, drive the page, read the logs.</p>
+              </div>
+              <dl class="verdict">
+                <dt>Origin</dt>
+                <dd><code>anthropics/skills</code> @ <code>c74d647</code></dd>
+                <dt>Licence</dt>
+                <dd class="meta">Apache-2.0</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="run-item-default.html">Export</a>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

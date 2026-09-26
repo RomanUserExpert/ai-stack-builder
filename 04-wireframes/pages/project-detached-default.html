@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detached row · default — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">acme-billing-api<span class="tag">Configuring</span></h1>
+            <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="project-default.html">Done</a>
+            <a class="button button-primary" href="run-loading.html"><span class="icon" aria-hidden="true"></span>Check</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- A detached row, open for editing in the configuring mode (Q21). Edits write to this project only;
+           the library item and every other project are untouched (§5). -->
+      <section aria-labelledby="row-title" class="aside-box" style="padding: 24px; gap: 16px">
+        <div class="page-head">
+          <div>
+            <h2 id="row-title" style="font-size: 20px; line-height: 28px">pr-reviewer <span class="tag">agent</span> <span class="tag">Detached</span></h2>
+            <p class="meta head-meta"><span>Modified from the library version · changes stay in <strong>acme-billing-api</strong>. The library item and the other project using it don’t get them.</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="project-configuring-default.html">Close</a>
+          </div>
+        </div>
+
+        <form class="form">
+          <div class="form-section">
+            <h3>2 fields differ from the library version</h3>
+            <div class="diff">
+              <div class="field"><span>Lands at — here</span><input value=".claude/agents/acme-pr-reviewer.md"></div>
+              <div><h4>Library version</h4><p><code>.claude/agents/pr-reviewer.md</code></p><div class="row-actions" style="justify-content: flex-start; margin-top: 8px"><button type="button">Reset this field</button></div></div>
+            </div>
+            <div class="diff">
+              <label class="field"><span>Content — here</span><textarea>---
+name: pr-reviewer
+description: Review Acme pull requests against their billing rules.
+---
+Read the diff. Flag any change to invoice rounding, currency handling or
+the retry policy of the Stripe webhook consumer — Acme treats those as
+release-blocking. Otherwise comment the way Maya would: short, specific,
+one suggestion per comment.</textarea></label>
+              <div><h4>Library version</h4><pre class="file">---
+name: pr-reviewer
+description: Review a pull request the way I would.
+---
+Read the diff. Comment the way Maya would: short,
+specific, one suggestion per comment.</pre><div class="row-actions" style="justify-content: flex-start; margin-top: 8px"><button type="button">Reset this field</button></div></div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button">Reset whole item</button>
+            <button type="button">Promote to My library as a new item…</button>
+            <a class="button push" href="project-configuring-default.html">Cancel</a>
+            <button type="submit" class="button-primary">Save here</button>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

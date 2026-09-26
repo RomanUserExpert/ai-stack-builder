@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shared item · default — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <!-- The receiver's header: no global navigation, no sign-in — the viewer is anonymous (§5, Q25). -->
+    <header class="shared-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <p class="owner"><span class="image avatar" aria-hidden="true"></span><span>Shared by Maya Chen</span></p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">code-style <span class="tag">skill</span></h1>
+            <p class="meta head-meta"><span>Written by Maya Chen — her own, not from an external source</span><span>Changed 2 days ago</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="sign-in-default.html">Copy into my library</a>
+            <button type="button" class="button-primary"><span class="icon" aria-hidden="true"></span>Download as an archive</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="with-aside">
+        <section aria-labelledby="content-title" class="form">
+          <h2 id="content-title" style="font-size: 14px; line-height: 20px">Content · lands at <code>.claude/skills/code-style/SKILL.md</code></h2>
+          <pre class="file">---
+name: code-style
+description: How TypeScript is written in my projects.
+---
+- Named exports only. No default exports.
+- Imports: node built-ins, then packages, then local — one blank line between groups.
+- Errors: throw typed errors from lib code; catch only at the edge.
+- Names say what a thing is, not what type it is: `invoices`, not `invoiceArray`.</pre>
+        </section>
+        <aside class="aside-box" aria-labelledby="needs-title">
+          <h2 id="needs-title">What it needs, and what it answers to</h2>
+          <ul class="plain-list">
+            <li>Requires nothing else</li>
+            <li>No env keys</li>
+            <li><strong>Defers to the client’s ESLint config</strong> — where they disagree, that wins</li>
+          </ul>
+          <p class="meta">This page is live: it shows the item as Maya has it now.</p>
+        </aside>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

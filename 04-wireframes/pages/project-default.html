@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project · default — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">acme-billing-api</h1>
+            <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="project-configuring-default.html">Configure</a>
+            <button type="button">Share</button>
+            <button type="button">Duplicate</button>
+            <a class="button button-primary" href="run-loading.html"><span class="icon" aria-hidden="true"></span>Check</a>
+          </div>
+        </div>
+      </section>
+
+      <p class="description" style="max-width: 800px">Client repo for Acme’s billing service. Code style, migration and review agents, the Postgres and GitHub MCP servers.</p>
+
+      <!-- Viewing: the set as it stands. Every row carries its own state (§7); a finding annotates the row
+           that owns it. Nothing here changes the set — that is Configure (Q14 amended, Q21). -->
+      <section aria-label="The set">
+        <ol class="row-list">
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>code-style<span class="tag">skill</span></h3>
+                <p class="state-line">Defers to <em>the client’s ESLint config</em></p>
+                <div class="callout" style="margin-top: 8px">
+                  <span class="severity">Note at last check</span>
+                  <span>Where <code>code-style</code> and the client’s ESLint config disagree, the ESLint config wins.</span>
+                </div>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>eslint-autofix<span class="tag">script</span></h3>
+                <p class="state-line"><strong>Conflicts with <code>code-style</code></strong></p>
+                <div class="callout" style="margin-top: 8px">
+                  <span class="severity">Problem at last check</span>
+                  <span>Declared conflict: <code>eslint-autofix</code> rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both.</span>
+                </div>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>migration-reviewer<span class="tag">agent</span></h3>
+                <p class="state-line">Requires <code>db-migrate</code>, <code>postgres-mcp</code></p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>db-migrate<span class="tag">script</span></h3>
+                <p class="state-line">Used in 3 projects</p>
+              </div>
+              <p class="meta">Auto-added — required by <code>migration-reviewer</code></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>postgres-mcp<span class="tag">mcp</span></h3>
+                <p class="state-line"><strong>Needs <code>DATABASE_URL</code></strong> — not set anywhere in this project</p>
+                <div class="callout" style="margin-top: 8px">
+                  <span class="severity">Note at last check</span>
+                  <span><code>DATABASE_URL</code> goes into <code>.env.example</code> as a name. The receiving machine has to supply the value.</span>
+                </div>
+              </div>
+              <p class="meta">Auto-added — required by <code>migration-reviewer</code></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>github-mcp<span class="tag">mcp</span></h3>
+                <p class="state-line">Needs <code>GITHUB_TOKEN</code> · pinned at <code>v0.9.0</code></p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>pr-reviewer<span class="tag">agent</span></h3>
+                <p class="state-line"><strong>Detached</strong> — <em>content</em> and <em>lands at</em> differ from the library version</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>commit-conventions<span class="tag">prompt</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>seed-data<span class="tag">script</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Auto-added — required by <code>db-migrate</code></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>test-runner<span class="tag">agent</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>changelog-writer<span class="tag">skill</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>api-contracts<span class="tag">prompt</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>openapi-lint<span class="tag">script</span></h3>
+                <p class="state-line">Linked to the library</p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row set-row">
+              <div>
+                <h3>sentry-mcp<span class="tag">mcp</span></h3>
+                <p class="state-line">Needs <code>SENTRY_AUTH_TOKEN</code> · pinned at <code>0.17.1</code></p>
+              </div>
+              <p class="meta">Added by you</p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

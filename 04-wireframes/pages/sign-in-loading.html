@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · loading — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="shared-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+    </header>
+
+    <main class="app-main">
+
+      <!-- Sign in (Q25): the minimum the online decision forces. No profile, no settings, no session list.
+           After it, you are handed on to where you were — no success screen. -->
+      <section class="door" aria-labelledby="door-title">
+        <div>
+          <h1 id="door-title">Sign in</h1>
+          <p class="meta head-meta">Your library and projects are kept on our server, so they follow you between machines.</p>
+        </div>
+        <form class="form" aria-busy="true">
+          <label class="field"><span>Email</span>
+            <input type="email" name="email" value="maya@chen.dev">
+          </label>
+          <button type="submit" class="button-primary"><span class="glyph glyph-running" aria-hidden="true"></span>Signing in…</button>
+          <p class="meta" role="status">Signing in as maya@chen.dev. You will return to <strong>Projects</strong>.</p>
+        </form>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
