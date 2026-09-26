@@ -689,3 +689,10 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .library-sidebar .panel-head { position: sticky; top: 0; background: var(--paper); z-index: 1; padding: 24px 24px 16px; }
 .library-sidebar .panel-body { padding: 0 24px; }
 .library-sidebar h2 { font-size: 16px; line-height: 24px; }
+
+/* Auto-added rows nest under the item that pulled them in: a row with sub-rows, a guide line on the left */
+.sub-rows { margin-left: 24px; padding-left: 16px; border-left: 1px solid var(--line); }
+.sub-rows > li > .set-item { border-bottom: 1px solid var(--line-2); }
+.sub-rows > li:last-child > .set-item { border-bottom: 0; }
+.row-list > li > .set-item:has(+ .sub-rows) { border-bottom: 0; }
+.row-list > li:has(> .sub-rows) { border-bottom: 1px solid var(--line-2); }

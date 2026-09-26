@@ -56,6 +56,8 @@
       <div class="with-drawer">
         <section aria-label="The set">
           <ol class="row-list">
+            <!-- Auto-added items sit under the item that pulled them in (owner, 2026-09-26): a row with
+                 sub-rows. They have no remove of their own — removing the parent takes them with it. -->
             <li>
               <article class="row row-tight set-item">
                 <div>
@@ -68,7 +70,7 @@
               </article>
             </li>
             <li>
-              <article class="row row-tight set-item is-selected" aria-current="true">
+              <article class="row row-tight set-item is-selected">
                 <div>
                   <h3><a href="project-item.html">eslint-autofix</a><span class="tag">script</span><span class="tag tag-state">Conflict</span></h3>
                   <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
@@ -83,44 +85,48 @@
                 <div>
                   <h3><a href="project-item.html">migration-reviewer</a><span class="tag">agent</span></h3>
                   <p class="description">Reads a migration before it runs and flags long locks and missing down steps.</p>
-                  <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code></span></p>
+                  <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code> · brings 3 items with it</span></p>
                 </div>
                 <p class="marks"></p>
                 <div class="row-actions"></div>
               </article>
-            </li>
-            <li>
-              <article class="row row-tight set-item">
-                <div>
-                  <h3><a href="project-item.html">db-migrate</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
-                  <p class="description">Generates a Postgres migration from a schema diff and runs it, dry run first.</p>
-                  <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · required by <code>migration-reviewer</code></span></p>
-                </div>
-                <p class="marks"></p>
-                <div class="row-actions"></div>
-              </article>
-            </li>
-            <li>
-              <article class="row row-tight set-item">
-                <div>
-                  <h3><a href="project-item.html">postgres-mcp</a><span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
-                  <p class="description">Read-only Postgres access: schema, explain plans, sample rows.</p>
-                  <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
-                </div>
-                <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
-                <div class="row-actions"></div>
-              </article>
-            </li>
-            <li>
-              <article class="row row-tight set-item">
-                <div>
-                  <h3><a href="project-item.html">seed-data</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
-                  <p class="description">Loads a small, realistic dataset into a fresh database.</p>
-                  <p class="facts meta"><span><code>scripts/seed-data.sh</code> · required by <code>db-migrate</code></span></p>
-                </div>
-                <p class="marks"></p>
-                <div class="row-actions"></div>
-              </article>
+              <ol class="sub-rows" aria-label="Pulled in by migration-reviewer">
+                <li>
+                  <article class="row row-tight set-item">
+                    <div>
+                      <h3><a href="project-item.html">db-migrate</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                      <p class="description">Generates a Postgres migration from a schema diff and runs it, dry run first.</p>
+                      <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · brings 1 item with it</span></p>
+                    </div>
+                    <p class="marks"></p>
+                    <div class="row-actions"></div>
+                  </article>
+                  <ol class="sub-rows" aria-label="Pulled in by db-migrate">
+                    <li>
+                      <article class="row row-tight set-item">
+                        <div>
+                          <h3><a href="project-item.html">seed-data</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                          <p class="description">Loads a small, realistic dataset into a fresh database.</p>
+                          <p class="facts meta"><span><code>scripts/seed-data.sh</code></span></p>
+                        </div>
+                        <p class="marks"></p>
+                        <div class="row-actions"></div>
+                      </article>
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <article class="row row-tight set-item">
+                    <div>
+                      <h3><a href="project-item.html">postgres-mcp</a><span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
+                      <p class="description">Read-only Postgres access: schema, explain plans, sample rows.</p>
+                      <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
+                    </div>
+                    <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
+                    <div class="row-actions"></div>
+                  </article>
+                </li>
+              </ol>
             </li>
             <li>
               <article class="row row-tight set-item">
