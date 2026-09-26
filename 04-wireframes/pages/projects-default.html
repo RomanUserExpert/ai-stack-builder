@@ -10,9 +10,8 @@
   <link rel="stylesheet" href="wireframe.css">
   <style>
     /* Page-specific layout only. Shared rules live in wireframe.css. */
-    .page-head { display: flex; align-items: flex-end; gap: 24px; }
+    .page-head { display: flex; align-items: center; gap: 24px; }
     .page-head h1 { font-size: 24px; line-height: 32px; font-weight: 600; }
-    .page-head p { margin-top: 4px; }
     .page-head .button { margin-left: auto; }
 
     .project-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
@@ -70,10 +69,7 @@
 
       <section aria-labelledby="projects-title">
         <div class="page-head">
-          <div>
-            <h1 id="projects-title">Projects</h1>
-            <p class="meta">5 projects · each one a set of items that exports as an archive</p>
-          </div>
+          <h1 id="projects-title">Projects</h1>
           <a class="button button-primary" href="project-empty.html">
             <span class="icon" aria-hidden="true"></span>New project
           </a>
