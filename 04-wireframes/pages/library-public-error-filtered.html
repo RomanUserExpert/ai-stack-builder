@@ -47,15 +47,21 @@
             <span class="icon" aria-hidden="true"></span>
             <input type="search" name="q" value="linear" placeholder="Search the shelf by name, kind or source — filesystem, playwright, anthropics">
           </label>
-          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters · 1</button>
+          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters</button>
         </form>
       </section>
+
+      <!-- Kind tabs, the same as the library panel in Configuring, with counts (owner, 2026-09-26).
+           All first; then one tab per kind, in §5's order, a zero shown rather than hidden so the order holds.
+           Counts follow the search: here every tab reads 0, so no other tab is a way out. -->
+      <nav class="tabs tabs-page" aria-label="Kind"><a href="library-public-default.html">All <span class="count">0</span></a><a href="#" aria-current="page">skill <span class="count">0</span></a><a href="#">agent <span class="count">0</span></a><a href="#">prompt <span class="count">0</span></a><a href="#">mcp <span class="count">0</span></a><a href="#">script <span class="count">0</span></a><a href="#">app <span class="count">0</span></a></nav>
+
       <section class="state-block" aria-label="No items match">
         <span class="icon state-icon" aria-hidden="true"></span>
         <h2>No items match</h2>
-        <p>Nothing on the shelf matches “linear” among <strong>skills</strong>. The shelf holds 8 items — the search and the filter hide all of them.</p>
+        <p>Nothing on the shelf matches “linear” among <strong>skills</strong>. The shelf holds 8 items — the search hides all of them in this tab.</p>
         <div class="state-actions">
-          <a class="button button-primary" href="library-public-default.html">Clear filters</a>
+          <a class="button button-primary" href="library-public-default.html">Clear search · show All</a>
           <a class="button" href="library-my-default.html">Search My library instead</a>
         </div>
       </section>

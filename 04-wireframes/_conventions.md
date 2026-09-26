@@ -124,6 +124,7 @@ the pieces it established, and **all of them live in `pages/wireframe.css`** —
 | **Page head** | Projects | The title, and the page's actions on the right. A line of facts under it only when they are product facts (*14 items · checked 2 days ago*), never a caption |
 | **Find** | Projects | Search on the left, one `Filters` button in the far right corner. Everything else is behind it |
 | **Card grid** | Projects | **Projects are cards, items are rows** (owner, 2026-09-26) — a project is a set you come back to, an item is a line in a list, and the two must never be mistaken for each other. Three columns: name and description · facts · the last check under a rule · actions at the foot |
+| **Kind tabs** | My library, Public library, the library panel | `All` first, then one tab per kind in §5's order — `skill · agent · prompt · mcp · script · app`. **On a page they carry counts** (owner, 2026-09-26), **and the counts follow the search**, so a tab with matches is itself a way out. A zero is shown, never hidden, so the order holds. Kind is a tab, not a filter — `Filters` holds the rest |
 | **Row list** | My library, Project | `ol` of `article`s: what it is · what it says (a `dl`) · what you can do. Kinds as a small outlined tag |
 | **State block** | Projects empty / error | Icon or image, one heading, one sentence, the ways out. Server errors add the code and time in grey |
 | **Skeleton** | Projects loading | Grey bars in the real rows' columns; head and controls real |

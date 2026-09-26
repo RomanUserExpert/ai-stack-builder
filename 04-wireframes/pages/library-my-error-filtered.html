@@ -49,18 +49,23 @@
             <span class="icon" aria-hidden="true"></span>
             <input type="search" name="q" value="terraform" placeholder="Search your items by name, description or tag — migrate, GITHUB_TOKEN, review">
           </label>
-          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters · 1</button>
+          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters</button>
         </form>
       </section>
 
-      <!-- Filtered to nothing: the items exist, the search and one filter (kind: agent) hide them all.
+      <!-- Kind tabs, the same as the library panel in Configuring, with counts (owner, 2026-09-26).
+           All first; then one tab per kind, in §5's order, a zero shown rather than hidden so the order holds.
+           Counts follow the search: here every tab reads 0, so no other tab is a way out. -->
+      <nav class="tabs tabs-page" aria-label="Kind"><a href="library-my-default.html">All <span class="count">0</span></a><a href="#">skill <span class="count">0</span></a><a href="#" aria-current="page">agent <span class="count">0</span></a><a href="#">prompt <span class="count">0</span></a><a href="#">mcp <span class="count">0</span></a><a href="#">script <span class="count">0</span></a><a href="#">app <span class="count">0</span></a></nav>
+
+      <!-- Filtered to nothing: the items exist, the search and the agent tab hide them all.
            Two ways out: clear filters, or the row that creates — the first item and the thousandth arrive the same way (§8). -->
       <section class="state-block" aria-label="No items match">
         <span class="icon state-icon" aria-hidden="true"></span>
         <h2>No items match</h2>
-        <p>Nothing matches “terraform” among your <strong>agents</strong>. You have 10 items — the search and the filter hide all of them.</p>
+        <p>Nothing matches “terraform” among your <strong>agents</strong>. You have 10 items — the search hides all of them in this tab.</p>
         <div class="state-actions">
-          <a class="button button-primary" href="library-my-default.html">Clear filters</a>
+          <a class="button button-primary" href="library-my-default.html">Clear search · show All</a>
           <a class="button" href="item-empty.html"><span class="icon" aria-hidden="true"></span>Add “terraform” as a new item</a>
         </div>
       </section>

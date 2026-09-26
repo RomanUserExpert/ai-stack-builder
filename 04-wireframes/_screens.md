@@ -219,6 +219,8 @@ and its usage facts, which are computed · **no success** — a list is not an o
 is an error** (the Projects rule), and its second way out is **the row that creates** — *Add
 "terraform" as a new item*.
 
+*Kind tabs with counts, the panel's tabs on a page* (owner, 2026-09-26): **All 10 · skill 1 · agent 2 · prompt 2 · mcp 2 · script 2 · app 1**. The counts follow the search. Same on the Public library, which is the same screen (Q29).
+
 **Library · Public library** — **H-J4** `[?]` · **RJ-3** through *copy it into mine*. **Flow:** the
 single-item export's *Is it on the shelf?*, the panel's scope switch. **No empty** — the shelf ships
 with the product (§11) · **error**, **loading** as above · **no success** — *copy into My library*
