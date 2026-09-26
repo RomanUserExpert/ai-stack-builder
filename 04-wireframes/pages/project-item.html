@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project · item open — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">acme-billing-api</h1>
+            <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="project-configuring-default.html">Configure</a>
+            <button type="button">Share</button>
+            <button type="button">Duplicate</button>
+            <a class="button button-primary" href="run-loading.html"><span class="icon" aria-hidden="true"></span>Check</a>
+          </div>
+        </div>
+      </section>
+
+      <p class="description" style="max-width: 800px">Client repo for Acme’s billing service. Code style, migration and review agents, the Postgres and GitHub MCP servers.</p>
+
+      <!-- Viewing: a short list in the Library's row style (owner, 2026-09-26). State as badges — Auto-added,
+           Detached, Conflict; findings from the last check as a mark, a glyph and a word — Problem, Note.
+           Clicking a row opens the item beside the list, not over it: project-item.html. -->
+      <div class="with-drawer">
+        <section aria-label="The set">
+          <ol class="row-list">
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">code-style</a><span class="tag">skill</span></h3>
+                  <p class="description">How I want TypeScript written: naming, imports, error handling.</p>
+                  <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
+                </div>
+                <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item is-selected" aria-current="true">
+                <div>
+                  <h3><a href="project-item.html">eslint-autofix</a><span class="tag">script</span><span class="tag tag-state">Conflict</span></h3>
+                  <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+                  <p class="facts meta"><span><code>scripts/eslint-autofix.sh</code> · conflicts with <code>code-style</code></span></p>
+                </div>
+                <p class="marks"><span class="mark"><span class="glyph glyph-problem" aria-hidden="true"></span>Problem</span></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">migration-reviewer</a><span class="tag">agent</span></h3>
+                  <p class="description">Reads a migration before it runs and flags long locks and missing down steps.</p>
+                  <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">db-migrate</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                  <p class="description">Generates a Postgres migration from a schema diff and runs it, dry run first.</p>
+                  <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · required by <code>migration-reviewer</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">postgres-mcp</a><span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
+                  <p class="description">Read-only Postgres access: schema, explain plans, sample rows.</p>
+                  <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
+                </div>
+                <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">seed-data</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                  <p class="description">Loads a small, realistic dataset into a fresh database.</p>
+                  <p class="facts meta"><span><code>scripts/seed-data.sh</code> · required by <code>db-migrate</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">github-mcp</a><span class="tag">mcp</span></h3>
+                  <p class="description">Issues, pull requests and code search on GitHub.</p>
+                  <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT · needs <code>GITHUB_TOKEN</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
+                  <p class="description">Reviews Acme pull requests against their billing rules.</p>
+                  <p class="facts meta"><span>differs from the library in <em>content</em> and <em>lands at</em></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">commit-conventions</a><span class="tag">prompt</span></h3>
+                  <p class="description">Conventional commits, imperative mood, a body that says why.</p>
+                  <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">test-runner</a><span class="tag">agent</span></h3>
+                  <p class="description">Runs the affected tests after a change and reports only the failures.</p>
+                  <p class="facts meta"><span><code>.claude/agents/test-runner.md</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">changelog-writer</a><span class="tag">skill</span></h3>
+                  <p class="description">Writes the changelog entry from merged pull requests since the last tag.</p>
+                  <p class="facts meta"><span><code>.claude/skills/changelog-writer/SKILL.md</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">api-contracts</a><span class="tag">prompt</span></h3>
+                  <p class="description">The billing API’s rules: idempotency keys, money as integer cents.</p>
+                  <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">openapi-lint</a><span class="tag">script</span></h3>
+                  <p class="description">Lints the OpenAPI spec and fails on breaking changes.</p>
+                  <p class="facts meta"><span><code>scripts/openapi-lint.sh</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+            <li>
+              <article class="row row-tight set-item">
+                <div>
+                  <h3><a href="project-item.html">sentry-mcp</a><span class="tag">mcp</span></h3>
+                  <p class="description">Reads Sentry issues and stack traces for the service.</p>
+                  <p class="facts meta"><span><code>getsentry/sentry-mcp</code> @ <code>0.17.1</code> · Apache-2.0 · needs <code>SENTRY_AUTH_TOKEN</code></span></p>
+                </div>
+                <p class="marks"></p>
+                <div class="row-actions"></div>
+              </article>
+            </li>
+          </ol>
+        </section>
+        <!-- The item beside the list (owner, 2026-09-26): a column, not an overlay — the set stays in view and
+             another row can be clicked straight away. Read-only here: the set is changed in Configure,
+             the item itself in My library. -->
+        <aside class="drawer" aria-labelledby="drawer-title">
+          <div class="drawer-head">
+            <h2 id="drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state">Conflict</span></h2>
+            <a class="button close" href="project-default.html" aria-label="Close"><span class="icon" aria-hidden="true"></span></a>
+          </div>
+          <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+
+          <div class="callout">
+            <span class="severity"><span class="glyph glyph-problem" aria-hidden="true"></span>Problem at last check</span>
+            <span>Declared conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both.</span>
+          </div>
+
+          <section class="drawer-section" aria-labelledby="d-in">
+            <h3 id="d-in">In this project</h3>
+            <p>Added by you · linked to the library version</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="d-contents">
+            <h3 id="d-contents">Contents</h3>
+            <pre class="file">#!/usr/bin/env bash
+# Fix what ESLint can fix, on staged files only.
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx)$')
+[ -z "$files" ] &amp;&amp; exit 0
+npx eslint --fix $files &amp;&amp; git add $files</pre>
+            <p class="meta">No files attached · no repo</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="d-deps">
+            <h3 id="d-deps">Dependencies</h3>
+            <dl class="drawer-facts">
+              <dt>Requires</dt><dd>Nothing</dd>
+              <dt>Conflicts with</dt><dd><code>code-style</code></dd>
+              <dt>Env keys</dt><dd>None</dd>
+              <dt>Lands at</dt><dd><code>scripts/eslint-autofix.sh</code></dd>
+            </dl>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="d-use">
+            <h3 id="d-use">Use</h3>
+            <p>Used in 2 projects · last exported 2 days ago</p>
+          </section>
+
+          <div class="drawer-actions">
+            <a class="button" href="item-default.html">Open in My library</a>
+            <a class="button" href="project-configuring-default.html">Remove in Configure</a>
+          </div>
+        </aside>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

@@ -100,6 +100,10 @@ surface. A mode can be wireframed; it just has no address.
   *by X*, conflicting, missing an env key, **detached with the differing fields named** · a finding
   annotating the row that owns it · the verdict with its date, or the stale form.
 
+- **A short list, and the item beside it** (owner, 2026-09-26). Rows in the Library's style with state
+  badges and finding marks; **a click opens the item in a side panel next to the list** —
+  `project-item.html`, drawn on `eslint-autofix`, the row with the Problem. Configuring uses the same rows.
+
 ### 3 · Configuring the set — a mode
 
 - **Name in `sitemap.md`:** `Configuring the set — a mode`, with the `Library panel` as its region

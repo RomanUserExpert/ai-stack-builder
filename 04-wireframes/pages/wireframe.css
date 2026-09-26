@@ -656,3 +656,28 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .file-list li { display: flex; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line-2); }
 .file-list .meta { margin-left: auto; }
 .attach { align-self: flex-start; }
+
+/* The set as a short list (owner, 2026-09-26): Library rows, state badges, findings as marks */
+.set-item { grid-template-columns: minmax(0, 1fr) 160px auto; }
+.set-item h3 a { text-decoration: none; }
+.set-item.is-selected { background: var(--fill); box-shadow: -12px 0 0 var(--fill), 12px 0 0 var(--fill); }
+.tag-state { border-style: dashed; }
+.marks { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; line-height: 16px; }
+.mark { display: inline-flex; align-items: center; }
+.split .set-item { grid-template-columns: minmax(0, 1fr) 96px auto; }
+
+/* The item beside the list — a column, not an overlay */
+.with-drawer { display: grid; grid-template-columns: minmax(0, 1fr) 480px; gap: 32px; align-items: start; }
+.with-drawer .set-item { grid-template-columns: minmax(0, 1fr) 96px; }
+.with-drawer .set-item .row-actions { display: none; }
+.drawer { position: sticky; top: 16px; border: 1px solid var(--ink-2); padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.drawer-head { display: flex; gap: 12px; align-items: flex-start; }
+.drawer-head h2 { font-size: 18px; line-height: 24px; font-weight: 600; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.drawer-head .close { margin-left: auto; }
+.drawer .description { color: var(--ink-2); }
+.drawer-section { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line-2); }
+.drawer-section h3 { font-size: 11px; line-height: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); }
+.drawer-facts { display: grid; grid-template-columns: 120px 1fr; gap: 8px 12px; }
+.drawer-facts dt { color: var(--ink-2); }
+.drawer-actions { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--line); }
+.severity .glyph { margin-right: 6px; }
