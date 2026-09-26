@@ -116,8 +116,12 @@ started deciding things it was not asked to.
   viewer**, so it cannot drift between pages. **It is the wireframe's navigation, not the product's.**
   The product has three global entries, `My library`, `Public library` and `Projects` (Q29), drawn
   inside the canvas; the tree must never read as another menu.
-- **The stage**: the screen's name, its states as a switcher, where it sits in the flow, and **Open as a
-  page** — then **the frame**.
+- **The stage**: the screen's name and its state as the title, and **Open as a page** — then **the
+  frame**. **States are chosen in the tree only**; a second switcher above the frame would say the same
+  thing twice. Where the screen sits in the flow is the title's tooltip.
+- **The tree reads like a file explorer**: sections and screens are folders that open and close, states
+  are files, guide lines with rounded elbows show the nesting, and the folder holding the current page
+  opens itself.
 
 **The frame is 16:9 and shows the canvas at 90%**, scaled down further only when the window is too
 small to hold it, and **it is centred, with its chrome, in the space beside the tree.** **The viewer page never scrolls** — not sideways, not down. **Only the wireframe

@@ -43,59 +43,82 @@
 <div class="wf-layout">
 
   <!-- 2 · Wireframe tree — section → screen → state, from _screens.md + sitemap.md.
-       Written once, here. Main flow only; the rest in step 8. -->
+       Written once, here. Folders open and close; the one holding the current page opens itself.
+       Main flow only; the rest in step 8. -->
   <nav class="wf-tree" aria-label="Wireframe pages">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-chev" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 16 16"><path d="M1.75 4.25c0-.83.67-1.5 1.5-1.5h3l1.5 1.5h5c.83 0 1.5.67 1.5 1.5v6c0 .83-.67 1.5-1.5 1.5h-9.5c-.83 0-1.5-.67-1.5-1.5z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></symbol>
+      <symbol id="i-screen" viewBox="0 0 16 16"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M1.75 5.75h12.5" stroke="currentColor" stroke-width="1.25"/></symbol>
+      <symbol id="i-file" viewBox="0 0 16 16"><path d="M4.25 1.75h5l3 3v8c0 .83-.67 1.5-1.5 1.5h-6.5c-.83 0-1.5-.67-1.5-1.5v-9.5c0-.83.67-1.5 1.5-1.5z M9.25 1.75v3h3" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></symbol>
+    </svg>
     <p class="wf-tree-head">04 · Wireframes</p>
-    <ul>
-      <li class="wf-section"><a href="#projects-default">2 · What I am putting together</a>
-        <ul>
-          <li class="wf-screen" data-flow="Main flow · first screen · decision: A project for this work?"><a href="#projects-default">Projects</a>
-            <ul>
-              <li><a href="#projects-default">default</a></li>
-              <li><a href="#projects-empty">empty</a></li>
-              <li><a href="#projects-error">error</a></li>
-              <li><a href="#projects-loading">loading</a></li>
-            </ul>
-          </li>
-          <li class="wf-screen" data-flow="Main flow · Anything in the set? → the set, or the empty state"><a href="#project-default">Project</a>
-            <ul>
-              <li><a href="#project-default">default</a></li>
-              <li><a href="#project-empty">empty</a></li>
-              <li><a href="#project-error">error</a></li>
-              <li><a href="#project-loading">loading</a></li>
-            </ul>
-          </li>
-          <li class="wf-screen" data-flow="Main flow · configuring · Panel offering anything? · Is the set complete?"><a href="#project-configuring-default">Configuring the set <span class="wf-kind">— a mode</span></a>
-            <ul>
-              <li><a href="#project-configuring-default">default</a></li>
-              <li><a href="#project-configuring-empty">empty</a></li>
-              <li><a href="#project-configuring-error">error</a></li>
-              <li><a href="#project-configuring-loading">loading</a></li>
-            </ul>
-          </li>
-        </ul>
+    <ul class="wf-tree-root">
+      <li class="wf-section">
+        <details open>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">2 · What I am putting together</span></summary>
+          <ul>
+            <li class="wf-screen" data-flow="Main flow · first screen · decision: A project for this work?" data-first="projects-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Projects</span></summary>
+                <ul>
+                  <li><a href="#projects-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#projects-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
+                  <li><a href="#projects-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#projects-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="Main flow · Anything in the set? → the set, or the empty state" data-first="project-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Project</span></summary>
+                <ul>
+                  <li><a href="#project-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#project-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
+                  <li><a href="#project-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#project-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="Main flow · configuring · Panel offering anything? · Is the set complete?" data-first="project-configuring-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Configuring the set</span> <span class="wf-kind">mode</span></summary>
+                <ul>
+                  <li><a href="#project-configuring-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#project-configuring-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
+                  <li><a href="#project-configuring-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#project-configuring-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
       </li>
-      <li class="wf-section"><a href="#run-default">3 · What leaves</a>
-        <ul>
-          <li class="wf-screen" data-flow="Main flow · Check → findings → handover → Export"><a href="#run-default">Run <span class="wf-kind">— a mode</span></a>
-            <ul>
-              <li><a href="#run-default">default</a></li>
-              <li><a href="#run-error">error</a></li>
-              <li><a href="#run-loading">loading</a></li>
-              <li><a href="#run-success">success</a></li>
-            </ul>
-          </li>
-        </ul>
+      <li class="wf-section">
+        <details open>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">3 · What leaves</span></summary>
+          <ul>
+            <li class="wf-screen" data-flow="Main flow · Check → findings → handover → Export" data-first="run-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Run</span> <span class="wf-kind">mode</span></summary>
+                <ul>
+                  <li><a href="#run-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#run-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#run-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                  <li><a href="#run-success"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">success</span></a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
       </li>
     </ul>
   </nav>
 
-  <!-- 3 · The screen: its states, where it sits in the flow, and the frame -->
+  <!-- 3 · The screen: its name and state, and the frame. States live in the tree only. -->
   <section class="wf-stage" aria-label="Wireframe">
     <div class="wf-chrome">
-      <strong id="wf-screen-name">Projects</strong>
-      <nav class="wf-states" id="wf-states" aria-label="States of this screen"></nav>
-      <span class="wf-flow" id="wf-flow"></span>
+      <h1 class="wf-title" id="wf-title"><span id="wf-screen-name">Projects</span> <span class="wf-state" id="wf-state">default</span></h1>
       <a class="wf-open" id="wf-open" href="projects-default.html" target="_blank" rel="noopener">Open as a page &nearr;</a>
     </div>
     <div class="wf-frame" id="wf-frame">
@@ -112,9 +135,9 @@
     var iframe = document.getElementById("wf-iframe"),
         frame = document.getElementById("wf-frame"),
         stage = document.querySelector(".wf-stage"),
-        states = document.getElementById("wf-states"),
-        flow = document.getElementById("wf-flow"),
+        title = document.getElementById("wf-title"),
         name = document.getElementById("wf-screen-name"),
+        stateName = document.getElementById("wf-state"),
         open = document.getElementById("wf-open"),
         tree = document.querySelector(".wf-tree");
 
@@ -136,27 +159,30 @@
 
     function show() {
       var page = (location.hash || "#projects-default").slice(1);
-      var link = tree.querySelector('.wf-screen ul a[href="#' + page + '"]');
+      var link = tree.querySelector('.wf-screen a[href="#' + page + '"]');
       iframe.src = page + ".html";
       open.href = page + ".html";
       tree.querySelectorAll("a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
       var screen = link ? link.closest(".wf-screen") : null;
-      var stateLink = link;
-      if (stateLink) stateLink.setAttribute("aria-current", "page");
-      states.innerHTML = "";
-      if (screen) {
-        name.textContent = screen.firstElementChild.firstChild.textContent.trim();
-        flow.textContent = screen.getAttribute("data-flow") || "";
-        screen.querySelectorAll(":scope > ul a").forEach(function (a) {
-          var s = document.createElement("a");
-          s.href = a.getAttribute("href");
-          s.textContent = a.textContent;
-          if (a === stateLink) s.setAttribute("aria-current", "page");
-          states.appendChild(s);
-        });
+      if (link) {
+        link.setAttribute("aria-current", "page");
+        /* open every folder on the way to the current page */
+        for (var d = link.closest("details"); d; d = d.parentElement.closest("details")) d.open = true;
       }
-      document.title = name.textContent + " · " + page.replace(/^.*-/, "") + " — Phase 04 · Wireframes";
+      if (screen) {
+        name.textContent = screen.querySelector("summary .wf-name").textContent;
+        stateName.textContent = link.textContent.trim();
+        title.title = screen.getAttribute("data-flow") || "";
+      }
+      document.title = name.textContent + " · " + stateName.textContent + " — Phase 04 · Wireframes";
     }
+
+    /* opening a screen's folder also shows its first state, unless one of its states is already showing */
+    tree.querySelectorAll(".wf-screen > details").forEach(function (d) {
+      d.addEventListener("toggle", function () {
+        if (d.open && !d.querySelector("a[aria-current]")) location.hash = d.parentElement.getAttribute("data-first");
+      });
+    });
 
     window.addEventListener("hashchange", show);
     window.addEventListener("resize", fit);
