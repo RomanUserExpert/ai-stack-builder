@@ -40,52 +40,69 @@
 <body>
 <div class="wf-layout">
 
-  <!-- Wireframe tree — outside the product, identical on every page. Structure: _screens.md + sitemap.md.
-       Section → screen → state. Only the main flow's screens; the rest arrive in step 8. -->
-  <nav class="wf-tree" aria-label="Wireframe pages">
-    <p class="wf-tree-head">Wireframes · main flow</p>
-    <ul>
-      <li class="wf-section"><a href="projects-default.html">2 · What I am putting together</a>
-        <ul>
-          <li class="wf-screen"><a href="projects-default.html">Projects</a>
-            <ul>
-              <li><a href="projects-default.html" aria-current="page">default</a></li>
-              <li><a href="projects-empty.html">empty</a></li>
-              <li><a href="projects-error.html">error</a></li>
-              <li><a href="projects-loading.html">loading</a></li>
-            </ul>
-          </li>
-          <li class="wf-screen"><a href="project-default.html">Project</a>
-            <ul>
-              <li><a href="project-default.html">default</a></li>
-              <li><a href="project-empty.html">empty</a></li>
-              <li><a href="project-error.html">error</a></li>
-              <li><a href="project-loading.html">loading</a></li>
-            </ul>
-          </li>
-          <li class="wf-screen"><a href="project-configuring-default.html">Configuring the set <span class="wf-kind">— a mode</span></a>
-            <ul>
-              <li><a href="project-configuring-default.html">default</a></li>
-              <li><a href="project-configuring-empty.html">empty</a></li>
-              <li><a href="project-configuring-error.html">error</a></li>
-              <li><a href="project-configuring-loading.html">loading</a></li>
-            </ul>
-          </li>
-        </ul>
+  <!-- Left panel — outside the product, identical on every page.
+       Level 1: the course phases, as on research.html / personas.html / ia.html.
+       Level 2, under phase 04: the wireframe tree — section → screen → state,
+       from _screens.md + sitemap.md. Only the main flow; the rest arrive in step 8. -->
+  <nav class="wf-tree" aria-label="Course phases and wireframe pages">
+    <p class="wf-tree-head">Phases</p>
+    <ol class="wf-phases">
+      <li><a href="../../research/research.html"><b>01</b>Research and benchmark</a></li>
+      <li><a href="../../research/6-personas/personas.html"><b>02</b>Personas and JTBD</a></li>
+      <li><a href="../../03-information-architecture/ia.html"><b>03</b>Information architecture</a></li>
+      <li class="wf-now"><a href="projects-default.html"><b>04</b>Prototyping and wireframing</a>
+          <ul>
+            <li class="wf-section"><a href="projects-default.html">2 · What I am putting together</a>
+              <ul>
+                <li class="wf-screen"><a href="projects-default.html">Projects</a>
+                  <ul>
+                    <li><a href="projects-default.html" aria-current="page">default</a></li>
+                    <li><a href="projects-empty.html">empty</a></li>
+                    <li><a href="projects-error.html">error</a></li>
+                    <li><a href="projects-loading.html">loading</a></li>
+                  </ul>
+                </li>
+                <li class="wf-screen"><a href="project-default.html">Project</a>
+                  <ul>
+                    <li><a href="project-default.html">default</a></li>
+                    <li><a href="project-empty.html">empty</a></li>
+                    <li><a href="project-error.html">error</a></li>
+                    <li><a href="project-loading.html">loading</a></li>
+                  </ul>
+                </li>
+                <li class="wf-screen"><a href="project-configuring-default.html">Configuring the set <span class="wf-kind">— a mode</span></a>
+                  <ul>
+                    <li><a href="project-configuring-default.html">default</a></li>
+                    <li><a href="project-configuring-empty.html">empty</a></li>
+                    <li><a href="project-configuring-error.html">error</a></li>
+                    <li><a href="project-configuring-loading.html">loading</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="wf-section"><a href="run-default.html">3 · What leaves</a>
+              <ul>
+                <li class="wf-screen"><a href="run-default.html">Run <span class="wf-kind">— a mode</span></a>
+                  <ul>
+                    <li><a href="run-default.html">default</a></li>
+                    <li><a href="run-error.html">error</a></li>
+                    <li><a href="run-loading.html">loading</a></li>
+                    <li><a href="run-success.html">success</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
       </li>
-      <li class="wf-section"><a href="run-default.html">3 · What leaves</a>
-        <ul>
-          <li class="wf-screen"><a href="run-default.html">Run <span class="wf-kind">— a mode</span></a>
-            <ul>
-              <li><a href="run-default.html">default</a></li>
-              <li><a href="run-error.html">error</a></li>
-              <li><a href="run-loading.html">loading</a></li>
-              <li><a href="run-success.html">success</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
+      <li><span class="wf-soon"><b>05</b>Tone of voice and microcopy</span></li>
+      <li><span class="wf-soon"><b>06</b>Concept</span></li>
+      <li><span class="wf-soon"><b>07</b>UI assembly</span></li>
+      <li><span class="wf-soon"><b>08</b>Design tokens</span></li>
+      <li><span class="wf-soon"><b>09</b>Design system</span></li>
+      <li><span class="wf-soon"><b>10</b>Responsive</span></li>
+      <li><span class="wf-soon"><b>11</b>Animation and micro-interactions</span></li>
+      <li><span class="wf-soon"><b>12</b>Handoff and documentation</span></li>
+    </ol>
   </nav>
 
   <div>

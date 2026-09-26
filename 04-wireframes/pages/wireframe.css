@@ -145,38 +145,59 @@ button, .button {
 .wf-layout .wf-chrome,
 .wf-layout .canvas { width: var(--canvas); margin-left: 0; margin-right: 0; }
 
+/* Level 1 matches the phase sidebar on research.html / personas.html / ia.html:
+   mono, a rule on the left, the current phase in the site's accent. The accent
+   lives only here, outside the canvas — the product stays grey (_conventions.md §1, §7). */
 .wf-tree {
+  --site-accent: #e05f03;
+  --site-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   position: sticky;
   top: 0;
   align-self: start;
   max-height: 100vh;
   overflow-y: auto;
+  scrollbar-width: none;
   padding: 16px 0 32px;
-  font-size: 12px;
-  line-height: 16px;
+  font: 12px/16px var(--site-mono);
   color: var(--ink-2);
 }
 .wf-tree-head {
   margin-bottom: 12px;
   padding-left: 12px;
-  font-size: 11px;
-  letter-spacing: 0.08em;
+  font: 600 11px/16px "Inter", system-ui, sans-serif;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-3);
-  font-weight: 600;
 }
-.wf-tree ul { border-left: 1px solid var(--line); }
-.wf-tree ul ul { margin-left: 12px; }
-.wf-tree a {
+.wf-phases { border-left: 1px solid var(--line); }
+.wf-phases > li > a,
+.wf-phases > li > span {
+  display: block;
+  margin-left: -1px;
+  padding: 8px 0 8px 12px;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  color: var(--ink-2);
+}
+.wf-phases b { display: block; margin-bottom: 4px; font-size: 11px; line-height: 12px; letter-spacing: 0.09em; }
+.wf-phases > li > a:hover { color: var(--ink); border-left-color: var(--line); }
+.wf-phases .wf-soon { color: var(--ink-3); opacity: 0.5; }
+.wf-phases > .wf-now > a { color: var(--site-accent); border-left-color: var(--site-accent); font-weight: 600; }
+
+/* Level 2, under phase 04: the wireframe tree */
+.wf-now ul { margin: 0 0 8px 12px; border-left: 1px solid var(--line); font-family: "Inter", system-ui, sans-serif; }
+.wf-now ul ul { margin-bottom: 0; }
+.wf-now ul a {
   display: block;
   margin-left: -1px;
   padding: 4px 0 4px 12px;
   border-left: 2px solid transparent;
   text-decoration: none;
+  color: var(--ink-2);
 }
-.wf-tree a:hover { color: var(--ink); border-left-color: var(--line); }
+.wf-now ul a:hover { color: var(--ink); border-left-color: var(--line); }
 .wf-tree .wf-section > a { color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px; margin-top: 8px; }
 .wf-tree .wf-screen > a { color: var(--ink); font-weight: 600; }
 .wf-tree .wf-screen > a .wf-kind { font-weight: 400; color: var(--ink-3); }
-.wf-tree a[aria-current="page"] { color: var(--ink); font-weight: 600; border-left-color: var(--ink); background: var(--fill); }
-.wf-tree a[aria-current="page"]::after { content: " ← here"; font-weight: 400; color: var(--ink-3); }
+.wf-tree ul a[aria-current="page"] { color: var(--ink); font-weight: 600; border-left-color: var(--ink); background: var(--fill); }
+.wf-tree ul a[aria-current="page"]::after { content: " ← here"; font-weight: 400; color: var(--ink-3); }

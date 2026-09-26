@@ -14,4 +14,7 @@ research/6-personas/*
 !03-information-architecture
 03-information-architecture/*
 !03-information-architecture/ia.html
+!04-wireframes
+04-wireframes/*
+!04-wireframes/pages
 !vercel.json
