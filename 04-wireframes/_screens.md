@@ -131,6 +131,10 @@ surface. A mode can be wireframed; it just has no address.
   (Q21), marked but not designed here.
 
 - **The panel is a full left sidebar** (owner, 2026-09-26), not a box beside the set.
+- **Save is the main action, Check secondary** (owner, 2026-09-26): the head reads *Cancel · Check · **Save***.
+  *Done* is gone. **This makes configuring a draft**: adds and removes are held until *Save*, and *Cancel*
+  discards them. The dependency walk still runs on each add, so auto-added rows still appear before Save.
+  *Leaving the mode is still one named action (§8) — now two, keep or discard.*
 
 ### 4 · Run
 

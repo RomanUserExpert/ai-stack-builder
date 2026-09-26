@@ -65,8 +65,10 @@
             <p class="meta head-meta"><span>Nothing in it yet</span></p>
           </div>
           <div class="head-actions">
-            <a class="button" href="project-default.html">Done</a>
-            <button type="button" class="button-primary" disabled title="Add an item first"><span class="icon" aria-hidden="true"></span>Check — add an item first</button>
+            <!-- Save is the main action here; Check is secondary, and still inert on an empty set (Q16). -->
+            <a class="button button-quiet" href="project-default.html">Cancel</a>
+            <button type="button" disabled title="Add an item first"><span class="icon" aria-hidden="true"></span>Check — add an item first</button>
+            <a class="button button-primary" href="project-default.html">Save</a>
           </div>
         </div>
       </section>
