@@ -143,7 +143,7 @@ button, .button {
 
 :root {
   --rail-w: 240px;
-  --tree-w: 208px;
+  --tree-w: 224px;
   --site-accent: #e05f03;
   --site-rule: #d4d4cf;
   --site-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -254,10 +254,11 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
   position: sticky;
   top: 0;
   align-self: start;
-  max-height: 100vh;
+  height: 100vh;
   overflow-y: auto;
   scrollbar-width: none;
-  padding: 16px 0 32px;
+  padding: 16px 16px 32px 0;
+  border-right: 1px solid var(--site-rule);
   font-size: 12px;
   line-height: 16px;
 }

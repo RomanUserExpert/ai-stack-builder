@@ -108,7 +108,7 @@
 <script>
   /* Chrome only. The product pages have no script (_conventions.md §2). */
   (function () {
-    var CANVAS = 1440, MAX = 0.8, RATIO = 9 / 16;
+    var CANVAS = 1440, MAX = 0.9, RATIO = 9 / 16;
     var iframe = document.getElementById("wf-iframe"),
         frame = document.getElementById("wf-frame"),
         stage = document.querySelector(".wf-stage"),
@@ -118,7 +118,7 @@
         open = document.getElementById("wf-open"),
         tree = document.querySelector(".wf-tree");
 
-    /* 80% of the 1440 canvas, never wider or taller than the room left for it; the frame is 16:9,
+    /* 90% of the 1440 canvas, never wider or taller than the room left for it; the frame is 16:9,
        and it is centred — with its chrome — in the space beside the tree */
     var chrome = document.querySelector(".wf-stage .wf-chrome");
     function fit() {
