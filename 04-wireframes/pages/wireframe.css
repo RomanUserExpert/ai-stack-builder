@@ -633,3 +633,13 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .popover-group label { display: flex; gap: 8px; align-items: center; font-size: 13px; }
 .popover-group .hint { font-size: 12px; color: var(--ink-3); }
 .popover-foot { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); }
+
+/* Tight rows (owner, 2026-09-26): source, origin and licence in one line under the description,
+   usage as one line in the middle — no stacked labels, so a row is two or three lines tall. */
+.row-tight { padding: 16px 0; grid-template-columns: minmax(0, 1fr) 320px auto; align-items: center; }
+.row-tight .description { margin-top: 2px; }
+.row-tight .facts { margin-top: 4px; }
+.row-tight.row-2 { grid-template-columns: minmax(0, 1fr) auto; }
+.row-tight.row-1 { grid-template-columns: minmax(0, 1fr); }
+.usage { color: var(--ink-2); }
+.row-list .row { padding: 16px 0; }
