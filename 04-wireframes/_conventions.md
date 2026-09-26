@@ -110,6 +110,10 @@
   heights, so nothing moves when the content arrives. The chrome, the page head and the controls are
   real; only the content is skeleton. **No spinner, and no row shown before it is real** — the
   optimistic option is not taken silently (register, *Waits*).
+- **A form that is loading** (the Item sheet, 2026-09-26): **what is already known is real** — the title
+  from the row you clicked, every label, every section heading — and **every field is a grey bar at its
+  real height**. Nothing is editable, and **Save and Delete are not shown** until they can act; *Cancel*
+  stays, so the sheet can always be left.
 - **Nothing is disabled** except the empty project's control into `Run` (Q16), and it is labelled
   inert rather than hidden.
 - **States that live inside a page are content, not pages**: §7's item states, the stale verdict, the

@@ -216,77 +216,49 @@
 
     <!-- Overlay: the Item add/edit form, over the Library. Closing returns you to the row you came from. -->
     <div class="scrim" aria-hidden="true"></div>
-    <dialog class="sheet" open aria-labelledby="sheet-title">
+    <dialog class="sheet" open aria-labelledby="sheet-title" aria-busy="true">
       <div class="sheet-head">
         <h2 id="sheet-title">Edit db-migrate</h2>
         <a class="button close" href="library-my-default.html" aria-label="Close"><span class="icon" aria-hidden="true"></span></a>
       </div>
-        <!-- Loading: the usage facts are computed, so the blast radius arrives a moment after the form.
-             No field is editable until it has — a form that discloses after the edit is too late (§5). -->
-        <div class="callout callout-quiet" aria-busy="true">
-          <span class="skeleton" style="width: 280px; height: 12px"></span>
-          <span class="skeleton" style="width: 440px"></span>
-          <p class="visually-hidden" role="status">Counting the projects that use db-migrate</p>
+      <!-- Loading: opening an item to edit. The name is known from the row you clicked; the item and its
+           usage facts are not. Labels are real and every field is a bar at its real height, so nothing
+           moves when it arrives. Nothing is editable, and Save and Delete are not shown — they cannot act
+           yet. The blast radius arrives with the fields, never after them (§5). -->
+      <p class="visually-hidden" role="status">Opening db-migrate</p>
+      <div class="callout callout-quiet" aria-hidden="true">
+        <span class="skeleton" style="width: 280px; height: 12px"></span>
+        <span class="skeleton" style="width: 90%"></span>
+      </div>
+      <div class="form" aria-hidden="true">
+        <div class="field-row">
+          <div class="field"><span>Name</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
+          <div class="field"><span>Kind</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
         </div>
-        <form class="form">
+        <div class="field"><span>Description</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
+        <div class="field"><span>Tags</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
+        <div class="form-section">
+          <h3>Contents</h3>
+          <div class="field"><span>Content</span><span class="skeleton" style="height: 160px; width: 100%"></span></div>
+          <div class="field"><span>Files</span><span class="skeleton" style="height: 16px; width: 60%"></span><span class="skeleton" style="height: 16px; width: 50%; margin-top: 8px"></span></div>
+          <div class="field"><span>Repository</span><span class="skeleton" style="height: 32px; width: 160px"></span></div>
+        </div>
+        <div class="form-section">
+          <h3>Dependencies</h3>
           <div class="field-row">
-            <label class="field"><span>Name</span><input name="name" value="db-migrate" placeholder="release-notes"></label>
-            <label class="field"><span>Kind</span><select name="kind"><option>skill</option><option>agent</option><option>prompt</option><option>mcp</option><option selected>script</option><option>app</option></select></label>
+            <div class="field"><span>Requires</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
+            <div class="field"><span>Conflicts with</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
           </div>
-          <label class="field"><span>Description</span><input name="description" value="Generates a Postgres migration from a schema diff and runs it — dry run first, then for real." placeholder="One line: what it does and when it is used"></label>
-          <label class="field"><span>Tags</span><input name="tags" value="postgres, migrations" placeholder="postgres, review"></label>
-
-          <!-- What the item is made of (owner, 2026-09-26, Q32): no Source switch. Three parts, each optional,
-               and any mix of them — typed content, files from the computer, a pinned repo. At least one. -->
-          <div class="form-section">
-            <h3>Contents</h3>
-
-            <label class="field"><span>Content</span><textarea name="content" placeholder="Write or paste it here">#!/usr/bin/env bash
-# db-migrate — diff the schema, write a migration, dry-run it, then apply.
-set -euo pipefail
-
-npx drizzle-kit generate --name "$1"
-psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.sql" --echo-errors --dry-run
-</textarea></label>
-
-            <div class="field">
-              <span>Files</span>
-              <ul class="file-list">
-                <li><code>templates/create_table.sql</code><span class="meta">1.2 KB</span><button type="button" class="link-button">Remove</button></li>
-                <li><code>templates/add_column.sql</code><span class="meta">0.8 KB</span><button type="button" class="link-button">Remove</button></li>
-              </ul>
-              <label class="dropzone dropzone-small">
-                <input type="file" name="files" multiple class="visually-hidden">
-                <strong>Drop files or a folder here</strong>
-                <span class="meta">or <u>choose from your computer</u> · a dropped SKILL.md also fills the name and kind</span>
-              </label>
-            </div>
-
-            <div class="field">
-              <span>Repository</span>
-              <button type="button" class="attach"><span class="icon" aria-hidden="true"></span>Attach a repo</button>
-              <span class="hint">Cloned at a pinned commit or tag when the archive is set up — never copied into it</span>
-            </div>
+          <div class="field-row">
+            <div class="field"><span>Env keys it needs</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
+            <div class="field"><span>Defers to</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
           </div>
-
-          <div class="form-section">
-            <h3>Dependencies</h3>
-            <div class="field-row">
-              <label class="field"><span>Requires</span><input name="requires" placeholder="Items this one needs — postgres-mcp"><span class="hint">Pulled into every project that holds this one</span></label>
-              <label class="field"><span>Conflicts with</span><input name="conflicts" placeholder="Items it must not travel with"></label>
-            </div>
-            <div class="field-row">
-              <label class="field"><span>Env keys it needs</span><input name="env" value="DATABASE_URL" placeholder="GITHUB_TOKEN"><span class="hint">Names only. Values never live here.</span></label>
-              <label class="field"><span>Defers to</span><input name="defers" placeholder="the client’s ESLint config"><span class="hint">Where they disagree, that wins</span></label>
-            </div>
-            <label class="field"><span>Lands at</span><input name="target" value="scripts/db-migrate.sh" placeholder=".claude/skills/release-notes/SKILL.md"></label>
-          </div>
-          <div class="form-actions">
-            <button type="button" class="button-quiet">Delete item…</button>
-            <a class="button push" href="library-my-default.html">Cancel</a>
-            <button type="submit" class="button-primary">Save</button>
-          </div>
-        </form>
+          <div class="field"><span>Lands at</span><span class="skeleton" style="height: 40px; width: 100%"></span></div>
+        </div>
+        <div class="form-actions">
+          <a class="button push" href="library-my-default.html">Cancel</a>
+        </div>
+      </div>
     </dialog>
 
   </div>
