@@ -171,6 +171,7 @@ scopes two global entries — they are still **one screen with two addresses**, 
 | # | Screen | Kind | `<name>` | Empty | Error | Loading | Success |
 |---|---|---|---|:-:|:-:|:-:|:-:|
 | 0 | **Sign in** | place | `sign-in` | — | ✓ | ✓ | — |
+| 0 | **Create account** — *not drawn yet* | place | `sign-up` | — | ✓ | ✓ | — |
 | 1 | **Library · My library** | place | `library-my` | ✓ | ✓ ×2 | ✓ | — |
 | 1 | **Library · Public library** | place | `library-public` | — | ✓ ×2 | ✓ | — |
 | 1 | **Item — add / edit** | overlay | `item` | ✓ | ✓ | ✓ | — |
@@ -198,6 +199,16 @@ the whole map at base depth.*
 owner's work.* **Flow:** before every path, never on the receiver's. **Error** — the way in fails ·
 **loading** — signing in · **no success screen**: you are handed on to **where you were** (Q25) · no
 empty — a form is never empty of anything.
+
+*Revised by the owner, 2026-09-26.* **Email and password**, with *Forgot password?* on the password's
+label. **Under the title, the product in one sentence** — a library for your AI work, skills to
+harnesses, kept, edited and put together into projects — because the door is the first thing a
+stranger reads. **The error is *email or password is wrong***, never which of the two (that would tell
+a stranger whether an account exists); the email stays, the password clears, and the way out is
+**Reset password**. **No account yet? → Create an account** under the form.
+
+**Create account** — `sign-up`, **not drawn yet**. The door's other half: Sign in links to it, so the
+tree carries it faded (default · error · loading) until it is drawn.
 
 **Library · My library** — **H-J1** *lay hands on the thing I know I wrote* · **RJ-3** *fix something
 once and have the fix reach every copy*. **Flow:** RJ-3, the single-item export, and *Anything in My

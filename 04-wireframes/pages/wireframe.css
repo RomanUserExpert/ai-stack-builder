@@ -593,3 +593,10 @@ pre.file { margin: 0; padding: 12px 16px; background: var(--fill); font: 12px/16
 .glyph-checked { border-color: var(--ink); }
 .split .set-row { grid-template-columns: minmax(0, 1fr) 200px auto; }
 .state-line { display: block; }
+
+/* Sign in: the product in one sentence under the title, the password's label carries "Forgot password?",
+   and the way to an account sits under the form */
+.door .head-meta { color: var(--ink-2); display: block; }
+.field-label { display: flex; justify-content: space-between; align-items: baseline; }
+.field-label .meta { font-weight: 400; }
+.door-alt { padding-top: 16px; border-top: 1px solid var(--line-2); color: var(--ink-2); text-align: center; }

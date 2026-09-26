@@ -25,16 +25,18 @@
       <section class="door" aria-labelledby="door-title">
         <div>
           <h1 id="door-title">Sign in</h1>
-          <p class="meta head-meta">Your library and projects are kept on our server, so they follow you between machines.</p>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, pipelines and harnesses. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
         </div>
-        <form class="form" action="projects-default.html">
+        <form class="form" action="sign-in-loading.html">
           <label class="field"><span>Email</span>
             <input type="email" name="email" autocomplete="email" placeholder="maya@chen.dev">
           </label>
-          <button type="submit" class="button-primary">Continue</button>
-          <p class="meta">After signing in you return to where you were: <strong>Projects</strong>.</p>
+          <label class="field"><span class="field-label">Password <a class="meta" href="#">Forgot password?</a></span>
+            <input type="password" name="password" autocomplete="current-password">
+          </label>
+          <button type="submit" class="button-primary">Sign in</button>
         </form>
-
+        <p class="door-alt">No account yet? <a href="sign-up-default.html">Create an account</a></p>
       </section>
 
     </main>

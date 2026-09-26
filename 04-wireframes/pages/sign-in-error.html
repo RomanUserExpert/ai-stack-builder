@@ -25,19 +25,25 @@
       <section class="door" aria-labelledby="door-title">
         <div>
           <h1 id="door-title">Sign in</h1>
-          <p class="meta head-meta">Your library and projects are kept on our server, so they follow you between machines.</p>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, pipelines and harnesses. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
         </div>
+        <!-- Error: the email or the password is wrong. We don't say which — that would tell a stranger
+             whether an account exists. The email stays, the password is cleared. Two ways out. -->
         <div class="callout" role="alert">
-          <span class="severity">Couldn’t sign you in</span>
-          <span>The server did not answer. Nothing about your library changed. Try again, or come back in a few minutes.</span>
+          <span class="severity">Email or password is wrong</span>
+          <span>Check them and try again. If you don’t remember the password, reset it — we’ll send a link to maya@chen.dev.</span>
+          <div class="row-actions"><a class="button" href="#">Reset password</a></div>
         </div>
         <form class="form" action="sign-in-loading.html">
           <label class="field"><span>Email</span>
-            <input type="email" name="email" value="maya@chen.dev">
+            <input type="email" name="email" autocomplete="email" value="maya@chen.dev" placeholder="maya@chen.dev">
           </label>
-          <button type="submit" class="button-primary">Try again</button>
+          <label class="field"><span class="field-label">Password <a class="meta" href="#">Forgot password?</a></span>
+            <input type="password" name="password" autocomplete="current-password">
+          </label>
+          <button type="submit" class="button-primary">Sign in</button>
         </form>
-
+        <p class="door-alt">No account yet? <a href="sign-up-default.html">Create an account</a></p>
       </section>
 
     </main>
