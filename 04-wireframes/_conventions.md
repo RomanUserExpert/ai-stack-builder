@@ -22,8 +22,12 @@
 - **Icons: a black square with slightly rounded corners.** One size throughout, labelled by the text
   next to it or by `aria-label`. It marks *an icon goes here*, never which one.
 - **A 4 px grid.** Every spacing, size and gap is a multiple of 4.
-- **Zones are labelled** — a small grey caption naming the zone and its main action — and stay quiet
-  enough that the screen still reads as a screen.
+- **Nothing on the canvas that the product would not show** (2026-09-26). No zone captions, no notes
+  to the reader, no *main action: …* labels — **every word on the canvas is a word the person using the
+  product would read.** Zones are told apart by structure and spacing; what a zone is for goes in an
+  HTML comment or an `aria-label`, and explanations about the screen go in the viewer's
+  Persona · Job · Flow lines (§7) or in `_screens.md`. *The captions were in the first draft of this
+  rule and came out after the first wireframe: they read as part of the screen.*
 - **Neutral, not themed.** §3 says dark from day one; a wireframe is not a theme, and two real themes
   are designed in lesson 06, not inverted from this.
 

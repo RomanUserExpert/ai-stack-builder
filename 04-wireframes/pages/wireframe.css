@@ -57,18 +57,6 @@ ul, ol { padding: 0; list-style: none; }
   flex-direction: column;
 }
 
-/* Zone caption: names the zone and its main action. Quiet on purpose. */
-.zone { position: relative; }
-.zone-label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ink-3);
-  font-size: 11px;
-  line-height: 16px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 /* Placeholders */
 .icon {
   display: inline-block;
