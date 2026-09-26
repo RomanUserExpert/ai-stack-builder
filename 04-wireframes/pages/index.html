@@ -44,7 +44,7 @@
 
   <!-- 2 · Wireframe tree — section → screen → state, from _screens.md + sitemap.md.
        Written once, here. Folders open and close; the one holding the current page opens itself.
-       Main flow only; the rest in step 8. -->
+       Every screen in sitemap.md (_screens.md, *The whole map*); pages not drawn yet read faint. -->
   <nav class="wf-tree" aria-label="Wireframe pages">
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
       <symbol id="i-chev" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
@@ -56,11 +56,78 @@
     <ul class="wf-tree-root">
       <li class="wf-section">
         <details open>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">0 · The door</span></summary>
+          <ul>
+            <li class="wf-screen" data-flow="Before every path of the owner's; never on the receiver's" data-first="sign-in-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Sign in</span></summary>
+                <ul>
+                  <li><a href="#sign-in-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#sign-in-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#sign-in-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li class="wf-section">
+        <details open>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">1 · What I keep</span></summary>
+          <ul>
+            <li class="wf-screen" data-flow="RJ-3 · the single-item export · Anything in My library yet?" data-first="library-my-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">My library</span></summary>
+                <ul>
+                  <li><a href="#library-my-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#library-my-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
+                  <li><a href="#library-my-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#library-my-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="The single-item export · Is it on the shelf?" data-first="library-public-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Public library</span></summary>
+                <ul>
+                  <li><a href="#library-public-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#library-public-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#library-public-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="RJ-3 · RJ-4 · summoned from a Library row, Add, or the panel's zero result" data-first="item-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Item — add / edit</span> <span class="wf-kind">overlay</span></summary>
+                <ul>
+                  <li><a href="#item-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#item-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
+                  <li><a href="#item-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#item-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="RJ-4 · the whole library as JSON" data-first="library-json-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Import / export</span> <span class="wf-kind">commands</span></summary>
+                <ul>
+                  <li><a href="#library-json-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#library-json-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#library-json-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                  <li><a href="#library-json-success"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">success</span></a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li class="wf-section">
+        <details open>
           <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">2 · What I am putting together</span></summary>
           <ul>
             <li class="wf-screen" data-flow="Main flow · first screen · decision: A project for this work?" data-first="projects-default">
               <details>
-                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Projects</span></summary>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Projects</span> <span class="wf-tag">main</span></summary>
                 <ul>
                   <li><a href="#projects-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
                   <li><a href="#projects-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
@@ -71,7 +138,7 @@
             </li>
             <li class="wf-screen" data-flow="Main flow · Anything in the set? → the set, or the empty state" data-first="project-default">
               <details>
-                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Project</span></summary>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Project</span> <span class="wf-tag">main</span></summary>
                 <ul>
                   <li><a href="#project-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
                   <li><a href="#project-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
@@ -82,12 +149,22 @@
             </li>
             <li class="wf-screen" data-flow="Main flow · configuring · Panel offering anything? · Is the set complete?" data-first="project-configuring-default">
               <details>
-                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Configuring the set</span> <span class="wf-kind">mode</span></summary>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Configuring the set</span> <span class="wf-tag">main</span> <span class="wf-kind">mode</span></summary>
                 <ul>
                   <li><a href="#project-configuring-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
                   <li><a href="#project-configuring-empty"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">empty</span></a></li>
                   <li><a href="#project-configuring-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
                   <li><a href="#project-configuring-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="RJ-3 · a detached row kept deliberately · edit, reset, promote" data-first="project-detached-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Detached row</span> <span class="wf-kind">row mode</span></summary>
+                <ul>
+                  <li><a href="#project-detached-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#project-detached-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#project-detached-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
                 </ul>
               </details>
             </li>
@@ -100,12 +177,61 @@
           <ul>
             <li class="wf-screen" data-flow="Main flow · Check → findings → handover → Export" data-first="run-default">
               <details>
-                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Run</span> <span class="wf-kind">mode</span></summary>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Run</span> <span class="wf-tag">main</span> <span class="wf-kind">mode</span></summary>
                 <ul>
                   <li><a href="#run-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
                   <li><a href="#run-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
                   <li><a href="#run-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
                   <li><a href="#run-success"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">success</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="The single-item export · from a Library row" data-first="run-item-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Run — one item</span> <span class="wf-kind">mode</span></summary>
+                <ul>
+                  <li><a href="#run-item-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#run-item-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#run-item-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                  <li><a href="#run-item-success"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">success</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="The receiver · Check on somebody else's set" data-first="run-shared-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Run — shared project</span> <span class="wf-kind">mode</span></summary>
+                <ul>
+                  <li><a href="#run-shared-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#run-shared-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#run-shared-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                  <li><a href="#run-shared-success"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">success</span></a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li class="wf-section">
+        <details open>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">4 · What somebody else opens</span></summary>
+          <ul>
+            <li class="wf-screen" data-flow="The receiver · the link opens, or it is dead" data-first="shared-project-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Shared project</span></summary>
+                <ul>
+                  <li><a href="#shared-project-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#shared-project-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#shared-project-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
+                </ul>
+              </details>
+            </li>
+            <li class="wf-screen" data-flow="The receiver · one block" data-first="shared-item-default">
+              <details>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-screen"/></svg><span class="wf-name">Shared item</span></summary>
+                <ul>
+                  <li><a href="#shared-item-default"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">default</span></a></li>
+                  <li><a href="#shared-item-error"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">error</span></a></li>
+                  <li><a href="#shared-item-loading"><svg class="wf-ico" aria-hidden="true"><use href="#i-file"/></svg><span class="wf-name">loading</span></a></li>
                 </ul>
               </details>
             </li>
@@ -160,8 +286,14 @@
     function show() {
       var page = (location.hash || "#projects-default").slice(1);
       var link = tree.querySelector('.wf-screen a[href="#' + page + '"]');
-      iframe.src = page + ".html";
       open.href = page + ".html";
+      if (missing[page]) {
+        iframe.removeAttribute("src");
+        iframe.srcdoc = '<body style="margin:0;height:100vh;display:grid;place-items:center;font:28px Inter,system-ui,sans-serif;color:#888;background:#fff">Not drawn yet — ' + page + '.html</body>';
+      } else {
+        iframe.removeAttribute("srcdoc");
+        iframe.src = page + ".html";
+      }
       tree.querySelectorAll("a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
       var screen = link ? link.closest(".wf-screen") : null;
       if (link) {
@@ -183,6 +315,18 @@
         if (d.open && !d.querySelector("a[aria-current]")) location.hash = d.parentElement.getAttribute("data-first");
       });
     });
+
+    /* Which pages exist is read from the server, not written down, so the tree cannot go stale.
+       From disk (file://) nothing can be asked, and every link is treated as drawn. */
+    var missing = {};
+    if (location.protocol.indexOf("http") === 0) {
+      var links = Array.prototype.slice.call(tree.querySelectorAll(".wf-screen a"));
+      Promise.all(links.map(function (a) {
+        var page = a.getAttribute("href").slice(1);
+        return fetch(page + ".html", { method: "HEAD" }).then(function (r) { return r.ok; }, function () { return false; })
+          .then(function (ok) { if (!ok) { missing[page] = true; a.classList.add("wf-todo"); } });
+      })).then(show);
+    }
 
     window.addEventListener("hashchange", show);
     window.addEventListener("resize", fit);

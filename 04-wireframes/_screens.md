@@ -147,16 +147,103 @@ surface. A mode can be wireframed; it just has no address.
 
 ---
 
-## Not taken, and why
+## The whole map — every screen in `sitemap.md`
 
-Each of these is on the map; none is on the main path, so it waits for step 8.
+> **Added 2026-09-26, as structure only.** The main flow above is drawn first; everything here is the
+> order for step 8. **No page below exists yet**, and the viewer's tree lists them all so the gaps are
+> visible rather than forgotten. Same rules: a name from `sitemap.md`, a job or a stated reason for
+> having none, a place in `flows.md`, and a state only where a flow produces it.
 
-| Screen | Why not now |
-|---|---|
-| **Item** — add/edit overlay | In the main flow only as a **side branch** — the panel's zero result. Its jobs are RJ-3 and EJ-3, not the main job. Step 8 |
-| **Library** | **Left the assembly path** with Q14: *during building a project we will not open the library.* Its jobs are H-J1 and RJ-3. Step 8 |
-| **Sign in** | **No job**, and no job could (§9). It is the door before the flow, not a step of it |
-| **Library import / export** | No job — kept on a non-evidential basis (Q18). Two commands, not a screen |
-| **Detached row** — edit · reset · promote | H-J3; not a node in the main flow. Its commands are marked on the configuring page and designed later |
-| **Shared project** · **Shared item** | The **receiver's** flow, P2's surfaces — not the primary persona's path. Step 8, under Q20's conservative rule |
-| **Run from a Library row** — single-item export | Its own flow in `flows.md` (Q15). Step 8 |
+**Grouped by the sitemap's situations** (0 the door · 1 what I keep · 2 what I assemble · 3 what
+leaves · 4 what somebody else opens). **The Library is shown as two screens** because Q29 made its two
+scopes two global entries — they are still **one screen with two addresses**, so they share every rule.
+
+| # | Screen | Kind | `<name>` | Empty | Error | Loading | Success |
+|---|---|---|---|:-:|:-:|:-:|:-:|
+| 0 | **Sign in** | place | `sign-in` | — | ✓ | ✓ | — |
+| 1 | **Library · My library** | place | `library-my` | ✓ | ✓ | ✓ | — |
+| 1 | **Library · Public library** | place | `library-public` | — | ✓ | ✓ | — |
+| 1 | **Item — add / edit** | overlay | `item` | ✓ | ✓ | ✓ | — |
+| 1 | **Library import / export** | commands | `library-json` | — | ✓ | ✓ | ✓ |
+| 2 | **Projects** | place | `projects` | ✓ | ✓ | ✓ | — |
+| 2 | **Project** | place | `project` | ✓ | ✓ | ✓ | — |
+| 2 | **Configuring the set** | mode | `project-configuring` | ✓ | ✓ | ✓ | — |
+| 2 | **Detached row — edit · reset · promote** | mode of a row | `project-detached` | — | ✓ | ✓ | — |
+| 3 | **Run** — from a Project | mode | `run` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — one item**, from a Library row | mode | `run-item` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — on a shared project**, by the receiver | mode | `run-shared` | — | ✓ | ✓ | ✓ |
+| 4 | **Shared project** | place | `shared-project` | — | ✓ | ✓ | — |
+| 4 | **Shared item** | place | `shared-item` | — | ✓ | ✓ | — |
+
+**Fourteen screens and 51 pages** — every state marked `✓` plus a `default` for each. *The course's
+advice is 20–30 pages to learn the method*; the main flow is 16 of these, and **which of the rest get
+drawn is decided at step 8, not by this table.**
+
+### What each one is for, and why its states are the ones marked
+
+**Sign in** — `[no job]`, and no job could (§9, Q25). *The door the online decision put in front of the
+owner's work.* **Flow:** before every path, never on the receiver's. **Error** — the way in fails ·
+**loading** — signing in · **no success screen**: you are handed on to **where you were** (Q25) · no
+empty — a form is never empty of anything.
+
+**Library · My library** — **H-J1** *lay hands on the thing I know I wrote* · **RJ-3** *fix something
+once and have the fix reach every copy*. **Flow:** RJ-3, the single-item export, and *Anything in My
+library yet?* in the main job. **Empty ✓** — **first run, guaranteed by §11**; since Q29 its way out is
+the `Public library` entry, not a switch · **error** — the corpus fails to load · **loading** — the list
+and its usage facts, which are computed · **no success** — a list is not an outcome. *Filtered to zero
+is content, and carries the row that creates.*
+
+**Library · Public library** — **H-J4** `[?]` · **RJ-3** through *copy it into mine*. **Flow:** the
+single-item export's *Is it on the shelf?*, the panel's scope switch. **No empty** — the shelf ships
+with the product (§11) · **error**, **loading** as above · **no success** — *copy into My library*
+lands as a row that reads as copied. **Designed only as far as the example project needs** (Q19); Q9 —
+what it holds and how it sorts — is still open.
+
+**Item — add / edit** — **RJ-3** · **EJ-3** partly. An **overlay**, summoned from the Library row, the
+Library's *add*, and the panel's zero result (§8). **Flow:** RJ-3 and RJ-4. **Empty ✓** — *add*: no
+item yet, the blank form, and **the keys warning before the material is accepted** (§11) · **default**
+— *edit*: **the blast radius at the head of the form**, *used in 3 projects · saving un-checks all
+three* · **error** — **Q26: the edit did not land**, and those projects read neither checked nor
+un-checked · **loading** — the usage facts at the head of the form, and the save · **no success** — you
+return to the row you came from.
+
+**Library import / export** — `[§10]`, no job; kept so the user can leave with their work (Q18). **Two
+commands on the Library, not a screen** — drawn because the import carries the §11 keys warning and a
+state nobody else has. **Flow:** RJ-4. **Loading** — *potentially the longest wait in the product* ·
+**error** — **Q27: the library reads as it did before it started** · **success ✓** — the import finished,
+or the file is in hand: a real outcome · no empty.
+
+**Projects**, **Project**, **Configuring the set**, **Run** — the main flow, above.
+
+**Detached row — edit · reset · promote** — **H-J3** *change it here only, without the others getting
+it*. A **mode of the row, inside configuring** (Q21). **Flow:** RJ-3's *a detached row kept
+deliberately*. **Default** — the override with **the differing fields named**, and Reset beside Detach
+(§7) · **error** — the override or the promotion did not land · **loading** — saving it · **no
+success** — *promote* re-links the row, which is the row's new state, not a screen.
+
+**Run — one item** — the **main job at its smallest scale** (Q15), from a Library row. **Flow:** *The
+single-item export*. The same stages as `Run`, **most of them `Skipped`**, and **nothing stored** — no
+project to hold a verdict. **Error**, **loading**, **success ✓** — the same as `Run` · **no empty** — a
+row always holds an item.
+
+**Run — on a shared project** — the **receiver's** Check: **MAIN** · **RJ-1** · **RJ-2** · **SJ-1**, by
+**P2**. **Flow:** *The receiver*. Same stages, **no global navigation, nothing stored, anonymous**.
+**Error** — *the check fails on somebody else's set, and they cannot tell whether that is the set's
+fault or ours* · **loading** — the check they run themselves · **success ✓** — the archive taken.
+**Q20 applies: invent nothing not derived from P1; show more, promise less.**
+
+**Shared project** — **MAIN** · **RJ-1** · **RJ-2** · **SJ-1**, **P2**'s only surface and the one
+carrying **seven jobs**. **Flow:** *The receiver*. **Default** — what the set is, what each item needs,
+**when the owner last checked and whether it changed since** (§6), origins and licences, **Check**, and a
+way to take it · **error** — **the dead link**, revoked or deleted: *the only place in the product where
+somebody is left with nothing at all* · **loading** — **opening the page**, their first impression of
+the product · **no empty** — no flow produces one, and **Q20 forbids inventing it** · no success —
+taking the archive happens in `Run`.
+
+**Shared item** — **MAIN** · **H-J4** `[?]`. **Flow:** *The receiver*, at one block. **Default** —
+what it is, **whose it is** (origin, pinned `ref`, **licence**), what it needs, and a way to take it ·
+**error** — the dead link · **loading** — opening it · no empty, no success, for the same reasons.
+
+**Two things on the map that are not in this table, on purpose.** **The library panel** is a region of
+*Configuring the set* and is drawn inside it. **Sharing and revoking** are a state of the thing shared,
+disclosed where it changes (§5) — they appear on the Project and the Item, not as screens.

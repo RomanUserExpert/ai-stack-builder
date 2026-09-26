@@ -352,3 +352,16 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
 .wf-rail a.wf-now:hover { color: var(--site-accent); box-shadow: inset 0 0 0 1px #e05f0378; }
 .wf-rail a.wf-now:hover b { color: var(--site-accent); }
 .wf-section > details > summary .wf-name { white-space: normal; padding: 6px 0; }
+
+/* Tags on a screen row, and pages not drawn yet */
+.wf-tag {
+  margin-left: 2px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font: 500 10px/16px var(--site-mono);
+  color: var(--site-accent);
+  box-shadow: inset 0 0 0 1px #e05f0378;
+}
+.wf-tree a.wf-todo { opacity: 0.45; }
+.wf-tree a.wf-todo[aria-current="page"] { opacity: 1; }
+.wf-screen > details > summary .wf-name { white-space: normal; }
