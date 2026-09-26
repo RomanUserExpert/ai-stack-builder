@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · default — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+  <style>
+    /* Page-specific layout only. Shared rules live in wireframe.css. */
+    .page-head { display: flex; align-items: flex-end; gap: 24px; }
+    .page-head h1 { font-size: 24px; line-height: 32px; font-weight: 600; }
+    .page-head p { margin-top: 4px; }
+    .page-head .button { margin-left: auto; }
+
+    .project-list { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+    .project-row {
+      display: grid;
+      grid-template-columns: 1fr 360px 200px;
+      gap: 24px;
+      align-items: start;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line-2);
+    }
+    .project-row h2 { font-size: 16px; line-height: 24px; font-weight: 600; display: flex; gap: 8px; align-items: center; }
+    .project-row h2 a { text-decoration: none; }
+    .project-row .description { margin-top: 4px; color: var(--ink-2); max-width: 640px; }
+    .project-row .facts { margin-top: 8px; display: flex; gap: 16px; }
+
+    .verdict dt { font-size: 11px; line-height: 16px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.04em; }
+    .verdict dd + dt { margin-top: 8px; }
+    .verdict dd { margin-top: 4px; }
+
+    .row-actions { display: flex; gap: 8px; justify-content: flex-end; }
+    .row-actions button { padding: 4px 8px; font-size: 12px; line-height: 16px; }
+  </style>
+</head>
+<body>
+<div class="wf-layout">
+
+  <!-- Wireframe tree — outside the product, identical on every page. Structure: _screens.md + sitemap.md.
+       Section → screen → state. Only the main flow's screens; the rest arrive in step 8. -->
+  <nav class="wf-tree" aria-label="Wireframe pages">
+    <p class="wf-tree-head">Wireframes · main flow</p>
+    <ul>
+      <li class="wf-section"><a href="projects-default.html">2 · What I am putting together</a>
+        <ul>
+          <li class="wf-screen"><a href="projects-default.html">Projects</a>
+            <ul>
+              <li><a href="projects-default.html" aria-current="page">default</a></li>
+              <li><a href="projects-empty.html">empty</a></li>
+              <li><a href="projects-error.html">error</a></li>
+              <li><a href="projects-loading.html">loading</a></li>
+            </ul>
+          </li>
+          <li class="wf-screen"><a href="project-default.html">Project</a>
+            <ul>
+              <li><a href="project-default.html">default</a></li>
+              <li><a href="project-empty.html">empty</a></li>
+              <li><a href="project-error.html">error</a></li>
+              <li><a href="project-loading.html">loading</a></li>
+            </ul>
+          </li>
+          <li class="wf-screen"><a href="project-configuring-default.html">Configuring the set <span class="wf-kind">— a mode</span></a>
+            <ul>
+              <li><a href="project-configuring-default.html">default</a></li>
+              <li><a href="project-configuring-empty.html">empty</a></li>
+              <li><a href="project-configuring-error.html">error</a></li>
+              <li><a href="project-configuring-loading.html">loading</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="wf-section"><a href="run-default.html">3 · What leaves</a>
+        <ul>
+          <li class="wf-screen"><a href="run-default.html">Run <span class="wf-kind">— a mode</span></a>
+            <ul>
+              <li><a href="run-default.html">default</a></li>
+              <li><a href="run-error.html">error</a></li>
+              <li><a href="run-loading.html">loading</a></li>
+              <li><a href="run-success.html">success</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <div>
+  <!-- Wireframe chrome — outside the product. Not product markup. -->
+  <div class="wf-chrome" role="note" aria-label="Wireframe controls">
+    <strong>Projects</strong>
+    <nav class="wf-states" aria-label="States of this screen">
+      <a href="projects-default.html" aria-current="page">default</a>
+      <a href="projects-empty.html">empty</a>
+      <a href="projects-error.html">error</a>
+      <a href="projects-loading.html">loading</a>
+    </nav>
+    <span class="wf-flow">Main flow · first screen · decision: <em>A project for this work?</em></span>
+  </div>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header zone">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-default.html">Library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="app-main">
+
+      <section class="zone" aria-labelledby="projects-title">
+        <span class="zone-label">Page head · main action: new project</span>
+        <div class="page-head">
+          <div>
+            <h1 id="projects-title">Projects</h1>
+            <p class="meta">5 projects · each one a set of items that exports as an archive</p>
+          </div>
+          <a class="button button-primary" href="project-empty.html">
+            <span class="icon" aria-hidden="true"></span>New project
+          </a>
+        </div>
+      </section>
+
+      <section class="zone" aria-labelledby="list-title">
+        <span class="zone-label" id="list-title">Project list · main action: open a project</span>
+
+        <ol class="project-list">
+
+          <!-- Checked, clean enough to send: counts, date, target -->
+          <li>
+            <article class="project-row">
+              <div>
+                <h2><a href="project-default.html">acme-billing-api</a></h2>
+                <p class="description">Client repo for Acme's billing service. Code style, migration and review agents, the Postgres and GitHub MCP servers.</p>
+                <p class="facts meta"><span>14 items</span><span>3 auto-added</span><span>1 detached</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 2 days ago · for Claude Code</dd>
+                <dd class="meta">0 problems · 2 notes · 1 skipped</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Stale verdict: the date stays, the verdict does not, the cause is named -->
+          <li>
+            <article class="project-row">
+              <div>
+                <h2><a href="project-default.html">agent-dotfiles</a></h2>
+                <p class="description">My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers.</p>
+                <p class="facts meta"><span>9 items</span><span>2 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 5 days ago · for Claude Code</dd>
+                <dd class="meta">Out of date since <code>code-style</code> was edited in the Library</dd>
+                <dt>Shared</dt>
+                <dd class="meta">Anyone with the link sees it as it is now — every edit is visible to them</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Checked with Problems: still a project that can be exported -->
+          <li>
+            <article class="project-row">
+              <div>
+                <h2><a href="project-default.html">docs-site-rewrite</a></h2>
+                <p class="description">Rewriting the product docs in MDX. Writing-style prompt, link checker script, the Context7 and Playwright MCP servers.</p>
+                <p class="facts meta"><span>11 items</span><span>4 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 3 weeks ago · for Cursor</dd>
+                <dd class="meta">1 problem · 1 note · 0 skipped</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Never checked -->
+          <li>
+            <article class="project-row">
+              <div>
+                <h2><a href="project-default.html">voice-notes-pipeline</a></h2>
+                <p class="description">Transcribe voice memos, summarise them, file them into notes. Whisper as an external app, a summariser prompt, a sorting script.</p>
+                <p class="facts meta"><span>6 items</span><span>1 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Not checked yet</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- The example project that ships on first run: labelled, deletable -->
+          <li>
+            <article class="project-row">
+              <div>
+                <h2><span class="tag">Example</span><a href="project-default.html">repo-triage-kit</a></h2>
+                <p class="description">Built from the Public library to show what a check finds. Two items write to <code>.mcp.json</code>, and one needs <code>GITHUB_TOKEN</code>.</p>
+                <p class="facts meta"><span>7 items</span><span>2 auto-added</span><span>all from the Public library</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Not checked yet</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button" class="button-quiet">Delete example</button>
+              </div>
+            </article>
+          </li>
+
+        </ol>
+      </section>
+
+    </main>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

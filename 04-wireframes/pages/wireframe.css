@@ -1,0 +1,182 @@
+/* Wireframe base — shared by every page in 04-wireframes/pages.
+   Rules: _conventions.md. Grey only, Inter, 4 px grid, no colour. */
+
+:root {
+  --ink: #111;
+  --ink-2: #555;
+  --ink-3: #888;
+  --line: #bbb;
+  --line-2: #ddd;
+  --fill: #f2f2f2;
+  --paper: #fff;
+  --outside: #e4e4e4;
+  --canvas: 1440px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--outside);
+  color: var(--ink);
+  font: 400 14px/20px "Inter", system-ui, sans-serif;
+}
+
+a { color: inherit; }
+h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+/* ── Wireframe chrome: outside the product canvas ─────────────────── */
+
+.wf-chrome {
+  width: var(--canvas);
+  margin: 0 auto;
+  padding: 16px 0 12px;
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  color: var(--ink-2);
+  font-size: 12px;
+  line-height: 16px;
+}
+.wf-chrome strong { color: var(--ink); font-weight: 600; }
+.wf-states { display: flex; gap: 8px; }
+.wf-states a { padding: 4px 8px; border: 1px solid var(--line); text-decoration: none; }
+.wf-states a[aria-current="page"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.wf-flow { margin-left: auto; }
+
+/* ── The product canvas ──────────────────────────────────────────── */
+
+.canvas {
+  width: var(--canvas);
+  min-height: 900px;
+  margin: 0 auto 48px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Zone caption: names the zone and its main action. Quiet on purpose. */
+.zone { position: relative; }
+.zone-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink-3);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Placeholders */
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: var(--ink);
+  vertical-align: -3px;
+  flex: none;
+}
+.image {
+  display: block;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(to top right, transparent calc(50% - 0.5px), var(--line) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(to bottom right, transparent calc(50% - 0.5px), var(--line) 50%, transparent calc(50% + 0.5px));
+}
+
+/* Controls — structure only */
+button, .button {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--ink-2);
+  padding: 8px 12px;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.button-quiet { border-color: var(--line); color: var(--ink-2); }
+
+.meta { color: var(--ink-2); font-size: 12px; line-height: 16px; }
+.tag {
+  display: inline-block;
+  padding: 0 8px;
+  border: 1px solid var(--ink-2);
+  font-size: 11px;
+  line-height: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Product header: the two global entries ──────────────────────── */
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--line);
+}
+.app-header .product { display: flex; gap: 8px; align-items: center; font-weight: 600; }
+.app-nav ul { display: flex; gap: 24px; }
+.app-nav a { text-decoration: none; color: var(--ink-2); padding: 4px 0; }
+.app-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--ink); }
+
+.app-main { padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+.button-primary .icon { background: var(--paper); }
+
+/* ── Wireframe layout: tree on the left, chrome + canvas on the right ─ */
+/* The tree is the wireframe's navigation, not the product's (_conventions.md §7). */
+
+.wf-layout {
+  display: grid;
+  grid-template-columns: 240px var(--canvas);
+  gap: 32px;
+  width: max-content;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.wf-layout .wf-chrome,
+.wf-layout .canvas { width: var(--canvas); margin-left: 0; margin-right: 0; }
+
+.wf-tree {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 16px 0 32px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ink-2);
+}
+.wf-tree-head {
+  margin-bottom: 12px;
+  padding-left: 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.wf-tree ul { border-left: 1px solid var(--line); }
+.wf-tree ul ul { margin-left: 12px; }
+.wf-tree a {
+  display: block;
+  margin-left: -1px;
+  padding: 4px 0 4px 12px;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
+.wf-tree a:hover { color: var(--ink); border-left-color: var(--line); }
+.wf-tree .wf-section > a { color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px; margin-top: 8px; }
+.wf-tree .wf-screen > a { color: var(--ink); font-weight: 600; }
+.wf-tree .wf-screen > a .wf-kind { font-weight: 400; color: var(--ink-3); }
+.wf-tree a[aria-current="page"] { color: var(--ink); font-weight: 600; border-left-color: var(--ink); background: var(--fill); }
+.wf-tree a[aria-current="page"]::after { content: " ← here"; font-weight: 400; color: var(--ink-3); }
