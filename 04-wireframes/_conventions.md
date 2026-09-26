@@ -118,7 +118,11 @@ started deciding things it was not asked to.
   inside the canvas; the tree must never read as another menu.
 - **The stage**: the screen's name and its state as the title, and **Open as a page** — then **the
   frame**. **States are chosen in the tree only**; a second switcher above the frame would say the same
-  thing twice. Where the screen sits in the flow is the title's tooltip.
+  thing twice.
+- **Under the title, always three lines — Persona · Job · Flow.** Which persona the screen is for, which
+  job from `jtbd.md` it closes, and where it sits in `flows.md`, taken from `_screens.md`. **Where a
+  screen has none, the line says so in words** — *No job — and no job could (§9, Q25)* — **never blank
+  and never omitted**: a missing job is a finding, the same rule the sitemap uses for an orphan.
 - **The tree reads like a file explorer**: sections and screens are folders that open and close, states
   are files, guide lines with rounded elbows show the nesting, and the folder holding the current page
   opens itself.

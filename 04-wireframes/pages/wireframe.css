@@ -365,3 +365,11 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
 .wf-tree a.wf-todo { opacity: 0.45; }
 .wf-tree a.wf-todo[aria-current="page"] { opacity: 1; }
 .wf-screen > details > summary .wf-name { white-space: normal; }
+
+/* Under the title: which persona, job and flow the screen belongs to */
+.wf-stage .wf-chrome { align-items: flex-start; }
+.wf-heading { min-width: 0; }
+.wf-meta { margin: 8px 0 0; display: grid; grid-template-columns: max-content 1fr; gap: 2px 12px; font-size: 12px; line-height: 16px; }
+.wf-meta div { display: contents; }
+.wf-meta dt { font: 600 10.5px/16px var(--site-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.wf-meta dd { margin: 0; color: var(--ink-2); }
