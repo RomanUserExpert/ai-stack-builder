@@ -120,13 +120,14 @@ a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
 
 /* ---------- shell ---------- */
 .shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
+/* On wide screens the phase list is a rail fixed to the window's left edge (below), and the
+   content column is centred in what is left. Same rail, same width, on every phase page and on
+   the wireframes. */
+:root{--phases-w:240px}
+html.phases-collapsed{--phases-w:64px}
 @media (min-width:1080px){
-  .shell{display:grid;grid-template-columns:208px minmax(0,1fr);gap:44px;padding:0 32px 120px}
-  .phases{grid-column:1;grid-row:1 / span 4}
-  .mast{grid-column:2;grid-row:1}
-  .rail{grid-column:2;grid-row:2}
-  main{grid-column:2;grid-row:3}
-  .foot{grid-column:2;grid-row:4}
+  body{padding-left:var(--phases-w)}
+  .shell{max-width:980px;padding:0 40px 120px}
 }
 .col{max-width:100%}
 .col>*{max-width:74ch}
@@ -562,7 +563,7 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 .pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
 .pick p{margin:0;font-size:14px;color:var(--ink-2)}
 
-/* --- the course phases: a left sidebar on wide screens, a strip below --- */
+/* --- the course phases: a fixed, collapsible rail on wide screens, a strip below --- */
 .phases{
   border-bottom:1px solid var(--rule);background:var(--sunken);
   margin:0 -32px 0;padding:0 32px;
@@ -574,39 +575,54 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 }
 .phases ol::-webkit-scrollbar{display:none}
 .phases li{margin:0;flex:0 0 auto}
-.phases a,.phases span{
+.phases li>a,.phases li>span{
   display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
   border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
   white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
 }
-.phases a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases li>a:hover{color:var(--ink);border-bottom-color:var(--rule)}
 .phases b{font-weight:700;color:var(--ink-2)}
-.phases a:hover b{color:var(--ink)}
+.phases li>a:hover b{color:var(--ink)}
 .phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
 .phases .now b{color:var(--accent)}
 .phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
 .phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
-.phaseshead{display:none}
+.phaseshead,.phasestoggle{display:none}
 
 @media (min-width:1080px){
   .phases{
-    position:sticky;top:0;align-self:start;max-height:100vh;overflow-y:auto;
-    margin:0;padding:66px 0 32px;background:none;border:0;
+    position:fixed;top:0;left:0;bottom:0;z-index:15;width:var(--phases-w);
+    overflow-y:auto;scrollbar-width:none;
+    margin:0;padding:16px 16px 32px;background:var(--bg);border:0;border-right:1px solid var(--rule);
   }
+  .phases::-webkit-scrollbar{display:none}
   .phaseshead{
-    display:block;font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 14px;padding-left:13px;
   }
+  .phasestoggle{
+    display:inline-block;padding:4px 8px;border:1px solid var(--rule);border-radius:0;
+    background:transparent;color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
+  }
+  .phasestoggle:hover{color:var(--ink);border-color:var(--ink-3)}
   .phases ol{display:block;overflow:visible;border-left:1px solid var(--rule);font-size:12.5px}
-  .phases a,.phases span{
+  .phases li>a,.phases li>span{
     display:block;padding:7px 0 8px 13px;margin-left:-1px;white-space:normal;line-height:1.32;
     border-bottom:0;border-left:2px solid transparent;
   }
   .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
-  .phases a:hover{border-left-color:var(--rule)}
+  .phases li>a:hover{border-left-color:var(--rule)}
   .phases .now{border-left-color:var(--accent)}
   .phases .soon{opacity:.42}
   .phases .soon em{display:none}
+
+  /* collapsed: the numbers stay, and stay links */
+  html.phases-collapsed .phases{padding:16px 8px 32px}
+  html.phases-collapsed .phaseshead{padding-left:0;justify-content:center}
+  html.phases-collapsed .phaseshead span,
+  html.phases-collapsed .phases .lbl{display:none}
+  html.phases-collapsed .phases b{margin:0}
 }
 
 /* --- skip link and the phase meta line --- */
@@ -627,22 +643,23 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
 <div class="shell">
 
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
 <nav class="phases" aria-label="Course phases">
   <div class="inner">
-    <p class="phaseshead">Phases</p>
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
     <ol>
-      <li><span class="now"><b>01</b>Research and benchmark</span></li>
-      <li><a href="6-personas/personas.html"><b>02</b>Personas and JTBD</a></li>
-      <li><a href="../03-information-architecture/ia.html"><b>03</b>Information architecture</a></li>
-      <li><a href="../04-wireframes/pages/projects-default.html"><b>04</b>Prototyping and wireframing</a></li>
-      <li><span class="soon"><b>05</b>Tone of voice and microcopy <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>06</b>Concept <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>07</b>UI assembly <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>08</b>Design tokens <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>09</b>Design system <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>10</b>Responsive <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>11</b>Animation and micro-interactions <em>&middot; soon</em></span></li>
-      <li><span class="soon"><b>12</b>Handoff and documentation <em>&middot; soon</em></span></li>
+      <li><span class="now" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></span></li>
+      <li><a href="6-personas/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/projects-default.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><span class="soon" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
     </ol>
   </div>
 </nav>
@@ -1374,6 +1391,23 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 
 (function(){
   var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  /* the phase rail's collapse toggle — the same key on every phase page and on the wireframes.
+     Deliberately not its own IIFE: the builders lift this script up to its first closing one. */
+  var phRoot = document.documentElement, phBtn = document.querySelector('.phasestoggle');
+  function phSync(){
+    var c = phRoot.classList.contains('phases-collapsed');
+    phBtn.setAttribute('aria-expanded', String(!c));
+    phBtn.innerHTML = c ? '&raquo;' : '&laquo;';
+    phBtn.title = c ? 'Expand phases' : 'Collapse phases';
+  }
+  if(phBtn){
+    phBtn.addEventListener('click', function(){
+      phRoot.classList.toggle('phases-collapsed');
+      try{ localStorage.setItem('phases', phRoot.classList.contains('phases-collapsed') ? 'collapsed' : 'open'); }catch(e){}
+      phSync();
+    });
+    phSync();
+  }
   if(!links.length) return;
   var rail = document.querySelector('.rail');
   var ol   = rail ? rail.querySelector('ol') : null;

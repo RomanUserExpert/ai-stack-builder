@@ -145,7 +145,7 @@ button, .button {
   --site-rule: #d4d4cf;
   --site-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
-html.wf-rail-collapsed { --rail-w: 64px; }
+html.phases-collapsed { --rail-w: 64px; }
 
 /* 1 · Phase rail */
 .wf-rail {
@@ -159,17 +159,18 @@ html.wf-rail-collapsed { --rail-w: 64px; }
   padding: 16px 16px 32px;
   background: var(--outside);
   border-right: 1px solid var(--site-rule);
-  font: 12px/16px var(--site-mono);
-  z-index: 10;
+  font: 12.5px/16px var(--site-mono);
+  letter-spacing: 0.03em;
+  z-index: 15;
 }
 .wf-rail-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 12px;
-  padding-left: 12px;
-  font: 600 11px/16px "Inter", system-ui, sans-serif;
+  margin-bottom: 14px;
+  padding-left: 13px;
+  font: 600 10.5px/16px "Inter", system-ui, sans-serif;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -187,24 +188,26 @@ html.wf-rail-collapsed { --rail-w: 64px; }
 .wf-rail .wf-soon {
   display: block;
   margin-left: -1px;
-  padding: 8px 0 8px 12px;
+  padding: 7px 0 8px 13px;
   border-left: 2px solid transparent;
   text-decoration: none;
-  color: var(--ink-2);
+  color: var(--ink-3);
+  line-height: 1.32;
 }
-.wf-rail b { display: block; margin-bottom: 4px; font-size: 11px; line-height: 12px; letter-spacing: 0.09em; }
+.wf-rail b { display: block; margin-bottom: 4px; font-size: 10.5px; line-height: 1; letter-spacing: 0.09em; color: var(--ink-2); }
+.wf-rail .wf-now b { color: var(--site-accent); }
 .wf-rail a:hover { color: var(--ink); border-left-color: var(--site-rule); }
-.wf-rail .wf-soon { color: var(--ink-3); opacity: 0.5; }
+.wf-rail .wf-soon { color: var(--ink-3); opacity: 0.42; }
 .wf-rail .wf-now { color: var(--site-accent); border-left-color: var(--site-accent); font-weight: 600; }
 
 /* Collapsed: the numbers stay, and stay links */
-html.wf-rail-collapsed .wf-rail { padding: 16px 8px 32px; }
-html.wf-rail-collapsed .wf-rail-head { padding-left: 0; justify-content: center; }
-html.wf-rail-collapsed .wf-rail-head span,
-html.wf-rail-collapsed .wf-rail .wf-label { display: none; }
-html.wf-rail-collapsed .wf-rail a,
-html.wf-rail-collapsed .wf-rail .wf-soon { padding-left: 12px; }
-html.wf-rail-collapsed .wf-rail b { margin: 0; }
+html.phases-collapsed .wf-rail { padding: 16px 8px 32px; }
+html.phases-collapsed .wf-rail-head { padding-left: 0; justify-content: center; }
+html.phases-collapsed .wf-rail-head span,
+html.phases-collapsed .wf-rail .wf-label { display: none; }
+html.phases-collapsed .wf-rail a,
+html.phases-collapsed .wf-rail .wf-soon { padding-left: 12px; }
+html.phases-collapsed .wf-rail b { margin: 0; }
 
 /* 2 + 3 · Tree beside the chrome and canvas */
 .wf-layout {

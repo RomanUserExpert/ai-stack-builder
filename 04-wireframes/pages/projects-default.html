@@ -38,7 +38,7 @@
   </style>
   <script>
     /* Chrome only: restore the phase rail's collapsed state before paint. */
-    try { if (localStorage.getItem("wf-rail") === "collapsed") document.documentElement.classList.add("wf-rail-collapsed"); } catch (e) {}
+    try { if (localStorage.getItem("phases") === "collapsed") document.documentElement.classList.add("phases-collapsed"); } catch (e) {}
   </script>
 </head>
 <body>
@@ -276,14 +276,14 @@
   (function () {
     var root = document.documentElement, btn = document.querySelector(".wf-rail-toggle");
     function sync() {
-      var c = root.classList.contains("wf-rail-collapsed");
+      var c = root.classList.contains("phases-collapsed");
       btn.setAttribute("aria-expanded", String(!c));
       btn.innerHTML = c ? "&raquo;" : "&laquo;";
       btn.title = c ? "Expand phases" : "Collapse phases";
     }
     btn.addEventListener("click", function () {
-      root.classList.toggle("wf-rail-collapsed");
-      try { localStorage.setItem("wf-rail", root.classList.contains("wf-rail-collapsed") ? "collapsed" : "open"); } catch (e) {}
+      root.classList.toggle("phases-collapsed");
+      try { localStorage.setItem("phases", root.classList.contains("phases-collapsed") ? "collapsed" : "open"); } catch (e) {}
       sync();
     });
     sync();
