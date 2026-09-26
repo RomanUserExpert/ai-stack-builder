@@ -295,6 +295,7 @@ disclosed where it changes (§5) — they appear on the Project and the Item, no
 
 ### Decisions taken while drawing the rest of the map — 2026-09-26
 
+- *Superseded on the page 2026-09-26: `project-configuring-loading` is now **the mode opening** — the set and the sidebar as skeletons, only Cancel. The add's round trip below is decided and **not drawn**.*
 - **Configuring, loading — the add's round trip.** The row you added appears **at once, marked
   *Adding — finding what it requires…*** — it is what you did, not a guess. **What it pulls in is not
   shown until the server returns**: auto-added rows that appear and then vanish would be EJ-1, so the
