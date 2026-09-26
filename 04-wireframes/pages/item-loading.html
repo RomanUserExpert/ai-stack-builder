@@ -239,8 +239,7 @@
           <!-- What the item is made of (owner, 2026-09-26, Q32): no Source switch. Three parts, each optional,
                and any mix of them — typed content, files from the computer, a pinned repo. At least one. -->
           <div class="form-section">
-            <h3>What it is made of</h3>
-            <p class="meta">Any mix of the three — write it here, drop your own files, attach a repo.</p>
+            <h3>Contents</h3>
 
             <label class="field"><span>Content</span><textarea name="content" placeholder="Write or paste it here">#!/usr/bin/env bash
 # db-migrate — diff the schema, write a migration, dry-run it, then apply.
@@ -271,7 +270,7 @@ psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.s
           </div>
 
           <div class="form-section">
-            <h3>What it needs, and what it answers to</h3>
+            <h3>Dependencies</h3>
             <div class="field-row">
               <label class="field"><span>Requires</span><input name="requires" placeholder="Items this one needs — postgres-mcp"><span class="hint">Pulled into every project that holds this one</span></label>
               <label class="field"><span>Conflicts with</span><input name="conflicts" placeholder="Items it must not travel with"></label>
