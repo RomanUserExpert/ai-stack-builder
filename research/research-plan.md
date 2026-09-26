@@ -1680,6 +1680,33 @@ person — an avatar placeholder and a name.** It opens nothing: Q25 builds a wa
 settings, no session list**, and a name on the screen is none of those. *Whether signing out lives
 there is not decided, and nothing is drawn for it.*
 
+### Q30 — Projects gets search, filters and sort — raised and answered 2026-09-26
+
+**Raised by the owner in lesson 04, on the Projects wireframe:** *there are no filters and no search
+anywhere.* **Answered in the same sentence — Projects gets them first.** The sitemap gave Projects
+none, and step 3 drew the page without them on that basis; **this reverses the omission, not a
+refusal** — nothing in lesson 03 argued against finding a project, it simply was never asked.
+
+**What is drawn, and each part answers half of the screen's own job.** Projects' job is *get back to
+the set I keep for that piece of work — and see whether it is still checked.*
+
+- **Search** — over project names, descriptions **and the names of the items inside them**, because
+  the person often remembers the piece (`db-migrate`) and not the set it went into. That is the first
+  half of the job.
+- **One filter, single choice, by what the last check said** — *All · Problems at last check · Out of
+  date · Not checked yet · Shared*, each with its count. That is the second half. **The words are §6's**:
+  *checked*, never *works*; *out of date* is the void verdict, not a grey one.
+- **Checked for** — a target, from `checkTarget` (§5). A project never checked has none and matches only
+  *Any target*.
+- **Sort** — *Last changed* by default, then *Last checked* and *Name*. **No sort by counts**: a note
+  count is not a to-do list (§6, *Deference*), and ordering by it would draw one.
+
+**What it costs, named.** **How many projects a person keeps is `[?]`** — the counted band is for
+items (*tens, not hundreds; design for fifty*), not projects, and at five rows a find bar is heavier
+than the list it finds in. **It is drawn because the owner reads the screen as one people come back
+to, and the bar costs one row.** **Filtered to zero is content, not a page**, as it already is in the
+Library. **The Library's own search and filters (§8) are not touched by this entry** and come next.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions
