@@ -119,8 +119,8 @@ started deciding things it was not asked to.
 - **The stage**: the screen's name, its states as a switcher, where it sits in the flow, and **Open as a
   page** — then **the frame**.
 
-**The frame is 16:9 and shows the canvas at 70%**, scaled down further only when the window is too
-small to hold it. **The viewer page never scrolls** — not sideways, not down. **Only the wireframe
+**The frame is 16:9 and shows the canvas at 80%**, scaled down further only when the window is too
+small to hold it, and **it is centred, with its chrome, in the space beside the tree.** **The viewer page never scrolls** — not sideways, not down. **Only the wireframe
 scrolls, vertically, inside its frame.**
 
 The rail, the tree and the stage use the site's background, mono and accent. **That accent is chrome and

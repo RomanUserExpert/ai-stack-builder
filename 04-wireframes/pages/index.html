@@ -108,7 +108,7 @@
 <script>
   /* Chrome only. The product pages have no script (_conventions.md §2). */
   (function () {
-    var CANVAS = 1440, MAX = 0.7, RATIO = 9 / 16;
+    var CANVAS = 1440, MAX = 0.8, RATIO = 9 / 16;
     var iframe = document.getElementById("wf-iframe"),
         frame = document.getElementById("wf-frame"),
         stage = document.querySelector(".wf-stage"),
@@ -118,13 +118,17 @@
         open = document.getElementById("wf-open"),
         tree = document.querySelector(".wf-tree");
 
-    /* 70% of the 1440 canvas, never wider or taller than the room left for it; the frame is 16:9 */
+    /* 80% of the 1440 canvas, never wider or taller than the room left for it; the frame is 16:9,
+       and it is centred — with its chrome — in the space beside the tree */
+    var chrome = document.querySelector(".wf-stage .wf-chrome");
     function fit() {
-      var w = stage.clientWidth,
-          h = window.innerHeight - frame.getBoundingClientRect().top - 24;
+      var w = stage.clientWidth - 48,
+          h = window.innerHeight - chrome.offsetHeight - 64;
       var scale = Math.min(MAX, w / CANVAS, h / (CANVAS * RATIO));
-      frame.style.width = Math.floor(CANVAS * scale) + "px";
+      var fw = Math.floor(CANVAS * scale);
+      frame.style.width = fw + "px";
       frame.style.height = Math.floor(CANVAS * RATIO * scale) + "px";
+      chrome.style.width = fw + "px";
       iframe.style.width = CANVAS + "px";
       iframe.style.height = Math.ceil(CANVAS * RATIO) + "px";
       iframe.style.transform = "scale(" + scale + ")";
