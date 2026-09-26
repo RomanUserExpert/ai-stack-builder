@@ -595,38 +595,41 @@ td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);whit
 .phaseshead,.phasestoggle{display:none}
 
 @media (min-width:1080px){
+  /* the rail sits one tone below the page, and every phase is its own bubble — no rules, no bars */
   .phases{
     position:fixed;top:0;left:0;bottom:0;z-index:15;width:var(--phases-w);
     overflow-y:auto;scrollbar-width:none;
-    margin:0;padding:16px 16px 32px;background:var(--bg);border:0;border-right:1px solid var(--rule);
+    margin:0;padding:16px 12px 32px;background:var(--sunken);border:0;
   }
   .phases::-webkit-scrollbar{display:none}
   .phaseshead{
     display:flex;align-items:center;justify-content:space-between;gap:8px;
     font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 14px;padding-left:13px;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 12px;padding-left:12px;
   }
   .phasestoggle{
-    display:inline-block;padding:4px 8px;border:1px solid var(--rule);border-radius:0;
-    background:transparent;color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
+    display:inline-block;padding:4px 10px;border:0;border-radius:8px;
+    background:var(--surface);color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
   }
-  .phasestoggle:hover{color:var(--ink);border-color:var(--ink-3)}
-  .phases ol{display:block;overflow:visible;border-left:1px solid var(--rule);font-size:12.5px}
+  .phasestoggle:hover{color:var(--ink);background:var(--surface-hover)}
+  .phases ol{display:flex;flex-direction:column;gap:6px;overflow:visible;font-size:12.5px}
   .phases li>a,.phases li>span{
-    display:block;padding:7px 0 8px 13px;margin-left:-1px;white-space:normal;line-height:1.32;
-    border-bottom:0;border-left:2px solid transparent;
+    display:block;padding:8px 12px 9px;white-space:normal;line-height:1.32;
+    border:0;border-radius:10px;background:var(--surface);
   }
   .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
-  .phases li>a:hover{border-left-color:var(--rule)}
-  .phases .now{border-left-color:var(--accent)}
-  .phases .soon{opacity:.42}
+  .phases li>a:hover{background:var(--surface-hover);color:var(--ink)}
+  .phases .now{background:var(--accent-06);box-shadow:inset 0 0 0 1px var(--accent-45)}
+  .phases .soon{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);opacity:.5}
   .phases .soon em{display:none}
 
-  /* collapsed: the numbers stay, and stay links */
+  /* collapsed: the numbers stay, each still its own bubble, and still links */
   html.phases-collapsed .phases{padding:16px 8px 32px}
   html.phases-collapsed .phaseshead{padding-left:0;justify-content:center}
   html.phases-collapsed .phaseshead span,
   html.phases-collapsed .phases .lbl{display:none}
+  html.phases-collapsed .phases li>a,
+  html.phases-collapsed .phases li>span{padding:10px 0;text-align:center}
   html.phases-collapsed .phases b{margin:0}
 }
 
