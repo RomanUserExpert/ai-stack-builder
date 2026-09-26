@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · filters — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <h1 id="projects-title">Projects</h1>
+          <a class="button button-primary" href="project-empty.html">
+            <span class="icon" aria-hidden="true"></span>New project
+          </a>
+        </div>
+      </section>
+
+      <!-- Find (Q30): search, and one Filters button in the far right corner. Filters opens the
+           verdict filter (All · Problems at last check · Out of date · Not checked yet · Shared),
+           Checked for a target, and sort — not drawn here. Filtered to zero: projects-error-filtered. -->
+      <section class="find-zone" aria-label="Find projects">
+        <form class="find" role="search" action="projects-default.html">
+          <label class="search">
+            <span class="icon" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Search projects and the items in them — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button" aria-expanded="true"><span class="icon" aria-hidden="true"></span>Filters · 1</button>
+        </form>
+
+        <!-- Filters popover — the same shape on every page (owner, 2026-09-26):
+             title · Reset filters on its right · the filters · Cancel / Apply.
+             Projects — the job is "get back to the set, and see whether it is still checked" (MAIN), and the loudest job in the base is one setup across several agents (#6235). So: the last check, the target it was checked for, whether it is shared, and the order. -->
+        <dialog class="popover" open aria-labelledby="filters-title">
+          <form class="popover-form" action="projects-default.html">
+            <div class="popover-head">
+              <h2 id="filters-title">Filters</h2>
+              <button type="reset" class="link-button">Reset filters</button>
+            </div>
+            <div class="popover-body">
+            <fieldset class="popover-group">
+              <legend>Last check</legend>
+              <label><input type="radio" name="check" checked> Any</label>
+              <label><input type="radio" name="check"> Problems at last check</label>
+              <label><input type="radio" name="check"> Out of date</label>
+              <label><input type="radio" name="check"> Not checked yet</label>
+            </fieldset>
+            <fieldset class="popover-group">
+              <legend>Checked for</legend>
+              <label><input type="checkbox" name="target" checked> Claude Code</label>
+              <label><input type="checkbox" name="target"> Cursor</label>
+              <label><input type="checkbox" name="target"> Codex</label>
+              <label><input type="checkbox" name="target"> Universal</label>
+            </fieldset>
+            <fieldset class="popover-group">
+              <legend>Sharing</legend>
+              <label><input type="checkbox" name="shared"> Only projects shared by link</label>
+            </fieldset>
+            <fieldset class="popover-group">
+              <legend>Sort by</legend>
+              <label><input type="radio" name="sort" checked> Last changed</label>
+              <label><input type="radio" name="sort"> Last checked</label>
+              <label><input type="radio" name="sort"> Name</label>
+            </fieldset>
+            </div>
+            <div class="popover-foot">
+              <a class="button" href="projects-default.html">Cancel</a>
+              <button type="submit" class="button-primary">Apply</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+
+      <section aria-label="Projects">
+
+        <!-- Projects are cards, items are rows (owner, 2026-09-26): a project is a set you come back to,
+             an item is a line in a list. The two must never be mistaken for each other. -->
+        <ol class="card-grid">
+
+          <!-- Checked, clean enough to send: counts, date, target -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a href="project-default.html">acme-billing-api</a></h2>
+                <p class="description">Client repo for Acme's billing service. Code style, migration and review agents, the Postgres and GitHub MCP servers.</p>
+                <p class="facts meta"><span>14 items</span><span>3 auto-added</span><span>1 detached</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 2 days ago · for Claude Code</dd>
+                <dd class="meta">1 problem · 2 notes · 1 skipped</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Stale verdict: the date stays, the verdict does not, the cause is named -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a href="project-default.html">agent-dotfiles</a><span class="tag">Shared</span></h2>
+                <p class="description">My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers.</p>
+                <p class="facts meta"><span>9 items</span><span>2 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 5 days ago · for Claude Code</dd>
+                <dd class="meta">Out of date since <code>code-style</code> was edited in the Library</dd>
+                <dt>Shared</dt>
+                <dd class="meta">Anyone with the link sees it as it is now — every edit is visible to them</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Checked with Problems: still a project that can be exported -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a href="project-default.html">docs-site-rewrite</a></h2>
+                <p class="description">Rewriting the product docs in MDX. Writing-style prompt, link checker script, the Context7 and Playwright MCP servers.</p>
+                <p class="facts meta"><span>11 items</span><span>4 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 3 weeks ago · for Cursor</dd>
+                <dd class="meta">1 problem · 1 note · 0 skipped</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Never checked -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a href="project-default.html">voice-notes-pipeline</a></h2>
+                <p class="description">Transcribe voice memos, summarise them, file them into notes. Whisper as an external app, a summariser prompt, a sorting script.</p>
+                <p class="facts meta"><span>6 items</span><span>1 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Not checked yet</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- The example project that ships on first run: labelled, deletable -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><span class="tag">Example</span><a href="project-default.html">repo-triage-kit</a></h2>
+                <p class="description">Built from the Public library to show what a check finds. Two items write to <code>.mcp.json</code>, and one needs <code>GITHUB_TOKEN</code>.</p>
+                <p class="facts meta"><span>7 items</span><span>2 auto-added</span><span>all from the Public library</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Not checked yet</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button" class="button-quiet">Delete example</button>
+              </div>
+            </article>
+          </li>
+
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

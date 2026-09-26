@@ -298,3 +298,23 @@ disclosed where it changes (§5) — they appear on the Project and the Item, no
   the person still has** — *if you already downloaded an archive, that copy is still yours*.
 - **The acme-billing-api project gained a declared conflict** (`eslint-autofix` ↔ `code-style`) so the
   main flow has a real Problem; its row on Projects reads *1 problem · 2 notes · 1 skipped*.
+
+### The filters popover on each page — 2026-09-26
+
+**One shape, three contents** (owner): *Filters* · *Reset filters* · groups · *Cancel / Apply*.
+Pages: `projects-filters`, `library-my-filters`, `library-public-filters`.
+
+- **Projects** — the job is *get back to the set and see whether it is still checked* (MAIN), and the
+  loudest job in the base is one setup across several agents (#6235, 6,592). **Last check** (Any ·
+  Problems at last check · Out of date · Not checked yet) · **Checked for** (Claude Code · Cursor ·
+  Codex · Universal) · **Sharing** · **Sort by** (Last changed · Last checked · Name). *Drawn with
+  Claude Code ticked.*
+- **My library** — P1 keeps tens of items (*design for fifty*), wants to find the thing they wrote
+  (H-J1) and to see dead weight (EJ-3). **Use** (Any · In at least one project · **In no project**) ·
+  **Source** (Inline · External) · **Needs** (env keys · other items · an outside rule) · **Tags** ·
+  **Sharing** · **Sort by** (Name · Last changed · Most used). Kind is the tabs, not a filter. *Use is a
+  fact, never a quality judgement* (§5, Q22). *Drawn with In no project chosen.*
+- **Public library** — provenance and a pinned ref are what make the shelf trustworthy (H10); the
+  licence is shown because absence is not permission (§5). **Source** (the five repos) · **Licence** ·
+  **Hide items I already copied**. **No sort** — Q9, how the shelf sorts, is still open (Q19).
+

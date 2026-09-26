@@ -77,6 +77,8 @@
   - **`default`** is the screen filled with real data. `_screens.md` keeps *success* for a real
     *it worked*, so the filled view needs a name of its own.
   - **`success`** exists only where `_screens.md` marks it — in the main flow, only `run-success.html`.
+  - **An open popover is drawn as its own page, `<name>-filters.html`** — the default with the popover
+    open. It is not one of the five states; it is how a page looks while a question is being asked of it.
   - **A state with more than one cause takes the cause as a suffix**: `<name>-<state>-<cause>.html`.
     Projects has two errors that ask for different ways out, so it has `projects-error-filtered.html`
     and `projects-error-server.html`, never one page trying to be both.
@@ -126,6 +128,7 @@ the pieces it established, and **all of them live in `pages/wireframe.css`** —
 | **Card grid** | Projects | **Projects are cards, items are rows** (owner, 2026-09-26) — a project is a set you come back to, an item is a line in a list, and the two must never be mistaken for each other. Three columns: name and description · facts · the last check under a rule · actions at the foot |
 | **Kind tabs** | My library, Public library, the library panel | `All` first, then one tab per kind in §5's order — `skill · agent · prompt · mcp · script · app`. **On a page they carry counts** (owner, 2026-09-26), **and the counts follow the search**, so a tab with matches is itself a way out. A zero is shown, never hidden, so the order holds. Kind is a tab, not a filter — `Filters` holds the rest |
 | **Row list** | My library, Project | `ol` of `article`s: what it is · what it says (a `dl`) · what you can do. Kinds as a small outlined tag |
+| **Filters popover** | Projects, My library, Public library | **One shape everywhere** (owner, 2026-09-26): title *Filters* · **Reset filters** on its right · the groups, each a `fieldset` with its `legend` · **Cancel / Apply** at the foot. It hangs from the `Filters` button, right-aligned. Nothing applies until *Apply*; the button then carries the count, *Filters · 1*. **Which filters a page gets comes from its persona and its content**, and a page with no evidence for sorting gets no sort |
 | **State block** | Projects empty / error | Icon or image, one heading, one sentence, the ways out. Server errors add the code and time in grey |
 | **Skeleton** | Projects loading | Grey bars in the real rows' columns; head and controls real |
 | **Callout** | Project, Run | A finding or a disclosure: a rule on the left, the severity **as a word** — *Problem*, *Note*, *Before you add it* |
