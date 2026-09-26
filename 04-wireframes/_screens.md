@@ -191,9 +191,10 @@ scopes two global entries — they are still **one screen with two addresses**, 
 | 2 | **Project** | place | `project` | ✓ | ✓ | ✓ | — |
 | 2 | **Configuring the set** | mode | `project-configuring` | ✓ | ✓ ×2 | ✓ | — |
 | 2 | **Detached row — edit · reset · promote** | mode of a row | `project-detached` | — | ✓ | ✓ | — |
-| 3 | **Run** — from a Project | mode | `run` | — | ✓ | ✓ | ✓ |
-| 3 | **Run — one item**, from a Library row | mode | `run-item` | — | ✓ | ✓ | ✓ |
-| 3 | **Run — on a shared project**, by the receiver | mode | `run-shared` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — project** | mode | `run` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — single item**, from a Library row | mode | `run-item` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — shared project**, by the receiver | mode | `run-shared` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — shared single item**, by the receiver — *not drawn yet* | mode | `run-shared-item` | — | ✓ | ✓ | ✓ |
 | 4 | **Shared project** | place | `shared-project` | — | ✓ | ✓ | — |
 | 4 | **Shared item** | place | `shared-item` | — | ✓ | ✓ | — |
 
