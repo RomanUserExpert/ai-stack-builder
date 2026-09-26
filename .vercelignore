@@ -17,4 +17,5 @@ research/6-personas/*
 !04-wireframes
 04-wireframes/*
 !04-wireframes/pages
+!04-wireframes/pages/*
 !vercel.json
