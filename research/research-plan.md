@@ -1758,6 +1758,30 @@ question Q31 already named**, sharper, because a mixed item may land in more tha
 in §6 depends on the switch**: the export already writes inline parts as files and external parts as
 instructions in `SETUP.md`; a mixed item simply does both.
 
+### Q33 — configuring, as drawn: a sidebar, a side panel with Detach, nested rows, a draft — 2026-09-26
+
+**Raised and answered by the owner in lesson 04, while reviewing the configuring screens.** Four
+decisions, each small on the page and one of them not small underneath.
+
+1. **The library panel is a full left sidebar**, not a box beside the set — `Related · All · the kinds`,
+   opening on `All` when the set is empty, because there is nothing yet for `Related` to relate to.
+2. **Auto-added rows nest under the item that pulled them in.** The refusal §6 and §8 describe is now
+   carried by the nesting — a sub-row has no remove of its own — rather than by *remove what dragged it
+   in* written on the row.
+3. **A click on a row opens the item in a side panel beside the set, and `Detach` lives there.** Asked
+   *what is a detached row and how did we get to it*, the review found that **no screen offered Detach**
+   — the wireframes had a detached row and no way to make one. The panel now offers *Detach to edit
+   here* on a linked row, and on a detached row its differing fields, `Reset` per field and whole, and
+   `Promote`. The detached row stops being a page of its own.
+4. **The mode is a draft.** The head reads *Cancel · Check · **Save*** — Save primary, Check secondary.
+   **This is the one that is not small:** until now an add was persisted as it happened (`flows.md`
+   draws *an add that does not persist* as its own failure). Now adds, removes and a detached row's
+   edits are held until `Save` and dropped by `Cancel`; the dependency walk still runs on each add, so
+   auto-added rows appear before `Save`. `Promote` stays immediate, because it creates a library item,
+   and its failure is the detached panel's error.
+
+**Written into `CLAUDE.md` §8 the same day**, as a dated paragraph under the configuring mode.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

@@ -1,10 +1,11 @@
-# Screens of the main flow — lesson 04, step 1
+# Screens — lesson 04
 
 > **Written 2026-09-26, out of [`sitemap.md`](../03-information-architecture/sitemap.md),
 > [`flows.md`](../03-information-architecture/flows.md) and
-> [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md) and nothing else.** This is the order for the next
-> steps, not a wireframe: names, jobs, places in the flow, states. **The main flow only** — every other
-> flow in the sitemap waits for step 8.
+> [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md) and nothing else.** Names, jobs, places in the flow,
+> states. **It began as the main flow only; by the end of the day the whole map was drawn** — 16 screens,
+> 64 pages — and the owner's screen-by-screen review had started. The main flow comes first below, the
+> whole map after it, and the review's decisions are dated where they landed.
 
 **The main flow is the main job's flow**, `flows.md` §*The main job*, walked by **P1, the keeper** —
 the primary persona (Q7):
@@ -125,10 +126,11 @@ surface. A mode can be wireframed; it just has no address.
     lesson's decision** — rows that appear and then vanish would be EJ-1, and that option is not taken
     silently.
   - **Success —** — an added item is a row in the set and a tick in the panel, not an outcome.
-- **Inside the filled page:** scope switch · `kind` tabs with `Related` first and default · rows
-  already in the set reading as checked · the `✕` on project rows · **the auto-added row's refusal**,
-  the product's only one — *remove what dragged it in* · the detached row's `Edit`, `Reset`, `Promote`
-  (Q21), marked but not designed here.
+- **Inside the filled page:** the sidebar's scope switch · `kind` tabs, `Related · All · kinds` · rows
+  already in the set reading as ticked · the remove on project rows · **auto-added rows nested under
+  their puller**, with no remove of their own — the product's only refusal, carried by the nesting ·
+  **a click opens the item in a side panel**, where a linked row offers *Detach* and a detached row its
+  `Reset` and `Promote` (Q33).
 
 - **The panel is a full left sidebar** (owner, 2026-09-26), not a box beside the set.
 - **Save is the main action, Check secondary** (owner, 2026-09-26): the head reads *Cancel · Check · **Save***.
@@ -198,7 +200,7 @@ scopes two global entries — they are still **one screen with two addresses**, 
 | 4 | **Shared project** | place | `shared-project` | — | ✓ | ✓ | — |
 | 4 | **Shared item** | place | `shared-item` | — | ✓ | ✓ | — |
 
-**Fourteen screens and 55 pages, all drawn** — every state marked `✓` plus a `default` for each, and
+**Sixteen screens and 64 pages, all drawn** *(fourteen and 55 when first counted; Create account is in the tree, not drawn; Run — shared single item was added and drawn)* — every state marked `✓` plus a `default` for each, and
 **`✓ ×2` where one state has two causes that ask for different ways out**: *filtered to nothing*
 (**Clear filters**) and *the server didn't answer* (**Try again**, plus a second way that does not
 depend on it). The files are `<name>-error-filtered.html` and `<name>-error-server.html`

@@ -205,7 +205,7 @@ product *is* before anything decides what it looks like.
 | **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
 | **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
 | **03** | **Information architecture** | ~~done~~ — started 2026-09-15, **closed 2026-09-20**, all seven of the course's steps · [`ia.html`](03-information-architecture/ia.html) · [the plan](03-information-architecture/README.md). ~~Five of the course's seven steps are done; what remains is the IA critique and `ia.html`.~~ The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
-| **04** | **Prototyping and wireframing** | ← **current**. Structure before appearance — no colour, no type scale, no components |
+| **04** | **Prototyping and wireframing** | ← **current**. Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8 |
 | **05** | Tone of voice and microcopy | §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
 | **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
 | **07** | UI assembly | The screens built out of the concept — what the old list called *mockups* |
@@ -1090,6 +1090,17 @@ to read the scores behind it: the rubric grades craft, not weight.
   what it says is *remove what dragged it in*. That is the product's only refusal and the panel
   inherits it rather than softening it.
 
+  **Drawn in lesson 04, and four things the drawing settled** (owner, 2026-09-26; register Q33).
+  **The panel is a full left sidebar**, with `Related · All · the six kinds` — and it opens on `All` when
+  the set is empty. **An auto-added row nests under the item that pulled it in**, as a sub-row with no
+  remove of its own: the nesting now carries the refusal the sentence above describes, instead of a
+  line of text. **A click on a row opens the item in a side panel beside the set**, and **that panel is
+  where `Detach` lives** — the action §5 and §7 describe and no screen had offered — together with the
+  detached row's differing fields, `Reset` per field and whole, and `Promote`. **And the mode is a
+  draft**: its head reads *Cancel · Check · **Save***, so adds, removes and a detached row's edits are
+  kept on `Save` and dropped on `Cancel`. *Leaving the mode is still one named action — now one of two,
+  keep or discard.* `Promote` is the one immediate act inside it, because it creates a library item.
+
   **A project with nothing in it is an empty state** (2026-09-20, Q16). The body carries **one**
   action — **it enters the configuring mode**, which is where the first item comes from — and **the
   control that enters `Run` is inert** —
@@ -1132,6 +1143,9 @@ to read the scores behind it: the rubric grades craft, not weight.
   (§6, added 2026-09-15): the counts from the last check, the date, and — where the set has changed
   since — *what* changed instead of a verdict that is no longer true. Never *works*: **checked**. **Not visibility** — §9 keeps that control out
   of the MVP interface entirely, and this line used to say otherwise. Corrected 2026-09-02.
+  **Drawn as cards, not rows** (owner, 2026-09-26), so a project is never mistaken for an item — and
+  **found by search plus one `Filters` button** (Q30): last check, the target it was checked for,
+  sharing, and the order.
 
 ### The information architecture, in one place
 
@@ -1445,6 +1459,14 @@ what the alternatives were. Questions are added to the register as work turns th
 together in a sitting, once the picture is whole, rather than one at a time on partial evidence. Do
 not keep a second list in this file; two lists drift, and this document has already been bitten by
 that twice. **The protocol outlived the research phase** — every lesson after it uses the same register.
+
+**Added 2026-09-26, by lesson 04's wireframes — five entries, all raised and answered by the owner on
+the screens.** **Q29** — `Public library` becomes a third global entry (§8). **Q30** — Projects gets
+search and one `Filters` button. **Q31** and **Q32** — **an item can be added as a folder, and it has no
+source switch: it is made of content, files and a pinned repo in any mix.** **These two are ahead of §5
+on purpose**: `source`, `content`, `targetPath` and where `license` lives still describe one file, and
+the register says exactly what would change. **Q33** — configuring is drawn as a sidebar, a side panel
+that carries `Detach`, nested auto-added rows, and a draft kept by `Save` (§8).
 
 **Live as of 2026-09-20: Q9 and Q11 — deferred at the sitting — plus Q16 and Q17, each raised and
 answered on 2026-09-20 with one named question left open. Q12 left the list the same day: it is
