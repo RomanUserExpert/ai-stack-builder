@@ -194,7 +194,7 @@ scopes two global entries — they are still **one screen with two addresses**, 
 | 3 | **Run — project** | mode | `run` | — | ✓ | ✓ | ✓ |
 | 3 | **Run — single item**, from a Library row | mode | `run-item` | — | ✓ | ✓ | ✓ |
 | 3 | **Run — shared project**, by the receiver | mode | `run-shared` | — | ✓ | ✓ | ✓ |
-| 3 | **Run — shared single item**, by the receiver — *not drawn yet* | mode | `run-shared-item` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — shared single item**, by the receiver | mode | `run-shared-item` | — | ✓ | ✓ | ✓ |
 | 4 | **Shared project** | place | `shared-project` | — | ✓ | ✓ | — |
 | 4 | **Shared item** | place | `shared-item` | — | ✓ | ✓ | — |
 
@@ -284,6 +284,11 @@ row always holds an item.
 **Error** — *the check fails on somebody else's set, and they cannot tell whether that is the set's
 fault or ours* · **loading** — the check they run themselves · **success ✓** — the archive taken.
 **Q20 applies: invent nothing not derived from P1; show more, promise less.**
+
+**Run — shared single item** — the receiver takes one block, from *Take as an archive* on a shared item
+(owner, 2026-09-26). Same stages, **most of them `Skipped`** — one item has nothing to collide with;
+anonymous, no navigation, nothing stored. Drawn on `code-style`: 0 problems · 1 note (its deference) · 6
+skipped. **Error** says whose failure it is, as on a shared project.
 
 **Shared project** — **MAIN** · **RJ-1** · **RJ-2** · **SJ-1**, **P2**'s only surface and the one
 carrying **seven jobs**. **Flow:** *The receiver*. **Default** — what the set is, what each item needs,

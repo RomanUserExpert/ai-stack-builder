@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Run — shared single item · default — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <!-- The receiver's header: no global navigation, no sign-in — the viewer is anonymous (§5, Q25). -->
+    <header class="shared-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <p class="owner"><span class="image avatar" aria-hidden="true"></span><span>Shared by Maya Chen</span></p>
+    </header>
+    <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
+    <header class="run-bar">
+      <a class="back" href="shared-item-default.html"><span class="icon" aria-hidden="true"></span>code-style</a>
+      <span class="title">Take as an archive</span>
+      <label class="pick">Agent target
+        <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
+      </label>
+    </header>
+
+    <main class="app-main">
+
+      <!-- Run — shared single item: the receiver takes one block. Same stages as any Run, most of them Skipped;
+           anonymous, no navigation, nothing stored (Q15, Q20: show more, promise less). -->
+      <section class="summary" aria-label="Verdict">
+        <h1>code-style, checked by you</h1>
+        <p><strong>0 problems · 1 note · 6 skipped</strong></p>
+        <p class="meta">Just now · for Claude Code · shared by Maya Chen · nothing is saved from this check</p>
+      </section>
+
+      <section class="stage-group" aria-labelledby="g-find">
+        <h2 id="g-find">Findings</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>1 item — code-style requires nothing</span><span class="time">0.1 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">02</span><span class="name">Declared conflicts</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — one item has nothing to conflict with</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no command declared</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — one path</span><span class="time">0.1 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — none needed</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet"><span class="severity">Note</span><span><code>code-style</code> defers to <em>the client’s ESLint config</em>. Where they disagree, that wins — on your machine too.</span></div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no repo attached</span><span class="time">—</span></summary>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <!-- The handover is read before the archive is taken, never after it (§6). -->
+      <section class="stage-group" aria-labelledby="g-hand">
+        <h2 id="g-hand">Handover — what your machine still needs</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">08</span><span class="name">What the archive contains</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>2 files for Claude Code</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <pre class="file">code-style/
+├── SETUP.md
+└── .claude/skills/code-style/SKILL.md</pre>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Written · 1 item</span><span class="time">0.1 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">10</span><span class="name">.env.example</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no keys</span><span class="time">—</span></summary>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <section class="export-stage" aria-labelledby="export-title">
+        <h2 id="export-title">11 · Take the archive</h2>
+        <p>A snapshot of <code>code-style</code> as it is now. The shared page may change after you take it.</p>
+        <div class="export-actions"><a class="button button-primary" href="run-shared-item-success.html"><span class="icon" aria-hidden="true"></span>Download the archive</a></div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
