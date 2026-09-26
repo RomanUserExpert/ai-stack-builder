@@ -9,7 +9,7 @@
   --line-2: #ddd;
   --fill: #f2f2f2;
   --paper: #fff;
-  --outside: #e4e4e4;
+  --outside: #f9f9f7;   /* the site's --bg, as on research.html / ia.html */
   --canvas: 1440px;
 }
 
@@ -101,6 +101,7 @@ button, .button {
   cursor: pointer;
 }
 .button-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.button-primary .icon { background: var(--paper); }
 .button-quiet { border-color: var(--line); color: var(--ink-2); }
 
 .meta { color: var(--ink-2); font-size: 12px; line-height: 16px; }
@@ -129,39 +130,43 @@ button, .button {
 .app-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--ink); }
 
 .app-main { padding: 32px; display: flex; flex-direction: column; gap: 24px; }
-.button-primary .icon { background: var(--paper); }
 
-/* ── Wireframe layout: tree on the left, chrome + canvas on the right ─ */
-/* The tree is the wireframe's navigation, not the product's (_conventions.md §7). */
+/* ── Wireframe layout ────────────────────────────────────────────────
+   Three columns, all but the canvas outside the product (_conventions.md §7):
+   1. the phase rail — fixed to the left edge, collapsible to its numbers;
+   2. the wireframe tree — the second level, section → screen → state;
+   3. the state switcher above the canvas, and the canvas.
+   The site's mono, rule and accent live in 1 and 2 only; the canvas stays grey. */
 
-.wf-layout {
-  display: grid;
-  grid-template-columns: 240px var(--canvas);
-  gap: 32px;
-  width: max-content;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-.wf-layout .wf-chrome,
-.wf-layout .canvas { width: var(--canvas); margin-left: 0; margin-right: 0; }
-
-/* Level 1 matches the phase sidebar on research.html / personas.html / ia.html:
-   mono, a rule on the left, the current phase in the site's accent. The accent
-   lives only here, outside the canvas — the product stays grey (_conventions.md §1, §7). */
-.wf-tree {
+:root {
+  --rail-w: 240px;
+  --tree-w: 208px;
   --site-accent: #e05f03;
+  --site-rule: #d4d4cf;
   --site-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  position: sticky;
+}
+html.wf-rail-collapsed { --rail-w: 64px; }
+
+/* 1 · Phase rail */
+.wf-rail {
+  position: fixed;
   top: 0;
-  align-self: start;
-  max-height: 100vh;
+  left: 0;
+  bottom: 0;
+  width: var(--rail-w);
   overflow-y: auto;
   scrollbar-width: none;
-  padding: 16px 0 32px;
+  padding: 16px 16px 32px;
+  background: var(--outside);
+  border-right: 1px solid var(--site-rule);
   font: 12px/16px var(--site-mono);
-  color: var(--ink-2);
+  z-index: 10;
 }
-.wf-tree-head {
+.wf-rail-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
   margin-bottom: 12px;
   padding-left: 12px;
   font: 600 11px/16px "Inter", system-ui, sans-serif;
@@ -169,9 +174,17 @@ button, .button {
   text-transform: uppercase;
   color: var(--ink-3);
 }
-.wf-phases { border-left: 1px solid var(--line); }
-.wf-phases > li > a,
-.wf-phases > li > span {
+.wf-rail-toggle {
+  padding: 4px 8px;
+  border: 1px solid var(--site-rule);
+  background: transparent;
+  color: var(--ink-2);
+  font: 12px/16px var(--site-mono);
+}
+.wf-rail-toggle:hover { color: var(--ink); border-color: var(--ink-3); }
+.wf-rail ol { border-left: 1px solid var(--site-rule); }
+.wf-rail a,
+.wf-rail .wf-soon {
   display: block;
   margin-left: -1px;
   padding: 8px 0 8px 12px;
@@ -179,15 +192,54 @@ button, .button {
   text-decoration: none;
   color: var(--ink-2);
 }
-.wf-phases b { display: block; margin-bottom: 4px; font-size: 11px; line-height: 12px; letter-spacing: 0.09em; }
-.wf-phases > li > a:hover { color: var(--ink); border-left-color: var(--line); }
-.wf-phases .wf-soon { color: var(--ink-3); opacity: 0.5; }
-.wf-phases > .wf-now > a { color: var(--site-accent); border-left-color: var(--site-accent); font-weight: 600; }
+.wf-rail b { display: block; margin-bottom: 4px; font-size: 11px; line-height: 12px; letter-spacing: 0.09em; }
+.wf-rail a:hover { color: var(--ink); border-left-color: var(--site-rule); }
+.wf-rail .wf-soon { color: var(--ink-3); opacity: 0.5; }
+.wf-rail .wf-now { color: var(--site-accent); border-left-color: var(--site-accent); font-weight: 600; }
 
-/* Level 2, under phase 04: the wireframe tree */
-.wf-now ul { margin: 0 0 8px 12px; border-left: 1px solid var(--line); font-family: "Inter", system-ui, sans-serif; }
-.wf-now ul ul { margin-bottom: 0; }
-.wf-now ul a {
+/* Collapsed: the numbers stay, and stay links */
+html.wf-rail-collapsed .wf-rail { padding: 16px 8px 32px; }
+html.wf-rail-collapsed .wf-rail-head { padding-left: 0; justify-content: center; }
+html.wf-rail-collapsed .wf-rail-head span,
+html.wf-rail-collapsed .wf-rail .wf-label { display: none; }
+html.wf-rail-collapsed .wf-rail a,
+html.wf-rail-collapsed .wf-rail .wf-soon { padding-left: 12px; }
+html.wf-rail-collapsed .wf-rail b { margin: 0; }
+
+/* 2 + 3 · Tree beside the chrome and canvas */
+.wf-layout {
+  display: grid;
+  grid-template-columns: var(--tree-w) var(--canvas);
+  gap: 24px;
+  width: max-content;
+  margin-left: calc(var(--rail-w) + 24px);
+  padding-right: 24px;
+}
+.wf-layout .wf-chrome,
+.wf-layout .canvas { width: var(--canvas); margin-left: 0; margin-right: 0; }
+
+.wf-tree {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding: 16px 0 32px;
+  font-size: 12px;
+  line-height: 16px;
+}
+.wf-tree-head {
+  margin-bottom: 12px;
+  padding-left: 12px;
+  font: 600 11px/16px "Inter", system-ui, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--site-accent);
+}
+.wf-tree ul { border-left: 1px solid var(--site-rule); }
+.wf-tree ul ul { margin-left: 12px; }
+.wf-tree a {
   display: block;
   margin-left: -1px;
   padding: 4px 0 4px 12px;
@@ -195,9 +247,8 @@ button, .button {
   text-decoration: none;
   color: var(--ink-2);
 }
-.wf-now ul a:hover { color: var(--ink); border-left-color: var(--line); }
+.wf-tree a:hover { color: var(--ink); border-left-color: var(--site-rule); }
 .wf-tree .wf-section > a { color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px; margin-top: 8px; }
 .wf-tree .wf-screen > a { color: var(--ink); font-weight: 600; }
 .wf-tree .wf-screen > a .wf-kind { font-weight: 400; color: var(--ink-3); }
-.wf-tree ul a[aria-current="page"] { color: var(--ink); font-weight: 600; border-left-color: var(--ink); background: var(--fill); }
-.wf-tree ul a[aria-current="page"]::after { content: " ← here"; font-weight: 400; color: var(--ink-3); }
+.wf-tree a[aria-current="page"] { color: var(--site-accent); font-weight: 600; border-left-color: var(--site-accent); }

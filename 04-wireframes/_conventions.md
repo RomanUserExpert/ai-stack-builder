@@ -103,9 +103,14 @@ started deciding things it was not asked to.
   scroll, and no scroll inside scroll.
 - **Above the canvas, outside it**: the state switcher — links to every state of this screen, the
   current one marked.
-- **Beside the canvas, outside it**: the left panel, in two levels. **Level 1 is the course's twelve
-  phases**, the same sidebar `research.html`, `personas.html` and `ia.html` carry, with 04 current.
-  **Level 2, nested under 04, is the wireframe tree** (step 4) — section → screen → state. The panel
-  uses the site's mono and accent; **that accent is chrome and never crosses into the canvas**. **It is the wireframe's navigation, not the product's.** The product has two global entries,
-  `Library` and `Projects`, drawn inside the canvas; the tree must never read as a third menu.
+- **Left of the canvas, outside it — two columns of chrome.**
+  - **The phase rail**, fixed to the left edge of the window: the course's twelve phases, the same list
+    `research.html`, `personas.html` and `ia.html` carry, with 04 current. **It collapses to its
+    numbers**, which stay links; the state is remembered across pages. *This toggle is the one piece of
+    script on a wireframe page, and it belongs to the chrome, not to the product.*
+  - **The wireframe tree**, to the right of the rail (step 4): section → screen → state, current page
+    marked. **It is the wireframe's navigation, not the product's.** The product has two global
+    entries, `Library` and `Projects`, drawn inside the canvas; the tree must never read as a third menu.
+  - Both use the site's background, mono and accent. **That accent is chrome and never crosses into
+    the canvas.**
 - **Inside the canvas is product, and only product.**
