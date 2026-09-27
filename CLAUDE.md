@@ -9,8 +9,8 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 
 **Phase: research was signed off on 2026-09-02 in five stages, and was re-opened on 2026-09-06 with
 two more — personas and jobs to be done. Those two are lesson 02; lesson 03, information
-architecture, closed on 2026-09-20; and the current lesson is 04, prototyping and wireframing — not the
-design system, which is lesson 09.**
+architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; and the
+current lesson is 05, tone of voice and microcopy — not the design system, which is lesson 09.**
 
 There is still no application code, no design system and no mockups. ~~no information architecture~~
 **— the information architecture exists as of 2026-09-20**: all seven of lesson 03's steps are done,
@@ -205,8 +205,8 @@ product *is* before anything decides what it looks like.
 | **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
 | **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
 | **03** | **Information architecture** | ~~done~~ — started 2026-09-15, **closed 2026-09-20**, all seven of the course's steps · [`ia.html`](03-information-architecture/ia.html) · [the plan](03-information-architecture/README.md). ~~Five of the course's seven steps are done; what remains is the IA critique and `ia.html`.~~ The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
-| **04** | **Prototyping and wireframing** | ← **current**. Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
-| **05** | Tone of voice and microcopy | §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
+| **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
+| **05** | **Tone of voice and microcopy** | ← **current**, from 2026-09-27. §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
 | **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
 | **07** | UI assembly | The screens built out of the concept — what the old list called *mockups* |
 | **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
@@ -264,8 +264,8 @@ one stage. [`research/research-plan.md`](research/research-plan.md) is the spine
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The current lesson is 04, prototyping and wireframing**; if a request seems to jump
-past it — to components, tokens, colour or a screen that looks finished — confirm before acting.
+Do not skip ahead. **The current lesson is 05, tone of voice and microcopy**; if a request seems to jump
+past it — to a visual concept, components, tokens, colour or a screen that looks finished — confirm before acting.
 Product logic described in this file is **specification, not a build order** — it is
 written down so design decisions are made with the real mechanics in view.
 
@@ -1614,8 +1614,9 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
 - Docs, code and UI copy in English. Conversation with the user may be in Russian.
 - Research stages 1–5 are signed off (2026-09-02). **Stages 6 and 7 — personas and jobs to be done —
   were added on 2026-09-06 and are lesson 02.** **Lesson 03, information architecture, ran from 2026-09-15
-  to 2026-09-20 and is closed; lesson 04, prototyping and wireframing, is current.** Do not
-  start tokens, components, colour or a finished-looking screen before 03 and 04 are done, and do not
+  to 2026-09-20 and is closed; lesson 04, prototyping and wireframing, ran from 2026-09-26 to 2026-09-27
+  and is closed; lesson 05, tone of voice and microcopy, is current.** Do not
+  start tokens, components, colour or a finished-looking screen before 05 and 06 are done, and do not
   scaffold the app before there is something for it to hold.
 - **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
   2026-09-20). It is **gitignored** and it holds the day-by-day: what was tried, what was wrong for a
