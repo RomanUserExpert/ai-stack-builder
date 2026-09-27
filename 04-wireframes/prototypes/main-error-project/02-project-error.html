@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 · Project didn't load — prototype · main-error-project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../pages/wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a>Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">acme-billing-api</h1>
+            <p class="meta head-meta"><span>Last check not shown — the project didn’t load</span></p>
+          </div>
+          <div class="head-actions">
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Error: the set did not load. Q26 — no verdict is shown on the strength of a failed read, neither
+           checked nor un-checked. No Configure, Share or Check: none of them can act on a set that is not here. -->
+      <section class="state-block" role="alert" aria-label="This project didn’t load">
+        <span class="icon state-icon" aria-hidden="true"></span>
+        <h2>This project didn’t load</h2>
+        <p>The server did not answer, so the set and its last check can’t be shown. Nothing in the project was changed.</p>
+        <p class="meta">503 · Service unavailable · 14:02</p>
+        <div class="state-actions">
+          <a href="03-project-loading.html" class="button button-primary"><span class="icon" aria-hidden="true"></span>Try again</a>
+          <a class="button">Back to Projects</a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

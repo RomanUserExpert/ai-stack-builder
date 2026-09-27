@@ -50,10 +50,16 @@
       <symbol id="i-chev" viewBox="0 0 16 16"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
       <symbol id="i-folder" viewBox="0 0 16 16"><path d="M1.75 4.25c0-.83.67-1.5 1.5-1.5h3l1.5 1.5h5c.83 0 1.5.67 1.5 1.5v6c0 .83-.67 1.5-1.5 1.5h-9.5c-.83 0-1.5-.67-1.5-1.5z" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></symbol>
       <symbol id="i-screen" viewBox="0 0 16 16"><rect x="1.75" y="2.75" width="12.5" height="10.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M1.75 5.75h12.5" stroke="currentColor" stroke-width="1.25"/></symbol>
+      <symbol id="i-play" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M6.75 5.5v5l4-2.5z" fill="currentColor"/></symbol>
       <symbol id="i-file" viewBox="0 0 16 16"><path d="M4.25 1.75h5l3 3v8c0 .83-.67 1.5-1.5 1.5h-6.5c-.83 0-1.5-.67-1.5-1.5v-9.5c0-.83.67-1.5 1.5-1.5z M9.25 1.75v3h3" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/></symbol>
     </svg>
-    <p class="wf-tree-head">04 · Wireframes</p>
+    <p class="wf-tree-head">Phase 04</p>
     <ul class="wf-tree-root">
+      <!-- Group 1 · Wireframes — every screen, one page per state -->
+      <li class="wf-group">
+        <details open>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><span class="wf-name">Wireframes</span></summary>
+          <ul class="wf-group-list">
       <li class="wf-section">
         <details open>
           <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">0 · The door</span></summary>
@@ -268,6 +274,39 @@
           </ul>
         </details>
       </li>
+          </ul>
+        </details>
+      </li>
+      <!-- Group 2 · Flows — clickable prototypes: flow → case → steps (prototypes/prototypes.md).
+           A case is one path through a flow's forks; cases not built yet read faint. -->
+      <li class="wf-group">
+        <details open>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><span class="wf-name">Flows</span></summary>
+          <ul class="wf-group-list">
+            <li class="wf-section">
+              <details open>
+                <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><svg class="wf-ico" aria-hidden="true"><use href="#i-folder"/></svg><span class="wf-name">Main job</span></summary>
+                <ul>
+                <li class="wf-case" data-case="main-success" data-persona="P1 the keeper — primary, signed in" data-job="MAIN keep it working somewhere else" data-flow="Path A — a project for this work · the set exists · no Problems · the right target → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-run-loading:03 · Run, checking|04-run-default:04 · Run, checked|05-run-exporting:05 · Run, building the archive|06-run-success:06 · Run, archive in hand|07-project-default:07 · Project, checked just now"><a href="#flow/main-success"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-success</span></a></li>
+                <li class="wf-case" data-case="main-problem-fixed" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-2 find out where two will fight, while I can still act" data-flow="Any Problems? yes · Fixable from this row? yes → configure, remove, Save, check again → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-run-loading:03 · Run, checking|04-run-default:04 · Run, 1 problem|05-project-configuring-default:05 · Configuring|06-project-configuring-default:06 · Configuring, eslint-autofix removed — not saved yet|07-project-default:07 · Project, saved — the check is out of date|08-run-loading:08 · Run, checking|09-run-default:09 · Run, checked|10-run-exporting:10 · Run, building the archive|11-run-success:11 · Run, archive in hand|12-project-default:12 · Project, checked just now"><a href="#flow/main-problem-fixed"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-problem-fixed</span></a></li>
+                <li class="wf-case" data-case="main-problem-exported" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-2" data-flow="Any Problems? yes · Fixable from this row? no → Export with 1 problem → Cost: it ships with the collision" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-run-loading:03 · Run, checking|04-run-default:04 · Run, 1 problem|05-run-exporting:05 · Run, building the archive with 1 problem|06-run-success:06 · Run, archive in hand — with the collision|07-project-default:07 · Project, checked just now"><a href="#flow/main-problem-exported"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-problem-exported</span></a></li>
+                <li class="wf-case" data-case="main-target-changed" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-1 know what the other side will still need" data-flow="Right agent target? no → the verdict is void, checked again for Cursor → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-run-loading:03 · Run, checking for Claude Code|04-run-default:04 · Run, checked for Claude Code|05-run-loading:05 · Run, target changed — checking again for Cursor|06-run-default:06 · Run, checked|07-run-exporting:07 · Run, building the archive|08-run-success:08 · Run, archive in hand|09-project-default:09 · Project, checked just now"><a href="#flow/main-target-changed"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-target-changed</span></a></li>
+                <li class="wf-case" data-case="main-new-project" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-2 what my pieces drag in" data-flow="Path B — no project for this work · empty project · the panel offers My library → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-empty:02 · Project, just created — empty|03-project-configuring-empty:03 · Configuring, nothing added yet|04-project-configuring-loading:04 · Configuring, adding migration-reviewer|05-project-configuring-default:05 · Configuring, what it brought with it|06-project-configuring-loading:06 · Configuring, adding code-style|07-project-configuring-default:07 · Configuring, the set complete|08-project-default:08 · Project, saved|09-run-loading:09 · Run, checking|10-run-default:10 · Run, checked|11-run-exporting:11 · Run, building the archive|12-run-success:12 · Run, archive in hand|13-project-default:13 · Project, checked just now"><a href="#flow/main-new-project"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-new-project</span></a></li>
+                <li class="wf-case" data-case="main-no-projects" data-persona="P1 the keeper — primary" data-job="MAIN" data-flow="Any projects at all? no — the example deleted · Create project → then as main-new-project" data-steps="01-projects-empty:01 · Projects, none at all|02-project-empty:02 · Project, just created — empty|03-project-configuring-empty:03 · Configuring, nothing added yet|04-project-configuring-loading:04 · Configuring, adding migration-reviewer|05-project-configuring-default:05 · Configuring, what it brought with it|06-project-configuring-loading:06 · Configuring, adding code-style|07-project-configuring-default:07 · Configuring, the set complete|08-project-default:08 · Project, saved|09-run-loading:09 · Run, checking|10-run-default:10 · Run, checked|11-run-exporting:11 · Run, building the archive|12-run-success:12 · Run, archive in hand|13-project-default:13 · Project, checked just now"><a href="#flow/main-no-projects"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-no-projects</span></a></li>
+                <li class="wf-case" data-case="main-first-run" data-persona="P1 the keeper · P3 the empty-handed [?]" data-job="MAIN" data-flow="First run — only the example · My library empty · Switch the scope to the shelf? yes → Archive in hand" data-steps="01-projects-default:01 · Projects, only the example|02-project-empty:02 · Project, just created — empty|03-project-configuring-empty:03 · Configuring, My library empty on first run|04-project-configuring-empty:04 · Configuring, the Public library|05-project-configuring-loading:05 · Configuring, adding webapp-testing|06-project-configuring-default:06 · Configuring, what it brought with it|07-project-configuring-loading:07 · Configuring, adding github-mcp-server|08-project-configuring-default:08 · Configuring, the set complete|09-project-default:09 · Project, saved|10-run-loading:10 · Run, checking|11-run-default:11 · Run, checked|12-run-exporting:12 · Run, building the archive|13-run-success:13 · Run, archive in hand|14-project-default:14 · Project, checked just now"><a href="#flow/main-first-run"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-first-run</span></a></li>
+                <li class="wf-case" data-case="main-set-incomplete" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-2" data-flow="Is the set complete? no → Configure, add from the panel, Save, check → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-project-configuring-default:03 · Configuring|04-project-configuring-loading:04 · Configuring, adding query-explainer|05-project-configuring-default:05 · Configuring, query-explainer in the set|06-project-default:06 · Project, saved — the check is out of date|07-run-loading:07 · Run, checking|08-run-default:08 · Run, checked|09-run-exporting:09 · Run, building the archive|10-run-success:10 · Run, archive in hand|11-project-default:11 · Project, checked just now"><a href="#flow/main-set-incomplete"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-set-incomplete</span></a></li>
+                <li class="wf-case" data-case="main-create-item" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-3 partly — creating is a corpus act" data-flow="Panel filtered to zero · Switch to the shelf? no → the row that creates → Add item over the Project → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-project-configuring-default:03 · Configuring|04-project-configuring-error-filtered:04 · Configuring, “stripe” matches nothing|05-item-empty:05 · Add item, over the Project|06-project-configuring-loading:06 · Configuring, adding stripe-rules|07-project-configuring-default:07 · Configuring, stripe-rules in the set|08-project-default:08 · Project, saved — the check is out of date|09-run-loading:09 · Run, checking|10-run-default:10 · Run, checked|11-run-exporting:11 · Run, building the archive|12-run-success:12 · Run, archive in hand|13-project-default:13 · Project, checked just now"><a href="#flow/main-create-item"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-create-item</span></a></li>
+                <li class="wf-case" data-case="main-error-projects" data-persona="P1 the keeper — primary" data-job="MAIN" data-flow="Wait and failure — Projects didn&#x27;t load → Try again → back on path A" data-steps="01-projects-error-server:01 · Projects didn&#x27;t load|02-projects-loading:02 · Projects, loading|03-projects-default:03 · Projects|04-project-default:04 · Project|05-run-loading:05 · Run, checking|06-run-default:06 · Run, checked|07-run-exporting:07 · Run, building the archive|08-run-success:08 · Run, archive in hand|09-project-default:09 · Project, checked just now"><a href="#flow/main-error-projects"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-error-projects</span></a></li>
+                <li class="wf-case" data-case="main-error-project" data-persona="P1 the keeper — primary" data-job="MAIN" data-flow="Wait and failure — the project didn&#x27;t load (Q26) → Try again → back on path A" data-steps="01-projects-default:01 · Projects|02-project-error:02 · Project didn&#x27;t load|03-project-loading:03 · Project, loading|04-project-default:04 · Project|05-run-loading:05 · Run, checking|06-run-default:06 · Run, checked|07-run-exporting:07 · Run, building the archive|08-run-success:08 · Run, archive in hand|09-project-default:09 · Project, checked just now"><a href="#flow/main-error-project"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-error-project</span></a></li>
+                <li class="wf-case" data-case="main-error-save" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-2" data-flow="Wait and failure — Save didn&#x27;t land (Q33&#x27;s draft) → Save again → check → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-project-configuring-default:03 · Configuring|04-project-configuring-default:04 · Configuring, not saved yet|05-project-configuring-error-server:05 · Configuring, the save didn&#x27;t land|06-project-default:06 · Project, saved — the check is out of date|07-run-loading:07 · Run, checking|08-run-default:08 · Run, checked|09-run-exporting:09 · Run, building the archive|10-run-success:10 · Run, archive in hand|11-project-default:11 · Project, checked just now"><a href="#flow/main-error-save"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-error-save</span></a></li>
+                <li class="wf-case" data-case="main-error-check" data-persona="P1 the keeper — primary" data-job="MAIN" data-flow="Wait and failure — the check didn&#x27;t finish → Check again → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-run-loading:03 · Run, checking|04-run-error:04 · Run, the check didn&#x27;t finish|05-run-loading:05 · Run, checking|06-run-default:06 · Run, checked|07-run-exporting:07 · Run, building the archive|08-run-success:08 · Run, archive in hand|09-project-default:09 · Project, checked just now"><a href="#flow/main-error-check"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-error-check</span></a></li>
+                <li class="wf-case" data-case="main-error-export" data-persona="P1 the keeper — primary" data-job="MAIN · RJ-1" data-flow="Wait and failure — the archive didn&#x27;t build, after the handover was read → Build again → Archive in hand" data-steps="01-projects-default:01 · Projects|02-project-default:02 · Project|03-run-loading:03 · Run, checking|04-run-default:04 · Run, checked|05-run-exporting:05 · Run, building the archive|06-run-error:06 · Run, the archive didn&#x27;t build|07-run-exporting:07 · Run, building the archive again|08-run-success:08 · Run, archive in hand|09-project-default:09 · Project, checked just now"><a href="#flow/main-error-export"><svg class="wf-ico" aria-hidden="true"><use href="#i-play"/></svg><span class="wf-name">main-error-export</span></a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
+      </li>
     </ul>
   </nav>
 
@@ -284,7 +323,11 @@
         <!-- The current screen's states, read from the tree so the two cannot drift -->
         <nav class="wf-states" id="wf-states" aria-label="States of this screen"></nav>
       </div>
-      <a class="wf-open" id="wf-open" href="projects-default.html" target="_blank" rel="noopener">Open as a page &nearr;</a>
+      <div class="wf-tools">
+        <!-- Flows only: outlines every live link in the frame. Viewer chrome, never the page's. -->
+        <button type="button" class="wf-open" id="wf-hotspots" aria-pressed="false" hidden>Show hotspots</button>
+        <a class="wf-open" id="wf-open" href="projects-default.html" target="_blank" rel="noopener">Open as a page &nearr;</a>
+      </div>
     </div>
     <div class="wf-frame" id="wf-frame">
       <iframe id="wf-iframe" title="Wireframe" src="projects-default.html"></iframe>
@@ -304,7 +347,8 @@
         name = document.getElementById("wf-screen-name"),
         stateName = document.getElementById("wf-state"),
         open = document.getElementById("wf-open"),
-        tree = document.querySelector(".wf-tree");
+        tree = document.querySelector(".wf-tree"),
+        hotspots = document.getElementById("wf-hotspots");
 
     /* 90% of the 1440 canvas, never wider or taller than the room left for it; the frame is 16:9,
        and it is centred — with its chrome — in the space beside the tree */
@@ -322,16 +366,43 @@
       iframe.style.transform = "scale(" + scale + ")";
     }
 
+    function blank(text) {
+      iframe.removeAttribute("src");
+      iframe.srcdoc = '<body style="margin:0;height:100vh;display:grid;place-items:center;font:28px Inter,system-ui,sans-serif;color:#888;background:#fff">' + text + '</body>';
+    }
+    function load(src) {
+      /* the frame may already be there, because the click that moved it happened inside it */
+      var here = null;
+      try { here = iframe.contentWindow.location.pathname.replace(/\.html$/, ""); } catch (e) {}
+      if (here && here === new URL(src, location.href).pathname.replace(/\.html$/, "")) return;
+      iframe.removeAttribute("srcdoc");
+      iframe.src = src;
+    }
+
     function show() {
       var page = (location.hash || "#projects-default").slice(1);
-      var link = tree.querySelector('.wf-screen a[href="#' + page + '"]');
-      open.href = page + ".html";
-      if (missing[page]) {
-        iframe.removeAttribute("src");
-        iframe.srcdoc = '<body style="margin:0;height:100vh;display:grid;place-items:center;font:28px Inter,system-ui,sans-serif;color:#888;background:#fff">Not drawn yet — ' + page + '.html</body>';
+      /* Flows: #flow/<flow>-<case>[/NN-<screen>-<state>] — a prototype, clicked through inside the frame */
+      var flow = page.indexOf("flow/") === 0 ? page.slice(5).split("/") : null;
+      hotspots.hidden = !flow;
+      var link;
+      if (flow) {
+        var kase = tree.querySelector('.wf-case[data-case="' + flow[0] + '"]');
+        var steps = kase ? kase.getAttribute("data-steps").split("|").map(function (x) { var i = x.indexOf(":"); return [x.slice(0, i), x.slice(i + 1)]; }) : [];
+        link = tree.querySelector('a[href="#flow/' + flow[0] + '"]');
+        if (!steps.length) {
+          blank("Not built yet — " + flow[0]);
+          open.href = "../prototypes/prototypes.md";
+        } else {
+          var step = flow[1] || steps[0][0];
+          if (!steps.some(function (x) { return x[0] === step; })) step = steps[0][0];
+          open.href = "../prototypes/" + flow[0] + "/" + step + ".html";
+          load(open.href);
+        }
       } else {
-        iframe.removeAttribute("srcdoc");
-        iframe.src = page + ".html";
+        link = tree.querySelector('.wf-screen a[href="#' + page + '"]');
+        open.href = page + ".html";
+        if (missing[page]) blank("Not drawn yet — " + page + ".html");
+        else load(page + ".html");
       }
       tree.querySelectorAll("a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
       var screen = link ? link.closest(".wf-screen") : null;
@@ -339,6 +410,35 @@
         link.setAttribute("aria-current", "page");
         /* open every folder on the way to the current page */
         for (var d = link.closest("details"); d; d = d.parentElement.closest("details")) d.open = true;
+      }
+      if (flow && kase && steps.length) {
+        name.textContent = flow[0];
+        var cur = steps.filter(function (x) { return x[0] === step; })[0];
+        stateName.textContent = cur[1];
+        document.getElementById("wf-persona").textContent = kase.getAttribute("data-persona");
+        document.getElementById("wf-job").textContent = kase.getAttribute("data-job");
+        document.getElementById("wf-flowline").textContent = kase.getAttribute("data-flow");
+        var row = document.getElementById("wf-states");
+        row.innerHTML = "";
+        steps.forEach(function (x) {
+          var a = document.createElement("a");
+          a.href = "#flow/" + flow[0] + "/" + x[0];
+          /* the row carries the step number; its name is the tooltip and, for the current step, the title */
+          a.textContent = x[0].slice(0, 2);
+          a.title = x[1];
+          if (x[0] === step) a.setAttribute("aria-current", "page");
+          row.appendChild(a);
+        });
+        fit();
+      } else if (flow) {
+        /* a case written in prototypes.md and not built yet */
+        name.textContent = flow[0];
+        stateName.textContent = "not built yet";
+        document.getElementById("wf-persona").textContent = "See prototypes/prototypes.md";
+        document.getElementById("wf-job").textContent = "See prototypes/prototypes.md";
+        document.getElementById("wf-flowline").textContent = "See prototypes/prototypes.md";
+        document.getElementById("wf-states").innerHTML = "";
+        fit();
       }
       if (screen) {
         name.textContent = screen.querySelector("summary .wf-name").textContent;
@@ -360,8 +460,48 @@
         });
         fit();
       }
-      document.title = name.textContent + " · " + stateName.textContent + " — Phase 04 · Wireframes";
+      document.title = name.textContent + " · " + stateName.textContent + " — Phase 04 · " + (flow ? "Flows" : "Wireframes");
     }
+
+    /* A click inside a prototype moves the frame, not the viewer: follow it, and keep the address in step.
+       Waits move it too (a meta refresh), which is why this listens to the frame and not to clicks. */
+    iframe.addEventListener("load", function () {
+      var path;
+      try { path = iframe.contentWindow.location.pathname; } catch (e) { return; }
+      var m = path.match(/\/prototypes\/([^\/]+)\/([^\/]+?)(?:\.html)?$/);
+      if (m) {
+        var want = "#flow/" + m[1] + "/" + m[2];
+        if (location.hash !== want) { history.replaceState(null, "", want); show(); }
+      }
+      paintHotspots();
+    });
+
+    /* Show hotspots — the path, made visible. Drawn by the viewer over the frame; the page's markup never changes. */
+    var HOT = "wf-hotspots-style";
+    function paintHotspots() {
+      var doc;
+      try { doc = iframe.contentDocument; } catch (e) { return; }
+      if (!doc || !doc.head) return;
+      var on = hotspots.getAttribute("aria-pressed") === "true" && !hotspots.hidden;
+      var el = doc.getElementById(HOT);
+      if (on && !el) {
+        el = doc.createElement("style");
+        el.id = HOT;
+        el.textContent = "a[href]{outline:2px solid #e05f03 !important;outline-offset:2px}";
+        doc.head.appendChild(el);
+      } else if (!on && el) el.remove();
+    }
+    function syncHotspots(on) {
+      hotspots.setAttribute("aria-pressed", String(on));
+      hotspots.textContent = on ? "Hide hotspots" : "Show hotspots";
+      paintHotspots();
+    }
+    try { syncHotspots(localStorage.getItem("wf-hotspots") === "on"); } catch (e) { syncHotspots(false); }
+    hotspots.addEventListener("click", function () {
+      var on = hotspots.getAttribute("aria-pressed") !== "true";
+      try { localStorage.setItem("wf-hotspots", on ? "on" : "off"); } catch (e) {}
+      syncHotspots(on);
+    });
 
     /* opening a screen's folder also shows its first state, unless one of its states is already showing */
     tree.querySelectorAll(".wf-screen > details").forEach(function (d) {
@@ -374,7 +514,7 @@
        From disk (file://) nothing can be asked, and every link is treated as drawn. */
     var missing = {};
     if (location.protocol.indexOf("http") === 0) {
-      var links = Array.prototype.slice.call(tree.querySelectorAll(".wf-screen a"));
+      var links = Array.prototype.slice.call(tree.querySelectorAll(".wf-screen:not(.wf-case) a"));
       Promise.all(links.map(function (a) {
         var page = a.getAttribute("href").slice(1);
         return fetch(page + ".html", { method: "HEAD" }).then(function (r) { return r.ok; }, function () { return false; })

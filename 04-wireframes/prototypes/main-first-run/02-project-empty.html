@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 · Project, just created — empty — prototype · main-first-run</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../pages/wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a>Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">stripe-webhooks</h1>
+            <p class="meta head-meta"><span>Created just now · nothing in it yet</span></p>
+          </div>
+          <div class="head-actions">
+                        <button type="button">Share</button>
+            <button type="button">Duplicate</button>
+            <button type="button" class="button-primary" disabled title="Add an item first"><span class="icon" aria-hidden="true"></span>Check</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Empty (Q16): one action, and it enters configuring. Check is inert and says why — the product's one
+           disabled control. The state names what it offers, not what is dead in it. -->
+      <section class="state-block" aria-label="Nothing in this project yet">
+        <span class="image state-image" aria-hidden="true"></span>
+        <h2>Nothing in this project yet</h2>
+        <p>Add items from your library or the Public library. Anything they require comes in with them, and Check opens once the set has something in it.</p>
+        <div class="state-actions">
+          <a href="03-project-configuring-empty.html" class="button button-primary"><span class="icon" aria-hidden="true"></span>Add items</a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

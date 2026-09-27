@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>13 · Project, checked just now — prototype · main-new-project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../pages/wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a>Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">stripe-webhooks</h1>
+            <p class="meta head-meta"><span>5 items · 3 auto-added</span><span>Checked just now · for Claude Code · 0 problems · 2 notes · 1 skipped</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button">Configure</a>
+            <button type="button">Share</button>
+            <button type="button">Duplicate</button>
+            <a class="button button-primary"><span class="icon" aria-hidden="true"></span>Check</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Viewing: a short list in the Library's row style (owner, 2026-09-26). State as badges — Auto-added,
+           Detached, Conflict; findings from the last check as a mark, a glyph and a word — Problem, Note.
+           Clicking a row opens the item beside the list, not over it: project-item.html. -->
+      <section aria-label="The set">
+        <ol class="row-list">
+          <li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a>code-style</a><span class="tag">skill</span></h3>
+                <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
+                <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
+              </div>
+              <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a>migration-reviewer</a><span class="tag">agent</span></h3>
+                <p class="description">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
+                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code> · brings 3 items with it</span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"></div>
+            </article>
+            <ol class="sub-rows" aria-label="Pulled in by migration-reviewer">
+                  <li>
+                    <article class="row row-tight set-item">
+                      <div>
+                        <h3><a>db-migrate</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                        <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                        <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · brings 1 item with it</span></p>
+                      </div>
+                      <p class="marks"></p>
+                      <div class="row-actions"></div>
+                    </article>
+                    <ol class="sub-rows" aria-label="Pulled in by db-migrate">
+                      <li>
+                        <article class="row row-tight set-item">
+                          <div>
+                            <h3><a>seed-data</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                            <p class="description">Loads a small, realistic dataset into a fresh database.</p>
+                            <p class="facts meta"><span><code>scripts/seed-data.sh</code></span></p>
+                          </div>
+                          <p class="marks"></p>
+                          <div class="row-actions"></div>
+                        </article>
+                      </li>
+                    </ol>
+                  </li>
+                  <li>
+                    <article class="row row-tight set-item">
+                      <div>
+                        <h3><a>postgres-mcp</a><span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
+                        <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
+                        <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
+                      </div>
+                      <p class="marks"></p>
+                      <div class="row-actions"></div>
+                    </article>
+                  </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

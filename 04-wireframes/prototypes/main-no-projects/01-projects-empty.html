@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 · Projects, none at all — prototype · main-no-projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../pages/wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <h1 id="projects-title">Projects</h1>
+        </div>
+      </section>
+
+      <!-- Empty: no projects at all — reachable because the example project is deletable (§11).
+           No Find: there is nothing to search. No New project in the head: the body carries it,
+           next to the second way out. -->
+      <section class="state-block" aria-labelledby="empty-title">
+        <span class="image state-image" aria-hidden="true"></span>
+        <h2 id="empty-title">No projects yet</h2>
+        <p>A project is a set of items from your library, checked together and exported as one archive.
+          Start one now, or see what the Public library already holds.</p>
+        <div class="state-actions">
+          <a href="02-project-empty.html" class="button button-primary"><span class="icon" aria-hidden="true"></span>Create project</a>
+          <a class="button">Explore Public library</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

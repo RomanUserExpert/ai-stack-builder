@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 · Projects, loading — prototype · main-error-projects</title>
+  <meta http-equiv="refresh" content="2;url=03-projects-default.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../pages/wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <span class="image avatar" aria-hidden="true"></span>
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <h1 id="projects-title">Projects</h1>
+          <a class="button button-primary">
+            <span class="icon" aria-hidden="true"></span>New project
+          </a>
+        </div>
+      </section>
+
+      <!-- Find stays where it is: the zones do not move between states. -->
+      <section aria-label="Find projects">
+        <form class="find" role="search" action="projects-default.html">
+          <label class="search">
+            <span class="icon" aria-hidden="true"></span>
+            <input type="search" name="q" placeholder="Search projects and the items in them — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters</button>
+        </form>
+      </section>
+
+      <!-- Loading: a skeleton of the same cards, in the same grid — no spinner, and no row is
+           shown before it is real (the optimistic option is not taken silently — register, Waits). -->
+      <section aria-label="Projects" aria-busy="true">
+        <p class="visually-hidden" role="status">Loading projects</p>
+        <ol class="card-grid">
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

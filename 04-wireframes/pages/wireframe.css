@@ -384,6 +384,25 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
 .wf-section + .wf-section { margin-top: 8px; }
 .wf-tree a[aria-current="page"] { font-weight: 600; color: var(--site-accent); }
 
+/* Two groups at the top of the tree — Wireframes and Flows — each collapsible, flush with the edge:
+   a label, not another level of folders, so it draws no guide line and takes no indent. */
+.wf-tree .wf-group-list { margin-left: 0; padding-left: 0; }
+.wf-tree .wf-group-list > li::before,
+.wf-tree .wf-group-list > li::after { content: none; }
+.wf-group > details > summary {
+  font: 600 11px/16px "Inter", system-ui, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.wf-group + .wf-group { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--site-rule); }
+/* A case not built yet: one faint row, no folder */
+.wf-case a, .wf-case-todo a { font-size: 12.5px; }
+/* The stage's tools: Show hotspots (flows only) and Open as a page */
+.wf-tools { margin-left: auto; display: flex; gap: 8px; }
+.wf-tools .wf-open { margin-left: 0; font: inherit; cursor: pointer; border: 0; }
+.wf-tools .wf-open[aria-pressed="true"] { color: var(--site-accent); box-shadow: inset 0 0 0 1px #e05f0378; }
+
 /* ── States inside the product: empty, error, loading ─────────────── */
 
 /* Empty and error: one block where the content would be — what happened, and a way out.
@@ -703,3 +722,8 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .library-version summary { cursor: pointer; list-style: none; }
 .library-version summary::-webkit-details-marker { display: none; }
 .library-version .file { margin-top: 8px; }
+
+/* Prototypes: a control that is a step is a link wrapping it — a checkbox, a search field, the agent
+   target (prototypes/_conventions.md §3). The control inside is drawn but not hit, so the click is the link's. */
+a.check, a.search, a.pick { text-decoration: none; color: inherit; cursor: pointer; }
+a.check > input, a.search > input, a.pick > select { pointer-events: none; }
