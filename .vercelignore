@@ -18,4 +18,8 @@ research/6-personas/*
 04-wireframes/*
 !04-wireframes/pages
 !04-wireframes/pages/*
+# The clickable prototypes: one folder per case, the pages two levels down.
+!04-wireframes/prototypes
+!04-wireframes/prototypes/*
+!04-wireframes/prototypes/*/*
 !vercel.json
