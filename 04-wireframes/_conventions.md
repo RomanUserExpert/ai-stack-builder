@@ -186,6 +186,8 @@ started deciding things it was not asked to.
   · **section** 13.5 px semibold · **screen** 13 px medium, quieter ink · **state, case or step** 12.5 px
   regular. Size, weight and ink fall together, so no level reads louder than the one above it — *the
   groups were first drawn as small grey capitals and read weaker than the sections under them.*
+- **Only the first level is open by default** (owner, 2026-09-27): *Wireframes* and *Flows* show their
+  sections closed, and only the folders on the way to the page on screen open themselves.
 
 **The frame is 16:9 and shows the canvas at 90%**, scaled down further only when the window is too
 small to hold it, and **it is centred, with its chrome, in the space beside the tree.** **The viewer page never scrolls** — not sideways, not down. **Only the wireframe
