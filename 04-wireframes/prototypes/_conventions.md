@@ -15,6 +15,9 @@
 - **A step the wireframes do not have is drawn in `pages/` first** or, where the owner has not seen it
   yet, drawn in the case and marked `new` in `prototypes.md`. **A prototype never quietly becomes the
   only place a screen exists.**
+- **Two depths** (owner, 2026-09-27). **The main job is built in full**: every count, date and target
+  follows the step. **Every other flow is built light**: up to five cases, **the pages as drawn**, and the
+  data left as each page has it. The rules below hold at both depths; only the data is allowed to differ.
 - **The stylesheet is the wireframes' own**: `../../pages/wireframe.css`. A prototype page carries no
   `<style>`.
 

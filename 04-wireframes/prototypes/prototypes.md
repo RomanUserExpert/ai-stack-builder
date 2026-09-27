@@ -133,7 +133,58 @@ into `pages/` (`_conventions.md` §1).
 
 ---
 
-## The other flows — later, in this order
+## The other flows — built 2026-09-27, lighter than the main job
 
-**RJ-2** (a and b) · **RJ-1** · **the single-item export** · **the receiver** · **RJ-3** · **RJ-4** —
-each written down here as its forks and cases before any of it is built, the way `main` is above.
+**Owner: the same logic, conventions and rules, up to five of the most important cases per flow, and
+not as detailed.** *Lighter* means one thing: **the steps are the wireframe pages as drawn**, wired
+step to step, and **the data is left as each page has it** — a shared Run may be on `agent-dotfiles`
+while its shared page is not, a My library row may say *used in 3 projects* after an edit. The main
+job adjusts every count to the step; these do not. **Every other rule holds**: one way forward per
+step, off-path links inert, waits advance by themselves, controls that are steps wrap themselves in the
+link, and **the build walks every case** the same way.
+
+**23 cases in six flows**, chosen where the flow forks or fails, and none repeating a main-job case:
+
+| Flow | Case | Path | Steps | Ending |
+|---|---|---|---|---|
+| **Single-item export** | `item-success` | My library → Export on `migration-reviewer` → Run → Export | 4 | Done |
+| | `item-from-shelf` | nothing in My library → Public library → Export on `playwright-mcp` | 5 | Done |
+| | `item-not-found` | nothing in My library, nothing on the shelf | 2 | **Stuck** — cannot find it |
+| | `item-error-check` | the check didn't finish → Check again | 6 | Done |
+| **RJ-1 · The handover** | `rj1-stale-then-read` | the verdict out of date → Check → **the handover stages open, read before Export** | 5 | Done — the other side is known |
+| | `rj1-preview-failed` | `SETUP.md` couldn't be written (Q28) — *missing, not empty* → Write it again | 5 | Done |
+| **RJ-2 · Drags in, fights** | `rj2-auto-added-holds` | open `db-migrate` — *pulled in by migration-reviewer* → remove the puller → the three go | 4 | Done |
+| | `rj2-requirement-missing` | `seed-data` deleted → *an unresolvable requirement* → Edit `db-migrate` → check again | 7 | Done — nothing will fight |
+| **RJ-3 · Fix once** | `rj3-edit-reaches-all` | Edit `db-migrate` — *used in 3 projects* → Save → Projects: all three out of date | 4 | Done |
+| | `rj3-save-failed` | the edit didn't land (Q26) → Save again | 4 | Done |
+| | `rj3-detached-reset` | `pr-reviewer` detached → **Reset whole item** → Save | 5 | Done — the fix reaches this copy |
+| | `rj3-detached-promote` | `pr-reviewer` → **Promote** → a new item, the row re-linked | 4 | Done |
+| | `rj3-promote-failed` | Promote didn't land → Promote again | 5 | Done |
+| **RJ-4 · No secrets** | `rj4-add-item` | Add item — *check that these files carry no keys* → Add | 3 | Done |
+| | `rj4-import` | Import JSON — the same warning → importing → 47 imported | 4 | Done |
+| | `rj4-import-failed` | the import didn't finish — *nothing was imported* (Q27) → again | 5 | Done |
+| | `rj4-share` | Share → **what becomes visible, before the link exists** → Create link | 3 | Done — the secrets stayed |
+| | `rj4-revoke` | Stop sharing → **copies already taken stay taken** | 3 | **Cost** — copies already taken |
+| **The receiver** | `receiver-check-take` | a link → Check this set → Download the archive | 4 | Done |
+| | `receiver-check-failed` | the check didn't finish — *whose failure it is* → Check again | 6 | Done |
+| | `receiver-copy` | Copy into my library → **Sign in, the only door, chosen** → My library | 3 | Done — it is mine now |
+| | `receiver-item` | a shared item → Take as an archive | 4 | Done |
+| | `receiver-dead-link` | the link no longer opens | 1 | **Stuck** — nothing to fall back on |
+
+**Drawn here first, not in `pages/`** — all `new` until the owner keeps them:
+
+- **The share disclosure** (`rj4-share`) — §6's disclosure moment, never drawn: what becomes visible,
+  the env key **names**, the external repos, and the tangled-content Note.
+- **Stop sharing** (`rj4-revoke`) — *the link stops working at once; it can't reach what was taken.*
+- **Promote to My library…** (`rj3-detached-promote`) — the dialog the ellipsis promised: a name for the
+  new item, and *the original stays as it is*.
+- **A shared project** — the Project with a *Shared* tag, the *anyone holding it* line, *Stop sharing*.
+- **An auto-added item in the side panel** (`rj2-auto-added-holds`) — *pulled in by migration-reviewer;
+  it has no remove of its own.*
+- **The unresolvable requirement** (`rj2-requirement-missing`) — the Problem a deleted item leaves (Q17),
+  on stage 01, with *Edit db-migrate*.
+- **`SETUP.md` couldn't be written** (`rj1-preview-failed`) — Q28 on the page: *missing, not empty*.
+
+**Not built, on purpose:** RJ-1's *exported unread* is the success path without opening a stage — nothing
+to click differently; RJ-2's collision shipped is `main-problem-exported`; the cycle reported as
+information has no data in the wireframes to stand on.
