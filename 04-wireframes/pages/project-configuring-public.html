@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>03 · Configuring, the Public library — prototype · main-first-run</title>
+  <title>Configuring the set · public — wireframe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../pages/wireframe.css">
+  <link rel="stylesheet" href="wireframe.css">
 </head>
 <body class="product-page">
 
@@ -18,9 +18,9 @@
       <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
       <nav class="app-nav" aria-label="Global">
         <ul>
-          <li><a>My library</a></li>
-          <li><a>Public library</a></li>
-          <li><a aria-current="page">Projects</a></li>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
         </ul>
       </nav>
       <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
@@ -36,16 +36,16 @@
     <aside class="panel library-sidebar" aria-label="Library panel">
       <div class="panel-head">
         <h2>Add from</h2>
-        <nav class="scope" aria-label="Scope"><a>My library</a><a aria-current="page">Public library</a></nav>
+        <nav class="scope" aria-label="Scope"><a href="project-configuring-empty.html">My library</a><a href="#" aria-current="page">Public library</a></nav>
         <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search Public library"></label>
-        <nav class="tabs" aria-label="Kind"><a>Related</a><a aria-current="page">All</a><a>skill</a><a>agent</a><a>prompt</a><a>mcp</a><a>script</a><a>app</a></nav>
+        <nav class="tabs" aria-label="Kind"><a href="#">Related</a><a href="#" aria-current="page">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
       </div>
       <div class="panel-body">
         <ol class="row-list">
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>filesystem</a><span class="tag">mcp</span></h3>
+                <h3><a href="project-configuring-item.html">filesystem</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Read and write files inside the directories you allow, and nowhere else.</p>
               </div>
               <label class="check"><input type="checkbox"> Add</label>
@@ -54,7 +54,7 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>memory</a><span class="tag">mcp</span></h3>
+                <h3><a href="project-configuring-item.html">memory</a><span class="tag">mcp</span></h3>
                 <p class="state-line">A knowledge graph the agent can write to and read back between sessions.</p>
               </div>
               <label class="check"><input type="checkbox"> Add</label>
@@ -63,7 +63,7 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>fetch</a><span class="tag">mcp</span></h3>
+                <h3><a href="project-configuring-item.html">fetch</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Fetches a URL and hands the agent the page as Markdown.</p>
               </div>
               <label class="check"><input type="checkbox"> Add</label>
@@ -72,7 +72,7 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>github-mcp-server</a><span class="tag">mcp</span></h3>
+                <h3><a href="project-configuring-item.html">github-mcp-server</a><span class="tag">mcp</span></h3>
                 <p class="state-line">GitHub’s own MCP server: issues, pull requests, Actions and code search.</p>
               </div>
               <label class="check"><input type="checkbox"> Add</label>
@@ -81,7 +81,7 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>playwright-mcp</a><span class="tag">mcp</span></h3>
+                <h3><a href="project-configuring-item.html">playwright-mcp</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Drives a real browser through the accessibility tree rather than screenshots.</p>
               </div>
               <label class="check"><input type="checkbox"> Add</label>
@@ -90,7 +90,7 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>context7</a><span class="tag">mcp</span></h3>
+                <h3><a href="project-configuring-item.html">context7</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Pulls current, version-specific library documentation into the prompt.</p>
               </div>
               <label class="check"><input type="checkbox"> Add</label>
@@ -99,7 +99,7 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>mcp-builder</a><span class="tag">skill</span></h3>
+                <h3><a href="project-configuring-item.html">mcp-builder</a><span class="tag">skill</span></h3>
                 <p class="state-line">A guide for building an MCP server: tool design, error messages, evaluation.</p>
               </div>
               <label class="check"><input type="checkbox"> Add</label>
@@ -108,10 +108,10 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a>webapp-testing</a><span class="tag">skill</span></h3>
+                <h3><a href="project-configuring-item.html">webapp-testing</a><span class="tag">skill</span></h3>
                 <p class="state-line">Tests a local web app with Playwright: start the server, drive the page, read the logs.</p>
               </div>
-              <a class="check" href="04-project-configuring-loading.html"><input type="checkbox"> Add</a>
+              <label class="check"><input type="checkbox"> Add</label>
             </article>
           </li>
         </ol>
@@ -121,7 +121,7 @@
     <main class="app-main">
 
       <section aria-labelledby="page-title">
-        <p class="meta"><a>Projects</a> /</p>
+        <p class="meta"><a href="projects-default.html">Projects</a> /</p>
         <div class="page-head">
           <div>
             <h1 id="page-title">stripe-webhooks<span class="tag">Configuring</span></h1>
@@ -129,9 +129,9 @@
           </div>
           <div class="head-actions">
             <!-- Save is the main action here; Check is secondary, and still inert on an empty set (Q16). -->
-            <a class="button button-quiet">Cancel</a>
+            <a class="button button-quiet" href="project-default.html">Cancel</a>
             <button type="button" disabled title="Add an item first"><span class="icon" aria-hidden="true"></span>Check</button>
-            <a class="button button-primary">Save</a>
+            <a class="button button-primary" href="project-default.html">Save</a>
           </div>
         </div>
       </section>

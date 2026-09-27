@@ -82,6 +82,12 @@
   - **A state with more than one cause takes the cause as a suffix**: `<name>-<state>-<cause>.html`.
     Projects has two errors that ask for different ways out, so it has `projects-error-filtered.html`
     and `projects-error-server.html`, never one page trying to be both.
+- **A page with a dialog, a panel or a scope open is `<name>-<what is open>.html`** (Q35) — the rule
+  `-filters` already followed: `run-remove`, `project-share`, `project-revoke`, `projects-delete`,
+  `item-delete`, `project-detached-promote`, `project-item`, `project-configuring-public`. It is not a
+  state; it is how a page looks while something is being asked of it.
+- **A cause suffix is the cause, not the screen**: `run-error-check`, `run-error-setup`,
+  `run-error-export`; `run-loading-export`; `project-configuring-loading-add`.
 - Examples: `projects-default.html`, `projects-empty.html`, `projects-error-server.html`,
   `project-configuring-loading.html`, `run-success.html`.
 
@@ -114,6 +120,9 @@
   from the row you clicked, every label, every section heading — and **every field is a grey bar at its
   real height**. Nothing is editable, and **Save and Delete are not shown** until they can act; *Cancel*
   stays, so the sheet can always be left.
+- **One state keeps no action, and says so** (Q35): **a state that `flows.md` declares `Stuck`** — the
+  dead shared link. *No dead end* yields to the map there, because the only way on would be a door Q25
+  says the receiver never meets; the page says what happened and **what the person still has**.
 - **Nothing is disabled** except the empty project's control into `Run` (Q16), and it is labelled
   inert rather than hidden.
 - **States that live inside a page are content, not pages**: §7's item states, the stale verdict, the

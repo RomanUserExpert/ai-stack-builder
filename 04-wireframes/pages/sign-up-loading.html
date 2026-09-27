@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account · loading — wireframe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body class="product-page">
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="shared-header">
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
+    </header>
+
+    <main class="app-main">
+
+      <!-- Loading: creating the account — the form as it was, the button saying what is happening. -->
+      <section class="door" aria-labelledby="door-title">
+        <div>
+          <h1 id="door-title">Create an account</h1>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, pipelines and harnesses. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
+        </div>
+        <form class="form" aria-busy="true">
+          <label class="field"><span>Email</span>
+            <input type="email" name="email" autocomplete="email" value="maya@chen.dev" placeholder="maya@chen.dev">
+          </label>
+          <label class="field"><span class="field-label">Password <a class="meta" href="password-reset-default.html">Forgot password?</a></span>
+            <input type="password" name="password" autocomplete="current-password" value="••••••••••">
+          </label>
+          <button type="submit" class="button-primary"><span class="glyph glyph-running" aria-hidden="true"></span>Creating your account…</button>
+          <p class="visually-hidden" role="status">Creating your account as maya@chen.dev</p>
+        </form>
+        <p class="door-alt">Already have an account? <a href="sign-in-default.html">Sign in</a></p>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

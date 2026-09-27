@@ -185,23 +185,24 @@ scopes two global entries — they are still **one screen with two addresses**, 
 | # | Screen | Kind | `<name>` | Empty | Error | Loading | Success |
 |---|---|---|---|:-:|:-:|:-:|:-:|
 | 0 | **Sign in** | place | `sign-in` | — | ✓ | ✓ | — |
-| 0 | **Create account** — *not drawn yet* | place | `sign-up` | — | ✓ | ✓ | — |
+| 0 | **Create account** — *on the map since Q35* | place | `sign-up` | — | ✓ | ✓ | — |
+| 0 | **Reset password** — *on the map since Q35* | place | `password-reset` | — | — | — | ✓ |
 | 1 | **Library · My library** | place | `library-my` | ✓ | ✓ ×2 | ✓ | — |
 | 1 | **Library · Public library** | place | `library-public` | — | ✓ ×2 | ✓ | — |
 | 1 | **Item — add / edit** | overlay | `item` | ✓ | ✓ | ✓ | — |
 | 1 | **Library import / export** | commands | `library-json` | — | ✓ | ✓ | ✓ |
 | 2 | **Projects** | place | `projects` | ✓ | ✓ ×2 | ✓ | — |
 | 2 | **Project** | place | `project` | ✓ | ✓ | ✓ | — |
-| 2 | **Configuring the set** | mode | `project-configuring` | ✓ | ✓ ×2 | ✓ | — |
+| 2 | **Configuring the set** | mode | `project-configuring` | ✓ | ✓ ×2 | ✓ ×2 | — |
 | 2 | **Detached row — edit · reset · promote** | mode of a row | `project-detached` | — | ✓ | ✓ | — |
-| 3 | **Run — project** | mode | `run` | — | ✓ | ✓ | ✓ |
+| 3 | **Run — project** | mode | `run` | — | ✓ ×3 | ✓ ×2 | ✓ |
 | 3 | **Run — single item**, from a Library row | mode | `run-item` | — | ✓ | ✓ | ✓ |
 | 3 | **Run — shared project**, by the receiver | mode | `run-shared` | — | ✓ | ✓ | ✓ |
 | 3 | **Run — shared single item**, by the receiver | mode | `run-shared-item` | — | ✓ | ✓ | ✓ |
 | 4 | **Shared project** | place | `shared-project` | — | ✓ | ✓ | — |
 | 4 | **Shared item** | place | `shared-item` | — | ✓ | ✓ | — |
 
-**Sixteen screens and 64 pages, all drawn** *(fourteen and 55 when first counted; Create account is in the tree, not drawn; Run — shared single item was added and drawn)* — every state marked `✓` plus a `default` for each, and
+**Seventeen screens and 79 pages, all drawn** *(since Q35: Create account, Reset password, the Run errors by cause, the archive build, the add's round trip, the panel on the shelf, and seven dialogs)* — *before that,* **sixteen screens and 64 pages** *(fourteen and 55 when first counted; Create account is in the tree, not drawn; Run — shared single item was added and drawn)* — every state marked `✓` plus a `default` for each, and
 **`✓ ×2` where one state has two causes that ask for different ways out**: *filtered to nothing*
 (**Clear filters**) and *the server didn't answer* (**Try again**, plus a second way that does not
 depend on it). The files are `<name>-error-filtered.html` and `<name>-error-server.html`
@@ -290,7 +291,7 @@ fault or ours* · **loading** — the check they run themselves · **success ✓
 
 **Run — shared single item** — the receiver takes one block, from *Take as an archive* on a shared item
 (owner, 2026-09-26). Same stages, **most of them `Skipped`** — one item has nothing to collide with;
-anonymous, no navigation, nothing stored. Drawn on `code-style`: 0 problems · 1 note (its deference) · 6
+anonymous, no navigation, nothing stored. Drawn on `code-style`: 0 problems · 1 note (its deference) · 5
 skipped. **Error** says whose failure it is, as on a shared project.
 
 **Shared project** — **MAIN** · **RJ-1** · **RJ-2** · **SJ-1**, **P2**'s only surface and the one

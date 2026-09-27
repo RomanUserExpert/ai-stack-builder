@@ -101,7 +101,10 @@ so each case is whole on its own — a reviewer never has to switch cases to see
 re-running by itself (`run-remove.html`, new in `pages/`); a new project opening with the panel open
 (`project-empty.html`, redrawn); *Delete example* active and confirmed. The cases above are rebuilt on it.
 
-### Pages the prototypes drew that `pages/` does not have
+### Pages the prototypes drew first — all kept into `pages/` (Q35)
+
+**Kept on 2026-09-27**, after the independent critique: every page below now exists in `pages/` under the name its steps carry (`project-configuring-loading-add`, `run-loading-export`, `run-error-check`, `run-error-setup`, `project-configuring-public`, `project-configuring-error-server`, `projects-delete`, `project-share`, `project-revoke`, `project-detached-promote`). **The table is kept as the record of where each one came from.**
+
 
 Each is drawn in the wireframes' own markup and is **`new` until the owner keeps it** — then it moves
 into `pages/` (`_conventions.md` §1).
@@ -116,10 +119,11 @@ into `pages/` (`_conventions.md` §1).
 | **Add item over the Project** | `create-item` | The overlay's third door (§8): the Item sheet summoned over configuring, the keys warning first |
 | **Projects — only the example** | `first-run` | The first run's Projects |
 | **Run — the check didn't finish** | `error-check` | Stages done, the one that stopped, the rest *Not run*; Export says it needs a finished check |
+| **Projects — delete the example** | `no-projects` | The only way to an empty Projects, confirmed (Q34) |
 | **Run — for Cursor** | `target-changed` | The verdict voided by a target change is not shown — the run starts again, *Checking again for Cursor* |
 
 **Also caught:** the wireframes' Run names **2 env keys** and writes **3** into `.env.example`
-(`SENTRY_AUTH_TOKEN`). The prototypes say 3; **`pages/run-*.html` are not fixed yet.**
+(`SENTRY_AUTH_TOKEN`). The prototypes say 3; **`pages/run-*.html` fixed the same day (Q35).**
 
 ### Waits and failures — which state each case leaves by
 
@@ -171,7 +175,7 @@ link, and **the build walks every case** the same way.
 | | `receiver-item` | a shared item → Take as an archive | 4 | Done |
 | | `receiver-dead-link` | the link no longer opens | 1 | **Stuck** — nothing to fall back on |
 
-**Drawn here first, not in `pages/`** — all `new` until the owner keeps them:
+**Drawn here first — kept into `pages/` the same day (Q35)** except the three that are content, not pages (a shared project, an auto-added item open, the unresolvable requirement):
 
 - **The share disclosure** (`rj4-share`) — §6's disclosure moment, never drawn: what becomes visible,
   the env key **names**, the external repos, and the tangled-content Note.

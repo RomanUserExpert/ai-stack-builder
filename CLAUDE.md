@@ -1483,6 +1483,13 @@ item behind a Problem is **removed from Run** after a confirmation, and the chec
 a **new project opens with the panel already open**, its body text only; and **Delete example is an
 ordinary, active button**, confirmed, because it is the only way to the empty Projects (§8).
 
+**And Q35, the same day — an independent critique of the wireframes and prototypes, 23 defects, fixed on
+the owner's *fix all*.** **Create account and Reset password join the door** at the minimum; **the dead
+shared link keeps no action** — `flows.md`'s `Stuck` over *no dead end*, because Q25 keeps the receiver
+off the door; **every page the prototypes drew first is kept into the wireframes**; Delete item is drawn;
+`db-migrate` requires `seed-data`, one direction everywhere. *The choices were proposed with the fix, not
+picked by the owner, and the register says so.*
+
 **Live as of 2026-09-20: Q9 and Q11 — deferred at the sitting — plus Q16 and Q17, each raised and
 answered on 2026-09-20 with one named question left open. Q12 left the list the same day: it is
 **closed as refused**, not deferred — see §9. Three more were raised and answered by the traceability

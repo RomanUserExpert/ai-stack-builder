@@ -1805,6 +1805,38 @@ Each came from a step that cost a click and gave nothing back.
 **Written into `CLAUDE.md` §8 and §12 the same day**, into `_screens.md`, and into the wireframes:
 `run-remove.html` is new; `project-empty.html` is redrawn as the configuring layout.
 
+### Q35 — what the independent critique found, and how it was closed — 2026-09-27
+
+**Raised by an independent review of the wireframes and prototypes** ([`_critique.md`](../04-wireframes/_critique.md),
+23 defects), **answered the same day on the owner's instruction *fix all*.** *The owner did not choose
+between the options below; the choices are the ones proposed with the fix, each the more conservative of
+its pair, and they are open to reversal on review.*
+
+1. **Create account is on the map, as the door's other half.** Q24 put accounts in the MVP and Q25 built
+   *a way in*; a door with no way to get an account is not one. **The minimum**: email and password,
+   default · error · loading. *It adds a screen to the door, not a place to the product — the six places
+   of §8 are unchanged, since the door was already one.*
+2. **Password reset is on the map too, at the same minimum** — one field, and a success that never says
+   whether an account exists for the email. Sign in's error already offered *Reset password*; it now goes
+   somewhere.
+3. **The dead link is the `Stuck` that `flows.md` declares, and it keeps no action.** Its one button sent an
+   anonymous receiver to Sign in, which **Q25** forbids — a receiver meets the door only by choosing to
+   copy. **`flows.md` wins over *no dead end***, and `_conventions.md` §5 now names the exception: a state
+   that a flow declares `Stuck` has no action, and says what the person still has.
+4. **Every page the prototypes drew first is kept into `pages/`**: the panel on the Public scope, the add's
+   round trip, *Save didn't land* (replacing the stale *an add that did not persist*), the two further
+   Run errors — *the check didn't finish*, *SETUP.md couldn't be written* — with the export failure renamed
+   to match, the archive build, and the dialogs for Share, Stop sharing, Promote and Delete example.
+   **A page with a dialog or panel open is named `<name>-<what is open>.html`** (`_conventions.md` §4).
+5. **Delete item is drawn** — a confirmation over the sheet in Q17's own words, the count naming the three
+   projects, the dangling `requires` said too.
+6. **One direction for one edge: `db-migrate` requires `seed-data`**, and `seed-data` is in My library
+   (11 items). The shared project has **3 external items from 2 repos**, not 3 repos.
+
+**Written the same day** into `_conventions.md` §4 and §5, `_screens.md`, `prototypes/_conventions.md`,
+`prototypes.md`, `_critique.md` and `CLAUDE.md` §12. **Not changed**: `sitemap.md` and `flows.md` — lesson
+03 is closed, and this entry is where their amendment lives.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

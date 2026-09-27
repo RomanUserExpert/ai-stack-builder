@@ -26,7 +26,7 @@
     <main class="app-main">
 
       <section class="summary" aria-label="Verdict">
-        <h1>migration-reviewer, with the 2 items it requires</h1>
+        <h1>migration-reviewer, with the 3 items it brings</h1>
         <p><strong>0 problems · 1 note · 3 skipped</strong></p>
         <p class="meta">Checked just now · for Claude Code · nothing is saved from this check — there is no project to hold it</p>
       </section>
@@ -36,9 +36,9 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>3 items — migration-reviewer and 2 it requires</span><span class="time">0.1 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>4 items — migration-reviewer and the 3 it brings</span><span class="time">0.1 s</span></summary>
               <div class="stage-body">
-                <p><code>migration-reviewer</code> requires <code>db-migrate</code> and <code>postgres-mcp</code>, so it exports as a set of 3, named as one.</p>
+                <p><code>migration-reviewer</code> requires <code>db-migrate</code> and <code>postgres-mcp</code>, and <code>db-migrate</code> requires <code>seed-data</code>, so it exports as a set of 4, named as one.</p>
               </div>
             </details>
           </li>
@@ -91,13 +91,13 @@
 ├── .env.example        DATABASE_URL
 ├── .mcp.json           postgres-mcp
 ├── .claude/agents/migration-reviewer.md
-└── scripts/db-migrate.sh</pre>
+└── scripts/  db-migrate.sh + 2 files · seed-data.sh</pre>
               </div>
             </details>
           </li>
           <li>
             <details>
-              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Written · 3 items</span><span class="time">0.1 s</span></summary>
+              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Written · 4 items</span><span class="time">0.1 s</span></summary>
             </details>
           </li>
           <li>

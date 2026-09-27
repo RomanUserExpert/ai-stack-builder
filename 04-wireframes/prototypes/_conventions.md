@@ -28,6 +28,9 @@
   says which way the forks went.
 - **One file per step**, `NN-<screen>-<state>.html`: a two-digit step number, then the wireframe's own
   name. `03-run-loading.html` is step 3, and it is `run-loading.html` in `pages/`.
+- **The name is a page that exists in `pages/`** (Q35) — the same screen and state. **What may differ is
+  content**: a different row open, a count after a fix, the example alone on Projects. *A step that shows
+  a different state is a new page in `pages/` first, never a step named after its neighbour.*
 - **The number is the order, and it allows a screen twice.** A case that comes back to the Project
   after the archive has `02-project-default.html` and `07-project-default.html`, and the two differ in
   exactly what happened between them.

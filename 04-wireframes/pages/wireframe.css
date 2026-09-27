@@ -118,7 +118,7 @@ button, .button {
 .app-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; border-bottom: 2px solid var(--ink); }
 
 .app-header .account { margin-left: auto; display: flex; gap: 8px; align-items: center; color: var(--ink-2); }
-.avatar { width: 32px; height: 32px; border-radius: 50%; }
+.avatar { width: 32px; height: 32px; }
 
 .app-main { padding: 32px; display: flex; flex-direction: column; gap: 24px; }
 
@@ -426,7 +426,7 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
 .state-actions { display: flex; gap: 8px; margin-top: 8px; }
 
 /* Loading: a skeleton of the real rows — grey bars in the real columns, nothing moves on arrival. */
-.skeleton { display: block; height: 16px; background: var(--fill); border-radius: 2px; }
+.skeleton { display: block; height: 16px; background: var(--fill); }
 .row-actions .skeleton { display: inline-block; }
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -586,7 +586,7 @@ dialog.modal .state-block { border-top: 0; padding: 16px 0 0; }
 .glyph-problem { background: var(--ink); border-color: var(--ink); }
 .glyph-note { background: linear-gradient(to right, var(--ink) 50%, transparent 50%); }
 .glyph-skipped { border-style: dashed; }
-.glyph-running { border-radius: 50%; border-top-color: transparent; }
+.glyph-running { border-top-color: transparent; }
 .glyph-waiting { border-color: var(--line); }
 pre.file { margin: 0; padding: 12px 16px; background: var(--fill); font: 12px/16px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; }
 .export-stage { padding: 24px; border: 1px solid var(--ink-2); display: flex; flex-direction: column; gap: 12px; }
@@ -642,7 +642,7 @@ pre.file { margin: 0; padding: 12px 16px; background: var(--fill); font: 12px/16
 /* Filters popover — one shape everywhere: title, Reset filters on its right, the groups, Cancel / Apply.
    It hangs from the Filters button, right-aligned to it. <dialog open>, no script. */
 .find-zone { position: relative; }
-dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5; width: 360px; margin: 0; padding: 0; border: 1px solid var(--ink-2); background: var(--paper); color: var(--ink); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
+dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5; width: 360px; margin: 0; padding: 0; border: 1px solid var(--ink-2); background: var(--paper); color: var(--ink); }
 .popover-form { display: flex; flex-direction: column; }
 .popover-head { display: flex; align-items: center; justify-content: space-between; padding: 16px; border-bottom: 1px solid var(--line-2); }
 .popover-head h2 { font-size: 14px; line-height: 20px; font-weight: 600; }
@@ -658,7 +658,7 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 /* Tight rows (owner, 2026-09-26): source, origin and licence in one line under the description,
    usage as one line in the middle — no stacked labels, so a row is two or three lines tall. */
 .row-tight { padding: 16px 0; grid-template-columns: minmax(0, 1fr) 320px auto; align-items: center; }
-.row-tight .description { margin-top: 2px; }
+.row-tight .description { margin-top: 4px; }
 .row-tight .facts { margin-top: 4px; }
 .row-tight.row-2 { grid-template-columns: minmax(0, 1fr) auto; }
 .row-tight.row-1 { grid-template-columns: minmax(0, 1fr); }
@@ -701,7 +701,7 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
 .drawer-facts { display: grid; grid-template-columns: 120px 1fr; gap: 8px 12px; }
 .drawer-facts dt { color: var(--ink-2); }
 .drawer-actions { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--line); }
-.severity .glyph { margin-right: 6px; }
+.severity .glyph { margin-right: 8px; }
 
 /* Configuring: the library panel is a full left sidebar, not a box (owner, 2026-09-26) */
 .config-layout { flex: 1; display: grid; grid-template-columns: 440px minmax(0, 1fr); align-items: stretch; }
@@ -729,3 +729,9 @@ dialog.popover { position: absolute; top: 52px; right: 0; left: auto; z-index: 5
    target (prototypes/_conventions.md §3). The control inside is drawn but not hit, so the click is the link's. */
 a.check, a.search, a.pick { text-decoration: none; color: inherit; cursor: pointer; }
 a.check > input, a.search > input, a.pick > select { pointer-events: none; }
+
+/* Were inline styles (_critique.md #20): a readable measure for a long description, a small section heading,
+   a callout set under a row's text */
+.description-wide { max-width: 800px; }
+.heading-small { font-size: 14px; line-height: 20px; }
+.callout-spaced { margin-top: 8px; }
