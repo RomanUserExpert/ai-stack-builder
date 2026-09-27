@@ -55,12 +55,12 @@ in the viewer; below is what each case proves and which of its pages are **new**
 | Case | Path through the forks | Steps | Ending |
 |---|---|---|---|
 | `main-success` | 1 yes · 3 yes · 8 no · 10 yes | 7 | Done — archive in hand |
-| `main-problem-fixed` | 8 yes · 9 yes → Configure, `✕`, **Save**, check again | 12 | Done |
+| `main-problem-fixed` | 8 yes · 9 yes → **Remove** in Run, confirmed → the check runs again (Q34) | 10 | Done |
 | `main-problem-exported` | 8 yes · 9 no → **Export with 1 problem** | 7 | **Cost** — it ships with the collision |
 | `main-target-changed` | 10 no → target to *Cursor*, verdict void, check again | 9 | Done, for Cursor |
-| `main-new-project` | 1 no · 3 no · 4 yes — path B, from My library | 13 | Done |
-| `main-no-projects` | 2 no → **Create project** → as `main-new-project` | 13 | Done |
-| `main-first-run` | 2 yes (only the example) · 5 no · 6 yes — from the shelf | 14 | Done |
+| `main-new-project` | 1 no · 3 no · 4 yes — path B; the new project opens with the panel open (Q34) | 12 | Done |
+| `main-no-projects` | 2 no → **Delete example**, confirmed → **Create project** → as `main-new-project` | 14 | Done |
+| `main-first-run` | 2 yes (only the example) · 5 no · 6 yes — from the shelf | 13 | Done |
 | `main-set-incomplete` | 7 no → Configure, add from the panel, **Save** | 11 | Done |
 | `main-create-item` | 5 yes (filtered to zero) · 6 no → the row that creates | 13 | Done |
 | `main-error-projects` | Projects didn't load → **Try again** | 9 | Done |
@@ -97,6 +97,10 @@ so each case is whole on its own — a reviewer never has to switch cases to see
   mid-assembly, so the prototype adds it.
 - **Archive sizes** are arithmetic, not measurement.
 
+**The owner's first review, 2026-09-27 — Q34.** Remove from Run with a confirmation and the check
+re-running by itself (`run-remove.html`, new in `pages/`); a new project opening with the panel open
+(`project-empty.html`, redrawn); *Delete example* active and confirmed. The cases above are rebuilt on it.
+
 ### Pages the prototypes drew that `pages/` does not have
 
 Each is drawn in the wireframes' own markup and is **`new` until the owner keeps it** — then it moves
@@ -106,7 +110,7 @@ into `pages/` (`_conventions.md` §1).
 |---|---|---|
 | **Run — building the archive** | every case's Export | The second wait in `Run`, named in `_screens.md` and never drawn |
 | **Configuring — the add's round trip** | `new-project`, `first-run`, `set-incomplete`, `create-item` | The row appears at once, *Adding — finding what it requires…*; what it pulls in arrives after — **decided 2026-09-26 and not drawn until now** |
-| **Configuring — a draft with a change** | `problem-fixed`, `error-save` | The head's counts follow the draft; the check line says *out of date since `eslint-autofix` was removed* |
+| **Configuring — a draft with a change** | `error-save` | The head's counts follow the draft; the check line says *out of date since `eslint-autofix` was removed* |
 | **Configuring — Save didn't land** | `error-save` | **Replaces the stale *an add that did not persist*** (Q33's draft): *Not saved*, the project as it was, the changes still here · **Save again** · **Discard changes** |
 | **Configuring — the panel on All, on the shelf** | `new-project`, `first-run` | The sidebar filled from My library, and switched to Public library |
 | **Add item over the Project** | `create-item` | The overlay's third door (§8): the Item sheet summoned over configuring, the keys warning first |

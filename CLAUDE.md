@@ -1107,6 +1107,10 @@ to read the scores behind it: the rubric grades craft, not weight.
   one control, because `Export` is Run's final stage and not a button here, so an unreachable Run takes
   it with it. See §6 for why that is an exception to a rule this file otherwise holds to, the two tests
   it has to pass, and the naming question the owner deferred to lesson 05.
+
+  **Amended 2026-09-27, Q34: the new project opens in the configuring mode, the panel already open,
+  and the body keeps only its text.** The one action was a click that did nothing but open what the
+  person had come for, so it is gone; the control into `Run` stays inert, which is all Q16 ever needed.
 - **Run** — entered by **Check** from a Project, by the same control on a **shared project**, and,
   since 2026-09-20, **from a Library row exporting a single item** (§6, Q15). It takes the whole
   surface: a stack of stages, each with its
@@ -1114,6 +1118,12 @@ to read the scores behind it: the rubric grades craft, not weight.
   future archive, the env variable list and the agent target selector live here, and **Export is the
   final stage** rather than a button beside the check. Export is always live (§6); an unclean set is
   confirmed in the row below the finding that caused it.
+
+  **A Problem's item can be removed from Run itself** (owner, 2026-09-27, Q34). *Remove eslint-autofix*
+  on the finding opens **a confirmation that names the scope** — this project only; it stays in My
+  library and in every other project — and on *Remove* **the check runs again by itself.** It is saved
+  at once, not held as a configuring draft: the fix-and-recheck loop is the busiest path in the product,
+  and this takes it from four steps to two.
 
   **The last stages before Export are the handover** (added 2026-09-02): what the archive contains,
   and what the receiving machine must still do — the `SETUP.md` the agent will read, the pinned
@@ -1467,6 +1477,11 @@ source switch: it is made of content, files and a pinned repo in any mix.** **Th
 on purpose**: `source`, `content`, `targetPath` and where `license` lives still describe one file, and
 the register says exactly what would change. **Q33** — configuring is drawn as a sidebar, a side panel
 that carries `Detach`, nested auto-added rows, and a draft kept by `Save` (§8).
+
+**Added 2026-09-27, by lesson 04's clickable prototypes — one entry, three decisions.** **Q34** — an
+item behind a Problem is **removed from Run** after a confirmation, and the check **re-runs by itself**;
+a **new project opens with the panel already open**, its body text only; and **Delete example is an
+ordinary, active button**, confirmed, because it is the only way to the empty Projects (§8).
 
 **Live as of 2026-09-20: Q9 and Q11 — deferred at the sitting — plus Q16 and Q17, each raised and
 answered on 2026-09-20 with one named question left open. Q12 left the list the same day: it is

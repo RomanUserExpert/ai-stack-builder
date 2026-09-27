@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>03 · Configuring, My library empty on first run — prototype · main-first-run</title>
+  <title>03 · Configuring, the Public library — prototype · main-first-run</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -36,22 +36,85 @@
     <aside class="panel library-sidebar" aria-label="Library panel">
       <div class="panel-head">
         <h2>Add from</h2>
-        <nav class="scope" aria-label="Scope"><a aria-current="page">My library</a><a>Public library</a></nav>
-        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library"></label>
+        <nav class="scope" aria-label="Scope"><a>My library</a><a aria-current="page">Public library</a></nav>
+        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search Public library"></label>
         <nav class="tabs" aria-label="Kind"><a>Related</a><a aria-current="page">All</a><a>skill</a><a>agent</a><a>prompt</a><a>mcp</a><a>script</a><a>app</a></nav>
       </div>
       <div class="panel-body">
-        <!-- The panel offers nothing: My library is empty on first run (§11). Two ways out, both in the flow:
-             switch to the shelf, or the row that creates — the add form, summoned over the Project. -->
-        <section class="state-block" aria-label="My library is empty">
-      <span class="icon state-icon" aria-hidden="true"></span>
-      <h2>My library is empty</h2>
-      <p>Your own items appear here once you add them. The Public library has 8 checked items you can add right now.</p>
-      <div class="state-actions">
-        <a href="04-project-configuring-empty.html" class="button button-primary">Switch to Public library</a>
-        <a class="button"><span class="icon" aria-hidden="true"></span>Add item</a>
-      </div>
-    </section>
+        <ol class="row-list">
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>filesystem</a><span class="tag">mcp</span></h3>
+                <p class="state-line">Read and write files inside the directories you allow, and nowhere else.</p>
+              </div>
+              <label class="check"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>memory</a><span class="tag">mcp</span></h3>
+                <p class="state-line">A knowledge graph the agent can write to and read back between sessions.</p>
+              </div>
+              <label class="check"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>fetch</a><span class="tag">mcp</span></h3>
+                <p class="state-line">Fetches a URL and hands the agent the page as Markdown.</p>
+              </div>
+              <label class="check"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>github-mcp-server</a><span class="tag">mcp</span></h3>
+                <p class="state-line">GitHub’s own MCP server: issues, pull requests, Actions and code search.</p>
+              </div>
+              <label class="check"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>playwright-mcp</a><span class="tag">mcp</span></h3>
+                <p class="state-line">Drives a real browser through the accessibility tree rather than screenshots.</p>
+              </div>
+              <label class="check"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>context7</a><span class="tag">mcp</span></h3>
+                <p class="state-line">Pulls current, version-specific library documentation into the prompt.</p>
+              </div>
+              <label class="check"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>mcp-builder</a><span class="tag">skill</span></h3>
+                <p class="state-line">A guide for building an MCP server: tool design, error messages, evaluation.</p>
+              </div>
+              <label class="check"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a>webapp-testing</a><span class="tag">skill</span></h3>
+                <p class="state-line">Tests a local web app with Playwright: start the server, drive the page, read the logs.</p>
+              </div>
+              <a class="check" href="04-project-configuring-loading.html"><input type="checkbox"> Add</a>
+            </article>
+          </li>
+        </ol>
       </div>
     </aside>
 
@@ -74,11 +137,11 @@
       </section>
 
       <section aria-label="The set">
-        <!-- The set is empty: said in the body, with the image placeholder, and pointing at the sidebar. -->
+        <!-- Empty (Q16, Q34): a new project opens in configuring, the panel already open — no button to press
+             first. The body keeps only its text; Check stays inert until the set holds something. -->
         <div class="state-block">
-          <span class="image state-image" aria-hidden="true"></span>
-          <h2>No items added yet</h2>
-          <p>Tick items in the library on the left to add them. Anything they require comes in with them.</p>
+          <h2>Nothing in this project yet</h2>
+          <p>Tick items in the library on the left to add them. Anything they require comes in with them, and Check opens once the set has something in it.</p>
         </div>
       </section>
 

@@ -1782,6 +1782,29 @@ decisions, each small on the page and one of them not small underneath.
 
 **Written into `CLAUDE.md` §8 the same day**, as a dated paragraph under the configuring mode.
 
+### Q34 — three changes from clicking the main job through — raised and answered 2026-09-27
+
+**Raised and answered by the owner in lesson 04, on the first review of the clickable prototypes.**
+Each came from a step that cost a click and gave nothing back.
+
+1. **Remove from Run, confirmed, and the check runs again by itself.** A Problem's *Remove
+   eslint-autofix in the project* used to send the person into configuring, to the `✕`, to `Save`, back
+   to the Project and to `Check` again. **Now the finding carries *Remove eslint-autofix*, a modal asks
+   *Remove eslint-autofix from acme-billing-api?* and names the scope** — this project only; the item
+   stays in My library and in every other project — **and *Remove* restarts the check.** **The removal is
+   saved at once, not held as a draft** — it is the one change to a set made outside configuring, and a
+   confirmed act has nothing left to keep or discard. `flows.md` decision 10, *fixable from this row*,
+   is unchanged in meaning and shorter in practice. *Removing is the only fix Run offers; a fix that
+   needs editing still goes to configuring.*
+2. **A new project opens with the panel already open, and its body keeps only its text.** **Q16's one
+   action is gone** — it entered the configuring mode and did nothing else, so the new project now
+   *is* that mode. The control into `Run` stays inert, which was the whole of Q16's exception.
+3. **Delete example is an active, ordinary button, and deleting is confirmed.** It was drawn quiet,
+   which read as disabled — and `projects-empty` is reachable only through it (`flows.md` decision 2).
+
+**Written into `CLAUDE.md` §8 and §12 the same day**, into `_screens.md`, and into the wireframes:
+`run-remove.html` is new; `project-empty.html` is redrawn as the configuring layout.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

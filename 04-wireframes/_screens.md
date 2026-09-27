@@ -90,8 +90,9 @@ surface. A mode can be wireframed; it just has no address.
   state, yes to `Project: the set`, and from the set, **Check** enters `Run`. Path A, *the set already
   exists*, is three clicks from here to the archive.
 - **States:**
-  - **Empty ✓** — **Q16**: a project with nothing in it. **One action, and it enters the configuring
-    mode**; the control that enters `Run` is **inert** — the product's one named exception to *nothing
+  - **Empty ✓** — **Q16**: a project with nothing in it. ~~**One action, and it enters the configuring
+    mode**~~ — **since 2026-09-27 (Q34) it opens in the configuring mode, the panel already open, and the
+    body keeps only its text**; the control that enters `Run` is **inert** — the product's one named exception to *nothing
     is disabled*. The state names what it offers, not what is dead in it (`flows.md` decision 3).
   - **Error ✓** — the set fails to load. **Q26 governs what the verdict shows** when the product is not
     sure: neither *checked* nor *un-checked* on the strength of a failed read.
