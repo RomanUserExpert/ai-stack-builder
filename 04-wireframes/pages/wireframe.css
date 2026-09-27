@@ -389,12 +389,14 @@ body.product-page .canvas { width: 100%; max-width: var(--canvas); margin: 0 aut
 .wf-tree .wf-group-list { margin-left: 0; padding-left: 0; }
 .wf-tree .wf-group-list > li::before,
 .wf-tree .wf-group-list > li::after { content: none; }
-.wf-group > details > summary {
-  font: 600 11px/16px "Inter", system-ui, sans-serif;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
+/* Four levels, one smooth step each (owner, 2026-09-27): group 14/700 · section 13.5/600 ·
+   screen 13/500 · state, case or step 12.5/400 — size, weight and ink all falling together. */
+.wf-group > details > summary { font: 700 14px/20px "Inter", system-ui, sans-serif; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.wf-group > details > summary .wf-ico { color: var(--ink); }
+.wf-tree .wf-section > details > summary { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+.wf-tree .wf-screen > details > summary { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+.wf-tree .wf-screen li a, .wf-case a, .wf-case-todo a { font-size: 12.5px; font-weight: 400; color: var(--ink-2); }
+.wf-tree .wf-screen li a[aria-current="page"], .wf-tree .wf-case a[aria-current="page"] { color: var(--site-accent); font-weight: 600; }
 .wf-group + .wf-group { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--site-rule); }
 /* A case not built yet: one faint row, no folder */
 .wf-case a, .wf-case-todo a { font-size: 12.5px; }

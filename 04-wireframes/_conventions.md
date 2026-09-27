@@ -182,6 +182,10 @@ started deciding things it was not asked to.
 - **The tree reads like a file explorer**: sections and screens are folders that open and close, states
   are files, guide lines with rounded elbows show the nesting, and the folder holding the current page
   opens itself.
+- **Four levels, one even step each** (owner, 2026-09-27): **group** (*Wireframes*, *Flows*) 14 px bold
+  · **section** 13.5 px semibold · **screen** 13 px medium, quieter ink · **state, case or step** 12.5 px
+  regular. Size, weight and ink fall together, so no level reads louder than the one above it — *the
+  groups were first drawn as small grey capitals and read weaker than the sections under them.*
 
 **The frame is 16:9 and shows the canvas at 90%**, scaled down further only when the window is too
 small to hold it, and **it is centred, with its chrome, in the space beside the tree.** **The viewer page never scrolls** — not sideways, not down. **Only the wireframe
