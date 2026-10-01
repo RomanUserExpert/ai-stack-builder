@@ -27,20 +27,20 @@ project's build phases. **Adding a page means editing the strip in *every* templ
 and adding the file to `.vercelignore`, which is a whitelist.** *Phase 04 became a link on 2026-09-26 — to `04-wireframes/pages/wireframes.html`, the wireframe viewer, which carries the same rail plus the wireframe tree; the wireframes are hand-written HTML, not generated.* *Phase 03 was added on 2026-09-20 and
 that is five files, not two: two templates, the build artifact, and the two standalone pages, because
 neither of the first two is rebuilt casually.*
-[`../research/research.html`](../research/research.html) is phase 01, research stages 1–5;
-[`../research/6-personas/personas.html`](../research/6-personas/personas.html) is stages 6 and 7 —
+[`../01-research/research.html`](../01-research/research.html) is phase 01, research stages 1–5;
+[`../02-personas-jtbd/personas.html`](../02-personas-jtbd/personas.html) is stages 6 and 7 —
 the persona cards, the job hierarchy and the jobs-against-personas matrix. **The second one pulls its
 tokens, its shell and its scroll-spy out of the first at build time**, so the two cannot drift: edit
 the shared `<style>` block in `research-page.tpl.html` and both pages move.
 
-[`../research/research.html`](../research/research.html) is a **generated** file: one self-contained page with all 34
+[`../01-research/research.html`](../01-research/research.html) is a **generated** file: one self-contained page with all 34
 screen captures embedded as data URIs, so it opens from disk and can be sent to someone as a single
 file with nothing to fetch. Do not hand-edit it — edit the template and rebuild.
 
 ```
 python tools/build_page.py        # compress + embed the captures  -> tools/_research-page.build.html
-python tools/make_standalone.py   # wrap in a full HTML document   -> research/research.html
-python tools/build_personas.py    # personas + jobs, no captures   -> research/6-personas/personas.html
+python tools/make_standalone.py   # wrap in a full HTML document   -> 01-research/research.html
+python tools/build_personas.py    # personas + jobs, no captures   -> 02-personas-jtbd/personas.html
 python tools/build_ia.py          # the IA, derived from its sources -> 03-information-architecture/ia.html
 ```
 
@@ -53,11 +53,11 @@ python tools/build_ia.py          # the IA, derived from its sources -> 03-infor
 | `build_personas.py` | Lifts the shared `<style>` and the scroll-spy out of `research-page.tpl.html`, wraps this page's body in a standalone document, and asserts the tokens, the primary card, the matrix and every rail anchor survived. No images, so no embedding step. |
 | `ia-page.tpl.html` | The information-architecture page: a title, **three components of its own** — the screen tree, a framed flow, and the traceability table with its orphan highlighting — and nothing else visual. |
 | `build_ia.py` | **The only builder that reads the work rather than a template.** Each diagram is wrapped in a **pan-and-zoom window** whose height is capped at 78vh: drag to pan, `Ctrl`/`⌘` with the wheel to zoom, `Fit` for the whole shape, `1:1` for the column width. **The plain wheel is never taken** — a diagram that eats the page scroll is one you cannot get past — and the drag follows the same rule as the horizontal bars on these pages: a press is a click until it has travelled 5px, and the handlers go on the window rather than on a captured pointer. It lifts the shared style and spy like `build_personas.py`, and then **substitutes three things out of `sitemap.md` and `flows.md` at build time**: the screen tree verbatim, the **eight** Mermaid diagrams with their titles and their node and ending counts, and the traceability matrix as a table. **The orphan highlighting is computed, not annotated** — a column with no tick and a row with no tick are found by reading the tables — so the page cannot claim a coverage the work does not have. Mermaid comes from a CDN and is initialised on the **light** theme these pages use; the diagrams set stroke colours only and never fills, so the same source renders correctly on GitHub's light page and here. |
-| `build_page.py` | Resolves each placeholder: reads the capture from `research/`, resizes to `MAXW`, re-encodes as JPEG at `QUALITY`, embeds it as a data URI. Fails loudly on a missing file, an unknown placeholder or an unsubstituted one. |
+| `build_page.py` | Resolves each placeholder: reads the capture from `01-research/`, resizes to `MAXW`, re-encodes as JPEG at `QUALITY`, embeds it as a data URI. Fails loudly on a missing file, an unknown placeholder or an unsubstituted one. |
 | `make_standalone.py` | Wraps the build output in `<!doctype html>` with a charset, a viewport and the small reset the artifact host would otherwise supply. **Without this step the page mojibakes** — every em dash, `×` and `⌘` in it depends on the charset declaration. |
 
 **Two outputs, one template.** The build output is what gets published as an Artifact (the host adds
-its own document wrapper); `research/research.html` is the standalone file. They are the same page.
+its own document wrapper); `01-research/research.html` is the standalone file. They are the same page.
 
 **Adding or swapping a capture.** Add an entry to `IMAGES` in `build_page.py` — the key is yours to
 choose, the value is a repo-relative path — then reference it as `{{IMG:your-key}}` in the template.
@@ -65,3 +65,29 @@ The build reports anything encoded but unused.
 
 **Size.** ~3 MB at the current settings, against a 16 MB ceiling for a published artifact. There is
 room to raise `QUALITY` or `MAXW` if a capture needs to be more legible.
+
+---
+
+## `prototypes/` — the clickable flows of lesson 04
+
+**Brought into the repo on 2026-10-01**; until then they lived only in a session scratchpad.
+
+```
+python tools/prototypes/build_others.py   # all 37 cases -> 04-wireframes/prototypes/, and the viewer's Flows group
+```
+
+`build_others.py` executes `build_main.py`'s helpers and cases, builds every case of every flow, **walks
+each one end to end** (one live link or one wait per step, none on the last) and rewrites the *Flows*
+group of `04-wireframes/pages/wireframes.html`. It leaves `04-wireframes/prototypes/_manifest.json`
+behind — delete it. **Re-run on 2026-10-01, it reproduced all 239 pages with no diff.**
+
+| File | What it is |
+|---|---|
+| `build_main.py` | The main job's 14 cases, and the wiring helpers: a step is a wireframe page copied with its links rewired, only the path live. Rules: `04-wireframes/prototypes/_conventions.md`. |
+| `build_others.py` | The other six flows, 23 cases, lighter. |
+| `main_meta.json` | The main job's per-case metadata for the viewer. |
+
+**The pages in `04-wireframes/pages/` are the source; the prototypes are output.** Edit a page, then
+rebuild. **The generators find their wiring points by matching text on the page and assert that text
+exists**, so rewriting a label on a page — lesson 05's whole job — fails an assertion here until the
+generator is updated with it. That failure is the point: it names the line that changed.

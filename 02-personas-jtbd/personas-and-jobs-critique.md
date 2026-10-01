@@ -7,14 +7,14 @@
 before. **Nothing in either file was edited.** Corrections are proposed in the *Note* column and
 nowhere else.
 
-**The rule applied**, from [`research.md`](research.md), *The three marks*: `✓` is earned only by an
+**The rule applied**, from [`research.md`](../01-research/research.md), *The three marks*: `✓` is earned only by an
 instrument another person can re-run; `*` is one respondent's memory about their own work and, since
 there has been exactly one interview, **every `*` in the repository is n = 1**; an unmarked sentence
 is being asserted as `✓`. Rule 5 governs the hardest cases: a re-runnable query proves that
 something was **said**, not that it is **true**.
 
 **What was actually re-run for this audit.** Every reaction count in both documents was looked up
-in [`3-pain/_user-pain-issues.json`](3-pain/_user-pain-issues.json) or
+in [`3-pain/_user-pain-issues.json`](../01-research/3-pain/_user-pain-issues.json) or
 [`6-personas/_captures/round1-github.json`](6-personas/_captures/round1-github.json); every quoted issue body was
 searched in the latter; every Hacker News quote was searched by item id in
 [`_captures/round1-hn-threads.json`](6-personas/_captures/round1-hn-threads.json) and

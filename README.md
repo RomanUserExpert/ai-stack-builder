@@ -36,13 +36,7 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research is done and the information architecture is nearly done. There is still no code.**
-Stages 1–5 were signed off on 2026-09-02 and stages 6 and 7 — personas and jobs to be done — on
-2026-09-09. *The blanket* provisional *label on those two was dropped on 2026-09-15 and no mark moved
-with it*: the warning is carried per claim now, which is where it was always finer. **Lesson 03,
-information architecture, ran from 15 to 20 September** and is closed, all seven of its steps done — see
-*Structure* below. No design system and no mockups yet, and **nothing so far decides how anything
-looks.**
+**Research is done, the information architecture is done, and the screens are drawn and clickable. There is still no code.** Lessons 01–04 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), and wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows. **Lesson 05, tone of voice and microcopy, is current.** No design system and no mockups yet, and **nothing so far decides how anything looks.**
 
 **One decision from 20 September changes the shape of everything after it: the product is online**, a
 backend with accounts, so a person's library follows them between machines. **What the backend is
@@ -54,7 +48,7 @@ this line used to read `research → design system → mockups → frontend → 
 design system second when it is ninth.*
 
 ~~01 research and benchmark~~ → ~~02 personas and JTBD~~ → ~~03 information architecture~~ →
-**04 prototyping** → 05 tone of voice → 06 concept → 07 UI assembly → 08 design tokens →
+~~04 prototyping~~ → **05 tone of voice** → 06 concept → 07 UI assembly → 08 design tokens →
 09 design system → 10 responsive → 11 animation → 12 handoff. Product logic — state,
 storage, validation, export — comes after all twelve.
 
@@ -110,26 +104,21 @@ the orphan highlighting in its matrix is computed rather than annotated.
 
 ## Files
 
-- `CLAUDE.md` — full working context: data model, product logic, scope boundaries,
-  conventions. The source of truth. Start here.
-- `research/` — the research phase, one folder per stage. Stages 1–5 are closed; stages 6
-  and 7 were added on 2026-09-06 and are *provisional*.
-  - `research/research.md` — the consolidated read, in five sections: competitors,
-    flows, benchmark, patterns, conclusions. Every fact links to its source or capture,
-    and what was never established says so. A digest, not a spec.
-  - `research/research.html` — the same research as one self-contained page, with 34
-    captures embedded. Opens from disk, sends as a single file. Generated — see `tools/`.
-  - `research/FINAL.md` — the closing document: what the phase produced, what it
-    decided, and why. **Start here for the research** — it is the entry point the whole
-    folder instructs.
-  - `research/research-plan.md` — the spine, ending in the register: every open question
-    with an ID, what would answer it, and what it blocks. The only list of open questions.
-  - `research/6-personas/personas.md` and `research/7-jobs-to-be-done/jtbd.md` — three
-    personas with one primary, and one main job with four related, three emotional and two
-    social, each against a matrix of personas. Both *provisional*.
-  - `research/6-personas/personas.html` — the same two documents as one generated page.
-  - `research/personas-and-jobs-critique.md` — the audit of those two: 238 claims
-    classified, 27 found invented, applied in full.
-- `03-information-architecture/` — lesson 03, described under *Structure* above: `sitemap.md`,
-  `flows.md`, `ia-critique.md`, the plan in `README.md`, and the generated `ia.html`.
-- `tools/` — the generators for all three pages, and how to rebuild them.
+**One folder per lesson of the course, numbered as the course numbers them**, each with a `README.md`
+that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
+
+| Folder | Lesson | The page |
+|---|---|---|
+| [`01-research/`](01-research/README.md) | 01 · Research and benchmark — stages 1–5, and **the register** every lesson writes to (`research-plan.md`) | [`research.html`](01-research/research.html) |
+| [`02-personas-jtbd/`](02-personas-jtbd/README.md) | 02 · Personas and jobs to be done — stages 6–7 and their audit | [`personas.html`](02-personas-jtbd/personas.html) |
+| [`03-information-architecture/`](03-information-architecture/README.md) | 03 · Information architecture — `sitemap.md`, `flows.md`, `ia-critique.md` | [`ia.html`](03-information-architecture/ia.html) |
+| [`04-wireframes/`](04-wireframes/_screens.md) | 04 · Prototyping and wireframing — 80 pages in `pages/`, 37 clickable flows in `prototypes/` | [`wireframes.html`](04-wireframes/pages/wireframes.html) |
+| [`05-tone-of-voice/`](05-tone-of-voice/README.md) | 05 · Tone of voice and microcopy — **current** | — |
+
+**Everything that is not a lesson:**
+
+- `CLAUDE.md` — full working context: data model, product logic, scope boundaries, conventions. **The
+  source of truth. Start here.**
+- [`tools/`](tools/README.md) — the generators: the three lesson pages, and the prototypes.
+- `vercel.json`, `.vercelignore` — the deploy. `.vercelignore` is a whitelist of the pages above;
+  **a new page is not served until it is added there.** Old `/research/...` addresses redirect.

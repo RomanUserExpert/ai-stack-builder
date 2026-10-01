@@ -7,7 +7,7 @@
 > [`prototypes/prototypes.md`](prototypes/prototypes.md),
 > [`sitemap.md`](../03-information-architecture/sitemap.md),
 > [`flows.md`](../03-information-architecture/flows.md) and the register, Q29–Q34
-> ([`research-plan.md`](../research/research-plan.md)). Things the rules allow — the black icon
+> ([`research-plan.md`](../01-research/research-plan.md)). Things the rules allow — the black icon
 > square, the crossed image box, the viewer's orange chrome and hotspots, kind tabs pointing at `#` —
 > are not reported.
 
@@ -130,7 +130,7 @@ have no `href`, no step uses `#`, every ending has no way forward, and no protot
 ## Closed — 2026-09-27, Q35
 
 **The owner answered *fix all*.** Every row above is closed; the choices for the six owner questions were
-proposed with the fix and are recorded as such in the register ([Q35](../research/research-plan.md)).
+proposed with the fix and are recorded as such in the register ([Q35](../01-research/research-plan.md)).
 
 | # | Closed by |
 |---|---|

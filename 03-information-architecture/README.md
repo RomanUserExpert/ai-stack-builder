@@ -56,7 +56,7 @@ a form)~~ **`Item` is a form: the proposal went to the owner on 2026-09-16 and �
 Library with one address per scope, Projects, Project, and the two the
 shared link creates.
 
-**Where this folder sits, and why.** [`research/`](../research/) holds lessons 01 and 02 as seven
+**Where this folder sits, and why.** [`research/`](../01-research/) holds lessons 01 and 02 as seven
 numbered stages. Every lesson after them is its own deliverable, so each gets a folder at the
 repository root named the way the research stages are named: `03-information-architecture`, and later
 `04-…`, `05-…`. No `lessons/` wrapper — it would add a level that holds nothing. **If this lesson
@@ -66,7 +66,7 @@ see [`tools/README.md`](../tools/README.md).
 **And the condition this lesson runs under, recorded before its first line of work.** The register's
 sitting has not happened. Lesson 03 was started anyway, on the owner's decision — *we work with what
 we have* — and that decision is written into [`CLAUDE.md`](../CLAUDE.md) §1 and
-[`research/research-plan.md`](../research/research-plan.md). **It changes the order of work and
+[`01-research/research-plan.md`](../01-research/research-plan.md). **It changes the order of work and
 nothing else.** Six register entries keep their dispositions, four proposal lists stay unapplied, the
 *provisional* label stays on stages 6 and 7, and no mark is promoted. What it costs is named in
 *The honest problem*.
@@ -79,7 +79,7 @@ nothing else.** Six register entries keep their dispositions, four proposal list
 is addressable, what a screen is made of, what the library panel can reach, what an item card carries in the
 five places an item appears, or where a finding attaches. This lesson produces that, and produces it
 **without appearance**: no colour, no type scale, no grid, no layout, no component named in a way that
-implies a look. The boundary is the one [`5-patterns/patterns.md`](../research/5-patterns/patterns.md)
+implies a look. The boundary is the one [`5-patterns/patterns.md`](../01-research/5-patterns/patterns.md)
 set for itself and it holds here — structure is lessons 03 and 04, appearance starts at 06.
 
 The deliverable, said as four questions the next lesson cannot start without:
@@ -110,7 +110,7 @@ true by one storage design, it belongs to whoever builds it. **We are designing 
 **3. Inventing places for people nobody has met.** **P3's column in the jobs matrix is `[?]` in all
 ten rows**, and the two clearest public beginners anyone found *wrote their own material on day one or
 asked to shadow a human* rather than reaching for a shelf
-([`re-research.md` round 4](../research/6-personas/re-research.md#round-4-the-matrixs-empty-cells) F5, F13).
+([`re-research.md` round 4](../02-personas-jtbd/6-personas/re-research.md#round-4-the-matrixs-empty-cells) F5, F13).
 An onboarding tour, a getting-started surface, a *recommended for you* sort — each is a structure for
 a person who has never been observed. They may be drawn, but only **marked `[?]` and named as
 hypotheses**, and never load-bearing for anything else in the map.
@@ -131,7 +131,7 @@ the panel, the Library one keystroke away for corpus acts only, and per-item usa
 
 **5. Building on proposals that are not applied.** Four lists wait for the sitting, and one of them
 changes the shape of the central noun: **S-2 — an item addresses a directory, not a file**
-([`re-research.md` round 3](../research/6-personas/re-research.md#round-3-five-questions-that-need-no-interview)). If it is taken, an item card
+([`re-research.md` round 3](../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview)). If it is taken, an item card
 and the archive tree both change. **Draw against the spec as it stands, and name the dependency at
 every point it touches.** Not pre-applied, not ignored.
 
@@ -150,14 +150,14 @@ a structure for a feature we are not building.
 | [`CLAUDE.md`](../CLAUDE.md) §6 | **Decided.** | What Run is made of: the walk, cycles as information, three severities, `.env.example`, the merge, the handover stages, the unclean-export confirmation. Structure, not logic, is what this lesson takes from it. |
 | [`CLAUDE.md`](../CLAUDE.md) §7 | **Decided.** | Six item states, and the three commands state 6 carries. Every one has to have a place to be rendered in. |
 | [`CLAUDE.md`](../CLAUDE.md) §9, §11 | **Decided.** | What must have no structure at all, and what ships in the box — two library scopes and one example project, which are three first-run states. |
-| [`5-patterns/patterns.md`](../research/5-patterns/patterns.md) | Reasoned, stage 5. | Why this shape and not the other four, what each rejected variant donated, and the stated cost the map must expose rather than hide. |
-| [`2-flows/`](../research/2-flows/README.md) 01, 02, 03, 04, 05, 07, 08, 11 | Captured mechanisms. | Item detail and trust; filter grammar and *name how many items are hidden*; relations without a canvas and the depth filter; the stage list with verdict, duration and expansion; drift computed and displayed; the env drawer; emptiness scaled to how new the concept is; two rows for cause and consequence. **Mechanisms to structure, never sitemaps to copy.** |
-| [`4-benchmark/benchmark.md`](../research/4-benchmark/benchmark.md) | Rubric. | B1–B4 are four things a user does — find, assemble, check, hand over — and the finalisation says which two carry the value. Useful as a check that every one has a home. |
-| [`6-personas/personas.md`](../research/6-personas/personas.md) | **Provisional.** | P1 is primary and wins structural conflicts. P2 has **never spoken in the first person**. P3 has never been observed. Read *What this card is allowed to settle* before leaning on any of it. |
-| [`7-jobs-to-be-done/jtbd.md`](../research/7-jobs-to-be-done/jtbd.md) §7, §8 | **Provisional.** | Which jobs the structure must serve first, and the thirty `[?]` cells that say where it cannot know. §8's shortlist is under a recorded correction; read the note at its head. |
-| [`research/research-plan.md`](../research/research-plan.md) — the register | Open questions. | **Q9** bears on what the shelf holds and how it sorts; **Q10** is a conflict with something outside the set that the model has nowhere to put; **Q12** is a want we cannot close. Each is a place the IA marks rather than answers. |
+| [`5-patterns/patterns.md`](../01-research/5-patterns/patterns.md) | Reasoned, stage 5. | Why this shape and not the other four, what each rejected variant donated, and the stated cost the map must expose rather than hide. |
+| [`2-flows/`](../01-research/2-flows/README.md) 01, 02, 03, 04, 05, 07, 08, 11 | Captured mechanisms. | Item detail and trust; filter grammar and *name how many items are hidden*; relations without a canvas and the depth filter; the stage list with verdict, duration and expansion; drift computed and displayed; the env drawer; emptiness scaled to how new the concept is; two rows for cause and consequence. **Mechanisms to structure, never sitemaps to copy.** |
+| [`4-benchmark/benchmark.md`](../01-research/4-benchmark/benchmark.md) | Rubric. | B1–B4 are four things a user does — find, assemble, check, hand over — and the finalisation says which two carry the value. Useful as a check that every one has a home. |
+| [`6-personas/personas.md`](../02-personas-jtbd/6-personas/personas.md) | **Provisional.** | P1 is primary and wins structural conflicts. P2 has **never spoken in the first person**. P3 has never been observed. Read *What this card is allowed to settle* before leaning on any of it. |
+| [`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §7, §8 | **Provisional.** | Which jobs the structure must serve first, and the thirty `[?]` cells that say where it cannot know. §8's shortlist is under a recorded correction; read the note at its head. |
+| [`01-research/research-plan.md`](../01-research/research-plan.md) — the register | Open questions. | **Q9** bears on what the shelf holds and how it sorts; **Q10** is a conflict with something outside the set that the model has nowhere to put; **Q12** is a want we cannot close. Each is a place the IA marks rather than answers. |
 | The four proposal lists | **Pending, not applied.** | Constraints to name: **S-1** (`SETUP.md` carrying the set's Problems), **S-2** (item as a directory), **S-3** (a settings file is executable), **S-4** (the receiver's own secrets hazard), plus stage 6's nine and stage 7's nine. |
-| [`research/research.md`](../research/research.md) | Digest. | Orientation only. **Never a source** — the spec, `FINAL.md` and the register outrank it by rule. |
+| [`01-research/research.md`](../01-research/research.md) | Digest. | Orientation only. **Never a source** — the spec, `FINAL.md` and the register outrank it by rule. |
 
 **Not an input:** the course's demo IA, and any competitor's sitemap. The flows are captured
 *mechanisms*; a mechanism is evidence about behaviour, and a sitemap copied from a product with a
@@ -366,7 +366,7 @@ as importance 3 with no surface, and `EJ-3` as touched-but-unclosable.
 
 ## The evidence rule, for this repository
 
-The three marks hold, defined once in [`research/research.md`](../research/research.md): **`✓`**
+The three marks hold, defined once in [`01-research/research.md`](../01-research/research.md): **`✓`**
 confirmed by an instrument another person can re-run · **`*`** reported by one practitioner · **`[?]`**
 unknown. **A `*` never becomes a `✓` by repetition**, and a re-runnable query proves something was
 *said*, not that it is *true* (rule 5).

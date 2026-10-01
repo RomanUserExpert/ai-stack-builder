@@ -34,7 +34,7 @@ number that can do that job.
 
 **When it fires, the label lifts.** Notes from all five, filed in this folder as a source document,
 are the event that lifts **provisional** from `personas.md` and `jtbd.md`, and the named instrument
-for **Q5**, **Q7**, **Q8** and **Q9** in [`research-plan.md`](../research-plan.md).
+for **Q5**, **Q7**, **Q8** and **Q9** in [`research-plan.md`](../../01-research/research-plan.md).
 
 ---
 
@@ -336,7 +336,7 @@ named in §5.
 
 > **Standing: `*` practitioner-reported. One person.** Filed 2026-09-07, run against
 > [`interviews.md` the guide](interviews.md#part-1-the-guide). **Everything in this file is `*`** under the evidence rule
-> in [`research.md`](../research.md), *The three marks*: it is evidence about **this respondent**,
+> in [`research.md`](../../01-research/research.md), *The three marks*: it is evidence about **this respondent**,
 > spoken from memory about their own work, and it is not a fact about anybody else. Every number in
 > it — *forty-something files*, *one in three fresh environments*, *about half of it* — is a
 > recollection, not a measurement, and the respondent flags his own unreliability twice unprompted

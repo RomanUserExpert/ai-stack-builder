@@ -1,0 +1,72 @@
+{
+ "main-success": [
+  "P1 the keeper — primary, signed in",
+  "MAIN keep it working somewhere else",
+  "Path A — a project for this work · the set exists · no Problems · the right target → Archive in hand"
+ ],
+ "main-problem-fixed": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-2 find out where two will fight, while I can still act",
+  "Any Problems? yes · Fixable from this row? yes → Remove in Run, confirmed → the check runs again → Archive in hand"
+ ],
+ "main-problem-exported": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-2",
+  "Any Problems? yes · Fixable from this row? no → Export with 1 problem → Cost: it ships with the collision"
+ ],
+ "main-target-changed": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-1 know what the other side will still need",
+  "Right agent target? no → the verdict is void, checked again for Cursor → Archive in hand"
+ ],
+ "main-new-project": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-2 what my pieces drag in",
+  "Path B — no project for this work · a new project opens with the panel open · My library → Archive in hand"
+ ],
+ "main-no-projects": [
+  "P1 the keeper — primary",
+  "MAIN",
+  "Any projects at all? no — Delete example, confirmed → Create project → then as main-new-project"
+ ],
+ "main-first-run": [
+  "P1 the keeper · P3 the empty-handed [?]",
+  "MAIN",
+  "First run — only the example · My library empty · Switch the scope to the shelf? yes → Archive in hand"
+ ],
+ "main-set-incomplete": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-2",
+  "Is the set complete? no → Configure, add from the panel, Save, check → Archive in hand"
+ ],
+ "main-create-item": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-3 partly — creating is a corpus act",
+  "Panel filtered to zero · Switch to the shelf? no → the row that creates → Add item over the Project → Archive in hand"
+ ],
+ "main-error-projects": [
+  "P1 the keeper — primary",
+  "MAIN",
+  "Wait and failure — Projects didn't load → Try again → back on path A"
+ ],
+ "main-error-project": [
+  "P1 the keeper — primary",
+  "MAIN",
+  "Wait and failure — the project didn't load (Q26) → Try again → back on path A"
+ ],
+ "main-error-save": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-2",
+  "Wait and failure — Save didn't land (Q33's draft) → Save again → check → Archive in hand"
+ ],
+ "main-error-check": [
+  "P1 the keeper — primary",
+  "MAIN",
+  "Wait and failure — the check didn't finish → Check again → Archive in hand"
+ ],
+ "main-error-export": [
+  "P1 the keeper — primary",
+  "MAIN · RJ-1",
+  "Wait and failure — the archive didn't build, after the handover was read → Build again → Archive in hand"
+ ]
+}

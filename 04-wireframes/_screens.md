@@ -2,7 +2,7 @@
 
 > **Written 2026-09-26, out of [`sitemap.md`](../03-information-architecture/sitemap.md),
 > [`flows.md`](../03-information-architecture/flows.md) and
-> [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md) and nothing else.** Names, jobs, places in the flow,
+> [`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) and nothing else.** Names, jobs, places in the flow,
 > states. **It began as the main flow only; by the end of the day the whole map was drawn** — 16 screens,
 > 64 pages — and the owner's screen-by-screen review had started. The main flow comes first below, the
 > whole map after it, and the review's decisions are dated where they landed.

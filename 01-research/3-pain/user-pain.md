@@ -42,7 +42,7 @@ at the bottom of the page; it is the first thing to know about everything below.
 > asking for one instruction source across several agents — **thirty-six times** the number below.
 > The *direction* of this finding survives intact: the top of every corpus tried is environment and
 > host, never composition. **The sentence is left as written** so that what stage 3 measured, and
-> what corrected it, are both legible; see [`../6-personas/re-research.md`](../6-personas/re-research.md)
+> what corrected it, are both legible; see [`../6-personas/re-research.md`](../../02-personas-jtbd/6-personas/re-research.md)
 > R1 and [`../FINAL.md`](../FINAL.md) §6. Nothing here is retracted and nothing is rewritten — this
 > is a mark on the claim, and the edit is the owner's.
 
@@ -139,7 +139,7 @@ to contact*.
 > "two independent signals" below is gone**, and the other — the switched-off hosted half — is a fact
 > about one company's economics, not a measurement of demand. The heading overstates what was
 > measured. **Left as written, marked here**; see
-> [`../6-personas/re-research.md`](../6-personas/re-research.md) R3. The rewrite is proposal 1 in
+> [`../6-personas/re-research.md`](../../02-personas-jtbd/6-personas/re-research.md) R3. The rewrite is proposal 1 in
 > that document and is the owner's to apply.
 
 The uncomfortable one. Searches for sharing and reuse across projects return **nothing**:

@@ -109,13 +109,13 @@ Two smaller ones:
 |---|---|---|
 | `6-personas/personas.md` (not written yet) | Stage 6's output. | The carriers of each job, and the primary that wins conflicts. Jobs are written *from* personas, and each job names which persona and which evidence it grew from. |
 | [`6-personas/inventory.md`](../6-personas/inventory.md), `6-personas/audit.md` (not written yet) | Stage 6's output. | The observed / asserted / not-known split, reused so that every job's standing is inherited rather than re-argued. |
-| [`3-pain/user-pain.md`](../3-pain/user-pain.md) | Observation, weighted. | The evidence for the job candidates on the check-and-handover side: 182 for *it does not run on my machine*, 32/23/22 for env and secrets, 13 for the silent collision, 0 for cross-project reuse. The *method* section governs how the matrix may weight anything. |
-| [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md) | Rubric and finalisation. | B1–B4 are already four candidate related jobs in disguise — find, assemble, check, hand over — and the finalisation says which two carry the value. Also the raw material for the *competitors* column: who does each flow best, and how well. |
-| [`1-landscape/comparison.md`](../1-landscape/comparison.md), [`competitors.md`](../1-landscape/competitors.md) | Positioning. | The *competitors* column: which player closes which job, with the caveat that a vendor selling against a pain is not the same as closing it. The three *differences we can hold* are three job-shaped claims — a personal library that answers to nobody, trusting the file instead of the network, assembly as the product — and each gets tested rather than copied. |
-| [`5-patterns/patterns.md`](../5-patterns/patterns.md) | Reasoned. | Where each job would land on the chosen shape, and the stated cost — *you cannot see what you are not using* — which is a job the shape decided to serve badly. The matrix should show whether that cost falls on the primary persona. |
-| [`2-flows/`](../2-flows/README.md) captures | Mechanisms. | Flow 09 (duplicate and fork) for the *re-tune for a new context* job; flow 05 for the *change one copy without touching the rest* job; flow 07 for env; flow 08 for cold start. |
+| [`3-pain/user-pain.md`](../../01-research/3-pain/user-pain.md) | Observation, weighted. | The evidence for the job candidates on the check-and-handover side: 182 for *it does not run on my machine*, 32/23/22 for env and secrets, 13 for the silent collision, 0 for cross-project reuse. The *method* section governs how the matrix may weight anything. |
+| [`4-benchmark/benchmark.md`](../../01-research/4-benchmark/benchmark.md) | Rubric and finalisation. | B1–B4 are already four candidate related jobs in disguise — find, assemble, check, hand over — and the finalisation says which two carry the value. Also the raw material for the *competitors* column: who does each flow best, and how well. |
+| [`1-landscape/comparison.md`](../../01-research/1-landscape/comparison.md), [`competitors.md`](../../01-research/1-landscape/competitors.md) | Positioning. | The *competitors* column: which player closes which job, with the caveat that a vendor selling against a pain is not the same as closing it. The three *differences we can hold* are three job-shaped claims — a personal library that answers to nobody, trusting the file instead of the network, assembly as the product — and each gets tested rather than copied. |
+| [`5-patterns/patterns.md`](../../01-research/5-patterns/patterns.md) | Reasoned. | Where each job would land on the chosen shape, and the stated cost — *you cannot see what you are not using* — which is a job the shape decided to serve badly. The matrix should show whether that cost falls on the primary persona. |
+| [`2-flows/`](../../01-research/2-flows/README.md) captures | Mechanisms. | Flow 09 (duplicate and fork) for the *re-tune for a new context* job; flow 05 for the *change one copy without touching the rest* job; flow 07 for env; flow 08 for cold start. |
 | [`CLAUDE.md`](../../CLAUDE.md) §2, §6, §8, §9, §11 | **Owner's assertions and specified features.** | §2 supplies the main-job candidates *under test*. §6 and §8 supply the *feature* column — every mechanism the product commits to. §9 supplies the features already refused, which the matrix should be able to agree or disagree with. §11's public library and example project are features whose job has to be found or admitted missing. |
-| [`research.md`](../research.md) §5 | Digest. | G1 and G9 are already the two competing positioning hypotheses — *reassembly converts* and *silent breakage retains, not acquires*. The main-job argument should end by saying which it supports. Digest, never a source. |
+| [`research.md`](../../01-research/research.md) §5 | Digest. | G1 and G9 are already the two competing positioning hypotheses — *reassembly converts* and *silent breakage retains, not acquires*. The main-job argument should end by saying which it supports. Digest, never a source. |
 
 Not an input: the lesson's demo jobs. *Safely decide whom to live with* and *not look desperate*
 are the template's shape, not its content.
@@ -277,7 +277,7 @@ without reading the stage.
 |---|---|
 | `jtbd.md` | Main-job candidates and the choice; the hierarchy — main, related, emotional and social — each job with persona, evidence and standing; the *Rewritten* list from the feature test; the matrix with the feature and competitors columns; the two conclusions; hypotheses at the end. **Provisional** in the header. |
 | `audit.md` | Confirmed / hypothesis / invented; the dangerous list; three questions; the reconciliation table against CLAUDE.md; the proposals. |
-| Section in [`6-personas/personas.html`](../6-personas/personas.html) | The hierarchy and the matrix as a table on the shared page, marks visible. One page for both stages, as the lesson has it. |
+| Section in [`6-personas/personas.html`](../personas.html) | The hierarchy and the matrix as a table on the shared page, marks visible. One page for both stages, as the lesson has it. |
 | Additions to [`6-personas/interviews.md (the guide)`](../6-personas/interviews.md#part-1-the-guide) | This stage's three questions, merged. |
 
 ---
@@ -291,11 +291,11 @@ pain is louder; it does not say the first is fourteen times as important to anyo
 nothing at all about pains the instrument cannot see. A cell that cites a count says *louder than*,
 never *more important than*, unless a persona's evidence says so on its own.
 
-Where the sources are: pain with weight in [`3-pain/user-pain.md`](../3-pain/user-pain.md) and
-[`_user-pain-issues.json`](../3-pain/_user-pain-issues.json); who closes what in
-[`1-landscape/comparison.md`](../1-landscape/comparison.md) (positioning, cited as such); how well
-in [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md); the mechanisms in the
-[`2-flows/`](../2-flows/README.md) notes; the specified features in CLAUDE.md by section, cited as
+Where the sources are: pain with weight in [`3-pain/user-pain.md`](../../01-research/3-pain/user-pain.md) and
+[`_user-pain-issues.json`](../../01-research/3-pain/_user-pain-issues.json); who closes what in
+[`1-landscape/comparison.md`](../../01-research/1-landscape/comparison.md) (positioning, cited as such); how well
+in [`4-benchmark/benchmark.md`](../../01-research/4-benchmark/benchmark.md); the mechanisms in the
+[`2-flows/`](../../01-research/2-flows/README.md) notes; the specified features in CLAUDE.md by section, cited as
 *specified*, never as *needed*.
 
 ---

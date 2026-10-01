@@ -17,8 +17,8 @@ says so; that is rule 4.
 | **[4. The matrix’s empty cells](#round-4-the-matrixs-empty-cells)** | 2026-09-10 | I12–I15 — two vendor forums, HN searched by situation, **the shelves’ own issue trackers**, and our fork corpus re-asked | **Six matrix cells filled, two numbers raised** — the first upward movement the matrix has had. And the wall behind the rest, named |
 
 **It is not a digest and nothing may cite it as a decision.** The digest entry it feeds is
-[`research.md`](../research.md) §§7–9. The register it reports to is
-[`research-plan.md`](../research-plan.md).
+[`research.md`](../../01-research/research.md) §§7–9. The register it reports to is
+[`research-plan.md`](../../01-research/research-plan.md).
 
 **Capture logs live in [`_captures/`](_captures/)**, one per round, plus the artefacts of the
 handover test in [`_captures/qf-handover-test/`](_captures/qf-handover-test/).
@@ -162,7 +162,7 @@ include directives, and hand-written scripts.**
 This is the finding that corrects a signed-off document.
 
 Stage 3, finding 4, searched `continuedev/continue` for `reuse blocks assistant`, got **0 results**,
-and concluded there is *no demand loud enough to file*. [`FINAL.md`](../FINAL.md) and `CLAUDE.md` §9
+and concluded there is *no demand loud enough to file*. [`FINAL.md`](../../01-research/FINAL.md) and `CLAUDE.md` §9
 both lean on it, and Q5 was deferred partly because *an issue tracker records breakage, not
 friction*.
 
@@ -458,7 +458,7 @@ as corroboration of R3 at low confidence.
 
 > **Standing note added 2026-09-08, after the mark audit.** *Closed* in this table means **closed at
 > the level of what the public record can show**, which for most of these rows is *people describing
-> their own behaviour in public*. [`research.md`](../research.md) now carries that distinction as
+> their own behaviour in public*. [`research.md`](../../01-research/research.md) now carries that distinction as
 > **rule 5**: a re-runnable query proves that something was **said**, not that it is **true**. Three
 > rows this table calls *closed* — **NK-5, NK-6 and NK-10** — were re-marked in
 > [`inventory.md`](inventory.md) from a plain `✓` to `✓` + `*`, because the utterance is confirmed and
@@ -575,7 +575,7 @@ instrument, logs what was collected, and says what that establishes and what it 
 written. Capture log beside it: [`_captures/round2-log.json`](_captures/round2-log.json).
 
 **It is not a digest and nothing may cite it as a decision.** The digest entry it feeds is
-[`research.md`](../research.md) §7, *Research justification*.
+[`research.md`](../../01-research/research.md) §7, *Research justification*.
 
 **Two questions came from the critique's Part 3 unchanged (Q-B, Q-C), one came from it and could not
 be answered here (Q-A), and two were raised by the critique's dangerous list and added for this
@@ -797,7 +797,7 @@ names"* is the shape that survived: **provenance over volume.**
 
 #### What this round hands forward
 
-1. **To [`personas.md`](personas.md).** Five marks change and one persona changes character. Applied in this round and recorded in [`research.md`](../research.md) §7.
+1. **To [`personas.md`](personas.md).** Five marks change and one persona changes character. Applied in this round and recorded in [`research.md`](../../01-research/research.md) §7.
 2. **To the register.** No new question. Q-A sharpens **NK-13** without moving it; Q-E bears directly on **Q9** — *which specified features close no evidenced job* — and gives that entry its first evidence.
 3. **To the matrix in [`jtbd.md`](../7-jobs-to-be-done/jtbd.md).** RJ-4's competitor cell is too strong (Q-D) and H-J4's P3 column is no longer honestly `[?]` (Q-E). **Not applied here** — the matrix is stage 7's and it has its own audit still owed.
 4. **To the benchmark.** Doppler and Infisical are captured and unscored; on the evidence of Q-D that is now a gap worth one afternoon.
@@ -1374,7 +1374,7 @@ that decision, and it supports it.
 **What is blocked.** **`CLAUDE.md` §2's core-value sentence** — *what nothing does today is tell you
 that a skill needs a particular MCP server, that two skills write to the same config file, that two
 items register the same command name* — which
-[`FINAL.md`](../FINAL.md) §6 already lists as narrower than it reads, **on the strength of what
+[`FINAL.md`](../../01-research/FINAL.md) §6 already lists as narrower than it reads, **on the strength of what
 competing tools claim in their own READMEs, none of which we have run.** Also RJ-2's and EJ-2's
 competitor cells, and the benchmark gap Q-D left: **Doppler and Infisical are captured and unscored.**
 
@@ -1438,7 +1438,7 @@ unit.** Every one of these tools takes *the skill* as its atom and asks *is this
 safe or stale*. `CLAUDE.md` §2's claim — *what nothing does today is tell you that a skill needs a
 particular MCP server, that two skills write to the same config file, that two items register the
 same command name* — **is confirmed as run, on four tools, on 2026-09-10.** The narrowing
-[`FINAL.md`](../FINAL.md) §6 recorded on README-reading can now be made precise instead of cautious.
+[`FINAL.md`](../../01-research/FINAL.md) §6 recorded on README-reading can now be made precise instead of cautious.
 
 ###### And then the tool was given a duplicate it *does* claim to handle
 
@@ -1522,7 +1522,7 @@ Doppler's and Infisical's free tiers were not tested for whether they touch what
   being unavailable does not lower the bar; it removes the event.** What these five do instead is
   reduce the number of decisions that depend on the label lifting — and **whether anything else may
   ever lift it is the owner's call at the register's next sitting**, not a research finding. It is
-  recorded in [`research-plan.md`](../research-plan.md) as a change of standing under Q5.
+  recorded in [`research-plan.md`](../../01-research/research-plan.md) as a change of standing under Q5.
 - **They do not answer Q5** — loss or reassembly cost as the driver of adoption. Q-I touches the edge
   of it and no instrument here can reach a motive.
 - **They do not answer Q12** — observability of what ran. That needs a runtime we do not have and

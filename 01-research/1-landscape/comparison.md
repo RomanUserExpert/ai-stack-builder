@@ -82,12 +82,12 @@ from a pricing page in this pass.
    > them**, so what is confirmed is their existence and their traction, not their capability. The
    > **set**-level ground — resolve a named set, check *that set*, hand it over with instructions for
    > the receiving machine — appears in nobody's README. See
-   > [`../6-personas/re-research.md`](../6-personas/re-research.md) R8; the rewrite of this
+   > [`../6-personas/re-research.md`](../../02-personas-jtbd/6-personas/re-research.md) R8; the rewrite of this
    > difference, and of `CLAUDE.md` §2's *"nothing does this today"*, is proposal 3 there and is the
    > owner's to apply.
    >
    > **Second note, 2026-09-10 — the afternoon proposal 3 asked for was spent.**
-   > [`../6-personas/re-research.md (round 3)`](../6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-J installed **four** of
+   > [`../6-personas/re-research.md (round 3)`](../../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-J installed **four** of
    > these tools and pointed them at a deliberately broken set: `agent-skill-manager` 2.19.0,
    > `skills` 1.5.25, `ai-agent-skills` 4.3.2, `opkg` 0.11.3. Two could not be installed under the
    > name their README gives — the npm packages `harnesskit` and `tank` belong to unrelated projects,

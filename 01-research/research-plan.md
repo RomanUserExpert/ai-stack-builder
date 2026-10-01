@@ -51,16 +51,16 @@ research/
 | [`2-flows/README.md`](2-flows/README.md) | The twelve flows: what each is for, what is collected, what is missing, what access it needed. |
 | [`4-benchmark/benchmark.md`](4-benchmark/benchmark.md) | **Stage 4.** The scored matrix — 15 cells, five categories — the three rules the scoring follows, and the argument behind every score below or above 4. Ends with eight findings, which are what stage 5 spends. Captures in [`4-benchmark/`](4-benchmark/). |
 | [`5-patterns/patterns.md`](5-patterns/patterns.md) | **Stage 5.** Five shapes for *assemble → check → export*, each answering the same five questions, each scored on the stage-4 rubric read as *does the shape give this a home*. The choice, what each rejected variant donates, and what the choice costs. |
-| [`6-personas/README.md`](6-personas/README.md) | **Stage 6 — the plan.** What the stage is for, the way it goes wrong here, the inputs classified by kind of evidence, seven steps with a done-bar each, the evidence rule and the honest problem. |
-| [`6-personas/inventory.md`](6-personas/inventory.md) | **Stage 6, step 1, revalidated.** Every statement about people in this repository with its source and kind of evidence; the owner's fourteen assertions with a standing mark each; and **a register of the twenty questions** — the answer we have, the data it rests on with links, and a `✓` / `*` / `?` mark on each. Three more questions arrived with the first interview: NK-21 to NK-23. |
-| [`6-personas/re-research.md`](6-personas/re-research.md) | **Stage 6, step 5, and everything after it — four collection rounds merged into one source document on 2026-09-10.** **[Round 1](6-personas/re-research.md#round-1-the-public-record)** took four instruments to the public record; **[round 2](6-personas/re-research.md#round-2-counting-not-asking)** counted somebody's collection instead of asking about it; **[round 3](6-personas/re-research.md#round-3-five-questions-that-need-no-interview)** stopped reading and ran two experiments, closing NK-13; **[round 4](6-personas/re-research.md#round-4-the-matrixs-empty-cells)** went at the matrix's persona columns and moved six cells. Capture logs in [`6-personas/_captures/`](6-personas/_captures/). |
-| [`6-personas/personas.md`](6-personas/personas.md) | **Stage 6, step 3, written 2026-09-08.** Three personas on the axes in `inventory.md` §D — **P1 the keeper who runs several agents (primary)**, P2 the receiver, P3 the empty-handed. Five blocks each (context, jobs, pains, trust triggers, quote) plus environment; every block sourced or `[?]`; **eleven hypotheses** in their own table, each with the instrument that would close it. **Provisional** until five interviews. |
-| [`personas-and-jobs-critique.md`](personas-and-jobs-critique.md) | **The audit, written 2026-09-08 and applied 2026-09-09** — merged with stage 7's step 6 at the owner's request. 238 claims classified across both files, 27 found invented. Confirmed / hypothesis / invented, the dangerous list, and the proposals. **D-1 was closed on 2026-09-10.** |
-| [`6-personas/interviews.md`](6-personas/interviews.md) | **The instrument, and the one conversation that happened**, merged 2026-09-10. **[Part 1, the guide](6-personas/interviews.md#part-1-the-guide)** — the 30-minute instrument that lifts *provisional*, covering the fifteen rows that need a person. **[Part 2, interview 1 of 5](6-personas/interviews.md#part-2-interview-1-of-5)** — the only practitioner ever run against it; everything in it is **`*`** and `n = 1`. **The remaining four are unavailable.** |
-| [`6-personas/_captures/`](6-personas/_captures/) | **The capture logs, one per round**, plus [`qf-handover-test/`](6-personas/_captures/qf-handover-test/) — the archive three receiving agents were given, the ground truth of what was wrong with it, and a transcript per run. |
-| [`7-jobs-to-be-done/README.md`](7-jobs-to-be-done/README.md) | **Stage 7 — the plan.** The canonical job form, the hierarchy, the feature-name test, the matrix, and what each of its two answers is worth. |
-| [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) | **Stage 7, written 2026-09-08, audited and reconciled 2026-09-09.** Main-job candidates and the choice, the hierarchy, the matrix with feature and competitor columns, the two conclusions, and §12's nine proposals. **§7 now carries what rounds 3 and 4 did to the matrix.** Provisional. |
-| [`6-personas/personas.html`](6-personas/personas.html) | **Generated.** Phase 02 of the course — the persona cards, the job hierarchy and the matrix, built by `tools/build_personas.py` from `tools/personas-page.tpl.html`. Do not hand-edit. |
+| [`6-personas/README.md`](../02-personas-jtbd/6-personas/README.md) | **Stage 6 — the plan.** What the stage is for, the way it goes wrong here, the inputs classified by kind of evidence, seven steps with a done-bar each, the evidence rule and the honest problem. |
+| [`6-personas/inventory.md`](../02-personas-jtbd/6-personas/inventory.md) | **Stage 6, step 1, revalidated.** Every statement about people in this repository with its source and kind of evidence; the owner's fourteen assertions with a standing mark each; and **a register of the twenty questions** — the answer we have, the data it rests on with links, and a `✓` / `*` / `?` mark on each. Three more questions arrived with the first interview: NK-21 to NK-23. |
+| [`6-personas/re-research.md`](../02-personas-jtbd/6-personas/re-research.md) | **Stage 6, step 5, and everything after it — four collection rounds merged into one source document on 2026-09-10.** **[Round 1](../02-personas-jtbd/6-personas/re-research.md#round-1-the-public-record)** took four instruments to the public record; **[round 2](../02-personas-jtbd/6-personas/re-research.md#round-2-counting-not-asking)** counted somebody's collection instead of asking about it; **[round 3](../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview)** stopped reading and ran two experiments, closing NK-13; **[round 4](../02-personas-jtbd/6-personas/re-research.md#round-4-the-matrixs-empty-cells)** went at the matrix's persona columns and moved six cells. Capture logs in [`6-personas/_captures/`](../02-personas-jtbd/6-personas/_captures/). |
+| [`6-personas/personas.md`](../02-personas-jtbd/6-personas/personas.md) | **Stage 6, step 3, written 2026-09-08.** Three personas on the axes in `inventory.md` §D — **P1 the keeper who runs several agents (primary)**, P2 the receiver, P3 the empty-handed. Five blocks each (context, jobs, pains, trust triggers, quote) plus environment; every block sourced or `[?]`; **eleven hypotheses** in their own table, each with the instrument that would close it. **Provisional** until five interviews. |
+| [`personas-and-jobs-critique.md`](../02-personas-jtbd/personas-and-jobs-critique.md) | **The audit, written 2026-09-08 and applied 2026-09-09** — merged with stage 7's step 6 at the owner's request. 238 claims classified across both files, 27 found invented. Confirmed / hypothesis / invented, the dangerous list, and the proposals. **D-1 was closed on 2026-09-10.** |
+| [`6-personas/interviews.md`](../02-personas-jtbd/6-personas/interviews.md) | **The instrument, and the one conversation that happened**, merged 2026-09-10. **[Part 1, the guide](../02-personas-jtbd/6-personas/interviews.md#part-1-the-guide)** — the 30-minute instrument that lifts *provisional*, covering the fifteen rows that need a person. **[Part 2, interview 1 of 5](../02-personas-jtbd/6-personas/interviews.md#part-2-interview-1-of-5)** — the only practitioner ever run against it; everything in it is **`*`** and `n = 1`. **The remaining four are unavailable.** |
+| [`6-personas/_captures/`](../02-personas-jtbd/6-personas/_captures/) | **The capture logs, one per round**, plus [`qf-handover-test/`](../02-personas-jtbd/6-personas/_captures/qf-handover-test/) — the archive three receiving agents were given, the ground truth of what was wrong with it, and a transcript per run. |
+| [`7-jobs-to-be-done/README.md`](../02-personas-jtbd/7-jobs-to-be-done/README.md) | **Stage 7 — the plan.** The canonical job form, the hierarchy, the feature-name test, the matrix, and what each of its two answers is worth. |
+| [`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) | **Stage 7, written 2026-09-08, audited and reconciled 2026-09-09.** Main-job candidates and the choice, the hierarchy, the matrix with feature and competitor columns, the two conclusions, and §12's nine proposals. **§7 now carries what rounds 3 and 4 did to the matrix.** Provisional. |
+| [`6-personas/personas.html`](../02-personas-jtbd/personas.html) | **Generated.** Phase 02 of the course — the persona cards, the job hierarchy and the matrix, built by `tools/build_personas.py` from `tools/personas-page.tpl.html`. Do not hand-edit. |
 
 ---
 
@@ -368,7 +368,7 @@ label and still do not turn a recollection into a measurement. **And, from the m
 2026-09-08 — rule 5 in the digest — a re-runnable query proves that something was *said*, not that it
 is *true*.** An issue body, a forum comment and a tool's own README are people describing their own
 behaviour: the `✓` covers the utterance, and rule 2 still governs the behaviour under it. Four rows
-in [`6-personas/inventory.md`](6-personas/inventory.md) were re-marked for exactly this.
+in [`6-personas/inventory.md`](../02-personas-jtbd/6-personas/inventory.md) were re-marked for exactly this.
 
 **The prep sheet for the sitting is section 3 of [`FINAL.md`](FINAL.md)** — per question, where to
 read before deciding, the options actually on the table, and a recommendation. It holds the
@@ -392,7 +392,7 @@ deferred, exactly as this section warned it would.
 | **Q2** | How much weight does `SETUP.md` carry? | **Answered — more than §6 implied, and the recipient changed.** `SETUP.md` is addressed to **the agent that opens the project**, not to a human reader. It carries what each item in the resolved set requires — dependencies, servers, env keys, external repos at their pinned `ref`, target paths for the chosen agent — so that on init the agent reads it and performs the setup. No verify script in the MVP; it stays additive. | CLAUDE.md §6, §8 |
 | **Q3** | Can a project contain another project? | **Deferred — not refused.** Out of the MVP. Two reasons, and the second is the owner's: no variant needed composition to work, **and composition risks unbounded recursion**. Worth revisiting post-MVP, with a depth rule decided before the feature. | CLAUDE.md §9 |
 | **Q4** | Can a detached item be promoted back into the library? | **Answered — as a new item**, with the project's row re-linking to it. *Push my changes to the original* is a different action with a different confirmation and is not built. **And the consequence is now explicit:** promotion only has value if a detached item can be **edited inside the project** — otherwise detach is merely unlink. In-project editing is therefore in the MVP. | CLAUDE.md §5, §7, §8 |
-| **Q5** | Loss or reassembly cost — which drives adoption? | **Deferred — accepted risk, with the trigger written down.** Nothing in this repository can answer it; trackers are blind to both candidates by construction. Ask five practitioners **before the first feature that only pays off under one answer** — a *reassemble from a previous project* flow versus serious investment in library-wide search. The MVP is the same product under either answer. **Instrument named 2026-09-06: [`6-personas/interviews.md (the guide)`](6-personas/interviews.md#part-1-the-guide). The same event also lifts the provisional label on stages 6 and 7.** | Positioning, and the provisional label on stages 6–7. Nothing in the build |
+| **Q5** | Loss or reassembly cost — which drives adoption? | **Deferred — accepted risk, with the trigger written down.** Nothing in this repository can answer it; trackers are blind to both candidates by construction. Ask five practitioners **before the first feature that only pays off under one answer** — a *reassemble from a previous project* flow versus serious investment in library-wide search. The MVP is the same product under either answer. **Instrument named 2026-09-06: [`6-personas/interviews.md (the guide)`](../02-personas-jtbd/6-personas/interviews.md#part-1-the-guide). The same event also lifts the provisional label on stages 6 and 7.** | Positioning, and the provisional label on stages 6–7. Nothing in the build |
 | **Q6** | Styling engine | **Deferred to lesson 08, design tokens**, with the criterion recorded now: tokens and two real themes first-class, and the engine must not push utility classes into components that are themselves the product's value. Decide on two built components. | CLAUDE.md §10, §12 |
 
 **What the sitting did not change.** No answer added a surface. Q2 lands as two more stages inside
@@ -413,13 +413,13 @@ are done and the picture is whole. Each carries a named instrument, which is wha
 rather than a worry.
 
 **Q10, Q11 and Q12 were added 2026-09-07**, raised by the **first practitioner interview**
-([`6-personas/interviews.md (interview 1)`](6-personas/interviews.md#part-2-interview-1-of-5)) and recorded in
-[`6-personas/inventory.md`](6-personas/inventory.md) as NK-21 to NK-23. All three stand on **one
+([`6-personas/interviews.md (interview 1)`](../02-personas-jtbd/6-personas/interviews.md#part-2-interview-1-of-5)) and recorded in
+[`6-personas/inventory.md`](../02-personas-jtbd/6-personas/inventory.md) as NK-21 to NK-23. All three stand on **one
 person** — mark `*` — which is why they are entries here and not findings anywhere.
 
 | ID | Question | Raised by | What would answer it | Blocks |
 |---|---|---|---|---|
-| **Q7** | Who is the primary persona — the practitioner whose pain is *sighted* (an archive that lands and does not run; a key that silently wins) or the collector §3 describes (large corpus, wants to find and reuse)? | Stage 6, step 3 | The five practitioner conversations Q5 names, run against [`6-personas/interviews.md (the guide)`](6-personas/interviews.md#part-1-the-guide); plus a GitHub search for repositories carrying `.claude/`, `CLAUDE.md`, `.cursor/rules`, `AGENTS.md`, which observes where material lives and how many targets one person keeps | Which persona wins design conflicts — empty states, what a card carries, the register of validation copy |
+| **Q7** | Who is the primary persona — the practitioner whose pain is *sighted* (an archive that lands and does not run; a key that silently wins) or the collector §3 describes (large corpus, wants to find and reuse)? | Stage 6, step 3 | The five practitioner conversations Q5 names, run against [`6-personas/interviews.md (the guide)`](../02-personas-jtbd/6-personas/interviews.md#part-1-the-guide); plus a GitHub search for repositories carrying `.claude/`, `CLAUDE.md`, `.cursor/rules`, `AGENTS.md`, which observes where material lives and how many targets one person keeps | Which persona wins design conflicts — empty states, what a card carries, the register of validation copy |
 | **Q8** | Is the main job *assemble a set that holds together* (§2, owner's assertion) or *hand a set to a machine and have it run first time* (stage 3, observed)? If both survive, the lesson's rule says two products. | Stage 7, step 1 | The same conversations, asked as situations (*what did you last do with a skill you already had; what happened the last time you moved a setup to another machine*), never as pitches; the matrix's main-job row with sourced cells | Positioning; the relative weight of the Project screen and Run in mockups |
 | **Q9** | Which specified features close no evidenced job — candidates: the public library switch and example project, duplicate project, promote, the target selector, library-wide search? | Stage 7, step 5 | The matrix's *feature* column, then Q7/Q8's conversations for the `[?]` rows. Absence in the trackers is not evidence of no job, so this closes only with people asked | Mockup scope. Not the design system |
 | **Q10** | When the user's own rule and an **external** requirement conflict — a client's linter, a repo convention — which wins, and where does the product put that? | Stage 6, the first interview (NK-21) | The remaining four conversations, asked as a situation (*what happened the last time your own rule and the project's tooling disagreed*). §6 models conflicts **between our items** and the data model has nowhere to put this one | The `Item` model, and what the validation pass is allowed to claim |
@@ -428,7 +428,7 @@ person** — mark `*` — which is why they are entries here and not findings an
 
 **Q5 is re-pointed, not re-opened.** Its disposition stands — deferred, accepted risk — but its
 instrument was unnamed beyond *five practitioners*. Stage 6 makes
-[`6-personas/interviews.md (the guide)`](6-personas/interviews.md#part-1-the-guide) that instrument and stage 7 gives it
+[`6-personas/interviews.md (the guide)`](../02-personas-jtbd/6-personas/interviews.md#part-1-the-guide) that instrument and stage 7 gives it
 the questions. Its *blocks* line widens accordingly: **positioning, and the provisional label on
 stages 6 and 7**, because the label lifts on the same event.
 
@@ -439,7 +439,7 @@ the six live entries leave in one sitting, and that sitting has not happened. Wh
 the sitting will read.
 
 - **Q9 — *which specified features close no evidenced job* — now has evidence, and it is the first
-  ever collected about the persona underneath it.** [`6-personas/re-research.md (round 2)`](6-personas/re-research.md#round-2-counting-not-asking)
+  ever collected about the persona underneath it.** [`6-personas/re-research.md (round 2)`](../02-personas-jtbd/6-personas/re-research.md#round-2-counting-not-asking)
   Q-E reached five practitioners on installing other people's material: **four refuse it, minimise it,
   or prefer their own**, and the one positive was distributing **his own** work. The supply side is
   settled and enormous — 19,703 repositories, curated collections at 74,686★ — against **93** public
@@ -450,15 +450,15 @@ the sitting will read.
 - **Q7 and Q8 are unmoved.** Both need the four remaining conversations. What did move is the ground
   under them: the audit lowered or withdrew six matrix cells, so **the *core three* the sitting was
   going to read is now one job the rule chooses and two kept on stated grounds**
-  ([`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §8, §11).
+  ([`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §8, §11).
 - **Q10, Q11 and Q12 are unmoved and still stand on one person.** Q-A sharpened the ground under
   **NK-13** without moving it: in the largest available sample of practice, handover is done by
   `chezmoi`, symlinks, CLI installers and bootstrap scripts, and **two comments in 274 describe an
   agent touching this material at all — neither is a setup.** The spec's bet is *against the grain of
   current practice*, which is a stronger statement than *untested* and still not a refutation.
 - **A second proposal list now exists.** Stage 6's nine proposals are in
-  [`6-personas/re-research.md`](6-personas/re-research.md) §4; stage 7's nine are in
-  [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §12, written as *what was found · what is
+  [`6-personas/re-research.md`](../02-personas-jtbd/6-personas/re-research.md) §4; stage 7's nine are in
+  [`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §12, written as *what was found · what is
   proposed · which entry it belongs to*. **Both are inputs to the sitting, not decisions**, and
   `CLAUDE.md` is untouched by either.
 - **What is still owed before the sitting is worth holding:** four interviews, **a receiver's question
@@ -477,7 +477,7 @@ dispositions stand exactly as written. **What changes is that five entries now p
 that will not arrive**, and a question with no reachable instrument is, by this register's own rule,
 a worry rather than a question.
 
-**What replaces it, in part.** [`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview) — five
+**What replaces it, in part.** [`6-personas/re-research.md (round 3)`](../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) — five
 questions answerable **without asking anybody anything**, each with a named instrument, a procedure
 and a statement of what it can never establish. They are a different class from rounds 1 and 2: three
 read **behaviour left in public artefacts**, two are **ours to run**. Their reach against this
@@ -497,11 +497,11 @@ register:
 
 **The protocol holds. The six live entries still leave in one sitting, and that sitting has not
 happened.** What changed is what it will read: the five questions of
-[`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview) were run in full, and for the first time
+[`6-personas/re-research.md (round 3)`](../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) were run in full, and for the first time
 this repository has marks that cover a **behaviour** rather than an utterance — two experiments we ran
 ourselves, three instruments reading what people did to repositories rather than what they said.
-Capture: [`6-personas/_captures/round3-log.json`](6-personas/_captures/round3-log.json) and
-[`6-personas/_captures/qf-handover-test/`](6-personas/_captures/qf-handover-test/).
+Capture: [`6-personas/_captures/round3-log.json`](../02-personas-jtbd/6-personas/_captures/round3-log.json) and
+[`6-personas/_captures/qf-handover-test/`](../02-personas-jtbd/6-personas/_captures/qf-handover-test/).
 
 | Entry | What round 3 did to it | Standing now |
 |---|---|---|
@@ -514,11 +514,11 @@ Capture: [`6-personas/_captures/round3-log.json`](6-personas/_captures/round3-lo
 | **Q12** — observability rather than validation | **Nothing, and nothing can.** Needs a runtime we will not build | Unchanged |
 
 **Two hypotheses left the board.** **NK-13 / D-1** — *does a receiving agent perform the setup from
-`SETUP.md` alone* — is **closed `✓`**, and so is **H6** in [`6-personas/personas.md`](6-personas/personas.md),
+`SETUP.md` alone* — is **closed `✓`**, and so is **H6** in [`6-personas/personas.md`](../02-personas-jtbd/6-personas/personas.md),
 which is the same claim. That was the half-day this register has been owed since 2026-09-07.
 
 **Six proposals were raised and none applied**, listed at the end of
-[`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview). One of them is a **change to the data
+[`6-personas/re-research.md (round 3)`](../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview). One of them is a **change to the data
 model** — an item addresses a directory, not a file — which is the first thing any round has proposed
 to §5's shape rather than to its reasoning. **They join the two lists already waiting** (stage 6's
 nine, stage 7's nine) as input to the same sitting.
@@ -529,8 +529,8 @@ otherwise.
 
 ### Round 4 — 2026-09-10, and this one moved the matrix
 
-**[`6-personas/re-research.md (round 4)`](6-personas/re-research.md#round-4-the-matrixs-empty-cells)**, capture log
-[`_captures/round4-log.json`](6-personas/_captures/round4-log.json). Round 3 answered five questions and
+**[`6-personas/re-research.md (round 4)`](../02-personas-jtbd/6-personas/re-research.md#round-4-the-matrixs-empty-cells)**, capture log
+[`_captures/round4-log.json`](../02-personas-jtbd/6-personas/_captures/round4-log.json). Round 3 answered five questions and
 moved no importance in the matrix, for a structural reason: its instruments see machines, and the
 matrix's columns are people. **Round 4 went after the columns**, in two venues this repository had
 never used — **forum.cursor.com** and **community.openai.com**, both Discourse, both with the vendor
@@ -540,7 +540,7 @@ comments, 17 threads read end to end. **Reddit refused again — HTTP 403 — wh
 **Three matrix cells moved and all three moved up**, which no round had done before: **RJ-2/P1 2 → 3**
 on a vendor-confirmed duplicate-detection failure plus two people who rebuilt their tooling around it;
 **EJ-2/P1 `[?]` → 2** and **H-J3/P1 `[?]` → 2**, each on one named person with the thread under it.
-The pass is in [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §7.
+The pass is in [`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §7.
 
 **What it does to the live entries:**
 
@@ -579,8 +579,8 @@ architecture, started on 2026-09-15 **without the sitting this register has been
 
 **What it does not do.** It answers nothing, applies nothing and promotes no mark. All six live
 entries — **Q7 to Q12** — keep the dispositions written above. The four proposal lists stay unapplied:
-stage 6's nine ([`6-personas/re-research.md`](6-personas/re-research.md) §4), stage 7's nine
-([`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) §12), round 3's six, and round 4's two
+stage 6's nine ([`6-personas/re-research.md`](../02-personas-jtbd/6-personas/re-research.md) §4), stage 7's nine
+([`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §12), round 3's six, and round 4's two
 movements. The *provisional* label on stages 6 and 7 stands, on the trigger it has always had. And the
 question this register left for the sitting — *what, if anything, may ever lift it* — is still the
 sitting's, not lesson 03's.
@@ -620,8 +620,8 @@ part of the record.
 
 | ID | Question | Disposition |
 |---|---|---|
-| **Q7** | Who is the primary persona | **Answered — the collector.** The merge in [`personas.md`](6-personas/personas.md) is resolved toward its **collecting** half rather than its handover half: the person with an accumulated corpus is who the product is for, and who wins a design conflict |
-| **Q8** | Which is the main job | **Answered — *assemble a set that holds together*.** `CLAUDE.md` §2 stands as written. The *transfer* wording the evidence produced is recorded in [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §1 and **is not adopted** |
+| **Q7** | Who is the primary persona | **Answered — the collector.** The merge in [`personas.md`](../02-personas-jtbd/6-personas/personas.md) is resolved toward its **collecting** half rather than its handover half: the person with an accumulated corpus is who the product is for, and who wins a design conflict |
+| **Q8** | Which is the main job | **Answered — *assemble a set that holds together*.** `CLAUDE.md` §2 stands as written. The *transfer* wording the evidence produced is recorded in [`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §1 and **is not adopted** |
 | **Q9** | Which specified features close no evidenced job | **Deferred — skipped deliberately.** Nothing in lesson 03 turns on it, and it is the one entry whose evidence bears on *what the shelf holds and how it sorts* rather than on *whether it ships*. It cuts nothing either way, so answering it now would spend a judgement for no gain |
 | **Q10** | Whose rule wins, mine or an external one | **Answered — the external requirement wins, and the product must say when it disagrees.** A client's linter or a repo convention beats the user's own rule. **The disclosure half is the answer; the detection half is an open problem** — below |
 | **Q11** | The unwritten half | **Deferred — to a section of its own.** It bounds the ceiling of the entire product and deserves to be worked rather than answered in a line |
@@ -629,7 +629,7 @@ part of the record.
 
 #### Q7 — what the answer does, and the one thing it does not do
 
-**The collector is primary.** [`personas.md`](6-personas/personas.md) had refused the contest the plan
+**The collector is primary.** [`personas.md`](../02-personas-jtbd/6-personas/personas.md) had refused the contest the plan
 expected: the one practitioner asked said *"the collection created the problem"*, so P1 was written as
 the **merge** of the collector and the person who breaks at handover. **This answer resolves that merge
 toward collection** — the corpus is the situation the person arrives from, and the surfaces that serve
@@ -653,7 +653,7 @@ changed — is not what this disposition says and is not applied.
 #### Q8 — §2 is confirmed rather than edited
 
 The main job as the evidence words it is a **transfer** job; §2 words the value as **assembly with
-validation**. [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §1 stated the difference and did not apply it, and
+validation**. [`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §1 stated the difference and did not apply it, and
 **proposal R-1 asked for the difference to be stated inside §2.** The answer settles it the other way:
 **§2 stands unchanged, and R-1 is closed without being applied.** Assembly is the product; the move is
 what assembly is for. Consistent with Q7 — both answers choose the corpus over the handover as the
@@ -939,7 +939,7 @@ anywhere"*, and a fact that stops being said stops working — but it means **th
 to-do list**, and §6 says so where the counts are specified.
 
 **Standing, unchanged by building it.** The evidence under Q10 is **one practitioner, from memory** —
-`*`, the [interview Q26](6-personas/interviews.md#part-2-interview-1-of-5) aside — and *what happened
+`*`, the [interview Q26](../02-personas-jtbd/6-personas/interviews.md#part-2-interview-1-of-5) aside — and *what happened
 the last time your own rule and the project's tooling disagreed* is still on the guide for the four
 conversations that cannot be run. **Building the mechanism does not promote the mark.** What it does
 remove is the sitting's outstanding item: **no disposition from 2026-09-15 is now owing a mechanism.**
@@ -1236,7 +1236,7 @@ used. **Nothing else in stage 5 is rewritten** — not the variants, not the sco
 ### The traceability matrix — 2026-09-20, and it closed one entry and raised three
 
 **Lesson 03 ran a coverage check after the owner accepted the flows**: every job in
-[`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md) against every surface in
+[`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) against every surface in
 [`sitemap.md`](../03-information-architecture/sitemap.md), sourced jobs and hypotheses in separate
 blocks. **One orphan column, two orphan rows, and two further defects nobody asked it to look for** —
 *and a second orphan column later the same day, when Q25 added the sign-in and the matrix was re-run

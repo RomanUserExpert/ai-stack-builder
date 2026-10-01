@@ -2,7 +2,7 @@
 
 **A plan, not a result.** Written 2026-09-06, before any persona exists. This stage and
 [stage 7](../7-jobs-to-be-done/README.md) re-open a research phase that was signed off on 2026-09-02
-in five stages; the re-opening is recorded in [`research-plan.md`](../research-plan.md), not hidden
+in five stages; the re-opening is recorded in [`research-plan.md`](../../01-research/research-plan.md), not hidden
 here. The method is the one taught in lesson 2 of the design-engineering course (its prompt pack and
 slides, read in full), adapted to this product and to this repository's evidence rules. Where the
 lesson and this repository's protocol disagree, the protocol wins and the disagreement is stated.
@@ -49,7 +49,7 @@ survives is that whoever acts acts within the hour, and 25 of them replace the a
 **Q-H** measured the drift §5's live link exists for; **Q-I** put behaviour against round 2's opinion
 about the shelf; **Q-J** confirmed §2's sentence at the set level and took two claims away from it at
 the item level. **Six proposals went to the register and none is applied.** The whole round is
-summarised in [`../research.md`](../research.md) §8 and its effect on the matrix in
+summarised in [`../research.md`](../../01-research/research.md) §8 and its effect on the matrix in
 [`../7-jobs-to-be-done/jtbd.md`](../7-jobs-to-be-done/jtbd.md) §7 — **where not one importance moved,
 because the columns are people and these instruments see machines.**
 
@@ -57,7 +57,7 @@ because the columns are people and these instruments see machines.**
 
 **And the guide still has no block of questions for a receiver**, which is why every line about P2 is
 somebody else's account of them. That gap is now addressed from the other side, by Q-G.
-**[`personas.html`](personas.html) was built on 2026-09-08**, after the audit rather than before it,
+**[`personas.html`](../personas.html) was built on 2026-09-08**, after the audit rather than before it,
 which is what step 6 required: a page built from an unaudited file publishes the invention. It
 carries stage 7's hierarchy and matrix too, as the plan intended, and every mark is visible on it.
 
@@ -71,7 +71,7 @@ carries stage 7's hierarchy and matrix too, as the plan intended, and every mark
 | [`re-research.md`](re-research.md) | **Step 5 and everything after it.** Four collection rounds in one source document, each keeping its own dated part: [1](re-research.md#round-1-the-public-record) the public record · [2](re-research.md#round-2-counting-not-asking) counting rather than asking · [3](re-research.md#round-3-five-questions-that-need-no-interview) two experiments we ran · [4](re-research.md#round-4-the-matrixs-empty-cells) the matrix's empty cells. |
 | [`interviews.md`](interviews.md) | [The guide](interviews.md#part-1-the-guide) and [interview 1 of 5](interviews.md#part-2-interview-1-of-5). The other four are unavailable. |
 | [`personas.md`](personas.md) | **Step 3.** Three personas, one primary, every block sourced or `[?]`. |
-| [`personas.html`](personas.html) | **Generated** by `tools/build_personas.py`. Phase 02 of the course. Do not hand-edit. |
+| [`personas.html`](../personas.html) | **Generated** by `tools/build_personas.py`. Phase 02 of the course. Do not hand-edit. |
 | [`_captures/`](_captures/) | One log per round, plus [`qf-handover-test/`](_captures/qf-handover-test/) — the archive three receiving agents were given and what each did with it. |
 
 **Four files were retired into the two merged ones** — `re-research-2/3/4.md`, `interview-guide.md` and `agent-setup-interview.md` — and every inbound link in the repository was rewritten to an anchor inside them. **No text was edited in the merge.**
@@ -109,7 +109,7 @@ Three more, from the lesson's four traps, in this product's terms:
   copy uses (§6), what the handover stages disclose (§6) — and every block must point at one.
 - **The circular quote.** The lesson wants a mood-setting quote from a real review or forum. Here
   the only real user words in the repository are issue titles and bodies in
-  [`3-pain/_user-pain-issues.json`](../3-pain/_user-pain-issues.json). A quote comes from there with
+  [`3-pain/_user-pain-issues.json`](../../01-research/3-pain/_user-pain-issues.json). A quote comes from there with
   its URL and reaction count, or it is not a quote.
 
 ---
@@ -120,15 +120,15 @@ What each is expected to yield, and — the part that matters here — what kind
 
 | Input | Kind | What it yields |
 |---|---|---|
-| [`3-pain/user-pain.md`](../3-pain/user-pain.md) | **The only observation of users.** Two public trackers, ranked by reactions. | Pain, weighted: environmental breakage at handover (182 reactions), env and secrets near the top of both trackers (32, 23, 22), our own collision thesis sighted but quiet (13, and 3–13 for its family), and **0 results** for cross-project reuse. Read its *method* section first: the instrument sees breakage, not friction, and is blind to loss and reassembly cost by construction. Everything a persona says about *why* someone hurts comes from here; nothing it says about *why someone would adopt* can. |
-| [`3-pain/_user-pain-issues.json`](../3-pain/_user-pain-issues.json) | Raw API results. | The quotes. Every persona quote is an issue body with a URL and a reaction count — [#64](https://github.com/modelcontextprotocol/servers/issues/64), [#1219](https://github.com/modelcontextprotocol/servers/issues/1219), [#1729](https://github.com/continuedev/continue/issues/1729), [#4306](https://github.com/continuedev/continue/issues/4306), [#8484](https://github.com/continuedev/continue/issues/8484) are the ones already read. The JSON holds more that were ranked but not quoted. |
-| [`1-landscape/comparison.md`](../1-landscape/comparison.md) | Vendor positioning. | The *Audience* axis for fifteen products: every live hard competitor sells to an organisation and **the individual practitioner is unoccupied ground**. This is what fifteen companies believed about who pays, not what any user said. Usable for *who the market ignores*, never for *what that person wants*. |
-| [`1-landscape/continue-postmortem.md`](../1-landscape/continue-postmortem.md) | A competitor read from source. | The one behavioural datum about practitioners at scale: the hosted composition hub was switched off, the free local client stays installed on **1.58M** machines. Read both ways in Q5 and it must stay that way here. |
-| [`1-landscape/competitors.md`](../1-landscape/competitors.md) | Vendor positioning. | Who each competitor says it is for, and which of the three candidate pains (loss / reassembly / breakage) each one sells against. Positioning is not demand. |
-| [`2-flows/`](../2-flows/README.md) captures | Mechanisms, not people. | Trust triggers **as products chose to show them** — Tessl's score, Figma's *423 instances*, VS Code's Workspace Trust, Vercel's env drawer asking *where to rotate, or who to contact*. Evidence of what vendors bet convinces; not evidence that it does. Flow 08 (cold start) and flow 05 (detach) carry the states a persona must be able to read. |
-| [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md), *finalisation* | Instrument statement. | The four flows re-weighted by pain: value in B3 and B4, craft in B1 and B2. A persona whose whole story lives in B1 (*find my things*) has no evidence behind it yet; one whose story lives in B4 (*hand it over and it runs*) does. |
-| [`5-patterns/patterns.md`](../5-patterns/patterns.md) | Reasoned, not observed. | The claims about the person that the chosen shape already depends on — *300 items*, *a tool people open weekly*, *finds what they can name and stays blind to what they cannot*. All unobserved; all belong in the inventory's *what we do not know*. |
-| [`research.md`](../research.md) §5 | Digest. | Gaps G1, G4, G5 and G9 are already written as falsifiable hypotheses about people. The inventory should carry them over rather than rediscover them. A digest, never a source: cite the stage document behind each. |
+| [`3-pain/user-pain.md`](../../01-research/3-pain/user-pain.md) | **The only observation of users.** Two public trackers, ranked by reactions. | Pain, weighted: environmental breakage at handover (182 reactions), env and secrets near the top of both trackers (32, 23, 22), our own collision thesis sighted but quiet (13, and 3–13 for its family), and **0 results** for cross-project reuse. Read its *method* section first: the instrument sees breakage, not friction, and is blind to loss and reassembly cost by construction. Everything a persona says about *why* someone hurts comes from here; nothing it says about *why someone would adopt* can. |
+| [`3-pain/_user-pain-issues.json`](../../01-research/3-pain/_user-pain-issues.json) | Raw API results. | The quotes. Every persona quote is an issue body with a URL and a reaction count — [#64](https://github.com/modelcontextprotocol/servers/issues/64), [#1219](https://github.com/modelcontextprotocol/servers/issues/1219), [#1729](https://github.com/continuedev/continue/issues/1729), [#4306](https://github.com/continuedev/continue/issues/4306), [#8484](https://github.com/continuedev/continue/issues/8484) are the ones already read. The JSON holds more that were ranked but not quoted. |
+| [`1-landscape/comparison.md`](../../01-research/1-landscape/comparison.md) | Vendor positioning. | The *Audience* axis for fifteen products: every live hard competitor sells to an organisation and **the individual practitioner is unoccupied ground**. This is what fifteen companies believed about who pays, not what any user said. Usable for *who the market ignores*, never for *what that person wants*. |
+| [`1-landscape/continue-postmortem.md`](../../01-research/1-landscape/continue-postmortem.md) | A competitor read from source. | The one behavioural datum about practitioners at scale: the hosted composition hub was switched off, the free local client stays installed on **1.58M** machines. Read both ways in Q5 and it must stay that way here. |
+| [`1-landscape/competitors.md`](../../01-research/1-landscape/competitors.md) | Vendor positioning. | Who each competitor says it is for, and which of the three candidate pains (loss / reassembly / breakage) each one sells against. Positioning is not demand. |
+| [`2-flows/`](../../01-research/2-flows/README.md) captures | Mechanisms, not people. | Trust triggers **as products chose to show them** — Tessl's score, Figma's *423 instances*, VS Code's Workspace Trust, Vercel's env drawer asking *where to rotate, or who to contact*. Evidence of what vendors bet convinces; not evidence that it does. Flow 08 (cold start) and flow 05 (detach) carry the states a persona must be able to read. |
+| [`4-benchmark/benchmark.md`](../../01-research/4-benchmark/benchmark.md), *finalisation* | Instrument statement. | The four flows re-weighted by pain: value in B3 and B4, craft in B1 and B2. A persona whose whole story lives in B1 (*find my things*) has no evidence behind it yet; one whose story lives in B4 (*hand it over and it runs*) does. |
+| [`5-patterns/patterns.md`](../../01-research/5-patterns/patterns.md) | Reasoned, not observed. | The claims about the person that the chosen shape already depends on — *300 items*, *a tool people open weekly*, *finds what they can name and stays blind to what they cannot*. All unobserved; all belong in the inventory's *what we do not know*. |
+| [`research.md`](../../01-research/research.md) §5 | Digest. | Gaps G1, G4, G5 and G9 are already written as falsifiable hypotheses about people. The inventory should carry them over rather than rediscover them. A digest, never a source: cite the stage document behind each. |
 | [`CLAUDE.md`](../../CLAUDE.md) §2, §3, §11 | **Owner's assertions.** | The claims under test. §3's audience sentence; §2's *"the user has said it is the export"*; §11's *"an empty library kills the product"*. Each is listed in the inventory as *stated by the owner, not observed*, and each is a thing this stage should be able to confirm, qualify or refute. |
 
 Not an input: the lesson's demo product ("Куток", a flatmate-search service in Kyiv). Its
@@ -253,7 +253,7 @@ ones that see practitioners rather than vendors:
 question, the instrument, what was collected (logged, as stages 1–3 logged captures), what it
 established. Then the affected rows in `personas.md`: a confirmed `[?]` is lifted with the new
 source beside it; a refuted claim is corrected and the correction noted in the card. No other file
-changes. The digest ([`research.md`](../research.md)) gains a subsection *after* the source document
+changes. The digest ([`research.md`](../../01-research/research.md)) gains a subsection *after* the source document
 exists, never before.
 
 **Done when.** One question is closed or explicitly not closable with these instruments. Every
@@ -262,7 +262,7 @@ prompt is the test.
 
 ### 6. Page — `personas.html`
 
-**Does.** One page for a human reader, in the identity of [`research.html`](../research.html):
+**Does.** One page for a human reader, in the identity of [`research.html`](../../01-research/research.html):
 persona cards with the primary marked, and — once stage 7 exists — the job hierarchy and the
 matrix as a table. `[?]` and *hypothesis* marks stay visible on the page; the lesson's reason is
 the right one: the honesty of the personas should be visible to whoever is shown them.
@@ -280,7 +280,7 @@ never before — a page built from an unaudited file publishes the invention.
 
 **Does.** The lesson's step 8 adds a block to CLAUDE.md — primary persona in 2–3 lines, the main job,
 the top three jobs. This repository's protocol is that the spec is edited by the owner on a
-proposal, and that the register in [`research-plan.md`](../research-plan.md) is the only list of open
+proposal, and that the register in [`research-plan.md`](../../01-research/research-plan.md) is the only list of open
 questions. So this step **writes the proposal, not the spec**: the block for CLAUDE.md, the digest
 section for `research.md`, and any register entries the audit produced (next ID after the last one
 in the register; which stage raised it; what would answer it).
@@ -300,7 +300,7 @@ in the register; which stage raised it; what would answer it).
 | `audit.md` | Confirmed / hypothesis / invented, the dangerous list, three questions, and the proposals for CLAUDE.md, the digest and the register. |
 | `re-research.md` | Source document for the one question closed at point scale — instrument, log, result. |
 | `interviews.md` the guide | The three audit questions and the primary-persona choice, written as a 30-minute conversation guide, so that the Q5 trigger has an instrument ready the day it fires. |
-| [`personas.html`](personas.html) | **Built 2026-09-08.** The human-readable page, in the research page's identity — three persona cards with the primary marked, the job hierarchy, the matrix as a table with every `✓` / `*` / `?` visible, and the eleven hypotheses. Generated by `tools/build_personas.py`. |
+| [`personas.html`](../personas.html) | **Built 2026-09-08.** The human-readable page, in the research page's identity — three persona cards with the primary marked, the job hierarchy, the matrix as a table with every `✓` / `*` / `?` visible, and the eleven hypotheses. Generated by `tools/build_personas.py`. |
 
 ---
 
@@ -312,27 +312,27 @@ check it by Y* — and lives in the *Hypotheses* section, never in the main body
 
 Where the sources actually are:
 
-- **Pain, with weight** — [`3-pain/user-pain.md`](../3-pain/user-pain.md) and its JSON. Cite the
+- **Pain, with weight** — [`3-pain/user-pain.md`](../../01-research/3-pain/user-pain.md) and its JSON. Cite the
   issue URL and its reaction count, because the count is the only weighting this repository has.
-- **Positioning** — [`1-landscape/comparison.md`](../1-landscape/comparison.md) and
-  [`competitors.md`](../1-landscape/competitors.md). Cite as *what vendor X sells against*, never as
+- **Positioning** — [`1-landscape/comparison.md`](../../01-research/1-landscape/comparison.md) and
+  [`competitors.md`](../../01-research/1-landscape/competitors.md). Cite as *what vendor X sells against*, never as
   *what users want*.
 - **Mechanisms and the states a person must read** — the flow captures under
-  [`2-flows/`](../2-flows/README.md), addressed through the notes files that cite them.
+  [`2-flows/`](../../01-research/2-flows/README.md), addressed through the notes files that cite them.
 - **Instrument limits** — the *method* section of `user-pain.md` and the *finalisation* section of
-  [`4-benchmark/benchmark.md`](../4-benchmark/benchmark.md). A claim that leans on a stage must respect
+  [`4-benchmark/benchmark.md`](../../01-research/4-benchmark/benchmark.md). A claim that leans on a stage must respect
   what that stage said it could not see.
 - **Owner's assertions** — [`CLAUDE.md`](../../CLAUDE.md), cited as such: *stated in §3, not observed.*
 
 **Superseded 2026-09-07 — there are now three marks, not two.** The scale is defined once, in
-[`research.md`](../research.md), *The three marks*: **`✓`** confirmed by a re-runnable instrument · **`*`**
+[`research.md`](../../01-research/research.md), *The three marks*: **`✓`** confirmed by a re-runnable instrument · **`*`**
 reported by a practitioner in an interview · **`?`** unknown. The stage documents write the third as
 `[?]` and the digest writes it as **`данные не подтверждены`**; those two are the same level in two
 registers, and each keeps its own wording. **A `*` never becomes a `✓` by repetition** — only an
 instrument promotes it.
 
 **Extended 2026-09-08, after every mark in this folder was audited.** The rule that the audit produced
-is **rule 5** in [`research.md`](../research.md): **a re-runnable query proves that something was
+is **rule 5** in [`research.md`](../../01-research/research.md): **a re-runnable query proves that something was
 *said*, not that it is *true*.** An issue body, a forum comment and a tool's own README are people
 describing their own behaviour or their own product, so a `✓` resting on them covers the **utterance**
 — this was written, this many reacted, anyone can go and read it — while the behaviour underneath

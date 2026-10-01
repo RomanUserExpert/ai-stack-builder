@@ -10,9 +10,9 @@ in place and pointed at section 6.
 **What this file is, and what it is not.** It is a *read* — one place to see what the phase found,
 with every fact traceable. It is **not** the specification: that is [`CLAUDE.md`](../CLAUDE.md), and
 where the two ever disagree, CLAUDE.md wins. It is **not** the sign-off document either: that is
-[`research/FINAL.md`](FINAL.md), which records the decisions and the closed questions.
+[`01-research/FINAL.md`](FINAL.md), which records the decisions and the closed questions.
 Nothing here is a third list of open questions — the register lives in
-[`research/research-plan.md`](research-plan.md). **It was refilled by stages 6 and 7 with Q7 to Q12,
+[`01-research/research-plan.md`](research-plan.md). **It was refilled by stages 6 and 7 with Q7 to Q12,
 and emptied again at the sitting of 2026-09-15** — two answered, four deferred, the blanket
 *provisional* label dropped with no mark promoted. **Q13, raised and answered the same day, put a
 shared link into the MVP.** The register holds all of it; this digest is not a second list.
@@ -31,7 +31,7 @@ being able to describe it. **Every claim about people carries one of three marks
 | Mark | Means | Test that earns it |
 |---|---|---|
 | **`✓`** | **Confirmed.** | Another person can re-run the instrument and get the same answer: a captured page, a logged query with its count, a source read at origin, a file in this repository. **Checkable without trusting anyone's memory.** |
-| **`*`** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/interviews.md (interview 1)`](6-personas/interviews.md#part-2-interview-1-of-5). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
+| **`*`** | **Practitioner-reported.** | Someone said it in an interview — see [`6-personas/interviews.md (interview 1)`](../02-personas-jtbd/6-personas/interviews.md#part-2-interview-1-of-5). Evidence about **that person**, from memory, about their own work. It is the only evidence here that reaches motive, cost and feeling at all, and it is not a fact about anybody else. |
 | **`?`** | **Unknown.** | No instrument here has established it in either direction. This digest writes it **`данные не подтверждены`**; the stage documents write **`[?]`**. Same level, two registers, and each keeps its own wording. |
 
 **Five rules, and the second is the one that will be broken first — with the fifth as the reason why.**
@@ -63,19 +63,19 @@ An unmarked claim is being asserted as `✓`, so if it is not checkable, mark it
 11 raw data logs** in this folder — the counts rose on 2026-09-07 with stage 6's four documents and
 four capture logs (1,762 Hacker News comments, 120 issues with 21 bodies, 30 queries, 9 web sources
 with a link check), besides this digest and its rendered page. Stage 1's 38 are catalogued in
-[`research/1-landscape/screens-index.md`](1-landscape/screens-index.md) with sign-in walls
+[`01-research/1-landscape/screens-index.md`](1-landscape/screens-index.md) with sign-in walls
 labelled; the rest sit in their stage folders. Two public issue trackers were queried through the
 GitHub API, raw results in
-[`research/3-pain/_user-pain-issues.json`](3-pain/_user-pain-issues.json).
+[`01-research/3-pain/_user-pain-issues.json`](3-pain/_user-pain-issues.json).
 
 ---
 
 # 1. Competitors
 
 Source for this whole section:
-[`research/1-landscape/comparison.md`](1-landscape/comparison.md), built from the products
+[`01-research/1-landscape/comparison.md`](1-landscape/comparison.md), built from the products
 themselves, with the per-company entries and verified links in
-[`research/1-landscape/competitors.md`](1-landscape/competitors.md).
+[`01-research/1-landscape/competitors.md`](1-landscape/competitors.md).
 
 ## The matrix — fifteen products on five axes
 
@@ -209,7 +209,7 @@ All three: [`comparison.md`](1-landscape/comparison.md).
 # 2. Flows
 
 Twelve mechanisms captured from live products. Brief, coverage and access notes:
-[`research/2-flows/README.md`](2-flows/README.md). Ten closed, one declined, one handed
+[`01-research/2-flows/README.md`](2-flows/README.md). Ten closed, one declined, one handed
 forward.
 
 | # | Flow | Status | The insight it produced | Source |
@@ -261,7 +261,7 @@ forward.
 
 Fifteen cells, four flows, five categories lifted from stages 1–3 so the rubric is grounded rather
 than invented. Full scoring and the argument behind every number:
-[`research/4-benchmark/benchmark.md`](4-benchmark/benchmark.md).
+[`01-research/4-benchmark/benchmark.md`](4-benchmark/benchmark.md).
 
 **The categories.** C1 state legibility · C2 consequence disclosure · C3 failure copy · C4 recovery ·
 C5 economy. **The anchors.** 1 actively misleads · 2 the information does not exist · 3 correct but
@@ -436,7 +436,7 @@ Sources: [`benchmark.md`](4-benchmark/benchmark.md) finalisation ·
 Five radically different shapes for the key flow — **assemble a set → check it → export** — each
 answering the same five questions, each scored on the benchmark's rubric read as *does this shape give
 the category a natural home*. Full write-up:
-[`research/5-patterns/patterns.md`](5-patterns/patterns.md).
+[`01-research/5-patterns/patterns.md`](5-patterns/patterns.md).
 
 | | P1 two-pane drag | P2 command-first | P3 document | P4 wizard | P5 run-centric |
 |---|---|---|---|---|---|
@@ -570,9 +570,9 @@ Worth stating, so these do not get re-opened by accident:
 **Added 2026-09-07, and unfinished.** Stages 1–5 established what vendors sell and what breaks. None
 of them established **who the person is**. Stage 6 is the first attempt, it is **in progress**, and
 every claim here carries one of the three marks defined at the top of this file. Sources:
-[`6-personas/inventory.md`](6-personas/inventory.md) — the register ·
-[`6-personas/re-research.md`](6-personas/re-research.md) — the source document with its capture logs ·
-[`6-personas/interviews.md (interview 1)`](6-personas/interviews.md#part-2-interview-1-of-5) — interview 1 of 5.
+[`6-personas/inventory.md`](../02-personas-jtbd/6-personas/inventory.md) — the register ·
+[`6-personas/re-research.md`](../02-personas-jtbd/6-personas/re-research.md) — the source document with its capture logs ·
+[`6-personas/interviews.md (interview 1)`](../02-personas-jtbd/6-personas/interviews.md#part-2-interview-1-of-5) — interview 1 of 5.
 
 ## What was looked at, and what it could not see
 
@@ -695,10 +695,10 @@ working setup that was never written down; and observability versus validation. 
 [`research-plan.md`](research-plan.md) is the only list.
 
 **Nothing here is applied to the specification.** Stages 6 and 7 audit; the owner edits. The
-proposals sit in [`re-research.md`](6-personas/re-research.md) §4.
+proposals sit in [`re-research.md`](../02-personas-jtbd/6-personas/re-research.md) §4.
 
-**Added 2026-09-08:** the behavioural axes ([`6-personas/inventory.md`](6-personas/inventory.md) §D)
-and [`6-personas/personas.md`](6-personas/personas.md) — **three personas, one primary**, every block
+**Added 2026-09-08:** the behavioural axes ([`6-personas/inventory.md`](../02-personas-jtbd/6-personas/inventory.md) §D)
+and [`6-personas/personas.md`](../02-personas-jtbd/6-personas/personas.md) — **three personas, one primary**, every block
 sourced or marked `[?]` and restated as a hypothesis. **P1, the keeper who runs several agents**, is
 primary because it is the only one whose jobs and pains have `✓` and `*` agreeing from independent
 instruments, and because the split the plan expected collapsed: the one practitioner asked says
@@ -707,7 +707,7 @@ two moments. **P3, the empty-handed, has no quote and almost no evidence** — a
 §11 already ship two surfaces for it. **Still to do in stage 6:** `audit.md`, the page, and **four
 more interviews** — the event that lifts *provisional*.
 
-**Stage 7 started 2026-09-08** — [`7-jobs-to-be-done/jtbd.md`](7-jobs-to-be-done/jtbd.md), steps 1–4.
+**Stage 7 started 2026-09-08** — [`7-jobs-to-be-done/jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md), steps 1–4.
 **The main job is a transfer job:** *when something I have already got working has to live somewhere
 else — a second tool, a new machine, a colleague's laptop — I want it to keep working there without
 me rediscovering everything it quietly depended on.* It merges the three loudest evidenced demands —
@@ -737,20 +737,20 @@ with `cp -r`; the one person afraid of leaking client material has never spent t
 to separate it. **The rule now selects one buildable job.** *Keys staying behind* and *one fix
 reaching every copy* stay in the core on stated grounds — the market is open in both, and the
 specification has already spent a mechanism on each — which is a judgement with the matrix as its
-input rather than a result the matrix produces. See [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §8 and §11.
+input rather than a result the matrix produces. See [`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §8 and §11.
 
 ---
 
 # 7. Research justification — five questions, and what answering them changed
 
 **Added 2026-09-08.** Stages 6 and 7 were audited claim by claim in
-[`personas-and-jobs-critique.md`](personas-and-jobs-critique.md): **238 claims, 163 confirmed, 48
+[`personas-and-jobs-critique.md`](../02-personas-jtbd/personas-and-jobs-critique.md): **238 claims, 163 confirmed, 48
 hypothesis, 27 invented**, and a ranked list of thirteen claims that carry a design decision while
 standing on `[?]` or on nothing. This section is what happened next. **Three questions came from the
 critique, two more were raised by its dangerous list**, and all five were taken to the public record
 in one sitting.
 
-**There is a page for all of this.** [`6-personas/personas.html`](6-personas/personas.html), built
+**There is a page for all of this.** [`6-personas/personas.html`](../02-personas-jtbd/personas.html), built
 2026-09-08 from the audited files, renders the three persona cards with the primary marked, the job
 hierarchy, and the matrix as a table with every `✓` / `*` / `?` visible. It shares its design language
 with [`research.html`](research.html) — the same tokens, shell and scroll-spy, lifted at build time so
@@ -761,9 +761,9 @@ lists **all twelve lessons**, current one marked, the ten unbuilt ones *soon*: *
 benchmark** carries stages 1–5, **02 Personas and JTBD** carries stages 6–7. Each page opens with an
 **Overview** — what we saw, what we decided — and closes on its evidence.
 
-**The source document is [`6-personas/re-research.md (round 2)`](6-personas/re-research.md#round-2-counting-not-asking)** — question,
+**The source document is [`6-personas/re-research.md (round 2)`](../02-personas-jtbd/6-personas/re-research.md#round-2-counting-not-asking)** — question,
 instrument, log, result — with its capture log in
-[`_captures/round2-log.json`](6-personas/_captures/round2-log.json). **This is the digest entry; that is
+[`_captures/round2-log.json`](../02-personas-jtbd/6-personas/_captures/round2-log.json). **This is the digest entry; that is
 the source. Nothing here may be cited as a decision.**
 
 **One new instrument mattered more than the rest.** The **GitHub `git/trees` API** is the first thing
@@ -781,7 +781,7 @@ a measurement.
 | **Q-D** | Does anything already keep secrets out of a handed-over artefact? | HN search, 14 hits, plus the thread | **The runtime half is occupied** — a credential-injection proxy outside the sandbox, a vault with time-scoped access, a key broker, a WASM sandbox with a secret scanner, *"block secrets"* policies. **The handover half is not.** Every one of those keeps a key from a *running* agent; none is about what a set carries when it leaves. And a person names the failure: *"a skills file can just easily say '**We connect to bob using key Z and user X**'"* | **`✓`.** Our matrix cell said *"No, in this space"* and is **too strong** |
 | **Q-E** | Does the empty-handed consumer exist? | GitHub repository search + the thread | **The supply is vast and confirmed** — **19,703** repositories match `"claude skills"`, topped by curated collections at 74,686★, 25,709★, 15,006★. **The demand, from the first five practitioners ever observed on the question, is sceptical**: *"I'm not sure I've ever used any of them… some YouTuber trying to make money"*; *"I do not understand the appeal of skill shopping"*; *"a few established names"*; one prefers building from session learnings. The one positive was distributing **his own** material | **Changed.** P3 was `[?]` in both directions; **it now has evidence and the evidence runs against it** |
 
-## What this changed in [`6-personas/personas.md`](6-personas/personas.md), and why
+## What this changed in [`6-personas/personas.md`](../02-personas-jtbd/6-personas/personas.md), and why
 
 **Five marks moved and one persona changed character.** Each row says what caused it.
 
@@ -801,17 +801,17 @@ are a separate pass.** This round applied only what new data actually answered.
 
 ## What it did to the two conclusions, and what has not been applied
 
-- **[`jtbd.md`](7-jobs-to-be-done/jtbd.md)'s matrix had two cells that were wrong**: RJ-4's competitor cell (*"No, in this space"* — Q-D) and H-J4's P3 column (`[?]` — Q-E). **Both were applied on 2026-09-09**, together with the audit's own corrections, and the pass is recorded cell by cell in that file's §11.
+- **[`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md)'s matrix had two cells that were wrong**: RJ-4's competitor cell (*"No, in this space"* — Q-D) and H-J4's P3 column (`[?]` — Q-E). **Both were applied on 2026-09-09**, together with the audit's own corrections, and the pass is recorded cell by cell in that file's §11.
 - **The benchmark has a gap rather than an oversight**: Doppler and Infisical are captured in flow 07 and deliberately unscored. On Q-D's evidence that is now worth one afternoon.
-- **`CLAUDE.md` is untouched, and stays untouched.** §11's shelf is the decision Q-E bears on, and the reading is a warning about **what the shelf contains and how it sorts**, not an argument that it should not ship. That is **Q9** in the register, and it now has its first evidence — recorded there on 2026-09-09. **The proposals for the specification are collected in two lists and neither is applied**: [`re-research.md`](6-personas/re-research.md) §4 and [`jtbd.md`](7-jobs-to-be-done/jtbd.md) §12.
+- **`CLAUDE.md` is untouched, and stays untouched.** §11's shelf is the decision Q-E bears on, and the reading is a warning about **what the shelf contains and how it sorts**, not an argument that it should not ship. That is **Q9** in the register, and it now has its first evidence — recorded there on 2026-09-09. **The proposals for the specification are collected in two lists and neither is applied**: [`re-research.md`](../02-personas-jtbd/6-personas/re-research.md) §4 and [`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §12.
 
 ## The half-day was spent — 2026-09-10
 
 **NK-13.** Two rounds of research, five instruments, 19,703 repositories and 274 comments could not
 touch the single most load-bearing claim in the specification — *a receiving agent performs the setup
 from `SETUP.md` alone*. **A third round stopped reading the public record and ran it.**
-[`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-F, capture in
-[`6-personas/_captures/qf-handover-test/`](6-personas/_captures/qf-handover-test/).
+[`6-personas/re-research.md (round 3)`](../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) Q-F, capture in
+[`6-personas/_captures/qf-handover-test/`](../02-personas-jtbd/6-personas/_captures/qf-handover-test/).
 
 **The claim holds and its unexamined half does not.** Ten real items from five checked sources, every
 one pinned, five defects planted, three receiving agents, one instruction. **All three performed the
@@ -828,8 +828,8 @@ to its reasoning: **an item addresses a directory, not a file.**
 
 # 8. Round 3 — five questions that needed no interview, and what running them changed
 
-**Collected 2026-09-10.** Source document: [`6-personas/re-research.md (round 3)`](6-personas/re-research.md#round-3-five-questions-that-need-no-interview);
-capture log [`_captures/round3-log.json`](6-personas/_captures/round3-log.json). **This is the digest
+**Collected 2026-09-10.** Source document: [`6-personas/re-research.md (round 3)`](../02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview);
+capture log [`_captures/round3-log.json`](../02-personas-jtbd/6-personas/_captures/round3-log.json). **This is the digest
 entry; that is the source.** The round's whole point is a change of instrument class: rounds 1 and 2
 read what people **wrote**, and rule 5 governs all of it. **Two of these five are experiments we ran
 ourselves and three read behaviour left in public artefacts**, so for the first time the marks cover
@@ -846,7 +846,7 @@ behaviour rather than utterance.
 **What it did to the matrix: nothing vertical.** Not one importance moved, in ten rows, and the reason
 is structural — **the columns are people and these instruments see machines and artefacts.** Nine
 cells changed in the two right-hand columns; the pass is recorded in
-[`jtbd.md`](7-jobs-to-be-done/jtbd.md) §7.
+[`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md) §7.
 
 **What it did to this document's own honesty.** Three measurements were built, checked and discarded
 before anything was written — a path-rewrite rule that gave 69% instead of 12%, and two provenance
@@ -855,7 +855,7 @@ Q-G's control came back. **The discarded versions are named in the source docume
 
 # 9. Round 4 — the matrix's empty cells, hunted where the corpus had never looked
 
-**Collected 2026-09-10.** Source: [`6-personas/re-research.md (round 4)`](6-personas/re-research.md#round-4-the-matrixs-empty-cells); capture log [`_captures/round4-log.json`](6-personas/_captures/round4-log.json).
+**Collected 2026-09-10.** Source: [`6-personas/re-research.md (round 4)`](../02-personas-jtbd/6-personas/re-research.md#round-4-the-matrixs-empty-cells); capture log [`_captures/round4-log.json`](../02-personas-jtbd/6-personas/_captures/round4-log.json).
 
 **Why a fourth round the same day.** Round 3 moved no importance in the matrix and said why: its instruments see machines and artefacts, and the matrix's columns are people. **The corpus also has a hole shaped exactly like the people we need.** Everything read until now is GitHub issue filers and Hacker News commenters — and **a receiver files nothing**, because the thing they received is not their project, while **a beginner has nothing to file about**. Two new venues, neither ever used here: **[forum.cursor.com](https://forum.cursor.com)** and **[community.openai.com](https://community.openai.com)**, both Discourse, and both with **the vendor answering in public** — a class of source the corpus did not previously contain. **Reddit refused again, HTTP 403, exactly as in round 1.**
 

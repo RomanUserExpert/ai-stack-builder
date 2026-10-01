@@ -2,23 +2,27 @@
 # embedded as a data URI, so none of the source material needs to be served.
 # Upload only the pages (and vercel.json, which Vercel reads from the root).
 #
-# Re-including a file inside an excluded directory needs the directory itself
-# re-included first, which is why 6-personas gets its own pair of rules.
+# This is a whitelist. Re-including a file inside an excluded directory needs
+# the directory itself re-included first, then its contents excluded, then the
+# file re-included — which is why every lesson folder gets the same three lines.
 *
-!research
-research/*
-!research/research.html
-!research/6-personas
-research/6-personas/*
-!research/6-personas/personas.html
+# 01 · research and benchmark
+!01-research
+01-research/*
+!01-research/research.html
+# 02 · personas and JTBD
+!02-personas-jtbd
+02-personas-jtbd/*
+!02-personas-jtbd/personas.html
+# 03 · information architecture
 !03-information-architecture
 03-information-architecture/*
 !03-information-architecture/ia.html
+# 04 · wireframes, and the clickable prototypes: one folder per case
 !04-wireframes
 04-wireframes/*
 !04-wireframes/pages
 !04-wireframes/pages/*
-# The clickable prototypes: one folder per case, the pages two levels down.
 !04-wireframes/prototypes
 !04-wireframes/prototypes/*
 !04-wireframes/prototypes/*/*

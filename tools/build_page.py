@@ -6,9 +6,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TPL = os.path.join(HERE, "research-page.tpl.html")
 OUT = os.path.join(HERE, "_research-page.build.html")
 
-F = "research/2-flows"
-L = "research/1-landscape/screens"
-B = "research/4-benchmark"
+F = "01-research/2-flows"
+L = "01-research/1-landscape/screens"
+B = "01-research/4-benchmark"
 
 IMAGES = {
     # stage 1

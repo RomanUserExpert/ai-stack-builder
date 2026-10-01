@@ -28,9 +28,9 @@
 > owner asked for it and because it needed nothing step 3 produces.
 
 **Sources read in full before writing this:**
-[`personas.md`](../research/6-personas/personas.md),
-[`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md),
-[`research.md`](../research/research.md), against the specification in
+[`personas.md`](../02-personas-jtbd/6-personas/personas.md),
+[`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md),
+[`research.md`](../01-research/research.md), against the specification in
 [`CLAUDE.md`](../CLAUDE.md) §4–§11.
 
 **Four marks, per [the plan](README.md).** **`§`** decided in the specification, with the section ·
@@ -51,22 +51,22 @@ and keeps the material (P1, primary). **Consumer** — the receiver on the other
 
 | # | Entity | Job that raises it | Relation | Standing |
 |---|---|---|---|---|
-| **E1** | **Item** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) | Owner | `§`5 · `✓` |
-| **E2** | **Personal library** (`My library`) | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Owner | `§`4, §8 · job `✓`/`[?]` split |
-| **E3** | **Public library** (the shelf) | [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Consumer + External author | `§`8, §11 · job **`[?]` in all three columns** |
-| **E4** | **Project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | Owner | `§`5, §8 · `✓` |
-| **E5** | **Project membership** (`ProjectItem`) | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Owner | `§`5, §7 · `✓` + one named person |
-| **E6** | **Resolved set** (§4's *Stack*) | [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) | Owner | `§`6 · derived, never authored |
-| **E7** | **Declared relation** (`requires`, `conflicts`) | [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | Owner | `§`5, §6 · `✓` at a **3** |
-| **E8** | **Check run** | [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools) · [EJ-2](../research/7-jobs-to-be-done/jtbd.md#ej-2--believe-that-a-clean-result-was-actually-earned) | Owner | **`§`6, §8 as a surface — absent from §5 as data** |
-| **E9** | **Finding** (Problem · Note · Skipped) | [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools) | Owner · **and the consumer, if S-1 is taken** | `§`6 · same gap as E8 |
-| **E10** | **Env requirement** | [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) | Both | `§`5, §6 · `✓` |
-| **E11** | **Archive** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | Consumer | `§`6 · `✓` |
-| **E12** | **`SETUP.md`** | [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | **Consumer** | `§`6 · **`✓` behaviour, 3 of 3** |
-| **E13** | **Agent target** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) | Consumer | `§`6 · `✓` **6,592**, the loudest thing in the base |
-| **E14** | **Usage fact** | [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) · [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Owner | `§`5 · `*` n = 1, **the strongest `*` in the repository** |
-| **E16** | **Shared link** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | **Consumer** | `§`5, §8, §9 · **a decision, not a finding** |
-| **E15** | **Provenance** | [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) · [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) | **External author** | `§`5, §11 · `✓` measured twice |
+| **E1** | **Item** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) | Owner | `§`5 · `✓` |
+| **E2** | **Personal library** (`My library`) | [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [H-J1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Owner | `§`4, §8 · job `✓`/`[?]` split |
+| **E3** | **Public library** (the shelf) | [H-J4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Consumer + External author | `§`8, §11 · job **`[?]` in all three columns** |
+| **E4** | **Project** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | Owner | `§`5, §8 · `✓` |
+| **E5** | **Project membership** (`ProjectItem`) | [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [H-J3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Owner | `§`5, §7 · `✓` + one named person |
+| **E6** | **Resolved set** (§4's *Stack*) | [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) | Owner | `§`6 · derived, never authored |
+| **E7** | **Declared relation** (`requires`, `conflicts`) | [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | Owner | `§`5, §6 · `✓` at a **3** |
+| **E8** | **Check run** | [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [EJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools) · [EJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-2--believe-that-a-clean-result-was-actually-earned) | Owner | **`§`6, §8 as a surface — absent from §5 as data** |
+| **E9** | **Finding** (Problem · Note · Skipped) | [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [EJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools) | Owner · **and the consumer, if S-1 is taken** | `§`6 · same gap as E8 |
+| **E10** | **Env requirement** | [RJ-4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) | Both | `§`5, §6 · `✓` |
+| **E11** | **Archive** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | Consumer | `§`6 · `✓` |
+| **E12** | **`SETUP.md`** | [RJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | **Consumer** | `§`6 · **`✓` behaviour, 3 of 3** |
+| **E13** | **Agent target** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) | Consumer | `§`6 · `✓` **6,592**, the loudest thing in the base |
+| **E14** | **Usage fact** | [EJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) · [H-J1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | Owner | `§`5 · `*` n = 1, **the strongest `*` in the repository** |
+| **E16** | **Shared link** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | **Consumer** | `§`5, §8, §9 · **a decision, not a finding** |
+| **E15** | **Provenance** | [H-J4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) · [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) | **External author** | `§`5, §11 · `✓` measured twice |
 
 ---
 
@@ -76,16 +76,16 @@ The address that makes a project or an item reachable by somebody who is not its
 
 - **Fields (§5).** `visibility` — the standing decision — and `shareRef`, the unguessable part of the
   address. **Absent unless shared**, on both `Item` and `Project`.
-- **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — it is a way for the work to
-  live somewhere else · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work),
+- **Job.** [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) — it is a way for the work to
+  live somewhere else · [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work),
   because the page states what the receiver needs and is therefore the manual the sender otherwise has
-  to be · and [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
+  to be · and [RJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
   on the sending side.
 - **Relation.** **Consumer**, and it is the first object in this inventory that **gives the consumer a
   surface of ours** rather than a file.
 - **Standing.** `§`5, `§`8, `§`9 — **a product decision taken on 2026-09-15 with the evidence against
   it recorded**: no observed person has asked for a link, handover in practice is git and files, and
-  [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp)
+  [SJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp)
   scores **1**. It is in because the owner judged it part of the base, and the register says so in
   those words.
 - **Three properties with consequences.** **Live** — so sharing is a standing decision and every later
@@ -122,14 +122,14 @@ One reusable block. The atomic unit, and the thing every other entity is about.
   collide; **dangling, the edge is itself an unresolvable requirement** (§6, corrected 2026-09-20 after
   the review caught it contradicting Q17). It produces any Note either way. **Delete (Q17):** confirmed, never
   refused, naming the projects that hold it *and* that a `requires` edge may be left dangling (§5).
-- **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — an item is what has to keep
-  working somewhere else. And [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it):
+- **Job.** [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) — an item is what has to keep
+  working somewhere else. And [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it):
   *fix it once and have the fix reach every copy* is only possible because the item exists **once** and
   projects point at it.
 - **Relation.** **Owner.** P1 writes it, keeps it, and is the only person who can edit it.
 - **Standing.** `§`5. `✓` that people keep material of exactly this shape, **counted rather than
   asked**: four public trees hold **11, 25, 47 and 48 items** — *tens, not hundreds; design for fifty*
-  ([research.md §7, Q-C](../research/research.md)).
+  ([research.md §7, Q-C](../01-research/research.md)).
 - **Open, and it is the sharpest open thing in this inventory. `[?]`** Proposal **S-2** would make an
   item address **a directory, not a file** — raised because the `pdf` skill instructs the agent to read
   eight further files, so `content` held one blob, `targetPath` one destination, and the export was
@@ -161,9 +161,9 @@ Everything the owner owns, across all projects.
   **A warning about a set nobody can inspect is not a warning.**
 - **The way out that is not an exit: delete** (Q17, 2026-09-20). Confirmed rather than refused, and the
   count it names is E14's. **What happens to a detached row whose original is deleted is open.**
-- **Job.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
+- **Job.** [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
   needs one home, or a fix has nowhere to land that reaches anything. The *finding* job —
-  [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list),
+  [H-J1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list),
   *lay hands on something I wrote months ago* — is a **hypothesis job**, raised from `[?]` to **2** on
   2026-09-10 by one named person whose prompt library is a folder of notes in Telegram.
 - **Relation.** Owner.
@@ -180,7 +180,7 @@ A curated, read-only set that ships with the application.
   `My library`, never editable in place and never published to (§8, §11). §11 also commits to
   composition — real `requires` edges, at least one genuine `conflicts` pair, several `needsEnv`, two
   items writing to one target path.
-- **Job.** [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
+- **Job.** [H-J4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
   — *get moving with material somebody else made.*
 - **Reachable during assembly since 2026-09-20** (Q14). The library panel carries the same scope
   switch the Library screen does, so the shelf is one control away **inside the Project**, which is
@@ -219,8 +219,8 @@ A named set of items that exports as an archive.
   told it would.** When that happens the project reads as **neither checked nor un-checked on the
   strength of it**, and the screen that failed says so. *Same discipline as §6's stale verdict, one step
   earlier: never display a claim that may no longer be true.*
-- **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — the project is **the unit that
-  moves**; and [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
+- **Job.** [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) — the project is **the unit that
+  moves**; and [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
   because a collision is a property of a *set* and this is the set.
 - **Relation.** Owner.
 - **Standing.** `§`5, §8.
@@ -248,9 +248,9 @@ sentence.
   a row being changed. And it is why `addedBy: dependency` **refuses** — you cannot delete a membership
   the walk will recreate while its puller is there (§6). **A checkbox that refuses to clear is the honest rendering
   of this field**, not a defect in the control.
-- **Job.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
+- **Job.** [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
   — the live link is *the one mechanism in the specification that exists for exactly that job*. And
-  [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
+  [H-J3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
   — *change one copy for one project without touching the rest* — which is `detached` and `overrides`
   named as a requirement by one person on a public forum, blocked three ways at once.
 - **Relation.** Owner. It binds E4 to E1 and belongs to neither.
@@ -273,9 +273,9 @@ What a project actually is once `requires` has been walked. **Derived, never aut
   auto-added and each carrying **what pulled it in**. Plus **cycle groups**, which §6 reports as
   information — *"these three always travel together"* — and never as a failure, because a project is
   a set and not an execution order.
-- **Job.** [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
+- **Job.** [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
   — *what my pieces drag in* is literally this object. And
-  [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job), because the resolved set and not the
+  [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job), because the resolved set and not the
   member list is what travels.
 - **Relation.** Owner.
 - **Standing.** `§`6. **`✓` that nothing on the market has this object at all**: four skill managers
@@ -293,7 +293,7 @@ What a project actually is once `requires` has been walked. **Derived, never aut
   with no hard/soft flag**, because nothing blocks and the distinction would have no work to do (§6).
 - **Not a record of its own.** These are fields on E1. Listed as an entity because they are what the
   walk reads and what a finding points at, so the architecture has to give them somewhere to be seen.
-- **Job.** [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
+- **Job.** [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
   **importance 3 for the primary persona** — raised from 2 on 2026-09-10, on a duplicate-collapse
   failure the vendor confirmed in public and **two people who rebuilt their tooling rather than live
   with it.**
@@ -319,10 +319,10 @@ One execution of the validation pass over one resolved set.
   (§6, flow 04's Vercel shape) · the findings it produced (E9) · the chosen agent target (E13) · the
   env requirements it collected (E10) · the file tree of the future archive · and **Export as the final
   stage** rather than a button beside the check (§8).
-- **Job.** [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
+- **Job.** [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
   — *while I can still act* is this entity's whole reason for existing ·
-  [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools) ·
-  [EJ-2](../research/7-jobs-to-be-done/jtbd.md#ej-2--believe-that-a-clean-result-was-actually-earned),
+  [EJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools) ·
+  [EJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-2--believe-that-a-clean-result-was-actually-earned),
   which is what *Skipped* having its own neutral glyph is for.
 - **It has three sources since 2026-09-20, and only two of them own a project.** The owner from their
   Project, the receiver from a shared link, and — Q15 — **the owner again from a Library row exporting
@@ -357,8 +357,8 @@ One thing the check has to say.
   the set · the sentence that names **what was required and what was found**, at the altitude that
   knows the rule · and for a Problem, **the consequence in the present tense** — *"Two items write to
   `.mcp.json`. The archive will contain only one of them — `db-tools`."*
-- **Job.** [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
-  and [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools):
+- **Job.** [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
+  and [EJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools):
   *not be quietly overruled* is closed by naming the choice, never by refusing it.
 - **Relation.** Owner today. **And the consumer, if proposal S-1 is taken** — three receiving agents
   were handed a set whose Problems the document did not name, and **one mis-resolved a defect on a
@@ -389,7 +389,7 @@ A named key the set needs and does not carry.
   resolved set ask for it · whether it is satisfied. **`needsEnv` is a list of strings: the product
   stores names and never values**, which is a property of the model rather than a policy anybody wrote
   down. Collected across the set and written to **`.env.example`** before export (§6).
-- **Job.** [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it)
+- **Job.** [RJ-4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it)
   — *move the work without moving the secrets.*
 - **Relation.** **Both.** The owner declares the need; **the receiver is the one who has to fill it**,
   and `.env.example` is an instruction to go and find a value.
@@ -423,8 +423,8 @@ What a project becomes. The product's stated wow moment (§2).
   an instruction, `.env.example` and `SETUP.md` are produced — and for a bare item most of them are
   empty, which the run reports as `Skipped`. **What differs is what is left behind: nothing**, because
   §6 puts the verdict on the project and there is no project (E4, E8).
-- **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — this is the move ·
-  [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work).
+- **Job.** [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) — this is the move ·
+  [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work).
 - **Relation.** **Consumer.** It is the only thing in this inventory that leaves the owner's machine,
   and every decision about it is a decision about somebody else's first hour.
 - **Standing.** `§`6 · `✓` that the need is unserved — **B4 is the weakest flow in the industry,
@@ -448,8 +448,8 @@ The handover document, **addressed to the agent that opens the project** and not
   external one wins. **It is also the reader with a measured failure record** — Q-F watched one of
   three mis-resolve a defect it had not been told about — which is the same argument as **S-1**, one
   step over.
-- **Job.** [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
-  and [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work)
+- **Job.** [RJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
+  and [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work)
   — *not be the missing manual for my own work.*
 - **Relation.** **Consumer, and it is the only entity here whose reader is not the owner.** That
   matters more than it reads: **no receiver has ever spoken in the first person** in five venues and
@@ -474,7 +474,7 @@ The handover document, **addressed to the agent that opens the project** and not
   than answering it: `targetPath` is meaningless without a target, so **even one item cannot leave
   without this choice** — and there is no project to hold it. **Whichever way step 3 goes, *on the
   project* cannot be the whole answer.**
-- **Job.** [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job). *A second tool* is the first
+- **Job.** [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job). *A second tool* is the first
   clause of the main job.
 - **Relation.** Consumer — it describes the receiving environment; the owner chooses it.
 - **Standing.** `§`6 · **`✓` and it is the loudest demand in the entire evidence base**: **6,592
@@ -488,10 +488,10 @@ The only per-item evidence the product ships. **Derived from the library, never 
 - **Parts (§5).** *used in 3 projects* · *2 items require this* · *last exported 12 days ago*. And what
   it is **not**: no score, no rating, no eval result, no badge — the market converged on **measured**
   trust and we can measure nothing, so any number we invented would be decoration.
-- **Job.** [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight)
+- **Job.** [EJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight)
   — partially, and the limit is worth stating: usage facts answer *is it used*, **not *did it change
   anything***. EJ-3 scores **3** for the primary persona and **the product cannot close it**; that is
-  **Q12**. Also [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list).
+  **Q12**. Also [H-J1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list).
 - **Relation.** Owner.
 - **Where it is read, and what that cost on 2026-09-16.** These facts were the strongest argument for
   making `Item` a place: *used in 3 projects* is **a count that is also a link**, the benchmark's best
@@ -533,8 +533,8 @@ Where a piece of somebody else's work came from.
   2026-09-20; a pin is a claim about what was examined, and a backend examines nothing for us* ·
   **`license`, an
   SPDX identifier, added 2026-09-15**. §11: **shown, not just stored.**
-- **Job.** [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
-  `[?]` for the shelf, and [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) for the pin: an
+- **Job.** [H-J4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list)
+  `[?]` for the shelf, and [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) for the pin: an
   external item travels as an instruction to clone **at a named ref**.
 - **Relation.** **External author.** The only relation in this inventory pointing at somebody who is
   neither the owner nor the receiver.
@@ -571,7 +571,7 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 | **Q-E1** | **Workspace** (§4) | **No job requires it.** One per user, not a team concept, and §9 refuses accounts, sync and teams — so nothing can ever be inside it except everything. It is a word for *all of this*, not an object with parts | A second workspace, which §9 forbids |
 | **Q-E2** | **Stack** (§4) | **Not a second entity.** §4 calls it the *informal* name for the resolved set, which is **E6**. Two names for one object is how a vocabulary drifts | Nothing. Prefer *resolved set* in structure, keep *stack* as speech |
 | **Q-E3** | **Tag** | A **field on E1**, not an object. The only job that touches it is H-J1, whose importance is a **2** on one person — and nothing anybody has said requires tags to have a life of their own (rename, merge, describe, own a colour) | Somebody asked to manage tags rather than to use them |
-| **Q-E4** | **`visibility`** | **§9 keeps the field and does not show the control at all.** *Its stated reason — that there is nothing to publish to — is the same kind of reason struck on 2026-09-15, so it is under review with **Q13**.* The job behind it is [SJ-2](../research/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp), scored **1** for the primary persona | **Q13.** If a link is in the MVP, this control can act, and §9 hid it precisely because it could not |
+| **Q-E4** | **`visibility`** | **§9 keeps the field and does not show the control at all.** *Its stated reason — that there is nothing to publish to — is the same kind of reason struck on 2026-09-15, so it is under review with **Q13**.* The job behind it is [SJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-2--have-something-i-would-put-my-name-to--post-mvp), scored **1** for the primary persona | **Q13.** If a link is in the MVP, this control can act, and §9 hid it precisely because it could not |
 | ~~**Q-E5**~~ | ~~**Licence of an external item** `[?]`~~ | ~~**Proposed, not applied** (stage 6 proposal 6). It closes no job — it is a legal constraint on shipping E3, which is a different kind of reason~~ **Left this table on 2026-09-15: the owner applied it.** It is now a field of **E15**, and the reason it was refused here is still true — **it closes no job**, and §5 now says so in those words rather than acquiring one | — |
 | **Q-E6** | **A profile of the receiving machine** | **RJ-1 wants the *knowledge*, and the specification answers it with E12 rather than with an object.** RJ-1's importance for the primary is **`[?]`** — the cell was withdrawn by the audit, then hunted deliberately with six queries across two forums and **nobody says they wished they had known.** The market has such a surface (`asm doctor`); we do not need the object to close the job | One practitioner saying it plainly — which would also move RJ-1 into the core |
 | ~~**Q-E7**~~ | ~~**An external requirement** — a client's linter, a repo convention~~ | ~~That is **Q10**, live and standing on one person.~~ ~~Q10 was answered on 2026-09-15 … **It is not in §5 yet**, and the reason it is still in this table is that detection is impossible in the MVP~~ **Left this table on 2026-09-16: §5 and §6 now carry it.** `defersTo[]` is a field of **E1** and a declared relation alongside `requires` and `conflicts` (**E7**), raising a Note that never clears (**E9**) and read on the shared page (E16) and in `SETUP.md` (E12). **The reason it sat here is unchanged and is now written into §5**: detection is impossible, so the field discloses a constraint the user declared and **never compares anything**. The mark stays **`*`, n = 1** | — |
@@ -588,7 +588,7 @@ invent. **They are listed so that the temptation is visible** rather than acted 
 
 > **Written 2026-09-15, after the entity inventory and from it.** Derived from **what the person is
 > trying to get done**, not from anybody's product. No competitor's sitemap was opened while writing
-> it; the flows in [`2-flows/`](../research/2-flows/README.md) are captured mechanisms and were read as
+> it; the flows in [`2-flows/`](../01-research/2-flows/README.md) are captured mechanisms and were read as
 > mechanisms, never as structures to copy.
 
 **Depth is deliberately shallow.** Three levels, no more. Levels are added on purpose in step 3, when
@@ -672,7 +672,7 @@ panel that is a region, and no place was created by either. **Group 0 is not a f
 situation called *I would like to sign in*; **the door exists because Q24 gave the product a server**,
 and it is grouped apart because every other node in this tree answers to something somebody wants. The
 three groups below are the person's own three situations, in the order
-[`personas.md`](../research/6-personas/personas.md) records them: *copying something out of the
+[`personas.md`](../02-personas-jtbd/6-personas/personas.md) records them: *copying something out of the
 collection into a new project · adding a rule right after an agent did something annoying · hunting
 for something they know they wrote.* They are not navigation sections and should not become a menu in
 step 3 — they are why the screens exist.
@@ -681,15 +681,15 @@ step 3 — they are why the screens exist.
 
 | Screen | Job it serves | What the person arrived to do | Persona |
 |---|---|---|---|
-| **Library** | [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) · [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) | *Lay hands on the thing I know I wrote* — and reach the one copy that a fix has to land on | **P1** · P3 in its public scope `[?]` |
-| **Item** — *not a screen: an overlay* (§8, 2026-09-16) | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | *Fix this once*, and see who else it reaches before touching it — **which the form must say before it accepts the edit**, since there is no place to arrive at and read it | **P1** |
-| **Projects** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J2](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Get back to the set I keep for that piece of work* — and see whether it is still checked | **P1** · P3 for the example `[?]` |
-| **Project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *Put the set together and see what it drags in* — every row carrying its own state | **P1** |
-| **Library panel** — *not a screen: a region of Project's configuring mode* (Q14, 2026-09-20) | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *See what I own that fits here, and put it in* — **the question the palette could not answer**, and the reason the corpus is present during assembly at all | **P1** · P3 through the shelf scope `[?]` |
-| **Detached row** — edit · reset · promote | [H-J3](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | *Change it here only, without the others getting it* | **P1** |
-| **Run** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
-| **Shared project** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, does it hold together, what do I still need, how do I take it* | **P2**, and it is their only surface |
-| **Shared item** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Somebody sent me one block — what is it, whose is it, may I use it* | **P2** · P3 `[?]` |
+| **Library** | [H-J1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) · [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) | *Lay hands on the thing I know I wrote* — and reach the one copy that a fix has to land on | **P1** · P3 in its public scope `[?]` |
+| **Item** — *not a screen: an overlay* (§8, 2026-09-16) | [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) · [EJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | *Fix this once*, and see who else it reaches before touching it — **which the form must say before it accepts the edit**, since there is no place to arrive at and read it | **P1** |
+| **Projects** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Get back to the set I keep for that piece of work* — and see whether it is still checked | **P1** · P3 for the example `[?]` |
+| **Project** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *Put the set together and see what it drags in* — every row carrying its own state | **P1** |
+| **Library panel** — *not a screen: a region of Project's configuring mode* (Q14, 2026-09-20) | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) | *See what I own that fits here, and put it in* — **the question the palette could not answer**, and the reason the corpus is present during assembly at all | **P1** · P3 through the shelf scope `[?]` |
+| **Detached row** — edit · reset · promote | [H-J3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) | *Change it here only, without the others getting it* | **P1** |
+| **Run** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [RJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) · [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Find out whether it holds together, see what the other side still needs, and get the archive out* | **P1** |
+| **Shared project** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [RJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it) · [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) · [SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work) | *Somebody sent me this — what is it, does it hold together, what do I still need, how do I take it* | **P2**, and it is their only surface |
+| **Shared item** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · [H-J4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]` | *Somebody sent me one block — what is it, whose is it, may I use it* | **P2** · P3 `[?]` |
 | **Sign in** — *added 2026-09-20, Q25* | **`[no job]`** — and **no job could**: §9 | *Nothing. Nobody arrives wanting to sign in* — **it is the door the online decision put in front of the owner's work**, and the only screen here that serves the product rather than a person | **P1, P3 — and P2 only if they choose to keep a copy** |
 | **Library import / export** | ~~`[orphan]`~~ **`[§10]`** — Q18, re-answered 2026-09-20 | *Leave with my work* — **not a job anybody stated.** Kept on a non-evidential basis, like the `license` field: the product holds the corpus on a server and §11 tells the user to pour everything into it | P1 |
 
@@ -785,7 +785,7 @@ promotion here would be a place with no job under it.
   invent a place for a person nobody has met* is this lesson's own trap 3. **A team is still refused.**
   **What is built is one thing: a way in**, plus a rule for a session that ends mid-work — you return to
   **where you were**, to the **place** and not into the mode, nothing re-run and nothing saved lost.
-- **A dashboard of what is working.** It would answer [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight)
+- **A dashboard of what is working.** It would answer [EJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight)
   — importance **3** for the primary persona, the highest the product cannot close — and §6 **runs
   nothing on anyone's machine**, so it would be a promise we have no way to keep. **The job is real and
   the screen is forbidden**, ~~which is Q12~~ — **and on 2026-09-20 Q12 was closed as *refused* rather
@@ -799,7 +799,7 @@ promotion here would be a place with no job under it.
 `CLAUDE.md` §8 names **Library, Project, Run and Projects**. This derivation produces the same four
 **and one more: Item.** §8 folds an item's editing into the Library as an *add/edit form*.
 
-**The argument for a place rather than a form** is [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it),
+**The argument for a place rather than a form** is [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it),
 importance **3** for the primary persona: *fix it once and have the fix reach every copy* is an act
 with **blast radius**, and §5 requires that radius to be legible before the edit — *used in 3
 projects*, and since 2026-09-15 *this edit un-checks 3 checked projects* (§6). A form is opened to be
@@ -892,7 +892,7 @@ disclosure in the whole benchmark (VS Code Workspace Trust, C2 = 5) — and what
 or the projects. A count you cannot follow is Figma's *423 instances*, which the benchmark scored one
 step behind for exactly that reason.
 
-**The job argued the same way.** [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
+**The job argued the same way.** [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
 is importance **3** for the primary persona, and editing a linked item has **blast radius**: §5 wants
 it legible *before* the edit, and since 2026-09-15 that radius has a second half — the edit **un-checks
 every project whose resolved set contains the item** (§6). *A form is opened in order to be filled and
@@ -938,7 +938,7 @@ and this is the case that separates them.
 - **Back leaves the check and returns to the Project.** There is nowhere else it could go.
 - **A reload during a check returns to the Project and does *not* silently start a new one.** Checking
   is an action the person takes; a reload that re-runs it is the product making a choice nobody made,
-  which is [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools)
+  which is [EJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools)
   — importance **3** for the primary persona and the one job §6 already treats as a constraint on
   everything else.
 
@@ -1000,8 +1000,8 @@ cluster is reached through the second.
 
 | Entry | The job cluster it opens | Which arrival it serves | Standing |
 |---|---|---|---|
-| **Library** | [RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) — *fix it once and have the fix reach every copy*, importance **3** for P1 · [H-J1](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) — *lay hands on the thing I know I wrote*, **2** · [EJ-3](../research/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | **Arrivals 2 and 3** of the three [`personas.md`](../research/6-personas/personas.md) records: *adding a rule right after an agent did something annoying*, and *hunting for something they know they wrote* | `§`8 · `✓` the corpus · **`*`/`[?]` the browse-and-find job** |
-| **Projects** | [MAIN](../research/7-jobs-to-be-done/jtbd.md#the-main-job) — the set is the unit that moves · [RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) — *what my pieces drag in*, **3** | **Arrival 1**, the most frequent one: *copying something out of the collection into a new project* — whose **destination** is a project even though the person describes it from the collection's end | `§`8 · `✓` |
+| **Library** | [RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it) — *fix it once and have the fix reach every copy*, importance **3** for P1 · [H-J1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) — *lay hands on the thing I know I wrote*, **2** · [EJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-3--stop-suspecting-that-half-of-what-i-keep-is-dead-weight) partly | **Arrivals 2 and 3** of the three [`personas.md`](../02-personas-jtbd/6-personas/personas.md) records: *adding a rule right after an agent did something annoying*, and *hunting for something they know they wrote* | `§`8 · `✓` the corpus · **`*`/`[?]` the browse-and-find job** |
+| **Projects** | [MAIN](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) — the set is the unit that moves · [RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act) — *what my pieces drag in*, **3** | **Arrival 1**, the most frequent one: *copying something out of the collection into a new project* — whose **destination** is a project even though the person describes it from the collection's end | `§`8 · `✓` |
 
 **Why *what leaves* gets no entry, and it is structural rather than a matter of taste.** **`Run` is a
 mode, not a place** — it fails two of the three addressability tests because no run is stored (§6). **A
@@ -1180,7 +1180,7 @@ two renderings that can both change things drift. The division is the decision: 
 **Decided in step 2b and restated here, because a navigation model is not complete without it.** **Back
 from Run returns to the Project** — there is nowhere else it could go. **A reload during a check returns
 to the Project and does not silently start a new one**, because a reload that re-runs is the product
-making a choice nobody made — [EJ-1](../research/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools),
+making a choice nobody made — [EJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#ej-1--not-be-quietly-overruled-by-my-own-tools),
 importance **3**. **The Library's scope is part of its address**, so a reload cannot drop you into the
 room §11 guarantees is empty. **No finished run has an address** (E8), so nothing in this navigation may
 promise a way back to yesterday's result.
@@ -1215,7 +1215,7 @@ overlay is carrying three disclosures nobody chose to put together.
 > **Written 2026-09-20, after the owner accepted the flows.** Not a numbered step: a **check across
 > steps 2a, 2b and 3**, run the only way a coverage claim can be run — by putting both lists side by
 > side and looking for the empty line. **Rows are every job in
-> [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md)** — one main, four related, three emotional, two
+> [`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md)** — one main, four related, three emotional, two
 > social, and the seven hypotheses in a block of their own. **Columns are every surface this file
 > establishes**, screens and non-screens alike.
 >
@@ -1700,7 +1700,7 @@ by the person's own three situations rather than by anything that could become a
 findings are refusals rather than places, and one is now under review:** the receiver needs **no screen
 in the product as specified today** — their whole surface is `SETUP.md` inside the archive — **which
 holds only while a shared link is out of scope, and that is Q13** in
-[the register](../research/research-plan.md); and the highest-importance job the primary persona has is
+[the register](../01-research/research-plan.md); and the highest-importance job the primary persona has is
 one **no screen may serve**, because a dashboard of *what is working* promises a runtime §6 does not
 have.
 

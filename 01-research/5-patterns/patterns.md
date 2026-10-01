@@ -56,7 +56,7 @@ Set by the plan, so the variants can be compared rather than admired.
 > ([`../research.md`](../research.md) G4). **The comparison below is left exactly as it was run.**
 > Nothing in it changes: 300 was the *stress* figure and every variant was scored against the same
 > one, so the ranking is unaffected — what changes is that **the cost this stage accepted may be
-> smaller than it priced.** See [`../6-personas/re-research.md`](../6-personas/re-research.md) R4.
+> smaller than it priced.** See [`../6-personas/re-research.md`](../../02-personas-jtbd/6-personas/re-research.md) R4.
 
 ## The constraints that are not up for negotiation
 

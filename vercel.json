@@ -3,17 +3,21 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/research/research", "permanent": false }
+    { "source": "/", "destination": "/01-research/research", "permanent": false },
+    { "source": "/research/research", "destination": "/01-research/research", "permanent": true },
+    { "source": "/research/research.html", "destination": "/01-research/research", "permanent": true },
+    { "source": "/research/6-personas/personas", "destination": "/02-personas-jtbd/personas", "permanent": true },
+    { "source": "/research/6-personas/personas.html", "destination": "/02-personas-jtbd/personas", "permanent": true }
   ],
   "headers": [
     {
-      "source": "/research/research.html",
+      "source": "/01-research/research.html",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]
     },
     {
-      "source": "/research/6-personas/personas.html",
+      "source": "/02-personas-jtbd/personas.html",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
       ]

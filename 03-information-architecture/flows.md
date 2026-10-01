@@ -8,7 +8,7 @@
 > because one picture of it was too wide to read; **the single-item export**, added 2026-09-20 with
 > Q15; and **the receiver's path**, added the same day by [the critique](ia-critique.md), which found
 > that the surface carrying the most jobs in the product had never been walked. Each is drawn from
-> [`jtbd.md`](../research/7-jobs-to-be-done/jtbd.md), named with the job's own wording rather than with
+> [`jtbd.md`](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md), named with the job's own wording rather than with
 > a feature name, and each ends in **both** kinds of ending — the one where the person is done, and the
 > ones where they are stuck.
 
@@ -128,7 +128,7 @@ ending nodes are where success and dead ends are distinguished.
 
 ## The main job — "when something I have already got working has to live somewhere else, I want it to keep working there"
 
-[The main job](../research/7-jobs-to-be-done/jtbd.md#the-main-job) · **P1**, primary · `✓` + `*`, and
+[The main job](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) · **P1**, primary · `✓` + `*`, and
 the loudest number in the evidence base sits inside it.
 
 ```mermaid
@@ -269,10 +269,10 @@ because §6 makes it a designed moment; everything below is a wait the product h
 
 ## The single-item export — the main job at its smallest scale
 
-**Added 2026-09-20 with [Q15](../research/research-plan.md).** Not a job of its own: it is
-[the main job](../research/7-jobs-to-be-done/jtbd.md#the-main-job) performed on **one block**, from the
+**Added 2026-09-20 with [Q15](../01-research/research-plan.md).** Not a job of its own: it is
+[the main job](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) performed on **one block**, from the
 Library, with no project built around it — and, through the shelf, the nearest thing the product has to
-[H-J4](../research/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]`.
+[H-J4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#6-hypotheses--the-jobs-that-did-not-earn-the-main-list) `[?]`.
 **It is drawn because it is the first path that starts in the Library and ends in an archive**, and
 because the thing it teaches — *what a check can and cannot find when there is only one item* — is
 easy to state wrongly.
@@ -373,7 +373,7 @@ only irreversible step is the last one.**
 
 ## RJ-1 — "know what the other side will still need, before I send it"
 
-[RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
+[RJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it)
 · **P1** sending, **P2** receiving · importance **`[?]`** for the primary — the cell was withdrawn by
 the audit and hunted for twice since.
 
@@ -462,7 +462,7 @@ anyway, because nothing blocks.
 
 ## RJ-2 — "find out what my pieces drag in, and where two of them will fight, while I can still act"
 
-[RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
+[RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act)
 · **P1** · importance **3**, and `✓` that **nothing on the market has this object at all**: four skill
 managers were run against a deliberately broken set and none saw a set-level defect.
 
@@ -600,7 +600,7 @@ the archive will carry only one of the two, which is correct behaviour and still
 
 ## RJ-3 — "fix something once and have the fix reach every copy of it"
 
-[RJ-3](../research/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
+[RJ-3](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-3--fix-something-once-and-have-the-fix-reach-every-copy-of-it)
 · **P1** · importance **3** · `✓` that copies drift and **stay** drifted: 14% of 7,506 duplicated items
 out of sync now, 383 divergences open at a median of 121 days, four ever reconciled.
 
@@ -686,7 +686,7 @@ weeks later. **It is the sharpest thing these five diagrams found.**
 
 ## RJ-4 — "move my work without moving my secrets or my client's business with it"
 
-[RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it)
+[RJ-4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it)
 · **P1** and **P2** · `✓`, the largest crowd on a fear after the multi-target family — 192, 54, 45, 32,
 23, 22 across three trackers.
 
@@ -778,12 +778,12 @@ revoking** rather than implying a recall.
 ## The receiver — "somebody sent me a link"
 
 **Added 2026-09-20 by [the critique](ia-critique.md), and it was the largest thing that document
-found.** Not a new job: it is [the main job](../research/7-jobs-to-be-done/jtbd.md#the-main-job) walked
+found.** Not a new job: it is [the main job](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#the-main-job) walked
 by **P2**, who owns nothing, together with
-[RJ-1](../research/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it),
-[RJ-2](../research/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
-[RJ-4](../research/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) and
-[SJ-1](../research/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work).
+[RJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-1--know-what-the-other-side-will-still-need-before-i-send-it),
+[RJ-2](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-2--find-out-what-my-pieces-drag-in-and-where-two-of-them-will-fight-while-i-can-still-act),
+[RJ-4](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#rj-4--move-my-work-without-moving-my-secrets-or-my-clients-business-with-it) and
+[SJ-1](../02-personas-jtbd/7-jobs-to-be-done/jtbd.md#sj-1--not-be-the-missing-manual-for-my-own-work).
 
 **Why it had to exist.** The traceability matrix gives `Shared project` **seven jobs — more than
 `Projects`, more than the library panel** — and until now it appeared in this file only as a **node

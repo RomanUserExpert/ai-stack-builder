@@ -1,4 +1,4 @@
-"""Build research/6-personas/personas.html.
+"""Build 02-personas-jtbd/personas.html.
 
 The page has no captures, so there is no image-embedding step. What it does need
 is the *same* design language as the research page, and the way to guarantee that
@@ -11,7 +11,7 @@ import io, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 SHARED = os.path.join(HERE, "research-page.tpl.html")
 TPL = os.path.join(HERE, "personas-page.tpl.html")
-DST = os.path.join(os.path.dirname(HERE), "research", "6-personas", "personas.html")
+DST = os.path.join(os.path.dirname(HERE), "02-personas-jtbd", "personas.html")
 
 shared = io.open(SHARED, encoding="utf-8").read()
 tpl = io.open(TPL, encoding="utf-8").read()

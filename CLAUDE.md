@@ -19,7 +19,7 @@ the summary is at the end of §8, and the lesson's page is
 
 **Lesson 03 started on 2026-09-15, and the register's sitting was not held first.** That is the
 owner's decision, taken in these words — *we work with what we have* — and it changes standing, not
-evidence. **The sitting was then held the same day** — [`research-plan.md`](research/research-plan.md),
+evidence. **The sitting was then held the same day** — [`research-plan.md`](01-research/research-plan.md),
 *The sitting — 2026-09-15* — so this paragraph's *stays owed* lasted one afternoon. Two entries
 answered, four deferred, **the blanket *provisional* label dropped with no mark promoted**, and the
 four proposal lists still unapplied **except stage 6's proposal 6, the `license` field** (§5, §11).
@@ -29,7 +29,7 @@ every lesson uses (§12). The cost to hold while working: **an information archi
 rests on three personas, one of whom has never been observed, and on a matrix with thirty `[?]`
 cells.** Where a structural decision would need one of those cells to be a number, say so on the spot
 and leave the decision marked — do not invent the person. Recorded in the register at
-[`research/research-plan.md`](research/research-plan.md).
+[`01-research/research-plan.md`](01-research/research-plan.md).
 
 **2026-09-20 — lesson 03 changed the builder's mechanism, and the protocol above was followed.** Four
 entries were raised and answered the same day (§12, Q14–Q17), and **all four change this file** — §5,
@@ -64,8 +64,8 @@ critique will find.
 **Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
 the key flow takes. None of them established **who the person is** or **what they hire this product
 for**. Stages 6 and 7 do that:
-[`research/6-personas/README.md`](research/6-personas/README.md) and
-[`research/7-jobs-to-be-done/README.md`](research/7-jobs-to-be-done/README.md). **The five-stage
+[`02-personas-jtbd/6-personas/README.md`](02-personas-jtbd/6-personas/README.md) and
+[`02-personas-jtbd/7-jobs-to-be-done/README.md`](02-personas-jtbd/7-jobs-to-be-done/README.md). **The five-stage
 sign-off stands as written** — nothing below is retracted; the two new stages *audit* this file and
 raise register entries rather than editing it.
 
@@ -74,24 +74,24 @@ unavailable.** Every step of both plans is done. The four remaining practitioner
 event that lifts *provisional*, and the named instrument for five of the six live register entries —
 **cannot be run.** That removes an event; it does not lower a bar, and nothing in either stage is
 promoted because of it. **What is reachable without a person is written down as
-[`re-research.md` round 3](research/6-personas/re-research.md#round-3-five-questions-that-need-no-interview)** — five questions with named instruments,
+[`re-research.md` round 3](02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview)** — five questions with named instruments,
 three reading behaviour left in public artefacts and **two of them ours to run**, including the
 handover test this file has owed itself since 2026-09-02.
 
 **Round 3 was run on 2026-09-10 and the capture logs exist**, so it may now be cited:
-[`_captures/round3-log.json`](research/6-personas/_captures/round3-log.json) and
-[`_captures/qf-handover-test/`](research/6-personas/_captures/qf-handover-test/). **Four questions answered, one in
+[`_captures/round3-log.json`](02-personas-jtbd/6-personas/_captures/round3-log.json) and
+[`_captures/qf-handover-test/`](02-personas-jtbd/6-personas/_captures/qf-handover-test/). **Four questions answered, one in
 part.** The one that matters to this file is **Q-F, the handover test**: three receiving agents were
 handed an archive built exactly as §6 describes, and **all three performed the setup**, including
 cloning an external item at its pinned ref — the first evidence of any kind under §6's central bet,
 and it is positive. **The second half of that bet failed**: with the Problems left undisclosed, one
 receiver found them, one **mis-resolved one on a false claim of byte-identity**, and one saw none.
 **Six proposals came out of the round and none is applied here** — they are listed at the end of
-[`re-research.md` round 3](research/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) and go to the register's sitting with the
+[`re-research.md` round 3](02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) and go to the register's sitting with the
 other two lists. **One of them is the first proposal any round has made to the *shape* of §5 rather
 than to its reasoning: an item addresses a directory, not a file.**
 
-**A fourth round ran the same day** — [`re-research.md` round 4](research/6-personas/re-research.md#round-4-the-matrixs-empty-cells) —
+**A fourth round ran the same day** — [`re-research.md` round 4](02-personas-jtbd/6-personas/re-research.md#round-4-the-matrixs-empty-cells) —
 because round 3 moved no importance in the jobs matrix and said why: its instruments see machines,
 and the matrix's columns are people. It went after the columns in two venues this project had never
 used — the Cursor and OpenAI community forums, where the vendor answers in public — and **moved
@@ -102,18 +102,18 @@ two clearest public beginners wrote their own material on day one or asked to sh
 than reach for a library. **The *provisional* label does not lift** — its trigger is unchanged.
 
 The documents:
-[`inventory.md`](research/6-personas/inventory.md) — a register of the twenty questions about people,
+[`inventory.md`](02-personas-jtbd/6-personas/inventory.md) — a register of the twenty questions about people,
 each with its answer, the data under it and a mark;
-[`re-research.md`](research/6-personas/re-research.md) — a source document, four instruments taken to
-the public record, with its capture logs; [`interviews.md` the guide](research/6-personas/interviews.md#part-1-the-guide);
-[`interviews.md` interview 1](research/6-personas/interviews.md#part-2-interview-1-of-5), **interview 1 of 5**;
-[`re-research.md` round 2](research/6-personas/re-research.md#round-2-counting-not-asking) — a second collection run on 2026-09-08
+[`re-research.md`](02-personas-jtbd/6-personas/re-research.md) — a source document, four instruments taken to
+the public record, with its capture logs; [`interviews.md` the guide](02-personas-jtbd/6-personas/interviews.md#part-1-the-guide);
+[`interviews.md` interview 1](02-personas-jtbd/6-personas/interviews.md#part-2-interview-1-of-5), **interview 1 of 5**;
+[`re-research.md` round 2](02-personas-jtbd/6-personas/re-research.md#round-2-counting-not-asking) — a second collection run on 2026-09-08
 against the questions the audit raised, and **the first instrument here that counts somebody's
 collection instead of asking about it**; and
-[`personas-and-jobs-critique.md`](research/personas-and-jobs-critique.md) — **the audit**, stage 6's
+[`personas-and-jobs-critique.md`](02-personas-jtbd/personas-and-jobs-critique.md) — **the audit**, stage 6's
 step 4 and stage 7's step 6 merged, 238 claims classified and **27 of them found invented**, applied
 in full on 2026-09-09.
-**There is a page.** [`research/6-personas/personas.html`](research/6-personas/personas.html) —
+**There is a page.** [`02-personas-jtbd/personas.html`](02-personas-jtbd/personas.html) —
 persona cards with the primary marked, the job hierarchy, the matrix as a table, every mark visible —
 generated by `tools/build_personas.py` from the design language `research.html` already uses.
 
@@ -132,7 +132,7 @@ sentence was protecting still holds and is now trivial: **the strip shows the tw
 else.** Our former phases are not a parallel list to be shown anywhere; they are folded into the
 twelve, and where each went is written under the table above.
 
-**The behavioural axes and [`personas.md`](research/6-personas/personas.md) landed on 2026-09-08** —
+**The behavioural axes and [`personas.md`](02-personas-jtbd/6-personas/personas.md) landed on 2026-09-08** —
 **three personas, one primary**: *the keeper who runs several agents* (primary), *the receiver*, and
 *the empty-handed*, the last being the persona §8's scope switch and §11's shelf already ship for and
 **nobody had met**. The page and the audit followed. **The four remaining interviews are owed and
@@ -141,7 +141,7 @@ nothing to ask them, which is why every line about the second persona is somebod
 them. Round 3 approaches that column from the other side, by reading **forks as handovers**.
 
 **Stage 7 ran from 2026-09-08 to 2026-09-09 and is complete.**
-[`research/7-jobs-to-be-done/jtbd.md`](research/7-jobs-to-be-done/jtbd.md) holds **one main job, four
+[`02-personas-jtbd/7-jobs-to-be-done/jtbd.md`](02-personas-jtbd/7-jobs-to-be-done/jtbd.md) holds **one main job, four
 related, three emotional and two social**, each with its persona, its source and its mark, plus seven
 hypothesis jobs, **and the matrix**. **Two main-job candidates survived, which by the method's own
 rule means two products** — the second is Q12, the one §6 forbids us to build, and on **2026-09-20 it
@@ -176,17 +176,17 @@ evidential one: it closes no job, and §5 says so in those words. **Nothing else
 are now **two proposal lists and they are one input**. Stage 6's **nine
 proposals** touch §2, §5, §6, §9 and §11 — including a narrowing of §2's *"nothing does this today"*
 and a new safety risk under §11's public shelf — and are collected in
-[`research/6-personas/re-research.md` §4](research/6-personas/re-research.md). Stage 7's **nine**, the
-reconciliation, are in [`research/7-jobs-to-be-done/jtbd.md` §12](research/7-jobs-to-be-done/jtbd.md),
+[`02-personas-jtbd/6-personas/re-research.md` §4](02-personas-jtbd/6-personas/re-research.md). Stage 7's **nine**, the
+reconciliation, are in [`02-personas-jtbd/7-jobs-to-be-done/jtbd.md` §12](02-personas-jtbd/7-jobs-to-be-done/jtbd.md),
 written as *what was found · what is proposed · which register entry it belongs to*, and they name
 §2, §5, §6, §7, §8, §9 and §11. **Read §12 first — it is the shorter list and it names the sections.
 Read both before the next change to this file.** Four things this document leans on are now narrower than they read —
 three of them on re-runnable evidence, and the fourth, §2's *"nothing does this today"*, on what
 competing tools **claim in their own READMEs**, none of which we have run.
-[`research/FINAL.md`](research/FINAL.md) §6 lists them with what each mark is carrying.
+[`01-research/FINAL.md`](01-research/FINAL.md) §6 lists them with what each mark is carrying.
 
 **The evidence rule changed.** Every claim about people now carries one of three marks, defined once
-in [`research/research.md`](research/research.md), *The three marks*: **`✓`** confirmed by an
+in [`01-research/research.md`](01-research/research.md), *The three marks*: **`✓`** confirmed by an
 instrument another person can re-run · **`*`** reported by a practitioner in an interview · **`?`**
 unknown. **A `*` never becomes a `✓` by repetition.** And, after every mark in the folder was audited
 on 2026-09-08: **a re-runnable query proves that something was *said*, not that it is *true*** — an
@@ -202,11 +202,11 @@ product *is* before anything decides what it looks like.
 
 | | Lesson | State |
 |---|---|---|
-| **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](research/research.html) |
-| **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](research/6-personas/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
+| **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](01-research/research.html) |
+| **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](02-personas-jtbd/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
 | **03** | **Information architecture** | ~~done~~ — started 2026-09-15, **closed 2026-09-20**, all seven of the course's steps · [`ia.html`](03-information-architecture/ia.html) · [the plan](03-information-architecture/README.md). ~~Five of the course's seven steps are done; what remains is the IA critique and `ia.html`.~~ The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
 | **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
-| **05** | **Tone of voice and microcopy** | ← **current**, from 2026-09-27. §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system |
+| **05** | **Tone of voice and microcopy** | ← **current**, from 2026-09-27. §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system · [the plan](05-tone-of-voice/README.md) — the course's seven steps, written 2026-10-01 |
 | **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
 | **07** | UI assembly | The screens built out of the concept — what the old list called *mockups* |
 | **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
@@ -240,27 +240,27 @@ per claim, where it was always finer, instead of by one word over a whole docume
 
 **All five of the original research stages are done.** Landscape, flows and pain; then **benchmark** — 15
 product-and-flow cells scored against five categories lifted from stages 1–3
-([`research/4-benchmark/benchmark.md`](research/4-benchmark/benchmark.md)); then **patterns** — five shapes for the key flow
+([`01-research/4-benchmark/benchmark.md`](01-research/4-benchmark/benchmark.md)); then **patterns** — five shapes for the key flow
 compared on that rubric, with the chosen one written into §8 below and the four rejected kept in
-[`research/5-patterns/patterns.md`](research/5-patterns/patterns.md).
+[`01-research/5-patterns/patterns.md`](01-research/5-patterns/patterns.md).
 
 **The six open questions were closed in one sitting on 2026-09-02** — four answered, two deferred
 with a stated reason. Everything they changed is in this file; the reasoning, and what was read
-before each decision, is in section 3 of [`research/FINAL.md`](research/FINAL.md). Two of the
+before each decision, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md). Two of the
 answers widened the MVP and are marked as such below: a **curated public library ships with the
 product** (§8, §11), and **`SETUP.md` is written for the agent that opens the archive** (§6).
 
-**For a single consolidated read of the whole phase**, see [`research.md`](research/research.md) — competitors,
+**For a single consolidated read of the whole phase**, see [`research.md`](01-research/research.md) — competitors,
 flows, benchmark, patterns and conclusions in five sections, every fact linked to its source or
 capture, and every unestablished claim marked as such. **It is a digest and never a source of
-truth**: this file is the spec, [`research/FINAL.md`](research/FINAL.md) is the close, and the
-register in [`research/research-plan.md`](research/research-plan.md) is the only list of open
+truth**: this file is the spec, [`01-research/FINAL.md`](01-research/FINAL.md) is the close, and the
+register in [`01-research/research-plan.md`](01-research/research-plan.md) is the only list of open
 questions. Do not answer a question from the digest that these three answer differently.
 
 **The research folder is organised by stage**, and two files govern it:
-[`research/FINAL.md`](research/FINAL.md) is the closing document — what the phase produced, the
+[`01-research/FINAL.md`](01-research/FINAL.md) is the closing document — what the phase produced, the
 decisions taken, how the six questions were settled, and the documents that are read from more than
-one stage. [`research/research-plan.md`](research/research-plan.md) is the spine and holds the
+one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the spine and holds the
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
@@ -325,7 +325,7 @@ re-tune it for a new context.
   run, and the keeper of an accumulated corpus — **the corpus wins design conflicts.** The handover
   mechanisms in §6 stay exactly as they are: they stop being *the point* and remain *the mechanism*.
   **The cost is recorded rather than hidden**: this is the thinner half of the evidence, and
-  [`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*, says so.
+  [`01-research/research-plan.md`](01-research/research-plan.md), *The sitting — 2026-09-15*, says so.
 - Visually literate. They live in tools like Linear, Vercel, Raycast, Figma. The bar for
   craft is high; generic dashboard aesthetics will read as cheap.
 - **Desktop-first.** Responsive/adaptive comes later, deliberately.
@@ -434,7 +434,7 @@ blast radius spent on an action taken inside one project, which is the thing thi
 warn about. *Push my changes to the original* is a different action with a different confirmation and
 is **not built in the MVP**. Flow 05 found there is no prior art for a return path — Figma erases the
 origin at detach — so this one is invented rather than copied; see
-`research/2-flows/05-linked-vs-detached/NOTES.md`.
+`01-research/2-flows/05-linked-vs-detached/NOTES.md`.
 
 **The product never shows a verdict state it is not sure of** (decided 2026-09-20, answering Q26;
 *restated the same evening from a sentence about operations into one about what the screen claims*). §5
@@ -512,7 +512,7 @@ has asked for this and it closes no job; the licence is the one thing on an item
 for a reason other than somebody's stated need. The reason is that we carry other people's work
 inside an archive the user then hands to somebody else, and **absence of a licence is absence of
 permission rather than a default grant**. Raised as proposal 6 of stage 6
-(`research/6-personas/re-research.md` §4) and applied by the owner ahead of the register's sitting.
+(`02-personas-jtbd/6-personas/re-research.md` §4) and applied by the owner ahead of the register's sitting.
 
 **It is not a trust signal and must not be drawn as one.** A licence says what you may do with an
 item, never whether the item is any good. The refusal of scores, ratings, eval results and badges
@@ -634,7 +634,7 @@ note count is not a to-do list, and §8's surfaces must not read it as one.
 visibly — an animated sweep across dependencies, collisions and missing keys. This is a
 designed moment, not a spinner. Structurally it is a stack of stages, each carrying its own
 verdict and its own duration, each expandable — the model is Vercel's deployment page, written up
-in `research/2-flows/04-validation-check-results/NOTES-vercel.md`.
+in `01-research/2-flows/04-validation-check-results/NOTES-vercel.md`.
 
 ### Three severities, and nothing blocks
 
@@ -676,7 +676,7 @@ Figma's export dialog does exactly what we are refusing — `0 of 0 selected` be
 — and the benchmark records why it gets away with it: the blocker is one named action away, it is a
 property of this second's selection rather than of the document, and re-exporting costs nothing. Our
 Problems are properties of the project, the fix may be four items away, and the archive is the whole
-point of the product. See `research/4-benchmark/NOTES-figma-export.md`.
+point of the product. See `01-research/4-benchmark/NOTES-figma-export.md`.
 
 **And there is exactly one exception, added 2026-09-20 with Q16, written down as an exception so it
 cannot spread.** **On a project with nothing in it, the control that enters `Run` is inert.** It is
@@ -833,7 +833,7 @@ true earlier* is not built.
 found** — as counts, `2 problems · 1 note · 1 skipped` — and **which agent target it ran against**.
 Not the findings themselves: to see them again you check again, which costs nothing because we run
 nothing on anyone's machine. The counts are there because a count is the thing you can act on and the
-thing that invites the click (`research/4-benchmark/NOTES-vscode.md`, the best consequence disclosure
+thing that invites the click (`01-research/4-benchmark/NOTES-vscode.md`, the best consequence disclosure
 in the benchmark), and the click is a fresh check.
 
 **The word is *checked*, never *works*.** We have not run anything: the archive was not opened, no
@@ -886,10 +886,10 @@ the receiver — **and `SETUP.md` tells the thing standing on the machine where 
 lives.** It is the only reader in a position to *act* on the sentence rather than note it, and acting
 on it is exactly what the answer asks for: the external one wins.
 
-The reasoning is in `research/FINAL.md` §3, Q2, and it rests on two things. The loudest pain in the
+The reasoning is in `01-research/FINAL.md` §3, Q2, and it rests on two things. The loudest pain in the
 ecosystem is *the archive lands on a machine and does not run* — 182 reactions for
 *MCP Servers Don't Work with NVM*, over a top-of-tracker made of PATH, node version managers and
-platform paths (`research/3-pain/user-pain.md`). And the benchmark found **B4 — produce an artefact
+platform paths (`01-research/3-pain/user-pain.md`). And the benchmark found **B4 — produce an artefact
 and hand it over — is the weakest flow in the industry**, nobody above 4, with every cell scoring
 what a product says about its own state and none about the machine its artefact lands on.
 
@@ -971,7 +971,7 @@ models overrides precisely enough to offer `Reset fill` by name, and then draws 
 identically to a clean one everywhere except a context menu. The diff is already computed, so the
 card carries it — and names the fields that differ, not just the fact that some do. Revert needs two
 granularities, the whole item and a single field, with Reset kept next to Detach as the two halves
-of one axis. See `research/2-flows/05-linked-vs-detached/NOTES.md`.
+of one axis. See `01-research/2-flows/05-linked-vs-detached/NOTES.md`.
 
 **All three live in the configuring mode** (settled 2026-09-20, Q21). They change the content of the
 set, and §8's rule for the `✕` covers them without amendment: **a row being read is not a row being
@@ -995,7 +995,7 @@ is carried by the project, not by the card.
 
 Chosen 2026-09-01 at the end of the research phase. Five shapes for the key flow — **assemble a set
 → check it → export** — were compared on the benchmark's five categories; the reasoning, the four
-rejected variants and what each donated are in [`research/5-patterns/patterns.md`](research/5-patterns/patterns.md).
+rejected variants and what each donated are in [`01-research/5-patterns/patterns.md`](01-research/5-patterns/patterns.md).
 
 The result is a hybrid, stated as a choice: ~~**command-first assembly**~~ — **list-and-panel assembly
 since 2026-09-20, Q14; what stage 5 called command-first is what the register calls *P2 with a pane***
@@ -1007,7 +1007,7 @@ because Q1, Q2 and Q4 land inside this flow and Q2 might have added a surface no
 not: Q2 lands as two more stages inside Run, which is already a stage list; Q1 as a scope switch
 inside Library, which is already a browse screen; Q4 as commands on a project row, exactly where
 stage 5 predicted. **Three surfaces plus Projects, and the seam is still Check.** The finalisation
-section of [`research/4-benchmark/benchmark.md`](research/4-benchmark/benchmark.md) still governs how
+section of [`01-research/4-benchmark/benchmark.md`](01-research/4-benchmark/benchmark.md) still governs how
 to read the scores behind it: the rubric grades craft, not weight.
 
 - **Library** — the full collection. Filters by kind and tag, search, add/edit form, and the
@@ -1282,7 +1282,7 @@ Kept in the architecture's line of sight, not built:
   an action there until it has something to do. Do not ship a dead toggle on the most load-bearing
   word in the model. (The rule has one documented exception and it does not apply here — **context
   menus grey rather than hide**, because a stable item order is worth more than a short list. See
-  finding 7 in `research/4-benchmark/benchmark.md`.)
+  finding 7 in `01-research/4-benchmark/benchmark.md`.)
 - **Observability of what actually ran — refused, and it is a different product** (settled
   2026-09-20, closing Q12). *When I depend on something I cannot see working, I want to watch what it
   actually did* is **importance 3 for the primary persona** and the **second main-job candidate that
@@ -1462,9 +1462,9 @@ refused**; see §9 for the boundary. *This paragraph used to put both on the far
 ## 12. Open questions
 
 **The open ones live in one place, and it is not here.**
-[`research/research-plan.md`](research/research-plan.md) ends with a register — every open question
+[`01-research/research-plan.md`](01-research/research-plan.md) ends with a register — every open question
 with an ID, who raised it, **what would answer it**, and what it blocks. Section 3 of
-[`research/FINAL.md`](research/FINAL.md) holds the other half: what was read before each decision and
+[`01-research/FINAL.md`](01-research/FINAL.md) holds the other half: what was read before each decision and
 what the alternatives were. Questions are added to the register as work turns them up and answered
 together in a sitting, once the picture is whole, rather than one at a time on partial evidence. Do
 not keep a second list in this file; two lists drift, and this document has already been bitten by
@@ -1521,7 +1521,7 @@ empty state with `Check` and `Export` disabled**, the product's one named except
 whether **counts are a wide enough channel for a verdict**, since `0 problems · 0 notes` reads the same
 on an empty set and a perfect one; and **Q17 — deleting a library item is confirmed, never refused**
 (§5), leaving open **what happens to a detached row whose original is deleted**. The reasoning is in
-[`research/research-plan.md`](research/research-plan.md), the four dated sections at the end.
+[`01-research/research-plan.md`](01-research/research-plan.md), the four dated sections at the end.
 
 **None were live between 2026-09-15 and 2026-09-20 — the sitting had been held.** **Q7 — the primary persona — is the
 collector**, which resolves `personas.md`'s merge toward its collecting half; **Q8 — the main job — is
@@ -1531,7 +1531,7 @@ the user's own rule, and the product must say when it disagrees** — answered i
 with detection named as unsolved, because §9 parses nothing and we never see the other machine.
 ~~**Q9, Q11 and Q12 are deferred with stated reasons.**~~ **Q9 and Q11 are deferred; Q12 was closed as
 *refused* on 2026-09-20** and moved into §9 — see the traceability matrix.** The dispositions and the reasoning are in
-[`research/research-plan.md`](research/research-plan.md), *The sitting — 2026-09-15*. ~~**Q10's answer
+[`01-research/research-plan.md`](01-research/research-plan.md), *The sitting — 2026-09-15*. ~~**Q10's answer
 is not yet built into §5 or §6** — it needs a declared field and a Note, and **it is the one
 disposition still owing a mechanism.**~~ **Built on 2026-09-16: `defersTo` on `Item` (§5,
 *Deference*), a Note on the item's own row (§6), and the sentence carried onward to the shared page
@@ -1568,16 +1568,16 @@ owed**~~ — **held 2026-09-15, see above** — with
 movements) and **Q9 the only entry that gained evidence**, which says what the public shelf should
 hold rather than whether it ships. Q5 was **re-pointed rather than re-opened** — its instrument is now
 named. Their dispositions are below; the reasoning, and what was read before
-each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
+each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
 
 **Closed, and recorded here because the answers are part of the spec.**
 
 - ~~Competitors and references to position against~~ — surveyed. 15 companies, 12 flows, ~70 captures,
-  two issue trackers and the source of the nearest dead competitor, in [`research/`](research/), one
-  folder per stage. Start at [`research/FINAL.md`](research/FINAL.md).
+  two issue trackers and the source of the nearest dead competitor, in [`research/`](01-research/), one
+  folder per stage. Start at [`01-research/FINAL.md`](01-research/FINAL.md).
 - ~~Visual direction and tone~~ — still not chosen, but no longer a question *here*: it is the first
   task of **lesson 06, concept** — tone of voice is its own lesson, 05 — with its reference material already gathered in
-  `research/2-flows/10-dark-design-language/`.
+  `01-research/2-flows/10-dark-design-language/`.
 - ~~Does `visibility` appear in the MVP interface~~ — no. Section 9.
 - ~~Does anything read `version`~~ — the field is gone; external references are pinned instead.
   Sections 5 and 9.
@@ -1602,7 +1602,7 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
   instrument here can answer it. The trigger is written down: ask five practitioners before the first
   feature that only pays off under one answer. Blocks positioning, not the build. **The instrument
   became unavailable on 2026-09-09** — the disposition stands, and
-  [`research/research-plan.md`](research/research-plan.md) records what can be reached without it.
+  [`01-research/research-plan.md`](01-research/research-plan.md) records what can be reached without it.
 - ~~Styling engine (Q6)~~ — **deferred to lesson 08, design tokens**, decided on two built components.
   The criterion is recorded: tokens and two real themes first-class, and the engine must not push
   utility classes into components that are themselves the product's value. Section 10.
@@ -1628,5 +1628,12 @@ each, is in section 3 of [`research/FINAL.md`](research/FINAL.md).
   *The reason is lesson 03. It renumbered its own plan mid-flight, voided one of its own answers within
   hours of writing it, and caught three regressions it had introduced that morning. None of that belongs
   in a specification and all of it was worth being able to read back.*
+- **The repo is one folder per lesson, numbered as the course numbers them** (reorganised 2026-10-01):
+  `01-research/` · `02-personas-jtbd/` · `03-information-architecture/` · `04-wireframes/` ·
+  `05-tone-of-voice/`, each indexed by its own `README.md`. **The register stays in
+  `01-research/research-plan.md`** — it was born there and every lesson writes to it. Generators —
+  the lesson pages and the prototypes — live in `tools/`; **nothing that builds something lives only in
+  a scratchpad.** The deploy is `vercel.json` plus `.vercelignore`, a whitelist: a new page is not
+  served until it is listed there, and a moved page needs a redirect from its old address.
 - This file is the single source of truth for the product. The original brief has been
   folded into it and deleted; there is no other spec to reconcile against.
