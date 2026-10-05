@@ -890,3 +890,75 @@ Q-G's control came back. **The discarded versions are named in the source docume
 **The day's arithmetic: 36 `[?]` cells this morning, 30 tonight; the P1 column from seven unknowns to three; two numbers raised. And the sentence *every P2 cell carrying a number is second-hand* is no longer true** — two of them now rest on diffs. **P3's ten stay ten.**
 
 **A third pass closed one more and ended on a wall worth naming.** **H-J7/P1 `[?]` → 2** — the unwritten half, four independent voices, one of whom prices it at *“10–30 minutes every time”*; the cell is deliberately **not** a 3, because all four were found in a venue where having built something is the entry ticket, and counting the building as importance would be circular. **And P3 was hunted a fourth time, by inverting the method**: instead of going where people are, go to **the shelves themselves** — 18 of the largest public collections, **568 issues**. Three real consumers turned up, blocked by exactly what this product exists to prevent: a 4,386★ collection whose agents require an **undeclared `context7 MCP`** so that *“new users… are unable to run these agents as intended, leading to immediate failure and frustration”*; a **first-timer facing a per-file collision prompt** — *“Is this supposed to happen? What should i do here?”* — repeated for every agent; and somebody lost between multiple installed agents. **None of them fills a cell, and the reason is the finding: the blocker on what remains is persona attribution, not evidence.** A public artefact shows an act; a persona is defined by a situation. You can see that somebody installed a stranger's agents and could not run them; you cannot see whether they had material of their own. **P2's five and P3's ten are not waiting for a better query — they are waiting for somebody to be asked.**
+
+---
+
+# 10. Competitors' language — the quiet half, fetched for lesson 05
+
+**Added 2026-10-05, for the principles in [`05-tone-of-voice/voice.md`](../05-tone-of-voice/voice.md).**
+The research already held the loud half of the competitors' language, which is conflict and failure
+copy: Terraform, npm `ERESOLVE`, GitHub checks
+([`2-flows/11-copy-and-error-language/`](2-flows/11-copy-and-error-language/)), plus Vercel's,
+VS Code's and Figma's consequence copy in the benchmark notes. **What was missing is how they talk
+when nothing is wrong**: taglines, buttons, how an item is described, how trust is claimed, and how a
+destructive step is confirmed. These sixteen were fetched from public pages on 2026-10-05.
+
+**How far the quotes can be trusted.** WebFetch's summariser rewrote text it presented as a quote:
+Tessl's *"Submit your skill and Tessl runs evals automatically"* came back as *"Optimize your
+skill…"*. **So ten of the sixteen were checked against the raw page with `curl` and `grep`.** The two
+marked *(summariser)* were not, and **they are not to be quoted as verbatim.** Under rule 5 of *The
+three marks*, every row is `✓` for **what the vendor says about itself**, never for what its product
+does.
+
+| # | Product | Surface | Exact text | Source |
+|---|---|---|---|---|
+| 1 | Smithery | Tagline | *"Give agents more agency"* / *"Connect agents to thousands of tools and services. Auth, credentials, and sessions handled for you."* | [smithery.ai](https://smithery.ai) |
+| 2 | Smithery | Button, trust | **`Add to toolbox`** on every card · *"22.49k uses"* · badge **`Verified`** | [smithery.ai](https://smithery.ai) |
+| 3 | Tessl | Tagline | *"Build your software factory, one skill at a time"* / *"Composable and built to grow with you."* | [tessl.io](https://tessl.io) |
+| 4 | Tessl | Trust, framed as fear | *"One in seven skills carries a critical security risk. Every skill runs with the same access as your developers."* | [tessl.io](https://tessl.io) |
+| 5 | Tessl Registry | Item description | *"Skills are instructions that tell AI coding agents how to use your library, API, or workflow correctly. **Evaluated, secured, versioned, and discoverable.**"* | [tessl.io/registry](https://tessl.io/registry) |
+| 6 | Tessl Registry | Publisher onboarding | *"Submit your skill and Tessl runs evals automatically. **You get a score**, actionable improvements, and a page in the registry. Developers and their agents start finding you immediately."* · axis *"Does it follow best practices?"* | [tessl.io/registry](https://tessl.io/registry) |
+| 7 | Glama | Headline, trust | *"Open-Source MCP Servers – **96,436** in the Glama Registry"* · `Official` · `Claimed` · `Security` · *"Tool Definition Quality Score"* | [glama.ai/mcp/servers](https://glama.ai/mcp/servers) |
+| 8 | mcp.so | Tagline, sections | *"Discover useful MCP servers"* · Featured: *"**Hand-picked, production-ready**"* · Trending: *"What the community is installing"* · `Submit Server` | [mcp.so](https://mcp.so) |
+| 9 | PulseMCP | Tagline *(summariser)* | *"MCP Moves Fast. Stay Current Here."* · *"Active member of the MCP Steering Committee"* | [pulsemcp.com](https://www.pulsemcp.com) |
+| 10 | Anthropic skills | Description, disclaimer | *"Skills are folders of instructions, scripts, and resources that Claude loads dynamically…"* · *"**These skills are provided for demonstration and educational purposes only.**"* · *"Always test skills thoroughly in your own environment before relying on them for critical tasks."* | [anthropics/skills](https://github.com/anthropics/skills) |
+| 11 | Claude Code docs | Description, warning | *"Create a `SKILL.md` file with instructions, and Claude adds it to its toolkit."* · *"**A skill can grant itself broad tool access, so review the `allowed-tools` of skills checked into a repository before you run Claude Code there.**"* | [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills) |
+| 12 | GitHub | Destructive confirmation | *Danger Zone* → `Delete this repository` → `I want to delete this repository` → *"I have read and understand these effects"* → type the name → `Delete this repository` | [docs.github.com](https://docs.github.com/en/repositories/creating-and-managing-repositories/deleting-a-repository) |
+| 13 | GitHub | Empty state | *"Quick setup — **if you've done this kind of thing before**"* | quoted as a title in [community #23743](https://github.com/orgs/community/discussions/23743) |
+| 14 | Vercel | Destructive confirmation | *"Deleting your project will also delete the **deployments, domains, environment variables, and settings** within it."* · `Delete` → `Continue` · typed phrase *"delete my project"* | [vercel.com/docs](https://vercel.com/docs/projects/managing-projects) · [community #2990](https://community.vercel.com/t/deleting-a-project/2990) |
+| 15 | Linear | Tagline, recovery | *"The product development system for teams and agents"* · *(summariser)* *"Recently deleted issues are stored in the archives for 30 days…"* | [linear.app](https://linear.app) · [docs](https://linear.app/docs/delete-archive-issues) |
+| 16 | Raycast Store | Tagline, button, trust | *"**Sprinkle a little magic on your day.** Connect your tools, and take your daily workflow to the next level."* · `Install Extension` · `By Raycast` · `Installs` | [raycast.com/store](https://www.raycast.com/store) |
+
+**Not reached.** Cursor Directory returned 429 and then a Vercel security checkpoint. Linear's and
+Vercel's empty states and success toasts sit behind sign-in, and no public page quotes them. Smithery
+defines `Verified` nowhere public. Glama's A–F grades were reported only by the summariser and are
+left out. **So the quietest part of the quiet half, empty states and toasts, is still unread**, and
+no principle leans on it.
+
+## Where everybody writes the same way
+
+1. **The shelf talks about itself, not about the item.** It does this with a count — *96,436* (7),
+   *thousands of tools* (1) — or with its own judgement: *Hand-picked, production-ready* (8),
+   *Evaluated, secured, versioned* (5). **The outlier is Anthropic's own README (10)**, which opens
+   on a disclaimer and hands the testing to the reader.
+2. **Trust is a number or a badge.** Smithery has *uses* and `Verified` (2), Glama a *Quality Score*,
+   `Official` and `Claimed` (7), Tessl *You get a score* (6), Raycast `Installs` (16). **Only the
+   two Anthropic sources (10, 11) grade nothing.** They put the check on the reader, and Raycast's
+   `By Raycast` is provenance rather than a grade. On the product side, §1 of this file found the same
+   thing: *Trust has moved from social proof to measurement*. Here it is in the words.
+3. **Risk is used to sell the remedy.** Tessl opens on *"One in seven skills carries a critical
+   security risk"* (4), and the next block offers its score. Claude Code states the same risk as a
+   plain instruction and sells nothing (11).
+4. **Destructive steps name what goes with them, and nobody writes a bare *Are you sure?*.**
+   Vercel lists the blast radius (14), and GitHub makes you read the effects and type the name (12).
+   Linear barely confirms and offers recovery instead (15, summariser).
+5. **Buttons borrow the vendor's metaphor.** `Add to toolbox` (2), *adds it to its toolkit* (11),
+   against the plain `Install Extension` (16) and `Submit Server` (8).
+6. **Taglines aspire, even on the craft products.** *Sprinkle a little magic* (16), *software
+   factory* (3), *more agency* (1). **The one dry line is GitHub's**, addressed to somebody who
+   already knows the job: *"if you've done this kind of thing before"* (13).
+
+**What this means for us.** Points 1, 2 and 6 are where the voice can differ, because the category
+writes like a shop and `CLAUDE.md` §5 already refuses scores and badges. Points 3 and 4 are where we
+share ground with the best of them, so the voice takes those as a floor rather than claiming them as
+a difference.

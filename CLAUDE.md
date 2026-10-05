@@ -710,6 +710,13 @@ voice and microcopy**, with the control called `Run` until then. **If it turns o
 naming — if `Export` becomes a control on the Project screen — it reopens §8**, because §8 puts Export
 inside Run on purpose.
 
+**Decided 2026-10-05, Q36: the main control reads `Export…`.** The owner chose the label in lesson 05.
+It is the same control, opening the same mode, and only the word changed: the mode is titled
+`Export`, and the archive is still made at its last stage, after the findings and the handover. The
+`…` says the act is not immediate. **The check keeps its own words**: *Checking*, *Checked*,
+`Check again`. On an empty project, Q16's one inert control is now a greyed `Export…`, and the rule
+it is an exception to is unchanged.
+
 **Instead, an unclean export is confirmed.** Pressing Export on a set with Problems opens a
 confirmation that names the consequence in the present tense, in GitHub's mergebox register:
 
@@ -1097,7 +1104,7 @@ to read the scores behind it: the rubric grades craft, not weight.
   line of text. **A click on a row opens the item in a side panel beside the set**, and **that panel is
   where `Detach` lives** — the action §5 and §7 describe and no screen had offered — together with the
   detached row's differing fields, `Reset` per field and whole, and `Promote`. **And the mode is a
-  draft**: its head reads *Cancel · Check · **Save***, so adds, removes and a detached row's edits are
+  draft**: its head reads *Cancel · Export… · **Save*** (*Check* until Q36), so adds, removes and a detached row's edits are
   kept on `Save` and dropped on `Cancel`. *Leaving the mode is still one named action — now one of two,
   keep or discard.* `Promote` is the one immediate act inside it, because it creates a library item.
 
@@ -1111,7 +1118,7 @@ to read the scores behind it: the rubric grades craft, not weight.
   **Amended 2026-09-27, Q34: the new project opens in the configuring mode, the panel already open,
   and the body keeps only its text.** The one action was a click that did nothing but open what the
   person had come for, so it is gone; the control into `Run` stays inert, which is all Q16 ever needed.
-- **Run** — entered by **Check** from a Project, by the same control on a **shared project**, and,
+- **Run** — entered by **`Export…`** from a Project (*Check* until Q36, 2026-10-05; the mode is titled `Export`), by the same control on a **shared project**, and,
   since 2026-09-20, **from a Library row exporting a single item** (§6, Q15). It takes the whole
   surface: a stack of stages, each with its
   own verdict, duration and expansion, in the shape of a Vercel deployment page. The file tree of the
@@ -1185,7 +1192,7 @@ overlay, a region, a state or content** — including `Run`, which takes the who
 not a place, because nothing is stored and no address returns you to it.
 
 **The main flow, in one line.** `Projects` → a `Project` → **configure** it, adding from the library
-panel until the set is complete → **Check**, which enters `Run` → read the findings, fix what is
+panel until the set is complete → **`Export…`**, which enters `Run` (*Check* until Q36) → read the findings, fix what is
 fixable from its row, confirm the rest → read the handover → **Export**. **Nothing blocks anywhere
 along it**, and the one thing it cannot promise is the end: the archive is correct, and whether the env
 values exist on the receiving machine is a fact about a machine we never touch. **Checked, never
@@ -1198,7 +1205,7 @@ one click away rather than behind a switch, **and it is still one screen, read-o
 no entry: an entry pointing at a mode would promise a place nobody can be sent to.
 
 **Depth to the archive: three taps**, for somebody already signed in — `Projects` → `Project` →
-`Check` → `Export`. **Four** when the set does not exist yet, because a new project's empty state has
+`Export…` → `Export`. **Four** when the set does not exist yet, because a new project's empty state has
 one action and it enters the configuring mode; **four** when arriving through the Library, which the
 panel made optional rather than merely paid for; **two for the receiver**, who owns nothing and has the
 shortest path in the product. **Every path costs one more from a cold, signed-out start.**
@@ -1489,6 +1496,10 @@ shared link keeps no action** — `flows.md`'s `Stuck` over *no dead end*, becau
 off the door; **every page the prototypes drew first is kept into the wireframes**; Delete item is drawn;
 `db-migrate` requires `seed-data`, one direction everywhere. *The choices were proposed with the fix, not
 picked by the owner, and the register says so.*
+
+**Added 2026-10-05, by lesson 05 — Q36.** **The Project screen's main control reads `Export…`**: the
+owner's choice of label for the control that enters `Run`, closing the naming question Q16 deferred.
+The mode is titled `Export` and the check inside keeps its own words. Nothing new is drawn (§6, §8).
 
 **Live as of 2026-09-20: Q9 and Q11 — deferred at the sitting — plus Q16 and Q17, each raised and
 answered on 2026-09-20 with one named question left open. Q12 left the list the same day: it is

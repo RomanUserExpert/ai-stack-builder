@@ -1837,6 +1837,46 @@ its pair, and they are open to reversal on review.*
 `prototypes.md`, `_critique.md` and `CLAUDE.md` §12. **Not changed**: `sitemap.md` and `flows.md` — lesson
 03 is closed, and this entry is where their amendment lives.
 
+### Q36 — the Project screen's main control reads `Export` — raised and answered 2026-10-05
+
+**Raised by lesson 05's dictionary and answered by the owner on the sample screen, in two words:
+*нужен експорт* — the text of the main button in the project.** This closes the question Q16 deferred
+to lesson 05: *the main action should be Export, and checks and runs are sub-processes*.
+
+**The dictionary had recommended the other way**: `Check` on the entry and `Export` only as `Run`'s
+final stage, because a button should say what happens first and what happens first is a check
+(`voice.md`, *the control that starts it*). It recorded the owner's version as the alternative that
+**puts Export on the Project screen**, and therefore belongs here rather than in a word list. The
+owner chose it.
+
+1. **The Project screen's primary control reads `Export…`.** It is the same control, with the same
+   place and the same destination: it opens the mode `CLAUDE.md` §8 calls `Run`. **Only the label
+   changes. The control count does not, and nothing new is drawn.** It also reads `Export…` in the
+   configuring head (*Cancel · Export… · Save*), because one act takes one label.
+2. **The `…` is the honest half of the label.** The archive is made at the mode's **last** stage, after
+   the findings and the handover have been read, which `CLAUDE.md` §6 requires. `…` on a button means
+   *more is shown before the act completes* (`voice.md`, D20). The label promises the outcome, and the
+   glyph says it is not immediate. *That was proposed with the change, not chosen by the owner, and is
+   open to reversal.*
+3. **The mode is titled by what it ends in: `Export`.** The check inside it keeps its own words:
+   *Checking — stage 4 of 10*, *Checked just now*, `Check again`. **Checked, never works is untouched.**
+   The verdict still says *checked*, and only the act around it is named for its outcome.
+4. **Q16's exception now greys a button that reads `Export…`.** On an empty project that one control
+   is inert, exactly as before. **The rule it is an exception to is unchanged**: *export is never
+   disabled* is a rule about **findings**, and an empty project has none. What has changed is that the
+   exception is now visible by name, which is clearer than it was.
+
+**What it costs, said rather than absorbed.** Principle 2 of `voice.md` asks a button to say what
+happens when it is pressed. `Export…` says what happens **at the end**. The cost is carried by the
+`…` and by the mode itself, which shows every finding before the archive exists. A person who expects
+a file from the first press will meet a stage list instead. This has to be checked on the sample when
+the owner reads it aloud.
+
+**Written the same day** into `CLAUDE.md` §6, §8 and §12, `voice.md` (*Dictionary*, *Button*), the 17
+Project pages and the 8 `Run` sample pages (`tools/rewrite_copy.py q36`), and `microcopy.md`. **The
+receiver's entries, the Library row's single-item export and the prototypes follow in step 6**, under
+the same dictionary entry.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

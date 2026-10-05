@@ -91,3 +91,18 @@ behind — delete it. **Re-run on 2026-10-01, it reproduced all 239 pages with n
 rebuild. **The generators find their wiring points by matching text on the page and assert that text
 exists**, so rewriting a label on a page — lesson 05's whole job — fails an assertion here until the
 generator is updated with it. That failure is the point: it names the line that changed.
+
+## `extract_copy.py`, `build_microcopy.py` — the copy inventory of lesson 05
+
+```
+python tools/build_microcopy.py > table.md   # every line of 04-wireframes/pages/*.html, by screen
+```
+
+`extract_copy.py` reads the 80 product pages (not the viewer, not the prototypes) and returns one row
+per line of text: page, zone, line, type, including `placeholder`, `aria-label` and `title`.
+`build_microcopy.py` groups the rows by screen, folds a line repeated across a screen's states into one
+row, decides whose words it is (`product` · `product, with slots` · `generated` · `user`) and applies
+the marks. **Its output is the table of [`05-tone-of-voice/microcopy.md`](../05-tone-of-voice/microcopy.md)
+as of step 1 (2026-10-05)**; the findings above the table are hand-written. From step 5 the table is
+edited by hand and the script is not re-run over it — it stays as a way to re-inventory the pages and
+diff against the table in step 7.
