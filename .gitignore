@@ -48,3 +48,4 @@ tools/_research-page.build.html
 # day, which regressions were caught — and is CLOSED rather than deleted when the
 # lesson closes. Anything durable lives in CLAUDE.md and in the register instead.
 **/PROGRESS-*.local.md
+__pycache__/
