@@ -26,4 +26,8 @@
 !04-wireframes/prototypes
 !04-wireframes/prototypes/*
 !04-wireframes/prototypes/*/*
+# 05 · tone of voice and microcopy
+!05-tone-of-voice
+05-tone-of-voice/*
+!05-tone-of-voice/voice.html
 !vercel.json

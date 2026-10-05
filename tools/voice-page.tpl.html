@@ -1,0 +1,238 @@
+<title>Phase 5 &mdash; Tone of voice and microcopy &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- a principle: rule, then the line written by it and the line that breaks it --- */
+.principle{margin:26px 0 34px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.principle > header{padding:14px 18px;border-bottom:1px solid var(--rule-soft);background:var(--sunken)}
+.principle > header b{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+.principle > header h3{margin:0;font-size:17px;line-height:1.35}
+.principle .rule{padding:14px 18px 4px;font-size:15px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);margin-top:10px}
+.pair > div{padding:12px 18px}
+.pair > div + div{border-left:1px solid var(--rule-soft)}
+.pair .lab{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 6px}
+.pair .yes .lab{color:#15803d}
+.pair .no .lab{color:var(--bad)}
+.pair p{margin:0 0 6px;font-size:14px}
+.pair .no p:not(.lab){color:var(--ink-2);text-decoration:line-through;text-decoration-color:color-mix(in srgb, var(--bad) 55%, transparent)}
+.principle .why{padding:12px 18px 14px;font-size:13.5px;color:var(--ink-2)}
+.principle .why p{margin:0 0 8px}
+.principle .settles{padding:0 18px 14px;font-size:12.5px;color:var(--ink-3)}
+@media (max-width:760px){ .pair{grid-template-columns:1fr} .pair > div + div{border-left:0;border-top:1px solid var(--rule-soft)} }
+
+/* --- rules by element, as a grid of cards --- */
+.elements{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin:22px 0 10px}
+.element{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:14px 16px}
+.element h3{margin:0 0 8px;font-size:15px}
+.element p{font-size:13.5px;margin:0 0 8px}
+.element blockquote{margin:0 0 8px;padding:8px 10px;border-left:2px solid #16a34a;background:var(--sunken);font-size:13px}
+.element blockquote p{margin:0 0 4px}
+.element .checked{font-size:12px;color:var(--ink-3)}
+
+/* --- markdown rendered from the source --- */
+.md table{border-collapse:collapse;width:100%;font-size:13px}
+.md th,.md td{border-bottom:1px solid var(--rule-soft);padding:9px 10px;text-align:left;vertical-align:top}
+.md thead th{background:var(--sunken);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.md h3{margin-top:30px}
+.md blockquote{margin:12px 0;padding:10px 14px;border-left:2px solid var(--rule);background:var(--sunken);font-size:14px}
+.md .tw{margin:14px 0 22px}
+
+/* --- was / now --- */
+table.wn{border-collapse:collapse;width:100%;font-size:13px;background:var(--surface)}
+table.wn th,table.wn td{border-bottom:1px solid var(--rule-soft);padding:8px 10px;text-align:left;vertical-align:top}
+table.wn thead th{position:sticky;top:0;background:var(--sunken);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+table.wn td.was{color:var(--ink-3);text-decoration:line-through;text-decoration-color:color-mix(in srgb, var(--bad) 45%, transparent);width:34%}
+table.wn td.now{color:var(--ink);font-weight:500;width:34%}
+table.wn td.why{color:var(--ink-3);font-size:12px}
+table.wn td.n{font-family:var(--font-mono);text-align:right;white-space:nowrap}
+.bar{display:inline-block;height:8px;background:var(--accent);border-radius:2px;vertical-align:middle;margin-right:8px}
+</style>
+
+
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><span class="now" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></span></li>
+      <li><span class="soon" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+
+<header class="mast">
+  <p class="eyebrow">Phase 05 &middot; Tone of voice and microcopy</p>
+  <h1>How the product speaks, and every line it says</h1>
+  <p class="phasemeta">Phase <strong>5 of 12</strong> &middot; all seven of the lesson&rsquo;s steps &middot; <strong>1&ndash;5 Oct 2026</strong> &middot; source of truth: <strong>voice.md</strong> for the rules, <strong>microcopy.md</strong> for the lines, <strong>CLAUDE.md</strong> &sect;14 for the summary</p>
+  <p class="standfirst">The screens of phase 04 already said real words, but those words were written together with the structure, and in places they named the same thing three ways. <strong>This phase gives AI Stack Builder one voice</strong>: five principles that are rules rather than adjectives, a dictionary with one word per concept, a forbidden list, and rules for each kind of element. Then <strong>every line on every screen was rewritten</strong> against them, and checked. <em>A voice document that rewrote no screen is decoration.</em></p>
+  <dl class="facts">
+    <div><dt>Principles</dt><dd>5<small>each from a line of research</small></dd></div>
+    <div><dt>Lines on screen</dt><dd>{{N_ROWS}}<small>on 80 pages</small></dd></div>
+    <div><dt>Rewritten</dt><dd>{{N_CHANGED}}<small>markup kept</small></dd></div>
+    <div><dt>Your content</dt><dd>{{N_USER}}<small>untouched</small></dd></div>
+    <div><dt>Defects found</dt><dd>22<small>all fixed</small></dd></div>
+    <div><dt>Register entries</dt><dd>2<small>Q36, Q37</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#read"><b>Start</b>How to read this</a></li>
+    <li><a href="#inventory"><b>Step 01</b>The inventory</a></li>
+    <li><a href="#principles"><b>Step 02</b>Principles</a></li>
+    <li><a href="#dictionary"><b>Step 03</b>Dictionary</a></li>
+    <li><a href="#forbidden"><b>Step 03b</b>Forbidden</a></li>
+    <li><a href="#elements"><b>Step 04</b>Rules by element</a></li>
+    <li><a href="#sample"><b>Step 05</b>The sample</a></li>
+    <li><a href="#rollout"><b>Step 06</b>The roll-out</a></li>
+    <li><a href="#check"><b>Step 07</b>The check</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ HOW TO READ ============ -->
+<section id="read" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>How to read this</h2></div>
+  <p class="qline">A voice is rules, not a mood. <strong>Every principle on this page carries the line of research it comes from</strong>, and a principle that could not was not kept.</p>
+
+  <p><strong>This page is derived, not composed.</strong> The principles, the dictionary, the forbidden list, the rules by element and every was/now count below are read out of <code>voice.md</code> and <code>microcopy.md</code> when the page is built, so it cannot drift from them.</p>
+
+  <p><strong>Two boundaries held throughout.</strong> <strong>Only text</strong>: no element was added, moved or removed in the rewrite, and a script compared every page&rsquo;s markup with the last commit. The one exception is four fixes in step 07, approved by name. And <strong>your content is not ours</strong>: item and project names, descriptions, paths, env key names, repos and refs were never rewritten. The sentences that carry them were.</p>
+
+  <p class="tnote"><strong>The audience decided the register before anything else did.</strong> The primary persona has copied the same files between projects for a year and suspects half of them do nothing. They want specifics, not an advertisement, and the whole category they choose from writes like a shop.</p>
+</section>
+
+<!-- ============ INVENTORY ============ -->
+<section id="inventory" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 01</span><h2>The inventory</h2></div>
+  <p class="qline">Every line of the 80 wireframe pages in one table: screen, zone, line, type. <strong>Marked, not rewritten.</strong></p>
+
+  <p>The inventory found <strong>no cheer at all</strong>: no exclamation marks, no emoji, no <em>successfully</em>, no <em>oops</em>. The wireframes had been written in the specification&rsquo;s register from the start. <strong>What it found was inconsistency</strong>: twenty-three places where the screens said the same thing differently.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">The thing</th><th>Here</th><th>There</th></tr></thead>
+      <tbody>
+        <tr><td class="name">The person&rsquo;s own items</td><td><code>My library</code></td><td><em>your library</em>, <em>the library</em>, <em>a library of my own</em></td></tr>
+        <tr><td class="name">The curated shelf</td><td><code>Public library</code></td><td><em>the shelf</em>, <em>items we have checked</em></td></tr>
+        <tr><td class="name">What a project holds</td><td><em>project</em></td><td><em>the set</em>, <em>this set</em></td></tr>
+        <tr><td class="name">A required item that came in</td><td><code>Auto-added</code></td><td><em>pulled in by</em>, <em>brings 3 items</em>, <em>the walk added</em></td></tr>
+        <tr><td class="name">Getting the archive</td><td><code>Export</code></td><td><em>Take the archive</em>, <em>Download the archive</em>, <em>Archive built</em> / <em>downloaded</em></td></tr>
+        <tr><td class="name">Our server failing</td><td><em>The server did not answer</em></td><td><em>didn&rsquo;t answer</em>, <em>our failure</em>, <em>something broke on our side</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote">Six of the twenty-three. The full list, D1&ndash;D23, is at the top of <code>microcopy.md</code>, and each one was closed by an entry in the dictionary.</p>
+</section>
+
+<!-- ============ PRINCIPLES ============ -->
+<section id="principles" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Principles</h2></div>
+  <p class="qline">Five, each with a rule, a line written by it, a line that breaks it, and where it comes from. <strong>Three of them come from the competitors&rsquo; language</strong>: where the whole category writes the same way, the difference is the voice.</p>
+
+  <p>The competitors&rsquo; quiet copy was fetched for this step: taglines, buttons, trust labels, confirmations, sixteen quotes from eleven products, ten of them checked against the raw page. <strong>Registries talk about themselves</strong> (<em>96,436 in the registry</em>, <em>Hand-picked, production-ready</em>). <strong>Trust is a number or a badge</strong> (<code>Verified</code>, <em>Quality Score</em>). <strong>Risk sells the remedy</strong> (<em>One in seven skills carries a critical security risk</em>). <strong>Taglines aspire</strong> (<em>Sprinkle a little magic on your day</em>).</p>
+
+  {{PRINCIPLES}}
+
+  <h3>What did not become a principle</h3>
+  <div class="md">{{NOT_PRINCIPLES}}</div>
+</section>
+
+<!-- ============ DICTIONARY ============ -->
+<section id="dictionary" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03</span><h2>Dictionary</h2></div>
+  <p class="qline">One concept, one word. <strong>Every entry closes a mark the inventory found</strong>, and its reason is written in the words the people in the research use.</p>
+  <div class="md wide">{{DICTIONARY}}</div>
+</section>
+
+<!-- ============ FORBIDDEN ============ -->
+<section id="forbidden" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03b</span><h2>Forbidden</h2></div>
+  <p class="qline">What the product never writes, each entry with what it would be and what it is instead. <strong>None of it was on our screens</strong>, so the <em>was</em> lines are the category&rsquo;s, marked as such, or the three that were ours.</p>
+  <div class="md wide">{{FORBIDDEN}}</div>
+</section>
+
+<!-- ============ ELEMENTS ============ -->
+<section id="elements" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 04</span><h2>Rules by element</h2></div>
+  <p class="qline">Eight kinds of line, one example each from AI Stack Builder, each checked against the principles and the dictionary. <strong>Empty leads to an action, an error says what to do, success does not celebrate.</strong></p>
+  <div class="elements wide">{{ELEMENTS}}</div>
+</section>
+
+<!-- ============ SAMPLE ============ -->
+<section id="sample" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>The sample</h2></div>
+  <p class="qline">One screen first, read by the owner before anything else was touched. <strong><code>Run</code> was chosen</strong>, because it carries nearly every register the specification had already fixed, and a wrong word costs most there.</p>
+
+  <p><strong>The owner changed one decision on it.</strong> The dictionary had recommended <code>Check</code> for the control that opens the mode, since what happens first is a check. The owner&rsquo;s answer was <em>the main button in the project is Export</em>. That puts Export on the Project screen, so it went to the register as <strong>Q36</strong> before it went anywhere else. The control now reads <code>Export&hellip;</code>, the mode is titled <code>Export</code>, and the check inside keeps its own words: <em>Checking</em>, <em>Checked</em>, <code>Check again</code>.</p>
+
+  <div class="tw wide">{{SAMPLE}}</div>
+</section>
+
+<!-- ============ ROLL-OUT ============ -->
+<section id="rollout" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>The roll-out</h2></div>
+  <p class="qline">The other sixteen screens, one agent per screen, each given <code>voice.md</code>, the sample, and a shared table of the lines that recur across screens, so that sixteen writers would not drift.</p>
+
+  <p><strong>The merge was computed, not transcribed.</strong> The rewrite changed no markup, so each page before and after aligns line for line, and the was/now table is built from the pages themselves. <strong>A cross-screen check then found three lines</strong> that two agents had written differently for one panel, and they were reconciled. The 239 prototype pages were rebuilt from the pages, and no old phrase survives in them.</p>
+
+  <div class="tw wide">{{ROLLOUT}}</div>
+</section>
+
+<!-- ============ CHECK ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 07</span><h2>The check</h2></div>
+  <p class="qline">Every line checked against the dictionary and the table. <strong>The table of defects came first, was reviewed by the owner, and only then fixed</strong>, in the pages and the table together.</p>
+
+  <p><strong>Screen against table: zero differences in either direction.</strong> No cliché, exclamation, emoji or <em>successfully</em>. Twenty-two defects all the same. Four of them needed markup, not text, and were approved by name: a stray link removed, the error code given its own line, and <strong>a shared project that reads as shared</strong>, which is register entry <strong>Q37</strong>.</p>
+
+  <div class="md wide">{{DEFECTS}}</div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">The lesson is finished. <strong>What it could not settle is listed, not smoothed over.</strong></p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Why it is not settled here</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Can counts carry a verdict?</td><td><code>0 problems &middot; 0 notes</code> still reads the same on an empty project and a perfect one. The voice made every count explicit, zeros included. It cannot make the channel wider.</td></tr>
+        <tr><td class="name">Copying the link again</td><td>Q37 made a shared project read as shared, and decided nothing about whether the owner can see or copy the link afterwards.</td></tr>
+        <tr><td class="name">The receiver&rsquo;s voice</td><td>Every line addressed to the receiver states what their machine needs. None guesses how they feel, because nobody has asked them.</td></tr>
+        <tr><td class="name">The longest row</td><td>The wireframes were written at real length, but width is measured in phase 07, when there is a type scale to measure it with.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote"><strong>From here on, every new line is written against <code>voice.md</code> and recorded in <code>microcopy.md</code></strong>. A line on a screen that is not in the table is a defect, and so is the reverse.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 05 of twelve.</strong> Built from <code>05-tone-of-voice/voice.md</code> and <code>microcopy.md</code>. The specification is <code>CLAUDE.md</code>, &sect;14 <em>Voice</em>; the open questions live in one register, <code>01-research/research-plan.md</code>, and nowhere else.</p>
+  <p>Phase 03 &mdash; <a href="../03-information-architecture/ia.html">information architecture</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">the wireframes</a>, where every line on this page now stands</p>
+</footer>
+
+</div>

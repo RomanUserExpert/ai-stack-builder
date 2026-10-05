@@ -1,0 +1,1105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The voice of AI Stack Builder: five principles drawn from research, a dictionary with one word per concept, a forbidden list, rules for each kind of interface line, and every line of the product rewritten against them, before and after.">
+<style>
+/* Baseline the artifact host normally supplies. */
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Phase 5 &mdash; Tone of voice and microcopy &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- a principle: rule, then the line written by it and the line that breaks it --- */
+.principle{margin:26px 0 34px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.principle > header{padding:14px 18px;border-bottom:1px solid var(--rule-soft);background:var(--sunken)}
+.principle > header b{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+.principle > header h3{margin:0;font-size:17px;line-height:1.35}
+.principle .rule{padding:14px 18px 4px;font-size:15px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);margin-top:10px}
+.pair > div{padding:12px 18px}
+.pair > div + div{border-left:1px solid var(--rule-soft)}
+.pair .lab{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 6px}
+.pair .yes .lab{color:#15803d}
+.pair .no .lab{color:var(--bad)}
+.pair p{margin:0 0 6px;font-size:14px}
+.pair .no p:not(.lab){color:var(--ink-2);text-decoration:line-through;text-decoration-color:color-mix(in srgb, var(--bad) 55%, transparent)}
+.principle .why{padding:12px 18px 14px;font-size:13.5px;color:var(--ink-2)}
+.principle .why p{margin:0 0 8px}
+.principle .settles{padding:0 18px 14px;font-size:12.5px;color:var(--ink-3)}
+@media (max-width:760px){ .pair{grid-template-columns:1fr} .pair > div + div{border-left:0;border-top:1px solid var(--rule-soft)} }
+
+/* --- rules by element, as a grid of cards --- */
+.elements{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px;margin:22px 0 10px}
+.element{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:14px 16px}
+.element h3{margin:0 0 8px;font-size:15px}
+.element p{font-size:13.5px;margin:0 0 8px}
+.element blockquote{margin:0 0 8px;padding:8px 10px;border-left:2px solid #16a34a;background:var(--sunken);font-size:13px}
+.element blockquote p{margin:0 0 4px}
+.element .checked{font-size:12px;color:var(--ink-3)}
+
+/* --- markdown rendered from the source --- */
+.md table{border-collapse:collapse;width:100%;font-size:13px}
+.md th,.md td{border-bottom:1px solid var(--rule-soft);padding:9px 10px;text-align:left;vertical-align:top}
+.md thead th{background:var(--sunken);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.md h3{margin-top:30px}
+.md blockquote{margin:12px 0;padding:10px 14px;border-left:2px solid var(--rule);background:var(--sunken);font-size:14px}
+.md .tw{margin:14px 0 22px}
+
+/* --- was / now --- */
+table.wn{border-collapse:collapse;width:100%;font-size:13px;background:var(--surface)}
+table.wn th,table.wn td{border-bottom:1px solid var(--rule-soft);padding:8px 10px;text-align:left;vertical-align:top}
+table.wn thead th{position:sticky;top:0;background:var(--sunken);font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+table.wn td.was{color:var(--ink-3);text-decoration:line-through;text-decoration-color:color-mix(in srgb, var(--bad) 45%, transparent);width:34%}
+table.wn td.now{color:var(--ink);font-weight:500;width:34%}
+table.wn td.why{color:var(--ink-3);font-size:12px}
+table.wn td.n{font-family:var(--font-mono);text-align:right;white-space:nowrap}
+.bar{display:inline-block;height:8px;background:var(--accent);border-radius:2px;vertical-align:middle;margin-right:8px}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&display=swap">
+
+<style>
+/* ------------------------------------------------------------------
+   Design language carried over from r-o-design.tech — the same tokens,
+   the same type pairing, the same border-led component grammar.
+------------------------------------------------------------------ */
+:root{
+  --bg:#f9f9f7;
+  --paper:#f9f9f7;
+  --surface:#fdfdfb;
+  --sunken:#f0f0ee;
+  --surface-hover:#ebebea;
+  --ink:#0d0d0d;
+  --ink-2:#3f3f3d;
+  --ink-3:#5a5a56;
+  --rule:#d4d4cf;
+  --rule-soft:#e2e2dd;
+  --accent:#e05f03;
+  --accent-hover:#c45200;
+  --accent-06:#e05f0312;
+  --accent-18:#e05f0330;
+  --accent-45:#e05f0378;
+  --bad:#a3342a;
+  --bad-soft:#f4e3e0;
+  --fill-strong:#c45200;   /* white on the brand orange is only 3.6:1 — this is 5.2 */
+  --fill-bad:#a3342a;
+  --on-fill:#ffffff;
+  --shadow:0 2px 12px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur:.18s;
+  --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Symbol",sans-serif;
+  --font-display:"Special Gothic Expanded One",Inter,-apple-system,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614;
+    --paper:#161614;
+    --surface:#1e1e1c;
+    --sunken:#121210;
+    --surface-hover:#232321;
+    --ink:#f0efe9;
+    --ink-2:#ababab;
+    --ink-3:#909090;
+    --rule:#52524f;
+    --rule-soft:#3a3a37;
+    --accent:#f57722;
+    --accent-hover:#ff8c3d;
+    --accent-06:#e05f0326;
+    --accent-18:#e05f0347;
+    --accent-45:#e05f0385;
+    --bad:#e88b80;
+    --bad-soft:#3a201d;
+    --fill-strong:#f57722;
+    --fill-bad:#e0655a;
+    --on-fill:#161614;     /* on a bright fill, dark text is the legible one */
+    --shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614;
+  --paper:#161614;
+  --surface:#1e1e1c;
+  --sunken:#121210;
+  --surface-hover:#232321;
+  --ink:#f0efe9;
+  --ink-2:#ababab;
+  --ink-3:#909090;
+  --rule:#52524f;
+  --rule-soft:#3a3a37;
+  --accent:#f57722;
+  --accent-hover:#ff8c3d;
+  --accent-06:#e05f0326;
+  --accent-18:#e05f0347;
+  --accent-45:#e05f0385;
+  --bad:#e88b80;
+  --bad-soft:#3a201d;
+  --fill-strong:#f57722;
+  --fill-bad:#e0655a;
+  --on-fill:#161614;
+  --shadow:0 2px 12px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--font-display);font-weight:400}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:3px
+}
+
+/* ---------- shell ---------- */
+.shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
+/* On wide screens the phase list is a rail fixed to the window's left edge (below), and the
+   content column is centred in what is left. Same rail, same width, on every phase page and on
+   the wireframes. */
+:root{--phases-w:240px}
+html.phases-collapsed{--phases-w:64px}
+@media (min-width:1080px){
+  body{padding-left:var(--phases-w)}
+  .shell{max-width:980px;padding:0 40px 120px}
+}
+.col{max-width:100%}
+.col>*{max-width:74ch}
+.col>.wide{max-width:100%}
+
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 44px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px
+}
+.mast h1{
+  font-size:clamp(30px,4.4vw,54px);line-height:1.02;letter-spacing:-.005em;
+  margin:0 0 26px;text-wrap:balance;max-width:17ch
+}
+.standfirst{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:62ch;margin:0 0 36px}
+.standfirst strong{color:var(--ink);font-weight:500}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));
+  gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)
+}
+.facts div{padding:14px 16px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts dt{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 6px;font-weight:600
+}
+.facts dd{
+  margin:0;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;
+  color:var(--ink);line-height:1;letter-spacing:-.01em
+}
+.facts dd small{font-size:11.5px;color:var(--ink-3);display:block;margin-top:6px;font-weight:400;letter-spacing:0}
+
+.rail{
+  position:sticky;top:0;z-index:20;margin:0;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+}
+.rail::after{
+  content:"";position:absolute;right:0;top:0;bottom:1px;width:40px;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--paper) 72%);
+}
+.rail ol{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail ol::-webkit-scrollbar{display:none}
+.rail li{flex:0 0 auto;margin:0}
+.rail a{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap;
+  padding:9px 14px 8px;border:0;border-bottom:2px solid transparent;border-radius:0;
+  font-size:13px;line-height:1.3;font-weight:500;color:var(--ink-3);background:none;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.rail a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.rail a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.rail a b{
+  display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:600;
+}
+.rail a.on b{color:var(--accent)}
+.railhead{display:none}
+
+/* --- both horizontal bars are dragged with the mouse, not only wheeled --- */
+.rail ol.grabbable,.phases ol.grabbable{cursor:grab}
+.rail ol.dragging,.phases ol.dragging,
+.rail ol.dragging *,.phases ol.dragging *{cursor:grabbing;user-select:none}
+
+/* ---------- sections ---------- */
+section{padding:64px 0 8px;scroll-margin-top:80px}
+@media (min-width:1080px){section{scroll-margin-top:70px}}
+section+section{border-top:1px solid var(--rule-soft)}
+.stagehead{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.stagenum{
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:4px;padding:3px 8px;white-space:nowrap;background:var(--accent-06)
+}
+h2{font-size:clamp(24px,2.9vw,34px);line-height:1.06;letter-spacing:-.004em;margin:0;text-wrap:balance}
+.qline{color:var(--ink-2);font-size:16px;margin:14px 0 32px;max-width:64ch}
+h3{
+  font-family:var(--font);font-size:18px;line-height:1.3;font-weight:600;
+  letter-spacing:-.005em;margin:48px 0 14px;text-wrap:balance
+}
+h4{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);font-weight:600;margin:38px 0 14px
+}
+p{margin:0 0 18px}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:10px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+
+/* ---------- per-stage conclusion ---------- */
+.verdict{
+  margin:44px 0 8px;padding:24px 26px 22px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:10px
+}
+.verdict .vh{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--accent);margin:0 0 14px
+}
+.verdict p{margin:0 0 12px;font-size:15.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict ul{margin:0;font-size:15.5px}
+.verdict li:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
+.band td{
+  background:var(--sunken);font-size:10.5px;letter-spacing:.13em;font-weight:600;
+  text-transform:uppercase;color:var(--ink-3);padding:8px 14px
+}
+.tnote{font-size:13px;color:var(--ink-2);margin:-14px 0 28px;line-height:1.6}
+
+/* the score scale is one hue — the accent — because it measures magnitude.
+   Only the single 1 is a different colour, because it means something else. */
+td.s,th.s{
+  text-align:center;font-variant-numeric:tabular-nums;font-weight:600;
+  width:10%;min-width:58px;font-size:14px;color:var(--ink)
+}
+td.s5{background:var(--fill-strong);color:var(--on-fill)}
+td.s4{background:var(--accent-45);color:var(--ink)}
+td.s3{background:var(--accent-18)}
+td.s2{background:var(--accent-06)}
+td.s1{background:var(--fill-bad);color:var(--on-fill)}
+td.sx{color:var(--ink-3);font-weight:400}
+
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 26px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.chip{width:24px;height:15px;border-radius:3px;border:1px solid var(--rule);display:inline-block}
+
+/* ---------- flows: the site's numbered process list ---------- */
+.flows{margin:28px 0 0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)}
+details{border-bottom:1px solid var(--rule-soft)}
+details:last-child{border-bottom:none}
+summary{
+  list-style:none;cursor:pointer;padding:16px 46px 16px 20px;display:grid;
+  grid-template-columns:40px 1fr auto;gap:16px;align-items:center;position:relative;
+  transition:background var(--dur) var(--ease)
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--surface-hover)}
+summary:hover .chev::before{border-color:var(--accent)}
+.chev{position:absolute;right:19px;top:50%;width:16px;height:16px;transform:translateY(-50%);pointer-events:none}
+.chev::before{
+  content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;
+  margin:-5px 0 0 -4px;border-right:1.7px solid var(--ink-3);border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease)
+}
+details[open] .chev::before{transform:rotate(-135deg);margin:-2px 0 0 -4px;border-color:var(--accent)}
+details[open] summary{background:var(--sunken)}
+.fnum{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
+.ftitle{font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+.ftitle span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+.fstat{
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid var(--rule);
+  background:var(--sunken);color:var(--ink-3)
+}
+.st-closed{border-color:var(--accent);color:var(--accent);background:var(--accent-06)}
+.fbody{padding:2px 20px 24px 76px}
+@media (max-width:640px){
+  summary{grid-template-columns:32px 1fr;grid-template-rows:auto auto;gap:8px 12px;padding-right:44px}
+  .fstat{grid-column:2;justify-self:start}
+  .fbody{padding:2px 18px 22px 18px}
+}
+.fbody p{font-size:15.5px;margin:0 0 15px}
+.fbody .src{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+.fbody .src a{color:var(--ink-2)}
+
+/* ---------- captures ---------- */
+.shots{
+  max-height:480px;overflow-y:auto;background:var(--sunken);border:1px solid var(--rule);
+  border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:16px;margin:0 0 18px
+}
+.shots figure{margin:0}
+.shots img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;
+  background:#fff;cursor:zoom-in;transition:border-color var(--dur) var(--ease)
+}
+.shots img:hover,.shots img:focus-visible{border-color:var(--accent)}
+.shots figcaption{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+.scrollhint{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);margin:0 0 9px;display:flex;align-items:center;gap:9px
+}
+.scrollhint::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+.scrollhint em{font-style:normal;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--ink-3)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(13,13,13,.94);overflow:auto;padding:60px 24px 48px;display:flex}
+.lb[hidden]{display:none}
+.lb-inner{width:min(1360px,94vw);margin:auto}
+.lb-inner img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:#fff}
+.lb-cap{font-family:var(--font-mono);font-size:12px;line-height:1.65;color:#cfcdc6;margin:16px 0 0;max-width:96ch}
+.lb-close{
+  position:fixed;top:16px;right:20px;width:38px;height:38px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.45);color:#f0efe9;
+  font:600 15px/1 var(--font);cursor:pointer
+}
+.lb-close:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ---------- pain bars ---------- */
+.bars{margin:10px 0 26px;display:flex;flex-direction:column;gap:10px;max-width:66ch}
+.bar{display:grid;grid-template-columns:1fr 52px;gap:14px;align-items:center}
+.bar .lbl{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.bar .lbl b{color:var(--ink);font-weight:600}
+.bar .track{grid-column:1/-1;height:10px;background:var(--sunken);border:1px solid var(--rule-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink-3);border-radius:2px}
+.bar .fill.loud{background:var(--bad)}
+.bar .fill.ours{background:var(--accent)}
+.bar .n{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.barlegend{font-size:12.5px;color:var(--ink-3);margin:-16px 0 28px}
+
+/* ---------- pull quote ---------- */
+blockquote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid var(--accent);font-size:18px;line-height:1.5;color:var(--ink)}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+
+/* ---------- chosen shape ---------- */
+.shape{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0;background:var(--surface)
+}
+.shape div{padding:18px 18px 20px;border-right:1px solid var(--rule)}
+.shape div:last-child{border-right:0}
+.shape h5{font-size:14px;font-weight:600;margin:0 0 5px;color:var(--ink)}
+.shape .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-weight:600}
+.shape p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+
+/* ---------- decisions ---------- */
+.decisions{border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0 8px;background:var(--surface)}
+.dec{padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;border-bottom:1px solid var(--rule-soft)}
+.dec:last-child{border-bottom:0}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:10px}}
+.dec .what{font-size:14.5px;font-weight:600;line-height:1.45;color:var(--ink)}
+.dec .what b{
+  display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:6px
+}
+.dec .why{font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.dec .why em{color:var(--ink);font-style:italic}
+
+/* ---------- gaps ---------- */
+.gaps{display:flex;flex-direction:column;gap:14px;margin:26px 0 8px}
+.gap{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;border-top:2px solid var(--accent)}
+.gap.unverified{border-top-color:var(--bad)}
+.gaphead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.gid{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em}
+.gaphead h5{font-size:15.5px;font-weight:600;margin:0;line-height:1.35;color:var(--ink)}
+.gap p{font-size:15px;margin:0 0 12px;color:var(--ink-2)}
+.gap p:last-child{margin:0}
+.gap .hyp{color:var(--ink);padding:13px 16px;background:var(--sunken);border-radius:6px;font-size:14.5px;line-height:1.6}
+.gap .hyp b{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:6px;font-weight:600
+}
+.gap .from{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);margin-top:12px}
+.nd{
+  font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+  color:var(--bad);background:var(--bad-soft);border:1px solid var(--bad);
+  padding:2px 7px;border-radius:4px;white-space:nowrap
+}
+
+/* ---------- footer ---------- */
+.foot{
+  grid-column:1/-1;margin-top:72px;padding-top:28px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==================================================================
+   Personas & jobs-to-be-done components — shared with personas.html.
+   Both pages are built from this block; edit it once.
+================================================================== */
+
+/* ------------------------------------------------------------------
+   Personas & JTBD — components this page adds on top of the shared
+   design language pulled from research-page.tpl.html at build time.
+------------------------------------------------------------------ */
+
+/* --- evidence marks, the spine of both documents --- */
+.m{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.35em;height:1.35em;padding:0 .3em;margin:0 .12em;
+  border:1px solid var(--rule);border-radius:3px;
+  font-family:var(--font-mono);font-size:.72em;line-height:1;
+  vertical-align:.08em;font-weight:600;
+}
+.m-y{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.m-s{border-color:var(--rule);background:var(--sunken);color:var(--ink-2)}
+.m-q{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+
+.legend{
+  display:grid;gap:10px;margin:22px 0 0;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--surface);
+}
+.legend .lrow{display:grid;grid-template-columns:2.4em 1fr;gap:12px;align-items:start}
+.legend b{color:var(--ink)}
+.legend p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+/* --- persona cards --- */
+.people{display:grid;gap:20px;margin-top:26px;max-width:100%}
+@media (min-width:1180px){ .people{grid-template-columns:1fr 1fr} .people .pc.primary{grid-column:1 / -1} }
+
+.pc{border:1px solid var(--rule);background:var(--surface);display:flex;flex-direction:column}
+.pc.primary{border-color:var(--accent-45);box-shadow:var(--shadow)}
+.pc > header{padding:20px 22px 16px;border-bottom:1px solid var(--rule-soft)}
+.pc.primary > header{background:var(--accent-06)}
+.pc .tag{
+  display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+}
+.pc.primary .tag{color:var(--accent);font-weight:700}
+.pc h3{font-family:var(--font-display);font-weight:400;font-size:23px;line-height:1.2;margin:0 0 8px}
+.pc .axes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.pc .axes span{
+  font-family:var(--font-mono);font-size:11px;padding:3px 7px;
+  border:1px solid var(--rule-soft);background:var(--sunken);color:var(--ink-2);
+}
+.pc .standing{margin:12px 0 0;font-size:14px;color:var(--ink-2)}
+
+.pblock{padding:16px 22px;border-bottom:1px solid var(--rule-soft)}
+.pblock:last-child{border-bottom:0}
+.pblock h4{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 10px;font-weight:600;
+}
+.pblock p{margin:0 0 10px;font-size:15px}
+.pblock p:last-child{margin-bottom:0}
+.pblock ul{margin:0;padding-left:1.15em;font-size:15px}
+.pblock li{margin:0 0 8px}
+.pblock li:last-child{margin-bottom:0}
+.pblock .src{color:var(--ink-3);font-size:13.5px}
+
+.pq{
+  margin:0;padding:14px 16px;border-left:3px solid var(--accent);
+  background:var(--sunken);font-size:15.5px;line-height:1.55;
+}
+.pq cite{display:block;margin-top:10px;font-style:normal;font-size:13px;color:var(--ink-3)}
+.pq.empty{border-left-color:var(--bad)}
+
+.warn{
+  margin:0 0 14px;padding:12px 14px;border:1px solid var(--bad);
+  background:var(--bad-soft);font-size:14.5px;
+}
+
+/* --- a .warn that folds away: <details class="warn"> --- */
+details.warn{padding:0}
+details.warn>summary{
+  cursor:pointer;padding:11px 14px;font-weight:600;
+  list-style:none;display:flex;gap:9px;align-items:baseline;
+}
+details.warn>summary::-webkit-details-marker{display:none}
+details.warn>summary::before{
+  content:"▸";font-size:11px;opacity:.7;flex:none;
+  transition:transform .12s ease;
+}
+details.warn[open]>summary::before{transform:rotate(90deg)}
+details.warn>summary:hover{background:rgba(128,128,128,.09)}
+details.warn>summary:focus-visible{outline:2px solid var(--bad);outline-offset:-2px}
+details.warn>summary .sub{font-weight:400;opacity:.72;font-size:13.5px}
+details.warn[open]>summary{border-bottom:1px solid var(--bad)}
+details.warn>.inner{padding:11px 14px 12px}
+@media (prefers-reduced-motion:reduce){details.warn>summary::before{transition:none}}
+
+/* --- jobs hierarchy --- */
+.mainjob{
+  margin:26px 0 0;padding:26px 28px;border:1px solid var(--accent-45);background:var(--accent-06);
+}
+.mainjob .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mainjob p.j{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.34;margin:12px 0 0}
+@media (max-width:700px){ .mainjob p.j{font-size:18px} }
+.mainjob .note{margin:16px 0 0;font-size:14.5px;color:var(--ink-2)}
+
+.jobs{display:grid;gap:14px;margin-top:22px}
+.job{border:1px solid var(--rule);background:var(--surface);padding:18px 20px}
+.job .jid{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);
+  display:block;margin-bottom:8px;
+}
+.job p.j{margin:0;font-size:16px;line-height:1.5}
+.job .ev{margin:12px 0 0;font-size:13.5px;color:var(--ink-2)}
+.job.hyp{background:var(--sunken);border-style:dashed}
+
+.grouphead{
+  display:flex;align-items:baseline;gap:12px;margin:34px 0 0;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.grouphead h3{font-family:var(--font-display);font-weight:400;font-size:20px;margin:0}
+.grouphead span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.05em}
+
+/* --- the matrix --- */
+.mwrap{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);max-width:100%}
+table.matrix{border-collapse:collapse;width:100%;min-width:880px;font-size:13.5px;background:var(--surface)}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--rule-soft);padding:11px 12px;text-align:left;vertical-align:top}
+table.matrix thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+table.matrix tbody tr:last-child td{border-bottom:0}
+table.matrix td.job{width:22%;font-weight:500}
+table.matrix td.p{width:10%;text-align:center;white-space:nowrap}
+table.matrix td.f,table.matrix td.c{width:19%;font-size:13px;color:var(--ink-2)}
+table.matrix tr.hypo td{background:var(--sunken)}
+table.matrix tr.hypo td.job{color:var(--ink-2)}
+.score{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:1px solid var(--rule);
+  font-family:var(--font-mono);font-weight:700;font-size:13px;
+}
+.score.s3{border-color:var(--accent-45);background:var(--accent-18);color:var(--accent)}
+.score.s2{border-color:var(--rule);background:var(--sunken);color:var(--ink)}
+.score.s1{border-color:var(--rule-soft);background:transparent;color:var(--ink-3)}
+.score.sq{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);white-space:normal;text-align:left}
+.none{color:var(--bad);font-weight:600}
+
+/* --- conclusions --- */
+.picks{display:grid;gap:14px;margin-top:22px}
+@media (min-width:900px){ .picks{grid-template-columns:repeat(3,1fr)} }
+.pick{border:1px solid var(--accent-45);background:var(--surface);padding:18px 20px}
+.pick .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em;font-weight:700}
+.pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
+.pick p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* --- the course phases: a fixed, collapsible rail on wide screens, a strip below --- */
+.phases{
+  border-bottom:1px solid var(--rule);background:var(--sunken);
+  margin:0 -32px 0;padding:0 32px;
+}
+.phases ol{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+  list-style:none;margin:0;padding:0;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+}
+.phases ol::-webkit-scrollbar{display:none}
+.phases li{margin:0;flex:0 0 auto}
+.phases li>a,.phases li>span{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
+  border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
+  white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.phases li>a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases b{font-weight:700;color:var(--ink-2)}
+.phases li>a:hover b{color:var(--ink)}
+.phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.phases .now b{color:var(--accent)}
+.phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
+.phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.phaseshead,.phasestoggle{display:none}
+
+@media (min-width:1080px){
+  /* the rail sits one tone below the page, and every phase is its own bubble — no rules, no bars */
+  .phases{
+    position:fixed;top:0;left:0;bottom:0;z-index:15;width:var(--phases-w);
+    overflow-y:auto;scrollbar-width:none;
+    margin:0;padding:16px 12px 32px;background:var(--sunken);border:0;
+  }
+  .phases::-webkit-scrollbar{display:none}
+  .phaseshead{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 12px;padding-left:12px;
+  }
+  .phasestoggle{
+    display:inline-block;padding:4px 10px;border:0;border-radius:8px;
+    background:var(--surface);color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
+  }
+  .phasestoggle:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases ol{display:flex;flex-direction:column;gap:6px;overflow:visible;font-size:12.5px}
+  .phases li>a,.phases li>span{
+    display:block;padding:8px 12px 9px;white-space:normal;line-height:1.32;
+    border:0;border-radius:10px;background:var(--surface);
+  }
+  .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
+  .phases li>a:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases li>a:hover b{color:var(--ink)}
+  .phases .now{background:var(--accent-06);box-shadow:inset 0 0 0 1px var(--accent-45)}
+  .phases .soon{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);opacity:.5}
+  .phases .soon em{display:none}
+
+  /* collapsed: the numbers stay, each still its own bubble, and still links */
+  html.phases-collapsed .phases{padding:16px 8px 32px}
+  html.phases-collapsed .phaseshead{padding-left:0;justify-content:center}
+  html.phases-collapsed .phaseshead span,
+  html.phases-collapsed .phases .lbl{display:none}
+  html.phases-collapsed .phases li>a,
+  html.phases-collapsed .phases li>span{padding:10px 0;text-align:center}
+  html.phases-collapsed .phases b{margin:0}
+}
+
+/* --- skip link and the phase meta line --- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:20;padding:12px 18px;
+  background:var(--accent);color:var(--on-fill);font-weight:600;
+}
+.skip:focus{left:0}
+.phasemeta{
+  font-family:var(--font-mono);font-size:12px;color:var(--ink-3);
+  margin:0 0 18px;letter-spacing:.02em;
+}
+.phasemeta strong{color:var(--ink-2);font-weight:600}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><span class="now" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></span></li>
+      <li><span class="soon" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+
+<header class="mast">
+  <p class="eyebrow">Phase 05 &middot; Tone of voice and microcopy</p>
+  <h1>How the product speaks, and every line it says</h1>
+  <p class="phasemeta">Phase <strong>5 of 12</strong> &middot; all seven of the lesson&rsquo;s steps &middot; <strong>1&ndash;5 Oct 2026</strong> &middot; source of truth: <strong>voice.md</strong> for the rules, <strong>microcopy.md</strong> for the lines, <strong>CLAUDE.md</strong> &sect;14 for the summary</p>
+  <p class="standfirst">The screens of phase 04 already said real words, but those words were written together with the structure, and in places they named the same thing three ways. <strong>This phase gives AI Stack Builder one voice</strong>: five principles that are rules rather than adjectives, a dictionary with one word per concept, a forbidden list, and rules for each kind of element. Then <strong>every line on every screen was rewritten</strong> against them, and checked. <em>A voice document that rewrote no screen is decoration.</em></p>
+  <dl class="facts">
+    <div><dt>Principles</dt><dd>5<small>each from a line of research</small></dd></div>
+    <div><dt>Lines on screen</dt><dd>1,472<small>on 80 pages</small></dd></div>
+    <div><dt>Rewritten</dt><dd>315<small>markup kept</small></dd></div>
+    <div><dt>Your content</dt><dd>362<small>untouched</small></dd></div>
+    <div><dt>Defects found</dt><dd>22<small>all fixed</small></dd></div>
+    <div><dt>Register entries</dt><dd>2<small>Q36, Q37</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#read"><b>Start</b>How to read this</a></li>
+    <li><a href="#inventory"><b>Step 01</b>The inventory</a></li>
+    <li><a href="#principles"><b>Step 02</b>Principles</a></li>
+    <li><a href="#dictionary"><b>Step 03</b>Dictionary</a></li>
+    <li><a href="#forbidden"><b>Step 03b</b>Forbidden</a></li>
+    <li><a href="#elements"><b>Step 04</b>Rules by element</a></li>
+    <li><a href="#sample"><b>Step 05</b>The sample</a></li>
+    <li><a href="#rollout"><b>Step 06</b>The roll-out</a></li>
+    <li><a href="#check"><b>Step 07</b>The check</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ HOW TO READ ============ -->
+<section id="read" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>How to read this</h2></div>
+  <p class="qline">A voice is rules, not a mood. <strong>Every principle on this page carries the line of research it comes from</strong>, and a principle that could not was not kept.</p>
+
+  <p><strong>This page is derived, not composed.</strong> The principles, the dictionary, the forbidden list, the rules by element and every was/now count below are read out of <code>voice.md</code> and <code>microcopy.md</code> when the page is built, so it cannot drift from them.</p>
+
+  <p><strong>Two boundaries held throughout.</strong> <strong>Only text</strong>: no element was added, moved or removed in the rewrite, and a script compared every page&rsquo;s markup with the last commit. The one exception is four fixes in step 07, approved by name. And <strong>your content is not ours</strong>: item and project names, descriptions, paths, env key names, repos and refs were never rewritten. The sentences that carry them were.</p>
+
+  <p class="tnote"><strong>The audience decided the register before anything else did.</strong> The primary persona has copied the same files between projects for a year and suspects half of them do nothing. They want specifics, not an advertisement, and the whole category they choose from writes like a shop.</p>
+</section>
+
+<!-- ============ INVENTORY ============ -->
+<section id="inventory" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 01</span><h2>The inventory</h2></div>
+  <p class="qline">Every line of the 80 wireframe pages in one table: screen, zone, line, type. <strong>Marked, not rewritten.</strong></p>
+
+  <p>The inventory found <strong>no cheer at all</strong>: no exclamation marks, no emoji, no <em>successfully</em>, no <em>oops</em>. The wireframes had been written in the specification&rsquo;s register from the start. <strong>What it found was inconsistency</strong>: twenty-three places where the screens said the same thing differently.</p>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">The thing</th><th>Here</th><th>There</th></tr></thead>
+      <tbody>
+        <tr><td class="name">The person&rsquo;s own items</td><td><code>My library</code></td><td><em>your library</em>, <em>the library</em>, <em>a library of my own</em></td></tr>
+        <tr><td class="name">The curated shelf</td><td><code>Public library</code></td><td><em>the shelf</em>, <em>items we have checked</em></td></tr>
+        <tr><td class="name">What a project holds</td><td><em>project</em></td><td><em>the set</em>, <em>this set</em></td></tr>
+        <tr><td class="name">A required item that came in</td><td><code>Auto-added</code></td><td><em>pulled in by</em>, <em>brings 3 items</em>, <em>the walk added</em></td></tr>
+        <tr><td class="name">Getting the archive</td><td><code>Export</code></td><td><em>Take the archive</em>, <em>Download the archive</em>, <em>Archive built</em> / <em>downloaded</em></td></tr>
+        <tr><td class="name">Our server failing</td><td><em>The server did not answer</em></td><td><em>didn&rsquo;t answer</em>, <em>our failure</em>, <em>something broke on our side</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote">Six of the twenty-three. The full list, D1&ndash;D23, is at the top of <code>microcopy.md</code>, and each one was closed by an entry in the dictionary.</p>
+</section>
+
+<!-- ============ PRINCIPLES ============ -->
+<section id="principles" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Principles</h2></div>
+  <p class="qline">Five, each with a rule, a line written by it, a line that breaks it, and where it comes from. <strong>Three of them come from the competitors&rsquo; language</strong>: where the whole category writes the same way, the difference is the voice.</p>
+
+  <p>The competitors&rsquo; quiet copy was fetched for this step: taglines, buttons, trust labels, confirmations, sixteen quotes from eleven products, ten of them checked against the raw page. <strong>Registries talk about themselves</strong> (<em>96,436 in the registry</em>, <em>Hand-picked, production-ready</em>). <strong>Trust is a number or a badge</strong> (<code>Verified</code>, <em>Quality Score</em>). <strong>Risk sells the remedy</strong> (<em>One in seven skills carries a critical security risk</em>). <strong>Taglines aspire</strong> (<em>Sprinkle a little magic on your day</em>).</p>
+
+  <article class="principle">
+  <header><b>Principle 1</b><h3>Say what was examined, never what it means</h3></header>
+  <div class="rule"><p>The product speaks like <strong>an inspector's report, not a seller's badge</strong>: it states what it looked at and what it found, and it never makes a claim it did not earn by looking.</p></div>
+  <div class="pair"><div class="yes"><p class="lab">Written by it</p><p>Checked just now · 1 problem · 2 notes · 1 skipped</p><p>Command names — Skipped: no item declares a command.</p></div><div class="no"><p class="lab">Breaks it</p><p>✓ Your stack works. Verified and production-ready.</p><p>Quality score 93 · Passing</p></div></div>
+  <div class="why"><p>The doubt on record is not <em>is my set broken</em> but <em>does any of this do anything</em>. <strong>EJ-2</strong>, <code>✓</code>: <em>"Blackbox oracles make bad workflows, and tend to produce a whole lot of cargo culting"</em> (<code>jtbd.md</code> §3). P1's card lists what repels: <strong>"A green tick that was not earned… someone who suspects half his material does nothing will read an unearned tick as proof the checker is decoration"</strong> (<code>personas.md</code>, <em>Trust triggers</em>). <strong>This is where the voice differs from the competitors.</strong> Trust in the category is a number or a badge: Smithery's <code>Verified</code> and <em>22.49k uses</em>, Glama's <em>Quality Score</em>, Tessl's <em>You get a score</em>, mcp.so's <em>Hand-picked, production-ready</em> (<code>research.md</code> §10, points 1–2). We run nothing, so a word like <em>verified</em> or <em>works</em> would be the one claim we cannot back. <em>Skipped</em> is the clearest place this shows: the product says it had nothing to check rather than awarding a tick.</p></div>
+  <p class="settles"><strong>Settles</strong> <strong>D19</strong>, which keeps every verdict line in the <em>checked</em> form. <strong>D23</strong>, where a stage that
+did not finish says so, never a blank or a tick.</p>
+</article>
+
+  <article class="principle">
+  <header><b>Principle 2</b><h3>Name the consequence, in the reader's terms, before the step</h3></header>
+  <div class="rule"><p>The product speaks like <strong>a colleague who tells you what will happen, not an alarm that tells you to be careful</strong>. Before anything irreversible it says what will change and for whom, in the present tense, and then it lets the person act.</p></div>
+  <div class="pair"><div class="yes"><p class="lab">Written by it</p><p>Two items write to <code>.mcp.json</code>. The archive will contain only one of them — <code>db-tools</code>.</p><p><code>db-migrate</code> is used in 3 projects. Deleting it may stop them working.</p></div><div class="no"><p class="lab">Breaks it</p><p>Warning: conflicts detected. Are you sure you want to continue?</p><p>Export blocked: unresolved conflicts.</p></div></div>
+  <div class="why"><p>P1's card lists among what convinces: <strong>"A consequence named in the present tense before the irreversible step"</strong>, from Vercel's <em>"You can't reveal this value after saving"</em> (<code>personas.md</code>, <em>Trust triggers</em>, <code>M</code>). The research gives the shape, which is mechanism, condition, consequence: <em>"<code>baseHints ||=</code> short-circuits… so PPR-strategy prefetches of fully-static routes deopt to runtime"</em>. It also names our own worst instinct as <em>"Export blocked: unresolved conflicts"</em> (<code>ci-failure-copy.md</code> §4–5). <strong>This is common ground with the best competitors, not a difference.</strong> Vercel lists <em>"deployments, domains, environment variables, and settings"</em> before a delete, and none of the sources reached writes a bare <em>Are you sure?</em> (<code>research.md</code> §10, point 4). So it is a floor the voice must not drop below, not something to claim as ours.</p></div>
+  <p class="settles"><strong>Settles</strong> the form of every confirmation. It also sets a test for <strong>D20</strong>: a button that opens one
+of these sentences must not promise less than the sentence delivers.</p>
+</article>
+
+  <article class="principle">
+  <header><b>Principle 3</b><h3>Say what we did and what we did not, and own our own failures</h3></header>
+  <div class="rule"><p>The product speaks like <strong>a tool that tells you when it made a choice, and when it could not do its part</strong>. It names its own limits before you rely on them, and it never lets a failure of ours read as a fault in your work.</p></div>
+  <div class="pair"><div class="yes"><p class="lab">Written by it</p><p>Check that these files carry no keys. We don't read your files looking for secrets.</p><p>Our server stopped during this stage. It says nothing about whether agent-dotfiles holds together.</p></div><div class="no"><p class="lab">Breaks it</p><p>Your files are safe — we scan everything for secrets.</p><p>Something went wrong. Check failed.</p></div></div>
+  <div class="why"><p><strong>EJ-1</strong>, <code>✓</code> and <code>*</code>, the strongest emotional job in the file: <em>"When a tool makes a choice I did not make, I want it to tell me it made one"</em>. Behind it are servers <em>"silently synced… without any opt-in, notification, or consent"</em> (#20412, 142 reactions) and instructions <em>"dropped and never sent to the model — with no warning anywhere"</em> (codex #13386) (<code>jtbd.md</code> §3). P1's pains: <em>"broken config doesn't announce itself, it degrades quietly"</em> (<code>personas.md</code>, <code>*</code>). A product that writes <em>Check failed</em> when its own server stopped does exactly that. It degrades quietly, and it hands the person a fault that is not theirs. <strong>Against the competitors:</strong> Tessl opens its trust pitch with <em>"One in seven skills carries a critical security risk"</em> and sells a scan as the answer. Claude Code's docs say the same risk as a plain instruction and sell nothing (<code>research.md</code> §10, point 3). Our keys reminder is the second kind, and it has to say so.</p></div>
+  <p class="settles"><strong>Settles</strong> <strong>D9</strong>. When the failure is ours, the product says <em>our</em>, in every state and not only on
+the receiver's side. Step 3 picks the exact words. It also settles <strong>L1</strong>: a register id like
+<em>(Q28)</em> is us talking to ourselves on the person's screen.</p>
+</article>
+
+  <article class="principle">
+  <header><b>Principle 4</b><h3>Counts and names, not adjectives</h3></header>
+  <div class="rule"><p>The product speaks like <strong>someone who has counted, not someone who is selling</strong>: a number that can be checked, and the name of the thing it counts, in place of any word that grades.</p></div>
+  <div class="pair"><div class="yes"><p class="lab">Written by it</p><p>Used in 3 projects · 1 item requires this · last exported 12 days ago</p><p>Nothing matches "terraform" among your agents. You have 11 items — the search hides all of them in this tab.</p></div><div class="no"><p class="lab">Breaks it</p><p>Popular · Trending · A great fit for your stack</p><p>No results.</p></div></div>
+  <div class="why"><p>P1, asked with our vocabulary forbidden, invented this unprompted: <strong>"Usage data, first. Just: this file was loaded in 40 sessions, this one in 2, this one never. That alone would let me delete half of it with confidence."</strong> (<code>personas.md</code>, <code>*</code>, <em>the strongest form a <code>*</code> can take</em>). The benchmark's best consequence disclosure is a count you can open, <em>"95 workspace settings are not applied"</em>. Its rule is <strong>"the number you can act on, next to the control that produced it — and never the word <em>none</em>"</strong> (<code>research.md</code> §3, mechanism 2). <strong>Against the competitors:</strong> registries describe the shelf with scale and judgement — <em>96,436 in the Glama Registry</em>, <em>thousands of tools</em>, <em>Sprinkle a little magic</em> — rather than the item (<code>research.md</code> §10, points 1 and 6). The people nearest to our shelf say how that reads: <em>"when I've looked at them it's been some YouTuber trying to make money"</em> and <em>"I do not understand the appeal of skill shopping"</em> (<code>personas.md</code>, P3, <code>✓</code>).</p>
+<p><strong>The ceiling is part of the rule.</strong> A count says <em>is it used</em>. It never says <em>is it any good</em>, and no line may read one as the other (<code>CLAUDE.md</code> §5, Q22).</p></div>
+  <p class="settles"><strong>Settles</strong> <strong>D13</strong>, where an empty or filtered list says what it holds and what hides it. <strong>V1</strong>,
+where <em>pieces</em>, <em>pipelines and harnesses</em> are words that stand in for a count of named kinds. <strong>U3</strong>,
+where a count on the screen must agree with the screen. It also leaves a dictionary question for step
+3: the plain verb over the vendor's metaphor, <code>Install Extension</code> against <code>Add to toolbox</code>
+(<code>research.md</code> §10, point 5).</p>
+</article>
+
+  <article class="principle">
+  <header><b>Principle 5</b><h3>Write for whoever acts next</h3></header>
+  <div class="rule"><p>The product speaks <strong>to the person or agent who has to do the next thing, about what they will have to do</strong>. The owner, a receiver and the agent reading <code>SETUP.md</code> are three readers, and a line is written for the one in front of it.</p></div>
+  <div class="pair"><div class="yes"><p class="lab">Written by it</p><p>Your machine needs a value for <code>GITHUB_TOKEN</code>. The archive carries only its name. <em>(a receiver)</em></p><p>Needs DATABASE_URL. Ask the person for it; do not invent one. <em>(<code>SETUP.md</code>, for the agent)</em></p></div><div class="no"><p class="lab">Breaks it</p><p>Configure environment variables as needed.</p><p>Some setup may be required.</p></div></div>
+  <div class="why"><p><strong>SJ-1</strong>: <em>"that was the moment I understood the config had become <strong>tribal knowledge rather than a setup</strong>"</em>. Behind it, a contractor with broken paths who <em>"assumed that was normal and worked around it for two days without mentioning it"</em> (<code>jtbd.md</code> §4, <code>personas.md</code> P2, <code>*</code>, n = 1). It is <strong>not one person only</strong>. When receivers were read through their forks, <strong>30 of 214 wrote 21,266 lines of setup and handover manual the sender never shipped</strong>, naming the files <code>HANDOFF.md</code> and <code>SETUP.md</code> (<code>research.md</code> §9, <code>✓</code> on the diffs). A line written for nobody in particular, like <em>Configure as needed</em>, is the gap those 21,266 lines were written to fill.</p></div>
+  <p class="settles"><strong>Settles</strong> <strong>D18</strong>, <em>the receiving machine</em> for the owner and <em>your machine</em> for the receiver. That is
+a variant made <strong>on purpose</strong>, and step 3 keeps it rather than flattening it. It also decides who the
+generated <code>SETUP.md</code> is written for (<code>CLAUDE.md</code> §6).</p>
+</article>
+
+  <h3>What did not become a principle</h3>
+  <div class="md"><ul><li><strong>"Short and fast, like Linear."</strong> The audience lives in Linear, Vercel and Raycast (<code>CLAUDE.md</code> §3), but nothing in the research says <em>brevity</em> convinces this person. The best lines on record are long where the consequence is long (npm <code>ERESOLVE</code>). Length is a rule per element, in step 4, not a principle.</li><li><strong>"Calm, because they arrive irritated."</strong> P1's second most frequent mode is an edit written in irritation, and whether that holds for anyone else is <strong><code>[?]</code> → H1</strong>. A principle tuned to a mood ranked second, on one person's word, would be the invented kind.</li><li><strong>"Welcoming to newcomers."</strong> P3 has never been observed. Its nearest voices refuse the shelf rather than ask to be welcomed, so a warm onboarding register would be written for a person nobody has met (<code>CLAUDE.md</code> §9, and lesson 03's trap 3: <em>do not invent a place for a person nobody has met</em>).</li><li><strong>The form of address</strong> — imperative, <em>you</em>, or neither — is a dictionary decision and is made in step 3. Principle 5 constrains it: whatever the form, the line is addressed to whoever acts next.</li></ul></div>
+</section>
+
+<!-- ============ DICTIONARY ============ -->
+<section id="dictionary" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03</span><h2>Dictionary</h2></div>
+  <p class="qline">One concept, one word. <strong>Every entry closes a mark the inventory found</strong>, and its reason is written in the words the people in the research use.</p>
+  <div class="md wide"><p><strong>One concept, one word.</strong> Written 2026-10-05 in step 3, from the marks in <code>microcopy.md</code>. No new search was made: each entry closes a mark the inventory already found. <strong>It extends <code>CLAUDE.md</code> §4 and does not compete with it.</strong> <em>Item, Project, Library, Workspace</em> keep their meanings, and <em>Bundle</em> stays retired. The <strong>why</strong> of each entry is written in the words the people in the research use, or it points at the principle that decides it. Where neither applies, the entry says so.</p>
+<h4>How the product addresses the person</h4>
+<div class="tw"><table><thead><tr><th></th><th>The rule</th><th>Why</th></tr></thead><tbody><tr><td><strong>The person</strong></td><td><strong>"you"</strong>, the same on every screen: <em>You have 11 items.</em> <em>Your machine needs a value for <code>GITHUB_TOKEN</code>.</em></td><td>English has no <em>ты/вы</em>. What the course's question becomes here is whether there is a second person at all, and the answer is yes. Principle 5 says a line is addressed to whoever acts next, and <em>you</em> is the only form that names them</td></tr><tr><td><strong>Buttons and commands</strong></td><td><strong>Imperative, no pronoun</strong>: <code>Export…</code>, <code>Check again</code>, <code>Copy to My library</code>, <code>Clear search</code></td><td>The button is the person speaking. <em>Copy into <strong>my</strong> library</em> mixes the two voices on one control (D5)</td></tr><tr><td><strong>The product about itself</strong></td><td><strong>"we" and "our"</strong>, only for what the product did or failed to do: <em>We don't read your files looking for secrets.</em> <em>Our server didn't answer.</em> <strong>Never <em>I</strong></em>, and never a <em>we</em> that cheers (<em>We're glad you're here</em>)</td><td>Principle 3: the tool says when it made a choice and when it failed. EJ-1: <em>"silently synced… without any opt-in, notification, or consent"</em></td></tr><tr><td><strong>"my"</strong></td><td><strong>Only inside the proper name <code>My library</code></strong>. Everywhere else the product says <em>you/your</em></td><td>The name is the nav entry, written from the person's side. A sentence that says <em>my</em> in the product's own voice (<em>a library of my own</em>) is the product pretending to be the person</td></tr><tr><td><strong><code>SETUP.md</code></strong></td><td><strong>Imperative to the agent, uncontracted</strong>: <em>Ask the person for it; do not invent one.</em> The human is <em>the person</em></td><td>Principle 5: this file's reader is an agent, and <em>do not</em> is harder to misread than <em>don't</em></td></tr><tr><td><strong>Contractions</strong></td><td><strong>Yes, in everything addressed to a person</strong>: <em>didn't</em>, <em>can't</em>, <em>don't</em>. This settles <strong>T2</strong></td><td>Most of the inventory already contracts, and <em>did not</em> survives in five lines (T2), where it reads as a second author</td></tr></tbody></table></div>
+<h4>The words</h4>
+<p><strong>Places and objects</strong></p>
+<div class="tw"><table><thead><tr><th>Concept</th><th><strong>Write</strong></th><th><strong>Not</strong></th><th>Why</th><th>Closes</th></tr></thead><tbody><tr><td>The person's own items</td><td><strong><code>My library</code></strong>, always as the name</td><td><em>your library</em>, <em>the library</em>, <em>the Library</em>, <em>my library</em>, <em>a library of my own</em>, <em>your items</em>, <em>your own items</em></td><td>It is the word on the nav and the scope switch, so it is the word the person clicks. The ownership in it is the point: the material is theirs, and <code>CLAUDE.md</code> §11 keeps anybody else's work out of <em>a space labelled mine</em>. A bare <em>library</em> cannot tell the reader which of the two places is meant. So <em>Your library is empty</em> becomes <em>No items in My library yet</em>, and <em>Search your items…</em> becomes <em>Search My library…</em></td><td>D1</td></tr><tr><td>The curated shelf</td><td><strong><code>Public library</code></strong></td><td><em>the shelf</em>, <em>items we have checked</em></td><td><em>Shelf</em> is our internal word, used in <code>CLAUDE.md</code> and the research, and it never appears on a control the person can press. The audience's own name for such places is a <strong>registry</strong> (Tessl, Glama), which is the thing §9 refuses to be. So we use the name on the nav, plainly</td><td>D2</td></tr><tr><td>A named set of items</td><td><strong>project</strong></td><td><em>the set</em>, <em>this set</em>, <em>the stack</em></td><td>It is the person's own word for a piece of work: <em>"at project four I got annoyed and made a repo"</em>, <em>"10+ repos with shared conventions"</em>. <em>Set</em> is a word from inside our specification. So <em>Remove from the set</em> becomes <em>Remove from project</em>, <em>1 problem is still in the set</em> becomes <em>in this project</em>, and the stage <em>Resolve the set</em> becomes <strong>Requirements</strong>. <strong><code>Stack</code> stays informal</strong> (<code>CLAUDE.md</code> §4) and does not appear in the interface, apart from the product's own name</td><td>D6</td></tr><tr><td>One building block</td><td><strong>item</strong> · in prose, by kind: <strong>skill, agent, prompt, MCP server, script, app</strong></td><td><em>piece</em>, <em>block</em>, <em>pipeline</em>, <em>harness</em></td><td>The six kinds are the model's (§5), and the plural prose is how practitioners file them: <em>"MCP Servers Don't Work with NVM"</em>, <em>"20-30+ skills"</em>. <em>Pipelines and harnesses</em> names no kind the product has. The door's line becomes <em>skills, agents, prompts, MCP servers, scripts and apps</em></td><td>V1</td></tr><tr><td>The kind on a badge or tab</td><td><strong>the kind as written in the model</strong>: <code>skill</code> <code>agent</code> <code>prompt</code> <code>mcp</code> <code>script</code> <code>app</code></td><td><em>MCP</em> on a badge, <em>mcp servers</em> in prose</td><td>Two altitudes of one word, kept on purpose: the badge shows the field value, the way <code>.mcp.json</code> does, and prose spells it out. <strong>No other kind needs this</strong>, because only <code>mcp</code> is an abbreviation</td><td>V2</td></tr><tr><td>What leaves the product</td><td><strong>archive</strong></td><td><em>zip</em>, <em>bundle</em>, <em>package</em>, <em>export</em> as a noun</td><td><code>CLAUDE.md</code> §4 retired <em>Bundle</em>. <em>Archive</em> is what <code>.zip</code> is to anybody who has been handed one, and the file name carries the extension anyway</td><td>D4</td></tr></tbody></table></div>
+<p><strong>The run, the check, the export.</strong> <em>This is the <code>Run</code> / <code>Export</code> question that lesson 04 handed over (Q16), and it is answered as naming only.</em></p>
+<div class="tw"><table><thead><tr><th>Concept</th><th><strong>Write</strong></th><th><strong>Not</strong></th><th>Why</th><th>Closes</th></tr></thead><tbody><tr><td>The control that starts it, everywhere</td><td><strong><code>Export…</code></strong>: on Project (the main control, and the configuring head), on a shared project, on a shared item, on a Library row exporting one item</td><td><em>Check</em> as the entry, <em>Check this set</em>, <em>Check it, then take the archive</em>, <em>Take as an archive</em></td><td><strong>The owner's decision, Q36.</strong> The act is named for its outcome, the archive, and the check is its sub-process. <strong>The <code>…</code> keeps principle 2</strong>: it says more is shown before the act completes, and the mode shows every finding and the handover before the archive exists</td><td>D3</td></tr><tr><td>The surface it opens</td><td><strong><code>Export</code></strong> as the title, with the subject in the meta line: <em>acme-billing-api · 14 items · for Claude Code</em></td><td><em>Check</em>, <em>Export one item</em>, <em>Take as an archive</em></td><td>One mode entered four ways is still one mode (§8), titled for what it ends in</td><td>D3</td></tr><tr><td>The check inside it</td><td><strong>Checking — stage N of 10</strong> · <strong>Checked …</strong> · <strong><code>Check again</code></strong></td><td><em>Exporting</em> for the check</td><td>Principle 1: the verdict keeps <em>checked</em>. Only the act around it is named <em>Export</em></td><td>D3</td></tr><tr><td>Building the archive</td><td><strong><code>Export</code></strong>, as the final stage and its button, <strong>for the owner and the receiver alike</strong>: <code>Export</code>, <code>Export with 1 problem</code>, <code>Export again</code></td><td><em>Take the archive</em>, <em>Download the archive</em>, <em>Build the archive again</em></td><td>The research's wow moment is <em>"the export"</em> (<code>CLAUDE.md</code> §2), and a receiver who checks and takes the archive performs the same act on somebody else's work. The entry's <code>Export…</code> and this <code>Export</code> are one act, opened and then completed</td><td>D4</td></tr><tr><td>It is built</td><td><strong>Exported — <code>acme-billing-api-claude-code.zip</code></strong></td><td><em>Archive built — …</em>, <em>Archive downloaded — …</em></td><td>One word for the outcome, for both readers, and it matches the button that caused it</td><td>D4</td></tr><tr><td>Fetching the same file again</td><td><strong><code>Download again</code></strong></td><td>—</td><td><strong>A different act, so a different word.</strong> Nothing is rebuilt or re-checked; the browser fetches the file it already has</td><td>D4</td></tr></tbody></table></div>
+<blockquote><p><strong>Decided by the owner on the sample, 2026-10-05 (Q36).</strong> This dictionary first recommended <code>Check</code> as the entry. The owner chose <code>Export</code>, which puts Export on the Project screen, so it went to the register first (<code>research-plan.md</code>, Q36; <code>CLAUDE.md</code> §6, §8).</p></blockquote>
+<p><strong>Relations and states</strong></p>
+<div class="tw"><table><thead><tr><th>Concept</th><th><strong>Write</strong></th><th><strong>Not</strong></th><th>Why</th><th>Closes</th></tr></thead><tbody><tr><td>An item that came in because another requires it</td><td><strong>auto-added</strong>: the badge <code>Auto-added</code>; <em>3 auto-added</em>; a11y <em>Auto-added for migration-reviewer</em>; <em>requires <code>db-migrate</code>, <code>postgres-mcp</code> · 3 auto-added</em></td><td><em>pulled in by</em>, <em>brings 3 items with it</em>, <em>the 3 items it brings</em>, <em>comes in with them</em>, <em>the walk along <code>requires</code> added 3</em></td><td>It says that <strong>the tool</strong> made a choice the person did not. That is EJ-1 exactly: <em>"silently synced… without any opt-in"</em>, and <em>"the first one wins"</em>. <em>Pulled in</em> and <em>brings</em> make it sound as if the item did it. <em>Walk</em> is a word from our algorithm, not from the screen</td><td>D7</td></tr><tr><td>The relation fields</td><td><strong>requires</strong> · <strong>required by</strong> · <strong>conflicts with</strong> · <strong>defers to</strong></td><td><em>dependency</em>, <em>depends on</em>, <em>needs</em> (for an item)</td><td>They are the model's fields (§5), and the person fills them in by hand. <strong><code>needs</code> is kept for env keys only</strong>: <em>needs <code>DATABASE_URL</code></em></td><td>—</td></tr><tr><td>A project's own copy of an item</td><td><strong>detached</strong>: the badge <code>Detached</code>, the action <code>Detach</code>, <em>1 detached</em></td><td><em>modified in this project</em>, <em>differs from the library</em></td><td>The audience knows the word from Figma, where <em>detach</em> is exactly this act (<code>CLAUDE.md</code> §5, flow 05)</td><td>D8</td></tr><tr><td>The copy in My library a row links to</td><td><strong>the original</strong>: <em>2 fields differ from the original</em>; <code>Reset this field</code> · <code>Reset to the original</code>; <em>Linked to the original in My library</em></td><td><em>the library version</em>, <em>Library version</em>, <em>Library:</em>, <em>the library</em></td><td><em>Version</em> promises a history that does not exist, and §9 refuses versioning by name. The promote dialog already says <em>the original <code>pr-reviewer</code></em>, and the detach note says <em>keep the original</em></td><td>D8</td></tr><tr><td>A row tied to the original</td><td><strong>linked</strong></td><td>—</td><td>One word for one state: <em>linked</em> is the opposite of <em>detached</em></td><td>D8</td></tr><tr><td>Taking somebody else's item</td><td><strong><code>Copy to My library</code></strong>, on the Public library, a shared project, a shared item, and after a shared check</td><td><em>Copy into my library</em>, <em>Copy into a library of my own</em></td><td>One label for one act. The copy keeps its origin, which is why it is <em>copy</em>, not <em>add</em></td><td>D5</td></tr><tr><td>Making a new item from your own material</td><td><strong><code>Add to My library</code></strong> (the submit of <em>Add item</em>)</td><td>—</td><td><strong>A different act</strong>: nothing has an origin elsewhere. Two verbs, because §11 treats the two ways in differently, and only one of them carries the keys reminder</td><td>D5</td></tr></tbody></table></div>
+<p><strong>Checks and verdicts</strong></p>
+<div class="tw"><table><thead><tr><th>Concept</th><th><strong>Write</strong></th><th><strong>Not</strong></th><th>Why</th><th>Closes</th></tr></thead><tbody><tr><td>The verdict</td><td><strong>Checked</strong> + when + <em>for</em> target + the three counts, <strong>zeros included</strong>: <em>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</em></td><td><em>works</em>, <em>valid</em>, <em>passing</em>, <em>verified</em>, a bare ✓; <em>code-style, checked by you</em>; <em>Just now · …</em></td><td>Principle 1 and <code>CLAUDE.md</code> §6. <strong>All three counts always</strong>, so <em>0 problems</em> is a count you read rather than an absence you infer (principle 4)</td><td>D19</td></tr><tr><td>Who checked, when it was not the owner</td><td><strong>by you</strong> or <strong>by Maya</strong> after the time: <em>Checked just now by you</em>; <em>Maya checked it 5 days ago · for Claude Code</em></td><td><em>Maya last checked it…</em></td><td>The same line, plus who. The receiver needs to know which verdict is theirs (§6)</td><td>D19</td></tr><tr><td>A stage that started and did not finish</td><td><strong>Stopped — our server didn't answer</strong></td><td><em>Didn't complete</em>, <em>Couldn't be written</em></td><td>One word for the event and one reason, in our voice (principle 3)</td><td>D23</td></tr><tr><td>A stage after it</td><td><strong>Not run</strong></td><td>—</td><td>The check never reached it. That is not <em>Waiting</em>, because nothing will come</td><td>D23</td></tr><tr><td>A stage not reached yet, while the check runs</td><td><strong>Waiting</strong></td><td>—</td><td>Something will come</td><td>D23</td></tr><tr><td>The three severities</td><td><strong>Problem · Note · Skipped</strong></td><td><em>error</em>, <em>warning</em>, <em>info</em>, <em>failed</em></td><td><code>CLAUDE.md</code> §6, unchanged</td><td>—</td></tr><tr><td>The keys</td><td><strong>env key</strong>; its <strong>name</strong>; its <strong>value</strong></td><td><em>env variable</em>, <em>secret</em>, <em>token</em> (as the class)</td><td>The field is <code>needsEnv</code> and holds names. Practitioners file it as <em>"api keys in plain text"</em> and <em>"loads my project's <code>.env</code>"</em>. <strong>The name / value split is the whole guarantee</strong> (§6: no value is ever stored)</td><td>—</td></tr></tbody></table></div>
+<p><strong>Failures, waits and leaving</strong></p>
+<div class="tw"><table><thead><tr><th>Concept</th><th><strong>Write</strong></th><th><strong>Not</strong></th><th>Why</th><th>Closes</th></tr></thead><tbody><tr><td>Our failure</td><td><strong>Our server didn't answer</strong> · <strong>Our server stopped at …</strong></td><td><em>The server did not answer</em>, <em>something broke on our side</em>, <em>Something went wrong</em></td><td>Principle 3: one voice, ours. P1's pain is <em>"broken config doesn't announce itself, it degrades quietly"</em>, and a failure with no owner is that pain</td><td>D9, T2</td></tr><tr><td>The error code</td><td>On its own line, always the same three parts: <strong><code>503 · Service unavailable · 14:02</code></strong></td><td><code>503 · 14:07</code>; the code at the end of a sentence</td><td>A code is for the person who reports it. It is read separately from the sentence and should look the same every time it is copied</td><td>D10</td></tr><tr><td>Data arriving</td><td><strong>Loading</strong> + what: <em>Loading My library</em>, <em>Loading acme-billing-api</em>, <em>Loading the shared project</em></td><td><em>Opening …</em></td><td>One verb for one wait. <em>Opening</em> says nothing <em>Loading</em> does not, and it reads like a different event</td><td>D11</td></tr><tr><td>The check running</td><td><strong>Checking — stage 4 of 10</strong></td><td><em>Checking…</em> with no count</td><td>Principle 4: <em>N of M</em> is the count you can read</td><td>D11</td></tr><tr><td>Trying again</td><td><strong>The verb that will happen again, + <em>again</strong></em>: <code>Load again</code>, <code>Save again</code>, <code>Check again</code>, <code>Export again</code>, <code>Import again</code>, <code>Promote again</code>, <code>Write SETUP.md again</code></td><td><code>Try again</code>, <code>Try the import again</code>, <code>Build the archive again</code>, <code>Write it again</code></td><td>Principle 2: the button names what it does. <em>Try</em> names nothing</td><td>D12</td></tr><tr><td>Never anything here</td><td><strong>No … yet</strong>: <em>No items in My library yet</em>, <em>No projects yet</em>, <em>No items in this project yet</em></td><td><em>Your library is empty</em>, <em>My library is empty</em>, <em>Nothing in this project yet</em></td><td>One form for one state. <em>Yet</em> is true: the state ends when the person adds something</td><td>D13</td></tr><tr><td>Filtered to zero</td><td>Heading <strong>Nothing matches "…"</strong>. The body does not repeat it: it says what narrows the list, then the count the search hides: <em>The filter shows only projects that are Not checked yet. You have 5 projects — the search and the filter hide all of them.</em> · <em>The tab shows only agents. You have 11 items — the search hides all of them in this tab.</em></td><td><em>No items match</em>, <em>No projects match</em>, <em>Nothing called "sentry" here</em></td><td>Principle 4: the number you can act on, and never only <em>none</em> (research §3, mechanism 2)</td><td>D13</td></tr><tr><td>Undoing a search</td><td><strong><code>Clear search</code></strong></td><td><code>Clear search · show All</code></td><td>One act per label. Showing All is the tab, already one click away</td><td>D14</td></tr><tr><td>Undoing filters</td><td><strong><code>Clear filters</code></strong>, in the popover and on the filtered state</td><td><code>Reset filters</code></td><td>The same act in two places takes the same word</td><td>D14</td></tr><tr><td>A search box</td><td><strong>Search</strong> + the place + <strong>—</strong> + three real examples: <em>Search My library — migrate, GITHUB_TOKEN, review</em></td><td><em>Search your items by name, description or tag</em>, <em>Search the shelf…</em></td><td>The place is named as it is on the nav (D1, D2). The examples teach what is searchable better than a list of fields</td><td>D15</td></tr><tr><td>Leaving a dialog without acting</td><td><strong><code>Cancel</code></strong></td><td><code>Dismiss</code></td><td>Nothing happens, and <em>Cancel</em> is the word for that</td><td>D16</td></tr><tr><td>Closing something that only informs</td><td><strong><code>Close</code></strong></td><td>—</td><td>There is nothing to cancel</td><td>D16</td></tr><tr><td>Leaving with edits unsaved</td><td><strong><code>Discard changes</code></strong></td><td>—</td><td><strong>A different act with a cost</strong>, so it is named (principle 2)</td><td>D16</td></tr></tbody></table></div>
+<p><strong>The door and the share</strong></p>
+<div class="tw"><table><thead><tr><th>Concept</th><th><strong>Write</strong></th><th><strong>Not</strong></th><th>Why</th><th>Closes</th></tr></thead><tbody><tr><td>Signing in</td><td><strong><code>Sign in</code></strong>, as the title, the button and the link</td><td><code>Sign in instead</code></td><td>One act, one label</td><td>D17</td></tr><tr><td>Making an account</td><td><strong><code>Create account</code></strong>, as the title, the button and the link</td><td><em>Create an account</em></td><td>As above</td><td>D17</td></tr><tr><td>Getting a new password</td><td><strong><code>Reset password</code></strong>, as the link on Sign in, the title and the error's button. The form's submit is <strong><code>Send reset link</code></strong></td><td><em>Forgot password?</em>, <em>Reset your password</em>, <em>Send a reset link</em></td><td>Three labels led to one place. The submit is a different act: it sends</td><td>D17</td></tr><tr><td>Sharing</td><td><strong><code>Share…</code></strong> opens the disclosure · <strong><code>Create link</code></strong> confirms · <strong><code>Stop sharing…</code></strong> revokes</td><td><code>Share the project</code></td><td>The button opens a dialog, so it takes the <code>…</code> (D20). <em>Create link</em> says exactly what confirming does</td><td>D21</td></tr><tr><td>Removing an item from a project</td><td><strong><code>Remove from project</code></strong> · a11y <em>Remove code-style from this project</em> · in Check: <strong><code>Remove eslint-autofix…</code></strong></td><td><em>Remove from the set</em>, <em>Remove in Configure</em></td><td>One verb, <em>remove</em>, which is the word §6 uses. <em>Remove in Configure</em> names a place, not an act. In viewing it reads <strong><code>Configure to remove</code></strong>: the verb that will happen, then why. The control stays where §8 puts it</td><td>D22</td></tr><tr><td>The machine the archive lands on</td><td><strong>the receiving machine</strong> for the owner · <strong>your machine</strong> for the receiver</td><td>—</td><td><strong>A variant kept on purpose</strong> (principle 5). Each reader is told about the machine that is theirs to act on. <em>What your machine will need</em> becomes <em>What your machine still needs</em>, so the receiver sees one form</td><td>D18</td></tr></tbody></table></div>
+<h4>Settled during the roll-out and the check (steps 6–7, 2026-10-05)</h4>
+<p>The screen agents and the step-7 check met lines the entries above did not decide. These were settled once, for every screen, and they are part of the dictionary from now on.</p>
+<div class="tw"><table><thead><tr><th>Concept</th><th><strong>Write</strong></th><th><strong>Not</strong></th><th>Why</th></tr></thead><tbody><tr><td>Going to a place</td><td><strong><code>Open</code> + the place</strong>: <code>Open My library</code>, <code>Open Public library</code>, <code>Open Projects</code></td><td><em>Explore</em>, <em>Switch to</em></td><td>One verb for moving between the places on the nav. <em>Explore</em> promises a discovery the Public library does not sell (principle 4)</td></tr><tr><td>Leaving the mode</td><td><strong><code>Back to</code> + the place by name</strong>: <code>Back to acme-billing-api</code>, <code>Back to My library</code>, <code>Back to the shared project</code>, <code>Back to the shared item</code></td><td><em>Back to the shared page</em></td><td>The mode is not a place (§8), so the way out names where you return</td></tr><tr><td>The project's items, to a screen reader</td><td><strong>Items in this project</strong> (the <code>aria-label</code> on the list)</td><td><em>The set</em></td><td>D6</td></tr><tr><td>A checkbox in the panel</td><td><strong>In this project</strong> · <strong>Add</strong></td><td><em>In the set</em></td><td>D6</td></tr><tr><td>The panel, to a screen reader</td><td><strong>Add items</strong></td><td><em>Library panel</em></td><td>It names what the panel is for. <em>Library</em> alone cannot say which library (D1)</td></tr><tr><td>An empty field in a list of facts</td><td><strong>None</strong></td><td><em>Nothing</em></td><td>One word for one state, inside one list</td></tr><tr><td>The search in the panel</td><td><strong>Search My library — migrate, GITHUB_TOKEN, review</strong> · <strong>Search Public library — filesystem, playwright, anthropics</strong></td><td>the bare <em>Search My library</em></td><td>D15 holds in the panel too: the place, then three real examples</td></tr><tr><td>A wait inside a button</td><td><strong>Signing in</strong> · <strong>Creating account</strong>, with the spinner</td><td><em>Signing in…</em></td><td>D20: the <code>…</code> keeps one meaning</td></tr><tr><td>The verdict, when the reader checked it</td><td><strong>Checked just now by you</strong>, and the subject goes on the meta line: <em>code-style · 1 item · for Claude Code · shared by Maya Chen</em></td><td><em>code-style, checked by you</em>; <em>Checking code-style — stage 4 of 10</em></td><td>One title for one verdict on every entry to the mode (D19, D3)</td></tr><tr><td>A relation field's placeholder</td><td><strong>Items this one requires — postgres-mcp</strong> · <strong>Items that clash with this one in a project — eslint-autofix</strong></td><td><em>Items this one needs</em>, <em>Items it must not travel with</em></td><td><em>needs</em> is for env keys only. <em>Must not</em> promises an enforcement the product never makes (nothing blocks, §6)</td></tr><tr><td>A check stage with nothing to check</td><td><strong>Skipped — no item</strong> + what is absent: <em>Skipped — no item declares a command</em>, <em>… declares a conflict</em>, <em>… needs an env key</em>, <em>… defers to anything</em></td><td><em>Skipped — none declared</em>, <em>Skipped — no command declared</em>, <em>Skipped — none needed</em></td><td>One form for one state. It still reads true when the set is one item (step 7)</td></tr><tr><td>A success title</td><td><strong>A noun for what happened</strong>: <code>Exported — x.zip</code>, <code>47 items imported</code>, <code>Reset link requested</code></td><td><em>Check your email</em></td><td>The title rule: a noun, never a command. <em>Check</em> is also the product's own verb (step 7)</td></tr><tr><td>An error the person can fix</td><td>Plain, with no <em>we</em>, and the act named: <em>Email or password is wrong. Enter them again.</em></td><td><em>Check them and try again.</em></td><td>Principle 3 owns our failures, not theirs. <em>Check</em> and <em>try</em> name nothing</td></tr><tr><td>People in the product's own sentences</td><td><strong>The name, never a pronoun guessed from it</strong>: <em>Written by Maya Chen, not from an external source</em></td><td><em>…— her own</em></td><td>A name does not tell you someone's pronouns (step 7)</td></tr></tbody></table></div>
+<h4>Jargon: what is allowed, and what never reaches a screen</h4>
+<p><strong>Allowed, because the person writes it in their own files and trackers:</strong> <em>MCP server</em>, <em>skill</em>, <em>agent</em>, <em>prompt</em>, <em>env key</em>, <em>repo</em>, <em>commit</em>, <em>ref</em> (<em>pinned ref</em>), <em>licence id</em> (SPDX: <code>MIT</code>, <code>Apache-2.0</code>), <em>agent target</em>, file names as code (<code>SETUP.md</code>, <code>CLAUDE.md</code>, <code>.mcp.json</code>, <code>.env.example</code>). The evidence base is written in these words: <em>"MCP Servers Don't Work with NVM"</em>, <em>"my CLAUDE.md says one thing"</em>, <em>"pins registry commits"</em>.</p>
+<p><strong>Never on a screen, because these are our words about the product, not the person's words about their work:</strong></p>
+<div class="tw"><table><thead><tr><th>Internal word</th><th>On a screen it is</th></tr></thead><tbody><tr><td><em>resolved set</em>, <em>stack</em>, <em>the walk</em></td><td>the project · <em>auto-added</em> · <em>Requirements</em></td></tr><tr><td><em>shelf</em></td><td>Public library</td></tr><tr><td><em>overrides</em></td><td><em>2 fields differ from the original</em></td></tr><tr><td><em>blast radius</em>, <em>puller</em></td><td><em>used in 3 projects</em> · <em>auto-added for migration-reviewer</em></td></tr><tr><td><em>deference</em> (as a noun)</td><td>the stage <strong>Defers to</strong>, the field <em>defers to</em></td></tr><tr><td><em>cohere</em>, <em>coherent</em></td><td><em>checked</em></td></tr><tr><td>register ids, persona ids (<em>Q28</em>, <em>P1</em>, <em>RJ-1</em>)</td><td>nothing — they are removed (<strong>L1</strong>)</td></tr></tbody></table></div>
+<h4>Spelling and typography</h4>
+<ul><li><strong>American spelling</strong>, so the product matches the audience's tools: <strong><code>License</code></strong>, not <em>Licence</em>. The model's field is <code>license</code>, and so are <code>package.json</code> and every SPDX page. This settles <strong>T3</strong>. <em>User content keeps its own spelling (*summarised</em> is theirs).*</li><li><strong>Curly quotes and apostrophes</strong>: <code>’</code> <code>“ ”</code>. Never <code>&#x27;</code> or <code>&quot;</code> in product copy (<strong>T1</strong>). Code keeps its own straight quotes.</li><li><strong>One separator per job.</strong> <code> · </code> joins facts on one line. <code> — </code> opens an explanation or a consequence. A colon introduces a list.</li><li><strong><code>…</code> on a button means it opens a confirmation first</strong>: <code>Delete item…</code>, <code>Share…</code>, <code>Remove eslint-autofix…</code>, <code>Promote to My library…</code>, <code>Delete example…</code>, <code>Stop sharing…</code>. <strong>A button in progress takes no <code>…</code></strong>. It reads <em>Signing in</em> with the spinner beside it, so the glyph keeps one meaning (<strong>D20</strong>).</li><li><strong>Numbers as digits</strong>, units after a space: <em>3 projects</em>, <em>41 KB</em>, <em>0.3 s</em>.</li></ul></div>
+</section>
+
+<!-- ============ FORBIDDEN ============ -->
+<section id="forbidden" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03b</span><h2>Forbidden</h2></div>
+  <p class="qline">What the product never writes, each entry with what it would be and what it is instead. <strong>None of it was on our screens</strong>, so the <em>was</em> lines are the category&rsquo;s, marked as such, or the three that were ours.</p>
+  <div class="md wide"><p><strong>What the product never writes, each with what it was or would be, and what it is instead.</strong> The inventory found <strong>no</strong> cheer, clichés, exclamations or emoji on any of the 80 pages (<code>microcopy.md</code>, <em>No cheer, no clichés</em>). So where a <em>was</em> is marked <em>(not on our screens)</em>, it is the line the category writes in the same place, and it is listed so the next writer recognises it. Where the <em>was</em> is from our own pages, it is quoted.</p>
+<h4>AI clichés and service cheer</h4>
+<div class="tw"><table><thead><tr><th>Forbidden</th><th>Was / would be</th><th>Instead</th></tr></thead><tbody><tr><td><strong>The apologetic shrug</strong></td><td><em>(not on our screens)</em> <strong>Oops, something went wrong.</strong></td><td><strong>Our server didn't answer, so your projects can't be shown.</strong> · <code>503 · Service unavailable · 14:02</code> · <code>Load again</code></td></tr><tr><td><strong>Welcome</strong></td><td><em>(not on our screens)</em> <strong>Welcome to AI Stack Builder! Let's get started.</strong></td><td>Sign in's title is <strong><code>Sign in</code></strong>. The empty library says what it holds and what to do: <strong>No items in My library yet.</strong> <em>Add the first one, import a library you exported before, or copy from the Public library.</em></td></tr><tr><td><strong>Congratulations, success</strong></td><td><em>(not on our screens)</em> <strong>🎉 Congratulations! Your project was successfully exported!</strong></td><td><strong>Exported — <code>acme-billing-api-claude-code.zip</code></strong> · <em>18 files · 41 KB · saved to Downloads. Checked just now · 1 problem · 2 notes · 1 skipped.</em></td></tr><tr><td><strong>The word <em>successfully</strong></em></td><td><em>(not on our screens)</em> <strong>Item successfully saved.</strong></td><td>Nothing, if the result is visible. If it is not: <strong>Saved.</strong> <em>Successfully</em> adds a grade to a fact (principle 4)</td></tr><tr><td><strong>The apology that names nothing</strong></td><td><em>(not on our screens)</em> <strong>Sorry, we couldn't load your library. Please try again later.</strong></td><td><strong>Our server didn't answer, so My library can't be shown right now.</strong> <code>Load again</code>. <em>Sorry</em> and <em>please</em> stand in for the cause, and principle 3 says to give the cause</td></tr><tr><td><strong>The unearned verdict</strong></td><td><em>(not on our screens)</em> <strong>✓ All good — your stack works!</strong></td><td><strong>Checked just now · 0 problems · 0 notes · 3 skipped.</strong> <em>Works</em> promises the receiving machine, which belongs to nobody in this product (<code>CLAUDE.md</code> §6)</td></tr></tbody></table></div>
+<h4>The motivational and the selling</h4>
+<div class="tw"><table><thead><tr><th>Forbidden</th><th>Was / would be</th><th>Instead</th></tr></thead><tbody><tr><td><strong>The journey</strong></td><td><em>(not on our screens)</em> <strong>Start your journey to the perfect AI stack.</strong></td><td><strong>A project holds items from My library. It is checked as a whole and exported as one archive.</strong> <em>(The empty Projects line as it reads now, *a set of items</em>, with D6's word fixed.)*</td></tr><tr><td><strong>The promise of magic and speed</strong></td><td>Raycast: <em>"Sprinkle a little magic on your day"</em>; Tessl: <em>"Build your software factory"</em> · <em>(ours would be)</em> <strong>Build your dream stack in seconds!</strong></td><td><strong>What this checks: requirements, conflicts, command names, target paths, env keys, what each item defers to, pinned refs.</strong> A list the person can verify instead of a feeling they cannot</td></tr><tr><td><strong>Grades and shop words</strong></td><td>Smithery <code>Verified</code>; mcp.so <em>"Hand-picked, production-ready"</em>; Glama <em>"Quality Score"</em> · <em>(ours would be)</em> <strong>Popular · Recommended · Best for your stack</strong></td><td><strong>Used in 3 projects · last exported 12 days ago</strong> · on the Public library: <strong><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code> · MIT</strong>, which is the origin, not a grade (<code>CLAUDE.md</code> §5: no score, no rating, no badge)</td></tr><tr><td><strong>Selling with fear</strong></td><td>Tessl: <em>"One in seven skills carries a critical security risk"</em>, followed by its score · <em>(ours would be)</em> <strong>Protect your secrets — scan with AI Stack Builder</strong></td><td><strong>Check that these files carry no keys. We don't read your files looking for secrets.</strong> The risk is stated, and so is the fact that we did not look (principle 3, <code>CLAUDE.md</code> §11)</td></tr><tr><td><strong>The minimiser</strong></td><td><em>(not on our screens)</em> <strong>Just pick a few items and you're done!</strong></td><td><strong>Tick items on the left to add them. Anything they require is auto-added.</strong> <em>Just</em>, <em>simply</em> and <em>easily</em> tell a person their difficulty is not real. P1's forty minutes per project is real (<code>personas.md</code>, <em>Jobs</em>)</td></tr><tr><td><strong>The vendor's metaphor</strong></td><td>Smithery <code>Add to toolbox</code>; Claude Code <em>"adds it to its toolkit"</em> · <em>(ours would be)</em> <strong>Add to your arsenal</strong></td><td><strong><code>Copy to My library</code></strong> · <strong><code>Add to My library</code></strong>. The plain verb and the name on the nav</td></tr></tbody></table></div>
+<h4>Punctuation, glyphs and register</h4>
+<div class="tw"><table><thead><tr><th>Forbidden</th><th>Was / would be</th><th>Instead</th></tr></thead><tbody><tr><td><strong>Exclamation marks</strong></td><td><em>(not on our screens)</em> <strong>Link created!</strong></td><td><strong>Link created.</strong> Better still, show the link with <strong><code>Copy link</code></strong> beside it. The page shows it happened</td></tr><tr><td><strong>Emoji in system messages</strong></td><td><em>(not on our screens)</em> <strong>✅ 3 keys named · ⚠️ 1 problem</strong></td><td><strong>3 keys named · 1 problem.</strong> Severity is carried by the <strong>glyph beside the line</strong> (Problem, Note, Skipped, <code>CLAUDE.md</code> §6), which is designed, neutral for <em>Skipped</em>, and never inside the sentence</td></tr><tr><td><strong>Shouting</strong></td><td><em>(not on our screens)</em> <strong>WARNING: CONFLICT DETECTED</strong></td><td><strong><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports <code>code-style</code> tells the agent to keep.</strong> Mechanism, then consequence (principle 2)</td></tr><tr><td><strong><em>Are you sure?</strong></em></td><td><em>(not on our screens)</em> <strong>Are you sure you want to delete db-migrate?</strong></td><td><strong><code>db-migrate</code> is used in 3 projects. Deleting it may stop them working.</strong> · <code>Delete</code> · <code>Cancel</code>. None of the competitors reached writes it either (<code>research.md</code> §10, point 4)</td></tr><tr><td><strong>Internal ids and our own jargon</strong></td><td>Ours, Run · <code>run-error-setup</code>: <strong>…not because there is nothing to say (Q28).</strong></td><td><strong>…not because there is nothing to say.</strong> Register ids, persona ids and the words in <em>Never on a screen</em> above are for this repository, not for the person (<strong>L1</strong>)</td></tr><tr><td><strong>Blocking words</strong></td><td>Our own worst instinct, from the research: <strong>Export blocked: unresolved conflicts.</strong></td><td><strong>1 problem is still in this project. The archive will contain both <code>eslint-autofix</code> and <code>code-style</code>.</strong> · <code>Export with 1 problem</code>. Nothing blocks (<code>CLAUDE.md</code> §6)</td></tr></tbody></table></div></div>
+</section>
+
+<!-- ============ ELEMENTS ============ -->
+<section id="elements" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 04</span><h2>Rules by element</h2></div>
+  <p class="qline">Eight kinds of line, one example each from AI Stack Builder, each checked against the principles and the dictionary. <strong>Empty leads to an action, an error says what to do, success does not celebrate.</strong></p>
+  <div class="elements wide"><div class="element"><h3>Button</h3><p><strong>A verb, plus the object when the screen does not already name it, so the result is visible from the label.</strong> If the act has a cost, the label carries it. A button that opens a confirmation ends in <code>…</code>. Never <em>OK</em>, <em>Next</em>, <em>Continue</em>, <em>Submit</em>, <em>Yes</em>, or <em>Confirm</em>.</p><blockquote><p><code>Export with 1 problem</code> · <code>Copy to My library</code> · <code>Remove eslint-autofix…</code> · <code>Export…</code></p></blockquote><p class="checked">Checked against principle 2 (the label is the first sentence of the consequence) · Dictionary, <em>Trying again</em> (D12), <em><code>…</code> on a button</em> (D20), <em>Copy / Add</em> (D5), <em>the control that starts it</em> (D3, Q36).</p></div>
+<div class="element"><h3>Screen title</h3><p><strong>The name of the place, in the dictionary's words. On an object's own screen, the object's name.</strong> A title is a noun, never a sentence and never a greeting. A mode the person has entered is shown as a badge beside the title, not by renaming it.</p><blockquote><p><code>My library</code> · <code>Public library</code> · <code>Projects</code> · <code>acme-billing-api</code> with the badge <code>Configuring</code> · <code>Export</code></p></blockquote><p class="checked">Checked against principle 4 (a name, not an adjective) · Dictionary, <em>My library</em> (D1), <em>Public library</em> (D2), <em>the surface it opens</em> (D3) · Forbidden, <em>Welcome</em>.</p></div>
+<div class="element"><h3>Form field</h3><p><strong>The label says what to enter, as a noun from the dictionary. The hint says how, with a real example. A validation error names the field, says exactly what is wrong with what was typed, and says what would be right.</strong> It appears under the field it is about, never in a banner. Errors about the person's own input are said in plain terms, without <em>we</em>: the fault is not ours, and principle 3 does not ask us to take it.</p><blockquote><p><strong>Env keys it needs</strong> · <em>hint:</em> Names only, like <code>DATABASE_URL</code>. Values never live here.</p><p><strong>Email</strong> · <em>error:</em> <code>maya@chen</code> has no domain. An email address looks like <code>maya@chen.dev</code>.</p></blockquote><p class="checked">Checked against principle 4 (name what is wrong, never only <em>invalid</em>) · principle 5 (the person fixing it is the reader) · Dictionary, <em>env key, name, value</em>.</p></div>
+<div class="element"><h3>Empty state</h3><p><strong>Why it is empty, then what to do next, with the action as a button.</strong> There are two empties and they never share words. <strong>Never had anything</strong> reads <em>No … yet</em>: say what belongs here, and offer the ways in. <strong>Filtered to zero</strong> reads <em>Nothing matches "…"</em>: say how many the search and filters hide, and offer the way to clear them. The more likely it is that the reader does not know what the place is for, the more an empty state explains. A first-run Projects page explains. A tab filtered to zero only counts.</p><blockquote><p><strong>No projects yet.</strong> A project holds items from My library. It is checked as a whole and exported</p><p>as one archive. · <code>New project</code> · <code>Open Public library</code></p><p><strong>Nothing matches "stripe"</strong> · The filter shows only projects that are Not checked yet. You have 5</p><p>projects — the search and the filter hide all of them. · <code>Clear filters</code></p></blockquote><p class="checked">Checked against principle 4 (the count you can act on, never only <em>none</em>) · Dictionary, <em>Never anything here</em>, <em>Filtered to zero</em> (D13), <em>Undoing filters</em> (D14) · research §3, mechanism 2 · personas, P3 <em>Repels: emptiness that is also a dead end</em>.</p></div>
+<div class="element"><h3>Error</h3><p><strong>Say what happened and whose failure it is. Then say what did not change, and what to do now: a button with the verb that will happen again, and a second way out that does not depend on what failed.</strong> The code goes on its own line, for whoever reports it. No apology, no joke, no <em>something</em>. <em>What did not change</em> is not optional: it is the half that tells a person their work is safe (Q26, Q27).</p><blockquote><p><strong>Our server didn't answer, so your projects can't be shown.</strong> Nothing in them changed.</p><p><code>Load again</code> · <code>Open My library</code></p><p><code>503 · Service unavailable · 14:02</code></p></blockquote><p class="checked">Checked against principle 3 (our failures in our voice) · principle 2 (what will happen if they press) · Dictionary, <em>Our failure</em> (D9), <em>The error code</em> (D10), <em>Trying again</em> (D12) · Forbidden, <em>The apologetic shrug</em>, <em>The apology that names nothing</em>.</p></div>
+<div class="element"><h3>Loading</h3><p><strong>A short wait is silent: the skeleton of what is coming, with nothing to read.</strong> A wait that is long, staged, or risky <strong>says exactly what is loading, and how far it has got</strong>, as <em>N of M</em> where there is a count. A wait that could leave something half-done also says what happens if it stops, <strong>while it runs</strong>, not after (Q27). The words are <em>Loading</em> + what, <em>Checking — stage N of 10</em>, <em>Exporting — N of M files</em>.</p><blockquote><p><em>(Projects on arrival: the card grid as skeletons, no text.)</em></p><p><strong>Importing 47 items</strong> · 18 of 47 · <code>release-notes</code> · If this stops before the end, My library</p><p>stays exactly as it was before the import — none of the 47 are kept.</p></blockquote><p class="checked">Checked against principle 4 (<em>N of M</em>) · principle 3 (say what happens if it stops) · Dictionary, <em>Data arriving</em>, <em>The check running</em> (D11) · Forbidden, <em>The promise of magic and speed</em>.</p></div>
+<div class="element"><h3>Success</h3><p><strong>Name the fact, with its numbers. Then name the next step: what still has to happen, and the control for it.</strong> A success line restates what was produced and what was checked, never that it <em>works</em>. No celebration, no <em>successfully</em>, no exclamation.</p><blockquote><p><strong>Exported — <code>acme-billing-api-claude-code.zip</code></strong> · 18 files · 41 KB · saved to Downloads. Checked</p><p>just now · 1 problem · 2 notes · 1 skipped.</p><p>The receiving machine still needs: values for <code>DATABASE_URL</code>, <code>GITHUB_TOKEN</code> and</p><p><code>SENTRY_AUTH_TOKEN</code> · three repos cloned at their pinned refs — <code>SETUP.md</code> says which.</p><p><code>Download again</code> · <code>Share…</code></p></blockquote><p class="checked">Checked against principle 1 (<em>checked</em>, never <em>works</em>) · principle 5 (the next step for whoever acts next: here, the receiving machine) · Dictionary, <em>It is built</em>, <em>Fetching the same file again</em> (D4), <em>The verdict</em> (D19) · Forbidden, <em>Congratulations, success</em>, <em>successfully</em>.</p></div>
+<div class="element"><h3>Dangerous action</h3><p><strong>Before the press, say what will happen, to what, with the count expanded into names. Say what stays, and say what cannot be undone.</strong> The confirm button repeats the verb of the act; <code>Cancel</code> sits beside it. <strong>Nothing is blocked and nothing asks the person to type a name.</strong> We confirm rather than refuse (<code>CLAUDE.md</code> §6), and the cost is carried by the sentence, not by friction. An unclean export is confirmed <strong>in the row under the finding</strong>, never in a modal.</p><blockquote><p><strong>Delete db-migrate?</strong></p><p><code>db-migrate</code> is used in 3 projects: acme-billing-api · agent-dotfiles · docs-site-rewrite. Deleting</p><p>it may stop them working. <code>migration-reviewer</code> requires it, so that requirement will point at</p><p>nothing, and the next check in each project names it as a Problem. This can't be undone.</p><p><code>Delete</code> · <code>Cancel</code></p><p><strong>Stop sharing acme-billing-api?</strong> The link stops working at once. It can't reach what was already</p><p>taken: anyone who exported the archive or copied its items keeps them. <code>Stop sharing</code> · <code>Cancel</code></p></blockquote><p class="checked">Checked against principle 2 (the consequence in the reader's terms, before the step) · principle 4 (the count, and the names behind it) · Dictionary, <em><code>…</code> on a button</em> (D20), <em>Sharing</em> (D21), <em>Removing an item</em> (D22) · Forbidden, <em>Are you sure?</em>, <em>Blocking words</em> · research §10, point 4.</p></div></div>
+</section>
+
+<!-- ============ SAMPLE ============ -->
+<section id="sample" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>The sample</h2></div>
+  <p class="qline">One screen first, read by the owner before anything else was touched. <strong><code>Run</code> was chosen</strong>, because it carries nearly every register the specification had already fixed, and a wrong word costs most there.</p>
+
+  <p><strong>The owner changed one decision on it.</strong> The dictionary had recommended <code>Check</code> for the control that opens the mode, since what happens first is a check. The owner&rsquo;s answer was <em>the main button in the project is Export</em>. That puts Export on the Project screen, so it went to the register as <strong>Q36</strong> before it went anywhere else. The control now reads <code>Export&hellip;</code>, the mode is titled <code>Export</code>, and the check inside keeps its own words: <em>Checking</em>, <em>Checked</em>, <code>Check again</code>.</p>
+
+  <div class="tw wide"><table class="wn"><thead><tr><th>Zone</th><th>Was</th><th>Now</th><th>Why</th></tr></thead><tbody><tr><td class="why">Run bar</td><td class="was">Check</td><td class="now">Export</td><td class="why">Q36: the mode is titled by what it ends in; the check is its sub-process</td></tr><tr><td class="why">Main › Stages: Findings</td><td class="was">Resolve the set</td><td class="now">Requirements</td><td class="why">Dictionary: project, not set (D6)</td></tr><tr><td class="why">Main › Stages: Findings</td><td class="was">You chose 11. The walk along <code>requires</code> added 3: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</td><td class="now">You added 11. 3 more were auto-added because another item <code>requires</code> them: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</td><td class="why">D7: auto-added; the walk never on a screen</td></tr><tr><td class="why">Stages: Findings › Finding</td><td class="was">Remove eslint-autofix</td><td class="now">Remove eslint-autofix…</td><td class="why">Typography: <code>…</code> on a button that opens a confirmation (D20)</td></tr><tr><td class="why">Main › Stages: Findings</td><td class="was">Deference</td><td class="now">Defers to</td><td class="why">Jargon: <em>deference</em> as a noun never on a screen</td></tr><tr><td class="why">Main › Export stage</td><td class="was">1 problem is still in the set. The archive will contain both <code>eslint-autofix</code> and <code>code-style</code>, and the agent will get two rules that disagree about imports.</td><td class="now">1 problem is still in this project. The archive will contain both <code>eslint-autofix</code> and <code>code-style</code>, and the agent will get two rules that disagree about imports.</td><td class="why">D6</td></tr><tr><td class="why">Main › Export stage</td><td class="was">Fix it in the project first</td><td class="now">Configure acme-billing-api</td><td class="why">Button: verb + object, the result visible — it opens the configuring mode</td></tr><tr><td class="why">Main › Verdict</td><td class="was">The server stopped answering at stage 4 of 10. Nothing in the project changed; its last check still reads 2 days ago.</td><td class="now">Our server stopped answering at stage 4 of 10. Nothing in the project changed, and its last check still reads 2 days ago.</td><td class="why">Dictionary: our failure (D9)</td></tr><tr><td class="why">Main › Stages: Findings</td><td class="was">Didn’t complete</td><td class="now">Stopped — our server didn’t answer</td><td class="why">Dictionary: a stage that started and did not finish (D23)</td></tr><tr><td class="why">Main › Export stage</td><td class="was">The server stopped at 12 of 18 files. Nothing was downloaded. The check above still stands — nothing in the set changed.</td><td class="now">Our server stopped at 12 of 18 files. Nothing was exported. The check above still stands — nothing in the project changed.</td><td class="why">Dictionary: our failure (D9); project, not set (D6); Step 7 #1 #3 D4</td></tr><tr><td class="why">Main › Export stage</td><td class="was">503 · 14:07</td><td class="now">503 · Service unavailable · 14:07</td><td class="why">Dictionary: one form for the error code (D10); Step 7 #18/#19: the error code on its own line (D10)</td></tr><tr><td class="why">Main › Export stage</td><td class="was">Build the archive again</td><td class="now">Export again</td><td class="why">Dictionary: Export; retry names the verb (D4, D12)</td></tr><tr><td class="why">Main › Stages: Handover — what the receiving machine still needs</td><td class="was">Couldn’t be written</td><td class="now">Stopped — our server didn’t answer</td><td class="why">Dictionary: a stage that started and did not finish (D23)</td></tr><tr><td class="why">Stages: Handover — what the receiving machine still needs › Finding</td><td class="was"><code>SETUP.md</code> couldn’t be produced — the server stopped while writing it. What you would read here is missing because something broke on our side, not because there is nothing to say (Q28). 503 · 14:06</td><td class="now"><code>SETUP.md</code> wasn’t written — our server stopped while writing it. What you would read here is missing because our server failed, not because there is nothing to say.</td><td class="why">Forbidden: internal ids (L1); our failure (D9); the error code (D10); Step 7 #19: the error code moved to a line of its own (D10)</td></tr><tr><td class="why">Stages: Handover — what the receiving machine still needs › Finding</td><td class="was">(added)</td><td class="now">503 · Service unavailable · 14:06</td><td class="why">Step 7 #18/#19: the error code on its own line (D10)</td></tr><tr><td class="why">Stages: Handover — what the receiving machine still needs › Finding</td><td class="was">Write it again</td><td class="now">Write SETUP.md again</td><td class="why">Dictionary: retry names the verb and its object (D12)</td></tr><tr><td class="why">Main › Export stage</td><td class="was">Building the archive — 18 files for Claude Code</td><td class="now">Exporting — 18 files for Claude Code</td><td class="why">Dictionary: Export (D4); Loading: say what is loading</td></tr><tr><td class="why">Main › Stages: Findings</td><td class="was">Checking…</td><td class="now">Checking</td><td class="why">Typography: <code>…</code> only on a button that opens a confirmation (D20); the glyph shows it is running</td></tr><tr><td class="why">Main › Export stage</td><td class="was">After the handover stages.</td><td class="now">Opens after the handover stages.</td><td class="why">Loading: the waiting stage says what will happen, not only where</td></tr><tr><td class="why">Modal: Remove eslint-autofix from acme-billing-api?</td><td class="was">Remove</td><td class="now">Remove from project</td><td class="why">Dangerous action: the confirm button repeats the verb of the act (D22)</td></tr><tr><td class="why">Main › Export stage</td><td class="was">Archive built — acme-billing-api-claude-code.zip</td><td class="now">Exported — acme-billing-api-claude-code.zip</td><td class="why">Dictionary: it is built — <em>Exported</em> (D4)</td></tr><tr><td class="why">Main › Export stage</td><td class="was">18 files · 41 KB · saved to Downloads. Checked just now with 1 problem, 2 notes and 1 skipped.</td><td class="now">18 files · 41 KB · saved to Downloads. Checked just now · 1 problem · 2 notes · 1 skipped.</td><td class="why">D19</td></tr><tr><td class="why">Main › Export stage</td><td class="was">Three repos cloned at their pinned refs — <code>SETUP.md</code> says which</td><td class="now">3 repos cloned at their pinned refs — <code>SETUP.md</code> says which</td><td class="why">Step 7 #14 numbers as digits</td></tr><tr><td class="why">Main › Export stage</td><td class="was">Share the project</td><td class="now">Share…</td><td class="why">Dictionary: Share… opens the disclosure (D21, D20)</td></tr></tbody></table></div>
+</section>
+
+<!-- ============ ROLL-OUT ============ -->
+<section id="rollout" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>The roll-out</h2></div>
+  <p class="qline">The other sixteen screens, one agent per screen, each given <code>voice.md</code>, the sample, and a shared table of the lines that recur across screens, so that sixteen writers would not drift.</p>
+
+  <p><strong>The merge was computed, not transcribed.</strong> The rewrite changed no markup, so each page before and after aligns line for line, and the was/now table is built from the pages themselves. <strong>A cross-screen check then found three lines</strong> that two agents had written differently for one panel, and they were reconciled. The 239 prototype pages were rebuilt from the pages, and no old phrase survives in them.</p>
+
+  <div class="tw wide"><table class="wn"><thead><tr><th>Screen</th><th class="n">Lines</th><th class="n">Rewritten</th><th></th></tr></thead><tbody><tr><td>Everywhere — the app header</td><td class="n">7</td><td class="n">0</td><td><span class="bar" style="width:0px"></span></td></tr><tr><td>Sign in</td><td class="n">16</td><td class="n">5</td><td><span class="bar" style="width:17px"></span></td></tr><tr><td>Create an account</td><td class="n">18</td><td class="n">9</td><td><span class="bar" style="width:31px"></span></td></tr><tr><td>Reset password</td><td class="n">11</td><td class="n">6</td><td><span class="bar" style="width:21px"></span></td></tr><tr><td>My library</td><td class="n">132</td><td class="n">18</td><td><span class="bar" style="width:63px"></span></td></tr><tr><td>Item — the add/edit overlay</td><td class="n">194</td><td class="n">16</td><td><span class="bar" style="width:56px"></span></td></tr><tr><td>Library — import and export as JSON</td><td class="n">97</td><td class="n">9</td><td><span class="bar" style="width:31px"></span></td></tr><tr><td>Public library</td><td class="n">79</td><td class="n">14</td><td><span class="bar" style="width:49px"></span></td></tr><tr><td>Projects</td><td class="n">85</td><td class="n">16</td><td><span class="bar" style="width:56px"></span></td></tr><tr><td>Project</td><td class="n">166</td><td class="n">30</td><td><span class="bar" style="width:104px"></span></td></tr><tr><td>Project — configuring the set</td><td class="n">187</td><td class="n">46</td><td><span class="bar" style="width:160px"></span></td></tr><tr><td>Project — a detached row</td><td class="n">135</td><td class="n">37</td><td><span class="bar" style="width:129px"></span></td></tr><tr><td>Run</td><td class="n">86</td><td class="n">24</td><td><span class="bar" style="width:83px"></span></td></tr><tr><td>Run — a single item</td><td class="n">63</td><td class="n">19</td><td><span class="bar" style="width:66px"></span></td></tr><tr><td>Shared project</td><td class="n">50</td><td class="n">16</td><td><span class="bar" style="width:56px"></span></td></tr><tr><td>Run — a shared project</td><td class="n">63</td><td class="n">22</td><td><span class="bar" style="width:77px"></span></td></tr><tr><td>Shared item</td><td class="n">19</td><td class="n">6</td><td><span class="bar" style="width:21px"></span></td></tr><tr><td>Run — a shared item</td><td class="n">64</td><td class="n">22</td><td><span class="bar" style="width:77px"></span></td></tr></tbody></table></div>
+</section>
+
+<!-- ============ CHECK ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 07</span><h2>The check</h2></div>
+  <p class="qline">Every line checked against the dictionary and the table. <strong>The table of defects came first, was reviewed by the owner, and only then fixed</strong>, in the pages and the table together.</p>
+
+  <p><strong>Screen against table: zero differences in either direction.</strong> No cliché, exclamation, emoji or <em>successfully</em>. Twenty-two defects all the same. Four of them needed markup, not text, and were approved by name: a stray link removed, the error code given its own line, and <strong>a shared project that reads as shared</strong>, which is register entry <strong>Q37</strong>.</p>
+
+  <div class="md wide"><p><strong>2026-10-05.</strong> Every product line on the 80 pages was checked against <code>voice.md</code> and this table. Two scans ran first: the screens against this table in both directions, and a search for dictionary synonyms and the forbidden list. Then all 474 distinct product lines were read by hand. <strong>Screen ↔ table: 0 differences either way. No cliché, exclamation, emoji or <em>successfully</em>.</strong> Twenty-two defects were found, reviewed by the owner (<em>исправляй</em>), and fixed in the pages, the prototype generators and this table together. <strong>Rows changed in step 7 carry <em>Step 7 #n</em> in <em>Why</em>.</strong></p>
+<div class="tw"><table><thead><tr><th>#</th><th>Screen</th><th>Line</th><th>What was wrong</th><th>Fixed to</th></tr></thead><tbody><tr><td>1</td><td>Run · error-export</td><td><em>Nothing was downloaded.</em></td><td>D4: the archive is exported</td><td><em>Nothing was exported.</em></td></tr><tr><td>2</td><td>Run · shared project, error</td><td><em>…whether agent-dotfiles holds together</em></td><td><em>holds together</em> is <em>cohere</em>, which never reaches a screen</td><td><em>…about agent-dotfiles itself.</em></td></tr><tr><td>3</td><td>Run · shared item, error</td><td><em>Nothing was downloaded.</em></td><td>D4</td><td><em>Nothing was exported.</em></td></tr><tr><td>4</td><td>Project · detached row</td><td><code>Reset whole item</code></td><td>The dictionary (D8) says <em>Reset to the original</em></td><td><code>Reset to the original</code></td></tr><tr><td>5</td><td>Sign in · error</td><td><em>Check them and try again.</em></td><td><em>Check</em> is the product's verb; <em>try</em> names nothing</td><td><em>Enter them again.</em></td></tr><tr><td>6</td><td>Run · single item, shared item</td><td><em>Skipped — none declared</em> · <em>Skipped — no command declared</em></td><td>One check, several forms</td><td><em>Skipped — no item declares a conflict / a command</em></td></tr><tr><td>7</td><td>Run · shared item</td><td><em>Skipped — none needed</em></td><td>Not the <em>Skipped — no item …</em> form</td><td><em>Skipped — no item needs an env key</em></td></tr><tr><td>8</td><td>My library, Public library, Configuring · filtered</td><td><em>Nothing matches “terraform” among your agents…</em></td><td>The body repeated the heading. Projects did not, so one state had two forms</td><td><em>The tab shows only agents. You have 11 items — …</em> (and <em>skills</em>, <em>items related to this project</em>)</td></tr><tr><td>9</td><td>Shared item</td><td><em>This page is live: it shows…</em></td><td>Typography: <code> — </code> opens an explanation</td><td><em>This page is live — it shows…</em></td></tr><tr><td>10</td><td>Shared item</td><td><em>Written by Maya Chen — her own…</em></td><td>A pronoun guessed from a name</td><td><em>Written by Maya Chen, not from an external source</em></td></tr><tr><td>11</td><td>Projects · delete</td><td><em>Delete the example project?</em></td><td>Dangerous action: name the object</td><td><em>Delete repo-triage-kit?</em></td></tr><tr><td>12</td><td>Item · delete</td><td><em>…the next check in each project…</em></td><td><code>migration-reviewer</code> is in one project. The line claimed more than it knows</td><td><em>…the next check in acme-billing-api…</em></td></tr><tr><td>13</td><td>Run · shared item, success</td><td><em>To know that the client’s ESLint config wins…</em></td><td>A list of what the machine needs held a piece of knowledge, not a thing</td><td><em>The client’s ESLint config, which wins where it disagrees with this skill</em></td></tr><tr><td>14</td><td>Run · success</td><td><em>Three repos cloned…</em></td><td>Numbers as digits</td><td><em>3 repos cloned…</em></td></tr><tr><td>15</td><td>Project · share</td><td><em>3 external items, at their pinned refs</em></td><td>Dangerous action: a count expands into names (§6)</td><td><em>3 external items: modelcontextprotocol/servers-archived, github/github-mcp-server, getsentry/sentry-mcp — at their pinned refs</em></td></tr><tr><td>16</td><td>Reset password · success</td><td><code>Check your email</code></td><td>A title is a noun</td><td><code>Reset link requested</code></td></tr><tr><td>17</td><td>Create account · loading</td><td>the <code>Reset password</code> link (L3)</td><td>A stray element copied from Sign in</td><td><strong>Removed.</strong> Markup change, approved</td></tr><tr><td>18</td><td>Item · error, Run · single item / shared project / shared item, error</td><td>—</td><td>No error-code line (D10)</td><td><code>503 · Service unavailable · HH:MM</code> <strong>added</strong> on its own line. Markup change</td></tr><tr><td>19</td><td>Configuring · error-server, Run · error-setup</td><td>the code at the end of a sentence</td><td>D10</td><td>Moved to a line of its own. Markup change</td></tr><tr><td>20</td><td>Project · revoke</td><td>the head read <code>Share…</code></td><td>A shared project did not read as shared, and nothing opened <em>Stop sharing</em> (§8)</td><td>The badge <code>Shared</code> and <code>Stop sharing…</code>. <strong>Q37</strong> in the register</td></tr><tr><td>21</td><td>Run · single item</td><td><em>4 files</em></td><td>U3: the archive tree on the same page shows 8</td><td><em>8 files</em></td></tr><tr><td>22</td><td>Library, Project, Shared pages</td><td>one item, several descriptions (U1) · <em>Acme's</em></td><td>Sample data disagreed with itself</td><td>One description per item, the one in My library. The detached <code>pr-reviewer</code> row keeps its own, legitimately. <em>Acme’s</em></td></tr></tbody></table></div>
+<p><strong>Prototypes rebuilt</strong> (37 cases, 239 pages) with the generators updated for #4, #11, #14, #15, #19 and #22. No old phrase from this table survives in them.</p></div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">The lesson is finished. <strong>What it could not settle is listed, not smoothed over.</strong></p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Why it is not settled here</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Can counts carry a verdict?</td><td><code>0 problems &middot; 0 notes</code> still reads the same on an empty project and a perfect one. The voice made every count explicit, zeros included. It cannot make the channel wider.</td></tr>
+        <tr><td class="name">Copying the link again</td><td>Q37 made a shared project read as shared, and decided nothing about whether the owner can see or copy the link afterwards.</td></tr>
+        <tr><td class="name">The receiver&rsquo;s voice</td><td>Every line addressed to the receiver states what their machine needs. None guesses how they feel, because nobody has asked them.</td></tr>
+        <tr><td class="name">The longest row</td><td>The wireframes were written at real length, but width is measured in phase 07, when there is a type scale to measure it with.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote"><strong>From here on, every new line is written against <code>voice.md</code> and recorded in <code>microcopy.md</code></strong>. A line on a screen that is not in the table is a defect, and so is the reverse.</p>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 05 of twelve.</strong> Built from <code>05-tone-of-voice/voice.md</code> and <code>microcopy.md</code>. The specification is <code>CLAUDE.md</code>, &sect;14 <em>Voice</em>; the open questions live in one register, <code>01-research/research-plan.md</code>, and nowhere else.</p>
+  <p>Phase 03 &mdash; <a href="../03-information-architecture/ia.html">information architecture</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">the wireframes</a>, where every line on this page now stands</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  /* the phase rail's collapse toggle — the same key on every phase page and on the wireframes.
+     Deliberately not its own IIFE: the builders lift this script up to its first closing one. */
+  var phRoot = document.documentElement, phBtn = document.querySelector('.phasestoggle');
+  function phSync(){
+    var c = phRoot.classList.contains('phases-collapsed');
+    phBtn.setAttribute('aria-expanded', String(!c));
+    phBtn.innerHTML = c ? '&raquo;' : '&laquo;';
+    phBtn.title = c ? 'Expand phases' : 'Collapse phases';
+  }
+  if(phBtn){
+    phBtn.addEventListener('click', function(){
+      phRoot.classList.toggle('phases-collapsed');
+      try{ localStorage.setItem('phases', phRoot.classList.contains('phases-collapsed') ? 'collapsed' : 'open'); }catch(e){}
+      phSync();
+    });
+    phSync();
+  }
+  if(!links.length) return;
+  var rail = document.querySelector('.rail');
+  var ol   = rail ? rail.querySelector('ol') : null;
+
+  var map = links.map(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    return el ? { a:a, el:el } : null;
+  }).filter(Boolean);
+  if(!map.length) return;
+
+  var current = null;
+  var smoothly = !window.matchMedia
+              || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* One tab is always active: the last section whose top has passed the bar.
+     An IntersectionObserver band leaves the indicator blank between sections,
+     which is wrong for something shaped like tabs. */
+  function sync(){
+    /* a section becomes current once its top reaches the upper third of the
+       viewport, not when it touches the bar - otherwise the heading is already
+       well in view while the tabs still point at the section above it. */
+    var line = Math.max(110, window.innerHeight * 0.32), best = map[0], i;
+    for(i = 0; i < map.length; i++){
+      if(map[i].el.getBoundingClientRect().top <= line) best = map[i];
+    }
+    if(best === current) return;
+    current = best;
+    for(i = 0; i < links.length; i++) links[i].classList.remove('on');
+    best.a.classList.add('on');
+
+    /* keep the active tab inside the horizontal scroller */
+    if(ol && ol.scrollWidth > ol.clientWidth + 4){
+      var t = best.a.getBoundingClientRect(), o = ol.getBoundingClientRect(), to = null;
+      if(t.left < o.left + 12)        to = ol.scrollLeft + t.left  - o.left  - 28;
+      else if(t.right > o.right - 48) to = ol.scrollLeft + t.right - o.right + 56;
+      if(to !== null){
+        /* the bar is dragged by hand at 1:1, so smoothness is asked for here
+           rather than set on the element */
+        if(ol.scrollTo) ol.scrollTo({ left:to, behavior:smoothly ? 'smooth' : 'auto' });
+        else ol.scrollLeft = to;
+      }
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ sync(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  /* a click on a tab jumps without always producing a scroll event the throttle
+     can see, so the bar would keep pointing at the section we just left */
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(sync); });
+
+  /* Drag the horizontal bars with the mouse. They overflow at most widths and a
+     wheel alone only moves them with shift held, which nobody discovers. Touch
+     already scrolls them natively, so this is mouse-only; a drag of more than a
+     few pixels swallows the click it would otherwise end in. */
+  function dragScroll(box){
+    if(!box) return;
+    var SLOP = 5;                         /* a press only becomes a drag past this */
+    var down = false, dragging = false, swallow = false, startX = 0, startLeft = 0;
+    function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
+    function mark(){ box.classList.toggle('grabbable', !fits()); }
+
+    /* No setPointerCapture: a captured pointer retargets the click at the
+       scroller, and the tab under the cursor never receives it. The move and up
+       handlers go on the window instead, so a drag still survives leaving the
+       bar, and a plain click stays a plain click on the link. */
+    function move(e){
+      var dx = e.clientX - startX;
+      if(!dragging){
+        if(Math.abs(dx) < SLOP) return;
+        dragging = true; swallow = true;
+        box.classList.add('dragging');
+      }
+      box.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    }
+    function up(){
+      down = false; dragging = false;
+      box.classList.remove('dragging');
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    }
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; dragging = false; swallow = false;
+      startX = e.clientX; startLeft = box.scrollLeft;
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+    });
+    /* only a press that actually moved eats its click */
+    box.addEventListener('click', function(e){
+      if(!swallow) return;
+      swallow = false;
+      e.preventDefault(); e.stopPropagation();
+    }, true);
+    box.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    mark();
+    window.addEventListener('resize', mark);
+  }
+  dragScroll(ol);
+  dragScroll(document.querySelector('.phases ol'));
+
+  sync();
+})();
+</script>
+</body>
+</html>

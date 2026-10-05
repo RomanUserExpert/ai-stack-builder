@@ -1,6 +1,6 @@
 # Lesson 05 — Tone of voice and microcopy
 
-**Closed 2026-10-05 — every step done; the result is [`voice.md`](voice.md) and [`microcopy.md`](microcopy.md).** *What follows is the plan as written on 2026-10-01.*
+**Closed 2026-10-05 — every step done; the result is [`voice.md`](voice.md) and [`microcopy.md`](microcopy.md), and the lesson's page is [`voice.html`](voice.html), built by `tools/build_voice.py`.** *What follows is the plan as written on 2026-10-01.*
 
 **A plan, not a result.** Written 2026-10-01, the day the lesson's materials were read, and **numbered
 by the course's own seven steps from the start** — lesson 03 opened with ten steps of its own and had to

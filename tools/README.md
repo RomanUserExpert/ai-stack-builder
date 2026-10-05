@@ -106,3 +106,16 @@ the marks. **Its output is the table of [`05-tone-of-voice/microcopy.md`](../05-
 as of step 1 (2026-10-05)**; the findings above the table are hand-written. From step 5 the table is
 edited by hand and the script is not re-run over it — it stays as a way to re-inventory the pages and
 diff against the table in step 7.
+
+## `build_voice.py` — phase 05, the voice page
+
+```
+python tools/build_voice.py   # -> 05-tone-of-voice/voice.html
+```
+
+The fourth phase page, built like `build_ia.py`: the shared `<style>` and scroll-spy are lifted from
+`research-page.tpl.html`, and its own head and body are `voice-page.tpl.html`. **It is derived, not
+transcribed.** The principles, dictionary, forbidden list and rules by element are read out of
+`05-tone-of-voice/voice.md`. The counts, the sample's was/now, the per-screen roll-out and the
+step-7 defects come out of `microcopy.md`. Edit those and rebuild. **Phase 05 joined the phase strip on
+2026-10-05**: in the three templates, the three generated pages, and the wireframe viewer's rail.

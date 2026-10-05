@@ -86,7 +86,7 @@ element**: button, title, field, empty, error, loading, success, dangerous actio
 
 [`05-tone-of-voice/microcopy.md`](05-tone-of-voice/microcopy.md) is **every line of the product**, by
 screen, with *was / now* and the rule behind each change. It is the source of truth: a line on a
-screen that is not in the table is a defect. The tools that keep the two in step are in `tools/`
+screen that is not in the table is a defect. **The page is [`05-tone-of-voice/voice.html`](05-tone-of-voice/voice.html)**, built from both files. The tools that keep the two in step are in `tools/`
 (`extract_copy.py`, `build_microcopy.py`, `rewrite_copy.py`).
 
 ## Structure
