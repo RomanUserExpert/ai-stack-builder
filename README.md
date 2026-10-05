@@ -36,7 +36,7 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research is done, the information architecture is done, and the screens are drawn and clickable. There is still no code.** Lessons 01–04 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), and wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows. **Lesson 05, tone of voice and microcopy, is current.** No design system and no mockups yet, and **nothing so far decides how anything looks.**
+**Research is done, the information architecture is done, the screens are drawn and clickable, and the product has one voice. There is still no code.** Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. **Lesson 06, concept, is current.** No design system and no mockups yet, and **nothing so far decides how anything looks.**
 
 **One decision from 20 September changes the shape of everything after it: the product is online**, a
 backend with accounts, so a person's library follows them between machines. **What the backend is
@@ -48,7 +48,7 @@ this line used to read `research → design system → mockups → frontend → 
 design system second when it is ninth.*
 
 ~~01 research and benchmark~~ → ~~02 personas and JTBD~~ → ~~03 information architecture~~ →
-~~04 prototyping~~ → **05 tone of voice** → 06 concept → 07 UI assembly → 08 design tokens →
+~~04 prototyping~~ → ~~05 tone of voice~~ → **06 concept** → 07 UI assembly → 08 design tokens →
 09 design system → 10 responsive → 11 animation → 12 handoff. Product logic — state,
 storage, validation, export — comes after all twelve.
 
@@ -65,6 +65,29 @@ Planned stack: Next.js + React + TypeScript, with a backend. **Which backend is 
 decided** — the product decides what it is and the implementation follows. JSZip for the archive, as a
 choice rather than a constraint. Custom design system, no UI kits. *This line said `client-side only,
 IndexedDB` until 2026-09-20.*
+
+## Voice
+
+**How the product speaks is a contract, not a mood.** [`05-tone-of-voice/voice.md`](05-tone-of-voice/voice.md)
+holds five principles. Each is a rule with an example, an anti-example, and the line of research it
+comes from:
+
+1. **Say what was examined, never what it means.** It says *checked*, never *works* — an inspector's
+   report, not a seller's badge.
+2. **Name the consequence before the step.** No *Are you sure?*, and nothing is blocked.
+3. **Say what we did and did not, and own our failures.** *Our server didn't answer.*
+4. **Counts and names, not adjectives.** No scores, no badges, no *popular*.
+5. **Write for whoever acts next**: the owner, the receiver, or the agent reading `SETUP.md`.
+
+The same file holds a **dictionary** with one word per concept: `My library`, `Public library`,
+*project*, *auto-added*, *detached*, *the original*, `Export…`. It also holds a **forbidden** list
+(clichés, cheer, *successfully*, exclamation marks, emoji, selling with fear) and **rules by
+element**: button, title, field, empty, error, loading, success, dangerous action.
+
+[`05-tone-of-voice/microcopy.md`](05-tone-of-voice/microcopy.md) is **every line of the product**, by
+screen, with *was / now* and the rule behind each change. It is the source of truth: a line on a
+screen that is not in the table is a defect. The tools that keep the two in step are in `tools/`
+(`extract_copy.py`, `build_microcopy.py`, `rewrite_copy.py`).
 
 ## Structure
 

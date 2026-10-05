@@ -94,7 +94,7 @@ BTN_PRIMARY = '<a class="button button-primary">'
 @case("item-success")
 def _():
     return chain("item-success", [
-        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export</a>'), None),
+        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export…</a>'), None),
         ("run-item-loading", "Run, checking one item", "run-item-loading.html", ("wait",), None),
         ("run-item-default", "Run, checked", "run-item-default.html", ("a", f"{BTN_PRIMARY}Export</a>"), None),
         ("run-item-success", "Run, archive in hand", "run-item-success.html", None, None),
@@ -105,7 +105,7 @@ def _():
 def _():
     return chain("item-from-shelf", [
         ("library-my-error-filtered", "My library, “terraform” matches nothing", "library-my-error-filtered.html", ("a", '<a>Public library</a>'), None),
-        ("library-public-default", "Public library", "library-public-default.html", ("row", "playwright-mcp", '<a class="button">Export</a>'), None),
+        ("library-public-default", "Public library", "library-public-default.html", ("row", "playwright-mcp", '<a class="button">Export…</a>'), None),
         ("run-item-loading", "Run, checking one item", "run-item-loading.html", ("wait",), None),
         ("run-item-default", "Run, checked", "run-item-default.html", ("a", f"{BTN_PRIMARY}Export</a>"), None),
         ("run-item-success", "Run, archive in hand", "run-item-success.html", None, None),
@@ -123,7 +123,7 @@ def _():
 @case("item-error-check")
 def _():
     return chain("item-error-check", [
-        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export</a>'), None),
+        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export…</a>'), None),
         ("run-item-loading", "Run, checking one item", "run-item-loading.html", ("wait",), None),
         ("run-item-error", "Run, the check didn't finish", "run-item-error.html", ("a", f"{BTN_PRIMARY}{ICON}Check again</a>"), None),
         ("run-item-loading", "Run, checking again", "run-item-loading.html", ("wait",), None),
@@ -134,7 +134,7 @@ def _():
 
 # ── RJ-1 · know what the other side will still need ───────────────────────────
 
-STALE = "Checked 5 days ago · for Claude Code · out of date since <code>code-style</code> was edited in the Library"
+STALE = "Checked 5 days ago · for Claude Code · out of date since <code>code-style</code> was edited in My library"
 
 
 def open_handover(s):
@@ -150,10 +150,10 @@ def open_handover(s):
 def _():
     c = "rj1-stale-then-read"
     return chain(c, [
-        ("project-default", "Project, the check out of date", lambda: project_page("clean", CLEAN[0], STALE, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Check</a>"), None),
+        ("project-default", "Project, the check out of date", lambda: project_page("clean", CLEAN[0], STALE, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
         ("run-loading", "Run, checking", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
         ("run-default", "Run, the handover read before Export", lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage."),
-         ("a", f"{BTN_PRIMARY}{ICON}Export for Claude Code</a>"), open_handover),
+         ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), open_handover),
         ("run-loading-export", "Run, building the archive", lambda: run_building("clean", c, "", "x"), ("wait",), lambda s: re.sub(r'\n  <meta http-equiv="refresh"[^>]*>', "", s)),
         ("run-success", "Run, archive in hand — the other side is known", lambda: run_success("clean", c, "", "x"), None, lambda s: s.replace(' href="x"', "")),
     ])
@@ -161,12 +161,13 @@ def _():
 
 PREVIEW_FAILED = '''<li>
             <details open>
-              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Couldn’t be written</span><span class="time">—</span></summary>
+              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Stopped — our server didn’t answer</span><span class="time">—</span></summary>
               <div class="stage-body">
                 <div class="callout" role="alert">
                   <span class="severity">Missing, not empty</span>
-                  <span><code>SETUP.md</code> couldn’t be produced — the server stopped while writing it. What you would read here is missing because something broke on our side, not because there is nothing to say (Q28). <span class="meta">503 · 14:06</span></span>
-                  <div class="row-actions"><a class="button button-primary">Write it again</a></div>
+                  <span><code>SETUP.md</code> wasn’t written — our server stopped while writing it. What you would read here is missing because our server failed, not because there is nothing to say.</span>
+                  <span class="meta">503 · Service unavailable · 14:06</span>
+                  <div class="row-actions"><a class="button button-primary">Write SETUP.md again</a></div>
                 </div>
               </div>
             </details>
@@ -180,10 +181,10 @@ def _():
         return re.sub(r'<li>\s*<details>\s*<summary><span class="n">09</span>.*?</li>', PREVIEW_FAILED, s, count=1, flags=re.S)
     resolved = lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage.")
     return chain(c, [
-        ("project-default", "Project", lambda: project_page("clean", *CLEAN, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Check</a>"), None),
+        ("project-default", "Project", lambda: project_page("clean", *CLEAN, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
         ("run-loading", "Run, checking", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
-        ("run-error-setup", "Run, SETUP.md couldn't be written (Q28)", resolved, ("a", '<a class="button button-primary">Write it again</a>'), failed),
-        ("run-default", "Run, SETUP.md written — read it before Export", resolved, ("a", f"{BTN_PRIMARY}{ICON}Export for Claude Code</a>"), open_handover),
+        ("run-error-setup", "Run, SETUP.md couldn't be written (Q28)", resolved, ("a", '<a class="button button-primary">Write SETUP.md again</a>'), failed),
+        ("run-default", "Run, SETUP.md written — read it before Export", resolved, ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), open_handover),
         ("run-success", "Run, archive in hand", lambda: run_success("clean", c, "", "x"), None, lambda s: s.replace(' href="x"', "")),
     ])
 
@@ -195,10 +196,10 @@ DRAWER_DBM = '''<aside class="drawer" aria-labelledby="drawer-title">
             <h2 id="drawer-title">db-migrate <span class="tag">script</span> <span class="tag tag-state">Auto-added</span></h2>
             <a class="button close" aria-label="Close"><span class="icon" aria-hidden="true"></span></a>
           </div>
-          <p class="description">Generates a Postgres migration from a schema diff and runs it, dry run first.</p>
+          <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
           <div class="callout callout-quiet">
-            <span class="severity">Pulled in by migration-reviewer</span>
-            <span>It has no remove of its own: it leaves the set when <code>migration-reviewer</code> does, and takes <code>seed-data</code> with it.</span>
+            <span class="severity">Auto-added for migration-reviewer</span>
+            <span>It has no remove of its own: it leaves this project when <code>migration-reviewer</code> does, and takes <code>seed-data</code> with it.</span>
           </div>
           <section class="drawer-section" aria-labelledby="d-deps">
             <h3 id="d-deps">Dependencies</h3>
@@ -228,9 +229,9 @@ def _():
     drop_mr = lambda s: drop_li(s, ">migration-reviewer</a><span class=\"tag\">agent</span></h3>\n                <p class=\"description\">Reads a migration")
     return chain(c, [
         ("project-configuring-default", "Configuring", "project-configuring-default.html",
-         ("after", 'aria-label="The set"', '<a>db-migrate</a>'), None),
+         ("after", 'aria-label="Items in this project"', '<a>db-migrate</a>'), None),
         ("project-configuring-item", "Configuring, db-migrate open — it will not go on its own", "project-configuring-item.html",
-         ("btn", '<button type="button" class="remove" aria-label="Remove migration-reviewer and the 3 items it brings">'), drawer),
+         ("btn", '<button type="button" class="remove" aria-label="Remove migration-reviewer and its 3 auto-added items from this project">'), drawer),
         ("project-configuring-default", "Configuring, migration-reviewer removed — and the 3 it brought", "project-configuring-default.html",
          ("a", '<a class="button button-primary">Save</a>'), seq(drop_mr, subs([(ORIG_HEAD[0], "10 items · 1 detached"), (ORIG_HEAD[1], removed)]))),
         ("project-default", "Project, saved", "project-default.html", None,
@@ -241,7 +242,7 @@ def _():
 
 DANGLING = '''<li>
             <details open>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-problem" aria-hidden="true"></span>1 problem · 1 requirement can’t be found</span><span class="time">0.3 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-problem" aria-hidden="true"></span>1 problem · 1 requirement can’t be found</span><span class="time">0.3 s</span></summary>
               <div class="stage-body">
                 <div class="callout">
                   <span class="severity">Problem</span>
@@ -257,18 +258,18 @@ DANGLING = '''<li>
 def _():
     c = "rj2-requirement-missing"
     gone = "Checked 2 days ago · for Claude Code · out of date since <code>seed-data</code> was deleted from My library"
-    edited = "Checked 2 days ago · for Claude Code · out of date since <code>db-migrate</code> was edited in the Library"
+    edited = "Checked 2 days ago · for Claude Code · out of date since <code>db-migrate</code> was edited in My library"
     def dangling(s):
         s = re.sub(r'<li>\s*<details>\s*<summary><span class="n">01</span>.*?</li>', DANGLING, s, count=1, flags=re.S)
         return s.replace("<strong>0 problems · 2 notes · 1 skipped</strong>", "<strong>1 problem · 2 notes · 1 skipped</strong>")
     no_seed = lambda s: drop_li(s, ">seed-data</a>", indent="                  ") if ">seed-data</a>" in s else s
     return chain(c, [
-        ("project-default", "Project, seed-data deleted from the Library", lambda: project_page("clean", CLEAN[0], gone, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Check</a>"), None),
+        ("project-default", "Project, seed-data deleted from the Library", lambda: project_page("clean", CLEAN[0], gone, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
         ("run-loading", "Run, checking", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
         ("run-default", "Run, 1 problem — a requirement that is not there", lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage."),
          ("a", '<a class="button">Edit db-migrate</a>'), dangling),
         ("item-default", "Edit db-migrate — take seed-data out of Requires", "item-default.html", ("btn", '<button type="submit" class="button-primary">'), None),
-        ("project-default", "Project, db-migrate saved — the check out of date", lambda: project_page("clean", CLEAN[0], edited, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Check</a>"), None),
+        ("project-default", "Project, db-migrate saved — the check out of date", lambda: project_page("clean", CLEAN[0], edited, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
         ("run-loading", "Run, checking again", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
         ("run-default", "Run, nothing will fight", lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage."), None, None),
     ])
@@ -277,9 +278,9 @@ def _():
 # ── RJ-3 · fix something once and have the fix reach every copy ───────────────
 
 def projects_out_of_date(s):
-    s = must(s, '<dd class="meta">1 problem · 2 notes · 1 skipped</dd>', '<dd class="meta">Out of date since <code>db-migrate</code> was edited in the Library</dd>')
-    s = must(s, '<dd class="meta">1 problem · 1 note · 0 skipped</dd>', '<dd class="meta">Out of date since <code>db-migrate</code> was edited in the Library</dd>')
-    return must(s, "Out of date since <code>code-style</code> was edited in the Library", "Out of date since <code>db-migrate</code> was edited in the Library")
+    s = must(s, '<dd class="meta">1 problem · 2 notes · 1 skipped</dd>', '<dd class="meta">Out of date since <code>db-migrate</code> was edited in My library</dd>')
+    s = must(s, '<dd class="meta">1 problem · 1 note · 0 skipped</dd>', '<dd class="meta">Out of date since <code>db-migrate</code> was edited in My library</dd>')
+    return must(s, "Out of date since <code>code-style</code> was edited in My library", "Out of date since <code>db-migrate</code> was edited in My library")
 
 
 @case("rj3-edit-reaches-all")
@@ -302,7 +303,7 @@ def _():
     ])
 
 
-RESET_PAIRS = [("differs from the library in <em>content</em> and <em>lands at</em>", "<code>.claude/agents/pr-reviewer.md</code> · back to the library version")]
+RESET_PAIRS = [("differs from the original in <em>content</em> and <em>lands at</em>", "<code>.claude/agents/pr-reviewer.md</code> · back to the original")]
 
 
 def pr_linked(s):
@@ -317,8 +318,8 @@ def _():
     reset = "Checked 2 days ago · for Claude Code · out of date since <code>pr-reviewer</code> was reset"
     return chain(c, [
         ("project-default", "Project — pr-reviewer is detached", "project-default.html", ("a", '<a class="button">Configure</a>'), None),
-        ("project-configuring-default", "Configuring", "project-configuring-default.html", ("after", 'aria-label="The set"', '<a>pr-reviewer</a>'), None),
-        ("project-detached-default", "Configuring, pr-reviewer open — what differs from the library", "project-detached-default.html", ("btn", '<button type="button">Reset whole item'), None),
+        ("project-configuring-default", "Configuring", "project-configuring-default.html", ("after", 'aria-label="Items in this project"', '<a>pr-reviewer</a>'), None),
+        ("project-detached-default", "Configuring, pr-reviewer open — what differs from the original", "project-detached-default.html", ("btn", '<button type="button">Reset to the original'), None),
         ("project-configuring-default", "Configuring, pr-reviewer back to the library version", "project-configuring-default.html", ("a", '<a class="button button-primary">Save</a>'),
          seq(pr_linked, subs([(ORIG_HEAD[0], "14 items · 3 auto-added"), (ORIG_HEAD[1], reset)]))),
         ("project-default", "Project, saved — the fix reaches this copy too", "project-default.html", None,
@@ -336,7 +337,7 @@ PROMOTE_MODAL = '''
       <form class="form">
         <label class="field"><span>Name of the new item</span><input name="name" value="acme-pr-reviewer"></label>
       </form>
-      <p>It becomes a new item in My library with this project’s changes, and this row links to it. The original <code>pr-reviewer</code>, and the other project that uses it, stay as they are.</p>
+      <p>It becomes a new item in My library with this project’s changes, and this row links to it. The original <code>pr-reviewer</code>, and the other project that uses it, stay as they are. This happens now, not when you save the project.</p>
       <div class="form-actions">
         <a class="button push">Cancel</a>
         <a class="button button-primary">Promote</a>
@@ -348,12 +349,12 @@ PROMOTE_MODAL = '''
 def promoted(s):
     s = must(s, '<a href="project-detached-default.html">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span>',
              '<a href="project-detached-default.html">acme-pr-reviewer</a><span class="tag">agent</span>')
-    return must(s, "differs from the library in <em>content</em> and <em>lands at</em>", "<code>.claude/agents/acme-pr-reviewer.md</code> · promoted to My library just now")
+    return must(s, "differs from the original in <em>content</em> and <em>lands at</em>", "<code>.claude/agents/acme-pr-reviewer.md</code> · promoted to My library just now")
 
 
 def promote_steps(c, fail):
     steps = [
-        ("project-configuring-default", "Configuring", "project-configuring-default.html", ("after", 'aria-label="The set"', '<a>pr-reviewer</a>'), None),
+        ("project-configuring-default", "Configuring", "project-configuring-default.html", ("after", 'aria-label="Items in this project"', '<a>pr-reviewer</a>'), None),
         ("project-detached-default", "Configuring, pr-reviewer open", "project-detached-default.html", ("a", '<a class="button">Promote to My library…</a>'), None),
         ("project-detached-promote", "Promote pr-reviewer — a new item, not a merge", "project-detached-default.html", ("a", '<a class="button button-primary">Promote</a>'), modal(PROMOTE_MODAL)),
     ]
@@ -400,7 +401,7 @@ def _():
     return chain("rj4-import-failed", [
         ("library-json-default", "Import", "library-json-default.html", ("a", f'{BTN_PRIMARY}Import 47 items</a>'), None),
         ("library-json-loading", "Importing", "library-json-loading.html", ("wait",), None),
-        ("library-json-error", "The import didn't finish — nothing was imported (Q27)", "library-json-error.html", ("a", f'{BTN_PRIMARY}Try the import again</a>'), None),
+        ("library-json-error", "The import didn't finish — nothing was imported (Q27)", "library-json-error.html", ("a", f'{BTN_PRIMARY}Import again</a>'), None),
         ("library-json-loading", "Importing again", "library-json-loading.html", ("wait",), None),
         ("library-json-success", "47 items imported", "library-json-success.html", None, None),
     ])
@@ -419,7 +420,7 @@ SHARE_MODAL = '''
         <ul class="plain-list">
           <li>The content of all 14 items — whatever is inside them goes with them</li>
           <li>3 env key names: <code>DATABASE_URL</code>, <code>GITHUB_TOKEN</code>, <code>SENTRY_AUTH_TOKEN</code> — names only, never values</li>
-          <li>3 external repos, at their pinned refs</li>
+          <li>3 external items: modelcontextprotocol/servers-archived, github/github-mcp-server, getsentry/sentry-mcp — at their pinned refs</li>
           <li>When you last checked it</li>
         </ul>
       </div>
@@ -442,7 +443,7 @@ REVOKE_MODAL = '''
         <h2 id="modal-title">Stop sharing acme-billing-api?</h2>
       </div>
       <p>The link stops working at once.</p>
-      <p>It can’t reach what was already taken: anyone who downloaded the archive or copied its items keeps them.</p>
+      <p>It can’t reach what was already taken: anyone who exported the archive or copied its items keeps them.</p>
       <div class="form-actions">
         <a class="button push">Cancel</a>
         <a class="button button-primary">Stop sharing</a>
@@ -453,14 +454,14 @@ REVOKE_MODAL = '''
 
 def shared(s):
     s = must(s, '<h1 id="page-title">acme-billing-api</h1>', '<h1 id="page-title">acme-billing-api<span class="tag">Shared</span></h1>')
-    s = must(s, f"<span>{ORIG_HEAD[1]}</span></p>", f'<span>{ORIG_HEAD[1]}</span><span>Shared by link · anyone holding it sees it as it is now</span></p>')
-    return must(s, '<a class="button" href="project-share.html">Share</a>', '<a class="button" href="project-revoke.html">Stop sharing</a>')
+    s = must(s, f"<span>{ORIG_HEAD[1]}</span></p>", f'<span>{ORIG_HEAD[1]}</span><span>Anyone with the link sees it as it is now — every edit is visible to them</span></p>')
+    return must(s, '<a class="button" href="project-share.html">Share…</a>', '<a class="button" href="project-revoke.html">Stop sharing</a>')
 
 
 @case("rj4-share")
 def _():
     return chain("rj4-share", [
-        ("project-default", "Project", "project-default.html", ("a", '<a class="button">Share</a>'), None),
+        ("project-default", "Project", "project-default.html", ("a", '<a class="button">Share…</a>'), None),
         ("project-share", "Share — what becomes visible, before the link exists", "project-default.html", ("a", '<a class="button button-primary">Create link</a>'), modal(SHARE_MODAL)),
         ("project-default", "Project, shared — every later edit is a publication", "project-default.html", None, shared),
     ])
@@ -480,9 +481,9 @@ def _():
 @case("receiver-check-take")
 def _():
     return chain("receiver-check-take", [
-        ("shared-project-default", "Shared project — somebody sent a link", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Check this set</a>'), None),
+        ("shared-project-default", "Shared project — somebody sent a link", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Export…</a>'), None),
         ("run-shared-loading", "Run, checking somebody else's set", "run-shared-loading.html", ("wait",), None),
-        ("run-shared-default", "Run, checked — what this machine still needs", "run-shared-default.html", ("a", f'{BTN_PRIMARY}Download the archive</a>'), None),
+        ("run-shared-default", "Run, checked — what this machine still needs", "run-shared-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-success", "Run, archive in hand", "run-shared-success.html", None, None),
     ])
 
@@ -490,11 +491,11 @@ def _():
 @case("receiver-check-failed")
 def _():
     return chain("receiver-check-failed", [
-        ("shared-project-default", "Shared project", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Check this set</a>'), None),
+        ("shared-project-default", "Shared project", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Export…</a>'), None),
         ("run-shared-loading", "Run, checking", "run-shared-loading.html", ("wait",), None),
         ("run-shared-error", "Run, the check didn't finish — and it says whose failure it is", "run-shared-error.html", ("a", f'{BTN_PRIMARY}Check again</a>'), None),
         ("run-shared-loading", "Run, checking again", "run-shared-loading.html", ("wait",), None),
-        ("run-shared-default", "Run, checked", "run-shared-default.html", ("a", f'{BTN_PRIMARY}Download the archive</a>'), None),
+        ("run-shared-default", "Run, checked", "run-shared-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-success", "Run, archive in hand", "run-shared-success.html", None, None),
     ])
 
@@ -502,7 +503,7 @@ def _():
 @case("receiver-copy")
 def _():
     return chain("receiver-copy", [
-        ("shared-project-default", "Shared project", "shared-project-default.html", ("a", '<a class="button">Copy into my library</a>'), None),
+        ("shared-project-default", "Shared project", "shared-project-default.html", ("a", '<a class="button">Copy to My library</a>'), None),
         ("sign-in-default", "Sign in — the only door, and chosen", "sign-in-default.html", ("btn", '<button type="submit" class="button-primary">'), None),
         ("library-my-default", "My library — it is mine now", "library-my-default.html", None, None),
     ])
@@ -511,9 +512,9 @@ def _():
 @case("receiver-item")
 def _():
     return chain("receiver-item", [
-        ("shared-item-default", "Shared item — one block, and whose it is", "shared-item-default.html", ("a", f'{BTN_PRIMARY}Take as an archive</a>'), None),
+        ("shared-item-default", "Shared item — one block, and whose it is", "shared-item-default.html", ("a", f'{BTN_PRIMARY}Export…</a>'), None),
         ("run-shared-item-loading", "Run, checking one block", "run-shared-item-loading.html", ("wait",), None),
-        ("run-shared-item-default", "Run, checked", "run-shared-item-default.html", ("a", f'{BTN_PRIMARY}Download the archive</a>'), None),
+        ("run-shared-item-default", "Run, checked", "run-shared-item-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-item-success", "Run, archive in hand", "run-shared-item-success.html", None, None),
     ])
 

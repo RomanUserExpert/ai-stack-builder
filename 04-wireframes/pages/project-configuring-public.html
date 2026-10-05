@@ -33,11 +33,11 @@
     <div class="config-layout">
     <!-- The library panel as a full left sidebar (owner, 2026-09-26): the height of the screen, under the
        header, beside the set. Reads and adds, never edits (§8). Scope above, kind tabs below. On an empty set it opens on All: there is nothing yet for Related to relate to. -->
-    <aside class="panel library-sidebar" aria-label="Library panel">
+    <aside class="panel library-sidebar" aria-label="Add items">
       <div class="panel-head">
         <h2>Add from</h2>
         <nav class="scope" aria-label="Scope"><a href="project-configuring-empty.html">My library</a><a href="#" aria-current="page">Public library</a></nav>
-        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search Public library"></label>
+        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search Public library — filesystem, playwright, anthropics"></label>
         <nav class="tabs" aria-label="Kind"><a href="#">Related</a><a href="#" aria-current="page">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
       </div>
       <div class="panel-body">
@@ -125,7 +125,7 @@
         <div class="page-head">
           <div>
             <h1 id="page-title">stripe-webhooks<span class="tag">Configuring</span></h1>
-            <p class="meta head-meta"><span>Nothing in it yet</span></p>
+            <p class="meta head-meta"><span>No items yet</span></p>
           </div>
           <div class="head-actions">
             <!-- Save is the main action here; Check is secondary, and still inert on an empty set (Q16). -->
@@ -136,12 +136,12 @@
         </div>
       </section>
 
-      <section aria-label="The set">
+      <section aria-label="Items in this project">
         <!-- Empty (Q16, Q34): a new project opens in configuring, the panel already open — no button to press
              first. The body keeps only its text; Check stays inert until the set holds something. -->
         <div class="state-block">
-          <h2>Nothing in this project yet</h2>
-          <p>Tick items in the library on the left to add them. Anything they require comes in with them, and Check opens once the set has something in it.</p>
+          <h2>No items in this project yet</h2>
+          <p>Tick items on the left to add them. Anything they require is auto-added. Export… opens once this project has an item.</p>
         </div>
       </section>
 

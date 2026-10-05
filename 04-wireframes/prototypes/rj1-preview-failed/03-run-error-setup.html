@@ -17,7 +17,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back"><span class="icon" aria-hidden="true"></span>acme-billing-api</a>
-      <span class="title">Check</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -36,9 +36,9 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>13 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>13 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
               <div class="stage-body">
-                <p>You chose 10. The walk along <code>requires</code> added 3: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
+                <p>You added 10. 3 more were auto-added because another item <code>requires</code> them: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
               </div>
             </details>
           </li>
@@ -70,7 +70,7 @@
           </li>
           <li>
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
               <div class="stage-body">
                 <div class="callout callout-quiet">
                   <span class="severity">Note</span>
@@ -111,12 +111,13 @@
           </li>
           <li>
             <details open>
-              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Couldn’t be written</span><span class="time">—</span></summary>
+              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Stopped — our server didn’t answer</span><span class="time">—</span></summary>
               <div class="stage-body">
                 <div class="callout" role="alert">
                   <span class="severity">Missing, not empty</span>
-                  <span><code>SETUP.md</code> couldn’t be produced — the server stopped while writing it. What you would read here is missing because something broke on our side, not because there is nothing to say (Q28). <span class="meta">503 · 14:06</span></span>
-                  <div class="row-actions"><a href="04-run-default.html" class="button button-primary">Write it again</a></div>
+                  <span><code>SETUP.md</code> wasn’t written — our server stopped while writing it. What you would read here is missing because our server failed, not because there is nothing to say.</span>
+                  <span class="meta">503 · Service unavailable · 14:06</span>
+                  <div class="row-actions"><a href="04-run-default.html" class="button button-primary">Write SETUP.md again</a></div>
                 </div>
               </div>
             </details>
@@ -137,9 +138,9 @@ SENTRY_AUTH_TOKEN=</pre>
       <!-- Export is the final stage. -->
       <section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">11 · Export</h2>
-        <p>Nothing in the set is a Problem. The two notes name what the receiving machine still has to supply.</p>
+        <p>Nothing in this project is a Problem. The two notes name what the receiving machine still has to supply.</p>
         <div class="export-actions">
-          <a class="button button-primary"><span class="icon" aria-hidden="true"></span>Export for Claude Code</a>
+          <a class="button button-primary"><span class="icon" aria-hidden="true"></span>Export</a>
         </div>
       </section>
 

@@ -22,7 +22,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back"><span class="icon" aria-hidden="true"></span>agent-dotfiles</a>
-      <span class="title">Check</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -31,7 +31,7 @@
     <main class="app-main">
 
       <section class="summary" aria-label="Verdict">
-        <h1>Checked just now, by you</h1>
+        <h1>Checked just now by you</h1>
         <p><strong>0 problems · 2 notes · 1 skipped</strong></p>
         <p class="meta">agent-dotfiles, as it is now · 9 items · for Claude Code · nothing is saved from this check</p>
       </section>
@@ -41,7 +41,7 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>9 items · 2 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>9 items · 2 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
             </details>
           </li>
           <li>
@@ -69,7 +69,7 @@
           </li>
           <li>
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
               <div class="stage-body">
                 <div class="callout callout-quiet"><span class="severity">Note</span><span><code>code-style</code> defers to <em>the client’s ESLint config</em>. Where they disagree, that wins.</span></div>
               </div>
@@ -85,7 +85,7 @@
 
       <!-- The handover is read before Export, never after it (§6). -->
       <section class="stage-group" aria-labelledby="g-hand">
-        <h2 id="g-hand">Handover — what the receiving machine still needs</h2>
+        <h2 id="g-hand">Handover — what your machine still needs</h2>
         <ol class="stages">
           <li>
             <details>
@@ -107,9 +107,9 @@
 
       <!-- Q20: show more, promise less. "Checked" answers whether the set coheres — not whether it runs on your machine. -->
       <section class="export-stage" aria-labelledby="export-title">
-        <h2 id="export-title">11 · Take the archive</h2>
-        <p>A snapshot of agent-dotfiles as it is now. The shared page may change after you take it.</p>
-        <div class="export-actions"><a href="04-run-shared-success.html" class="button button-primary"><span class="icon" aria-hidden="true"></span>Download the archive</a></div>
+        <h2 id="export-title">11 · Export</h2>
+        <p>The archive is a snapshot of agent-dotfiles as it is now. The shared page may change after you export it.</p>
+        <div class="export-actions"><a href="04-run-shared-success.html" class="button button-primary"><span class="icon" aria-hidden="true"></span>Export</a></div>
       </section>
 
     </main>

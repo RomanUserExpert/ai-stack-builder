@@ -17,7 +17,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back" href="library-my-default.html"><span class="icon" aria-hidden="true"></span>My library</a>
-      <span class="title">Export one item</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -26,9 +26,9 @@
     <main class="app-main">
 
       <section class="summary" aria-label="Verdict">
-        <h1>migration-reviewer, with the 3 items it brings</h1>
+        <h1>Checked just now</h1>
         <p><strong>0 problems · 1 note · 3 skipped</strong></p>
-        <p class="meta">Checked just now · for Claude Code · nothing is saved from this check — there is no project to hold it</p>
+        <p class="meta">migration-reviewer · 4 items · for Claude Code · nothing is saved from this check — there is no project to hold it</p>
       </section>
 
       <section class="stage-group" aria-labelledby="g-find">
@@ -36,15 +36,15 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>4 items — migration-reviewer and the 3 it brings</span><span class="time">0.1 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>4 items · 3 auto-added</span><span class="time">0.1 s</span></summary>
               <div class="stage-body">
-                <p><code>migration-reviewer</code> requires <code>db-migrate</code> and <code>postgres-mcp</code>, and <code>db-migrate</code> requires <code>seed-data</code>, so it exports as a set of 4, named as one.</p>
+                <p><code>migration-reviewer</code> requires <code>db-migrate</code> and <code>postgres-mcp</code>, and <code>db-migrate</code> requires <code>seed-data</code>, so 3 items are auto-added and all 4 export as one archive, named for migration-reviewer.</p>
               </div>
             </details>
           </li>
           <li>
             <details>
-              <summary><span class="n">02</span><span class="name">Declared conflicts</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — none declared</span><span class="time">—</span></summary>
+              <summary><span class="n">02</span><span class="name">Declared conflicts</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no item declares a conflict</span><span class="time">—</span></summary>
             </details>
           </li>
           <li>
@@ -67,7 +67,7 @@
           </li>
           <li>
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — nothing defers</span><span class="time">—</span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no item defers to anything</span><span class="time">—</span></summary>
             </details>
           </li>
           <li>
@@ -84,7 +84,7 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">08</span><span class="name">What the archive contains</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>4 files for Claude Code</span><span class="time">0.1 s</span></summary>
+              <summary><span class="n">08</span><span class="name">What the archive contains</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>8 files for Claude Code</span><span class="time">0.1 s</span></summary>
               <div class="stage-body">
                 <pre class="file">migration-reviewer/
 ├── SETUP.md

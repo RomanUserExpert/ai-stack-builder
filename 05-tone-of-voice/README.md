@@ -1,5 +1,7 @@
 # Lesson 05 — Tone of voice and microcopy
 
+**Closed 2026-10-05 — every step done; the result is [`voice.md`](voice.md) and [`microcopy.md`](microcopy.md).** *What follows is the plan as written on 2026-10-01.*
+
 **A plan, not a result.** Written 2026-10-01, the day the lesson's materials were read, and **numbered
 by the course's own seven steps from the start** — lesson 03 opened with ten steps of its own and had to
 renumber mid-flight once its prompt pack was read. Not this time.
@@ -87,8 +89,8 @@ the slot is not.
 | **3** | **Dictionary and forbidden** — no new search: one word per concept for every divergence step 1 marked, each with why; the form of address; which loanwords and jargon are allowed. Forbidden: clichés, motivational tone, exclamations, emoji in system messages, *successfully* — each with *was / should be*. | `voice.md` · *Dictionary*, *Forbidden* | **done 2026-10-05** — every D/V/T mark closed; `Check` / `Export` answered as naming, the owner confirms in step 5 |
 | **4** | **Microcopy rules** by element: button, screen title, field (label / hint / validation), empty, error, loading, success, **dangerous action** — one example each, from our product. | `voice.md` complete | **done 2026-10-05** — eight elements, one example each, each checked against the principles and the dictionary |
 | **5** | **The sample** — the main screen with all its state pages rewritten; `microcopy.md` gains *was / now*. **Reviewed by the owner on the screen, read aloud, before anything else is touched.** | rewritten pages, *was / now* | **`Run` rewritten 2026-10-05** — 21 lines on 8 pages, markup identical; **approved by the owner 2026-10-05**, with Q36 (`Export…` as the main control) |
-| **6** | **Roll out** — subagents, one per screen with its states, contract `voice.md`, reference the sample; their rows merged into `microcopy.md`; the same action checked to carry the same label everywhere. **Prototypes rebuilt.** | every page rewritten, `microcopy.md` final | — |
-| **7** | **Check and close** — a defects table first (term not in the dictionary · one action, two labels · forbidden slipped in · tone not by state · a line on a screen and not in the table, or the reverse), reviewed by the owner, then fixed in the pages and the table together. `CLAUDE.md` gains a *Voice* section, `README.md` a *Voice* section; pushed. | defects table, fixes, docs | — |
+| **6** | **Roll out** — subagents, one per screen with its states, contract `voice.md`, reference the sample; their rows merged into `microcopy.md`; the same action checked to carry the same label everywhere. **Prototypes rebuilt.** | every page rewritten, `microcopy.md` final | **done 2026-10-05** — 16 screens by 16 agents, 264 of 1,462 rows changed, markup identical; prototypes rebuilt (37 cases, 239 pages, no old phrase survives); open points await the owner |
+| **7** | **Check and close** — a defects table first (term not in the dictionary · one action, two labels · forbidden slipped in · tone not by state · a line on a screen and not in the table, or the reverse), reviewed by the owner, then fixed in the pages and the table together. `CLAUDE.md` gains a *Voice* section, `README.md` a *Voice* section; pushed. | defects table, fixes, docs | **done 2026-10-05** — 22 defects, all fixed by the owner's *исправляй*; Q37; `CLAUDE.md` §14 and `README.md` *Voice*. **Lesson 05 closed** |
 
 **The course's own checks, kept as this lesson's bar**: `microcopy.md` covers **every screen and every
 state page**; no principle is an adjective; one concept, one word; the forbidden list has *was / should

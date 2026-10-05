@@ -86,6 +86,21 @@ SETS = {
         (RUN, '<span class="title">Check</span>', '<span class="title">Export</span>', 8,
          "Q36: the mode is titled by what it ends in; the check is its sub-process"),
     ],
+    # Step 6 reconciliation: two lines the screen agents wrote differently for one panel.
+    "reconcile": [
+        (["project-configuring-default", "project-configuring-empty", "project-configuring-error-filtered",
+          "project-configuring-error-server", "project-configuring-item", "project-configuring-loading-add",
+          "project-configuring-loading", "project-empty"],
+         'placeholder="Search My library"', 'placeholder="Search My library — migrate, GITHUB_TOKEN, review"', 8,
+         "D15: the place + three real examples, as on the detached-row pages"),
+        (["project-configuring-public"], 'placeholder="Search Public library"',
+         'placeholder="Search Public library — filesystem, playwright, anthropics"', 1, "D15"),
+        (["project-configuring-item"], "<dt>Requires</dt><dd>Nothing</dd>", "<dt>Requires</dt><dd>None</dd>", 1,
+         "One word for an empty field, as on Project's side panel"),
+        (["run-shared-error", "run-shared-default", "run-shared-loading", "run-shared-success"],
+         ">Back to the shared page</", ">Back to the shared project</", 2,
+         "One pattern for leaving the mode: Back to + the place by name, as Back to the shared item"),
+    ],
 }
 
 

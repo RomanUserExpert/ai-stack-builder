@@ -17,7 +17,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back"><span class="icon" aria-hidden="true"></span>acme-billing-api</a>
-      <span class="title">Check</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -36,9 +36,9 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>14 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>14 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
               <div class="stage-body">
-                <p>You chose 11. The walk along <code>requires</code> added 3: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
+                <p>You added 11. 3 more were auto-added because another item <code>requires</code> them: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
               </div>
             </details>
           </li>
@@ -49,7 +49,7 @@
                 <div class="callout">
                   <span class="severity">Problem</span>
                   <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
-                  <div class="row-actions"><a href="05-run-remove.html" class="button">Remove eslint-autofix</a></div>
+                  <div class="row-actions"><a href="05-run-remove.html" class="button">Remove eslint-autofix…</a></div>
                 </div>
               </div>
             </details>
@@ -77,7 +77,7 @@
           </li>
           <li>
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>1 note</span><span class="time">0.1 s</span></summary>
               <div class="stage-body">
                 <div class="callout callout-quiet">
                   <span class="severity">Note</span>
@@ -152,10 +152,10 @@ SENTRY_AUTH_TOKEN=</pre>
            below the finding, naming the cost in the present tense — never a modal, never a disabled button. -->
       <section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">11 · Export</h2>
-        <p><strong>1 problem is still in the set.</strong> The archive will contain both <code>eslint-autofix</code> and <code>code-style</code>, and the agent will get two rules that disagree about imports.</p>
+        <p><strong>1 problem is still in this project.</strong> The archive will contain both <code>eslint-autofix</code> and <code>code-style</code>, and the agent will get two rules that disagree about imports.</p>
         <div class="export-actions">
           <a class="button button-primary"><span class="icon" aria-hidden="true"></span>Export with 1 problem</a>
-          <a class="button">Fix it in the project first</a>
+          <a class="button">Configure acme-billing-api</a>
         </div>
       </section>
 

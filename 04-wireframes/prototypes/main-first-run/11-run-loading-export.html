@@ -18,7 +18,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back"><span class="icon" aria-hidden="true"></span>stripe-webhooks</a>
-      <span class="title">Check</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -37,9 +37,9 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>3 items · 1 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>3 items · 1 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
               <div class="stage-body">
-                <p>You chose 2, both from the Public library. The walk along <code>requires</code> added 1: <code>playwright-mcp</code> for <code>webapp-testing</code>.</p>
+                <p>You added 2, both from Public library. 1 more was auto-added because another item <code>requires</code> it: <code>playwright-mcp</code> for <code>webapp-testing</code>.</p>
               </div>
             </details>
           </li>
@@ -71,7 +71,7 @@
           </li>
           <li>
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — nothing defers to an outside rule</span><span class="time">—</span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no item defers to anything</span><span class="time">—</span></summary>
             </details>
           </li>
           <li>
@@ -131,7 +131,7 @@ Read this first and perform each step.
       <!-- Building the archive: the second wait in Run (_screens.md). -->
       <section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">11 · Export</h2>
-        <p role="status"><strong>Building the archive — 6 files for Claude Code</strong></p>
+        <p role="status"><strong>Exporting — 6 files for Claude Code</strong></p>
         <p class="meta">stripe-webhooks-claude-code.zip</p>
       </section>
 

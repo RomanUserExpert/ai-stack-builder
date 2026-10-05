@@ -22,7 +22,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back" href="shared-project-default.html"><span class="icon" aria-hidden="true"></span>agent-dotfiles</a>
-      <span class="title">Check</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -31,8 +31,8 @@
     <main class="app-main">
 
       <section class="summary" aria-label="Verdict">
-        <h1 role="status">Checking agent-dotfiles — stage 3 of 10</h1>
-        <p class="meta">9 items · for Claude Code</p>
+        <h1 role="status">Checking — stage 3 of 10</h1>
+        <p class="meta">agent-dotfiles · 9 items · for Claude Code</p>
       </section>
 
       <section class="stage-group" aria-labelledby="g-find">
@@ -40,7 +40,7 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>9 items · 2 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>9 items · 2 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
             </details>
           </li>
           <li>
@@ -50,7 +50,7 @@
           </li>
           <li>
             <details>
-              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><span class="glyph glyph-running" aria-hidden="true"></span>Checking…</span><span class="time"></span></summary>
+              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><span class="glyph glyph-running" aria-hidden="true"></span>Checking</span><span class="time"></span></summary>
             </details>
           </li>
           <li class="waiting">
@@ -65,7 +65,7 @@
           </li>
           <li class="waiting">
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Waiting</span><span class="time"></span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Waiting</span><span class="time"></span></summary>
             </details>
           </li>
           <li class="waiting">
@@ -78,7 +78,7 @@
 
       <!-- The handover is read before Export, never after it (§6). -->
       <section class="stage-group" aria-labelledby="g-hand">
-        <h2 id="g-hand">Handover — what the receiving machine still needs</h2>
+        <h2 id="g-hand">Handover — what your machine still needs</h2>
         <ol class="stages">
           <li class="waiting">
             <details>
@@ -99,8 +99,8 @@
       </section>
 
       <section class="export-stage" aria-labelledby="export-title">
-        <h2 id="export-title">11 · Take the archive</h2>
-        <p class="meta">After the handover stages.</p>
+        <h2 id="export-title">11 · Export</h2>
+        <p class="meta">Opens after the handover stages.</p>
       </section>
 
     </main>

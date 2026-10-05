@@ -213,3 +213,87 @@ if __name__ == "__main__":
     body, total, _ = render()
     print(f"<!-- {total} rows -->")
     print(body)
+
+
+# ---- was / now (lesson 05, step 6) ------------------------------------------------------------
+# The pages' markup is unchanged by the rewrite, so a page's rows before and after align one to one.
+# `base` is the commit holding the pages as the inventory found them.
+
+def render_wasnow(base="56777bc"):
+    import difflib
+    import json
+    import subprocess
+    from extract_copy import Tree, Node, walk, PAGES
+    why = json.load(open(__file__.rsplit("build_microcopy.py", 1)[0] + "copy_why.json", encoding="utf-8"))
+
+    def rows_of(html, stem):
+        t = Tree()
+        t.feed(html)
+        body = next(c for c in t.root.children if isinstance(c, Node) and c.tag == "html")
+        rs = []
+        walk(body, rs, stem)
+        return rs
+
+    grouped0, whose, u1, _ = build()
+    grouped = OrderedDict()
+    for p in sorted(PAGES.glob("*.html")):
+        if p.name == "wireframes.html":
+            continue
+        old = subprocess.run(["git", "show", f"{base}:04-wireframes/pages/{p.name}"],
+                             capture_output=True).stdout.decode("utf-8")
+        a, c = rows_of(old, p.stem), rows_of(p.read_text(encoding="utf-8"), p.stem)
+        aligned = []
+        # Text-only rewrites align one to one. Step 7 added and removed a few elements, so rows are
+        # matched on type and element, and an unmatched row reads as added or removed.
+        key = lambda r: (r[3], r[4].tag, tuple(r[4].cls))   # not the zone: zones carry aria-labels, which changed
+        sm = difflib.SequenceMatcher(a=[key(r) for r in a], b=[key(r) for r in c], autojunk=False)
+        for op, i1, i2, j1, j2 in sm.get_opcodes():
+            if op == "equal" or (op == "replace" and i2 - i1 == j2 - j1):
+                aligned += [(a[i], c[j][2]) for i, j in zip(range(i1, i2), range(j1, j2))]
+            else:
+                aligned += [(a[i], "(removed)") for i in range(i1, i2)]
+                aligned += [((c[j][0], c[j][1], "(added)", c[j][3], None), c[j][2]) for j in range(j1, j2)]
+        for (pg, z, t, k, _), n in aligned:
+            if NOISE.fullmatch(t) and k in ("body", "duration"):
+                continue
+            screen, state = screen_of(pg)
+            if z.split(" › ")[0] in CHROME:
+                screen, state = "Everywhere — the app header", pg
+            if k == "severity" and t not in ("Problem", "Note", "Skipped"):
+                k = "status label"
+            grouped.setdefault((screen, z, t, n, k), []).append(state)
+
+    by_screen = OrderedDict((s, []) for s in ["Everywhere — the app header"] + ORDER)
+    for (screen, z, t, n, k), states in grouped.items():
+        by_screen[screen].append((z, t, n, k, states))
+    out, total, changed = [], 0, 0
+    for screen, lines in by_screen.items():
+        states_all = OrderedDict.fromkeys(s for *_, ss in lines for s in ss)
+        out.append(f"\n### {screen}\n")
+        if screen.startswith("Everywhere"):
+            out.append(f"On {len(states_all)} pages — every page with the app header. Listed once.\n")
+        else:
+            out.append("State pages: " + " · ".join(f"`{s}`" for s in states_all) + "\n")
+        out.append("| Screen | Zone | Was | Now | Type | On | Whose | Mark | Why |")
+        out.append("|---|---|---|---|---|---|---|---|---|")
+        for z, t, n, k, states in lines:
+            who = whose(t, k)
+            mk = marks_for(t, k, who, u1, screen)
+            uniq = list(OrderedDict.fromkeys(states))
+            on = f"{len(uniq)} pages" if screen.startswith("Everywhere") else \
+                "all" if len(uniq) == len(states_all) else " · ".join(uniq)
+            y = ""
+            if n != t:
+                changed += 1
+                y = why.get(screen, {}).get(t) or why.get("*", {}).get(t) or ""
+                s7 = [r for f, r in why.get("step7", {}).items() if f in n and f not in t]
+                if "503 ·" in t and "503 ·" not in n:
+                    s7.append("Step 7 #19: the error code moved to a line of its own (D10)")
+                if s7:
+                    y = "; ".join(([y] if y else []) + s7)
+                if n == "(removed)":
+                    y = why.get("removed", {}).get(t, y)
+            total += 1
+            out.append(f"| {screen} | {cell(z)} | {cell(t)} | {('**' + cell(n) + '**') if n != t else '='} | "
+                       f"{k} | {on} | {who} | {' '.join(mk)} | {y} |")
+    return "\n".join(out), total, changed

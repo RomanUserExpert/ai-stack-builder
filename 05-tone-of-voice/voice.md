@@ -274,7 +274,7 @@ applies, the entry says so.
 | An item that came in because another requires it | **auto-added**: the badge `Auto-added`; *3 auto-added*; a11y *Auto-added for migration-reviewer*; *requires `db-migrate`, `postgres-mcp` · 3 auto-added* | *pulled in by*, *brings 3 items with it*, *the 3 items it brings*, *comes in with them*, *the walk along `requires` added 3* | It says that **the tool** made a choice the person did not. That is EJ-1 exactly: *"silently synced… without any opt-in"*, and *"the first one wins"*. *Pulled in* and *brings* make it sound as if the item did it. *Walk* is a word from our algorithm, not from the screen | D7 |
 | The relation fields | **requires** · **required by** · **conflicts with** · **defers to** | *dependency*, *depends on*, *needs* (for an item) | They are the model's fields (§5), and the person fills them in by hand. **`needs` is kept for env keys only**: *needs `DATABASE_URL`* | — |
 | A project's own copy of an item | **detached**: the badge `Detached`, the action `Detach`, *1 detached* | *modified in this project*, *differs from the library* | The audience knows the word from Figma, where *detach* is exactly this act (`CLAUDE.md` §5, flow 05) | D8 |
-| The copy in My library a row links to | **the original**: *2 fields differ from the original*; *Reset to the original*; *Linked to the original in My library* | *the library version*, *Library version*, *Library:*, *the library* | *Version* promises a history that does not exist, and §9 refuses versioning by name. The promote dialog already says *the original `pr-reviewer`*, and the detach note says *keep the original* | D8 |
+| The copy in My library a row links to | **the original**: *2 fields differ from the original*; `Reset this field` · `Reset to the original`; *Linked to the original in My library* | *the library version*, *Library version*, *Library:*, *the library* | *Version* promises a history that does not exist, and §9 refuses versioning by name. The promote dialog already says *the original `pr-reviewer`*, and the detach note says *keep the original* | D8 |
 | A row tied to the original | **linked** | — | One word for one state: *linked* is the opposite of *detached* | D8 |
 | Taking somebody else's item | **`Copy to My library`**, on the Public library, a shared project, a shared item, and after a shared check | *Copy into my library*, *Copy into a library of my own* | One label for one act. The copy keeps its origin, which is why it is *copy*, not *add* | D5 |
 | Making a new item from your own material | **`Add to My library`** (the submit of *Add item*) | — | **A different act**: nothing has an origin elsewhere. Two verbs, because §11 treats the two ways in differently, and only one of them carries the keys reminder | D5 |
@@ -301,7 +301,7 @@ applies, the entry says so.
 | The check running | **Checking — stage 4 of 10** | *Checking…* with no count | Principle 4: *N of M* is the count you can read | D11 |
 | Trying again | **The verb that will happen again, + *again***: `Load again`, `Save again`, `Check again`, `Export again`, `Import again`, `Promote again`, `Write SETUP.md again` | `Try again`, `Try the import again`, `Build the archive again`, `Write it again` | Principle 2: the button names what it does. *Try* names nothing | D12 |
 | Never anything here | **No … yet**: *No items in My library yet*, *No projects yet*, *No items in this project yet* | *Your library is empty*, *My library is empty*, *Nothing in this project yet* | One form for one state. *Yet* is true: the state ends when the person adds something | D13 |
-| Filtered to zero | **Nothing matches "…"**, then the count the search hides: *Nothing matches "stripe" among projects that are Not checked yet. You have 5 projects — the search and the filter hide all of them.* | *No items match*, *No projects match*, *Nothing called "sentry" here* | Principle 4: the number you can act on, and never only *none* (research §3, mechanism 2) | D13 |
+| Filtered to zero | Heading **Nothing matches "…"**. The body does not repeat it: it says what narrows the list, then the count the search hides: *The filter shows only projects that are Not checked yet. You have 5 projects — the search and the filter hide all of them.* · *The tab shows only agents. You have 11 items — the search hides all of them in this tab.* | *No items match*, *No projects match*, *Nothing called "sentry" here* | Principle 4: the number you can act on, and never only *none* (research §3, mechanism 2) | D13 |
 | Undoing a search | **`Clear search`** | `Clear search · show All` | One act per label. Showing All is the tab, already one click away | D14 |
 | Undoing filters | **`Clear filters`**, in the popover and on the filtered state | `Reset filters` | The same act in two places takes the same word | D14 |
 | A search box | **Search** + the place + **—** + three real examples: *Search My library — migrate, GITHUB_TOKEN, review* | *Search your items by name, description or tag*, *Search the shelf…* | The place is named as it is on the nav (D1, D2). The examples teach what is searchable better than a list of fields | D15 |
@@ -317,8 +317,30 @@ applies, the entry says so.
 | Making an account | **`Create account`**, as the title, the button and the link | *Create an account* | As above | D17 |
 | Getting a new password | **`Reset password`**, as the link on Sign in, the title and the error's button. The form's submit is **`Send reset link`** | *Forgot password?*, *Reset your password*, *Send a reset link* | Three labels led to one place. The submit is a different act: it sends | D17 |
 | Sharing | **`Share…`** opens the disclosure · **`Create link`** confirms · **`Stop sharing…`** revokes | `Share the project` | The button opens a dialog, so it takes the `…` (D20). *Create link* says exactly what confirming does | D21 |
-| Removing an item from a project | **`Remove from project`** · a11y *Remove code-style from this project* · in Check: **`Remove eslint-autofix…`** | *Remove from the set*, *Remove in Configure* | One verb, *remove*, which is the word §6 uses. *Remove in Configure* names a place, not an act. In viewing it becomes the fact *To remove it, configure the project*, and the control stays where §8 puts it | D22 |
+| Removing an item from a project | **`Remove from project`** · a11y *Remove code-style from this project* · in Check: **`Remove eslint-autofix…`** | *Remove from the set*, *Remove in Configure* | One verb, *remove*, which is the word §6 uses. *Remove in Configure* names a place, not an act. In viewing it reads **`Configure to remove`**: the verb that will happen, then why. The control stays where §8 puts it | D22 |
 | The machine the archive lands on | **the receiving machine** for the owner · **your machine** for the receiver | — | **A variant kept on purpose** (principle 5). Each reader is told about the machine that is theirs to act on. *What your machine will need* becomes *What your machine still needs*, so the receiver sees one form | D18 |
+
+### Settled during the roll-out and the check (steps 6–7, 2026-10-05)
+
+The screen agents and the step-7 check met lines the entries above did not decide. These were settled once, for every
+screen, and they are part of the dictionary from now on.
+
+| Concept | **Write** | **Not** | Why |
+|---|---|---|---|
+| Going to a place | **`Open` + the place**: `Open My library`, `Open Public library`, `Open Projects` | *Explore*, *Switch to* | One verb for moving between the places on the nav. *Explore* promises a discovery the Public library does not sell (principle 4) |
+| Leaving the mode | **`Back to` + the place by name**: `Back to acme-billing-api`, `Back to My library`, `Back to the shared project`, `Back to the shared item` | *Back to the shared page* | The mode is not a place (§8), so the way out names where you return |
+| The project's items, to a screen reader | **Items in this project** (the `aria-label` on the list) | *The set* | D6 |
+| A checkbox in the panel | **In this project** · **Add** | *In the set* | D6 |
+| The panel, to a screen reader | **Add items** | *Library panel* | It names what the panel is for. *Library* alone cannot say which library (D1) |
+| An empty field in a list of facts | **None** | *Nothing* | One word for one state, inside one list |
+| The search in the panel | **Search My library — migrate, GITHUB_TOKEN, review** · **Search Public library — filesystem, playwright, anthropics** | the bare *Search My library* | D15 holds in the panel too: the place, then three real examples |
+| A wait inside a button | **Signing in** · **Creating account**, with the spinner | *Signing in…* | D20: the `…` keeps one meaning |
+| The verdict, when the reader checked it | **Checked just now by you**, and the subject goes on the meta line: *code-style · 1 item · for Claude Code · shared by Maya Chen* | *code-style, checked by you*; *Checking code-style — stage 4 of 10* | One title for one verdict on every entry to the mode (D19, D3) |
+| A relation field's placeholder | **Items this one requires — postgres-mcp** · **Items that clash with this one in a project — eslint-autofix** | *Items this one needs*, *Items it must not travel with* | *needs* is for env keys only. *Must not* promises an enforcement the product never makes (nothing blocks, §6) |
+| A check stage with nothing to check | **Skipped — no item** + what is absent: *Skipped — no item declares a command*, *… declares a conflict*, *… needs an env key*, *… defers to anything* | *Skipped — none declared*, *Skipped — no command declared*, *Skipped — none needed* | One form for one state. It still reads true when the set is one item (step 7) |
+| A success title | **A noun for what happened**: `Exported — x.zip`, `47 items imported`, `Reset link requested` | *Check your email* | The title rule: a noun, never a command. *Check* is also the product's own verb (step 7) |
+| An error the person can fix | Plain, with no *we*, and the act named: *Email or password is wrong. Enter them again.* | *Check them and try again.* | Principle 3 owns our failures, not theirs. *Check* and *try* name nothing |
+| People in the product's own sentences | **The name, never a pronoun guessed from it**: *Written by Maya Chen, not from an external source* | *…— her own* | A name does not tell you someone's pronouns (step 7) |
 
 ### Jargon: what is allowed, and what never reaches a screen
 
@@ -483,8 +505,8 @@ filtered to zero only counts.
 > **No projects yet.** A project holds items from My library. It is checked as a whole and exported
 > as one archive. · `New project` · `Open Public library`
 >
-> **Nothing matches "stripe"** among projects that are Not checked yet. You have 5 projects — the
-> search and the filter hide all of them. · `Clear filters`
+> **Nothing matches "stripe"** · The filter shows only projects that are Not checked yet. You have 5
+> projects — the search and the filter hide all of them. · `Clear filters`
 
 **Not.** *No results.* · *It's lonely in here!* · *Start your journey…* · an empty state with no
 button.

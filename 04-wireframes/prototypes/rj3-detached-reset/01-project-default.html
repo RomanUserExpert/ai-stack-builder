@@ -41,9 +41,9 @@
           </div>
           <div class="head-actions">
             <a href="02-project-configuring-default.html" class="button">Configure</a>
-            <a class="button">Share</a>
+            <a class="button">Share…</a>
             <button type="button">Duplicate</button>
-            <a class="button button-primary"><span class="icon" aria-hidden="true"></span>Check</a>
+            <a class="button button-primary"><span class="icon" aria-hidden="true"></span>Export…</a>
           </div>
         </div>
       </section>
@@ -53,7 +53,7 @@
       <!-- Viewing: a short list in the Library's row style (owner, 2026-09-26). State as badges — Auto-added,
            Detached, Conflict; findings from the last check as a mark, a glyph and a word — Problem, Note.
            Clicking a row opens the item beside the list, not over it: project-item.html. -->
-      <section aria-label="The set">
+      <section aria-label="Items in this project">
         <ol class="row-list">
           <!-- Auto-added items sit under the item that pulled them in (owner, 2026-09-26): a row with
                sub-rows. They have no remove of their own — removing the parent takes them with it. -->
@@ -61,7 +61,7 @@
             <article class="row row-tight set-item">
               <div>
                 <h3><a>code-style</a><span class="tag">skill</span></h3>
-                <p class="description">How I want TypeScript written: naming, imports, error handling.</p>
+                <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
                 <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
               </div>
               <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
@@ -83,24 +83,24 @@
             <article class="row row-tight set-item">
               <div>
                 <h3><a>migration-reviewer</a><span class="tag">agent</span></h3>
-                <p class="description">Reads a migration before it runs and flags long locks and missing down steps.</p>
-                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code> · brings 3 items with it</span></p>
+                <p class="description">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
+                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code> · 3 auto-added</span></p>
               </div>
               <p class="marks"></p>
               <div class="row-actions"></div>
             </article>
-            <ol class="sub-rows" aria-label="Pulled in by migration-reviewer">
+            <ol class="sub-rows" aria-label="Auto-added for migration-reviewer">
               <li>
                 <article class="row row-tight set-item">
                   <div>
                     <h3><a>db-migrate</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
-                    <p class="description">Generates a Postgres migration from a schema diff and runs it, dry run first.</p>
-                    <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · brings 1 item with it</span></p>
+                    <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                    <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · 1 auto-added</span></p>
                   </div>
                   <p class="marks"></p>
                   <div class="row-actions"></div>
                 </article>
-                <ol class="sub-rows" aria-label="Pulled in by db-migrate">
+                <ol class="sub-rows" aria-label="Auto-added for db-migrate">
                   <li>
                     <article class="row row-tight set-item">
                       <div>
@@ -118,7 +118,7 @@
                 <article class="row row-tight set-item">
                   <div>
                     <h3><a>postgres-mcp</a><span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
-                    <p class="description">Read-only Postgres access: schema, explain plans, sample rows.</p>
+                    <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
                     <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
                   </div>
                   <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
@@ -131,7 +131,7 @@
             <article class="row row-tight set-item">
               <div>
                 <h3><a>github-mcp</a><span class="tag">mcp</span></h3>
-                <p class="description">Issues, pull requests and code search on GitHub.</p>
+                <p class="description">Issues, pull requests and code search on GitHub, through GitHub’s own server.</p>
                 <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT · needs <code>GITHUB_TOKEN</code></span></p>
               </div>
               <p class="marks"></p>
@@ -143,7 +143,7 @@
               <div>
                 <h3><a>pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
                 <p class="description">Reviews Acme pull requests against their billing rules.</p>
-                <p class="facts meta"><span>differs from the library in <em>content</em> and <em>lands at</em></span></p>
+                <p class="facts meta"><span>differs from the original in <em>content</em> and <em>lands at</em></span></p>
               </div>
               <p class="marks"></p>
               <div class="row-actions"></div>
@@ -153,7 +153,7 @@
             <article class="row row-tight set-item">
               <div>
                 <h3><a>commit-conventions</a><span class="tag">prompt</span></h3>
-                <p class="description">Conventional commits, imperative mood, a body that says why.</p>
+                <p class="description">Conventional commits, imperative mood, and a body that says why rather than what.</p>
                 <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
               </div>
               <p class="marks"></p>

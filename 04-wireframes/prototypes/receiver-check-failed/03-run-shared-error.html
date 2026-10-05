@@ -22,7 +22,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back"><span class="icon" aria-hidden="true"></span>agent-dotfiles</a>
-      <span class="title">Check</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -40,7 +40,7 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>9 items · 2 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>9 items · 2 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
             </details>
           </li>
           <li>
@@ -60,19 +60,20 @@
           </li>
           <li>
             <details open>
-              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result"><span class="glyph glyph-problem" aria-hidden="true"></span>Stopped — the server didn’t answer</span><span class="time"></span></summary>
+              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result"><span class="glyph glyph-problem" aria-hidden="true"></span>Stopped — our server didn’t answer</span><span class="time"></span></summary>
               <div class="stage-body">
                 <div class="callout" role="alert">
-                  <span class="severity">This is our failure, not the set’s</span>
-                  <span>Our server stopped during this stage. It says nothing about whether agent-dotfiles holds together. Nothing was downloaded.</span>
-                  <div class="row-actions"><a href="04-run-shared-loading.html" class="button button-primary">Check again</a><a class="button">Back to the shared page</a></div>
+                  <span class="severity">This is our failure, not the project’s</span>
+                  <span>Our server stopped during this stage. It says nothing about agent-dotfiles itself. Nothing was exported.</span>
+                  <span class="meta">503 · Service unavailable · 14:08</span>
+                  <div class="row-actions"><a href="04-run-shared-loading.html" class="button button-primary">Check again</a><a class="button">Back to the shared project</a></div>
                 </div>
               </div>
             </details>
           </li>
           <li>
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Not run</span><span class="time"></span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Not run</span><span class="time"></span></summary>
             </details>
           </li>
           <li>
@@ -85,7 +86,7 @@
 
       <!-- The handover is read before Export, never after it (§6). -->
       <section class="stage-group" aria-labelledby="g-hand">
-        <h2 id="g-hand">Handover — what the receiving machine still needs</h2>
+        <h2 id="g-hand">Handover — what your machine still needs</h2>
         <ol class="stages">
           <li>
             <details>

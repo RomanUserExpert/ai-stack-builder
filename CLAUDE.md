@@ -9,8 +9,9 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 
 **Phase: research was signed off on 2026-09-02 in five stages, and was re-opened on 2026-09-06 with
 two more — personas and jobs to be done. Those two are lesson 02; lesson 03, information
-architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; and the
-current lesson is 05, tone of voice and microcopy — not the design system, which is lesson 09.**
+architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; lesson 05, tone of voice and microcopy,
+closed on 2026-10-05 (§14); and the current lesson is 06, concept — not the design system, which is
+lesson 09.**
 
 There is still no application code, no design system and no mockups. ~~no information architecture~~
 **— the information architecture exists as of 2026-09-20**: all seven of lesson 03's steps are done,
@@ -206,8 +207,8 @@ product *is* before anything decides what it looks like.
 | **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](02-personas-jtbd/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
 | **03** | **Information architecture** | ~~done~~ — started 2026-09-15, **closed 2026-09-20**, all seven of the course's steps · [`ia.html`](03-information-architecture/ia.html) · [the plan](03-information-architecture/README.md). ~~Five of the course's seven steps are done; what remains is the IA critique and `ia.html`.~~ The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
 | **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
-| **05** | **Tone of voice and microcopy** | ← **current**, from 2026-09-27. §6 already fixes the register for a Problem, a Note and an unclean export; this is where it becomes a system · [the plan](05-tone-of-voice/README.md) — the course's seven steps, written 2026-10-01 |
-| **06** | Concept | The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
+| **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [the plan](05-tone-of-voice/README.md) |
+| **06** | **Concept** | ← **current**, from 2026-10-05. The visual direction, with `2-flows/10-dark-design-language/` waiting for it since stage 2 |
 | **07** | UI assembly | The screens built out of the concept — what the old list called *mockups* |
 | **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
@@ -264,8 +265,9 @@ one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The current lesson is 05, tone of voice and microcopy**; if a request seems to jump
-past it — to a visual concept, components, tokens, colour or a screen that looks finished — confirm before acting.
+Do not skip ahead. **The current lesson is 06, concept**; if a request seems to jump
+past it — to components, tokens, a design system or a screen that looks finished — confirm before acting.
+**Every line of copy from now on is written against §14, *Voice*.**
 Product logic described in this file is **specification, not a build order** — it is
 written down so design decisions are made with the real mechanics in view.
 
@@ -1501,6 +1503,10 @@ picked by the owner, and the register says so.*
 owner's choice of label for the control that enters `Run`, closing the naming question Q16 deferred.
 The mode is titled `Export` and the check inside keeps its own words. Nothing new is drawn (§6, §8).
 
+**And Q37, the same day, from lesson 05's step-7 check.** **A shared project reads as shared**: the
+title carries `Shared` and the head's `Share…` reads `Stop sharing…`, which opens the dialog lesson 04
+drew (§8). Whether the owner can copy the link again is not decided.
+
 **Live as of 2026-09-20: Q9 and Q11 — deferred at the sitting — plus Q16 and Q17, each raised and
 answered on 2026-09-20 with one named question left open. Q12 left the list the same day: it is
 **closed as refused**, not deferred — see §9. Three more were raised and answered by the traceability
@@ -1626,8 +1632,9 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
 - Research stages 1–5 are signed off (2026-09-02). **Stages 6 and 7 — personas and jobs to be done —
   were added on 2026-09-06 and are lesson 02.** **Lesson 03, information architecture, ran from 2026-09-15
   to 2026-09-20 and is closed; lesson 04, prototyping and wireframing, ran from 2026-09-26 to 2026-09-27
-  and is closed; lesson 05, tone of voice and microcopy, is current.** Do not
-  start tokens, components, colour or a finished-looking screen before 05 and 06 are done, and do not
+  and is closed; lesson 05, tone of voice and microcopy, ran from 2026-10-01 to 2026-10-05 and is
+  closed; lesson 06, concept, is current.** Do not
+  start tokens, components or a finished-looking screen before 06 is done, and do not
   scaffold the app before there is something for it to hold.
 - **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
   2026-09-20). It is **gitignored** and it holds the day-by-day: what was tried, what was wrong for a
@@ -1648,3 +1655,45 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   served until it is listed there, and a moved page needs a redirect from its old address.
 - This file is the single source of truth for the product. The original brief has been
   folded into it and deleted; there is no other spec to reconcile against.
+
+---
+
+## 14. Voice
+
+**Added 2026-10-05, when lesson 05 closed.** The product speaks by one contract,
+[`05-tone-of-voice/voice.md`](05-tone-of-voice/voice.md), and every line it says is in one table,
+[`05-tone-of-voice/microcopy.md`](05-tone-of-voice/microcopy.md). **Any new line on any screen is
+written against the first and recorded in the second**, and the second is the source of truth: *a
+line on a screen and not in the table, or the reverse, is a defect.* `voice.md` extends §4 and does
+not compete with it.
+
+**The five principles, each a rule rather than an adjective:**
+
+1. **Say what was examined, never what it means.** It is an inspector's report, not a seller's badge.
+   This is *checked, never works* (§6), extended to every verdict line.
+2. **Name the consequence, in the reader's terms, before the step.** No *Are you sure?*, no blocking
+   words. Nothing blocks (§6).
+3. **Say what we did and what we did not, and own our own failures.** Our failures read *Our server
+   didn't answer*, and the keys reminder says it is a reminder (§11).
+4. **Counts and names, not adjectives.** No score, rating or badge (§5). The count you can act on,
+   never only *none*.
+5. **Write for whoever acts next.** The owner, the receiver and the agent reading `SETUP.md` are three
+   readers. *The receiving machine* for the owner and *your machine* for the receiver is a variant
+   kept on purpose.
+
+**The words that are fixed.** The person is *you*. Buttons are imperative. The product says *we* only
+about its own acts. *my* appears only inside the name **`My library`**, never a bare *library*, and
+the other place is **`Public library`**, never *the shelf*. A project is a **project**, not *a set*;
+*Stack* stays informal and off the screen. A required item is **auto-added**, a project's own copy
+is **detached** from **the original**, and the archive is **exported** (`Export…` opens the mode, Q36;
+*Exported — x.zip*). The full list, with *not* and *why* for each entry, is `voice.md`'s
+*Dictionary*. The *Forbidden* list holds clichés, cheer, motivational and selling copy,
+*successfully*, exclamation marks, emoji in system messages, *Are you sure?* and internal ids.
+
+**How it was applied.** All 80 wireframe pages were rewritten **text only** in lesson 05: 315 of
+1,472 table rows changed. Four markup fixes were approved in step 7: a stray link removed, error-code
+lines added, and the *Shared* state drawn (Q37). The 239 prototype pages were rebuilt from them.
+**The tools are in `tools/`**: `extract_copy.py` reads every line off the pages,
+`build_microcopy.py` builds the table, and `rewrite_copy.py` applies a rewrite with exact
+occurrence counts. When copy changes, change the page and the table together, and rebuild the
+prototypes.

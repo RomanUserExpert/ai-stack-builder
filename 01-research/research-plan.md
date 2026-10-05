@@ -1877,6 +1877,27 @@ Project pages and the 8 `Run` sample pages (`tools/rewrite_copy.py q36`), and `m
 receiver's entries, the Library row's single-item export and the prototypes follow in step 6**, under
 the same dictionary entry.
 
+### Q37 — a shared project reads as shared, and stopping is one press away — raised and answered 2026-10-05
+
+**Raised by lesson 05's step-7 check and answered by the owner's *исправляй*. The fix was proposed
+with the defect; the owner did not choose between alternatives.** `CLAUDE.md` §8 already says *a
+shared project reads as shared here, and everywhere else it appears*. Lesson 04 drew the *Stop
+sharing* dialog (`project-revoke.html`) over a head that still read `Share…`. So the shared state was
+never visible on the Project screen, and nothing on it opened the dialog that was drawn.
+
+1. **On a shared project the title carries the badge `Shared`**, in the same place and form as
+   `Configuring`.
+2. **The head's `Share…` reads `Stop sharing…` while the project is shared.** It is the same slot and
+   the same count of controls, and it opens the dialog lesson 04 drew. The dialog's words are
+   unchanged: the link dies at once, and what was taken stays taken (§5).
+
+**What it is not.** This does not add a place, and it does not make the share link's address visible
+on the Project screen. Whether the owner can copy the link again after sharing is **not decided
+here**, and no screen draws it.
+
+**Drawn the same day** on `project-revoke.html` only, the one page where the project is shared, and
+recorded in `microcopy.md` (*Step 7*, #20).
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

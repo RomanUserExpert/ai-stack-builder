@@ -47,7 +47,7 @@
         <form class="find" role="search">
           <label class="search">
             <span class="icon" aria-hidden="true"></span>
-            <input type="search" name="q" placeholder="Search your items by name, description or tag — migrate, GITHUB_TOKEN, review">
+            <input type="search" name="q" placeholder="Search My library — migrate, GITHUB_TOKEN, review">
           </label>
           <button type="button" class="filters-button"><span class="icon" aria-hidden="true"></span>Filters</button>
         </form>
@@ -69,8 +69,8 @@
               <p class="usage meta">Used in 3 projects · last exported 2 days ago</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -84,8 +84,8 @@
               <p class="usage meta">Used in 3 projects · 1 item requires this · requires <code>seed-data</code> · last exported 12 days ago</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -99,8 +99,8 @@
               <p class="usage meta">Used in 3 projects · 1 item requires this</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -114,8 +114,8 @@
               <p class="usage meta">Used in 1 project</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -129,8 +129,8 @@
               <p class="usage meta">Used in 2 projects · 1 item requires this</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -144,8 +144,8 @@
               <p class="usage meta">Used in 3 projects · copied from the Public library</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -159,8 +159,8 @@
               <p class="usage meta">Used in 2 projects · detached in 1</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -174,8 +174,8 @@
               <p class="usage meta">Used in 4 projects · last exported 2 days ago</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -189,8 +189,8 @@
               <p class="usage meta">Used in 1 project</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -204,8 +204,8 @@
               <p class="usage meta">Used in 1 project</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -219,8 +219,8 @@
               <p class="usage meta">Used in 1 project · last exported 3 weeks ago</p>
               <div class="row-actions">
                 <a class="button">Edit</a>
-                <a class="button">Export</a>
-                <button type="button">Share</button>
+                <a class="button">Export…</a>
+                <button type="button">Share…</button>
               </div>
             </article>
           </li>
@@ -239,7 +239,7 @@
         <!-- The blast radius, before any field (§5). The count expands to name the projects. -->
         <div class="callout">
           <span class="severity">Used in 3 projects · saving un-checks all three</span>
-          <span><a>acme-billing-api</a> · <a>agent-dotfiles</a> · <a>docs-site-rewrite</a>. 1 item requires this: <code>migration-reviewer</code>. It requires <code>seed-data</code>.</span>
+          <span><a>acme-billing-api</a> · <a>agent-dotfiles</a> · <a>docs-site-rewrite</a>. 1 item requires this: <code>migration-reviewer</code>. This one requires <code>seed-data</code>.</span>
         </div>
         <form class="form">
           <div class="field-row">
@@ -285,12 +285,12 @@ psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.s
           <div class="form-section">
             <h3>Dependencies</h3>
             <div class="field-row">
-              <label class="field"><span>Requires</span><input name="requires" value="seed-data" placeholder="Items this one needs — postgres-mcp"><span class="hint">Pulled into every project that holds this one</span></label>
-              <label class="field"><span>Conflicts with</span><input name="conflicts" placeholder="Items it must not travel with"></label>
+              <label class="field"><span>Requires</span><input name="requires" value="seed-data" placeholder="Items this one requires — postgres-mcp"><span class="hint">Auto-added to every project that holds this one</span></label>
+              <label class="field"><span>Conflicts with</span><input name="conflicts" placeholder="Items that clash with this one in a project — eslint-autofix"></label>
             </div>
             <div class="field-row">
               <label class="field"><span>Env keys it needs</span><input name="env" value="DATABASE_URL" placeholder="GITHUB_TOKEN"><span class="hint">Names only. Values never live here.</span></label>
-              <label class="field"><span>Defers to</span><input name="defers" placeholder="the client’s ESLint config"><span class="hint">Where they disagree, that wins</span></label>
+              <label class="field"><span>Defers to</span><input name="defers" placeholder="the client’s ESLint config"><span class="hint">Where they disagree, that wins. We don’t compare the two — every check, shared page and SETUP.md repeats this line.</span></label>
             </div>
             <label class="field"><span>Lands at</span><input name="target" value="scripts/db-migrate.sh" placeholder=".claude/skills/release-notes/SKILL.md"></label>
           </div>

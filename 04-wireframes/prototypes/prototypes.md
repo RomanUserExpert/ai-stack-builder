@@ -161,7 +161,7 @@ link, and **the build walks every case** the same way.
 | | `rj2-requirement-missing` | `seed-data` deleted → *an unresolvable requirement* → Edit `db-migrate` → check again | 7 | Done — nothing will fight |
 | **RJ-3 · Fix once** | `rj3-edit-reaches-all` | Edit `db-migrate` — *used in 3 projects* → Save → Projects: all three out of date | 4 | Done |
 | | `rj3-save-failed` | the edit didn't land (Q26) → Save again | 4 | Done |
-| | `rj3-detached-reset` | `pr-reviewer` detached → **Reset whole item** → Save | 5 | Done — the fix reaches this copy |
+| | `rj3-detached-reset` | `pr-reviewer` detached → **Reset to the original** → Save | 5 | Done — the fix reaches this copy |
 | | `rj3-detached-promote` | `pr-reviewer` → **Promote** → a new item, the row re-linked | 4 | Done |
 | | `rj3-promote-failed` | Promote didn't land → Promote again | 5 | Done |
 | **RJ-4 · No secrets** | `rj4-add-item` | Add item — *check that these files carry no keys* → Add | 3 | Done |

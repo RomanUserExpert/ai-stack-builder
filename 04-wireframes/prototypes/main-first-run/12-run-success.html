@@ -17,7 +17,7 @@
     <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
     <header class="run-bar">
       <a class="back"><span class="icon" aria-hidden="true"></span>stripe-webhooks</a>
-      <span class="title">Check</span>
+      <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
@@ -36,9 +36,9 @@
         <ol class="stages">
           <li>
             <details>
-              <summary><span class="n">01</span><span class="name">Resolve the set</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>3 items · 1 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-note" aria-hidden="true"></span>3 items · 1 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
               <div class="stage-body">
-                <p>You chose 2, both from the Public library. The walk along <code>requires</code> added 1: <code>playwright-mcp</code> for <code>webapp-testing</code>.</p>
+                <p>You added 2, both from Public library. 1 more was auto-added because another item <code>requires</code> it: <code>playwright-mcp</code> for <code>webapp-testing</code>.</p>
               </div>
             </details>
           </li>
@@ -70,7 +70,7 @@
           </li>
           <li>
             <details>
-              <summary><span class="n">06</span><span class="name">Deference</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — nothing defers to an outside rule</span><span class="time">—</span></summary>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-skipped" aria-hidden="true"></span>Skipped — no item defers to anything</span><span class="time">—</span></summary>
             </details>
           </li>
           <li>
@@ -129,20 +129,20 @@ Read this first and perform each step.
 
       <!-- Success: the archive is built and in hand. Checked, never works (§6). -->
       <section class="export-stage" aria-labelledby="export-title">
-        <h2 id="export-title">Archive built — stripe-webhooks-claude-code.zip</h2>
-        <p>6 files · 15 KB · saved to Downloads. Checked just now with 0 problems, 1 note and 2 skipped.</p>
+        <h2 id="export-title">Exported — stripe-webhooks-claude-code.zip</h2>
+        <p>6 files · 15 KB · saved to Downloads. Checked just now · 0 problems · 1 note · 2 skipped.</p>
         <div>
           <p><strong>The receiving machine still needs</strong></p>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
-            <li>Three repos cloned at their pinned refs — <code>SETUP.md</code> says which</li>
+            <li>3 repos cloned at their pinned refs — <code>SETUP.md</code> says which</li>
             <li>An agent that reads <code>SETUP.md</code> first</li>
           </ul>
         </div>
         <div class="export-actions">
           <a href="13-project-default.html" class="button button-primary">Back to stripe-webhooks</a>
           <button type="button">Download again</button>
-          <button type="button">Share the project</button>
+          <button type="button">Share…</button>
         </div>
       </section>
 

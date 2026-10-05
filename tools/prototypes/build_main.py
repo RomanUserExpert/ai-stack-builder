@@ -85,7 +85,7 @@ def drop_li(s, needle, indent="          "):
 def set_row(name, kind, desc, facts, remove=False, state=None, mark=None, extra=""):
     tags = f'<span class="tag">{kind}</span>' + (f'<span class="tag tag-state">{state}</span>' if state else "")
     marks = f'<span class="mark"><span class="glyph glyph-{mark.lower()}" aria-hidden="true"></span>{mark}</span>' if mark else ""
-    act = (f'<button type="button" class="remove" aria-label="Remove {name}">{ICON}</button>' if remove else "")
+    act = (f'<button type="button" class="remove" aria-label="Remove {name} from this project">{ICON}</button>' if remove else "")
     return f'''          <li>
             <article class="row row-tight set-item">
               <div>
@@ -177,7 +177,7 @@ def run_variant(s, variant, target="Claude Code"):
         s = s.replace("db-migrate.sh · seed-data.sh · eslint-autofix.sh · openapi-lint.sh", "db-migrate.sh · seed-data.sh · openapi-lint.sh")
         n, chose, files = {"clean": (13, 10, 17), "query": (14, 11, 18), "stripe": (14, 11, 17)}[variant]
     s = s.replace("14 items · 3 auto-added · no cycles", f"{n} items · 3 auto-added · no cycles")
-    s = s.replace("You chose 11.", f"You chose {chose}.")
+    s = s.replace("You added 11.", f"You added {chose}.")
     s = s.replace("acme-billing-api · 14 items", f"acme-billing-api · {n} items")
     s = s.replace("Written · 14 items", f"Written · {n} items")
     s = s.replace("18 files for Claude Code", f"{files} files for Claude Code")
@@ -222,9 +222,9 @@ def export_section(s, html, comment):
 def export_clean(target="Claude Code"):
     return f'''<section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">11 · Export</h2>
-        <p>Nothing in the set is a Problem. The two notes name what the receiving machine still has to supply.</p>
+        <p>Nothing in this project is a Problem. The two notes name what the receiving machine still has to supply.</p>
         <div class="export-actions">
-          <a class="button button-primary">{ICON}Export for {target}</a>
+          <a class="button button-primary">{ICON}Export</a>
         </div>
       </section>'''
 
@@ -232,7 +232,7 @@ def export_clean(target="Claude Code"):
 def export_building(files, zipname):
     return f'''<section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">11 · Export</h2>
-        <p role="status"><strong>Building the archive — {files}</strong></p>
+        <p role="status"><strong>Exporting — {files}</strong></p>
         <p class="meta">{zipname}</p>
       </section>'''
 
@@ -260,9 +260,9 @@ def run_building(variant, case, title, nxt, target="Claude Code"):
 def run_success(variant, case, title, back, target="Claude Code"):
     s = run_page("run-success.html", variant, case, title, target)
     files = int(re.search(r"(\d+) files for " + target, s).group(1))
-    verdict = "1 problem, 2 notes and 1 skipped" if variant == "orig" else "0 problems, 2 notes and 1 skipped"
-    s = must(s, "18 files · 41 KB · saved to Downloads. Checked just now with 1 problem, 2 notes and 1 skipped.",
-             f"{files} files · {files * 2 + 5} KB · saved to Downloads. Checked just now with {verdict}.")
+    verdict = "1 problem · 2 notes · 1 skipped" if variant == "orig" else "0 problems · 2 notes · 1 skipped"
+    s = must(s, "18 files · 41 KB · saved to Downloads. Checked just now · 1 problem · 2 notes · 1 skipped.",
+             f"{files} files · {files * 2 + 5} KB · saved to Downloads. Checked just now · {verdict}.")
     s = s.replace("acme-billing-api-claude-code.zip", "acme-billing-api-" + target.lower().replace(" ", "-") + ".zip")
     s = inert(s)
     return live(s, '<a class="button button-primary">Back to acme-billing-api</a>', back)
@@ -306,7 +306,7 @@ def panel_rows(items, ticked, lines=None):
     out = []
     for name, kind, desc in items:
         line = (lines or {}).get(name, desc)
-        box = '<input type="checkbox" checked> In the set' if name in ticked else '<input type="checkbox"> Add'
+        box = '<input type="checkbox" checked> In this project' if name in ticked else '<input type="checkbox"> Add'
         out.append(f'''          <li>
             <article class="row row-compact">
               <div>
@@ -337,17 +337,17 @@ def stripe_set(stage, remove):
     rows = ""
     if stage in ("cs-adding", "full"):
         if stage == "cs-adding":
-            rows += set_row("code-style", "skill", MY_LIBRARY[0][2], "Adding — finding what it requires…")
+            rows += set_row("code-style", "skill", MY_LIBRARY[0][2], "Adding — finding what it requires")
         else:
             rows += set_row("code-style", "skill", MY_LIBRARY[0][2], "<code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em>", remove=remove, mark="Note" if not remove else None)
     if stage == "mr-adding":
-        return set_row("migration-reviewer", "agent", MY_LIBRARY[3][2], "Adding — finding what it requires…")
-    mr = set_row("migration-reviewer", "agent", MY_LIBRARY[3][2], "requires <code>db-migrate</code>, <code>postgres-mcp</code> · brings 3 items with it", remove=remove)
+        return set_row("migration-reviewer", "agent", MY_LIBRARY[3][2], "Adding — finding what it requires")
+    mr = set_row("migration-reviewer", "agent", MY_LIBRARY[3][2], "requires <code>db-migrate</code>, <code>postgres-mcp</code> · 3 auto-added", remove=remove)
     seed = set_row("seed-data", "script", "Loads a small, realistic dataset into a fresh database.", "<code>scripts/seed-data.sh</code>", state="Auto-added")
-    dbm = set_row("db-migrate", "script", MY_LIBRARY[1][2], "<code>scripts/db-migrate.sh</code> + 2 files · brings 1 item with it", state="Auto-added")
-    dbm = nested(dbm, seed, "Pulled in by db-migrate")
+    dbm = set_row("db-migrate", "script", MY_LIBRARY[1][2], "<code>scripts/db-migrate.sh</code> + 2 files · 1 auto-added", state="Auto-added")
+    dbm = nested(dbm, seed, "Auto-added for db-migrate")
     pg = set_row("postgres-mcp", "mcp", MY_LIBRARY[4][2], "<code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code>", state="Auto-added")
-    mr = nested(mr, sub(dbm) + sub(pg), "Pulled in by migration-reviewer")
+    mr = nested(mr, sub(dbm) + sub(pg), "Auto-added for migration-reviewer")
     return rows + mr
 
 
@@ -356,12 +356,12 @@ def shelf_set(stage, remove):
     stage: 'wt-adding' · 'wt' · 'gh-adding' · 'full'"""
     rows = ""
     if stage == "wt-adding":
-        return set_row("webapp-testing", "skill", PUBLIC_LIBRARY[7][2], "Adding — finding what it requires…")
-    wt = set_row("webapp-testing", "skill", PUBLIC_LIBRARY[7][2], "<code>anthropics/skills</code> @ <code>c74d647</code> · Apache-2.0 · requires <code>playwright-mcp</code> · brings 1 item with it", remove=remove)
+        return set_row("webapp-testing", "skill", PUBLIC_LIBRARY[7][2], "Adding — finding what it requires")
+    wt = set_row("webapp-testing", "skill", PUBLIC_LIBRARY[7][2], "<code>anthropics/skills</code> @ <code>c74d647</code> · Apache-2.0 · requires <code>playwright-mcp</code> · 1 auto-added", remove=remove)
     pw = set_row("playwright-mcp", "mcp", PUBLIC_LIBRARY[4][2], "<code>microsoft/playwright-mcp</code> @ <code>v0.0.40</code> · Apache-2.0", state="Auto-added")
-    wt = nested(wt, sub(pw), "Pulled in by webapp-testing")
+    wt = nested(wt, sub(pw), "Auto-added for webapp-testing")
     if stage == "gh-adding":
-        rows += set_row("github-mcp-server", "mcp", PUBLIC_LIBRARY[3][2], "Adding — finding what it requires…")
+        rows += set_row("github-mcp-server", "mcp", PUBLIC_LIBRARY[3][2], "Adding — finding what it requires")
     elif stage == "full":
         rows += set_row("github-mcp-server", "mcp", PUBLIC_LIBRARY[3][2], "<code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT · needs <code>GITHUB_TOKEN</code>", remove=remove, mark=None if remove else "Note")
     return wt + rows
@@ -379,14 +379,15 @@ def configuring_new(case, title, name, meta, panel_html, set_html, scope="My lib
     other = "Public library" if scope == "My library" else "My library"
     scope_nav = f'<nav class="scope" aria-label="Scope"><a href="#"{" aria-current=\"page\"" if scope == "My library" else ""}>My library</a><a href="#"{" aria-current=\"page\"" if scope == "Public library" else ""}>Public library</a></nav>'
     s = re.sub(r'<nav class="scope".*?</nav>', scope_nav, s, count=1)
-    s = s.replace('placeholder="Search My library"', f'placeholder="Search {scope}"')
+    if scope == "Public library":   # the placeholder project-configuring-public.html carries
+        s = must(s, 'placeholder="Search My library — migrate, GITHUB_TOKEN, review"', 'placeholder="Search Public library — filesystem, playwright, anthropics"')
     s = re.sub(r'(<div class="panel-body">).*?(\n      </div>\n    </aside>)', lambda m: m.group(1) + "\n        " + panel_html + m.group(2), s, count=1, flags=re.S)
     s = s.replace("<h1 id=\"page-title\">stripe-webhooks", f"<h1 id=\"page-title\">{name}")
-    s = must(s, '<p class="meta head-meta"><span>Nothing in it yet</span></p>', f'<p class="meta head-meta"><span>{meta}</span></p>')
+    s = must(s, '<p class="meta head-meta"><span>No items yet</span></p>', f'<p class="meta head-meta"><span>{meta}</span></p>')
     if set_html is not None:
-        s = re.sub(r'<section aria-label="The set">.*?</section>', '<section aria-label="The set">\n      <ol class="row-list">\n' + set_html + '        </ol>\n      </section>', s, count=1, flags=re.S)
+        s = re.sub(r'<section aria-label="Items in this project">.*?</section>', '<section aria-label="Items in this project">\n      <ol class="row-list">\n' + set_html + '        </ol>\n      </section>', s, count=1, flags=re.S)
     if check_live:
-        s = must(s, f'<button type="button" disabled title="Add an item first">{ICON}Check</button>', f'<a class="button" href="run-loading.html">{ICON}Check</a>')
+        s = must(s, f'<button type="button" disabled title="Add an item first">{ICON}Export…</button>', f'<a class="button" href="run-loading.html">{ICON}Export…</a>')
     return titled(s, title, case)
 
 
@@ -395,7 +396,7 @@ def project_new(case, title, name, meta, set_html, check_to=None):
     s = s.replace("<h1 id=\"page-title\">acme-billing-api</h1>", f"<h1 id=\"page-title\">{name}</h1>")
     s = must(s, f'<p class="meta head-meta"><span>{ORIG_HEAD[0]}</span><span>{ORIG_HEAD[1]}</span></p>', f'<p class="meta head-meta">{meta}</p>')
     s = re.sub(r'\n      <p class="description" style="max-width: 800px">.*?</p>\n', "\n", s, count=1)
-    s = re.sub(r'(<section aria-label="The set">\s*<ol class="row-list">).*?(\n        </ol>\n      </section>)', lambda m: m.group(1) + "\n" + set_html + m.group(2)[1:], s, count=1, flags=re.S)
+    s = re.sub(r'(<section aria-label="Items in this project">\s*<ol class="row-list">).*?(\n        </ol>\n      </section>)', lambda m: m.group(1) + "\n" + set_html + m.group(2)[1:], s, count=1, flags=re.S)
     s = titled(inert(s), title, case)
     if check_to:
         s = live(s, '<a class="button button-primary">', check_to)
@@ -417,7 +418,7 @@ def note(text):
     return f'<div class="callout callout-quiet">\n                  <span class="severity">Note</span>\n                  <span>{text}</span>\n                </div>'
 
 
-STAGE_NAMES = ["Resolve the set", "Declared conflicts", "Command names", "Target paths", "Env keys", "Deference", "Pinned refs",
+STAGE_NAMES = ["Requirements", "Declared conflicts", "Command names", "Target paths", "Env keys", "Defers to", "Pinned refs",
                "What the archive contains", "SETUP.md — for the agent that opens it", ".env.example"]
 
 
@@ -428,7 +429,7 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
     for i, st in enumerate(spec["stages"], 1):
         glyph, result, time, body = st
         if mode == "loading" and i == done:
-            items.append(stage(i, STAGE_NAMES[i - 1], "running", "Checking…", ""))
+            items.append(stage(i, STAGE_NAMES[i - 1], "running", "Checking", ""))
         elif mode == "loading" and i > done:
             items.append(stage(i, STAGE_NAMES[i - 1], "waiting", "Waiting", "", waiting=True))
         else:
@@ -438,7 +439,7 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
     else:
         summary = f'<h1>Checked just now</h1>\n        <p><strong>{spec["verdict"]}</strong></p>\n        <p class="meta">{spec["name"]} · {spec["n"]} items · for Claude Code · {spec["time"]}</p>'
     if mode == "loading":
-        exp = '<!-- Loading is the stack mid-sweep, not a spinner (§6). Export is waiting like the stages, not greyed. -->\n      <section class="export-stage" aria-labelledby="export-title">\n        <h2 id="export-title">11 · Export</h2>\n        <p class="meta">After the handover stages.</p>\n      </section>'
+        exp = '<!-- Loading is the stack mid-sweep, not a spinner (§6). Export is waiting like the stages, not greyed. -->\n      <section class="export-stage" aria-labelledby="export-title">\n        <h2 id="export-title">11 · Export</h2>\n        <p class="meta">Opens after the handover stages.</p>\n      </section>'
     elif mode == "default":
         exp = "<!-- Export is the final stage, always live (§6). No Problem in the set: a plain export, nothing to confirm. -->\n      " + export_clean().replace("The two notes name", spec["notes_line"])
     elif mode == "building":
@@ -447,8 +448,8 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
         needs = "\n".join(f"            <li>{x}</li>" for x in spec["needs"])
         exp = f'''<!-- Success: the archive is built and in hand. Checked, never works (§6). -->
       <section class="export-stage" aria-labelledby="export-title">
-        <h2 id="export-title">Archive built — {spec["zip"]}</h2>
-        <p>{spec["files"]} files · {spec["files"] * 2 + 3} KB · saved to Downloads. Checked just now with {spec["verdict_words"]}.</p>
+        <h2 id="export-title">Exported — {spec["zip"]}</h2>
+        <p>{spec["files"]} files · {spec["files"] * 2 + 3} KB · saved to Downloads. Checked just now · {spec["verdict"]}.</p>
         <div>
           <p><strong>The receiving machine still needs</strong></p>
           <ul class="plain-list">
@@ -458,7 +459,7 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
         <div class="export-actions">
           <a class="button button-primary">Back to {spec["name"]}</a>
           <button type="button">Download again</button>
-          <button type="button">Share the project</button>
+          <button type="button">Share…</button>
         </div>
       </section>'''
     main = f'''    <main class="app-main">
@@ -490,7 +491,7 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
     s = s.replace('<span class="icon" aria-hidden="true"></span>acme-billing-api</a>', f'<span class="icon" aria-hidden="true"></span>{spec["name"]}</a>')
     s = titled(inert(s), title, case)
     if mode == "default":
-        s = live(s, f'<a class="button button-primary">{ICON}Export for Claude Code</a>', nxt)
+        s = live(s, f'<a class="button button-primary">{ICON}Export</a>', nxt)
     if mode in ("loading", "building"):
         s = wait(s, nxt)
     if mode == "success":
@@ -500,11 +501,11 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
 
 STRIPE_RUN = dict(
     name="stripe-webhooks", n=5, time="0.9 s", files=9, zip="stripe-webhooks-claude-code.zip",
-    verdict="0 problems · 2 notes · 1 skipped", verdict_words="0 problems, 2 notes and 1 skipped",
+    verdict="0 problems · 2 notes · 1 skipped",
     notes_line="The two notes name",
     needs=["A value for <code>DATABASE_URL</code>", "One repo cloned at its pinned ref — <code>SETUP.md</code> says which", "An agent that reads <code>SETUP.md</code> first"],
     stages=[
-        ("note", "5 items · 3 auto-added · no cycles", "0.2 s", "<p>You chose 2. The walk along <code>requires</code> added 3: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>"),
+        ("note", "5 items · 3 auto-added · no cycles", "0.2 s", "<p>You added 2. 3 more were auto-added because another item <code>requires</code> them: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>"),
         ("checked", "Checked — no two items declare a conflict", "0.1 s", None),
         ("skipped", "Skipped — no item declares a command", "—", None),
         ("checked", "Checked — no two items write to the same path", "0.1 s", None),
@@ -535,16 +536,16 @@ Read this first and perform each step.
 
 SHELF_RUN = dict(
     name="stripe-webhooks", n=3, time="0.8 s", files=6, zip="stripe-webhooks-claude-code.zip",
-    verdict="0 problems · 1 note · 2 skipped", verdict_words="0 problems, 1 note and 2 skipped",
+    verdict="0 problems · 1 note · 2 skipped",
     notes_line="The note names",
-    needs=["A value for <code>GITHUB_TOKEN</code>", "Three repos cloned at their pinned refs — <code>SETUP.md</code> says which", "An agent that reads <code>SETUP.md</code> first"],
+    needs=["A value for <code>GITHUB_TOKEN</code>", "3 repos cloned at their pinned refs — <code>SETUP.md</code> says which", "An agent that reads <code>SETUP.md</code> first"],
     stages=[
-        ("note", "3 items · 1 auto-added · no cycles", "0.2 s", "<p>You chose 2, both from the Public library. The walk along <code>requires</code> added 1: <code>playwright-mcp</code> for <code>webapp-testing</code>.</p>"),
+        ("note", "3 items · 1 auto-added · no cycles", "0.2 s", "<p>You added 2, both from Public library. 1 more was auto-added because another item <code>requires</code> it: <code>playwright-mcp</code> for <code>webapp-testing</code>.</p>"),
         ("checked", "Checked — no two items declare a conflict", "0.1 s", None),
         ("skipped", "Skipped — no item declares a command", "—", None),
         ("checked", "Checked — no two items write to the same path", "0.1 s", None),
         ("note", "1 note · 1 key named", "0.1 s", note("<code>GITHUB_TOKEN</code> (github-mcp-server) is needed. It goes into <code>.env.example</code> as a name; the receiving machine supplies the value.")),
-        ("skipped", "Skipped — nothing defers to an outside rule", "—", None),
+        ("skipped", "Skipped — no item defers to anything", "—", None),
         ("checked", "Checked — 3 external items, all pinned", "0.3 s", None),
         ("checked", "6 files for Claude Code", "0.1 s", '''<pre class="file">stripe-webhooks/
 ├── SETUP.md
@@ -569,8 +570,8 @@ SHELF_RUN["notes_line"] = "The note names"
 
 
 def fix_notes_line(s, spec):
-    return s.replace("Nothing in the set is a Problem. The note names what the receiving machine still has to supply.",
-                     "Nothing in the set is a Problem. The note names what the receiving machine still has to supply.")
+    return s.replace("Nothing in this project is a Problem. The note names what the receiving machine still has to supply.",
+                     "Nothing in this project is a Problem. The note names what the receiving machine still has to supply.")
 
 
 # ── the cases ─────────────────────────────────────────────────────────────────
@@ -614,7 +615,7 @@ def tail_clean(c, start, variant="clean", counts="13 items · 3 auto-added · 1 
     pages = {
         P(c, n, "run-loading"): run_loading(variant, c, f"{n:02d} · Run, checking", P(c, n + 1, "run-default"), target),
         P(c, n + 1, "run-default"): live(run_resolved(variant, c, f"{n + 1:02d} · Run, checked", target),
-                                          f'<a class="button button-primary">{ICON}Export for {target}</a>', P(c, n + 2, "run-loading-export")),
+                                          f'<a class="button button-primary">{ICON}Export</a>', P(c, n + 2, "run-loading-export")),
         P(c, n + 2, "run-loading-export"): run_building(variant, c, f"{n + 2:02d} · Run, building the archive", P(c, n + 3, "run-success"), target),
         P(c, n + 3, "run-success"): run_success(variant, c, f"{n + 3:02d} · Run, archive in hand", P(c, n + 4, "project-default"), target),
         P(c, n + 4, "project-default"): project_page(variant, counts, JUST.replace("Claude Code", target), c, f"{n + 4:02d} · Project, checked just now"),
@@ -637,9 +638,9 @@ def _():
 def _():
     c = "main-problem-fixed"
     s4 = inert(run_page("run-default.html", "orig", c, "04 · Run, 1 problem"))
-    s4 = live(s4, '<a class="button">Remove eslint-autofix</a>', P(c, 5, "run-remove"))
+    s4 = live(s4, '<a class="button">Remove eslint-autofix…</a>', P(c, 5, "run-remove"))
     s5 = inert(run_page("run-remove.html", "orig", c, "05 · Run, remove eslint-autofix?"))
-    s5 = live(s5, '<a class="button button-primary">Remove</a>', P(c, 6, "run-loading"))
+    s5 = live(s5, '<a class="button button-primary">Remove from project</a>', P(c, 6, "run-loading"))
     pages = {
         P(c, 1, "projects-default"): projects(c, "01 · Projects", card_to=P(c, 2, "project-default")),
         P(c, 2, "project-default"): project_page("orig", *ORIG_HEAD, c, "02 · Project", check_to=P(c, 3, "run-loading")),
@@ -748,7 +749,7 @@ DELETE_MODAL = '''
     <div class="scrim" aria-hidden="true"></div>
     <dialog class="modal" open aria-labelledby="modal-title">
       <div class="sheet-head">
-        <h2 id="modal-title">Delete the example project?</h2>
+        <h2 id="modal-title">Delete repo-triage-kit?</h2>
       </div>
       <p><code>repo-triage-kit</code> leaves Projects. Its 7 items stay in the Public library, where it came from.</p>
       <p class="meta">This can’t be undone.</p>
@@ -764,7 +765,7 @@ DELETE_MODAL = '''
 def _():
     c = "main-no-projects"
     s1 = projects(c, "01 · Projects, only the example", only_example=True)
-    s1 = live(s1, '<a class="button">Delete example</a>', P(c, 2, "projects-delete"))
+    s1 = live(s1, '<a class="button">Delete example…</a>', P(c, 2, "projects-delete"))
     s2 = projects(c, "02 · Projects, delete the example?", only_example=True)
     s2 = s2.replace("\n  </div>\n\n</body>", "\n" + DELETE_MODAL + "\n  </div>\n\n</body>", 1)
     s2 = live(s2, '<a class="button button-primary">Delete example</a>', P(c, 3, "projects-empty"))
@@ -780,10 +781,10 @@ def _():
     c = "main-first-run"
     pages = {P(c, 1, "projects-default"): projects(c, "01 · Projects, only the example", only_example=True, new_to=P(c, 2, "project-configuring-empty"))}
     s = titled(inert(read("project-configuring-empty.html")), "02 · Project, just created — My library empty on first run", c)
-    pages[P(c, 2, "project-configuring-empty")] = live(s, '<a class="button button-primary">Switch to Public library</a>', P(c, 3, "project-configuring-public"))
+    pages[P(c, 2, "project-configuring-empty")] = live(s, '<a class="button button-primary">Open Public library</a>', P(c, 3, "project-configuring-public"))
     O = -1  # every later step is one earlier than before
     shelf_lines = {"playwright-mcp": "Required by <code>webapp-testing</code>"}
-    s = configuring_new(c, "03 · Configuring, the Public library", "stripe-webhooks", "Nothing in it yet", panel_rows(PUBLIC_LIBRARY, set()), None, scope="Public library")
+    s = configuring_new(c, "03 · Configuring, the Public library", "stripe-webhooks", "No items yet", panel_rows(PUBLIC_LIBRARY, set()), None, scope="Public library")
     pages[P(c, 3, "project-configuring-public")] = panel_tick(inert(s), "webapp-testing", P(c, 4, "project-configuring-loading-add"))
     s = configuring_new(c, "04 · Configuring, adding webapp-testing", "stripe-webhooks", "1 item", panel_rows(PUBLIC_LIBRARY, {"webapp-testing"}), shelf_set("wt-adding", True), scope="Public library")
     pages[P(c, 4, "project-configuring-loading-add")] = wait(inert(s), P(c, 5, "project-configuring-default"))
@@ -845,17 +846,17 @@ def acme_add_steps(c, n, which, via_search):
     # adding: the row at once, what it requires after the round trip
     def with_adding(s):
         anchor = s.rindex("          <li>", 0, s.index(">github-mcp</a>"))
-        row = set_row(name, extra["kind"], extra["desc"], "Adding — finding what it requires…")
+        row = set_row(name, extra["kind"], extra["desc"], "Adding — finding what it requires")
         return s[:anchor] + row + s[anchor:]
     s = configuring_page("clean", counts14, added, c, f"{k:02d} · Configuring, adding {name}", pre=with_adding)
     if not via_search:
         s = s.replace(f'<h3><a href="project-configuring-item.html">{name}</a><span class="tag">agent</span></h3>\n                <p class="state-line">Requires <code>postgres-mcp</code></p>\n              </div>\n              <label class="check"><input type="checkbox"> Add</label>',
-                      f'<h3><a href="project-configuring-item.html">{name}</a><span class="tag">agent</span></h3>\n                <p class="state-line">Requires <code>postgres-mcp</code></p>\n              </div>\n              <label class="check"><input type="checkbox" checked> In the set</label>')
+                      f'<h3><a href="project-configuring-item.html">{name}</a><span class="tag">agent</span></h3>\n                <p class="state-line">Requires <code>postgres-mcp</code></p>\n              </div>\n              <label class="check"><input type="checkbox" checked> In this project</label>')
     pages[P(c, k, "project-configuring-loading-add")] = wait(inert(s), P(c, k + 1, "project-configuring-default"))
     s = configuring_page(which, counts14, added, c, f"{k + 1:02d} · Configuring, {name} in the set")
     if not via_search:
         s = s.replace('<p class="state-line">Requires <code>postgres-mcp</code></p>\n              </div>\n              <label class="check"><input type="checkbox"> Add</label>\n            </article>\n          </li>\n          <li>\n            <article class="row row-compact">\n              <div>\n                <h3><a href="project-detached',
-                      '<p class="state-line">Requires <code>postgres-mcp</code></p>\n              </div>\n              <label class="check"><input type="checkbox" checked> In the set</label>\n            </article>\n          </li>\n          <li>\n            <article class="row row-compact">\n              <div>\n                <h3><a href="project-detached')
+                      '<p class="state-line">Requires <code>postgres-mcp</code></p>\n              </div>\n              <label class="check"><input type="checkbox" checked> In this project</label>\n            </article>\n          </li>\n          <li>\n            <article class="row row-compact">\n              <div>\n                <h3><a href="project-detached')
     pages[P(c, k + 1, "project-configuring-default")] = live(inert(s), '<a class="button button-primary">Save</a>', P(c, k + 2, "project-default"))
     pages[P(c, k + 2, "project-default")] = project_page(which, counts14, added, c, f"{k + 2:02d} · Project, saved — the check is out of date", check_to=P(c, k + 3, "run-loading"))
     pages.update(tail_clean(c, k + 3, variant=which, counts=counts14))
@@ -890,7 +891,7 @@ def _():
 def _():
     c = "main-error-projects"
     s = titled(inert(read("projects-error-server.html")), "01 · Projects didn't load", c)
-    s = live(s, f'<a class="button button-primary">{ICON}Try again</a>', P(c, 2, "projects-loading"))
+    s = live(s, f'<a class="button button-primary">{ICON}Load again</a>', P(c, 2, "projects-loading"))
     s2 = titled(inert(read("projects-loading.html")), "02 · Projects, loading", c)
     pages = {
         P(c, 1, "projects-error-server"): s,
@@ -906,7 +907,7 @@ def _():
 def _():
     c = "main-error-project"
     s = titled(inert(read("project-error.html")), "02 · Project didn't load", c)
-    s = live(s, f'<a class="button button-primary">{ICON}Try again</a>', P(c, 3, "project-loading"))
+    s = live(s, f'<a class="button button-primary">{ICON}Load again</a>', P(c, 3, "project-loading"))
     s3 = titled(inert(read("project-loading.html")), "03 · Project, loading", c)
     pages = {
         P(c, 1, "projects-default"): projects(c, "01 · Projects", "clean", card_to=P(c, 2, "project-error")),
@@ -922,17 +923,18 @@ def _():
 def _():
     c = "main-error-save"
     removed = "Checked 2 days ago · for Claude Code · out of date since <code>eslint-autofix</code> was removed"
-    s3 = btn(inert(configuring_page("orig", *ORIG_HEAD, c, "03 · Configuring")), '<button type="button" class="remove" aria-label="Remove eslint-autofix">', P(c, 4, "project-configuring-default"))
+    s3 = btn(inert(configuring_page("orig", *ORIG_HEAD, c, "03 · Configuring")), '<button type="button" class="remove" aria-label="Remove eslint-autofix from this project">', P(c, 4, "project-configuring-default"))
     s4 = live(inert(configuring_page("clean", CLEAN[0], removed, c, "04 · Configuring, not saved yet")), '<a class="button button-primary">Save</a>', P(c, 5, "project-configuring-error-server"))
-    callout = f'''<section aria-label="The set">
+    callout = f'''<section aria-label="Items in this project">
         <!-- Save did not land (Q33's draft model, Q26): the project reads as it was, the draft stays here. -->
         <div class="callout" role="alert" style="margin-bottom: 16px">
           <span class="severity">Not saved</span>
-          <span>The server didn’t confirm the save, so acme-billing-api is as it was — 14 items, <code>eslint-autofix</code> still in it. Your changes are still here. <span class="meta">503 · 14:09</span></span>
+          <span>Our server didn’t confirm the save, so acme-billing-api is as it was — 14 items, <code>eslint-autofix</code> still in it. Your changes are still here.</span>
+          <span class="meta">503 · Service unavailable · 14:09</span>
           <div class="row-actions"><button type="button" class="button-primary">Save again</button><button type="button">Discard changes</button></div>
         </div>'''
     s5 = configuring_page("clean", CLEAN[0], "Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped", c, "05 · Configuring, the save didn't land",
-                          pre=lambda s: must(s, '<section aria-label="The set">', callout))
+                          pre=lambda s: must(s, '<section aria-label="Items in this project">', callout))
     s5 = btn(inert(s5), '<button type="button" class="button-primary">', P(c, 6, "project-default"))
     pages = {
         P(c, 1, "projects-default"): projects(c, "01 · Projects", card_to=P(c, 2, "project-default")),
@@ -951,8 +953,8 @@ def _():
     c = "main-error-check"
     s = run_page("run-loading.html", "clean", c, "04 · Run, the check didn't finish")
     s = must(s, '<h1 role="status">Checking — stage 4 of 10</h1>',
-             '<h1 role="alert">The check didn’t finish</h1>\n        <p>The server stopped answering at stage 4 of 10. Nothing in the project changed; its last check still reads 2 days ago.</p>\n        <p class="meta">503 · Service unavailable · 14:05</p>')
-    s = must(s, '<span class="glyph glyph-running" aria-hidden="true"></span>Checking…', '<span class="glyph glyph-waiting" aria-hidden="true"></span>Didn’t complete')
+             '<h1 role="alert">The check didn’t finish</h1>\n        <p>Our server stopped answering at stage 4 of 10. Nothing in the project changed, and its last check still reads 2 days ago.</p>\n        <p class="meta">503 · Service unavailable · 14:05</p>')
+    s = must(s, '<span class="glyph glyph-running" aria-hidden="true"></span>Checking', '<span class="glyph glyph-waiting" aria-hidden="true"></span>Stopped — our server didn’t answer')
     s = s.replace('<span class="glyph glyph-waiting" aria-hidden="true"></span>Waiting', '<span class="glyph glyph-waiting" aria-hidden="true"></span>Not run')
     s = export_section(s, f'''<section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">11 · Export</h2>
@@ -977,13 +979,13 @@ def _():
 def _():
     c = "main-error-export"
     s6 = inert(run_page("run-error-export.html", "clean", c, "06 · Run, the archive didn't build"))
-    s6 = must(s6, "The server stopped at 12 of 18 files.", "The server stopped at 12 of 17 files.")
-    s6 = live(s6, f'<a class="button button-primary">{ICON}Build the archive again</a>', P(c, 7, "run-loading-export"))
+    s6 = must(s6, "Our server stopped at 12 of 18 files.", "Our server stopped at 12 of 17 files.")
+    s6 = live(s6, f'<a class="button button-primary">{ICON}Export again</a>', P(c, 7, "run-loading-export"))
     pages = {
         P(c, 1, "projects-default"): projects(c, "01 · Projects", "clean", card_to=P(c, 2, "project-default")),
         P(c, 2, "project-default"): project_page("clean", *CLEAN, c, "02 · Project", check_to=P(c, 3, "run-loading")),
         P(c, 3, "run-loading"): run_loading("clean", c, "03 · Run, checking", P(c, 4, "run-default")),
-        P(c, 4, "run-default"): live(run_resolved("clean", c, "04 · Run, checked"), f'<a class="button button-primary">{ICON}Export for Claude Code</a>', P(c, 5, "run-loading-export")),
+        P(c, 4, "run-default"): live(run_resolved("clean", c, "04 · Run, checked"), f'<a class="button button-primary">{ICON}Export</a>', P(c, 5, "run-loading-export")),
         P(c, 5, "run-loading-export"): run_building("clean", c, "05 · Run, building the archive", P(c, 6, "run-error-export")),
         P(c, 6, "run-error-export"): s6,
         P(c, 7, "run-loading-export"): run_building("clean", c, "07 · Run, building the archive again", P(c, 8, "run-success")),

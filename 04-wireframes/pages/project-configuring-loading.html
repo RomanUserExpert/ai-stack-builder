@@ -33,11 +33,11 @@
     <div class="config-layout">
     <!-- The library panel as a full left sidebar (owner, 2026-09-26): the height of the screen, under the
        header, beside the set. Reads and adds, never edits (§8). Scope above, kind tabs below, Related first. -->
-    <aside class="panel library-sidebar" aria-label="Library panel">
+    <aside class="panel library-sidebar" aria-label="Add items">
       <div class="panel-head">
         <h2>Add from</h2>
         <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
-        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library"></label>
+        <label class="search"><span class="icon" aria-hidden="true"></span><input type="search" placeholder="Search My library — migrate, GITHUB_TOKEN, review"></label>
         <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
       </div>
       <div class="panel-body">
@@ -117,9 +117,9 @@
         </div>
       </section>
 
-      <section aria-label="The set">
+      <section aria-label="Items in this project">
         <!-- Loading: opening the set to configure it. The name is known; the rows and their states are not. -->
-        <p class="visually-hidden" role="status">Loading the set and the library</p>
+        <p class="visually-hidden" role="status">Loading acme-billing-api and My library</p>
         <ol class="row-list" aria-busy="true">
           <li>
             <article class="row row-tight set-item" aria-hidden="true">

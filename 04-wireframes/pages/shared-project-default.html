@@ -26,11 +26,11 @@
         <div class="page-head">
           <div>
             <h1 id="page-title">agent-dotfiles</h1>
-            <p class="meta head-meta"><span>9 items</span><span>Changed 1 day ago</span><span>Maya last checked it 5 days ago, for Claude Code — the set has changed since</span></p>
+            <p class="meta head-meta"><span>9 items</span><span>Changed 1 day ago</span><span>Maya checked it 5 days ago · for Claude Code — the project has changed since</span></p>
           </div>
           <div class="head-actions">
-            <a class="button" href="sign-in-default.html">Copy into my library</a>
-            <a class="button button-primary" href="run-shared-loading.html"><span class="icon" aria-hidden="true"></span>Check this set</a>
+            <a class="button" href="sign-in-default.html">Copy to My library</a>
+            <a class="button button-primary" href="run-shared-loading.html"><span class="icon" aria-hidden="true"></span>Export…</a>
           </div>
         </div>
       </section>
@@ -40,13 +40,13 @@
       <!-- What the owner's last check found is shown as a fact with its date, not as a verdict for today (§6).
            The only verdict worth anything to the receiver is the one they take now — Check this set. -->
       <div class="with-aside">
-        <section aria-label="What the set contains">
+        <section aria-label="What this project contains">
           <ol class="row-list">
           <li>
             <article class="row row-tight row-1">
               <div>
                 <h3>commit-conventions<span class="tag">prompt</span></h3>
-                <p class="description">Conventional commits, imperative mood, and a body that says why.</p>
+                <p class="description">Conventional commits, imperative mood, and a body that says why rather than what.</p>
                 <p class="facts meta"><span>Maya’s own</span></p>
               </div>
             </article>
@@ -55,7 +55,7 @@
             <article class="row row-tight row-1">
               <div>
                 <h3>pr-reviewer<span class="tag">agent</span></h3>
-                <p class="description">Reads a pull request diff and leaves review comments.</p>
+                <p class="description">Reads a pull request diff and leaves review comments the way I would write them.</p>
                 <p class="state-line">Requires <code>github-mcp</code></p>
                 <p class="facts meta"><span>Maya’s own</span></p>
               </div>
@@ -65,7 +65,7 @@
             <article class="row row-tight row-1">
               <div>
                 <h3>code-style<span class="tag">skill</span></h3>
-                <p class="description">How TypeScript is written: naming, imports, error handling.</p>
+                <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
                 <p class="state-line">Defers to <em>the client’s ESLint config</em> — where they disagree, that wins</p>
                 <p class="facts meta"><span>Maya’s own</span></p>
               </div>
@@ -75,8 +75,8 @@
             <article class="row row-tight row-1">
               <div>
                 <h3>github-mcp<span class="tag">mcp</span></h3>
-                <p class="description">Issues, pull requests and code search on GitHub.</p>
-                <p class="state-line">Needs <code>GITHUB_TOKEN</code> · auto-added — required by <code>pr-reviewer</code></p>
+                <p class="description">Issues, pull requests and code search on GitHub, through GitHub’s own server.</p>
+                <p class="state-line">Needs <code>GITHUB_TOKEN</code> · auto-added for <code>pr-reviewer</code></p>
                 <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT</span></p>
               </div>
             </article>
@@ -85,7 +85,7 @@
             <article class="row row-tight row-1">
               <div>
                 <h3>filesystem<span class="tag">mcp</span></h3>
-                <p class="description">Read and write files inside the directories you allow.</p>
+                <p class="description">Read and write files inside the directories you allow, and nowhere else.</p>
                 <p class="facts meta"><span><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code> · MIT</span></p>
               </div>
             </article>
@@ -94,7 +94,7 @@
             <article class="row row-tight row-1">
               <div>
                 <h3>memory<span class="tag">mcp</span></h3>
-                <p class="description">A knowledge graph the agent writes to and reads back.</p>
+                <p class="description">A knowledge graph the agent can write to and read back between sessions.</p>
                 <p class="facts meta"><span><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code> · MIT</span></p>
               </div>
             </article>
@@ -130,14 +130,14 @@
           </ol>
         </section>
         <aside class="aside-box" aria-labelledby="needs-title">
-          <h2 id="needs-title">What your machine will need</h2>
+          <h2 id="needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
             <li>An agent that reads <code>SETUP.md</code> first</li>
           </ul>
-          <p class="meta">This page is live: it shows the set as Maya has it now. An archive you take is a snapshot of this moment.</p>
-          <a class="button button-primary" href="run-shared-loading.html">Check it, then take the archive</a>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="run-shared-loading.html">Export…</a>
         </aside>
       </div>
 
