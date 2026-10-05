@@ -221,6 +221,11 @@ for k_, v in {"{{PRINCIPLES}}": "\n\n  ".join(prin_html), "{{NOT_PRINCIPLES}}": 
               "{{N_ROWS}}": "{:,}".format(n_rows), "{{N_CHANGED}}": str(len(changed)),
               "{{N_USER}}": str(n_user)}.items():
     page_body = page_body.replace(k_, v)
+# The front end never says *lesson* (owner, 2026-10-05). The top level is a *phase*, as on the strip
+# and in every eyebrow; what a phase is made of is a *stage*. The source files keep their own words.
+page_body = re.sub(r"\b([Ss])tep(s?)\b(?=[-\s]?\d)", lambda mm: ("S" if mm.group(1) == "S" else "s") + "tage" + mm.group(2), page_body)
+page_body = re.sub(r"\b([Ss])teps (\d)", lambda mm: mm.group(1) + "tages " + mm.group(2), page_body)
+page_body = re.sub(r"\b([Ll])esson(s?)\b", lambda mm: ("P" if mm.group(1) == "L" else "p") + "hase" + mm.group(2), page_body)
 for left in re.findall(r"\{\{[^}]+\}\}", page_body):
     raise SystemExit("unsubstituted placeholder: " + left)
 
@@ -268,6 +273,7 @@ for needle in ("<!doctype html>", 'charset="utf-8"', "Tone of voice and microcop
     assert needle in check, "MISSING: " + needle
 assert check.count("<body>") == 1 and check.count("</html>") == 1
 assert "--accent:#e05f03" in check, "shared design tokens did not come through"
+assert not re.search(r"\blessons?\b", re.sub(r"<[^>]+>", " ", check), re.I), "the word lesson reached the page"
 assert check.count('class="principle"') == 5 and check.count('class="element"') == 8
 ids = set(re.findall(r'<section id="([^"]+)"', check))
 for href in re.findall(r'<a href="#([^"]+)"', check):
