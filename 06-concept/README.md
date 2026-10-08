@@ -136,9 +136,12 @@ has one set of values. One icon set and one style. **Exactly two screens painted
 - **The Refero MCP server is not connected in this environment.** Stage 1's search runs through it.
   *The owner connects it*, or stage 1 falls back to the captures already in the repo plus public pages
   read directly, and says so in `references.md`.
-- **The impeccable skill is not installed.** It is a free plugin from the marketplace
-  `pbakaus/impeccable`, and stages 3–6 run under it, together with `/impeccable critique` and
-  `/impeccable audit`. *The owner installs it.* Claude does not install plugins on its own.
+- **The impeccable plugin — installed 2026-10-08**, v4.5.0 from the marketplace `pbakaus/impeccable`,
+  **scope `local`**: this project only, kept in the gitignored `.claude/settings.local.json`. It brings
+  one skill with 24 commands (`/impeccable critique`, `/impeccable audit`, …) and **three hooks**
+  (session start, after every `Edit`/`Write`, and a design pass on stop). Its engine binary sits in
+  `~/.impeccable/bin`, SHA-256 checked. *Scoped locally on purpose*, so the hooks do not fire in other
+  folders.
 - **Unsplash**: needed for the portraits only (see *What does not transfer*). Each link is checked to
   open, and checked to be a portrait.
 
