@@ -1,0 +1,374 @@
+{
+  "cursor-changelog-01.png": {
+    "source": "https://cursor.com/changelog",
+    "image": "https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fchangelog%2Fremote-control-cl-pezewO3SZRrIQxMNaTzdpsP9TD1ChS.png&w=828&q=70",
+    "alt": "Remote Control for local agents in the Cursor iOS app",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "cursor-changelog-02.png": {
+    "source": "https://cursor.com/changelog",
+    "image": "https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fchangelog%2Fsecurity-review-N8azgyLevr8FvNIRqJN6hk71os2Oxu.png&w=828&q=70",
+    "alt": "Security Review comment on a pull request reporting an exploitable bug with a severity and proposed fix",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "cursor-changelog-03.png": {
+    "source": "https://cursor.com/changelog",
+    "image": "https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fuploads%2Fremote-machines-QjJ0ZzGDelSdT7v2CXDdh0BQHqjmH0.png&w=828&q=70",
+    "alt": "Run on menu showing Remote Machines with self-hosted options lambda-test, cloud-demo, and jacks-desktop",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "cursor-changelog-04.png": {
+    "source": "https://cursor.com/changelog",
+    "image": "https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fuploads%2Fpools-mNNea8rJyNxaBuz7rSVT2SJOKkRsmv.png&w=828&q=70",
+    "alt": "Cloud Agents dashboard listing Self-hosted Machines pools with active and idle worker counts",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "cursor-changelog-05.png": {
+    "source": "https://cursor.com/changelog",
+    "image": "https://cursor.com/marketing-static/_next/image?url=https%3A%2F%2Fptht05hbb1ssoooe.public.blob.vercel-storage.com%2Fassets%2Fchangelog%2Fstart-from-scratch-QflXlxizUwAvBbal0Kst46I0mEZT93.png&w=828&q=70",
+    "alt": "Start from scratch in the repo picker",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "geist-badge.jpg": {
+    "source": "https://vercel.com/geist/badge",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-button.jpg": {
+    "source": "https://vercel.com/geist/button",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-colors.jpg": {
+    "source": "https://vercel.com/geist/colors",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "geist-empty-state.jpg": {
+    "source": "https://vercel.com/geist/empty-state",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-entity.jpg": {
+    "source": "https://vercel.com/geist/entity",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-icons.jpg": {
+    "source": "https://vercel.com/geist/icons",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "geist-keyboard-input.jpg": {
+    "source": "https://vercel.com/geist/keyboard-input",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-materials.jpg": {
+    "source": "https://vercel.com/geist/materials",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-note.jpg": {
+    "source": "https://vercel.com/geist/note",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-status-dot.jpg": {
+    "source": "https://vercel.com/geist/status-dot",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-table.jpg": {
+    "source": "https://vercel.com/geist/table",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "geist-typography.jpg": {
+    "source": "https://vercel.com/geist/typography",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-actions-runs.jpg": {
+    "source": "https://github.com/vercel/next.js/actions",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-changelog-01.png": {
+    "source": "https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available",
+    "image": "https://github.blog/wp-content/uploads/2026/10/666821552-f02d823e-64d4-4edf-84ae-83b885b257f1.png?w=1536",
+    "alt": "header image depicting a GitHub merge box for stacked pull requests",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "github-issues-labels.jpg": {
+    "source": "https://github.com/vercel/next.js/issues",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-job-failed.jpg": {
+    "source": "https://github.com/vercel/next.js/actions/runs/37774917696/job/113303739131",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-pr-checks.jpg": {
+    "source": "https://github.com/vercel/next.js/pull/99860/checks",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-pr-conversation.jpg": {
+    "source": "https://github.com/vercel/next.js/pull/99860",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "github-pulls.jpg": {
+    "source": "https://github.com/vercel/next.js/pulls",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-releases.jpg": {
+    "source": "https://github.com/github/github-mcp-server/releases",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-repo-code.jpg": {
+    "source": "https://github.com/modelcontextprotocol/servers",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "github-run-summary.jpg": {
+    "source": "https://github.com/vercel/next.js/actions/runs/37774917696",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "grafana-play.jpg": {
+    "source": "https://play.grafana.org/",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "linear-changelog-01.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/74cb8bca9e9a934712da5130ff972e972ae4455c-2400x1440.png?q=95&auto=format&dpr=2",
+    "alt": "Diagram showing Auto mode routing a simple button-copy typo to the faster Luna model and a downtime investigation to the more capable Astra model, with pull requests created for each task.",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-02.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/ab6a0ecc87ba215aa2ea7560c4b11ac05861cfac-3600x2080.png?q=95&auto=format&dpr=2",
+    "alt": "Overlapping team settings panels showing custom statuses, labels, initiatives, and team ownership for Mobile, QA, and Design teams.",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "linear-changelog-03.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/68d09905ee168ded3249ebb114a04073a424dab1-3600x2000.png?q=95&auto=format&dpr=2",
+    "alt": "callout component shown in linear document",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-04.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/8005be22da38ee19e6ac56569976958564d9bbb1-3600x2080.png?q=95&auto=format&dpr=2",
+    "alt": "Linear Inbox in dark mode, showing Priority and Other tabs with several notifications about issue assignments, project updates, comments, and mentions.",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-05.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/0e436be9125079b223439fcb01d4db5feae680a8-3600x2368.png?q=95&auto=format&dpr=2",
+    "alt": "Linear’s AI project-drafting interface creating a “Reliable airport pickups” project, with a live chat panel and project brief fields.",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-06.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/177687802d38fab3bc19324fc075a82c95b2cd0e-3600x2394.png?q=95&auto=format&dpr=2",
+    "alt": "Code review diff for DRV-2498 showing an updated SVG asset, with removed and added illustration previews side by side.",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-07.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/4949ed5cd70ac79c7cb914eb65373f5e494af720-3600x2160.png?q=95&auto=format&dpr=2",
+    "alt": "Screenshot of Linear UI",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-08.png": {
+    "source": "https://linear.app/changelog",
+    "image": "https://webassets.linear.app/images/ornj730p/production/4a9c8a92201a695eeaa5f3a6fccb507adac9c661-3600x2080.png?q=95&auto=format&dpr=2",
+    "alt": "Initiatives view showing active company goals, nested team initiatives, owners, lead teams, project progress, and health.",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-09.png": {
+    "source": "https://linear.app/changelog/2026-06-11-coding-sessions",
+    "image": "https://webassets.linear.app/images/ornj730p/production/020e273126f3f486fdc16fdc7b6a8a337fe31aa1-3600x2160.png?q=95&auto=format&dpr=2",
+    "alt": "Linear agent working alongside a diff",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-changelog-10.png": {
+    "source": "https://linear.app/changelog/2026-06-11-coding-sessions",
+    "image": "https://webassets.linear.app/images/ornj730p/production/19f7e609de632c335811b8c3ea412ceadf1383af-3600x2275.png?q=95&auto=format&dpr=2",
+    "alt": "issue activity feed, showing a completed coding session",
+    "kind": "harvested",
+    "date": "2026-10-08",
+    "converted_from": "avif"
+  },
+  "linear-home.jpg": {
+    "source": "https://linear.app/",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "linear-method.jpg": {
+    "source": "https://linear.app/method",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "primer-color.jpg": {
+    "source": "https://primer.style/product/primitives/color/",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "primer-counter-label.jpg": {
+    "source": "https://primer.style/product/components/counter-label/",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "primer-label.jpg": {
+    "source": "https://primer.style/product/components/label/",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "primer-state-label.jpg": {
+    "source": "https://primer.style/product/components/state-label/",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "primer-timeline.jpg": {
+    "source": "https://primer.style/product/components/timeline/",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "railway-changelog-01.webp": {
+    "source": "https://railway.com/changelog/2026-09-04-postgres-in-the-railway-cli",
+    "image": "https://cms.railway.com/media/3f1991da-07d4-44aa-95f1-557889a100b6-CleanShot-2026-09-04-at-11.43.59-PM-2x.png?w=768&format=webp&q=90",
+    "alt": "Manage Postgres high availability, recovery, and connection pooling from your terminal.",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "raycast-changelog-04.png": {
+    "source": "https://www.raycast.com/changelog",
+    "image": "https://misc-assets.raycast.com/releases/c5f8ab69cb491a5aeecca6c1b6491d42288fc3690e384eb47889f2a54f343a36.png",
+    "alt": "image",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "raycast-extension-linear.jpg": {
+    "source": "https://www.raycast.com/linear/linear",
+    "kind": "screenshot",
+    "full_page": true,
+    "date": "2026-10-08"
+  },
+  "raycast-home.jpg": {
+    "source": "https://www.raycast.com/",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "raycast-store.jpg": {
+    "source": "https://www.raycast.com/store",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "resend-changelog-01.jpg": {
+    "source": "https://resend.com/changelog",
+    "image": "https://resend.com/_next/image?url=https%3A%2F%2Fcdn.resend.com%2Fposts%2Faccount-usage-api.jpg&w=828&q=75",
+    "alt": "Account Usage API",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "resend-changelog-07.jpg": {
+    "source": "https://resend.com/changelog",
+    "image": "https://resend.com/_next/image?url=https%3A%2F%2Fcdn.resend.com%2Fposts%2Ftable-component.jpg&w=828&q=75",
+    "alt": "New Table Component",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "smithery-home.jpg": {
+    "source": "https://smithery.ai/",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "tessl-registry.jpg": {
+    "source": "https://tessl.io/registry",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "vercel-changelog-01.png": {
+    "source": "https://vercel.com/changelog/timestamp-attributes-are-now-supported-in-vercel-flags",
+    "image": "https://vercel.com/vc-ap-vercel-marketing/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fcontentful%2Fimage%2Fe5382hct74si%2F4AIyKzPLdenyrzxDJhvrdu%2Fe6258c67bf1cb88265ef911cb9ff1032%2Ftimestamp_rule_-_dark.png&w=828&q=95",
+    "alt": "A rule that serves the On variant between two dates.",
+    "kind": "harvested",
+    "date": "2026-10-08"
+  },
+  "vercel-marketplace.jpg": {
+    "source": "https://vercel.com/marketplace",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  },
+  "vercel-templates.jpg": {
+    "source": "https://vercel.com/templates",
+    "kind": "screenshot",
+    "full_page": false,
+    "date": "2026-10-08"
+  }
+}

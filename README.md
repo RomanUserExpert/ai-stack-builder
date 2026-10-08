@@ -136,7 +136,8 @@ that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
 | [`02-personas-jtbd/`](02-personas-jtbd/README.md) | 02 · Personas and jobs to be done — stages 6–7 and their audit | [`personas.html`](02-personas-jtbd/personas.html) |
 | [`03-information-architecture/`](03-information-architecture/README.md) | 03 · Information architecture — `sitemap.md`, `flows.md`, `ia-critique.md` | [`ia.html`](03-information-architecture/ia.html) |
 | [`04-wireframes/`](04-wireframes/_screens.md) | 04 · Prototyping and wireframing — 80 pages in `pages/`, 37 clickable flows in `prototypes/` | [`wireframes.html`](04-wireframes/pages/wireframes.html) |
-| [`05-tone-of-voice/`](05-tone-of-voice/README.md) | 05 · Tone of voice and microcopy — **current** | — |
+| [`05-tone-of-voice/`](05-tone-of-voice/README.md) | 05 · Tone of voice and microcopy — `voice.md`, `microcopy.md` | [`voice.html`](05-tone-of-voice/voice.html) |
+| [`06-concept/`](06-concept/README.md) | 06 · Concept — **current**; the plan is written | — |
 
 **Everything that is not a lesson:**
 
