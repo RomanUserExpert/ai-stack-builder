@@ -301,7 +301,19 @@ svg.icon.state-icon{display:block;width:calc(var(--s10) + var(--s2));height:calc
 .tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:600}
 .tabs .count{margin-left:var(--s1);color:var(--text-3);font-weight:400}
 input[type="checkbox"],input[type="radio"]{width:var(--icon);height:var(--icon);margin:0;accent-color:var(--lime)}
-.check{display:inline-flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text-2);white-space:nowrap;text-decoration:none}
+/* Add / In this project: an icon button, not a bare checkbox. The checkbox stays for the keyboard and
+   the screen reader, out of sight; the label is what you see and press. */
+.check{position:relative;display:inline-flex;gap:var(--s1);align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 var(--s3) 0 var(--s2);
+  font:var(--t-button);color:var(--text);white-space:nowrap;text-decoration:none;cursor:pointer;
+  background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);transition:background var(--dur) var(--ease)}
+.check:hover{background:var(--control-hover)}
+.check::before{content:"";width:var(--icon);height:var(--icon);flex:none;background:var(--text-2);
+  -webkit-mask:var(--icon-add) center / contain no-repeat;mask:var(--icon-add) center / contain no-repeat}
+.check input[type="checkbox"]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.check:has(input:focus-visible){box-shadow:var(--shadow-focus)}
+.check:has(input:checked){background:transparent;border-color:transparent;color:var(--text-2)}
+.check:has(input:checked)::before{background:var(--lime-mark);-webkit-mask-image:var(--icon-added);mask-image:var(--icon-added)}
+.check:has(input:checked):hover{background:var(--hover-wash)}
 a.check,a.search,a.pick{cursor:pointer}
 a.check>input,a.search>input,a.pick>select{pointer-events:none}
 

@@ -87,6 +87,9 @@
   --sheet-w: 640px;  /* a side sheet */
   --modal-w: 520px;  /* a dialog */
   --measure: 640px;  /* a readable line of prose */
+  /* icons CSS draws as a mask */
+  --icon-add: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14' /%3E %3Cpath d='M12 5v14' /%3E%3C/svg%3E");  /* a row you can add to the set */
+  --icon-added: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5' /%3E%3C/svg%3E");  /* a row already in the set */
   /* motion */
   --ease: cubic-bezier(.2,.7,.2,1);
   --dur: 140ms;

@@ -97,6 +97,20 @@ SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", 
 FONTS = [("font", '"Geist", system-ui, sans-serif'), ("mono", '"Geist Mono", ui-monospace, monospace')]
 MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms")]
 TRACK = [("track-display", "-.018em"), ("track-title", "-.012em"), ("track-heading", "-.008em"), ("track-label", ".06em")]
+# icons that CSS draws itself (a mask), so a control needs no extra markup — Lucide, 1.75 stroke
+CSS_ICONS = [("icon-add", "plus", "a row you can add to the set"), ("icon-added", "check", "a row already in the set")]
+
+
+def _icon_uri(name):
+    import re as _re
+    svg = (ROOT / "06-concept" / "icons" / "lucide" / f"{name}.svg").read_text(encoding="utf-8")
+    inner = _re.search(r"<svg[^>]*>(.*)</svg>", svg, _re.S).group(1).strip()
+    inner = _re.sub(r"\s+", " ", inner).replace('"', "'")
+    body = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' "
+            "stroke-linecap='round' stroke-linejoin='round'>" + inner + "</svg>")
+    return 'url("data:image/svg+xml,' + body.replace("<", "%3C").replace(">", "%3E") + '")'
+
+
 # the grey chrome around the stand and the screens — not the product, but values all the same
 CHROME = [("page", "#262626"), ("page-2", "#2F2F2F"), ("page-ink", "#E8E8E8"), ("page-ink-2", "#B4B4B4"), ("page-line", "#3D3D3D")]
 
@@ -121,6 +135,8 @@ def css():
     out += [f"  --r-{n}: {px}px;" for n, px in RADIUS]
     out.append("  /* size */")
     out += [f"  --{n}: {v};  /* {use} */" for n, v, use in SIZE]
+    out.append("  /* icons CSS draws as a mask */")
+    out += [f"  --{n}: {_icon_uri(f)};  /* {use} */" for n, f, use in CSS_ICONS]
     out.append("  /* motion */")
     out += [f"  --{n}: {v};" for n, v in MOTION]
     out.append("  /* the grey page around the stand — not part of the style */")
