@@ -42,6 +42,8 @@ COLOR = [
     ("lime-hover", "#D3F57A", "the primary button, hovered", None),
     ("on-lime", "#141A08", "text on lime", "lime"),
     ("problem", "#FF8F98", "Problem", "raised"),
+    ("danger", "#D4363F", "a button that removes something", None),
+    ("on-danger", "#FFFFFF", "text on danger", "danger"),
     ("note", "#F2C661", "Note", "raised"),
 ]
 SPACE = [("1", 4), ("2", 8), ("3", 12), ("4", 16), ("5", 20), ("6", 24), ("8", 32), ("10", 40)]
@@ -62,7 +64,7 @@ def token_css():
     v += [f"--s{n}:{px}px;" for n, px in SPACE]
     v += [f"--t-{n}:{w} {size}px/{lh}px var(--font);" for n, size, lh, w, _ in TYPE]
     v += [f"--r-{n}:{px}px;" for n, px in RADIUS]
-    v += ['--font:"Schibsted Grotesk",system-ui,sans-serif;', '--mono:"Source Code Pro",ui-monospace,monospace;',
+    v += ['--font:"Geist",system-ui,sans-serif;', '--mono:"Geist Mono",ui-monospace,monospace;',
           "--problem-wash:color-mix(in srgb,var(--problem) 14%,transparent);",
           "--note-wash:color-mix(in srgb,var(--note) 13%,transparent);",
           "--focus:0 0 0 2px var(--ground),0 0 0 4px var(--lime);",
@@ -115,6 +117,9 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
 .btn.primary.is-disabled{background:var(--control);border-color:var(--line);color:var(--text-3)}
 .btn.primary.is-disabled .ic{color:var(--text-3)}
 .btn.icon-only{width:32px;padding:0}
+.btn.danger,.c-problem.callout .btn,.dlg .btn.primary{background:var(--danger);border-color:color-mix(in srgb,var(--danger) 70%,#fff 30%);color:var(--on-danger);font-weight:600}
+.btn.danger:hover,.c-problem.callout .btn:hover,.dlg .btn.primary:hover,.btn.danger.is-hover{background:color-mix(in srgb,var(--danger) 88%,#fff 12%)}
+.btn.danger .ic{color:var(--on-danger)}
 .kind,.state{display:inline-flex;align-items:center;gap:var(--s1);height:20px;padding:0 var(--s2);
   font:var(--t-micro);color:var(--text-2);background:transparent;box-shadow:inset 0 0 0 1px var(--line-strong);border-radius:var(--r-pill);white-space:nowrap}
 .state{background:transparent;box-shadow:none;padding:0 2px}
@@ -171,10 +176,10 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
 .facts code{font-size:11.5px;color:var(--text-3)}
 .facts em{font-style:normal;color:var(--text-2)}
 .marks{margin:0;display:flex;gap:var(--s2);align-items:flex-start}
-.sub{margin:0 var(--s2) 0 var(--s6);border-top:1px dashed var(--line-strong)}
+.sub{margin:0 var(--s4) 0 calc(var(--s4) + var(--s6));border-top:1px dashed var(--line-strong)}
 .sub>li+li{border-top:1px dashed var(--line-strong)}
-.sub .row{padding-left:var(--s2)}
-.sub .sub{margin-left:var(--s6);margin-right:0}
+.sub .row{padding-left:0;padding-right:0}
+.sub .sub{margin:0 0 0 var(--s6)}
 
 .panel{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s5)}
 .phd{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s3)}
@@ -297,6 +302,7 @@ def system_block():
               + b("primary is-focus", "Export…", "arrow_export_ltr") + b("primary is-disabled", "Export…", "arrow_export_ltr")
               + '<span>Secondary</span>' + b("", "Configure", "options") + b("is-hover", "Configure", "options")
               + b("is-focus", "Configure", "options") + b("is-active", "Configure", "options")
+              + '<span>Remove</span>' + b("danger", "Remove from project", "dismiss") + b("danger is-hover", "Remove from project", "dismiss") + b("danger is-focus", "Remove from project", "dismiss") + '<span></span>'
               + '<span></span><span>default</span><span>hover</span><span>focus</span><span>inert · pressed</span>'
               + '<span>Place</span><span class="links"><a>' + ic(LIME, "library") + 'My library</a><a class="is-hover">'
               + ic(LIME, "globe") + 'Public library</a><a class="on">' + ic(LIME, "folder") + 'Projects</a></span><span></span>'
@@ -313,7 +319,7 @@ def system_block():
   <div><h3>Colour — ratios computed at build</h3><ul class="swatches">{"".join(sw)}</ul>
     <h3>Tags and findings</h3>{tags}
     <h3>States, drawn</h3>{states}{rows}</div>
-  <div><h3>Type — Schibsted Grotesk · Source Code Pro</h3><ul class="types">{types}</ul>
+  <div><h3>Type — Geist · Geist Mono</h3><ul class="types">{types}</ul>
     <h3>Spacing — a 4 px scale</h3><div class="row-of">{space}</div>
     <h3>Radius</h3><div class="row-of radii">{radii}</div>
     <h3>Icons — Lucide, 1.75 px stroke, 16 px in controls</h3><div class="row-of">{icons}</div></div>
@@ -325,7 +331,7 @@ def build():
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mica Lime · AI Stack Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <style>{token_css()}{CSS}</style></head>
 <body>{bd4.symbols()}
 <header class="pagehead">
