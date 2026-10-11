@@ -80,7 +80,7 @@ comes from:
 5. **Write for whoever acts next**: the owner, the receiver, or the agent reading `SETUP.md`.
 
 The same file holds a **dictionary** with one word per concept: `My library`, `Public library`,
-*project*, *auto-added*, *detached*, *the original*, `Export…`. It also holds a **forbidden** list
+*project*, *auto-added*, *detached*, *the original*, `Export`. It also holds a **forbidden** list
 (clichés, cheer, *successfully*, exclamation marks, emoji, selling with fear) and **rules by
 element**: button, title, field, empty, error, loading, success, dangerous action.
 
@@ -88,6 +88,24 @@ element**: button, title, field, empty, error, loading, success, dangerous actio
 screen, with *was / now* and the rule behind each change. It is the source of truth: a line on a
 screen that is not in the table is a defect. **The page is [`05-tone-of-voice/voice.html`](05-tone-of-voice/voice.html)**, built from both files. The tools that keep the two in step are in `tools/`
 (`extract_copy.py`, `build_microcopy.py`, `rewrite_copy.py`).
+
+## Concept
+
+**The product has one look, Mica · Lime, and every value of it is in one file.**
+[`06-concept/concept.html`](06-concept/concept.html) is the stand: the style in use, colour by role with the reason for
+each, the type pair and its scale, radius, spacing and shadow, Lucide icons in use, three components (the item row, a
+stage of the check, a field), a light slice, and the contrast table.
+[`06-concept/tokens.css`](06-concept/tokens.css) holds every colour, size, radius, shadow and font; no page carries a value
+of its own. [`06-concept/concept.md`](06-concept/concept.md) holds every decision and the four rounds of directions that
+led to it.
+
+In short: a neutral dark ground, **lime only on what you can press or where you are**, findings as tinted tags,
+*Checked* as a quiet dot (the product never claims *works*), every item in its own rounded cut-out, glass only around a
+mode or a dialog. Contrast is measured by a script, not eyeballed: 88 text-on-surface pairs, all WCAG AA.
+
+**The main job is drawn in this style** — Projects, Project and Run with every state, and the flow `main-success`. The
+wireframes are kept: [the viewer](04-wireframes/pages/wireframes.html), *Wireframes and mockups*, switches any drawn screen
+between **Wireframe** and **Design** (`?mode=design#project-default` opens one directly).
 
 ## Structure
 

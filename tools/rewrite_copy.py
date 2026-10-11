@@ -101,6 +101,15 @@ SETS = {
          ">Back to the shared page</", ">Back to the shared project</", 2,
          "One pattern for leaving the mode: Back to + the place by name, as Back to the shared item"),
     ],
+    # phase 06, stage 7 (owner, 2026-10-11): Export loses its "…" everywhere (Q38, over Q36's label), and the empty
+    # project's sentence follows the panel's + Add buttons (stage 7, #29)
+    "stage7": [
+        (sorted(p.stem for p in PAGES.glob("*.html") if p.stem != "wireframes" and "Export…" in p.read_text(encoding="utf-8")),
+         "Export…", "Export", 160, "Owner, Q38: the main control reads Export, no ellipsis"),
+        (["project-empty", "project-configuring-empty", "project-configuring-public"],
+         "Tick items on the left to add them.", "Add items from the left.", 3,
+         "Owner, stage 7 #29: the panel adds with + Add buttons, not ticks"),
+    ],
 }
 
 

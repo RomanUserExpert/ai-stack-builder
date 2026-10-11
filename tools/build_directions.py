@@ -17,7 +17,9 @@ ROOT = Path(__file__).resolve().parent.parent
 ICONS = ROOT / "06-concept" / "fluent"
 OUT = ROOT / "06-concept" / "directions.html"
 
-PORTRAIT = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
+# stored in the repo since stage 7 (#27); source: Jake Nackos on Unsplash, references.md §6
+PORTRAIT = "img/portrait-96.jpg"
+_UNSPLASH = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
             "?w=96&h=96&fit=crop&crop=faces&auto=format&q=80")
 
 # ---------------------------------------------------------------- contrast

@@ -26,7 +26,7 @@ bd2 = bd4.bd2
 LIME = next(d for d in bd4.DIRS if d["id"] == "lime")
 ic = bd4.ic
 OUT = ROOT / "06-concept" / "concept.html"
-PORTRAIT = bd2.PORTRAIT
+PORTRAIT = "img/portrait-96.jpg"  # stored in the repo (stage 7, #27)
 C = lambda s: f"<code>{s}</code>"
 
 PAGE_CSS = r"""
@@ -37,7 +37,7 @@ body{margin:0;background:var(--ground);color:var(--text);font:var(--t-body)}
 .wrap{max-width:calc(var(--canvas) + var(--s12));margin:0 auto;padding:0 var(--s6)}
 .top{padding-top:var(--s10)}
 .top h1{font:var(--t-display);letter-spacing:var(--track-display);margin:0 0 var(--s2)}
-.top p{margin:0 0 var(--s3);color:var(--text-2);max-width:92ch}
+.top p{margin:0 0 var(--s3);color:var(--text-2);max-width:var(--measure-wide)}
 .top p b{color:var(--text)}
 .top a,.foot a{color:var(--text)}
 .jump{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:var(--s1);margin:var(--s5) calc(var(--s6) * -1) 0;padding:var(--s2) var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
@@ -46,7 +46,7 @@ body{margin:0;background:var(--ground);color:var(--text);font:var(--t-body)}
 .jump a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 section.s{padding-top:var(--s12)}
 section.s>h2{font:var(--t-title);letter-spacing:var(--track-title);margin:0 0 var(--s2);scroll-margin-top:calc(var(--s12) + var(--s4))}
-section.s>p.lead{margin:0 0 var(--s5);color:var(--text-2);max-width:88ch}
+section.s>p.lead{margin:0 0 var(--s5);color:var(--text-2);max-width:var(--measure-wide)}
 .lab{margin:0 0 var(--s3);font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .panelbox{background:var(--tray);border-radius:var(--r-lg);padding:var(--s6)}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5)}
@@ -77,7 +77,7 @@ section.s>p.lead{margin:0 0 var(--s5);color:var(--text-2);max-width:88ch}
 .cgroup{margin-bottom:var(--s8)}
 .cgroup:last-child{margin-bottom:0}
 .cgroup h3{margin:0 0 var(--s1);font:var(--t-heading)}
-.cgroup>p{margin:0 0 var(--s4);font:var(--t-small);color:var(--text-2);max-width:88ch}
+.cgroup>p{margin:0 0 var(--s4);font:var(--t-small);color:var(--text-2);max-width:var(--measure-wide)}
 .sw{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(var(--panel-w) - var(--s12)),1fr));gap:var(--s3)}
 .sw li{display:grid;grid-template-columns:calc(var(--s12) + var(--s2)) minmax(0,1fr);gap:var(--s3);padding:var(--s3);background:var(--cutout);border-radius:var(--r-md);box-shadow:var(--shadow-cutout)}
 .sw .chip{width:calc(var(--s12) + var(--s2));height:calc(var(--s12) + var(--s2));border-radius:var(--r-sm);box-shadow:inset 0 0 0 var(--hairline) var(--sheet-edge)}
@@ -93,7 +93,7 @@ section.s>p.lead{margin:0 0 var(--s5);color:var(--text-2);max-width:88ch}
 .types .tu{font:var(--t-small);color:var(--text-3)}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5);margin-bottom:var(--s5)}
 .pair div{padding:var(--s5);background:var(--cutout);border-radius:var(--r-md);box-shadow:var(--shadow-cutout)}
-.pair .big{margin:0 0 var(--s2);font:var(--t-display);font-size:calc(var(--s12) - var(--s2));line-height:1.1}
+.pair .big{margin:0 0 var(--s2);font:var(--t-display);font-size:calc(var(--s12) - var(--s2));line-height:var(--s12)}
 .pair .big.m{font-family:var(--mono);font-weight:400}
 .pair p{margin:0;font:var(--t-small);color:var(--text-2)}
 .form3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5)}
@@ -138,6 +138,7 @@ section.s>p.lead{margin:0 0 var(--s5);color:var(--text-2);max-width:88ch}
 .ct td.n{text-align:right;font:var(--t-code);font-variant-numeric:tabular-nums}
 .ct .smp{display:inline-flex;align-items:center;justify-content:center;min-width:calc(var(--s12) + var(--s4));height:var(--mark-h);padding:0 var(--s2);border-radius:var(--r-sm);font:var(--t-micro);box-shadow:inset 0 0 0 var(--hairline) var(--sheet-edge)}
 .ct code{font:var(--t-code);color:var(--text-2)}
+.ct .smp-base{display:inline-flex;border-radius:var(--r-sm)}
 .ct .ok{color:var(--checked)} .ct .bad{color:var(--problem);font-weight:600}
 .ct .na{color:var(--text-3)}
 .foot{padding:var(--s12) 0;color:var(--text-3);font:var(--t-small)}
@@ -151,12 +152,12 @@ def hero():
            f'<a class="on">{ic(LIME, "folder")}Projects</a></span>'
            f'<span class="account"><img src="{PORTRAIT}" alt="" width="24" height="24"><span>Maya Chen</span></span></nav>')
     card = f'''<article class="card" aria-label="A shared project">
-  <div class="owner"><img src="{PORTRAIT.replace("w=96&h=96", "w=160&h=160")}" alt="Maya Chen" width="36" height="36"><span><b>Shared by Maya Chen</b>AI Stack Builder</span></div>
+  <div class="owner"><img src="img/portrait-160.jpg" alt="Maya Chen" width="36" height="36"><span><b>Shared by Maya Chen</b>AI Stack Builder</span></div>
   <div class="cb"><h3>agent-dotfiles</h3>
     <p class="cmeta"><span>9 items</span><span>Changed 1 day ago</span></p>
     <p class="cmeta"><span>Maya checked it 5 days ago · for Claude Code — the project has changed since</span></p>
     <p class="cdesc">My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers.</p>
-    <div class="cact"><span class="btn">Copy to My library</span><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export…</span></div></div>
+    <div class="cact"><span class="btn">Copy to My library</span><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export</span></div></div>
 </article>'''
     row = '<ol class="set">' + bd2.item(LIME, "eslint-autofix", "script", "Runs ESLint with --fix on staged files before each commit.",
                                          f'{C("scripts/eslint-autofix.sh")} · conflicts with {C("code-style")}', marks=["problem"],
@@ -164,13 +165,13 @@ def hero():
           bd2.item(LIME, "postgres-mcp", "mcp", "Read-only Postgres access for the agent: schema, explain plans, sample rows.",
                    f'{C("modelcontextprotocol/servers-archived")} @ {C("9be4674")} · MIT · needs {C("DATABASE_URL")}',
                    marks=["note"], states=[("Auto-added", "auto")]) + '</ol>'
-    btns = (f'<div class="btnrow"><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export…</span>'
+    btns = (f'<div class="btnrow"><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export</span>'
             f'<span class="btn">{ic(LIME, "options")}Configure</span><span class="btn">{ic(LIME, "share")}Share…</span>'
             f'</div><div class="btnrow"><span class="btn danger-ghost">Remove eslint-autofix…</span><span class="btn danger">Remove from project</span><span class="btn">Cancel</span></div>')
     runbar = (f'<div class="runbar"><div><h4>Checked just now</h4><p class="rc"><span class="c-problem">1 problem</span> · '
               f'<span class="c-note">2 notes</span> · <span class="c-skipped">1 skipped</span></p>'
               f'<p class="meta">acme-billing-api · 14 items · for Claude Code · 1.8 s</p></div>'
-              f'<span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export with 1 problem</span></div>')
+              f'<span class="btn warning">{ic(LIME, "arrow_export_ltr")}Export with 1 problem</span></div>')
     return f'<div class="hero">{nav}<div class="hero-body">{card}<div class="stack">{row}{btns}{runbar}</div></div></div>'
 
 
@@ -194,7 +195,7 @@ def colours():
 
 def typography():
     lis = "".join(f'<li><span class="tn">--t-{n} · {s:g}/{lh} · {w}</span>'
-                  f'<span style="font:var(--t-{n});{"text-transform:uppercase;letter-spacing:var(--track-label);" if n == "label" else ""}color:var(--text)">{sample}</span>'
+                  f'<span style="font:var(--t-{n});{"text-transform:uppercase;letter-spacing:var(--track-label);color:var(--text-3)" if n == "label" else "color:var(--text)"}">{sample}</span>'
                   f'<span class="tu">{use}</span></li>' for n, w, s, lh, sample, use in T.TYPE)
     return (f'<div class="pair"><div><p class="big">Geist</p><p>The interface: names, sentences, buttons, titles. One family, weight carries rank; '
             f'the owner’s choice after the polish.</p></div><div><p class="big m">Geist Mono</p><p>Only for what is literally code: paths, '
@@ -215,7 +216,7 @@ def icons():
     kinds = "".join(f'<span>{ic(LIME, n)}{k}</span>' for k, n in bd2.KINDS)
     places = f'<div class="nav" style="padding:0;height:auto;background:transparent;border:0"><span class="links"><a>{ic(LIME, "library")}My library</a><a class="is-hover">{ic(LIME, "globe")}Public library</a><a class="on">{ic(LIME, "folder")}Projects</a></span></div>'
     btns = (f'<div class="row-of"><span class="btn">{ic(LIME, "options")}Configure</span><span class="btn">{ic(LIME, "share")}Share…</span>'
-            f'<span class="btn">{ic(LIME, "copy")}Duplicate</span><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export…</span>'
+            f'<span class="btn">{ic(LIME, "copy")}Duplicate</span><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export</span>'
             f'<span class="btn icon-only" title="Close">{ic(LIME, "dismiss")}</span></div>')
     states = (f'<div class="row-of">{bd2.mark(LIME, "problem")}{bd2.mark(LIME, "note")}{bd2.mark(LIME, "skipped")}{bd2.mark(LIME, "checked")}</div>'
               f'<div class="row-of" style="margin-top:var(--s3)"><span class="state">{ic(LIME, "arrow_turn_down_right")}Auto-added</span>'
@@ -238,7 +239,7 @@ def components():
   <div class="demo">{rows}</div></div>'''
     prob = (f'<div class="sbody"><div class="callout c-problem"><span class="sev">{ic(LIME, "error_circle")}Problem</span>'
             f'<span>{C("eslint-autofix")} declares a conflict with {C("code-style")}: it rewrites the imports that {C("code-style")} tells the agent to keep. '
-            f'The archive will contain both, and the agent will get two rules that disagree.</span><span class="btn">Remove eslint-autofix…</span></div></div>')
+            f'The archive will contain both, and the agent will get two rules that disagree.</span><span class="btn danger-ghost">Remove eslint-autofix…</span></div></div>')
     keys = "".join(f'<span class="slot">{ic(LIME, "key")}<code>{k}</code><small>{w}</small></span>' for k, w in
                    [("DATABASE_URL", "postgres-mcp"), ("GITHUB_TOKEN", "github-mcp"), ("SENTRY_AUTH_TOKEN", "sentry-mcp")])
     env = (f'<div class="sbody"><div class="callout c-note"><span class="sev">{ic(LIME, "info")}Note</span>'
@@ -272,18 +273,25 @@ def light_slice():
            bd2.item(LIME, "code-style", "skill", "How I want TypeScript written: naming, imports, error handling, no default exports.",
                     f'{C(".claude/skills/code-style/SKILL.md")} · defers to <em>the client’s ESLint config</em>', marks=["note"]) + '</ol>'
     marks = f'<div class="btnrow">{bd2.mark(LIME, "problem")}{bd2.mark(LIME, "note")}{bd2.mark(LIME, "skipped")}{bd2.mark(LIME, "checked")}</div>'
-    btns = f'<div class="btnrow"><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export…</span><span class="btn">{ic(LIME, "options")}Configure</span><span class="btn danger-ghost">Remove eslint-autofix…</span></div>'
+    btns = f'<div class="btnrow"><span class="btn primary">{ic(LIME, "arrow_export_ltr")}Export</span><span class="btn">{ic(LIME, "options")}Configure</span><span class="btn danger-ghost">Remove eslint-autofix…</span></div>'
     return f'<div class="theme-light slice ml">{rows}<div style="height:var(--s4)"></div>{marks}{btns}</div>'
 
 
 def contrast_table():
     out = []
-    for title, rs in (("Dark — the product", contrast.rows()), ("Light — the slice", contrast.rows(".theme-light"))):
+    for title, theme, rs in (("Dark — the product", ":root", contrast.rows()), ("Light — the slice", ".theme-light", contrast.rows(".theme-light"))):
         trs = []
         for r in rs:
             verdict = ('<span class="na">—</span>' if r["bar"] == 1.0 else
                        (f'<span class="ok">pass</span>' if r["pass"] else '<span class="bad">fail</span>'))
-            trs.append(f'<tr><td><span class="smp" style="background:{r["bgv"]};color:{r["fgv"]}">Aa</span></td>'
+            if "@" in r["bg"]:
+                wash, base = r["bg"].split("@")
+                smp = f'<span class="smp-base" style="background:var(--{base})"><span class="smp" style="background:var(--{wash});color:var(--{r["fg"]})">Aa</span></span>'
+            else:
+                smp = f'<span class="smp" style="background:var(--{r["bg"]});color:var(--{r["fg"]})">Aa</span>'
+            if theme == ".theme-light":
+                smp = f'<span class="theme-light">{smp}</span>'
+            trs.append(f'<tr><td>{smp}</td>'
                        f'<td><code>--{r["fg"]}</code> {r["fgv"]}</td><td><code>--{r["bg"]}</code> {r["bgv"]}</td>'
                        f'<td class="n">{r["ratio"]:.2f}</td><td>{verdict}</td><td>{r["what"]}{" · bar 3:1" if r["bar"] == 3.0 else ""}</td></tr>')
         out.append(f'<p class="lab" style="margin-top:var(--s6)">{title}</p><div class="panelbox" style="padding:0;overflow:auto"><table class="ct">'
@@ -295,6 +303,16 @@ def contrast_table():
 JS = r"""(function(){})();"""
 
 
+STAND_UI = __import__("re").sub(r"(-webkit-)?backdrop-filter:[^;}]*;?", "", concept_ui.UI_CSS)  # nothing on the stand is glass (stage 7, #26)
+
+
+def trim_sprite(page):
+    """Only the symbols the page uses (stage 7, #25)."""
+    import re as _re
+    used = set(_re.findall(r'<use href="#([^"]+)"', page))
+    return _re.sub(r'<symbol id="([^"]+)"[^>]*>.*?</symbol>', lambda m: m.group(0) if m.group(1) in used else "", page, flags=_re.S)
+
+
 def build():
     T.build()
     contrast.build()
@@ -304,7 +322,7 @@ def build():
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="tokens.css">
-<style>{concept_ui.UI_CSS}{PAGE_CSS}</style></head>
+<style>{STAND_UI}{PAGE_CSS}</style></head>
 <body class="ml">{bd4.symbols()}
 <header class="wrap top">
   <h1>Mica · Lime</h1>
@@ -331,6 +349,7 @@ def build():
 </main>
 <p class="wrap foot">Built by <code>tools/build_concept.py</code> from <code>tools/concept_tokens.py</code> (tokens.css), <code>tools/concept_ui.py</code> (components) and <code>tools/contrast.py</code>. Icons: Lucide (ISC). Portrait: Jake Nackos on <a href="https://unsplash.com/photos/IF9TK5Uy-KI">Unsplash</a>.</p>
 </body></html>'''
+    page = trim_sprite(page)
     OUT.write_text(page, encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}  {len(page)//1024} KB · page literals: {concept_ui.literals(PAGE_CSS) or 'none'}")
 

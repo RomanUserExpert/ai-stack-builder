@@ -387,7 +387,7 @@ def configuring_new(case, title, name, meta, panel_html, set_html, scope="My lib
     if set_html is not None:
         s = re.sub(r'<section aria-label="Items in this project">.*?</section>', '<section aria-label="Items in this project">\n      <ol class="row-list">\n' + set_html + '        </ol>\n      </section>', s, count=1, flags=re.S)
     if check_live:
-        s = must(s, f'<button type="button" disabled title="Add an item first">{ICON}Export…</button>', f'<a class="button" href="run-loading.html">{ICON}Export…</a>')
+        s = must(s, f'<button type="button" disabled title="Add an item first">{ICON}Export</button>', f'<a class="button" href="run-loading.html">{ICON}Export</a>')
     return titled(s, title, case)
 
 

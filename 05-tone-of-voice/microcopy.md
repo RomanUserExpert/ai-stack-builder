@@ -289,7 +289,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `filt
 | My library | Items › Row | Defers to the client’s ESLint config | = | fact | default · filters | product, with slots |  |  |
 | My library | Items › Row | Used in 3 projects · last exported 2 days ago | = | fact | default · filters | product |  |  |
 | My library | Items › Row | Edit | = | button | default · filters | product |  |  |
-| My library | Items › Row | Export | **Export…** | button | default · filters | product | D4 | D3, Q36, D20 |
+| My library | Items › Row | Export | **Export** | button | default · filters | product | D4 | D3, Q36, D20 |
 | My library | Items › Row | Share | **Share…** | button | default · filters | product | D20 D21 | D21, D20 |
 | My library | Items › Row | db-migrate | = | item name | default · filters | user |  |  |
 | My library | Items › Row | script | = | kind badge | default · filters | product |  |  |
@@ -428,7 +428,7 @@ State pages: `default` · `delete` · `empty` · `error` · `loading`
 | Item — the add/edit overlay | Items › Row | Defers to the client’s ESLint config | = | fact | all | product, with slots |  |  |
 | Item — the add/edit overlay | Items › Row | Used in 3 projects · last exported 2 days ago | = | fact | all | product |  |  |
 | Item — the add/edit overlay | Items › Row | Edit | = | button | all | product |  |  |
-| Item — the add/edit overlay | Items › Row | Export | **Export…** | button | all | product | D4 | D3, Q36 |
+| Item — the add/edit overlay | Items › Row | Export | **Export** | button | all | product | D4 | D3, Q36 |
 | Item — the add/edit overlay | Items › Row | Share | **Share…** | button | all | product | D20 D21 | D20, D21 |
 | Item — the add/edit overlay | Items › Row | db-migrate | = | item name | all | user |  |  |
 | Item — the add/edit overlay | Items › Row | script | = | kind badge | all | product |  |  |
@@ -629,7 +629,7 @@ State pages: `default` · `error` · `loading` · `success`
 | Library — import and export as JSON | Items › Row | Defers to the client’s ESLint config | = | fact | all | product, with slots |  |  |
 | Library — import and export as JSON | Items › Row | Used in 3 projects · last exported 2 days ago | = | fact | all | product |  |  |
 | Library — import and export as JSON | Items › Row | Edit | = | button | all | product |  |  |
-| Library — import and export as JSON | Items › Row | Export | **Export…** | button | all | product | D4 | D3, Q36, D20 |
+| Library — import and export as JSON | Items › Row | Export | **Export** | button | all | product | D4 | D3, Q36, D20 |
 | Library — import and export as JSON | Items › Row | Share | **Share…** | button | all | product | D20 D21 | D21, D20 |
 | Library — import and export as JSON | Items › Row | db-migrate | = | item name | all | user |  |  |
 | Library — import and export as JSON | Items › Row | script | = | kind badge | all | product |  |  |
@@ -729,7 +729,7 @@ State pages: `default` · `error-filtered` · `error-server` · `filters` · `lo
 | Public library | Items › Row | Read and write files inside the directories you allow, and nowhere else. | = | description | default · filters | user |  |  |
 | Public library | Items › Row | `modelcontextprotocol/servers` @ `2025.9.25` · MIT | = | fact | default · filters | user |  |  |
 | Public library | Items › Row | Copy to My library | = | button | default · filters | product | D5 |  |
-| Public library | Items › Row | Export | **Export…** | button | default · filters | product | D4 | D3, Q36, D20 |
+| Public library | Items › Row | Export | **Export** | button | default · filters | product | D4 | D3, Q36, D20 |
 | Public library | Items › Row | memory | = | item name | default · filters | user |  |  |
 | Public library | Items › Row | A knowledge graph the agent can write to and read back between sessions. | = | description | default · filters | user |  |  |
 | Public library | Items › Row | fetch | = | item name | default · filters | user |  |  |
@@ -895,7 +895,7 @@ State pages: `default` · `empty` · `error` · `item` · `loading` · `revoke` 
 | Project | Main › Page head | Configure | = | button | default · item · loading · revoke · share | product |  |  |
 | Project | Main › Page head | Share | **Share…** | button | default · item · loading · share | product | D20 D21 | D20, D21 |
 | Project | Main › Page head | Duplicate | = | button | default · item · loading · revoke · share | product |  |  |
-| Project | Main › Page head | Check | **Export…** | button | default · empty · item · loading · revoke · share | product |  | Q36: the mode is titled by what it ends in; the check is its sub-process |
+| Project | Main › Page head | Check | **Export** | button | default · empty · item · loading · revoke · share | product |  | Q36: the mode is titled by what it ends in; the check is its sub-process. Q38: no ellipsis |
 | Project | Main | Client repo for Acme’s billing service. Code style, migration and review agents, the Postgres and GitHub MCP servers. | = | description | default · item · revoke · share | user |  |  |
 | Project | Main › The set | The set | **Items in this project** | a11y label | default · empty · item · loading · revoke · share | product |  | D6 |
 | Project | The set › Set row | code-style | = | item name | default · item · revoke · share | user |  |  |
@@ -1002,7 +1002,7 @@ State pages: `default` · `empty` · `error` · `item` · `loading` · `revoke` 
 | Project | Main › Page head | Add an item first | = | tooltip | empty | product |  |  |
 | Project | Main › Page head | Save | = | button | empty | product |  |  |
 | Project | The set › State block | Nothing in this project yet | **No items in this project yet** | heading | empty | product | D13 | D13 |
-| Project | The set › State block | Tick items in the library on the left to add them. Anything they require comes in with them, and Check opens once the set has something in it. | **Tick items on the left to add them. Anything they require is auto-added. Export… opens once this project has an item.** | state message | empty | product | D1 D6 D7 | Forbidden: the minimiser; D7, D6, Q36 |
+| Project | The set › State block | Tick items in the library on the left to add them. Anything they require comes in with them, and Check opens once the set has something in it. | **Add items from the left. Anything they require is auto-added. Export opens once this project has an item.** | state message | empty | product | D1 D6 D7 | Forbidden: the minimiser; D7, D6, Q36 |
 | Project | Main › Page head | Last check not shown — the project didn’t load | = | fact | error | product |  |  |
 | Project | Main › State block | This project didn’t load | = | a11y label | error | product |  |  |
 | Project | Main › State block | This project didn’t load | = | heading | error | product |  |  |
@@ -1098,7 +1098,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | Main › Page head | 14 items · 3 auto-added · 1 detached | = | fact | default · error-filtered · item | product | D7 D8 |  |
 | Project — configuring the set | Main › Page head | Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped | = | fact | default · error-filtered · error-server · item | product | D19 |  |
 | Project — configuring the set | Main › Page head | Cancel | = | button | all | product | D16 |  |
-| Project — configuring the set | Main › Page head | Check | **Export…** | button | default · empty · error-filtered · error-server · item · loading-add · public | product |  | Q36: the mode is titled by what it ends in; the check is its sub-process |
+| Project — configuring the set | Main › Page head | Check | **Export** | button | default · empty · error-filtered · error-server · item · loading-add · public | product |  | Q36: the mode is titled by what it ends in; the check is its sub-process. Q38: no ellipsis |
 | Project — configuring the set | Main › Page head | Save | = | button | default · empty · error-filtered · error-server · item · loading-add · public | product |  |  |
 | Project — configuring the set | Main › The set | The set | **Items in this project** | a11y label | all | product |  | D6 |
 | Project — configuring the set | The set › Set row | code-style | = | item name | default · error-filtered · error-server · item | user |  |  |
@@ -1174,7 +1174,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | Main › Page head | Nothing in it yet | **No items yet** | fact | empty · public | product |  | D13 |
 | Project — configuring the set | Main › Page head | Add an item first | = | tooltip | empty · loading-add · public | product |  |  |
 | Project — configuring the set | The set › State block | Nothing in this project yet | **No items in this project yet** | heading | empty · public | product | D13 | D13 |
-| Project — configuring the set | The set › State block | Tick items in the library on the left to add them. Anything they require comes in with them, and Check opens once the set has something in it. | **Tick items on the left to add them. Anything they require is auto-added. Export… opens once this project has an item.** | state message | empty · public | product | D1 D6 D7 | Forbidden: the minimiser; D7, D6, Q36 |
+| Project — configuring the set | The set › State block | Tick items in the library on the left to add them. Anything they require comes in with them, and Check opens once the set has something in it. | **Add items from the left. Anything they require is auto-added. Export opens once this project has an item.** | state message | empty · public | product | D1 D6 D7 | Forbidden: the minimiser; D7, D6, Q36 |
 | Project — configuring the set | Library panel | sentry | = | value | error-filtered | user |  |  |
 | Project — configuring the set | Library panel › State block | Nothing called “sentry” here | **Nothing matches “sentry”** | a11y label | error-filtered | product |  | D13 |
 | Project — configuring the set | Library panel › State block | Nothing called “sentry” here | **Nothing matches “sentry”** | heading | error-filtered | product | D13 | D13 |
@@ -1292,7 +1292,7 @@ State pages: `default` · `error` · `loading` · `promote`
 | Project — a detached row | Main › Page head | 14 items · 3 auto-added · 1 detached | = | fact | all | product | D7 D8 |  |
 | Project — a detached row | Main › Page head | Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped | = | fact | all | product | D19 |  |
 | Project — a detached row | Main › Page head | Cancel | = | button | all | product | D16 |  |
-| Project — a detached row | Main › Page head | Check | **Export…** | button | all | product |  | Q36: the mode is titled by what it ends in; the check is its sub-process |
+| Project — a detached row | Main › Page head | Check | **Export** | button | all | product |  | Q36: the mode is titled by what it ends in; the check is its sub-process. Q38: no ellipsis |
 | Project — a detached row | Main › Page head | Save | = | button | all | product |  |  |
 | Project — a detached row | Main › The set | The set | **Items in this project** | a11y label | all | product |  | D6 |
 | Project — a detached row | The set › Set row | code-style | = | item name | all | user |  |  |
@@ -1398,7 +1398,7 @@ State pages: `default` · `error-check` · `error-export` · `error-setup` · `l
 | Screen | Zone | Was | Now | Type | On | Whose | Mark | Why |
 |---|---|---|---|---|---|---|---|---|
 | Run | Run bar | acme-billing-api | = | link | all | user |  |  |
-| Run | Run bar | Check | **Export** | title | all | product | D3 | Q36: the mode is titled by what it ends in; the check is its sub-process |
+| Run | Run bar | Check | **Export** | title | all | product | D3 | Q36: the mode is titled by what it ends in; the check is its sub-process. Q38: no ellipsis |
 | Run | Run bar | Agent target | = | field label | all | product |  |  |
 | Run | Run bar | Claude Code | = | option | all | product |  |  |
 | Run | Run bar | Cursor | = | option | all | product |  |  |
@@ -1567,7 +1567,7 @@ State pages: `default` · `error` · `loading`
 | Shared project | Main › Page head | Changed 1 day ago | = | fact | default | product |  |  |
 | Shared project | Main › Page head | Maya last checked it 5 days ago, for Claude Code — the set has changed since | **Maya checked it 5 days ago · for Claude Code — the project has changed since** | fact | default | product, with slots | D6 D19 | D19, D6 |
 | Shared project | Main › Page head | Copy into my library | **Copy to My library** | button | default | product | D1 D5 | D1, D5 |
-| Shared project | Main › Page head | Check this set | **Export…** | button | default | product | D6 | D3, Q36 |
+| Shared project | Main › Page head | Check this set | **Export** | button | default | product | D6 | D3, Q36 |
 | Shared project | Main | My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers. | = | description | default | user |  |  |
 | Shared project | Main › What the set contains | What the set contains | **What this project contains** | a11y label | default · loading | product | D6 | D6 |
 | Shared project | What the set contains › Row | commit-conventions | = | item name | default | user |  |  |
@@ -1605,7 +1605,7 @@ State pages: `default` · `error` · `loading`
 | Shared project | Main | 3 external items, cloned from 2 repos at pinned refs — `SETUP.md` in the archive says which | = | body | default | product, with slots |  |  |
 | Shared project | Main | An agent that reads `SETUP.md` first | = | body | default | product, with slots |  |  |
 | Shared project | Main | This page is live: it shows the set as Maya has it now. An archive you take is a snapshot of this moment. | **This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.** | fact | default | product, with slots | D6 | D6, D4 |
-| Shared project | Main | Check it, then take the archive | **Export…** | button | default | product | D4 | D3, D4, Q36 |
+| Shared project | Main | Check it, then take the archive | **Export** | button | default | product | D4 | D3, D4, Q36 |
 | Shared project | Main › State block | This link doesn’t open anything any more | = | a11y label | error | product |  |  |
 | Shared project | Main › State block | This link doesn’t open anything any more | = | heading | error | product |  |  |
 | Shared project | Main › State block | The person who shared this project turned the link off, or deleted the project. Ask them for a new link. If you already downloaded an archive from it, that copy is still yours. | **The person who shared this project turned the link off, or deleted the project. Ask them for a new link. If you already exported an archive or copied items from it, those are still yours.** | state message | error | product |  | D4; Error: what did not change |
@@ -1694,7 +1694,7 @@ State pages: `default` · `error` · `loading`
 | Shared item | Main › Page head | Written by Maya Chen — her own, not from an external source | **Written by Maya Chen, not from an external source** | fact | default | product, with slots |  | Step 7 #10 no pronoun guessed from a name |
 | Shared item | Main › Page head | Changed 2 days ago | = | fact | default | product |  |  |
 | Shared item | Main › Page head | Copy into my library | **Copy to My library** | button | default | product | D1 D5 | D5, D1 |
-| Shared item | Main › Page head | Take as an archive | **Export…** | button | default | product | D4 | D3, D4, Q36 |
+| Shared item | Main › Page head | Take as an archive | **Export** | button | default | product | D4 | D3, D4, Q36 |
 | Shared item | Main | Content · lands at `.claude/skills/code-style/SKILL.md` | = | heading | default | product, with slots |  |  |
 | Shared item | Main | ---<br>name: code-style<br>description: How TypeScript is written in my projects.<br>---<br>- Named exports only. No default exports.<br>- Imports: node built-ins, then packages, then local — one blank line between groups.<br>- Errors: throw typed errors from lib code; catch only at the edge.<br>- Names say what a thing is, not what type it is: `invoices`, not `invoiceArray`. | = | generated file | default | user |  |  |
 | Shared item | Main | What it needs, and what it answers to | = | heading | default | product |  |  |

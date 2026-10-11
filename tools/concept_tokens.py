@@ -38,6 +38,9 @@ COLORS = [
     ("note", "#F2C661", "state", "Note — correct but incomplete", "§6: three severities"),
     ("checked", "#C5C7BE", "state", "Checked — a quiet dot, no colour: the product has no success", "D1-B: never a green tick that claims works"),
     ("skipped", "#A1A49A", "state", "Skipped — a slashed circle, neutral", "§6: not a green tick, not a red one"),
+    ("warning", "#EFA23A", "state", "a button that goes ahead despite a Problem — Export with 1 problem", "Owner, 2026-10-11 (stage 7, #11): the cost of the step is named, never celebrated in lime"),
+    ("warning-hover", "#E0962E", "state", "that button, hovered — darker", "States"),
+    ("on-warning", "#1A1200", "state", "text on warning", "Contrast"),
     ("danger", "#D4363F", "state", "a button that removes something", "Owner, 2026-10-11: a red remove"),
     ("danger-hover", "#BE2E37", "state", "the remove, hovered — darker, never lighter", "Contrast: white stays above 4.5:1"),
     ("on-danger", "#FFFFFF", "state", "text on danger", "Contrast"),
@@ -47,7 +50,7 @@ LIGHT = {
     "ground": "#F4F5EF", "bar": "#ECEDE6", "tray": "#E9EAE2", "cutout": "#FBFBF8", "well-deep": "#F0F1EA",
     "raised": "#FFFFFF", "control": "#FFFFFF", "control-edge": "#7E8276", "control-hover": "#F1F2EB", "line": "#DCDED4", "line-strong": "#C3C6BA",
     "text": "#181A14", "text-2": "#464A40", "text-3": "#5F6358", "lime": "#C6EF5A", "lime-hover": "#BCE84A",
-    "on-lime": "#141A08", "lime-mark": "#55700F", "problem": "#B4232E", "note": "#7A5600", "checked": "#464A40", "skipped": "#5F6358",
+    "on-lime": "#141A08", "lime-mark": "#55700F", "warning": "#9C5800", "warning-hover": "#8A4E00", "on-warning": "#FFFFFF", "problem": "#B4232E", "note": "#7A5600", "checked": "#464A40", "skipped": "#5F6358",
 }
 SPACE = [("1", 4), ("2", 8), ("3", 12), ("4", 16), ("5", 20), ("6", 24), ("8", 32), ("10", 40), ("12", 48)]
 TYPE = [  # name, weight, size, line-height, sample, use
@@ -55,7 +58,7 @@ TYPE = [  # name, weight, size, line-height, sample, use
     ("title", 600, 20, 26, "Checked just now", "the Export mode’s verdict"),
     ("heading", 600, 16, 22, "Remove eslint-autofix from acme-billing-api?", "the item panel, a dialog, a card"),
     ("body", 400, 14.5, 21, "Reads a migration before it runs and flags long locks.", "names, sentences"),
-    ("button", 500, 13.5, 16, "Export…", "buttons and the places"),
+    ("button", 500, 13.5, 16, "Export", "buttons and the places"),
     ("small", 400, 13, 19, "14 items · 3 auto-added · 1 detached", "descriptions, counts"),
     ("micro", 500, 12, 16, "Auto-added", "tags, findings"),
     ("label", 600, 11.5, 16, "IN THIS PROJECT", "section labels, uppercase"),
@@ -89,14 +92,15 @@ MATERIAL = [
 SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", "a button, a field"), ("tag-h", "20px", "a kind tag"), ("mark-h", "24px", "a finding tag"),
         ("bar-h", "52px", "the top bar"), ("icon", "16px", "an icon in a control"), ("icon-s", "14px", "an icon in a tag"),
         ("icon-l", "20px", "an icon shown alone"), ("panel-w", "384px", "the item panel"), ("pill-w", "3px", "the active row’s lime pill"),
-        ("dot", "6px", "the Checked dot"), ("dt-w", "116px", "a fact’s label column"), ("stage-name-w", "184px", "a stage’s name column"),
+        ("dot", "6px", "the Checked dot"), ("dt-w", "116px", "a fact’s label column"), ("stage-name-w", "300px", "a stage’s name column — wide enough for SETUP.md’s two-line name"),
         ("canvas", "1280px", "the width a screen is drawn at on the stand"),
         ("col-xs", "96px", "a narrow column: a finding beside a row"), ("col-s", "160px", "a row’s usage column"),
         ("col-m", "200px", "a row’s actions column"), ("col-l", "320px", "a row’s middle column"), ("col-xl", "360px", "an aside"),
         ("side-w", "440px", "the library sidebar, the item drawer"), ("sheet-w", "640px", "a side sheet"),
-        ("modal-w", "520px", "a dialog"), ("measure", "640px", "a readable line of prose")]
+        ("modal-w", "520px", "a dialog"), ("measure", "640px", "a readable line of prose"),
+        ("measure-wide", "820px", "a lead paragraph on the stand")]
 FONTS = [("font", '"Geist", system-ui, sans-serif'), ("mono", '"Geist Mono", ui-monospace, monospace')]
-MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms")]
+MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms"), ("dur-spin", "900ms"), ("dur-shimmer", "1400ms")]
 TRACK = [("track-display", "-.018em"), ("track-title", "-.012em"), ("track-heading", "-.008em"), ("track-label", ".06em")]
 # icons that CSS draws itself (a mask), so a control needs no extra markup — Lucide, 1.75 stroke
 CSS_ICONS = [("icon-add", "plus", "a row you can add to the set"), ("icon-added", "check", "a row already in the set"),

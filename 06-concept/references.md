@@ -215,6 +215,9 @@ at the size the page uses, and looked at.
 | **Person — portrait**, a woman, head and shoulders, neutral light background | The signed-in person (*Maya Chen*) in the app header of all three directions; shown in greyscale in *Catalogue* | [unsplash.com/photos/IF9TK5Uy-KI](https://unsplash.com/photos/IF9TK5Uy-KI) by Jake Nackos · image `images.unsplash.com/photo-1580489944761-15a19d654956` (cropped to the face, 96 px) | 200 `image/jpeg`; a portrait, face centred |
 | Person — portrait, a woman outdoors at dusk | **Not used** — the second candidate, kept as the fallback | [unsplash.com/photos/QXevDflbl8A](https://unsplash.com/photos/QXevDflbl8A) · `images.unsplash.com/photo-1544005313-94ddf0286df2` | 200 `image/jpeg`; a portrait, but the background is busy at 24 px |
 
+**Stored in the repo since stage 7** (`06-concept/img/portrait-96.jpg`, `portrait-160.jpg`), so no page depends on Unsplash at
+render time; the source and the credit stay here.
+
 *How they were found:* Unsplash's own search API, read through a visible browser because the page
 search is behind a bot check. **The photo stands in for the signed-in person; it is not a claim
 about who Maya Chen is.**

@@ -29,11 +29,14 @@ UI_CSS = r"""
 .btn.primary.is-disabled{background:var(--control);border-color:var(--line);color:var(--text-3)}
 .btn.primary.is-disabled .ic{color:var(--text-3)}
 .btn.icon-only{width:var(--control-h);padding:0}
-.btn.danger,.dlg .btn.primary{background:var(--danger);border-color:var(--danger);color:var(--on-danger);font-weight:600}
-.btn.danger:hover,.dlg .btn.primary:hover,.btn.danger.is-hover{background:var(--danger-hover);border-color:var(--danger-hover)}
-.btn.danger .ic,.dlg .btn.primary .ic{color:var(--on-danger)}
-.btn.danger-ghost,.c-problem.callout .btn{background:transparent;border-color:var(--problem-edge);color:var(--problem);font-weight:500}
-.btn.danger-ghost:hover,.c-problem.callout .btn:hover,.btn.danger-ghost.is-hover{background:var(--problem-wash)}
+.btn.danger{background:var(--danger);border-color:var(--danger);color:var(--on-danger);font-weight:600}
+.btn.danger:hover,.btn.danger.is-hover{background:var(--danger-hover);border-color:var(--danger-hover)}
+.btn.danger .ic{color:var(--on-danger)}
+.btn.warning{background:var(--warning);border-color:var(--warning);color:var(--on-warning);font-weight:600}
+.btn.warning:hover,.btn.warning.is-hover{background:var(--warning-hover);border-color:var(--warning-hover)}
+.btn.warning .ic{color:var(--on-warning)}
+.btn.danger-ghost{background:transparent;border-color:var(--problem-edge);color:var(--problem);font-weight:500}
+.btn.danger-ghost:hover,.btn.danger-ghost.is-hover{background:var(--problem-wash)}
 .btn.danger-ghost .ic{color:var(--problem)}
 
 /* --- tags and findings --- */
@@ -88,7 +91,7 @@ UI_CSS = r"""
 .vcounts span{display:inline-flex;align-items:center;gap:var(--s1)}
 .vcounts .ic{width:var(--icon-s);height:var(--icon-s)}
 .c-problem{color:var(--problem)} .c-note{color:var(--note)} .c-skipped{color:var(--skipped);font-weight:500}
-.pdesc{margin:var(--s4) 0 var(--s6);max-width:72ch;font:var(--t-body);color:var(--text-2)}
+.pdesc{margin:var(--s4) 0 var(--s6);max-width:var(--measure);font:var(--t-body);color:var(--text-2)}
 
 .work.with{display:grid;grid-template-columns:minmax(0,1fr) var(--panel-w);gap:var(--s5);align-items:start}
 .set,.sub{list-style:none;margin:0;padding:0}

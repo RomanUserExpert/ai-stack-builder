@@ -300,6 +300,9 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Add to the set | **An icon button, not a bare checkbox** (owner, 2026-10-11): *+ Add* is a small secondary button; once the item is in the set it reads *✓ In this project* — no fill, a lime-mark tick, quiet. The native checkbox stays for the keyboard and screen readers, out of sight. The two icons are tokens (`--icon-add`, `--icon-added`, Lucide as CSS masks), so the control needs no extra markup | Owner, 2026-10-11 |
 | Radios and checkboxes | **Drawn for the dark theme, never the browser’s white box** (owner, 2026-10-11): a recessed `--well-deep` cell with a `--control-edge` border (`#7C7F74`, added for WCAG 1.4.11 — a control’s boundary needs 3:1; `--line-strong` gave 1.6). Checked: a checkbox fills with lime and carries the `--glyph-check` tick in `--on-lime`; a radio becomes a lime ring with a lime dot. Hover lifts the edge, focus is the lime ring | Owner, 2026-10-11 |
 | Empty and error states | **One tile everywhere** (owner, 2026-10-11): a neutral 48 px tile (`--control`), the icon 20 px in `--text-2` — the empty Projects, no match, an empty project, a server error. Not lime, not a problem wash: the sentence carries what happened. A state the wireframe drew without an icon gets one from CSS (`--icon-empty-set`, Lucide *layers*), so no markup changes | Owner, 2026-10-11 |
+| Shadow | **Hairlines first; a shadow only where something is lifted over the place under it** (stage 7, #9): `--shadow-tile` on the top bar’s current place (one step up, `0 1px 2px`), `--shadow-sheet` under a dialog over a mode. Rows and panels carry none — Linear’s *border and a whisper of tone* (references.md, A) | Linear base; pair 4 |
+| Radius | **Soft, not round** (stage 7, #10): 6 on a control, 10 on a row’s cut-out and a box inside it, 14 on a panel or a tray, 18 on the acrylic frame, a pill on a tag. The cut-out form is the owner’s, from round 2’s *Kit*; the step grows with the size of the thing, so nesting reads | Owner, round 4 |
+| Warning | **`Export with 1 problem` is drawn in warning amber** (`--warning #EFA23A`, dark text 8.8:1; light `#9C5800` with white, 5.5:1) — the cost of going ahead is visible, never celebrated in lime (owner, stage 7, #11) | Owner, 2026-10-11; voice.md principle 2 |
 | Destructive action | **A red button, `--danger #D4363F` with white text (4.8:1)**, only on an act that removes something: *Remove from project* in its dialog. **Inside a Problem the remove is muted** — a ghost button, red text and a red-tinted edge, filled only on hover — because there it is one way out, not the loudest thing on the screen; the solid red is kept for the confirmation | Owner, 2026-10-11 |
 | Icons | **Lucide**, ISC, 1.75 px stroke, one style. **Replaces Fluent (owner, 2026-10-11)** | Owner, round 4 |
 | Density | Between Default and Comfortable: body 14.5 px, small 13, rows 11 px vertical padding, buttons 33 px | Owner, round 3 |
@@ -404,4 +407,41 @@ project cards of equal height with the last check at the foot (verdicts align ac
 and em dashes come from the wireframes and `microcopy.md`; "flat type hierarchy" counts row headings at body size; the
 skeleton's even rhythm is intended; the success box's "cramped" edge is its lime pill. **Responsive is phase 10**: at
 390 px the pages overflow, as the wireframes do.
+
+---
+
+## Stage 7 — the check
+
+**Run 2026-10-11.** Every page drawn in the style — `concept.html`, `mica-lime.html`, 22 mockups and 7 flow steps — was
+checked against this file by two measuring agents (computed contrast on every text node, component values compared
+within a page, icons, images, literal values) and **`/impeccable audit`: 13/20** (accessibility 3, performance 3, theming
+3, responsive 1 — lesson 10 — integrity 3). **29 problems, each with its evidence**, went to the owner first; four
+needed a decision, the rest were done in the order *tokens → generator → stand and screens → docs*.
+
+**The owner’s four decisions.** #11 — `Export with 1 problem` gets its own **warning** colour (a new token family).
+#19 — the panel’s `+ Add` gets an accessible name, *Add code-style* / *code-style, in this project*. **#22 and #23 — no
+hidden h2 and no skip link for now**: both would add markup the wireframes do not have. #29 — the empty project reads
+*Add items from the left* (the panel adds with buttons, not ticks). **And one more, mid-check: `Export` loses its
+ellipsis everywhere** — Q38 in the register, over Q36’s `Export…`.
+
+**What was fixed, by kind:**
+- **focus and motion:** behind an open dialog or the Filters popover everything is `inert`, so Tab starts in it
+  (WCAG 2.4.3, 2.4.11); the export spinner stops under reduced motion; the search input fills its box; the back link and
+  *Clear filters* are full targets;
+- **values only from tokens:** animation durations (`--dur-spin`, `--dur-shimmer`), a wide measure for lead text
+  (`--measure-wide` instead of `88ch`–`96ch`), the stage name column (`--stage-name-w 300px`, so *SETUP.md — for the agent
+  that opens it* stays one line), the skeletons’ 164 inline px re-expressed in spacing tokens by the generator, the
+  stand’s contrast samples drawn from `var()` instead of pasted hex;
+- **one element, one set of values:** the muted remove and the dialog’s red confirm carry their classes
+  (`button-danger-quiet`, `danger`) instead of being styled by where they sit; the label specimen is in its own tone;
+- **layout:** the Note in the share dialog has its gap; the Export frame on `mica-lime.html` is no longer cut off; code
+  scrolls instead of breaking mid-flag;
+- **integrity:** 52 links to pages with no mockup now open the wireframe; each screen on `mica-lime.html` is a region, not
+  a second `<main>`; sprites carry only the symbols a page uses (stand 105 → 85 KB, screens 70 → 47 KB); the portrait is
+  stored in the repo (`06-concept/img/`) instead of hotlinked; the stale *error tile* contrast row is replaced.
+
+**Contrast after the check: 88 pairs (44 dark, 44 light), all AA** (`contrast.md`). **Left on purpose:** the 1100 px
+breakpoint on the stand (a media query cannot read a custom property — the one literal); responsive at 390 px
+(lesson 10); detector notes that are content or wireframe structure (em dashes, heading order, Geist as overused —
+the owner’s font).
 

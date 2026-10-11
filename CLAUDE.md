@@ -208,7 +208,7 @@ product *is* before anything decides what it looks like.
 | **03** | **Information architecture** | ~~done~~ — started 2026-09-15, **closed 2026-09-20**, all seven of the course's steps · [`ia.html`](03-information-architecture/ia.html) · [the plan](03-information-architecture/README.md). ~~Five of the course's seven steps are done; what remains is the IA critique and `ia.html`.~~ The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
 | **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
-| **06** | **Concept** | ← **current**, from 2026-10-05. The visual direction: references, the owner's written taste, attributes from the data, three directions, a stand and `tokens.css`, proved on **two** screens. `2-flows/10-dark-design-language/` has been waiting for it since stage 2 · [the plan](06-concept/README.md), the course's seven stages, written 2026-10-05 |
+| **06** | **Concept** | ← **current**, from 2026-10-05 — **all seven stages done 2026-10-11, awaiting the owner’s review.** The working style is **Mica · Lime** (§15): [`concept.html`](06-concept/concept.html) the stand, [`tokens.css`](06-concept/tokens.css) every value, the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html) · [the plan](06-concept/README.md) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | UI assembly | The screens built out of the concept — what the old list called *mockups* |
 | **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
@@ -712,7 +712,8 @@ voice and microcopy**, with the control called `Run` until then. **If it turns o
 naming — if `Export` becomes a control on the Project screen — it reopens §8**, because §8 puts Export
 inside Run on purpose.
 
-**Decided 2026-10-05, Q36: the main control reads `Export…`.** The owner chose the label in lesson 05.
+**Decided 2026-10-05, Q36: the main control reads `Export…`.** The owner chose the label in lesson 05. **Since Q38
+(2026-10-11) it reads `Export`, without the ellipsis** — everything below that says `Export…` means `Export`.
 It is the same control, opening the same mode, and only the word changed: the mode is titled
 `Export`, and the archive is still made at its last stage, after the findings and the handover. The
 `…` says the act is not immediate. **The check keeps its own words**: *Checking*, *Checked*,
@@ -1106,7 +1107,7 @@ to read the scores behind it: the rubric grades craft, not weight.
   line of text. **A click on a row opens the item in a side panel beside the set**, and **that panel is
   where `Detach` lives** — the action §5 and §7 describe and no screen had offered — together with the
   detached row's differing fields, `Reset` per field and whole, and `Promote`. **And the mode is a
-  draft**: its head reads *Cancel · Export… · **Save*** (*Check* until Q36), so adds, removes and a detached row's edits are
+  draft**: its head reads *Cancel · Export · **Save*** (*Check* until Q36), so adds, removes and a detached row's edits are
   kept on `Save` and dropped on `Cancel`. *Leaving the mode is still one named action — now one of two,
   keep or discard.* `Promote` is the one immediate act inside it, because it creates a library item.
 
@@ -1120,7 +1121,7 @@ to read the scores behind it: the rubric grades craft, not weight.
   **Amended 2026-09-27, Q34: the new project opens in the configuring mode, the panel already open,
   and the body keeps only its text.** The one action was a click that did nothing but open what the
   person had come for, so it is gone; the control into `Run` stays inert, which is all Q16 ever needed.
-- **Run** — entered by **`Export…`** from a Project (*Check* until Q36, 2026-10-05; the mode is titled `Export`), by the same control on a **shared project**, and,
+- **Run** — entered by **`Export`** from a Project (*`Export…`* Q36–Q38) (*Check* until Q36, 2026-10-05; the mode is titled `Export`), by the same control on a **shared project**, and,
   since 2026-09-20, **from a Library row exporting a single item** (§6, Q15). It takes the whole
   surface: a stack of stages, each with its
   own verdict, duration and expansion, in the shape of a Vercel deployment page. The file tree of the
@@ -1194,7 +1195,7 @@ overlay, a region, a state or content** — including `Run`, which takes the who
 not a place, because nothing is stored and no address returns you to it.
 
 **The main flow, in one line.** `Projects` → a `Project` → **configure** it, adding from the library
-panel until the set is complete → **`Export…`**, which enters `Run` (*Check* until Q36) → read the findings, fix what is
+panel until the set is complete → **`Export`**, which enters `Run` (*Check* until Q36) → read the findings, fix what is
 fixable from its row, confirm the rest → read the handover → **Export**. **Nothing blocks anywhere
 along it**, and the one thing it cannot promise is the end: the archive is correct, and whether the env
 values exist on the receiving machine is a fact about a machine we never touch. **Checked, never
@@ -1207,7 +1208,7 @@ one click away rather than behind a switch, **and it is still one screen, read-o
 no entry: an entry pointing at a mode would promise a place nobody can be sent to.
 
 **Depth to the archive: three taps**, for somebody already signed in — `Projects` → `Project` →
-`Export…` → `Export`. **Four** when the set does not exist yet, because a new project's empty state has
+`Export` (the control) → `Export` (the final stage). **Four** when the set does not exist yet, because a new project's empty state has
 one action and it enters the configuring mode; **four** when arriving through the Library, which the
 panel made optional rather than merely paid for; **two for the receiver**, who owns nothing and has the
 shortest path in the product. **Every path costs one more from a cold, signed-out start.**
@@ -1499,6 +1500,10 @@ off the door; **every page the prototypes drew first is kept into the wireframes
 `db-migrate` requires `seed-data`, one direction everywhere. *The choices were proposed with the fix, not
 picked by the owner, and the register says so.*
 
+**Added 2026-10-11, by lesson 06 — Q38.** **`Export` loses its ellipsis everywhere** (owner): the control, the
+configuring head, a shared project, a shared item, a Library row. Changed on every wireframe page by
+`tools/rewrite_copy.py stage7`, in the prototypes, in `microcopy.md` and `voice.md` together (§14).
+
 **Added 2026-10-05, by lesson 05 — Q36.** **The Project screen's main control reads `Export…`**: the
 owner's choice of label for the control that enters `Run`, closing the naming question Q16 deferred.
 The mode is titled `Export` and the check inside keeps its own words. Nothing new is drawn (§6, §8).
@@ -1688,7 +1693,7 @@ not compete with it.
 about its own acts. *my* appears only inside the name **`My library`**, never a bare *library*, and
 the other place is **`Public library`**, never *the shelf*. A project is a **project**, not *a set*;
 *Stack* stays informal and off the screen. A required item is **auto-added**, a project's own copy
-is **detached** from **the original**, and the archive is **exported** (`Export…` opens the mode, Q36;
+is **detached** from **the original**, and the archive is **exported** (`Export` opens the mode, Q36 and Q38;
 *Exported — x.zip*). The full list, with *not* and *why* for each entry, is `voice.md`'s
 *Dictionary*. The *Forbidden* list holds clichés, cheer, motivational and selling copy,
 *successfully*, exclamation marks, emoji in system messages, *Are you sure?* and internal ids.
@@ -1702,3 +1707,37 @@ lines added, and the *Shared* state drawn (Q37). The 239 prototype pages were re
 `build_microcopy.py` builds the table, and `rewrite_copy.py` applies a rewrite with exact
 occurrence counts. When copy changes, change the page and the table together, and rebuild the
 prototypes.
+
+---
+
+## 15. Concept
+
+**Added 2026-10-11, when lesson 06’s seven stages were done.** The product looks one way, **Mica · Lime**, and it is
+written down in three places that must agree: [`06-concept/concept.md`](06-concept/concept.md) holds **every decision
+and its reason** (the *Working style* table, and the four rounds of directions that led to it), [`06-concept/tokens.css`](06-concept/tokens.css)
+holds **every value**, and [`06-concept/concept.html`](06-concept/concept.html) is **the stand** that shows them.
+**`tokens.css` is generated** by `tools/concept_tokens.py`; **no page holds a value of its own** —
+`python tools/concept_ui.py --check` and the mockup build refuse a literal colour, px size or font name.
+
+**The style in one paragraph.** A neutral **Mica** ground with a faint lime tint, quiet layers, hairlines before
+shadows. **Lime `#C6EF5A`** is the only colour that invites an action — the primary button, the current place, the
+active row’s pill — and **never a verdict**. Findings are tinted **tags**: Problem `#FF8F98`, Note `#F2C661`; **Checked is
+a quiet dot, there is no success colour** (§6, D1-B). Red `--danger` only removes; amber `--warning` only goes ahead
+despite a Problem. Glass (acrylic) **only around a mode or a dialog**, text always on an opaque sheet. **Geist** and
+**Geist Mono**, **Lucide** icons, a 4 px spacing scale, radii 6 · 10 · 14 · 18, density between Default and
+Comfortable. Every item in its own **cut-out**; no rings round rows.
+
+**The rules that came out of it, and hold from now on:**
+- **Colour is a claim.** A new colour needs an attribute or the owner’s word in `concept.md`, and its contrast in
+  `06-concept/contrast.md`, which `tools/contrast.py` measures on `tokens.css` as written. AA for text, 3:1 for a control’s
+  edge or a state mark. **88 pairs, all pass.**
+- **One element, one set of values**, by class, never by where it sits.
+- **A screen is drawn whole**: every state, or none.
+- **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with the same
+  markup and words; the viewer, *Wireframes and mockups*, switches between them. Only the main job is drawn so far.
+- **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
+  the prototypes, `microcopy.md` and `voice.md` together (Q38).
+
+**Left on purpose:** light is one slice on the stand, the full theme is lesson 09; responsive is lesson 10; motion
+(the validation pass as a designed moment) is lesson 11.
+

@@ -94,7 +94,7 @@ BTN_PRIMARY = '<a class="button button-primary">'
 @case("item-success")
 def _():
     return chain("item-success", [
-        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export…</a>'), None),
+        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export</a>'), None),
         ("run-item-loading", "Run, checking one item", "run-item-loading.html", ("wait",), None),
         ("run-item-default", "Run, checked", "run-item-default.html", ("a", f"{BTN_PRIMARY}Export</a>"), None),
         ("run-item-success", "Run, archive in hand", "run-item-success.html", None, None),
@@ -105,7 +105,7 @@ def _():
 def _():
     return chain("item-from-shelf", [
         ("library-my-error-filtered", "My library, “terraform” matches nothing", "library-my-error-filtered.html", ("a", '<a>Public library</a>'), None),
-        ("library-public-default", "Public library", "library-public-default.html", ("row", "playwright-mcp", '<a class="button">Export…</a>'), None),
+        ("library-public-default", "Public library", "library-public-default.html", ("row", "playwright-mcp", '<a class="button">Export</a>'), None),
         ("run-item-loading", "Run, checking one item", "run-item-loading.html", ("wait",), None),
         ("run-item-default", "Run, checked", "run-item-default.html", ("a", f"{BTN_PRIMARY}Export</a>"), None),
         ("run-item-success", "Run, archive in hand", "run-item-success.html", None, None),
@@ -123,7 +123,7 @@ def _():
 @case("item-error-check")
 def _():
     return chain("item-error-check", [
-        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export…</a>'), None),
+        ("library-my-default", "My library", "library-my-default.html", ("row", "migration-reviewer", '<a class="button">Export</a>'), None),
         ("run-item-loading", "Run, checking one item", "run-item-loading.html", ("wait",), None),
         ("run-item-error", "Run, the check didn't finish", "run-item-error.html", ("a", f"{BTN_PRIMARY}{ICON}Check again</a>"), None),
         ("run-item-loading", "Run, checking again", "run-item-loading.html", ("wait",), None),
@@ -150,7 +150,7 @@ def open_handover(s):
 def _():
     c = "rj1-stale-then-read"
     return chain(c, [
-        ("project-default", "Project, the check out of date", lambda: project_page("clean", CLEAN[0], STALE, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
+        ("project-default", "Project, the check out of date", lambda: project_page("clean", CLEAN[0], STALE, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), None),
         ("run-loading", "Run, checking", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
         ("run-default", "Run, the handover read before Export", lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage."),
          ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), open_handover),
@@ -181,7 +181,7 @@ def _():
         return re.sub(r'<li>\s*<details>\s*<summary><span class="n">09</span>.*?</li>', PREVIEW_FAILED, s, count=1, flags=re.S)
     resolved = lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage.")
     return chain(c, [
-        ("project-default", "Project", lambda: project_page("clean", *CLEAN, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
+        ("project-default", "Project", lambda: project_page("clean", *CLEAN, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), None),
         ("run-loading", "Run, checking", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
         ("run-error-setup", "Run, SETUP.md couldn't be written (Q28)", resolved, ("a", '<a class="button button-primary">Write SETUP.md again</a>'), failed),
         ("run-default", "Run, SETUP.md written — read it before Export", resolved, ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), open_handover),
@@ -264,12 +264,12 @@ def _():
         return s.replace("<strong>0 problems · 2 notes · 1 skipped</strong>", "<strong>1 problem · 2 notes · 1 skipped</strong>")
     no_seed = lambda s: drop_li(s, ">seed-data</a>", indent="                  ") if ">seed-data</a>" in s else s
     return chain(c, [
-        ("project-default", "Project, seed-data deleted from the Library", lambda: project_page("clean", CLEAN[0], gone, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
+        ("project-default", "Project, seed-data deleted from the Library", lambda: project_page("clean", CLEAN[0], gone, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), None),
         ("run-loading", "Run, checking", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
         ("run-default", "Run, 1 problem — a requirement that is not there", lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage."),
          ("a", '<a class="button">Edit db-migrate</a>'), dangling),
         ("item-default", "Edit db-migrate — take seed-data out of Requires", "item-default.html", ("btn", '<button type="submit" class="button-primary">'), None),
-        ("project-default", "Project, db-migrate saved — the check out of date", lambda: project_page("clean", CLEAN[0], edited, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export…</a>"), None),
+        ("project-default", "Project, db-migrate saved — the check out of date", lambda: project_page("clean", CLEAN[0], edited, c, ""), ("a", f"{BTN_PRIMARY}{ICON}Export</a>"), None),
         ("run-loading", "Run, checking again", lambda: run_page("run-loading.html", "clean", c, ""), ("wait",), None),
         ("run-default", "Run, nothing will fight", lambda: export_section(run_page("run-default.html", "clean", c, ""), export_clean(), "Export is the final stage."), None, None),
     ])
@@ -481,7 +481,7 @@ def _():
 @case("receiver-check-take")
 def _():
     return chain("receiver-check-take", [
-        ("shared-project-default", "Shared project — somebody sent a link", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Export…</a>'), None),
+        ("shared-project-default", "Shared project — somebody sent a link", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-loading", "Run, checking somebody else's set", "run-shared-loading.html", ("wait",), None),
         ("run-shared-default", "Run, checked — what this machine still needs", "run-shared-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-success", "Run, archive in hand", "run-shared-success.html", None, None),
@@ -491,7 +491,7 @@ def _():
 @case("receiver-check-failed")
 def _():
     return chain("receiver-check-failed", [
-        ("shared-project-default", "Shared project", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Export…</a>'), None),
+        ("shared-project-default", "Shared project", "shared-project-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-loading", "Run, checking", "run-shared-loading.html", ("wait",), None),
         ("run-shared-error", "Run, the check didn't finish — and it says whose failure it is", "run-shared-error.html", ("a", f'{BTN_PRIMARY}Check again</a>'), None),
         ("run-shared-loading", "Run, checking again", "run-shared-loading.html", ("wait",), None),
@@ -512,7 +512,7 @@ def _():
 @case("receiver-item")
 def _():
     return chain("receiver-item", [
-        ("shared-item-default", "Shared item — one block, and whose it is", "shared-item-default.html", ("a", f'{BTN_PRIMARY}Export…</a>'), None),
+        ("shared-item-default", "Shared item — one block, and whose it is", "shared-item-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-item-loading", "Run, checking one block", "run-shared-item-loading.html", ("wait",), None),
         ("run-shared-item-default", "Run, checked", "run-shared-item-default.html", ("a", f'{BTN_PRIMARY}Export</a>'), None),
         ("run-shared-item-success", "Run, archive in hand", "run-shared-item-success.html", None, None),

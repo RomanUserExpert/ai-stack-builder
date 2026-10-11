@@ -29,7 +29,8 @@ import concept_ui  # noqa: E402
 WF = ROOT / "04-wireframes"
 PAGES_DIR, PROTO_DIR, OUT = WF / "pages", WF / "prototypes", WF / "mockups"
 LUCIDE = ROOT / "06-concept" / "icons" / "lucide"
-PORTRAIT = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
+PORTRAIT_FILE = "06-concept/img/portrait-96.jpg"  # stored in the repo (stage 7, #27)
+_UNSPLASH = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
             "?w=96&h=96&fit=crop&crop=faces&auto=format&q=80")
 
 # every state of a screen once the screen is started (owner, 2026-10-11: not only the first four)
@@ -82,7 +83,7 @@ button:focus-visible,.button:focus-visible,a:focus-visible{outline:0;box-shadow:
 .button-danger svg.icon{color:var(--on-danger)}
 button[disabled],.button[aria-disabled="true"]{background:var(--control);border-color:var(--line);color:var(--text-3);cursor:not-allowed}
 button[disabled] svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--text-3)}
-.link-button{height:auto;padding:0;border:0;background:none;color:var(--text-2);font:var(--t-small);text-decoration:underline}
+.link-button{height:auto;padding:var(--s1) var(--s2);margin:calc(var(--s1) * -1) calc(var(--s2) * -1);border:0;background:none;color:var(--text-2);font:var(--t-small);text-decoration:underline}
 
 /* --- tags and findings --- */
 .tag{display:inline-flex;align-items:center;gap:var(--s1);height:var(--tag-h);padding:0 var(--s2);font:var(--t-micro);color:var(--text-2);
@@ -97,9 +98,9 @@ button[disabled] svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--tex
 svg.glyph-problem{color:var(--problem)} svg.glyph-note{color:var(--note)} svg.glyph-skipped{color:var(--skipped)}
 span.glyph-checked{width:var(--dot);height:var(--dot);margin:0 var(--s2) 0 var(--s1);border-radius:var(--r-pill);background:var(--checked);vertical-align:calc(var(--hairline) * 1)}
 span.glyph-waiting{border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
-span.glyph-running{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin 900ms linear infinite}
+span.glyph-running{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
 @keyframes mk-spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion:reduce){span.glyph-running{animation:none}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){span.glyph-running,.export-stage [role="status"]::before{animation:none}*{transition:none!important}}
 .severity{display:inline-flex;align-items:center;gap:var(--s1);font:var(--t-small);font-weight:600}
 
 /* --- the app's frame --- */
@@ -132,7 +133,7 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 .find{display:flex;gap:var(--s4);align-items:center}
 .search{flex:1;max-width:calc(var(--measure) - var(--s12) * 3);display:flex;gap:var(--s2);align-items:center;height:var(--control-h);padding:0 var(--s3);
   background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);color:var(--text-3)}
-.search input{flex:1;border:0;padding:0;font:var(--t-small);color:var(--text);background:transparent;outline:0}
+.search input{flex:1;align-self:stretch;border:0;padding:0;font:var(--t-small);color:var(--text);background:transparent;outline:0}
 .search input::placeholder{color:var(--text-3)}
 .search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
 .filters-button{margin-left:auto}
@@ -207,14 +208,17 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 .callout code{background:none;padding:0}
 .callout>span{max-width:calc(var(--measure) + var(--s12) * 4)}
 .callout .row-actions{justify-content:flex-start;margin-top:var(--s1)}
-.callout:not(.callout-quiet) .row-actions .button:not(.button-primary){background:transparent;border-color:var(--problem-edge);color:var(--problem);font-weight:500}
-.callout:not(.callout-quiet) .row-actions .button:not(.button-primary):hover{background:var(--problem-wash)}
+.button-danger-quiet{background:transparent;border-color:var(--problem-edge);color:var(--problem);font-weight:500}
+.button-danger-quiet:hover{background:var(--problem-wash)}
+.button-warning{background:var(--warning);border-color:var(--warning);color:var(--on-warning)}
+.button-warning:hover{background:var(--warning-hover);border-color:var(--warning-hover)}
+.button-warning svg.icon{color:var(--on-warning)}
 .callout-spaced{margin-top:var(--s2)}
-pre.file{margin:0;padding:var(--s3) var(--s4);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-md);font:var(--t-code);color:var(--text);white-space:pre-wrap;overflow-wrap:anywhere}
+pre.file{margin:0;padding:var(--s3) var(--s4);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-md);font:var(--t-code);color:var(--text);white-space:pre;overflow-x:auto}
 
 /* --- Run: the mode that takes the screen --- */
 .run-bar{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
-.run-bar .back{display:flex;gap:var(--s2);align-items:center;color:var(--text-2);text-decoration:none;font:var(--t-button)}
+.run-bar .back{display:flex;gap:var(--s2);align-items:center;height:var(--control-h);color:var(--text-2);text-decoration:none;font:var(--t-button)}
 .run-bar .back:hover{color:var(--text)}
 .run-bar .title{font:var(--t-body);font-weight:600}
 .run-bar .pick{margin-left:auto;display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text-2);text-decoration:none}
@@ -252,7 +256,7 @@ select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:va
 .export-stage[role="alert"]{background:var(--problem-box);border-color:var(--problem-edge)}
 .export-stage[role="alert"] h2{color:var(--text)}
 .export-stage [role="status"]{display:flex;align-items:center;gap:var(--s2)}
-.export-stage [role="status"]::before{content:"";width:var(--icon-s);height:var(--icon-s);border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin 900ms linear infinite}
+.export-stage [role="status"]::before{content:"";width:var(--icon-s);height:var(--icon-s);border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
 .export-stage p{font:var(--t-small);color:var(--text-2)}
 .export-stage p strong{color:var(--text)}
 .export-actions{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap}
@@ -275,7 +279,7 @@ select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:va
 svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:calc((var(--s12) - var(--icon-l)) / 2);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
 
 .state-actions{display:flex;gap:var(--s2);margin-top:var(--s2)}
-.skeleton{display:block;height:var(--s3);border-radius:var(--r-xs);background:linear-gradient(90deg,var(--raised) 0%,var(--control-hover) 50%,var(--raised) 100%);background-size:200% 100%;animation:mk-shimmer 1.4s ease-in-out infinite}
+.skeleton{display:block;height:var(--s3);border-radius:var(--r-xs);background:linear-gradient(90deg,var(--raised) 0%,var(--control-hover) 50%,var(--raised) 100%);background-size:200% 100%;animation:mk-shimmer var(--dur-shimmer) ease-in-out infinite}
 .row-actions .skeleton{display:inline-block}
 @keyframes mk-shimmer{from{background-position:100% 0}to{background-position:-100% 0}}
 @media (prefers-reduced-motion:reduce){.skeleton{animation:none}}
@@ -336,6 +340,8 @@ dialog.modal{position:absolute;top:calc(var(--s12) * 3);left:0;right:0;width:var
   background:var(--raised);border:var(--hairline) solid var(--sheet-edge);border-radius:var(--r-lg);box-shadow:0 0 0 var(--s2) var(--acrylic-dialog),var(--shadow-sheet)}
 dialog.modal h2,.sheet-head h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
 dialog.modal p{margin-top:var(--s2);font:var(--t-small);color:var(--text-2)}
+dialog.modal ul{margin-top:var(--s2);display:flex;flex-direction:column;gap:var(--s1);font:var(--t-small);color:var(--text-2)}
+dialog.modal .callout{margin-top:var(--s4)}
 .sheet-head{display:flex;gap:var(--s4);align-items:flex-start}
 /* the Filters popover: it hangs from its button, on the same acrylic edge as a dialog */
 .find-zone{position:relative}
@@ -408,10 +414,12 @@ def transform(html, css_href, tokens_href, page_name, unknown):
         return f'<svg class="icon state-icon" aria-hidden="true"><use href="#l-{name}"/></svg>'
     html_ref = [html]
     html = re.sub(r'<span class="icon state-icon" aria-hidden="true"></span>', state_icon, html)
-    used.add("folder-plus")
+    if '<span class="image state-image"' in html:
+        used.add("folder-plus")
     html = html.replace('<span class="image state-image" aria-hidden="true"></span>',
                         '<span class="image state-image" aria-hidden="true"><svg class="icon"><use href="#l-folder-plus"/></svg></span>')
-    html = re.sub(r'<span class="image avatar" aria-hidden="true"></span>', f'<img class="image avatar" src="{PORTRAIT}" alt="" width="24" height="24">', html)
+    portrait = tokens_href.replace("06-concept/tokens.css", PORTRAIT_FILE)
+    html = re.sub(r'<span class="image avatar" aria-hidden="true"></span>', f'<img class="image avatar" src="{portrait}" alt="" width="24" height="24">', html)
 
     # every `.icon` placeholder: the icon its label asks for
     out, pos = [], 0
@@ -441,8 +449,71 @@ def transform(html, css_href, tokens_href, page_name, unknown):
     html = html.replace('<span class="tag tag-state">Conflict</span>', '<span class="tag tag-state tag-problem">Conflict</span>')
     html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>.*?</svg>)?\s*(?:Remove|Delete|Stop sharing))',
                   r'class="button button-primary button-danger"\1', html, flags=re.S)
+    html = re.sub(r'(<div class="callout"(?: [^>]*)?>(?:(?!</div>\s*</div>).)*?<div class="row-actions">\s*<a class="button)"',
+                  r'\1 button-danger-quiet"', html, flags=re.S)
+    html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>.*?</svg>)?\s*Export with)',
+                  r'class="button button-primary button-warning"\1', html, flags=re.S)
+    html = name_checks(html)
+    html = re.sub(r'(<span class="skeleton") style="([^"]*)"', lambda m: m.group(1) + ' style="' + skeleton_style(m.group(2)) + '"', html)
+    html = inert_behind(html)
+    html = relink(html, page_name)
     html = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + sprite(used), html, count=1)
     return html
+
+
+SK = {"56px": "calc(var(--s12) + var(--s2))", "64px": "calc(var(--s12) + var(--s4))", "70px": "calc(var(--s12) + var(--s5) + var(--s1) / 2)",
+      "72px": "calc(var(--s12) + var(--s6))", "80px": "calc(var(--s12) + var(--s8))", "160px": "var(--col-s)",
+      "180px": "calc(var(--col-s) + var(--s5))", "200px": "var(--col-m)", "220px": "calc(var(--col-m) + var(--s5))",
+      "260px": "calc(var(--col-m) + var(--s12) + var(--s3))", "420px": "calc(var(--col-xl) + var(--s12) + var(--s3))",
+      "480px": "calc(var(--side-w) + var(--s10))", "8px": "var(--s2)", "12px": "var(--s3)", "20px": "var(--s5)", "24px": "var(--s6)"}
+
+
+def skeleton_style(style):
+    """A skeleton's size, from the wireframe's inline px, re-expressed in tokens (stage 7, #5)."""
+    def one(m):
+        if m.group(0) not in SK:
+            raise SystemExit(f"skeleton size with no token: {m.group(0)}")
+        return SK[m.group(0)]
+    return re.sub(r"\d+px", one, style).replace(": ", ":").replace("; ", ";")
+
+
+def name_checks(html):
+    """+ Add / In this project: an accessible name that says which item (owner, stage 7, #19)."""
+    def row(m):
+        art = m.group(0)
+        nm = re.search(r"<h3>(?:<a[^>]*>)?([^<]+)", art)
+        if not nm:
+            return art
+        name = nm.group(1).strip()
+        art = art.replace('<label class="check"><input type="checkbox"> Add',
+                          f'<label class="check" aria-label="Add {name}"><input type="checkbox"> Add')
+        return art.replace('<label class="check"><input type="checkbox" checked> In this project',
+                           f'<label class="check" aria-label="{name}, in this project"><input type="checkbox" checked> In this project')
+    return re.sub(r"<article\b.*?</article>", row, html, flags=re.S)
+
+
+def inert_behind(html):
+    """While a dialog or a popover is open, what lies behind it cannot take focus (stage 7, #1, #2)."""
+    if re.search(r'<dialog class="modal"[^>]*\bopen', html):
+        for tag in ('<header class="app-header"', '<header class="run-bar"', '<header class="shared-header"', '<main class="app-main"', '<div class="config-layout"'):
+            html = html.replace(tag, tag + " inert", 1)
+    if re.search(r'<dialog class="popover"[^>]*\bopen', html):
+        html = html.replace('<header class="app-header"', '<header class="app-header" inert', 1)
+        for tag in ('<div class="page-head"', '<section aria-label="Projects"', '<section aria-label="Items'):
+            html = html.replace(tag, tag + " inert", 1)
+    return html
+
+
+def relink(html, page_name):
+    """A link to a page with no mockup yet opens its wireframe, never a dead end (stage 7, #21)."""
+    if "/" in page_name:  # flow steps link to their own neighbours
+        return html
+    def fix(m):
+        target = m.group(1)
+        if target in PAGES:
+            return m.group(0)
+        return f'href="../pages/{target}.html"'
+    return re.sub(r'href="([a-z0-9-]+)\.html"', fix, html)
 
 
 # ------------------------------------------------------------------ the viewer

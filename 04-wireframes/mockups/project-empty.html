@@ -11,9 +11,7 @@
   <link rel="stylesheet" href="mockup.css">
 </head>
 <body class="product-page">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="l-folder-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10v6" />
-  <path d="M9 13h6" />
-  <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
   <circle cx="11" cy="11" r="8" /></symbol><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
   <path d="m17 8-5-5-5 5" />
   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol></svg>
@@ -25,14 +23,14 @@
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
       <nav class="app-nav" aria-label="Global">
         <ul>
-          <li><a href="library-my-default.html">My library</a></li>
-          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="../pages/library-my-default.html">My library</a></li>
+          <li><a href="../pages/library-public-default.html">Public library</a></li>
           <li><a href="projects-default.html" aria-current="page">Projects</a></li>
         </ul>
       </nav>
       <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
       <p class="account" aria-label="Signed in as Maya Chen">
-        <img class="image avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=faces&auto=format&q=80" alt="" width="24" height="24">
+        <img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
         <span>Maya Chen</span>
       </p>
     </header>
@@ -43,7 +41,7 @@
     <aside class="panel library-sidebar" aria-label="Add items">
       <div class="panel-head">
         <h2>Add from</h2>
-        <nav class="scope" aria-label="Scope"><a href="project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
+        <nav class="scope" aria-label="Scope"><a href="../pages/project-configuring-default.html" aria-current="page">My library</a><a href="#">Public library</a></nav>
         <label class="search"><svg class="icon" aria-hidden="true"><use href="#l-search"/></svg><input type="search" placeholder="Search My library — migrate, GITHUB_TOKEN, review"></label>
         <nav class="tabs" aria-label="Kind"><a href="#">Related</a><a href="#" aria-current="page">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
       </div>
@@ -52,100 +50,100 @@
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">code-style</a><span class="tag">skill</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">code-style</a><span class="tag">skill</span></h3>
                 <p class="state-line">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add code-style"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">db-migrate</a><span class="tag">script</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">db-migrate</a><span class="tag">script</span></h3>
                 <p class="state-line">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add db-migrate"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">seed-data</a><span class="tag">script</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">seed-data</a><span class="tag">script</span></h3>
                 <p class="state-line">Loads a small, realistic dataset into a fresh database.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add seed-data"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">migration-reviewer</a><span class="tag">agent</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">migration-reviewer</a><span class="tag">agent</span></h3>
                 <p class="state-line">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add migration-reviewer"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">postgres-mcp</a><span class="tag">mcp</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">postgres-mcp</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add postgres-mcp"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">github-mcp</a><span class="tag">mcp</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">github-mcp</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Issues, pull requests and code search on GitHub, through GitHub’s own server.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add github-mcp"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">pr-reviewer</a><span class="tag">agent</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">pr-reviewer</a><span class="tag">agent</span></h3>
                 <p class="state-line">Reads a pull request diff and leaves review comments the way I would write them.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add pr-reviewer"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">commit-conventions</a><span class="tag">prompt</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">commit-conventions</a><span class="tag">prompt</span></h3>
                 <p class="state-line">Conventional commits, imperative mood, and a body that says why rather than what.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add commit-conventions"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">writing-style</a><span class="tag">prompt</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">writing-style</a><span class="tag">prompt</span></h3>
                 <p class="state-line">Plain English for docs: short sentences, no marketing words, an example before every rule.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add writing-style"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">link-checker</a><span class="tag">script</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">link-checker</a><span class="tag">script</span></h3>
                 <p class="state-line">Crawls the built docs and lists every broken internal and external link, with the page it is on.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add link-checker"><input type="checkbox"> Add</label>
             </article>
           </li>
           <li>
             <article class="row row-compact">
               <div>
-                <h3><a href="project-configuring-item.html">whisper</a><span class="tag">app</span></h3>
+                <h3><a href="../pages/project-configuring-item.html">whisper</a><span class="tag">app</span></h3>
                 <p class="state-line">Speech-to-text, run locally on voice memos before they are summarised.</p>
               </div>
-              <label class="check"><input type="checkbox"> Add</label>
+              <label class="check" aria-label="Add whisper"><input type="checkbox"> Add</label>
             </article>
           </li>
         </ol>
@@ -164,7 +162,7 @@
           <div class="head-actions">
             <!-- Save is the main action here; Check is secondary, and still inert on an empty set (Q16). -->
             <a class="button button-quiet" href="project-default.html">Cancel</a>
-            <button type="button" disabled title="Add an item first"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export…</button>
+            <button type="button" disabled title="Add an item first"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</button>
             <a class="button button-primary" href="project-default.html">Save</a>
           </div>
         </div>
@@ -175,7 +173,7 @@
              first. The body keeps only its text; Check stays inert until the set holds something. -->
         <div class="state-block">
           <h2>No items in this project yet</h2>
-          <p>Tick items on the left to add them. Anything they require is auto-added. Export… opens once this project has an item.</p>
+          <p>Add items from the left. Anything they require is auto-added. Export opens once this project has an item.</p>
         </div>
       </section>
 

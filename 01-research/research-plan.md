@@ -1898,6 +1898,23 @@ here**, and no screen draws it.
 **Drawn the same day** on `project-revoke.html` only, the one page where the project is shared, and
 recorded in `microcopy.md` (*Step 7*, #20).
 
+### Q38 — `Export` without the ellipsis — raised and answered 2026-10-11
+
+**Raised by the owner during phase 06's stage-7 check, and answered in the same words: *why the ellipsis on Export —
+drop it everywhere*.** Q36 (2026-10-05) chose the label `Export…`, the `…` marking a control that does not act at once
+(voice.md D20: a button that opens a confirmation or a mode takes the `…`).
+
+**Answer: `Export`, everywhere** — the Project screen's main control, the configuring head, a shared project, a shared
+item, a Library row. **The mode is still titled `Export` and still ends in its own `Export` stage**, so the control and
+the final step now share one word; the stage's buttons (`Export with 1 problem`, `Export again`) were never ellipsed.
+**D20 keeps its meaning for every other control** (`Share…`, `Stop sharing…`, `Remove eslint-autofix…`); `Export` is
+the one recorded exception, by the owner's word.
+
+**What changed:** 160 lines on 32 wireframe pages (`tools/rewrite_copy.py stage7`, counted), the 239 prototype pages
+(rebuilt), `microcopy.md` (10 rows) and `voice.md` together, `CLAUDE.md` §6, §8, §12, §14, and the mockups and the stand
+of phase 06. **The same edit fixed one stale line** (stage 7, #29): the empty project said *Tick items on the left*
+while the panel adds with `+ Add` buttons — it reads *Add items from the left.* now.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

@@ -219,7 +219,7 @@ def app(d, with_panel=True):
                f'<p class="vcounts"><span class="c-problem">{ic(d, "error_circle")}1 problem</span>'
                f'<span class="c-note">{ic(d, "info")}2 notes</span><span class="c-skipped">{ic(d, "prohibited")}1 skipped</span></p></div>')
     actions = (f'<div class="actions"><span class="btn">{ic(d, "options")}Configure</span><span class="btn">{ic(d, "share")}Share…</span>'
-               f'<span class="btn">{ic(d, "copy")}Duplicate</span><span class="btn primary">{ic(d, "arrow_export_ltr")}Export…</span></div>')
+               f'<span class="btn">{ic(d, "copy")}Duplicate</span><span class="btn primary">{ic(d, "arrow_export_ltr")}Export</span></div>')
     return f'''<div class="app">{nav}<main class="main">
   <header class="phead"><div class="ptitle"><p class="crumb">Projects /</p><h1>acme-billing-api</h1>
     <p class="pfactsline">14 items · 3 auto-added · 1 detached</p></div>{actions}{verdict}</header>
@@ -282,7 +282,7 @@ def fixed_set(d):
     kinds = "".join(f'<li>{ic(d, n)}<span>{k}</span></li>' for k, n in KINDS)
     acts = "".join(f'<li>{ic(d, n)}<span>{w}</span></li>' for w, n in
                    [("My library", "library"), ("Public library", "globe"), ("Projects", "folder"), ("Configure", "options"),
-                    ("Share…", "share"), ("Duplicate", "copy"), ("Export…", "arrow_export_ltr"), ("Detached", "link_dismiss"),
+                    ("Share…", "share"), ("Duplicate", "copy"), ("Export", "arrow_export_ltr"), ("Detached", "link_dismiss"),
                     ("Auto-added", "arrow_turn_down_right"), ("Env key", "key"), ("Close", "dismiss")])
     sev = "".join(f'<li>{mark(d, k)}</li>' for k in ("problem", "note", "skipped", "checked"))
     return f'''<div class="fixed">
@@ -292,7 +292,7 @@ def fixed_set(d):
     <p class="t-mono">modelcontextprotocol/servers-archived @ 9be4674 · 0.3 s</p>
     <p class="t-names"><b>{f["display"]}</b> · <b>{f["body"]}</b> · <b>{f["mono"]}</b></p><p class="fnote">{d["font_note"]}</p></div>
   <div><h3 class="lab">Icons · Fluent {d["style"]}</h3><ul class="icons">{kinds}</ul><ul class="icons">{acts}</ul>
-    <h3 class="lab">Buttons</h3><div class="btnrow"><span class="btn primary">{ic(d, "arrow_export_ltr")}Export…</span><span class="btn">{ic(d, "options")}Configure</span><span class="btn">Cancel</span></div>
+    <h3 class="lab">Buttons</h3><div class="btnrow"><span class="btn primary">{ic(d, "arrow_export_ltr")}Export</span><span class="btn">{ic(d, "options")}Configure</span><span class="btn">Cancel</span></div>
     <h3 class="lab">Severity marks</h3><ul class="sevs">{sev}</ul></div>
 </div>'''
 

@@ -232,7 +232,7 @@ applies, the entry says so.
 | | The rule | Why |
 |---|---|---|
 | **The person** | **"you"**, the same on every screen: *You have 11 items.* *Your machine needs a value for `GITHUB_TOKEN`.* | English has no *ты/вы*. What the course's question becomes here is whether there is a second person at all, and the answer is yes. Principle 5 says a line is addressed to whoever acts next, and *you* is the only form that names them |
-| **Buttons and commands** | **Imperative, no pronoun**: `Export…`, `Check again`, `Copy to My library`, `Clear search` | The button is the person speaking. *Copy into **my** library* mixes the two voices on one control (D5) |
+| **Buttons and commands** | **Imperative, no pronoun**: `Export`, `Check again`, `Copy to My library`, `Clear search` | The button is the person speaking. *Copy into **my** library* mixes the two voices on one control (D5) |
 | **The product about itself** | **"we" and "our"**, only for what the product did or failed to do: *We don't read your files looking for secrets.* *Our server didn't answer.* **Never *I***, and never a *we* that cheers (*We're glad you're here*) | Principle 3: the tool says when it made a choice and when it failed. EJ-1: *"silently synced… without any opt-in, notification, or consent"* |
 | **"my"** | **Only inside the proper name `My library`**. Everywhere else the product says *you/your* | The name is the nav entry, written from the person's side. A sentence that says *my* in the product's own voice (*a library of my own*) is the product pretending to be the person |
 | **`SETUP.md`** | **Imperative to the agent, uncontracted**: *Ask the person for it; do not invent one.* The human is *the person* | Principle 5: this file's reader is an agent, and *do not* is harder to misread than *don't* |
@@ -256,7 +256,7 @@ applies, the entry says so.
 
 | Concept | **Write** | **Not** | Why | Closes |
 |---|---|---|---|---|
-| The control that starts it, everywhere | **`Export…`**: on Project (the main control, and the configuring head), on a shared project, on a shared item, on a Library row exporting one item | *Check* as the entry, *Check this set*, *Check it, then take the archive*, *Take as an archive* | **The owner's decision, Q36.** The act is named for its outcome, the archive, and the check is its sub-process. **The `…` keeps principle 2**: it says more is shown before the act completes, and the mode shows every finding and the handover before the archive exists | D3 |
+| The control that starts it, everywhere | **`Export`** (no ellipsis since Q38, owner 2026-10-11 — it was `Export…` under Q36): on Project (the main control, and the configuring head), on a shared project, on a shared item, on a Library row exporting one item | *Check* as the entry, *Check this set*, *Check it, then take the archive*, *Take as an archive* | **The owner's decision, Q36.** The act is named for its outcome, the archive, and the check is its sub-process. **The `…` keeps principle 2**: it says more is shown before the act completes, and the mode shows every finding and the handover before the archive exists | D3 |
 | The surface it opens | **`Export`** as the title, with the subject in the meta line: *acme-billing-api · 14 items · for Claude Code* | *Check*, *Export one item*, *Take as an archive* | One mode entered four ways is still one mode (§8), titled for what it ends in | D3 |
 | The check inside it | **Checking — stage N of 10** · **Checked …** · **`Check again`** | *Exporting* for the check | Principle 1: the verdict keeps *checked*. Only the act around it is named *Export* | D3 |
 | Building the archive | **`Export`**, as the final stage and its button, **for the owner and the receiver alike**: `Export`, `Export with 1 problem`, `Export again` | *Take the archive*, *Download the archive*, *Build the archive again* | The research's wow moment is *"the export"* (`CLAUDE.md` §2), and a receiver who checks and takes the archive performs the same act on somebody else's work. The entry's `Export…` and this `Export` are one act, opened and then completed | D4 |
@@ -407,7 +407,7 @@ the next writer recognises it. Where the *was* is from our own pages, it is quot
 | **The promise of magic and speed** | Raycast: *"Sprinkle a little magic on your day"*; Tessl: *"Build your software factory"* · *(ours would be)* **Build your dream stack in seconds!** | **What this checks: requirements, conflicts, command names, target paths, env keys, what each item defers to, pinned refs.** A list the person can verify instead of a feeling they cannot |
 | **Grades and shop words** | Smithery `Verified`; mcp.so *"Hand-picked, production-ready"*; Glama *"Quality Score"* · *(ours would be)* **Popular · Recommended · Best for your stack** | **Used in 3 projects · last exported 12 days ago** · on the Public library: **`modelcontextprotocol/servers` @ `2025.9.25` · MIT**, which is the origin, not a grade (`CLAUDE.md` §5: no score, no rating, no badge) |
 | **Selling with fear** | Tessl: *"One in seven skills carries a critical security risk"*, followed by its score · *(ours would be)* **Protect your secrets — scan with AI Stack Builder** | **Check that these files carry no keys. We don't read your files looking for secrets.** The risk is stated, and so is the fact that we did not look (principle 3, `CLAUDE.md` §11) |
-| **The minimiser** | *(not on our screens)* **Just pick a few items and you're done!** | **Tick items on the left to add them. Anything they require is auto-added.** *Just*, *simply* and *easily* tell a person their difficulty is not real. P1's forty minutes per project is real (`personas.md`, *Jobs*) |
+| **The minimiser** | *(not on our screens)* **Just pick a few items and you're done!** | **Add items from the left. Anything they require is auto-added.** *Just*, *simply* and *easily* tell a person their difficulty is not real. P1's forty minutes per project is real (`personas.md`, *Jobs*) |
 | **The vendor's metaphor** | Smithery `Add to toolbox`; Claude Code *"adds it to its toolkit"* · *(ours would be)* **Add to your arsenal** | **`Copy to My library`** · **`Add to My library`**. The plain verb and the name on the nav |
 
 ### Punctuation, glyphs and register
@@ -443,9 +443,9 @@ visible from the label.** If the act has a cost, the label carries it. A button 
 confirmation ends in `…`. Never *OK*, *Next*, *Continue*, *Submit*, *Yes*, or *Confirm*.
 
 **Example.**
-> `Export with 1 problem` · `Copy to My library` · `Remove eslint-autofix…` · `Export…`
+> `Export with 1 problem` · `Copy to My library` · `Remove eslint-autofix…` · `Export`
 
-*`Export…` stands alone because the screen's title is the object: it sits under* acme-billing-api. *The
+*`Export` stands alone because the screen's title is the object: it sits under* acme-billing-api. *The
 same rule writes `Load again` on an error, never `Try again`.*
 
 **Not.** `Continue`, which is Vercel's second step on a delete (research §10, 14) · `OK` · `Yes,

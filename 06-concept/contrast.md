@@ -45,7 +45,9 @@
 | `--text-3` #A1A49A | `--tray` #232420 | 6.17 | pass | mockups: an error code under a state |
 | `--problem` #FF8F98 | `--problem-wash@cutout` #3E2F2C | 5.85 | pass | mockups: the Conflict tag and a Problem tag on a row |
 | `--note` #F2C661 | `--note-wash@cutout` #3A3524 | 7.60 | pass | mockups: a Note tag on a row |
-| `--problem` #FF8F98 | `--problem-wash@tray` #423331 | 5.51 | pass | mockups: an error state’s icon tile (non-text, 3:1) |
+| `--text-2` #C5C7BE | `--control` #2E302A | 7.81 | pass | mockups: an empty or error state’s icon on its neutral tile (non-text, 3:1) |
+| `--on-warning` #1A1200 | `--warning` #EFA23A | 8.76 | pass | Export with 1 problem — the warning button |
+| `--on-warning` #1A1200 | `--warning-hover` #E0962E | 7.58 | pass | the warning button, hovered |
 | `--lime-mark` #C6EF5A | `--cutout` #1E1F1B | 12.55 | pass | mockups: the empty state’s illustration (non-text, 3:1) |
 | `--control-edge` #7C7F74 | `--raised` #2A2B27 | 3.49 | pass | mockups: a checkbox or radio’s edge in a popover (non-text, 3:1) |
 | `--control-edge` #7C7F74 | `--bar` #181916 | 4.33 | pass | mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1) |
@@ -92,7 +94,9 @@
 | `--text-3` #5F6358 | `--tray` #E9EAE2 | 5.08 | pass | mockups: an error code under a state |
 | `--problem` #B4232E | `--problem-wash@cutout` #F1DDDC | 5.00 | pass | mockups: the Conflict tag and a Problem tag on a row |
 | `--note` #7A5600 | `--note-wash@cutout` #EAE6D8 | 5.32 | pass | mockups: a Note tag on a row |
-| `--problem` #B4232E | `--problem-wash@tray` #E2CEC9 | 4.32 | pass | mockups: an error state’s icon tile (non-text, 3:1) |
+| `--text-2` #464A40 | `--control` #FFFFFF | 9.08 | pass | mockups: an empty or error state’s icon on its neutral tile (non-text, 3:1) |
+| `--on-warning` #FFFFFF | `--warning` #9C5800 | 5.51 | pass | Export with 1 problem — the warning button |
+| `--on-warning` #FFFFFF | `--warning-hover` #8A4E00 | 6.62 | pass | the warning button, hovered |
 | `--lime-mark` #55700F | `--cutout` #FBFBF8 | 5.46 | pass | mockups: the empty state’s illustration (non-text, 3:1) |
 | `--control-edge` #7E8276 | `--raised` #FFFFFF | 3.93 | pass | mockups: a checkbox or radio’s edge in a popover (non-text, 3:1) |
 | `--control-edge` #7E8276 | `--bar` #ECEDE6 | 3.34 | pass | mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1) |

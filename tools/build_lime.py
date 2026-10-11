@@ -33,7 +33,7 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:var(--t-body)}
 .pagehead,.sec,.pagefoot{max-width:calc(var(--canvas) + var(--s12) * 3);margin:0 auto;padding-left:var(--s6);padding-right:var(--s6)}
 .pagehead{padding-top:var(--s10)}
 .pagehead h1{font:var(--t-display);letter-spacing:var(--track-display);margin:0 0 var(--s3)}
-.pagehead p{margin:0 0 var(--s3);color:var(--page-ink-2);max-width:96ch}
+.pagehead p{margin:0 0 var(--s3);color:var(--page-ink-2);max-width:var(--measure-wide)}
 .pagehead p b{color:var(--page-ink)}
 .pagehead a{color:var(--page-ink)}
 .bar{position:sticky;top:0;z-index:5;display:flex;gap:var(--s2);align-items:center;margin:var(--s5) calc(var(--s6) * -1) 0;padding:var(--s3) var(--s6);background:var(--page);border-bottom:var(--hairline) solid var(--page-line)}
@@ -42,12 +42,12 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:var(--t-body)}
 .bar a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .sec{padding-top:var(--s8)}
 .sec>h2{font:var(--t-title);letter-spacing:var(--track-title);margin:0 0 var(--s2);scroll-margin-top:var(--s12)}
-.sec>p{color:var(--page-ink-2);margin:0 0 var(--s4);max-width:96ch}
+.sec>p{color:var(--page-ink-2);margin:0 0 var(--s4);max-width:var(--measure-wide)}
 .pagefoot{padding-top:var(--s6);padding-bottom:var(--s12);color:var(--page-ink-2);font:var(--t-small)}
 .scale{width:100%;overflow:hidden;border-radius:var(--r-md);box-shadow:0 0 0 var(--hairline) var(--line);background:var(--ground)}
 .native{width:var(--canvas);transform-origin:0 0}
 .app{min-height:calc(var(--canvas) * .6)}
-.runwrap{height:calc(var(--canvas) * .6)}
+.runwrap{height:calc(var(--canvas) * .9)}
 """
 
 JS = r"""
@@ -61,6 +61,13 @@ JS = r"""
   window.addEventListener('load',fit);fit();
 })();
 """
+
+
+def trim_sprite(page):
+    """Only the symbols the page uses (stage 7, #25)."""
+    import re as _re
+    used = set(_re.findall(r'<use href="#([^"]+)"', page))
+    return _re.sub(r'<symbol id="([^"]+)"[^>]*>.*?</symbol>', lambda m: m.group(0) if m.group(1) in used else "", page, flags=_re.S)
 
 
 def build():
@@ -86,6 +93,12 @@ def build():
 </div>
 <p class="pagefoot">Built by <code>tools/build_lime.py</code>. Icons: Lucide (ISC). Portrait: Jake Nackos on Unsplash (unsplash.com/photos/IF9TK5Uy-KI).</p>
 <script>{JS}</script></body></html>'''
+    # one <main> per page: each screen is a labelled region (stage 7, #20)
+    page = page.replace('<main class="main">', '<div class="main" role="region" aria-label="Mockup of the Project screen">').replace('</main></div>', '</div></div>')
+    # tones by class, never by context (#12, #13)
+    page = page.replace('<span class="btn">Remove eslint-autofix…</span>', '<span class="btn danger-ghost">Remove eslint-autofix…</span>')
+    page = page.replace('<span class="btn primary">Remove from project</span>', '<span class="btn danger">Remove from project</span>')
+    page = trim_sprite(page)
     OUT.write_text(page, encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}  {len(page)//1024} KB · page literals: {concept_ui.literals(PAGE_CSS) or 'none'}")
 
