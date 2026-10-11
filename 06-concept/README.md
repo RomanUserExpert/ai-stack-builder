@@ -27,7 +27,8 @@ them and cites them:
 - **Dark theme from day one; light is a design decision, not a colour inversion** (§3). So the course's
   *light or dark* axis is **not free** for the three directions. Each direction is drawn dark-first,
   and the directions differ on the other axes: how much colour, the character of the type, the form.
-  *Whether a direction shows its light theme at all in this phase is a decision owed (below).*
+  **Light in this phase is one small slice of the chosen direction, in stage 4** (decided 2026-10-11,
+  below). The full light theme is phase 09.
 - **The audience lives in Linear, Vercel, Raycast and Figma. The bar for craft is high, and generic
   dashboard aesthetics read as cheap** (§3). This is data about the persona, not the owner's taste, and
   stage 2 treats it that way.
@@ -107,7 +108,7 @@ page.
 | **1** | **References**: first describe the repo (screens, generators, shared styles, which files could leak a palette) and pick the main and contrasting screens. Then search **Refero** for the visual language of the craft benchmark research already named, Linear · Vercel · Raycast · GitHub · Stripe: 3–4 *styles*, 2–3 *screens* (a verdict or check-run list, a dense list with status). One base and one or two named devices from the others, each with **the persona's worry it removes**. The dark-design-language captures are read as references too | `06-concept/references.md` | **done 2026-10-08** — Refero not connected; Lazyweb, SaaSUI and our phase-01 captures instead, stated in the file. Plus an idea base of 61 images, [`refs/`](refs/README.md), by `tools/capture_refs.py` |
 | **2** | **Taste and attributes.** The owner dictates *Designer's taste*: 2–3 **named** products they like, not adjectives, and the anti-references. Then 3–5 **pairs of visual opposites** from the data, each with its source line, the device it borrows, and its strength: data, or a hypothesis carrying `[?]`. A pair against the taste, or without a reason, does not pass | `06-concept/concept.md` · *Designer's taste*, *Attributes* | **done 2026-10-08** — five pairs; five conflicts (D1–D5) carried into stage 3 as variants, by the owner's decision |
 | **3** | **Three directions**, under the **impeccable** skill. Three that genuinely differ, all dark-first, on at least two of: amount of colour, type character, form. **A palette guessable from the subject is replaced, not recoloured.** One page, live: palette with hex, a type pair, **an item card with real content**, a button, the three severity marks, Fluent icons in the direction's style (regular or filled). **Drawn on the fixed sample below**, not on loose components. Then stop | `06-concept/directions.html` | — |
-| **4** | **The choice and the stand.** The only stage whose input is the owner's decision, made in the browser and passed as one sentence (number and name). The stand shows the language at work: the main card, buttons, the app header, the run bar. Below it: colours with the attribute each comes from (including **Problem / Note / Skipped / checked**), type pair and scale, radii, shadows, spacing, the person's portrait, **an icon coverage plan** (the six kinds, the three severities, nav, the run bar, buttons, states), and three components: **the primary action, the item row with its state badges, a form field**. Every value lives in `tokens.css`. **WCAG AA contrast is computed by a script**, as a table | `06-concept/concept.html`, `06-concept/tokens.css`, contrast table | — |
+| **4** | **The choice and the stand.** **Plus one light slice of the chosen direction** (row, severity marks, button; decided 2026-10-11). The only stage whose input is the owner's decision, made in the browser and passed as one sentence (number and name). The stand shows the language at work: the main card, buttons, the app header, the run bar. Below it: colours with the attribute each comes from (including **Problem / Note / Skipped / checked**), type pair and scale, radii, shadows, spacing, the person's portrait, **an icon coverage plan** (the six kinds, the three severities, nav, the run bar, buttons, states), and three components: **the primary action, the item row with its state badges, a form field**. Every value lives in `tokens.css`. **WCAG AA contrast is computed by a script**, as a table | `06-concept/concept.html`, `06-concept/tokens.css`, contrast table | — |
 | **5** | **The sample**: the main screen with **all its state pages**, under impeccable's laws. Values come only from `tokens.css`. **Every repeat of a component gets the same values**, not just the first. Any new colour pair has its contrast computed. Copy and structure stay. Then `/impeccable critique`, and the owner reads every state in the browser | the main screen's pages | — |
 | **6** | **The contrasting screen.** The same language, with nothing new invented. It shows a different density and a different mood. Compared side by side with the sample: **one product, not two** | the second screen's pages | — |
 | **7** | **Check and close.** A defects table first, every row with **evidence** (a selector and its value, or a contrast ratio). It looks for: a decision without an attribute or a taste line; contrast below AA; colour against the voice (a festive error, an invisible warning, a green that claims *works*); the two screens out of step; one component with two values on a page; a placeholder where real content belongs; an icon outside the set; a hard-coded value. Add the `/impeccable audit` findings. The owner reviews, then fixes go into the pages and `concept.md` together. `CLAUDE.md` gains a *Concept* section and `README.md` a *Concept* section. Push | defects table, fixes, docs | — |
@@ -192,8 +193,14 @@ has one set of values. One icon set and one style. **Exactly two screens painted
   receiver, the sparsest page there is) as the contrasting one.
 - ***Designer's taste*** (stage 2): the named products and the anti-references. **Only the owner can
   write this list.**
-- **Whether a direction shows its light theme** (stage 3). Dark is decided. The question is whether
-  light is shown now, as a proof that it was designed rather than inverted, or left to phase 09.
+- ~~**Whether a direction shows its light theme** (stage 3).~~ **Decided 2026-10-11, by the owner:**
+  stages 3, 5 and 6 are **dark only**. The full light theme is designed in **phase 09**, where the
+  design system's two themes live. **Stage 4 adds one light slice of the chosen direction** on the
+  stand: an item row with its state badges, the three severity marks and *Checked*, and the primary
+  button. Its contrast goes into the same AA table. *Why:* a whole second theme would double the
+  phase. The slice still catches the two risks that would reopen `tokens.css` later: glass going
+  muddy on a light ground, and Problem / Note losing their read. **If the slice fails, that is a
+  stage-4 finding, not a phase-09 surprise.**
 - **The direction itself** (stage 4), in the browser.
 
 ## What it is not
