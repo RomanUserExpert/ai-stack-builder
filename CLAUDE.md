@@ -1653,6 +1653,9 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   the lesson pages and the prototypes — live in `tools/`; **nothing that builds something lives only in
   a scratchpad.** The deploy is `vercel.json` plus `.vercelignore`, a whitelist: a new page is not
   served until it is listed there, and a moved page needs a redirect from its old address.
+- **The phase pages have their own look, and it is not the product's**: [`DESIGN-artifacts.md`](DESIGN-artifacts.md)
+  (2026-10-11) records the paper ground, the orange accent and the page anatomy every phase page
+  shares. **It is deliberately not named `DESIGN.md`**, so no tool reads it as the product's design.
 - This file is the single source of truth for the product. The original brief has been
   folded into it and deleted; there is no other spec to reconcile against.
 
