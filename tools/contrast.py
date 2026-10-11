@@ -54,12 +54,13 @@ def ratio(a, b):
 
 def read(theme=":root"):
     css = TOKENS.read_text(encoding="utf-8")
-    root = re.search(r":root\s*\{(.*?)\n\}", css, re.S).group(1)
+    # the plain :root block and the shared ":root, .theme-light" block of derived tokens
+    root = "".join(re.findall(r"\n:root(?:, \.theme-light)?\s*\{(.*?)\n\}", "\n" + css, re.S))
     vals = dict(re.findall(r"--([\w-]+):\s*(#[0-9A-Fa-f]{6})", root))
     mix_re = r"--([\w-]+):\s*color-mix\(in srgb,\s*var\(--([\w-]+)\)\s*(\d+)%,\s*var\(--([\w-]+)\)\)"
     mixes = {m[0]: m[1:] for m in re.findall(mix_re, root)}
     if theme != ":root":
-        block = re.search(re.escape(theme) + r"\s*\{(.*?)\n\}", css, re.S).group(1)
+        block = re.search(r"\n" + re.escape(theme) + r"\s*\{(.*?)\n\}", css, re.S).group(1)
         vals.update(dict(re.findall(r"--([\w-]+):\s*(#[0-9A-Fa-f]{6})", block)))
         mixes.update({m[0]: m[1:] for m in re.findall(mix_re, block)})
     rgb = {k: _hex(v) for k, v in vals.items()}

@@ -346,6 +346,13 @@ Export mode; it is the input to stage 4 (`tokens.css` and the stand).
   1.32:1. Light gets its own **`--lime-mark #55700F`** (4.8:1 and 5.7:1); the primary button keeps the lime fill,
   where dark text on it is 13.5:1. This is exactly the risk the light slice was put in stage 4 to catch.
 
+**And one defect the eye caught that the script could not** (owner, 2026-10-11): hovering a row in the light slice
+turned it dark grey. Tokens built from colours (`--hover-wash`, the finding boxes, the shadows) were declared on
+`:root` only, and a `var()` inside a custom property resolves **where it is declared** — so light inherited the dark
+results. They now live in a `:root, .theme-light` block and recompute per theme. A row’s hover is its own opaque
+`--row-hover`, half a step from the cut-out towards `--raised`. **The active row’s lime pill now runs the whole height
+of the item**, inset by `--s3`, not only beside its title.
+
 **Colour roles, as the stand names them.** *Primary* is lime — the only colour that invites an action. *Accent* is the
 same lime used as a mark (`--lime-mark`), not a second hue: the product holds colour back (pair 5). *Neutrals* are the
 Mica layers. *States*: Problem, Note, Skipped — and **no success colour**: the best a check says is *Checked*, a quiet

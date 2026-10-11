@@ -63,27 +63,6 @@
   --r-lg: 14px;
   --r-xl: 18px;
   --r-pill: 999px;
-  /* shadow */
-  --shadow-tile: 0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);  /* the current place in the top bar */
-  --shadow-cutout: inset 0 0 0 1px var(--line), inset 0 1px 2px rgba(0,0,0,.35);  /* a row’s cut-out, pressed into the tray */
-  --shadow-sheet: 0 18px 40px rgba(0,0,0,.35);  /* a dialog over a mode */
-  --shadow-focus: 0 0 0 2px var(--ground), 0 0 0 4px var(--lime);  /* keyboard focus — 2 px lime with a gap */
-  /* material and washes — built from the colours above */
-  --acrylic: color-mix(in srgb, var(--lime) 7%, rgba(62,64,58,.42));  /* acrylic: the frame of the Export mode */
-  --acrylic-dialog: color-mix(in srgb, var(--lime) 7%, rgba(70,72,66,.45));  /* acrylic: the frame of a dialog */
-  --acrylic-blur: blur(28px) saturate(140%);  /* what the acrylic does to the place behind */
-  --acrylic-edge: rgba(255,255,255,.12);  /* the frame’s edge */
-  --sheet-edge: rgba(255,255,255,.05);  /* an opaque sheet inside the frame */
-  --veil: rgba(10,11,9,.42);  /* the place behind a mode, dimmed */
-  --veil-dialog: rgba(10,11,9,.30);  /* a mode behind a dialog, dimmed */
-  --problem-wash: color-mix(in srgb, var(--problem) 14%, transparent);  /* a Problem tag’s fill */
-  --note-wash: color-mix(in srgb, var(--note) 13%, transparent);  /* a Note tag’s fill */
-  --problem-edge: color-mix(in srgb, var(--problem) 38%, transparent);  /* a Problem box’s and the muted remove’s edge */
-  --note-edge: color-mix(in srgb, var(--note) 30%, transparent);  /* a Note box’s edge */
-  --problem-box: color-mix(in srgb, var(--problem) 10%, var(--cutout));  /* a Problem box */
-  --note-box: color-mix(in srgb, var(--note) 9%, var(--cutout));  /* a Note box */
-  --hover-wash: color-mix(in srgb, var(--raised) 60%, transparent);  /* a place or row under the pointer */
-  --lime-selection: color-mix(in srgb, var(--lime) 35%, transparent);  /* selected text */
   /* size */
   --hairline: 1px;  /* every line, edge and rule */
   --control-h: 32px;  /* a button, a field */
@@ -108,6 +87,33 @@
   --page-ink: #E8E8E8;
   --page-ink-2: #B4B4B4;
   --page-line: #3D3D3D;
+}
+
+/* built from the colours: declared on every theme root, so each theme recomputes them
+   (a var() inside a custom property resolves where it is declared, not where it is used) */
+:root, .theme-light {
+  /* shadow */
+  --shadow-tile: 0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);  /* the current place in the top bar */
+  --shadow-cutout: inset 0 0 0 1px var(--line), inset 0 1px 2px rgba(0,0,0,.35);  /* a row’s cut-out, pressed into the tray */
+  --shadow-sheet: 0 18px 40px rgba(0,0,0,.35);  /* a dialog over a mode */
+  --shadow-focus: 0 0 0 2px var(--ground), 0 0 0 4px var(--lime);  /* keyboard focus — 2 px lime with a gap */
+  /* material and washes */
+  --acrylic: color-mix(in srgb, var(--lime) 7%, rgba(62,64,58,.42));  /* acrylic: the frame of the Export mode */
+  --acrylic-dialog: color-mix(in srgb, var(--lime) 7%, rgba(70,72,66,.45));  /* acrylic: the frame of a dialog */
+  --acrylic-blur: blur(28px) saturate(140%);  /* what the acrylic does to the place behind */
+  --acrylic-edge: rgba(255,255,255,.12);  /* the frame’s edge */
+  --sheet-edge: rgba(255,255,255,.05);  /* an opaque sheet inside the frame */
+  --veil: rgba(10,11,9,.42);  /* the place behind a mode, dimmed */
+  --veil-dialog: rgba(10,11,9,.30);  /* a mode behind a dialog, dimmed */
+  --problem-wash: color-mix(in srgb, var(--problem) 14%, transparent);  /* a Problem tag’s fill */
+  --note-wash: color-mix(in srgb, var(--note) 13%, transparent);  /* a Note tag’s fill */
+  --problem-edge: color-mix(in srgb, var(--problem) 38%, transparent);  /* a Problem box’s and the muted remove’s edge */
+  --note-edge: color-mix(in srgb, var(--note) 30%, transparent);  /* a Note box’s edge */
+  --problem-box: color-mix(in srgb, var(--problem) 10%, var(--cutout));  /* a Problem box */
+  --note-box: color-mix(in srgb, var(--note) 9%, var(--cutout));  /* a Note box */
+  --hover-wash: color-mix(in srgb, var(--raised) 60%, transparent);  /* a place in the top bar under the pointer */
+  --row-hover: color-mix(in srgb, var(--raised) 50%, var(--cutout));  /* a row under the pointer — opaque, half a step up */
+  --lime-selection: color-mix(in srgb, var(--lime) 35%, transparent);  /* selected text */
 }
 
 /* the light slice — one proof that light is designed, not inverted (README, stage 4). Full theme: phase 09. */

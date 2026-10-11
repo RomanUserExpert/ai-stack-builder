@@ -81,7 +81,8 @@ MATERIAL = [
     ("note-edge", "color-mix(in srgb, var(--note) 30%, transparent)", "a Note box’s edge"),
     ("problem-box", "color-mix(in srgb, var(--problem) 10%, var(--cutout))", "a Problem box"),
     ("note-box", "color-mix(in srgb, var(--note) 9%, var(--cutout))", "a Note box"),
-    ("hover-wash", "color-mix(in srgb, var(--raised) 60%, transparent)", "a place or row under the pointer"),
+    ("hover-wash", "color-mix(in srgb, var(--raised) 60%, transparent)", "a place in the top bar under the pointer"),
+    ("row-hover", "color-mix(in srgb, var(--raised) 50%, var(--cutout))", "a row under the pointer — opaque, half a step up"),
     ("lime-selection", "color-mix(in srgb, var(--lime) 35%, transparent)", "selected text"),
 ]
 SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", "a button, a field"), ("tag-h", "20px", "a kind tag"), ("mark-h", "24px", "a finding tag"),
@@ -114,16 +115,19 @@ def css():
     out += [f"  --s{n}: {px}px;" for n, px in SPACE]
     out.append("  /* radius */")
     out += [f"  --r-{n}: {px}px;" for n, px in RADIUS]
-    out.append("  /* shadow */")
-    out += [f"  --shadow-{n}: {v};  /* {use} */" for n, v, use in SHADOW]
-    out.append("  /* material and washes — built from the colours above */")
-    out += [f"  --{n}: {v};  /* {use} */" for n, v, use in MATERIAL]
     out.append("  /* size */")
     out += [f"  --{n}: {v};  /* {use} */" for n, v, use in SIZE]
     out.append("  /* motion */")
     out += [f"  --{n}: {v};" for n, v in MOTION]
     out.append("  /* the grey page around the stand — not part of the style */")
     out += [f"  --{n}: {v};" for n, v in CHROME]
+    out.append("}")
+    out += ["", "/* built from the colours: declared on every theme root, so each theme recomputes them",
+            "   (a var() inside a custom property resolves where it is declared, not where it is used) */",
+            ":root, .theme-light {", "  /* shadow */"]
+    out += [f"  --shadow-{n}: {v};  /* {use} */" for n, v, use in SHADOW]
+    out.append("  /* material and washes */")
+    out += [f"  --{n}: {v};  /* {use} */" for n, v, use in MATERIAL]
     out.append("}")
     out += ["", "/* the light slice — one proof that light is designed, not inverted (README, stage 4). Full theme: phase 09. */",
             ".theme-light {"]
