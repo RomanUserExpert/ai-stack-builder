@@ -265,11 +265,15 @@ select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:va
 .state-block p{max-width:var(--modal-w);font:var(--t-body);color:var(--text-2)}
 .state-block .meta{font:var(--t-code);color:var(--text-3)}
 .state-block strong{color:var(--text)}
-.state-image{display:grid;place-items:center;width:calc(var(--s12) * 2);height:calc(var(--s12) + var(--s5));margin-bottom:var(--s2);border-radius:var(--r-lg);
-  background:var(--cutout);box-shadow:var(--shadow-cutout);color:var(--lime-mark)}
-.state-image svg.icon{width:calc(var(--icon-l) * 1.6);height:calc(var(--icon-l) * 1.6)}
-svg.icon.state-icon{display:block;width:calc(var(--s10) + var(--s2));height:calc(var(--s10) + var(--s2));padding:var(--s3);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
-.state-block[role="alert"] svg.icon.state-icon{color:var(--problem);background:var(--problem-wash)}
+/* one tile for every empty and error state (owner, 2026-10-11): neutral, the same size, the icon in --text-2 */
+.state-block{position:relative}
+.state-image{display:grid;place-items:center;width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
+.state-image svg.icon{width:var(--icon-l);height:var(--icon-l)}
+.state-block:not(:has(.state-icon,.state-image))::before{content:"";width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control)}
+.state-block:not(:has(.state-icon,.state-image))::after{content:"";position:absolute;top:calc(var(--s12) + (var(--s12) - var(--icon-l)) / 2);left:50%;width:var(--icon-l);height:var(--icon-l);
+  transform:translateX(-50%);background:var(--text-2);-webkit-mask:var(--icon-empty-set) center / contain no-repeat;mask:var(--icon-empty-set) center / contain no-repeat}
+svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:calc((var(--s12) - var(--icon-l)) / 2);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
+
 .state-actions{display:flex;gap:var(--s2);margin-top:var(--s2)}
 .skeleton{display:block;height:var(--s3);border-radius:var(--r-xs);background:linear-gradient(90deg,var(--raised) 0%,var(--control-hover) 50%,var(--raised) 100%);background-size:200% 100%;animation:mk-shimmer 1.4s ease-in-out infinite}
 .row-actions .skeleton{display:inline-block}

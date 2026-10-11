@@ -99,7 +99,8 @@ FONTS = [("font", '"Geist", system-ui, sans-serif'), ("mono", '"Geist Mono", ui-
 MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms")]
 TRACK = [("track-display", "-.018em"), ("track-title", "-.012em"), ("track-heading", "-.008em"), ("track-label", ".06em")]
 # icons that CSS draws itself (a mask), so a control needs no extra markup — Lucide, 1.75 stroke
-CSS_ICONS = [("icon-add", "plus", "a row you can add to the set"), ("icon-added", "check", "a row already in the set")]
+CSS_ICONS = [("icon-add", "plus", "a row you can add to the set"), ("icon-added", "check", "a row already in the set"),
+             ("icon-empty-set", "layers", "an empty state that has no icon of its own in the markup")]
 # drawn in a colour (a background image, not a mask): the tick inside a checked checkbox, in --on-lime
 CSS_GLYPHS = [("glyph-check", "check", "#141A08", "2.5", "the tick in a checked checkbox, --on-lime on --lime")]
 
