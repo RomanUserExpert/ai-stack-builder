@@ -300,7 +300,16 @@ svg.icon.state-icon{display:block;width:calc(var(--s10) + var(--s2));height:calc
 .tabs a{display:inline-flex;flex:none;align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
 .tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:600}
 .tabs .count{margin-left:var(--s1);color:var(--text-3);font-weight:400}
-input[type="checkbox"],input[type="radio"]{width:var(--icon);height:var(--icon);margin:0;accent-color:var(--lime)}
+/* radios and checkboxes, drawn for the dark theme: a recessed cell; checked is lime */
+input[type="checkbox"],input[type="radio"]{-webkit-appearance:none;appearance:none;flex:none;width:var(--icon);height:var(--icon);margin:0;cursor:pointer;
+  background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-xs);
+  transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
+input[type="radio"]{border-radius:var(--r-pill)}
+input[type="checkbox"]:hover,input[type="radio"]:hover{border-color:var(--text-2)}
+input[type="checkbox"]:checked{background:var(--lime) var(--glyph-check) center / calc(var(--icon) - var(--s1)) no-repeat;border-color:var(--lime)}
+input[type="radio"]:checked{background:var(--lime);border-color:var(--lime);box-shadow:inset 0 0 0 calc(var(--s1) - var(--hairline)) var(--well-deep)}
+input[type="checkbox"]:focus-visible,input[type="radio"]:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
+input[type="radio"]:checked:focus-visible{box-shadow:inset 0 0 0 calc(var(--s1) - var(--hairline)) var(--well-deep),var(--shadow-focus)}
 /* Add / In this project: an icon button, not a bare checkbox. The checkbox stays for the keyboard and
    the screen reader, out of sight; the label is what you see and press. */
 .check{position:relative;display:inline-flex;gap:var(--s1);align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 var(--s3) 0 var(--s2);

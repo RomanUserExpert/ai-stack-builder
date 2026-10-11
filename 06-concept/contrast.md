@@ -47,6 +47,9 @@
 | `--note` #F2C661 | `--note-wash@cutout` #3A3524 | 7.60 | pass | mockups: a Note tag on a row |
 | `--problem` #FF8F98 | `--problem-wash@tray` #423331 | 5.51 | pass | mockups: an error state’s icon tile (non-text, 3:1) |
 | `--lime-mark` #C6EF5A | `--cutout` #1E1F1B | 12.55 | pass | mockups: the empty state’s illustration (non-text, 3:1) |
+| `--control-edge` #7C7F74 | `--raised` #2A2B27 | 3.49 | pass | mockups: a checkbox or radio’s edge in a popover (non-text, 3:1) |
+| `--control-edge` #7C7F74 | `--bar` #181916 | 4.33 | pass | mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1) |
+| `--on-lime` #141A08 | `--lime` #C6EF5A | 13.46 | pass | mockups: the tick in a checked checkbox |
 
 ## Light — the slice
 
@@ -91,3 +94,6 @@
 | `--note` #7A5600 | `--note-wash@cutout` #EAE6D8 | 5.32 | pass | mockups: a Note tag on a row |
 | `--problem` #B4232E | `--problem-wash@tray` #E2CEC9 | 4.32 | pass | mockups: an error state’s icon tile (non-text, 3:1) |
 | `--lime-mark` #55700F | `--cutout` #FBFBF8 | 5.46 | pass | mockups: the empty state’s illustration (non-text, 3:1) |
+| `--control-edge` #7E8276 | `--raised` #FFFFFF | 3.93 | pass | mockups: a checkbox or radio’s edge in a popover (non-text, 3:1) |
+| `--control-edge` #7E8276 | `--bar` #ECEDE6 | 3.34 | pass | mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1) |
+| `--on-lime` #141A08 | `--lime` #C6EF5A | 13.46 | pass | mockups: the tick in a checked checkbox |

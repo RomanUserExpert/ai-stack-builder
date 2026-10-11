@@ -40,6 +40,9 @@ PAIRS = [
     ("note", "note-wash@cutout", "mockups: a Note tag on a row", 4.5),
     ("problem", "problem-wash@tray", "mockups: an error state’s icon tile (non-text, 3:1)", 3.0),
     ("lime-mark", "cutout", "mockups: the empty state’s illustration (non-text, 3:1)", 3.0),
+    ("control-edge", "raised", "mockups: a checkbox or radio’s edge in a popover (non-text, 3:1)", 3.0),
+    ("control-edge", "bar", "mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1)", 3.0),
+    ("on-lime", "lime", "mockups: the tick in a checked checkbox", 4.5),
 ]
 
 

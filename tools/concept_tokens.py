@@ -26,6 +26,7 @@ COLORS = [
     ("control-hover", "#383A33", "neutral", "a secondary button, hovered", "States, drawn"),
     ("line", "#343630", "neutral", "hairline", "Linear base: hairlines instead of shadows"),
     ("line-strong", "#4A4C44", "neutral", "a control’s edge, a tag’s outline, a dashed rule", "Polish: every boxed object has a visible edge"),
+    ("control-edge", "#7C7F74", "neutral", "the edge of a checkbox or a radio", "WCAG 1.4.11: a control’s boundary needs 3:1 — 3.5 on the panel"),
     ("text", "#F3F4EF", "neutral", "text", "Three text tones (Linear base)"),
     ("text-2", "#C5C7BE", "neutral", "secondary text", "Three text tones"),
     ("text-3", "#A1A49A", "neutral", "metadata, Skipped", "Three text tones; raised for 5.3:1 on a button"),
@@ -44,7 +45,7 @@ COLORS = [
 # light slice (README: one light slice of the chosen direction, in stage 4) — overrides only
 LIGHT = {
     "ground": "#F4F5EF", "bar": "#ECEDE6", "tray": "#E9EAE2", "cutout": "#FBFBF8", "well-deep": "#F0F1EA",
-    "raised": "#FFFFFF", "control": "#FFFFFF", "control-hover": "#F1F2EB", "line": "#DCDED4", "line-strong": "#C3C6BA",
+    "raised": "#FFFFFF", "control": "#FFFFFF", "control-edge": "#7E8276", "control-hover": "#F1F2EB", "line": "#DCDED4", "line-strong": "#C3C6BA",
     "text": "#181A14", "text-2": "#464A40", "text-3": "#5F6358", "lime": "#C6EF5A", "lime-hover": "#BCE84A",
     "on-lime": "#141A08", "lime-mark": "#55700F", "problem": "#B4232E", "note": "#7A5600", "checked": "#464A40", "skipped": "#5F6358",
 }
@@ -99,14 +100,16 @@ MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms")]
 TRACK = [("track-display", "-.018em"), ("track-title", "-.012em"), ("track-heading", "-.008em"), ("track-label", ".06em")]
 # icons that CSS draws itself (a mask), so a control needs no extra markup — Lucide, 1.75 stroke
 CSS_ICONS = [("icon-add", "plus", "a row you can add to the set"), ("icon-added", "check", "a row already in the set")]
+# drawn in a colour (a background image, not a mask): the tick inside a checked checkbox, in --on-lime
+CSS_GLYPHS = [("glyph-check", "check", "#141A08", "2.5", "the tick in a checked checkbox, --on-lime on --lime")]
 
 
-def _icon_uri(name):
+def _icon_uri(name, stroke="black", width="1.75"):
     import re as _re
     svg = (ROOT / "06-concept" / "icons" / "lucide" / f"{name}.svg").read_text(encoding="utf-8")
     inner = _re.search(r"<svg[^>]*>(.*)</svg>", svg, _re.S).group(1).strip()
     inner = _re.sub(r"\s+", " ", inner).replace('"', "'")
-    body = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' "
+    body = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='" + stroke.replace("#", "%23") + "' stroke-width='" + width + "' "
             "stroke-linecap='round' stroke-linejoin='round'>" + inner + "</svg>")
     return 'url("data:image/svg+xml,' + body.replace("<", "%3C").replace(">", "%3E") + '")'
 
@@ -137,6 +140,7 @@ def css():
     out += [f"  --{n}: {v};  /* {use} */" for n, v, use in SIZE]
     out.append("  /* icons CSS draws as a mask */")
     out += [f"  --{n}: {_icon_uri(f)};  /* {use} */" for n, f, use in CSS_ICONS]
+    out += [f"  --{n}: {_icon_uri(f, c, w)};  /* {use} */" for n, f, c, w, use in CSS_GLYPHS]
     out.append("  /* motion */")
     out += [f"  --{n}: {v};" for n, v in MOTION]
     out.append("  /* the grey page around the stand — not part of the style */")
