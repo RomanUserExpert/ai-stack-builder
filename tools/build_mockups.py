@@ -415,7 +415,9 @@ def patch_viewer(pages, flows):
     data = json.dumps({"pages": pages, "flows": flows})
     block = (f"<!-- mockups:start -->{MODE_CSS}\n  <script>\n    /* The Wireframe / Design switch (tools/build_mockups.py). Which screens and flows have a mockup. */\n"
              f"    window.WF_MOCKUPS = {data};\n"
-             "    window.wfMode = function () { try { return localStorage.getItem('wf-mode') || 'wire'; } catch (e) { return 'wire'; } };\n"
+             "    /* ?mode=design or ?mode=wire in the address opens the viewer in that mode, and remembers it */\n"
+             "    (function () { var q = new URLSearchParams(location.search).get('mode'); if (q === 'design' || q === 'wire') { window.WF_MODE_URL = q; try { localStorage.setItem('wf-mode', q); } catch (e) {} } })();\n"
+             "    window.wfMode = function () { try { return localStorage.getItem('wf-mode') || window.WF_MODE_URL || 'wire'; } catch (e) { return window.WF_MODE_URL || 'wire'; } };\n"
              "    window.wfDesign = function (src) {\n"
              "      if (window.wfMode() !== 'design') return src;\n"
              "      var m = src.match(/^\\.\\.\\/prototypes\\/([^\\/]+)\\/(.+)$/);\n"
