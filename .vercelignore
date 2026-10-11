@@ -30,4 +30,8 @@
 !05-tone-of-voice
 05-tone-of-voice/*
 !05-tone-of-voice/voice.html
+# 06 · concept
+!06-concept
+06-concept/*
+!06-concept/directions.html
 !vercel.json
