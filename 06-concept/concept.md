@@ -296,7 +296,7 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Brand | Lime `#C6EF5A`, ink `#141A08` on it (13.5:1). **Only on what you can press and where you are**: primary button, current place, selection | Pair 5: colour is a claim; lime is never a verdict |
 | Severities | Problem `#FF8F98`, Note `#F2C661`, Skipped neutral with Lucide `ban`, **Checked a quiet dot, never green (D1-B)** | §6; pair 1 |
 | Type | ~~Schibsted Grotesk; Source Code Pro~~ **Geist; Geist Mono for paths, refs, file contents** (owner, 2026-10-11, after the polish). *impeccable flags Geist as an overused face; kept on the owner's word — the brief wins* | Owner |
-| Destructive action | **A red button, `--danger #D4363F` with white text (4.8:1)**, only on an act that removes something: *Remove eslint-autofix…* inside a Problem, *Remove from project* in its dialog | Owner, 2026-10-11 |
+| Destructive action | **A red button, `--danger #D4363F` with white text (4.8:1)**, only on an act that removes something: *Remove from project* in its dialog. **Inside a Problem the remove is muted** — a ghost button, red text and a red-tinted edge, filled only on hover — because there it is one way out, not the loudest thing on the screen; the solid red is kept for the confirmation | Owner, 2026-10-11 |
 | Icons | **Lucide**, ISC, 1.75 px stroke, one style. **Replaces Fluent (owner, 2026-10-11)** | Owner, round 4 |
 | Density | Between Default and Comfortable: body 14.5 px, small 13, rows 11 px vertical padding, buttons 33 px | Owner, round 3 |
 | Rows | Each item in its own rounded cut-out; auto-added items inside the parent's, behind a dashed rule | Owner, round 4 (Kit's form) |

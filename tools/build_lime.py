@@ -117,8 +117,12 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
 .btn.primary.is-disabled{background:var(--control);border-color:var(--line);color:var(--text-3)}
 .btn.primary.is-disabled .ic{color:var(--text-3)}
 .btn.icon-only{width:32px;padding:0}
-.btn.danger,.c-problem.callout .btn,.dlg .btn.primary{background:var(--danger);border-color:color-mix(in srgb,var(--danger) 70%,#fff 30%);color:var(--on-danger);font-weight:600}
-.btn.danger:hover,.c-problem.callout .btn:hover,.dlg .btn.primary:hover,.btn.danger.is-hover{background:color-mix(in srgb,var(--danger) 88%,#fff 12%)}
+.btn.danger,.dlg .btn.primary{background:var(--danger);border-color:color-mix(in srgb,var(--danger) 70%,#fff 30%);color:var(--on-danger);font-weight:600}
+.btn.danger:hover,.dlg .btn.primary:hover,.btn.danger.is-hover{background:color-mix(in srgb,var(--danger) 88%,#fff 12%)}
+/* the muted remove: inside a Problem it is one of the ways out, not the loudest thing on the screen */
+.btn.danger-ghost,.c-problem.callout .btn{background:transparent;border-color:color-mix(in srgb,var(--problem) 38%,transparent);color:var(--problem);font-weight:500}
+.btn.danger-ghost:hover,.c-problem.callout .btn:hover,.btn.danger-ghost.is-hover{background:var(--problem-wash);border-color:color-mix(in srgb,var(--problem) 55%,transparent)}
+.btn.danger-ghost .ic{color:var(--problem)}
 .btn.danger .ic{color:var(--on-danger)}
 .kind,.state{display:inline-flex;align-items:center;gap:var(--s1);height:20px;padding:0 var(--s2);
   font:var(--t-micro);color:var(--text-2);background:transparent;box-shadow:inset 0 0 0 1px var(--line-strong);border-radius:var(--r-pill);white-space:nowrap}
@@ -251,6 +255,8 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
 .sys{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:var(--s10)}
 .sys>div>h3{margin:0 0 var(--s3);font:600 11.5px/16px var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
 .sys>div>h3:not(:first-child){margin-top:var(--s8)}
+.sys>.wide{grid-column:1/-1;padding-top:var(--s2);border-top:1px solid var(--line)}
+.sys>.wide>h3{margin-top:var(--s6)!important}
 .swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:var(--s3) var(--s4)}
 .swatches li{display:grid;grid-template-columns:40px 1fr;column-gap:var(--s3);font:400 12px/16px var(--font);color:var(--text-2)}
 .swatches .chip{grid-row:1/4;width:40px;height:48px;border-radius:var(--r-sm);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
@@ -265,8 +271,8 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
 .radii i{width:44px;height:44px;background:var(--control);box-shadow:inset 0 0 0 1px var(--line-strong)}
 .row-of .ic{width:20px;height:20px;color:var(--text)}
 .tagsrow{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
-.states{display:grid;grid-template-columns:96px repeat(4,max-content);gap:var(--s3) var(--s4);align-items:center}
-.states>span{font:400 12px/16px var(--font);color:var(--text-3)}
+.states{display:grid;justify-items:start;grid-template-columns:120px repeat(4,max-content);gap:var(--s3) var(--s4);align-items:center}
+.states>span:not(.btn){font:400 12px/16px var(--font);color:var(--text-3)}
 .states .links{display:contents}
 .states-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);margin-top:var(--s5)}
 .states-rows figure{margin:0}
@@ -302,7 +308,8 @@ def system_block():
               + b("primary is-focus", "Export…", "arrow_export_ltr") + b("primary is-disabled", "Export…", "arrow_export_ltr")
               + '<span>Secondary</span>' + b("", "Configure", "options") + b("is-hover", "Configure", "options")
               + b("is-focus", "Configure", "options") + b("is-active", "Configure", "options")
-              + '<span>Remove</span>' + b("danger", "Remove from project", "dismiss") + b("danger is-hover", "Remove from project", "dismiss") + b("danger is-focus", "Remove from project", "dismiss") + '<span></span>'
+              + '<span>Remove, muted</span>' + b("danger-ghost", "Remove eslint-autofix…", "dismiss") + b("danger-ghost is-hover", "Remove eslint-autofix…", "dismiss") + b("danger-ghost is-focus", "Remove eslint-autofix…", "dismiss") + '<span></span>'
+              + '<span>Remove, confirm</span>' + b("danger", "Remove from project", "dismiss") + b("danger is-hover", "Remove from project", "dismiss") + b("danger is-focus", "Remove from project", "dismiss") + '<span></span>'
               + '<span></span><span>default</span><span>hover</span><span>focus</span><span>inert · pressed</span>'
               + '<span>Place</span><span class="links"><a>' + ic(LIME, "library") + 'My library</a><a class="is-hover">'
               + ic(LIME, "globe") + 'Public library</a><a class="on">' + ic(LIME, "folder") + 'Projects</a></span><span></span>'
@@ -317,12 +324,12 @@ def system_block():
     icons = "".join(f'<div>{ic(LIME, n)}{k}</div>' for k, n in bd2.KINDS)
     return f'''<div class="card"><div class="sys">
   <div><h3>Colour — ratios computed at build</h3><ul class="swatches">{"".join(sw)}</ul>
-    <h3>Tags and findings</h3>{tags}
-    <h3>States, drawn</h3>{states}{rows}</div>
+    <h3>Tags and findings</h3>{tags}</div>
   <div><h3>Type — Geist · Geist Mono</h3><ul class="types">{types}</ul>
     <h3>Spacing — a 4 px scale</h3><div class="row-of">{space}</div>
     <h3>Radius</h3><div class="row-of radii">{radii}</div>
     <h3>Icons — Lucide, 1.75 px stroke, 16 px in controls</h3><div class="row-of">{icons}</div></div>
+  <div class="wide"><h3>States, drawn</h3>{states}{rows}</div>
 </div></div>'''
 
 
