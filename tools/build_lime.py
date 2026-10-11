@@ -28,7 +28,8 @@ COLOR = [
     ("ground", "#1B1C19", "Mica ground, a faint lime tint", None),
     ("bar", "#181916", "the top bar", None),
     ("tray", "#232420", "the tray under the rows", None),
-    ("cutout", "#1E1F1B", "a row’s cut-out, a code block", None),
+    ("cutout", "#1E1F1B", "a row’s cut-out", None),
+    ("well-deep", "#161714", "a code block — darker than anything around it", None),
     ("raised", "#2A2B27", "item panel, the active row, a sheet", None),
     ("control", "#2E302A", "a secondary button, a tag", None),
     ("control-hover", "#383A33", "a secondary button, hovered", None),
@@ -115,10 +116,10 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
 .btn.primary.is-disabled .ic{color:var(--text-3)}
 .btn.icon-only{width:32px;padding:0}
 .kind,.state{display:inline-flex;align-items:center;gap:var(--s1);height:20px;padding:0 var(--s2);
-  font:var(--t-micro);color:var(--text-2);background:var(--control);border-radius:var(--r-pill);white-space:nowrap}
-.state{background:transparent;padding:0 2px}
+  font:var(--t-micro);color:var(--text-2);background:transparent;box-shadow:inset 0 0 0 1px var(--line-strong);border-radius:var(--r-pill);white-space:nowrap}
+.state{background:transparent;box-shadow:none;padding:0 2px}
 .state .ic{width:13px;height:13px;color:var(--text-3)}
-.st-conflict{color:var(--problem);background:var(--problem-wash);padding:0 var(--s2)}
+.st-conflict{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--problem) 40%,transparent);padding:0 var(--s2)}
 .mark{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 var(--s3) 0 var(--s2);
   font:600 12.5px/1 var(--font);border-radius:var(--r-pill);white-space:nowrap}
 .mark .ic{width:14px;height:14px}
@@ -184,14 +185,14 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
 .callout .sev{display:flex;align-items:center;gap:6px;font-weight:600}
 .callout .sev .ic{width:15px;height:15px}
 .callout code{font-size:12px}
-.c-problem.callout{background:color-mix(in srgb,var(--problem) 9%,var(--cutout));color:var(--text)}
-.c-note.callout{background:color-mix(in srgb,var(--note) 8%,var(--cutout));color:var(--text)}
+.c-problem.callout{background:color-mix(in srgb,var(--problem) 10%,var(--cutout));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--problem) 34%,transparent);color:var(--text)}
+.c-note.callout{background:color-mix(in srgb,var(--note) 9%,var(--cutout));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--note) 30%,transparent);color:var(--text)}
 .c-problem.callout .sev{color:var(--problem)} .c-note.callout .sev{color:var(--note)}
 .callout .btn{align-self:flex-start;margin-top:var(--s1)}
 .psec{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line)}
 .psec h3{margin:0 0 var(--s2);font:600 11.5px/16px var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
 .psec p{margin:0;font:var(--t-small);color:var(--text-2)}
-.file{margin:0 0 var(--s2);padding:var(--s3) var(--s4);background:var(--cutout);border:1px solid var(--line);border-radius:var(--r-md);
+.file{margin:0 0 var(--s2);padding:var(--s3) var(--s4);background:var(--well-deep);border:1px solid var(--line-strong);border-radius:var(--r-md);
   font:400 12px/1.65 var(--mono);color:var(--text);white-space:pre-wrap;overflow-wrap:anywhere}
 .meta{margin:0;font:400 12px/16px var(--font);color:var(--text-3)!important}
 .pfacts{display:grid;grid-template-columns:116px 1fr;gap:6px var(--s3);margin:0;font:var(--t-small)}
