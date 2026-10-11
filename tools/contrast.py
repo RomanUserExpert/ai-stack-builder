@@ -33,6 +33,13 @@ PAIRS = [
     ("checked", "cutout", "Checked, a stage verdict", 4.5), ("skipped", "ground", "Skipped, a stage verdict", 4.5),
     ("lime-mark", "bar", "the current place’s icon (non-text, 3:1)", 3.0), ("lime-mark", "raised", "the active row’s pill (non-text, 3:1)", 3.0),
     ("line-strong", "raised", "a tag’s outline (non-text, 3:1)", 1.0),
+    # added with the mockups (2026-10-11)
+    ("text-3", "well-deep", "mockups: a search field’s placeholder", 4.5), ("text-2", "tray", "mockups: an empty or error state’s sentence", 4.5),
+    ("text", "control", "mockups: inline code", 4.5), ("text-3", "tray", "mockups: an error code under a state", 4.5),
+    ("problem", "problem-wash@cutout", "mockups: the Conflict tag and a Problem tag on a row", 4.5),
+    ("note", "note-wash@cutout", "mockups: a Note tag on a row", 4.5),
+    ("problem", "problem-wash@tray", "mockups: an error state’s icon tile (non-text, 3:1)", 3.0),
+    ("lime-mark", "cutout", "mockups: the empty state’s illustration (non-text, 3:1)", 3.0),
 ]
 
 
@@ -64,20 +71,36 @@ def read(theme=":root"):
         vals.update(dict(re.findall(r"--([\w-]+):\s*(#[0-9A-Fa-f]{6})", block)))
         mixes.update({m[0]: m[1:] for m in re.findall(mix_re, block)})
     rgb = {k: _hex(v) for k, v in vals.items()}
+    washes = {m[0]: (m[1], int(m[2])) for m in re.findall(r"--([\w-]+):\s*color-mix\(in srgb,\s*var\(--([\w-]+)\)\s*(\d+)%,\s*transparent\)", root + (block if theme != ":root" else ""))}
     for name, (a, pct, b) in mixes.items():
         p = int(pct) / 100
         rgb[name] = tuple(round(rgb[a][i] * p + rgb[b][i] * (1 - p)) for i in range(3))
+    for w, (col, pct) in washes.items():
+        rgb[w + "@"] = (col, pct)
     return rgb
+
+
+def _resolve(rgb, name):
+    if "@" not in name:
+        return rgb.get(name)
+    wash, base = name.split("@")
+    spec, b = rgb.get(wash + "@"), rgb.get(base)
+    if not spec or not b:
+        return None
+    col, pct = spec
+    p = pct / 100
+    return tuple(round(rgb[col][i] * p + b[i] * (1 - p)) for i in range(3))
 
 
 def rows(theme=":root"):
     rgb = read(theme)
     out = []
     for fg, bg, what, bar in PAIRS:
-        if fg not in rgb or bg not in rgb:
+        f, b = _resolve(rgb, fg), _resolve(rgb, bg)
+        if f is None or b is None:
             continue
-        r = ratio(rgb[fg], rgb[bg])
-        out.append({"fg": fg, "bg": bg, "fgv": "#%02X%02X%02X" % rgb[fg], "bgv": "#%02X%02X%02X" % rgb[bg],
+        r = ratio(f, b)
+        out.append({"fg": fg, "bg": bg, "fgv": "#%02X%02X%02X" % f, "bgv": "#%02X%02X%02X" % b,
                     "what": what, "ratio": r, "bar": bar, "pass": r >= bar})
     return out
 

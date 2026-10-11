@@ -39,6 +39,14 @@
 | `--lime-mark` #C6EF5A | `--bar` #181916 | 13.36 | pass | the current place’s icon (non-text, 3:1) |
 | `--lime-mark` #C6EF5A | `--raised` #2A2B27 | 10.79 | pass | the active row’s pill (non-text, 3:1) |
 | `--line-strong` #4A4C44 | `--raised` #2A2B27 | 1.63 | — | a tag’s outline (non-text, 3:1) |
+| `--text-3` #A1A49A | `--well-deep` #161714 | 7.11 | pass | mockups: a search field’s placeholder |
+| `--text-2` #C5C7BE | `--tray` #232420 | 9.14 | pass | mockups: an empty or error state’s sentence |
+| `--text` #F3F4EF | `--control` #2E302A | 12.08 | pass | mockups: inline code |
+| `--text-3` #A1A49A | `--tray` #232420 | 6.17 | pass | mockups: an error code under a state |
+| `--problem` #FF8F98 | `--problem-wash@cutout` #3E2F2C | 5.85 | pass | mockups: the Conflict tag and a Problem tag on a row |
+| `--note` #F2C661 | `--note-wash@cutout` #3A3524 | 7.60 | pass | mockups: a Note tag on a row |
+| `--problem` #FF8F98 | `--problem-wash@tray` #423331 | 5.51 | pass | mockups: an error state’s icon tile (non-text, 3:1) |
+| `--lime-mark` #C6EF5A | `--cutout` #1E1F1B | 12.55 | pass | mockups: the empty state’s illustration (non-text, 3:1) |
 
 ## Light — the slice
 
@@ -75,3 +83,11 @@
 | `--lime-mark` #55700F | `--bar` #ECEDE6 | 4.80 | pass | the current place’s icon (non-text, 3:1) |
 | `--lime-mark` #55700F | `--raised` #FFFFFF | 5.66 | pass | the active row’s pill (non-text, 3:1) |
 | `--line-strong` #C3C6BA | `--raised` #FFFFFF | 1.73 | — | a tag’s outline (non-text, 3:1) |
+| `--text-3` #5F6358 | `--well-deep` #F0F1EA | 5.41 | pass | mockups: a search field’s placeholder |
+| `--text-2` #464A40 | `--tray` #E9EAE2 | 7.49 | pass | mockups: an empty or error state’s sentence |
+| `--text` #181A14 | `--control` #FFFFFF | 17.55 | pass | mockups: inline code |
+| `--text-3` #5F6358 | `--tray` #E9EAE2 | 5.08 | pass | mockups: an error code under a state |
+| `--problem` #B4232E | `--problem-wash@cutout` #F1DDDC | 5.00 | pass | mockups: the Conflict tag and a Problem tag on a row |
+| `--note` #7A5600 | `--note-wash@cutout` #EAE6D8 | 5.32 | pass | mockups: a Note tag on a row |
+| `--problem` #B4232E | `--problem-wash@tray` #E2CEC9 | 4.32 | pass | mockups: an error state’s icon tile (non-text, 3:1) |
+| `--lime-mark` #55700F | `--cutout` #FBFBF8 | 5.46 | pass | mockups: the empty state’s illustration (non-text, 3:1) |

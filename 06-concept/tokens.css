@@ -77,7 +77,16 @@
   --dot: 6px;  /* the Checked dot */
   --dt-w: 116px;  /* a fact’s label column */
   --stage-name-w: 184px;  /* a stage’s name column */
-  --canvas: 1280px;  /* the width a screen is drawn at */
+  --canvas: 1280px;  /* the width a screen is drawn at on the stand */
+  --col-xs: 96px;  /* a narrow column: a finding beside a row */
+  --col-s: 160px;  /* a row’s usage column */
+  --col-m: 200px;  /* a row’s actions column */
+  --col-l: 320px;  /* a row’s middle column */
+  --col-xl: 360px;  /* an aside */
+  --side-w: 440px;  /* the library sidebar, the item drawer */
+  --sheet-w: 640px;  /* a side sheet */
+  --modal-w: 520px;  /* a dialog */
+  --measure: 640px;  /* a readable line of prose */
   /* motion */
   --ease: cubic-bezier(.2,.7,.2,1);
   --dur: 140ms;

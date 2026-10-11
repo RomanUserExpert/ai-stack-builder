@@ -358,3 +358,43 @@ same lime used as a mark (`--lime-mark`), not a second hue: the product holds co
 Mica layers. *States*: Problem, Note, Skipped — and **no success colour**: the best a check says is *Checked*, a quiet
 dot (D1-B). Red is reserved for an act that removes something.
 
+---
+
+## Stage 5 — mockups of the main job
+
+**Started 2026-10-11.** The owner kept the wireframes and asked for a design twin instead of a repaint: the viewer is
+renamed **Wireframes and mockups** and carries a **Wireframe / Design** switch, so any screen or flow step that has a
+mockup opens in the working style with one click. **Scope, owner's call: the main job first** — Projects, Project and
+Run with their states (15 pages) and the flow `main-success` (7 steps).
+
+**How.** `tools/build_mockups.py` reads each wireframe page and writes `04-wireframes/mockups/<page>.html`:
+- **the same markup and the same words.** Only the stylesheet changes, to `mockup.css` + `06-concept/tokens.css`;
+- **grey placeholders become material**: every `.icon` gets the Lucide icon its label asks for (*New project* → plus,
+  *Export…* → upload, *Load again* → refresh, a search → search, the back link → arrow…), the avatar the portrait, the
+  empty state's image a `folder-plus` tile, the error state's icon `cloud-off` / `search-x` on a problem wash;
+- **a class is added only where the structure cannot carry a tone**: the `Conflict` tag (problem), a primary button
+  that removes something (danger). `callout` is a Problem and `callout-quiet` a Note in every wireframe, so their tone
+  is read from structure;
+- **`mockup.css` holds no value of its own** — the build refuses to write it otherwise. New layout columns were added to
+  `tokens.css` (`--col-*`, `--side-w`, `--sheet-w`, `--modal-w`, `--measure`): 128 tokens now.
+- **New colour pairs were measured**: placeholder, state sentence, inline code, error code, the Conflict/Problem and Note
+  tags over their washes, the error tile, the empty-state illustration — **8 pairs × 2 themes, all AA** (`contrast.md`).
+
+**`/impeccable critique`, dual-agent, 29/40.** What was fixed in the stylesheet and the generator, never in the words:
+- **broken:** the error and no-match state icon was crushed by a specificity clash → its own rule;
+- **colour lying:** stage 01 *Requirements* wore the Note glyph in every wireframe while the summary counts 2 notes —
+  **a wireframe slip**, corrected in the mockups (the wireframe itself is left as drawn);
+- **the payoff was flat:** a finished export now carries the lime "you are here" pill and a title-size heading; a failed
+  export sits on the problem wash; an export in progress has a spinner;
+- one primary per screen (a state's own action wins over the head's); the Problem/Note tags reach the row's edge;
+  the error check's summary stacks; error codes in mono everywhere; the breadcrumb is not underlined; `Example` after the
+  name; inline code without padding before punctuation; kind tabs on one line; focus rings on the current place, a
+  select and a stage.
+
+**Kept, on purpose:** the red `Conflict` tag beside a red `Problem` tag (the owner saw it on the stand and kept it);
+project cards of equal height with the last check at the foot (verdicts align across a row); the live actions on
+`project-loading` (the wireframe's decision, not the style's). **Detector leftovers judged not defects:** heading levels
+and em dashes come from the wireframes and `microcopy.md`; "flat type hierarchy" counts row headings at body size; the
+skeleton's even rhythm is intended; the success box's "cramped" edge is its lime pill. **Responsive is phase 10**: at
+390 px the pages overflow, as the wireframes do.
+

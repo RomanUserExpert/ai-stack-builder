@@ -38,6 +38,8 @@ screen captures embedded as data URIs, so it opens from disk and can be sent to 
 file with nothing to fetch. Do not hand-edit it — edit the template and rebuild.
 
 ```
+python tools/build_mockups.py     # phase 06: design twins of wireframe pages -> 04-wireframes/mockups/, patches the viewer
+python tools/build_concept.py     # phase 06: tokens.css, contrast.md, concept.html
 python tools/build_directions.py  # phase 06: three directions, one sample -> 06-concept/directions.html
 python tools/build_page.py        # compress + embed the captures  -> tools/_research-page.build.html
 python tools/make_standalone.py   # wrap in a full HTML document   -> 01-research/research.html

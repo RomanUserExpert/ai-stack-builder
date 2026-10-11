@@ -89,7 +89,11 @@ SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", 
         ("bar-h", "52px", "the top bar"), ("icon", "16px", "an icon in a control"), ("icon-s", "14px", "an icon in a tag"),
         ("icon-l", "20px", "an icon shown alone"), ("panel-w", "384px", "the item panel"), ("pill-w", "3px", "the active row’s lime pill"),
         ("dot", "6px", "the Checked dot"), ("dt-w", "116px", "a fact’s label column"), ("stage-name-w", "184px", "a stage’s name column"),
-        ("canvas", "1280px", "the width a screen is drawn at")]
+        ("canvas", "1280px", "the width a screen is drawn at on the stand"),
+        ("col-xs", "96px", "a narrow column: a finding beside a row"), ("col-s", "160px", "a row’s usage column"),
+        ("col-m", "200px", "a row’s actions column"), ("col-l", "320px", "a row’s middle column"), ("col-xl", "360px", "an aside"),
+        ("side-w", "440px", "the library sidebar, the item drawer"), ("sheet-w", "640px", "a side sheet"),
+        ("modal-w", "520px", "a dialog"), ("measure", "640px", "a readable line of prose")]
 FONTS = [("font", '"Geist", system-ui, sans-serif'), ("mono", '"Geist Mono", ui-monospace, monospace')]
 MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms")]
 TRACK = [("track-display", "-.018em"), ("track-title", "-.012em"), ("track-heading", "-.008em"), ("track-label", ".06em")]

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · loading — wireframe — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../06-concept/tokens.css">
+  <link rel="stylesheet" href="mockup.css">
+</head>
+<body class="product-page">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="l-folder-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10v6" />
+  <path d="M9 13h6" />
+  <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol><symbol id="l-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="M12 5v14" /></symbol><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" /></symbol><symbol id="l-sliders-horizontal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5H3" />
+  <path d="M12 19H3" />
+  <path d="M14 3v4" />
+  <path d="M16 17v4" />
+  <path d="M21 12h-9" />
+  <path d="M21 19h-5" />
+  <path d="M21 5h-7" />
+  <path d="M8 10v4" />
+  <path d="M8 12H3" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
+          <li><a href="projects-default.html" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=faces&auto=format&q=80" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <h1 id="projects-title">Projects</h1>
+          <a class="button button-primary" href="project-empty.html">
+            <svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project
+          </a>
+        </div>
+      </section>
+
+      <!-- Find stays where it is: the zones do not move between states. -->
+      <section aria-label="Find projects">
+        <form class="find" role="search" action="projects-default.html">
+          <label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
+            <input type="search" name="q" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button"><svg class="icon" aria-hidden="true"><use href="#l-sliders-horizontal"/></svg>Filters</button>
+        </form>
+      </section>
+
+      <!-- Loading: a skeleton of the same cards, in the same grid — no spinner, and no row is
+           shown before it is real (the optimistic option is not taken silently — register, Waits). -->
+      <section aria-label="Projects" aria-busy="true">
+        <p class="visually-hidden" role="status">Loading projects</p>
+        <ol class="card-grid">
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton" style="width: 200px; height: 24px"></span>
+                <span class="skeleton" style="width: 100%; margin-top: 12px"></span>
+                <span class="skeleton" style="width: 70%; margin-top: 8px"></span>
+                <span class="skeleton" style="width: 160px; height: 12px; margin-top: 12px"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton" style="width: 80px; height: 12px"></span>
+                <span class="skeleton" style="width: 220px; margin-top: 8px"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton" style="width: 72px; height: 24px"></span>
+                <span class="skeleton" style="width: 56px; height: 24px"></span>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

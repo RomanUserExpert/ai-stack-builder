@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Phase 04 · Wireframes</title>
+  <title>Phase 04 · Wireframes and mockups</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -12,6 +12,27 @@
     /* Restore the phase rail's collapsed state before paint — same key as the phase pages. */
     try { if (localStorage.getItem("phases") === "collapsed") document.documentElement.classList.add("phases-collapsed"); } catch (e) {}
   </script>
+  <!-- mockups:start -->
+  <style id="wf-mode-style">
+    .wf-mode { display: inline-flex; gap: 2px; padding: 2px; border-radius: 9px; background: #fdfdfb; box-shadow: inset 0 0 0 1px var(--site-rule); }
+    .wf-mode button { padding: 3px 10px; border: 0; border-radius: 7px; background: transparent; color: var(--ink-2); font: 500 12px/18px "Inter", system-ui, sans-serif; cursor: pointer; }
+    .wf-mode button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+    .wf-mode button[data-none] { opacity: .45; }
+    .wf-mode button:focus-visible { outline: 2px solid var(--site-accent); outline-offset: 1px; }
+  </style>
+  <script>
+    /* The Wireframe / Design switch (tools/build_mockups.py). Which screens and flows have a mockup. */
+    window.WF_MOCKUPS = {"pages": ["projects-default", "projects-empty", "projects-loading", "projects-error-filtered", "projects-error-server", "project-default", "project-empty", "project-loading", "project-error", "run-loading", "run-default", "run-loading-export", "run-success", "run-error-check", "run-error-export"], "flows": ["main-success"]};
+    window.wfMode = function () { try { return localStorage.getItem('wf-mode') || 'wire'; } catch (e) { return 'wire'; } };
+    window.wfDesign = function (src) {
+      if (window.wfMode() !== 'design') return src;
+      var m = src.match(/^\.\.\/prototypes\/([^\/]+)\/(.+)$/);
+      if (m) return window.WF_MOCKUPS.flows.indexOf(m[1]) >= 0 ? '../mockups/flows/' + m[1] + '/' + m[2] : src;
+      var p = src.replace(/\.html$/, '');
+      return window.WF_MOCKUPS.pages.indexOf(p) >= 0 ? '../mockups/' + src : src;
+    };
+  </script>
+  <!-- mockups:end -->
 </head>
 <body class="viewer">
 
@@ -58,7 +79,7 @@
       <!-- Group 1 · Wireframes — every screen, one page per state -->
       <li class="wf-group">
         <details open>
-          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><span class="wf-name">Wireframes</span></summary>
+          <summary><svg class="wf-ico" aria-hidden="true"><use href="#i-chev"/></svg><span class="wf-name">Wireframes and mockups</span></summary>
           <ul class="wf-group-list">
       <li class="wf-section">
         <details>
@@ -410,6 +431,7 @@
       </div>
       <div class="wf-tools">
         <!-- Flows only: outlines every live link in the frame. Viewer chrome, never the page's. -->
+        <div class="wf-mode" id="wf-mode" role="group" aria-label="View"><button type="button" data-mode="wire">Wireframe</button><button type="button" data-mode="design">Design</button></div>
         <button type="button" class="wf-open" id="wf-hotspots" aria-pressed="false" hidden>Show hotspots</button>
         <a class="wf-open" id="wf-open" href="projects-default.html" target="_blank" rel="noopener">Open as a page &nearr;</a>
       </div>
@@ -480,14 +502,14 @@
         } else {
           var step = flow[1] || steps[0][0];
           if (!steps.some(function (x) { return x[0] === step; })) step = steps[0][0];
-          open.href = "../prototypes/" + flow[0] + "/" + step + ".html";
+          open.href = wfDesign("../prototypes/" + flow[0] + "/" + step + ".html");
           load(open.href);
         }
       } else {
         link = tree.querySelector('.wf-screen a[href="#' + page + '"]');
-        open.href = page + ".html";
+        open.href = wfDesign(page + ".html");
         if (missing[page]) blank("Not drawn yet — " + page + ".html");
-        else load(page + ".html");
+        else load(wfDesign(page + ".html"));
       }
       tree.querySelectorAll("a[aria-current]").forEach(function (a) { a.removeAttribute("aria-current"); });
       var screen = link ? link.closest(".wf-screen") : null;
@@ -545,7 +567,7 @@
         });
         fit();
       }
-      document.title = name.textContent + " · " + stateName.textContent + " — Phase 04 · " + (flow ? "Flows" : "Wireframes");
+      document.title = name.textContent + " · " + stateName.textContent + " — Phase 04 · " + (flow ? "Flows" : "Wireframes and mockups");
     }
 
     /* A click inside a prototype moves the frame, not the viewer: follow it, and keep the address in step.
@@ -553,7 +575,7 @@
     iframe.addEventListener("load", function () {
       var path;
       try { path = iframe.contentWindow.location.pathname; } catch (e) { return; }
-      var m = path.match(/\/prototypes\/([^\/]+)\/([^\/]+?)(?:\.html)?$/);
+      var m = path.match(/\/(?:prototypes|mockups\/flows)\/([^\/]+)\/([^\/]+?)(?:\.html)?$/);
       if (m) {
         var want = "#flow/" + m[1] + "/" + m[2];
         if (location.hash !== want) { history.replaceState(null, "", want); show(); }
@@ -607,6 +629,23 @@
       })).then(show);
     }
 
+    /* wf-mode:behaviour */
+    var modeBox = document.getElementById("wf-mode");
+    function syncMode() {
+      var mode = wfMode(), page = (location.hash || "#projects-default").slice(1), flow = page.indexOf("flow/") === 0 ? page.slice(5).split("/")[0] : null;
+      var has = flow ? WF_MOCKUPS.flows.indexOf(flow) >= 0 : WF_MOCKUPS.pages.indexOf(page) >= 0;
+      modeBox.querySelectorAll("button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-mode") === mode));
+        if (b.getAttribute("data-mode") === "design") { if (has) { b.removeAttribute("data-none"); b.title = "Show this in the working style"; } else { b.setAttribute("data-none", ""); b.title = "No mockup of this yet — the wireframe is shown"; } }
+      });
+    }
+    modeBox.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-mode]"); if (!b) return;
+      try { localStorage.setItem("wf-mode", b.getAttribute("data-mode")); } catch (err) {}
+      syncMode(); show();
+    });
+    window.addEventListener("hashchange", syncMode);
+    syncMode();
     window.addEventListener("hashchange", show);
     window.addEventListener("resize", fit);
     show();
