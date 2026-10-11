@@ -65,7 +65,8 @@ library, with the consequence named before every irreversible step.
   examined, never what it means; name the consequence before the step; own our own failures; counts
   and names, not adjectives; write for whoever acts next. Every line on a screen is in
   [`microcopy.md`](05-tone-of-voice/microcopy.md).
-- **Icons:** Microsoft Fluent System Icons, one style, never the colour variant (owner, 2026-10-08).
+- **Icons:** Lucide, one style, 1.75 px stroke (owner, 2026-10-11; replaced Fluent).
+- **Working style:** *Mica · Lime*, fixed 2026-10-11 — see `06-concept/concept.md`, *Working style*.
 - **The owner's taste** is in [`06-concept/concept.md`](06-concept/concept.md), *Designer's taste*.
   It is the only input allowed to be a preference.
 - **The phase pages' look** ([`DESIGN-artifacts.md`](DESIGN-artifacts.md)) is not the product's and

@@ -24,7 +24,7 @@ a preference rather than a finding.
 - **Microsoft Teams / Slack.** Glass surfaces: translucent layers that blur what is behind them. **This
   is the product's signature touch. It should be noticeable, but used sparingly.**
 
-- **Microsoft Fluent System Icons** (added 2026-10-08). The icon set, chosen by the owner, **in
+- ~~**Microsoft Fluent System Icons** (added 2026-10-08).~~ **Superseded 2026-10-11 by Lucide** — see *Working style*. The icon set, chosen by the owner, **in
   place of the course's Solar.** [`microsoft/fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons),
   MIT, regular and filled at 16 / 20 / 24 px, as `@fluentui/svg-icons`. *It is the same family as
   Teams, which the glass line above already names, so the two likes come from one design language.*
@@ -279,3 +279,30 @@ own job: a Teams or Slack capture before the glass direction is drawn.
 
 **What this section does not decide.** No hex, no font, no radius. Stage 3 draws three directions
 from these five pairs, and **a direction that breaks a pair is not drawn**.
+
+---
+
+## Working style — Mica · Lime
+
+**Fixed by the owner on 2026-10-11, after four rounds of directions** (`directions.html` → `directions-2.html` →
+`directions-3.html` → `directions-4.html`). Round 1 and round 2 were turned down; from round 3 the owner kept
+*Mica* and a density between Default and Comfortable; from round 4 *Lime*, in round 2's *Kit* row form.
+**This is the base for stage 4 (`tokens.css`, the stand). Values below are stage-3 values, not yet tokens.**
+
+| Decision | Value | Reason |
+|---|---|---|
+| Material | Mica: neutral ground `#1B1C19` with a faint lime tint; layers `#232420` / `#2A2B27`; cut-out `#1E1F1B` | Taste: Teams glass, *noticeable but sparing*; pair 4 |
+| Glass | Acrylic **only around the Export mode and a dialog**; text always on an opaque sheet (D2, D3 accepted) | Pair 4, conflicts 1–4 |
+| Brand | Lime `#C6EF5A`, ink `#141A08` on it (13.5:1). **Only on what you can press and where you are**: primary button, current place, selection | Pair 5: colour is a claim; lime is never a verdict |
+| Severities | Problem `#FF8F98`, Note `#F2C661`, Skipped neutral with Lucide `ban`, **Checked a quiet dot, never green (D1-B)** | §6; pair 1 |
+| Type | Schibsted Grotesk (UI and titles); Source Code Pro for paths, refs, file contents | Owner, round 4 |
+| Icons | **Lucide**, ISC, 1.75 px stroke, one style. **Replaces Fluent (owner, 2026-10-11)** | Owner, round 4 |
+| Density | Between Default and Comfortable: body 14.5 px, small 13, rows 11 px vertical padding, buttons 33 px | Owner, round 3 |
+| Rows | Each item in its own rounded cut-out; auto-added items inside the parent's, behind a dashed rule | Owner, round 4 (Kit's form) |
+| Findings on a row | **No coloured ring round the row**, and no outline round a selected row | Owner, 2026-10-11 |
+
+**Open, with options on [`mica-lime.html`](mica-lime.html)** — the owner answers with three codes:
+- **Navigation:** N1 top bar · N2 sidebar with a lime pill · N3 icon rail.
+- **The active item:** S1 lime tint · S2 a lime pill at the edge · S3 lift, no colour.
+- **A finding:** F1 tinted tag · F2 coloured mark (dot-and-word) · F3 icon in a left gutter, word in grey.
+
