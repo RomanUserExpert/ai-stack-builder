@@ -285,12 +285,17 @@ svg.icon.state-icon{display:block;width:calc(var(--s10) + var(--s2));height:calc
 .library-sidebar .panel-head{position:sticky;top:0;background:var(--bar);z-index:1}
 .panel-body{padding:0 var(--s6) var(--s6)}
 .panel h2{font:var(--t-heading)}
-.panel .search{max-width:none}
+.panel .search{max-width:none;flex:none}
 .panel-body .row-list{background:transparent;padding:0}
 .panel-body .state-block{background:transparent;padding:var(--s10) var(--s4)}
-.scope{display:flex;gap:calc(var(--s1) / 2)}
-.scope a{flex:1;display:flex;align-items:center;justify-content:center;height:var(--control-h);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button)}
-.scope a[aria-current="page"]{color:var(--text);background:var(--raised);box-shadow:var(--shadow-tile)}
+/* a segmented control is not the top bar: it has a track, and the current segment is lifted out of it */
+.scope{display:flex;gap:calc(var(--s1) / 2);padding:calc(var(--s1) - var(--hairline));background:var(--well-deep);border-radius:calc(var(--r-sm) + var(--s1));
+  box-shadow:inset 0 0 0 var(--hairline) var(--line)}
+.scope a{flex:1;display:flex;align-items:center;justify-content:center;height:calc(var(--control-h) - var(--s1));border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button);
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.scope a:hover{color:var(--text)}
+.scope a[aria-current="page"]{color:var(--text);background:var(--control);box-shadow:var(--shadow-tile),inset 0 0 0 var(--hairline) var(--line-strong)}
+.scope a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .tabs{display:flex;gap:calc(var(--s1) / 2);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:var(--s2);border-bottom:var(--hairline) solid var(--line)}
 .tabs a{display:inline-flex;flex:none;align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
 .tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:600}
