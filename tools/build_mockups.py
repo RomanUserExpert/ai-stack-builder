@@ -450,6 +450,8 @@ MODE_CSS = """
     .wf-mode button[aria-pressed="true"] { background: var(--ink); color: #fff; }
     .wf-mode button[data-none] { opacity: .45; }
     .wf-mode button:focus-visible { outline: 2px solid var(--site-accent); outline-offset: 1px; }
+    /* Show hotspots is for flows only: the viewer sets [hidden] on screens, and the button rule in wireframe.css must not undo it */
+    .wf-tools [hidden] { display: none !important; }
   </style>"""
 
 
