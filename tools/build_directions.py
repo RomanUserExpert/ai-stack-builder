@@ -326,25 +326,26 @@ def fixed_set(d):
                    [("Configure", "options"), ("Share…", "share"), ("Duplicate", "copy"), ("Export…", "arrow_export_ltr"),
                     ("linked", "link"), ("Detached", "link_dismiss"), ("Auto-added", "arrow_turn_down_right"), ("Close", "dismiss")])
     return f'''<div class="fixed">
-  <h3 class="lab">Palette</h3><ul class="swatches">{"".join(sw)}</ul>
-  <h3 class="lab">Type</h3>
+  <div class="fx-pal"><h3 class="lab">Palette</h3><ul class="swatches">{"".join(sw)}</ul></div>
+  <div class="fx-type"><h3 class="lab">Type</h3>
   <div class="type">
     <p class="t-display">acme-billing-api</p>
     <p class="t-body">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
     <p class="t-mono">modelcontextprotocol/servers-archived @ 9be4674 · 0.3 s</p>
     <p class="t-names"><b>{f["display"]}</b> · <b>{f["body"]}</b> · <b>{f["mono"]}</b></p>
     <p class="fnote">{d["font_note"]}</p>
-  </div>
-  <h3 class="lab">Icons · Fluent {d["style"]}</h3>
+  </div></div>
+  <div class="fx-parts"><h3 class="lab">Icons · Fluent {d["style"]}</h3>
   <ul class="icons">{kinds}</ul>
   <ul class="icons">{acts}</ul>
   <h3 class="lab">Buttons</h3>
   <div class="btnrow"><span class="btn primary">{ic(d, "arrow_export_ltr")}Export…</span><span class="btn">{ic(d, "options")}Configure</span><span class="btn">Cancel</span></div>
-  <h3 class="lab">Severity marks</h3><ul class="sevs">{sev}</ul>
+  <h3 class="lab">Severity marks</h3><ul class="sevs">{sev}</ul></div>
 </div>'''
 
 
-def column(d):
+def column(d, n):
+    d = dict(d, n=n)
     t = d["tokens"]
     vars_ = ";".join(f"--{k}:{v}" for k, v in t.items())
     vars_ += f';--font:"{d["fonts"]["body"]}",system-ui,sans-serif;--font-display:"{d["fonts"]["display"]}",system-ui,sans-serif;--font-mono:"{d["fonts"]["mono"]}",ui-monospace,monospace'
@@ -355,16 +356,17 @@ def column(d):
         raises = ('<details class="raises"><summary>Kept from the challengers this direction was weighed against</summary><ul>'
                   + "".join(f"<li>{r}</li>" for r in d["raises"]) + "</ul></details>")
     return f'''<section class="dir d-{d["id"]}" style='{vars_}' aria-labelledby="h-{d["id"]}">
-  <header class="dirhead">
+  <header class="dirhead"><div class="dh-main">
+    <p class="dnum">Direction {d["n"]} of 3</p>
     <h2 id="h-{d["id"]}">{d["name"]}</h2>
     <p class="thesis">{d["thesis"]}</p>
-    <p class="world">{d["world"]}</p>
+    <p class="world">{d["world"]}</p></div><div class="dh-side">
     <ul class="why">{why}</ul>
     <ul class="variants">{var}</ul>
     <p class="guess"><b>Guessable from the subject?</b> {d["guess"]}</p>
     <p class="risk"><b>Honest risk.</b> {d["risk"]}</p>
     {raises}
-  </header>
+  </div></header>
   {fixed_set(d)}
   <h3 class="lab samplehead">The sample — acme-billing-api, eslint-autofix open</h3>
   <div class="scale"><div class="native">{screen(d)}</div></div>
@@ -380,61 +382,69 @@ CSS = r"""
 *{box-sizing:border-box}
 html{background:var(--page)}
 body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
-.pagehead{max-width:1500px;margin:0 auto;padding:40px 24px 24px}
-.pagehead h1{font-size:28px;line-height:1.15;margin:0 0 10px;font-weight:600;letter-spacing:-.01em}
-.pagehead p{margin:0 0 10px;color:var(--page-ink-2);max-width:92ch}
+.pagehead{max-width:1440px;margin:0 auto;padding:48px 24px 0}
+.pagehead h1{font-size:40px;line-height:1.15;margin:0 0 10px;font-weight:600;letter-spacing:-.01em}
+.pagehead p{margin:0 0 12px;color:var(--page-ink-2);max-width:90ch;font-size:17px}
 .pagehead p b{color:var(--page-ink);font-weight:600}
-.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:18px}
-.toolbar button{font:inherit;font-size:13px;padding:6px 12px;border-radius:6px;border:1px solid var(--page-line);background:var(--page-2);color:var(--page-ink);cursor:pointer}
-.toolbar button[aria-pressed="true"]{background:var(--page-ink);color:var(--page);border-color:var(--page-ink)}
-.toolbar button:focus-visible{outline:2px solid var(--page-ink);outline-offset:2px}
-.toolbar span{font-size:13px;color:var(--page-ink-2)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1500px;margin:0 auto;padding:0 24px 64px}
-body.stacked .grid{grid-template-columns:minmax(0,1fr);max-width:1220px}
-@media (max-width:1100px){.grid{grid-template-columns:minmax(0,1fr)}}
-.pagefoot{max-width:1500px;margin:0 auto;padding:0 24px 48px;color:var(--page-ink-2);font-size:13px}
+.jump{position:sticky;top:0;z-index:5;display:flex;gap:6px;margin:22px -24px 0;padding:12px 24px;background:var(--page);border-bottom:1px solid var(--page-line)}
+.jump a{font-size:15px;font-weight:600;color:var(--page-ink);text-decoration:none;padding:8px 14px;border-radius:6px;border:1px solid var(--page-line);background:var(--page-2)}
+.jump a:hover{border-color:var(--page-ink-2)}
+.jump a:focus-visible{outline:2px solid var(--page-ink);outline-offset:2px}
+.grid{display:flex;flex-direction:column;gap:56px;max-width:1440px;margin:0 auto;padding:24px 24px 72px}
+.pagefoot{max-width:1440px;margin:0 auto;padding:0 24px 48px;color:var(--page-ink-2);font-size:14px}
+.dirhead h2{scroll-margin-top:90px}
 
 /* ---------- a direction column: everything inside reads its own tokens ---------- */
-.dir{background:var(--bg);color:var(--text);font-family:var(--font);border-radius:10px;padding:22px 20px 26px;min-width:0;overflow:hidden}
+.dir{background:var(--bg);color:var(--text);font-family:var(--font);border-radius:12px;padding:44px 48px 52px;min-width:0;overflow:hidden}
 .dir code,.dir pre,.dir .t-mono{font-family:var(--font-mono)}
-.dir h4,.dir .lab{font:600 11px/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin:26px 0 10px}
-.dirhead h2{font-family:var(--font-display);font-size:30px;line-height:1.1;margin:0 0 10px;font-weight:600;letter-spacing:-.01em}
-.thesis{font-size:15px;margin:0 0 8px;color:var(--text)}
-.world{font-size:13px;color:var(--text2);margin:0 0 12px}
-.why,.variants{list-style:none;margin:0 0 10px;padding:0;font-size:12.5px;color:var(--text2)}
-.why li,.variants li{margin:0 0 4px}
+.dir .lab{font:600 13px/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin:0 0 14px}
+.dir h4{font:600 11px/1.2 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.dirhead{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;margin-bottom:44px}
+.dnum{margin:0 0 6px;font-size:14px;color:var(--text3)}
+.dirhead h2{font-family:var(--font-display);font-size:56px;line-height:1.05;margin:0 0 18px;font-weight:600;letter-spacing:-.01em}
+.thesis{font-size:21px;line-height:1.45;margin:0 0 14px;color:var(--text)}
+.world{font-size:15.5px;color:var(--text2);margin:0 0 12px}
+.why,.variants{list-style:none;margin:0 0 14px;padding:0;font-size:15px;color:var(--text2)}
+.why li,.variants li{margin:0 0 7px}
 .why b,.variants b{color:var(--text);font-weight:600;margin-right:4px}
-.variants{border-top:1px solid var(--line);padding-top:10px}
-.guess,.risk{font-size:12.5px;color:var(--text2);margin:0 0 8px}
+.variants{border-top:1px solid var(--line);padding-top:14px}
+.guess,.risk{font-size:15px;color:var(--text2);margin:0 0 8px}
 .guess b,.risk b{color:var(--text)}
-.raises{font-size:12.5px;color:var(--text2);margin:6px 0 0}
+.raises{font-size:14.5px;color:var(--text2);margin:6px 0 0}
 .raises summary{cursor:pointer;color:var(--text)}
 .raises ul{padding-left:18px;margin:8px 0 0}
 .raises li{margin:0 0 6px}
 
-.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:8px}
-.swatches li{display:grid;grid-template-columns:28px 1fr;column-gap:8px;font-size:12px;line-height:1.35}
-.swatches .chip{grid-row:1/4;width:28px;height:40px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.fixed{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:44px;padding:36px 0 8px;border-top:1px solid var(--line)}
+.fx-parts .lab:not(:first-child){margin-top:28px}
+.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px 12px}
+.swatches li{display:grid;grid-template-columns:44px 1fr;column-gap:12px;font-size:14px;line-height:1.35}
+.swatches .chip{grid-row:1/4;width:44px;height:58px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
 .swatches .hex{font-family:var(--font-mono);color:var(--text)}
 .swatches .role{color:var(--text2)}
 .swatches .cr{color:var(--text3);font-variant-numeric:tabular-nums}
 .type p{margin:0 0 8px}
-.t-display{font-family:var(--font-display);font-size:26px;line-height:1.15;font-weight:600;letter-spacing:-.01em}
-.t-body{font-size:14px;color:var(--text)}
-.t-mono{font-size:12px;color:var(--text2)}
-.t-names{font-size:12px;color:var(--text2)}
+.t-display{font-family:var(--font-display);font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.t-body{font-size:17px;color:var(--text)}
+.t-mono{font-size:14px;color:var(--text2)}
+.t-names{font-size:15px;color:var(--text2)}
 .t-names b{color:var(--text);font-weight:600}
-.fnote{font-size:12px;color:var(--text3)}
-.icons{list-style:none;padding:0;margin:0 0 8px;display:flex;flex-wrap:wrap;gap:6px 14px}
-.icons li{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2)}
-.icons .ic{color:var(--text)}
+.fnote{font-size:14px;color:var(--text3)}
+.icons{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:10px 18px}
+.icons li{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text2)}
+.icons .ic{color:var(--text);width:20px;height:20px}
+.fixed .btn{height:40px;padding:0 16px;font-size:15px}
+.fixed .btn .ic{width:18px;height:18px}
+.fixed .mark{font-size:16px}
+.fixed .mark .ic{width:20px;height:20px}
+.fixed .dot{width:9px;height:9px}
 .sevs{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px 18px}
 .btnrow{display:flex;flex-wrap:wrap;gap:8px}
-.samplehead{margin-top:30px!important}
+.samplehead{margin:48px 0 16px!important;font-size:15px!important}
 
 .ic{width:16px;height:16px;fill:currentColor;flex:none}
 .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin:0 4px 0 4px;flex:none}
-.scale{width:100%;overflow:hidden;border-radius:6px}
+.scale{width:100%;overflow:hidden;border-radius:8px;box-shadow:0 0 0 1px var(--line2)}
 .native{width:1120px;transform-origin:0 0}
 
 /* ---------- the app, shared structure ---------- */
@@ -613,26 +623,20 @@ body.stacked .grid{grid-template-columns:minmax(0,1fr);max-width:1220px}
 .d-catalogue .sheet{background:var(--raised)}
 .d-catalogue .swatches .chip{border-radius:0}
 
+@media (max-width:1100px){.dirhead,.fixed{grid-template-columns:minmax(0,1fr);gap:28px}.dir{padding:28px 20px 32px}.dirhead h2{font-size:40px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 """
 
 JS = r"""
 (function(){
   function fit(){
     document.querySelectorAll('.scale').forEach(function(s){
-      var n=s.firstElementChild, k=Math.min(1, s.clientWidth/1120);
+      var n=s.firstElementChild, k=s.clientWidth/1120;
       n.style.transform='scale('+k+')';
       s.style.height=(n.offsetHeight*k)+'px';
     });
   }
-  var b=document.querySelectorAll('[data-layout]');
-  b.forEach(function(x){x.addEventListener('click',function(){
-    document.body.classList.toggle('stacked', x.dataset.layout==='stacked');
-    b.forEach(function(y){y.setAttribute('aria-pressed', String(y===x));});
-    try{localStorage.setItem('directions-layout', x.dataset.layout);}catch(e){}
-    fit();
-  });});
-  try{ if(localStorage.getItem('directions-layout')==='stacked'){ document.querySelector('[data-layout=stacked]').click(); } }catch(e){}
   window.addEventListener('resize', fit);
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
   window.addEventListener('load', fit); fit();
@@ -645,7 +649,7 @@ FONTS = ("https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400
 
 
 def build():
-    cols = "".join(column(d) for d in DIRS)
+    cols = "".join(column(d, i + 1) for i, d in enumerate(DIRS))
     html = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -663,10 +667,8 @@ def build():
   <h1>Three directions for AI Stack Builder</h1>
   <p>Phase 06, stage 3. <b>All three are dark-first</b> (CLAUDE.md §3), and they differ on the other three axes at once: <b>how much colour</b> (Catalogue almost none, Acrylic a tinted ground and one accent, Manifest a committed ground and a paper surface), <b>the character of the type</b> (Segoe’s humanist, Archivo’s widths, Red Hat’s neutral grotesk) and <b>the form</b> (4 / 8 px and acrylic, 2 px and ruling, 0 px and hairlines).</p>
   <p><b>The sample is fixed</b> (README, stage 3): the Project screen with <code>eslint-autofix</code> open, then the Export mode over the project with the remove dialog over it. Every word is from <code>project-item.html</code>, <code>run-remove.html</code> and <code>microcopy.md</code>, unchanged. Between them the three cover D1 (A, B and C for <i>Checked</i>) and D2–D4 (glass at the frame, glass as the scrim, no glass).</p>
-  <p><b>This grey page is not part of any direction.</b> Ratios on the swatches are WCAG contrast against the direction’s own ground, computed when the page is built.</p>
-  <div class="toolbar" role="group" aria-label="Layout"><span>Layout</span>
-    <button type="button" data-layout="side" aria-pressed="true">Side by side</button>
-    <button type="button" data-layout="stacked" aria-pressed="false">One under another, full size</button></div>
+  <p><b>This grey page is not part of any direction.</b> Each direction is one block, top to bottom: what it is, its palette, type, icons and parts, then the sample at full width. Ratios on the swatches are WCAG contrast against the direction’s own ground, computed when the page is built.</p>
+  <nav class="jump" aria-label="Directions"><a href="#h-acrylic">1 · Acrylic</a><a href="#h-manifest">2 · Manifest</a><a href="#h-catalogue">3 · Catalogue</a></nav>
 </header>
 <main class="grid">{cols}</main>
 <p class="pagefoot">Built by <code>tools/build_directions.py</code>. Icons: Microsoft Fluent System Icons, MIT, @fluentui/svg-icons 1.1.344. Portrait: Jake Nackos on Unsplash (unsplash.com/photos/IF9TK5Uy-KI), standing in for the signed-in person.</p>
