@@ -68,7 +68,7 @@ Geist grid, materials and type. **No new competitor search is made.**
 | `research.md`, `personas.md`, `jtbd.md`, `voice.md` | `01-research/research.md`, `02-personas-jtbd/6-personas/personas.md`, `02-personas-jtbd/7-jobs-to-be-done/jtbd.md`, `05-tone-of-voice/voice.md` |
 | the old `DESIGN.md` that leaks its palette | **There is no `DESIGN.md`**, but the leak exists. The phase pages' tokens (`tools/research-page.tpl.html`: paper ground, accent `#e05f03`) and the grey wireframe sheet (`04-wireframes/pages/wireframe.css`) are the two places a model would quietly take a palette from. **Neither is the product's**, and stage 3 says so before drawing |
 | photos from Unsplash on every card | **Our content has no photographs.** It is skills, agents, MCP servers, file trees, code and refs. See *What does not transfer* |
-| Solar icons, one style | Solar, one style: linear, bold or bold-duotone, chosen with the direction |
+| Solar icons, one style | **Microsoft Fluent System Icons, by the owner's choice (2026-10-08)**: one style per direction, *regular* or *filled*, never the colour variant. See `concept.md`, *Designer's taste* |
 
 **The pages are rewritten in place, and the prototypes are rebuilt from them**, as in phase 05. The
 239 prototype pages in `04-wireframes/prototypes/` are generated from `pages/` by
@@ -106,11 +106,46 @@ page.
 |---|---|---|---|
 | **1** | **References**: first describe the repo (screens, generators, shared styles, which files could leak a palette) and pick the main and contrasting screens. Then search **Refero** for the visual language of the craft benchmark research already named, Linear · Vercel · Raycast · GitHub · Stripe: 3–4 *styles*, 2–3 *screens* (a verdict or check-run list, a dense list with status). One base and one or two named devices from the others, each with **the persona's worry it removes**. The dark-design-language captures are read as references too | `06-concept/references.md` | **done 2026-10-08** — Refero not connected; Lazyweb, SaaSUI and our phase-01 captures instead, stated in the file. Plus an idea base of 61 images, [`refs/`](refs/README.md), by `tools/capture_refs.py` |
 | **2** | **Taste and attributes.** The owner dictates *Designer's taste*: 2–3 **named** products they like, not adjectives, and the anti-references. Then 3–5 **pairs of visual opposites** from the data, each with its source line, the device it borrows, and its strength: data, or a hypothesis carrying `[?]`. A pair against the taste, or without a reason, does not pass | `06-concept/concept.md` · *Designer's taste*, *Attributes* | **done 2026-10-08** — five pairs; five conflicts (D1–D5) carried into stage 3 as variants, by the owner's decision |
-| **3** | **Three directions**, under the **impeccable** skill. Three that genuinely differ, all dark-first, on at least two of: amount of colour, type character, form. **A palette guessable from the subject is replaced, not recoloured.** One page, live: palette with hex, a type pair, **an item card with real content**, a button, the three severity marks, Solar icons in the direction's style. Then stop | `06-concept/directions.html` | — |
+| **3** | **Three directions**, under the **impeccable** skill. Three that genuinely differ, all dark-first, on at least two of: amount of colour, type character, form. **A palette guessable from the subject is replaced, not recoloured.** One page, live: palette with hex, a type pair, **an item card with real content**, a button, the three severity marks, Fluent icons in the direction's style (regular or filled). **Drawn on the fixed sample below**, not on loose components. Then stop | `06-concept/directions.html` | — |
 | **4** | **The choice and the stand.** The only stage whose input is the owner's decision, made in the browser and passed as one sentence (number and name). The stand shows the language at work: the main card, buttons, the app header, the run bar. Below it: colours with the attribute each comes from (including **Problem / Note / Skipped / checked**), type pair and scale, radii, shadows, spacing, the person's portrait, **an icon coverage plan** (the six kinds, the three severities, nav, the run bar, buttons, states), and three components: **the primary action, the item row with its state badges, a form field**. Every value lives in `tokens.css`. **WCAG AA contrast is computed by a script**, as a table | `06-concept/concept.html`, `06-concept/tokens.css`, contrast table | — |
 | **5** | **The sample**: the main screen with **all its state pages**, under impeccable's laws. Values come only from `tokens.css`. **Every repeat of a component gets the same values**, not just the first. Any new colour pair has its contrast computed. Copy and structure stay. Then `/impeccable critique`, and the owner reads every state in the browser | the main screen's pages | — |
 | **6** | **The contrasting screen.** The same language, with nothing new invented. It shows a different density and a different mood. Compared side by side with the sample: **one product, not two** | the second screen's pages | — |
 | **7** | **Check and close.** A defects table first, every row with **evidence** (a selector and its value, or a contrast ratio). It looks for: a decision without an attribute or a taste line; contrast below AA; colour against the voice (a festive error, an invisible warning, a green that claims *works*); the two screens out of step; one component with two values on a page; a placeholder where real content belongs; an icon outside the set; a hard-coded value. Add the `/impeccable audit` findings. The owner reviews, then fixes go into the pages and `concept.md` together. `CLAUDE.md` gains a *Concept* section and `README.md` a *Concept* section. Push | defects table, fixes, docs | — |
+
+**Stage 3's sample, set by the owner on 2026-10-08.** The three directions are compared on **one
+fixed piece of the product, not on loose components**. It is the **Project screen with the item side
+panel open**, [`04-wireframes/pages/project-item.html`](../04-wireframes/pages/project-item.html): project
+`acme-billing-api`, with every word taken from the page and `microcopy.md`, unchanged.
+
+- **The head:** the title and *14 items · 3 auto-added · 1 detached*; the verdict line *Checked 2 days ago · for
+  Claude Code · 1 problem · 2 notes · 1 skipped*; and `Configure · Share… · Duplicate · Export…`.
+- **5–10 rows.** Eight, chosen because between them they carry every state the set row has (§7):
+  - `code-style` — *Note*, defers to the client's ESLint config;
+  - `eslint-autofix` — *Problem*, conflicts with `code-style`;
+  - `migration-reviewer`, with **`db-migrate`, `seed-data` and `postgres-mcp` nested under it as
+    auto-added**. `postgres-mcp` is also a *Note*: an external `@ 9be4674 · MIT`, needs `DATABASE_URL`;
+  - `github-mcp` — clean, external, `@ v0.9.0`;
+  - `pr-reviewer` — *Detached*, *differs from the original in content*.
+- **One open item: `eslint-autofix`**, as the page already draws it:
+  - *Problem at last check* with its sentence;
+  - *In this project · Added by you · linked to the original*;
+  - the script's contents in mono;
+  - Dependencies, *Lands at*, *Used in 2 projects · last exported 2 days ago*;
+  - `Open in My library · Configure to remove`.
+- **Two components beside it, from the earlier proposal.** These are where the open decisions D1–D4
+  become visible:
+  - **a `Run` stage strip**: `02 Declared conflicts` Problem · `03 Command names` Skipped ·
+    `04 Target paths` Checked · `05 Env keys` Note, under *Checked just now · 1 problem · 2 notes ·
+    1 skipped*. **This is D1, the colour of *Checked*;**
+  - **the confirmation dialog *Remove eslint-autofix…*** (`run-remove.html`), drawn over the screen.
+    **This is D2–D4**: glass, glass only at the frame, or an opaque dialog with a scrim.
+- **Plus the course's fixed set for each direction:** palette with hex, the type pair, a button, and
+  Fluent icons for the six kinds, the three severities and the head's actions.
+
+*Why this and not two loose pieces.* The project row is **the only place an item's state is true**
+(`CLAUDE.md` §8). So it is the hardest row in the product to draw, and the side panel is where a
+person reads one item closely. **A direction that holds this holds `My library` and `Run`**, which stay
+the two screens painted in stages 5 and 6.
 
 **Between stages, the course's one rule for a small adjustment.** A change lives where the language
 lives, not where it was noticed. Try it on the screen. If the owner says **"keep it"**

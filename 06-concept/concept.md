@@ -24,6 +24,12 @@ a preference rather than a finding.
 - **Microsoft Teams / Slack.** Glass surfaces: translucent layers that blur what is behind them. **This
   is the product's signature touch. It should be noticeable, but used sparingly.**
 
+- **Microsoft Fluent System Icons** (added 2026-10-08). The icon set, chosen by the owner, **in
+  place of the course's Solar.** [`microsoft/fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons),
+  MIT, regular and filled at 16 / 20 / 24 px, as `@fluentui/svg-icons`. *It is the same family as
+  Teams, which the glass line above already names, so the two likes come from one design language.*
+  **Its colour variant is not used**: it puts colour on every icon, which breaks pair 5.
+
 ### Does not want
 
 - **The palette an AI produces for the words "AI tool":** a dark ground, violet-blue neon gradients,
