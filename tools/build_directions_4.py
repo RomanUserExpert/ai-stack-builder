@@ -174,6 +174,40 @@ body[data-density="between"] .dir{--fs:14.5px;--fs-s:13px;--fs-xs:12px;--fs-h1:2
 .d-mica .swatches .chip{border-radius:5px}
 .v-lime .phead h1,.v-lime .rhead h2{letter-spacing:-.02em}
 .d-mica .dlg{width:500px}
+
+/* the owner's form (2026-10-11, from round 2's Kit): every item in its own rounded cut-out,
+   a coloured ring only where a finding is, the selection as an outline around the cut-out,
+   auto-added items inside their parent's cut-out behind a dashed rule */
+.d-mica{--r-s:7px;--r-m:14px}
+.d-mica .set{display:flex;flex-direction:column;gap:var(--gap);padding:var(--gap);background:var(--surface);border:0;border-radius:18px}
+.d-mica .set>li{background:var(--well);border-radius:12px;box-shadow:inset 0 0 0 1px var(--line),inset 0 1px 3px rgba(0,0,0,.45)}
+.d-mica .set>li+li{border-top:0}
+.d-mica .set>li.has-problem{box-shadow:inset 0 0 0 1.5px var(--problem),inset 0 1px 3px rgba(0,0,0,.45)}
+.d-mica .set>li.has-note{box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--note) 75%,transparent),inset 0 1px 3px rgba(0,0,0,.45)}
+.d-mica .set>li.sel{outline:1.5px solid var(--brand);outline-offset:3px}
+.d-mica .it.sel>.row{background:transparent;box-shadow:none}
+.d-mica .sub{border-left:0;margin-left:calc(var(--px) + 12px);padding-bottom:2px}
+.d-mica .sub>li{border-top:1px dashed var(--line2)}
+.d-mica .kind{padding:1px 8px;border-radius:999px;background:var(--btn)}
+.d-mica .btn{border-radius:8px}
+.d-mica .links a{border-radius:8px}
+.d-mica .panel{border-radius:18px;border:1px solid var(--line)}
+.d-mica .callout{border-radius:12px}
+.d-mica .callout.c-problem{background:var(--well);border-color:transparent;box-shadow:inset 0 0 0 1.5px var(--problem)}
+.d-mica .callout.c-note{background:var(--well);border-color:transparent;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--note) 75%,transparent)}
+.d-mica .file{border-radius:10px}
+.d-mica .stages{display:flex;flex-direction:column;gap:var(--gap);border:0;background:transparent}
+.d-mica .stage{background:var(--well);border-radius:12px;box-shadow:inset 0 0 0 1px var(--line)}
+.d-mica .stage+.stage{border-top:0}
+.d-mica .stage.s-problem{box-shadow:inset 0 0 0 1.5px var(--problem)}
+.d-mica .stage.s-note{box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--note) 75%,transparent)}
+.d-mica .stage.s-skipped{background:transparent;box-shadow:none;outline:1px dashed var(--line2);outline-offset:-1px}
+.d-mica .stage .callout{box-shadow:none;background:transparent;padding:0}
+.d-mica .slot{border-style:dashed;border-radius:8px}
+.d-mica .run{border-radius:20px 20px 0 0}
+.d-mica .runin{border-radius:14px 14px 0 0}
+.d-mica .dlg{border-radius:20px}
+.d-mica .sheet{border-radius:14px}
 """
 
 FONTS = ("https://fonts.googleapis.com/css2?family=Mona+Sans:wght@400;500;600;700&family=Onest:wght@400;500;600;700"
