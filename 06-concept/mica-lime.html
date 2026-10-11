@@ -1,215 +1,195 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Mica Lime · AI Stack Builder</title>
+<title>Mica Lime screens · AI Stack Builder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
-<style>.ml{--ground:#1B1C19;--bar:#181916;--tray:#232420;--cutout:#1E1F1B;--well-deep:#161714;--raised:#2A2B27;--control:#2E302A;--control-hover:#383A33;--line:#343630;--line-strong:#4A4C44;--text:#F3F4EF;--text-2:#C5C7BE;--text-3:#A1A49A;--lime:#C6EF5A;--lime-hover:#D3F57A;--on-lime:#141A08;--problem:#FF8F98;--danger:#D4363F;--on-danger:#FFFFFF;--note:#F2C661;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--t-display:600 28px/34px var(--font);--t-title:600 20px/26px var(--font);--t-heading:600 16px/22px var(--font);--t-body:400 14.5px/21px var(--font);--t-small:400 13px/19px var(--font);--t-micro:500 12px/16px var(--font);--r-xs:4px;--r-sm:6px;--r-md:10px;--r-lg:14px;--r-xl:18px;--r-pill:999px;--font:"Geist",system-ui,sans-serif;--mono:"Geist Mono",ui-monospace,monospace;--problem-wash:color-mix(in srgb,var(--problem) 14%,transparent);--note-wash:color-mix(in srgb,var(--note) 13%,transparent);--focus:0 0 0 2px var(--ground),0 0 0 4px var(--lime);--ease:cubic-bezier(.2,.7,.2,1);--dur:140ms;}
-:root{--page:#262626;--page-2:#2f2f2f;--page-ink:#e8e8e8;--page-ink-2:#b4b4b4;--page-line:#3d3d3d}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="tokens.css">
+<style>
 *{box-sizing:border-box}
 html{background:var(--page)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
-.pagehead,.sec,.pagefoot{max-width:1440px;margin:0 auto;padding-left:24px;padding-right:24px}
-.pagehead{padding-top:40px}
-.pagehead h1{font-size:30px;line-height:1.2;margin:0 0 10px;font-weight:600}
-.pagehead p{margin:0 0 10px;color:var(--page-ink-2);max-width:96ch}
+body{margin:0;background:var(--page);color:var(--page-ink);font:var(--t-body)}
+.pagehead,.sec,.pagefoot{max-width:calc(var(--canvas) + var(--s12) * 3);margin:0 auto;padding-left:var(--s6);padding-right:var(--s6)}
+.pagehead{padding-top:var(--s10)}
+.pagehead h1{font:var(--t-display);letter-spacing:var(--track-display);margin:0 0 var(--s3)}
+.pagehead p{margin:0 0 var(--s3);color:var(--page-ink-2);max-width:96ch}
 .pagehead p b{color:var(--page-ink)}
-.bar{position:sticky;top:0;z-index:5;display:flex;gap:6px;align-items:center;margin:18px -24px 0;padding:10px 24px;background:var(--page);border-bottom:1px solid var(--page-line)}
-.bar .k{font-size:13px;color:var(--page-ink-2);margin-right:4px}
-.bar a{font-size:14px;font-weight:600;color:var(--page-ink);text-decoration:none;padding:6px 12px;border-radius:6px;border:1px solid var(--page-line);background:var(--page-2)}
-.bar a:focus-visible{outline:2px solid var(--page-ink);outline-offset:2px}
-.sec{padding-top:28px;padding-bottom:4px}
-.sec>h2{font-size:22px;font-weight:600;margin:0 0 6px;scroll-margin-top:70px}
-.sec>p{color:var(--page-ink-2);margin:0 0 16px;max-width:96ch}
-.pagefoot{padding-top:24px;padding-bottom:48px;color:var(--page-ink-2);font-size:13.5px}
+.pagehead a{color:var(--page-ink)}
+.bar{position:sticky;top:0;z-index:5;display:flex;gap:var(--s2);align-items:center;margin:var(--s5) calc(var(--s6) * -1) 0;padding:var(--s3) var(--s6);background:var(--page);border-bottom:var(--hairline) solid var(--page-line)}
+.bar .k{font:var(--t-small);color:var(--page-ink-2);margin-right:var(--s1)}
+.bar a{font:var(--t-button);font-weight:600;color:var(--page-ink);text-decoration:none;padding:var(--s2) var(--s3);border-radius:var(--r-sm);border:var(--hairline) solid var(--page-line);background:var(--page-2)}
+.bar a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
+.sec{padding-top:var(--s8)}
+.sec>h2{font:var(--t-title);letter-spacing:var(--track-title);margin:0 0 var(--s2);scroll-margin-top:var(--s12)}
+.sec>p{color:var(--page-ink-2);margin:0 0 var(--s4);max-width:96ch}
+.pagefoot{padding-top:var(--s6);padding-bottom:var(--s12);color:var(--page-ink-2);font:var(--t-small)}
+.scale{width:100%;overflow:hidden;border-radius:var(--r-md);box-shadow:0 0 0 var(--hairline) var(--line);background:var(--ground)}
+.native{width:var(--canvas);transform-origin:0 0}
+.app{min-height:calc(var(--canvas) * .6)}
+.runwrap{height:calc(var(--canvas) * .6)}
 
-/* ================= Mica · Lime ================= */
 .ml{font:var(--t-body);color:var(--text);-webkit-font-smoothing:antialiased}
 .ml code,.ml pre{font-family:var(--mono)}
-.ml ::selection{background:color-mix(in srgb,var(--lime) 35%,transparent);color:var(--text)}
-.ml .card{background:var(--ground);border-radius:12px;padding:var(--s8);overflow:hidden}
-.scale{width:100%;overflow:hidden;border-radius:var(--r-md);box-shadow:0 0 0 1px var(--line);background:var(--ground)}
-.native{width:1280px;transform-origin:0 0}
-.ic{width:16px;height:16px;flex:none}
-.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;flex:none;margin:0 6px 0 2px}
+.ml ::selection{background:var(--lime-selection);color:var(--text)}
+.ic{width:var(--icon);height:var(--icon);flex:none}
+.dot{display:inline-block;width:var(--dot);height:var(--dot);border-radius:var(--r-pill);background:currentColor;flex:none;margin:0 var(--s2) 0 calc(var(--s1) / 2)}
 
-/* --- controls --- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);height:32px;padding:0 var(--s3);
-  font:500 13.5px/1 var(--font);color:var(--text);white-space:nowrap;cursor:default;
-  background:var(--control);border:1px solid var(--line-strong);border-radius:var(--r-sm);
+/* --- buttons --- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);
+  font:var(--t-button);color:var(--text);white-space:nowrap;cursor:default;
+  background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);
   transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease)}
-.btn .ic{width:16px;height:16px;color:var(--text-2)}
+.btn .ic{color:var(--text-2)}
 .btn:hover,.btn.is-hover{background:var(--control-hover)}
-.btn:focus-visible,.btn.is-focus{outline:0;box-shadow:var(--focus)}
-.btn:active,.btn.is-active{background:var(--control);transform:translateY(.5px)}
+.btn:focus-visible,.btn.is-focus{outline:0;box-shadow:var(--shadow-focus)}
+.btn:active,.btn.is-active{background:var(--control);transform:translateY(calc(var(--hairline) / 2))}
 .btn.primary{background:var(--lime);border-color:var(--lime);color:var(--on-lime);font-weight:600}
 .btn.primary .ic{color:var(--on-lime)}
 .btn.primary:hover,.btn.primary.is-hover{background:var(--lime-hover);border-color:var(--lime-hover)}
 .btn.primary.is-disabled{background:var(--control);border-color:var(--line);color:var(--text-3)}
 .btn.primary.is-disabled .ic{color:var(--text-3)}
-.btn.icon-only{width:32px;padding:0}
-.btn.danger,.dlg .btn.primary{background:var(--danger);border-color:color-mix(in srgb,var(--danger) 70%,#fff 30%);color:var(--on-danger);font-weight:600}
-.btn.danger:hover,.dlg .btn.primary:hover,.btn.danger.is-hover{background:color-mix(in srgb,var(--danger) 88%,#fff 12%)}
-/* the muted remove: inside a Problem it is one of the ways out, not the loudest thing on the screen */
-.btn.danger-ghost,.c-problem.callout .btn{background:transparent;border-color:color-mix(in srgb,var(--problem) 38%,transparent);color:var(--problem);font-weight:500}
-.btn.danger-ghost:hover,.c-problem.callout .btn:hover,.btn.danger-ghost.is-hover{background:var(--problem-wash);border-color:color-mix(in srgb,var(--problem) 55%,transparent)}
+.btn.icon-only{width:var(--control-h);padding:0}
+.btn.danger,.dlg .btn.primary{background:var(--danger);border-color:var(--danger);color:var(--on-danger);font-weight:600}
+.btn.danger:hover,.dlg .btn.primary:hover,.btn.danger.is-hover{background:var(--danger-hover);border-color:var(--danger-hover)}
+.btn.danger .ic,.dlg .btn.primary .ic{color:var(--on-danger)}
+.btn.danger-ghost,.c-problem.callout .btn{background:transparent;border-color:var(--problem-edge);color:var(--problem);font-weight:500}
+.btn.danger-ghost:hover,.c-problem.callout .btn:hover,.btn.danger-ghost.is-hover{background:var(--problem-wash)}
 .btn.danger-ghost .ic{color:var(--problem)}
-.btn.danger .ic{color:var(--on-danger)}
-.kind,.state{display:inline-flex;align-items:center;gap:var(--s1);height:20px;padding:0 var(--s2);
-  font:var(--t-micro);color:var(--text-2);background:transparent;box-shadow:inset 0 0 0 1px var(--line-strong);border-radius:var(--r-pill);white-space:nowrap}
-.state{background:transparent;box-shadow:none;padding:0 2px}
-.state .ic{width:13px;height:13px;color:var(--text-3)}
-.st-conflict{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--problem) 40%,transparent);padding:0 var(--s2)}
-.mark{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 var(--s3) 0 var(--s2);
-  font:600 12.5px/1 var(--font);border-radius:var(--r-pill);white-space:nowrap}
-.mark .ic{width:14px;height:14px}
+
+/* --- tags and findings --- */
+.kind,.state{display:inline-flex;align-items:center;gap:var(--s1);height:var(--tag-h);padding:0 var(--s2);
+  font:var(--t-micro);color:var(--text-2);background:transparent;box-shadow:inset 0 0 0 var(--hairline) var(--line-strong);border-radius:var(--r-pill);white-space:nowrap}
+.state{box-shadow:none;padding:0 calc(var(--s1) / 2)}
+.state .ic{width:var(--icon-s);height:var(--icon-s);color:var(--text-3)}
+.st-conflict{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 var(--hairline) var(--problem-edge);padding:0 var(--s2)}
+.mark{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);
+  font:var(--t-micro);font-weight:600;border-radius:var(--r-pill);white-space:nowrap}
+.mark .ic{width:var(--icon-s);height:var(--icon-s)}
 .m-problem{color:var(--problem);background:var(--problem-wash)}
 .m-note{color:var(--note);background:var(--note-wash)}
-.m-skipped{color:var(--text-3);font-weight:500;padding:0 var(--s1)}
-.m-checked{color:var(--text-2);font-weight:500;padding:0 var(--s1)}
+.m-skipped{color:var(--skipped);font-weight:500;padding:0 var(--s1)}
+.m-checked{color:var(--checked);font-weight:500;padding:0 var(--s1)}
+
+/* --- a field --- */
+.field{display:flex;flex-direction:column;gap:var(--s2)}
+.field>span:first-child{font:var(--t-small);font-weight:500;color:var(--text-2)}
+.field input{height:var(--control-h);padding:0 var(--s3);font:var(--t-code);color:var(--text);background:var(--well-deep);
+  border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);outline:0}
+.field input::placeholder{color:var(--text-3)}
+.field input.is-focus,.field input:focus-visible{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
+.field .hint{display:flex;align-items:center;gap:var(--s1);font:var(--t-small);color:var(--text-3)}
+.field .hint .ic{width:var(--icon-s);height:var(--icon-s)}
 
 /* --- the app --- */
-.app{background:var(--ground);min-height:780px}
-.nav{display:flex;align-items:center;gap:var(--s6);height:52px;padding:0 var(--s6);background:var(--bar);border-bottom:1px solid var(--line)}
-.product{display:flex;align-items:center;gap:var(--s2);font:600 14.5px/1 var(--font);letter-spacing:-.005em}
-.logo{width:14px;height:14px;border-radius:var(--r-xs);background:var(--lime)}
-.links{display:flex;gap:2px}
-.links a{display:flex;align-items:center;gap:var(--s2);height:32px;padding:0 var(--s3);color:var(--text-2);font:500 14px/1 var(--font);border-radius:var(--r-sm);transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.app{background:var(--ground)}
+.nav{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
+.product{display:flex;align-items:center;gap:var(--s2);font:var(--t-body);font-weight:600}
+.logo{width:var(--icon-s);height:var(--icon-s);border-radius:var(--r-xs);background:var(--lime)}
+.links{display:flex;gap:calc(var(--s1) / 2)}
+.links a{display:flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);color:var(--text-2);font:var(--t-button);border-radius:var(--r-sm);
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
 .links a .ic{color:var(--text-3)}
-.links a:hover,.links a.is-hover{color:var(--text);background:color-mix(in srgb,var(--raised) 60%,transparent)}
-.links a.on{color:var(--text);background:var(--raised);box-shadow:0 1px 2px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.04)}
-.links a.on .ic{color:var(--lime)}
+.links a:hover,.links a.is-hover{color:var(--text);background:var(--hover-wash)}
+.links a.on{color:var(--text);background:var(--raised);box-shadow:var(--shadow-tile)}
+.links a.on .ic{color:var(--lime-mark)}
 .account{margin-left:auto;display:flex;align-items:center;gap:var(--s2);font:var(--t-small);color:var(--text-2)}
-.account img{width:24px;height:24px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--line)}
+.account img{width:var(--mark-h);height:var(--mark-h);border-radius:var(--r-pill);object-fit:cover;box-shadow:0 0 0 var(--hairline) var(--line)}
 .main{padding:var(--s8) var(--s8) var(--s10)}
 
 .phead{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--s6);row-gap:var(--s3)}
 .crumb{margin:0 0 var(--s1);font:var(--t-small);color:var(--text-3)}
-.phead h1{margin:0;font:var(--t-display);letter-spacing:-.018em}
+.phead h1{margin:0;font:var(--t-display);letter-spacing:var(--track-display)}
 .pfactsline{margin:var(--s1) 0 0;font:var(--t-small);color:var(--text-2)}
-.actions{display:flex;gap:var(--s2);align-self:start;margin-top:calc(19px + var(--s1) + 1px)}
+.actions{display:flex;gap:var(--s2);align-self:start;margin-top:calc(var(--s5) + var(--s1))}
 .verdict{grid-column:1/-1;display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap}
 .vline{margin:0;display:flex;align-items:center;font:var(--t-small);color:var(--text-2)}
-.vline .vglyph{color:var(--text-3)}
-.vcounts{margin:0;display:flex;gap:var(--s4);font:600 13px/19px var(--font)}
-.vcounts span{display:inline-flex;align-items:center;gap:6px}
-.vcounts .ic{width:14px;height:14px}
-.c-problem{color:var(--problem)} .c-note{color:var(--note)} .c-skipped{color:var(--text-3);font-weight:500}
+.vline .vglyph{color:var(--checked)}
+.vcounts{margin:0;display:flex;gap:var(--s4);font:var(--t-small);font-weight:600}
+.vcounts span{display:inline-flex;align-items:center;gap:var(--s1)}
+.vcounts .ic{width:var(--icon-s);height:var(--icon-s)}
+.c-problem{color:var(--problem)} .c-note{color:var(--note)} .c-skipped{color:var(--skipped);font-weight:500}
 .pdesc{margin:var(--s4) 0 var(--s6);max-width:72ch;font:var(--t-body);color:var(--text-2)}
 
-.work.with{display:grid;grid-template-columns:minmax(0,1fr) 384px;gap:var(--s5);align-items:start}
+.work.with{display:grid;grid-template-columns:minmax(0,1fr) var(--panel-w);gap:var(--s5);align-items:start}
 .set,.sub{list-style:none;margin:0;padding:0}
 .set{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s2);background:var(--tray);border-radius:var(--r-lg)}
-.set>li{position:relative;background:var(--cutout);border-radius:var(--r-md);box-shadow:inset 0 0 0 1px var(--line),inset 0 1px 2px rgba(0,0,0,.35);transition:background var(--dur) var(--ease)}
-.set>li:hover,.set>li.is-hover{background:color-mix(in srgb,var(--raised) 55%,var(--cutout))}
-.set>li.sel{background:var(--raised);box-shadow:inset 0 0 0 1px var(--line-strong)}
-.set>li.sel::before{content:"";position:absolute;left:5px;top:var(--s3);height:24px;width:3px;border-radius:2px;background:var(--lime)}
+.set>li{position:relative;background:var(--cutout);border-radius:var(--r-md);box-shadow:var(--shadow-cutout);transition:background var(--dur) var(--ease)}
+.set>li:hover,.set>li.is-hover{background:var(--hover-wash)}
+.set>li.sel{background:var(--raised);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
+.set>li.sel::before{content:"";position:absolute;left:var(--s1);top:var(--s3);height:var(--mark-h);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}
 .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--s4);padding:var(--s3) var(--s4)}
-.row h3{display:flex;align-items:center;flex-wrap:wrap;gap:var(--s2);min-height:24px;margin:0;font:600 14.5px/21px var(--font);letter-spacing:-.003em}
-.desc{margin:2px 0 0;font:var(--t-small);color:var(--text-2)}
-.facts{margin:var(--s1) 0 0;font:400 12px/16px var(--font);color:var(--text-3)}
-.facts code{font-size:11.5px;color:var(--text-3)}
+.row h3{display:flex;align-items:center;flex-wrap:wrap;gap:var(--s2);min-height:var(--mark-h);margin:0;font:var(--t-body);font-weight:600}
+.desc{margin:calc(var(--s1) / 2) 0 0;font:var(--t-small);color:var(--text-2)}
+.facts{margin:var(--s1) 0 0;font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.facts code{font:var(--t-code);line-height:inherit;color:var(--text-3)}
 .facts em{font-style:normal;color:var(--text-2)}
 .marks{margin:0;display:flex;gap:var(--s2);align-items:flex-start}
-.sub{margin:0 var(--s4) 0 calc(var(--s4) + var(--s6));border-top:1px dashed var(--line-strong)}
-.sub>li+li{border-top:1px dashed var(--line-strong)}
+.sub{margin:0 var(--s4) 0 calc(var(--s4) + var(--s6));border-top:var(--hairline) dashed var(--line-strong)}
+.sub>li+li{border-top:var(--hairline) dashed var(--line-strong)}
 .sub .row{padding-left:0;padding-right:0}
 .sub .sub{margin:0 0 0 var(--s6)}
 
-.panel{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-lg);padding:var(--s5)}
+.panel{background:var(--raised);border:var(--hairline) solid var(--line);border-radius:var(--r-lg);padding:var(--s5)}
 .phd{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s3)}
-.panel h2{margin:0;font:var(--t-heading);letter-spacing:-.008em}
+.panel h2{margin:0;font:var(--t-heading);letter-spacing:var(--track-heading)}
 .chips{display:flex;gap:var(--s2);margin:var(--s2) 0 0}
-.panel>.desc{margin:var(--s3) 0 0;font:var(--t-small);color:var(--text-2)}
-.callout{display:flex;flex-direction:column;gap:6px;margin:var(--s4) 0 0;padding:var(--s3) var(--s4);border-radius:var(--r-md);font:var(--t-small);color:var(--text)}
-.callout .sev{display:flex;align-items:center;gap:6px;font-weight:600}
-.callout .sev .ic{width:15px;height:15px}
-.callout code{font-size:12px}
-.c-problem.callout{background:color-mix(in srgb,var(--problem) 10%,var(--cutout));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--problem) 34%,transparent);color:var(--text)}
-.c-note.callout{background:color-mix(in srgb,var(--note) 9%,var(--cutout));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--note) 30%,transparent);color:var(--text)}
+.panel>.desc{margin:var(--s3) 0 0}
+.callout{display:flex;flex-direction:column;gap:var(--s2);margin:var(--s4) 0 0;padding:var(--s3) var(--s4);border-radius:var(--r-md);font:var(--t-small);color:var(--text)}
+.callout .sev{display:flex;align-items:center;gap:var(--s2);font-weight:600}
+.callout code{font:var(--t-code);line-height:inherit}
+.c-problem.callout{background:var(--problem-box);box-shadow:inset 0 0 0 var(--hairline) var(--problem-edge);color:var(--text)}
+.c-note.callout{background:var(--note-box);box-shadow:inset 0 0 0 var(--hairline) var(--note-edge);color:var(--text)}
 .c-problem.callout .sev{color:var(--problem)} .c-note.callout .sev{color:var(--note)}
 .callout .btn{align-self:flex-start;margin-top:var(--s1)}
-.psec{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line)}
-.psec h3{margin:0 0 var(--s2);font:600 11.5px/16px var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.psec{margin-top:var(--s5);padding-top:var(--s4);border-top:var(--hairline) solid var(--line)}
+.psec h3{margin:0 0 var(--s2);font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .psec p{margin:0;font:var(--t-small);color:var(--text-2)}
-.file{margin:0 0 var(--s2);padding:var(--s3) var(--s4);background:var(--well-deep);border:1px solid var(--line-strong);border-radius:var(--r-md);
-  font:400 12px/1.65 var(--mono);color:var(--text);white-space:pre-wrap;overflow-wrap:anywhere}
-.meta{margin:0;font:400 12px/16px var(--font);color:var(--text-3)!important}
-.pfacts{display:grid;grid-template-columns:116px 1fr;gap:6px var(--s3);margin:0;font:var(--t-small)}
+.file{margin:0 0 var(--s2);padding:var(--s3) var(--s4);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-md);
+  font:var(--t-code);color:var(--text);white-space:pre-wrap;overflow-wrap:anywhere}
+.meta{margin:0;font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.pfacts{display:grid;grid-template-columns:var(--dt-w) 1fr;gap:var(--s2) var(--s3);margin:0;font:var(--t-small)}
 .pfacts dt{color:var(--text-3)} .pfacts dd{margin:0;color:var(--text)}
-.pfacts code{font-size:12px}
-.pact{display:flex;gap:var(--s2);margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line)}
+.pfacts code{font:var(--t-code)}
+.pact{display:flex;gap:var(--s2);margin-top:var(--s5);padding-top:var(--s4);border-top:var(--hairline) solid var(--line)}
 
-/* --- Export over the project --- */
-.runwrap{position:relative;height:780px;overflow:hidden}
-.runwrap .app{min-height:780px}
-.veil,.dveil{position:absolute;inset:0;background:rgba(10,11,9,.42)}
-.run{position:absolute;left:112px;right:112px;top:var(--s8);bottom:0;padding:var(--s2) var(--s2) 0;border-radius:var(--r-xl) var(--r-xl) 0 0;
-  background:color-mix(in srgb,var(--lime) 7%,rgba(62,64,58,.42));backdrop-filter:blur(28px) saturate(140%);-webkit-backdrop-filter:blur(28px) saturate(140%);
-  border:1px solid rgba(255,255,255,.12);border-bottom:0}
-.runin{height:100%;overflow:hidden;padding:var(--s6) var(--s8);background:var(--ground);border:1px solid rgba(255,255,255,.05);border-bottom:0;border-radius:var(--r-lg) var(--r-lg) 0 0}
+/* --- Export over the project, and a dialog --- */
+.runwrap{position:relative;overflow:hidden}
+.veil,.dveil{position:absolute;inset:0;background:var(--veil)}
+.dveil{background:var(--veil-dialog)}
+.run{position:absolute;left:calc(var(--s12) * 2 + var(--s4));right:calc(var(--s12) * 2 + var(--s4));top:var(--s8);bottom:0;padding:var(--s2) var(--s2) 0;
+  border-radius:var(--r-xl) var(--r-xl) 0 0;background:var(--acrylic);backdrop-filter:var(--acrylic-blur);-webkit-backdrop-filter:var(--acrylic-blur);
+  border:var(--hairline) solid var(--acrylic-edge);border-bottom:0}
+.runin{height:100%;overflow:hidden;padding:var(--s6) var(--s8);background:var(--ground);border:var(--hairline) solid var(--sheet-edge);border-bottom:0;border-radius:var(--r-lg) var(--r-lg) 0 0}
 .rhead{display:flex;justify-content:space-between;align-items:flex-start}
-.rhead h2{margin:0;font:var(--t-title);letter-spacing:-.012em}
-.rcounts{margin:var(--s2) 0 0;font:600 13px/19px var(--font)}
+.rhead h2{margin:0;font:var(--t-title);letter-spacing:var(--track-title)}
+.rcounts{margin:var(--s2) 0 0;font:var(--t-small);font-weight:600}
 .rhead .meta{margin-top:var(--s1)}
-.group{margin:var(--s6) 0 var(--s2);font:600 11.5px/16px var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.group{margin:var(--s6) 0 var(--s2);font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .stages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
-.stage{background:var(--cutout);border-radius:var(--r-md);box-shadow:inset 0 0 0 1px var(--line)}
-.stage.s-skipped{background:transparent;box-shadow:none;outline:1px dashed var(--line-strong);outline-offset:-1px}
-.sum{display:grid;grid-template-columns:24px 184px minmax(0,1fr) 56px;gap:var(--s3);align-items:center;min-height:44px;padding:var(--s2) var(--s4)}
-.n{font:400 12px/16px var(--mono);color:var(--text-3);font-variant-numeric:tabular-nums}
-.sname{font:600 14.5px/21px var(--font)}
+.stage{background:var(--cutout);border-radius:var(--r-md);box-shadow:inset 0 0 0 var(--hairline) var(--line)}
+.stage.s-skipped{background:transparent;box-shadow:none;outline:var(--hairline) dashed var(--line-strong);outline-offset:calc(var(--hairline) * -1)}
+.sum{display:grid;grid-template-columns:var(--s6) var(--stage-name-w) minmax(0,1fr) var(--s12);gap:var(--s3);align-items:center;min-height:calc(var(--s10) + var(--s1));padding:var(--s2) var(--s4)}
+.n{font:var(--t-code);color:var(--text-3);font-variant-numeric:tabular-nums}
+.sname{font:var(--t-body);font-weight:600}
 .res{display:flex;align-items:center;gap:var(--s2);font:var(--t-small);color:var(--text-2)}
-.res .ic{width:15px;height:15px}
-.g-problem{color:var(--problem)} .g-note{color:var(--note)} .g-skipped{color:var(--text-3)} .g-checked{color:var(--text-2)}
+.g-problem{color:var(--problem)} .g-note{color:var(--note)} .g-skipped{color:var(--skipped)} .g-checked{color:var(--checked)}
 .s-problem .res span{color:var(--problem);font-weight:600}
 .s-note .res span{color:var(--note);font-weight:600}
-.time{text-align:right;font:400 12px/16px var(--mono);color:var(--text-3);font-variant-numeric:tabular-nums}
-.sbody{padding:0 var(--s4) var(--s4) calc(var(--s4) + 24px + var(--s3))}
+.time{text-align:right;font:var(--t-code);color:var(--text-3);font-variant-numeric:tabular-nums}
+.sbody{padding:0 var(--s4) var(--s4) calc(var(--s4) + var(--s6) + var(--s3))}
 .sbody .callout{margin-top:0}
 .slots{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s1)}
-.slot{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 var(--s3) 0 var(--s2);font:400 12px/1 var(--font);border:1px dashed var(--line-strong);border-radius:var(--r-sm)}
-.slot code{font-size:11.5px;font-weight:500;color:var(--text)}
-.slot small{color:var(--text-3);font-size:11.5px}
-.slot .ic{width:13px;height:13px;color:var(--text-3)}
-.dveil{background:rgba(10,11,9,.30)}
-.dlg{position:absolute;left:50%;top:248px;transform:translateX(-50%);width:468px;padding:var(--s2);border-radius:var(--r-xl);
-  background:color-mix(in srgb,var(--lime) 7%,rgba(70,72,66,.45));backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%);
-  border:1px solid rgba(255,255,255,.14);box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.sheet{padding:var(--s5) var(--s6);background:var(--raised);border:1px solid rgba(255,255,255,.05);border-radius:var(--r-lg)}
-.sheet h2{margin:0 0 var(--s2);font:var(--t-heading);letter-spacing:-.008em}
+.slot{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);font:var(--t-micro);font-weight:400;border:var(--hairline) dashed var(--line-strong);border-radius:var(--r-sm)}
+.slot code{font:var(--t-code);line-height:1;font-weight:500;color:var(--text)}
+.slot small{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.slot .ic{width:var(--icon-s);height:var(--icon-s);color:var(--text-3)}
+.dlg{position:absolute;left:50%;top:calc(var(--s12) * 5);transform:translateX(-50%);width:calc(var(--panel-w) + var(--s12) + var(--s8));padding:var(--s2);border-radius:var(--r-xl);
+  background:var(--acrylic-dialog);backdrop-filter:var(--acrylic-blur);-webkit-backdrop-filter:var(--acrylic-blur);border:var(--hairline) solid var(--acrylic-edge);box-shadow:var(--shadow-sheet)}
+.sheet{padding:var(--s5) var(--s6);background:var(--raised);border:var(--hairline) solid var(--sheet-edge);border-radius:var(--r-lg)}
+.sheet h2{margin:0 0 var(--s2);font:var(--t-heading);letter-spacing:var(--track-heading)}
 .sheet p{margin:0;font:var(--t-small);color:var(--text-2)}
 .sheet p+p{margin-top:var(--s2)}
 .dact{display:flex;justify-content:flex-end;gap:var(--s2);margin-top:var(--s5)}
-
-/* --- the system, shown --- */
-.sys{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:var(--s10)}
-.sys>div>h3{margin:0 0 var(--s3);font:600 11.5px/16px var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
-.sys>div>h3:not(:first-child){margin-top:var(--s8)}
-.sys>.wide{grid-column:1/-1;padding-top:var(--s2);border-top:1px solid var(--line)}
-.sys>.wide>h3{margin-top:var(--s6)!important}
-.swatches{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:var(--s3) var(--s4)}
-.swatches li{display:grid;grid-template-columns:40px 1fr;column-gap:var(--s3);font:400 12px/16px var(--font);color:var(--text-2)}
-.swatches .chip{grid-row:1/4;width:40px;height:48px;border-radius:var(--r-sm);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
-.swatches b{font:500 12px/16px var(--mono);color:var(--text)}
-.swatches .cr{color:var(--text-3);font-variant-numeric:tabular-nums}
-.types{list-style:none;margin:0;padding:0}
-.types li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:var(--s3);align-items:baseline;padding:var(--s3) 0;border-top:1px solid var(--line)}
-.types li>span:first-child{font:400 12px/16px var(--mono);color:var(--text-3)}
-.row-of{display:flex;align-items:flex-end;gap:var(--s4);flex-wrap:wrap}
-.row-of>div{display:flex;flex-direction:column;align-items:center;gap:6px;font:400 12px/16px var(--font);color:var(--text-3)}
-.row-of i{display:block;background:color-mix(in srgb,var(--lime) 55%,transparent);border-radius:2px}
-.radii i{width:44px;height:44px;background:var(--control);box-shadow:inset 0 0 0 1px var(--line-strong)}
-.row-of .ic{width:20px;height:20px;color:var(--text)}
-.tagsrow{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap}
-.states{display:grid;justify-items:start;grid-template-columns:120px repeat(4,max-content);gap:var(--s3) var(--s4);align-items:center}
-.states>span:not(.btn){font:400 12px/16px var(--font);color:var(--text-3)}
-.states .links{display:contents}
-.states-rows{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3);margin-top:var(--s5)}
-.states-rows figure{margin:0}
-.states-rows figcaption{margin-top:6px;font:400 12px/16px var(--font);color:var(--text-3)}
-@media (max-width:1100px){.sys{grid-template-columns:minmax(0,1fr)}.ml .card{padding:var(--s5)}.states-rows{grid-template-columns:minmax(0,1fr)}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){.ml *{transition:none!important}}
 </style></head>
 <body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="j-fluent-library" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3.5C2 2.67 2.67 2 3.5 2h1C5.33 2 6 2.67 6 3.5v12.98c0 .83-.67 1.5-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5zM3.5 3a.5.5 0 0 0-.5.5v12.98c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 0-.5-.5zm3.5.5C7 2.67 7.67 2 8.5 2h1c.83 0 1.5.67 1.5 1.5v12.98c0 .83-.67 1.5-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5zM8.5 3a.5.5 0 0 0-.5.5v12.98c0 .28.22.5.5.5h1a.5.5 0 0 0 .5-.5V3.5a.5.5 0 0 0-.5-.5zm7.22 3.16a1.5 1.5 0 0 0-1.87-1.1l-.75.2A1.5 1.5 0 0 0 12.04 7l2 9.8c.18.84 1.02 1.36 1.84 1.15l.99-.25c.79-.2 1.27-1 1.1-1.78zM14.12 6a.5.5 0 0 1 .62.37L17 16.14a.5.5 0 0 1-.37.6l-.98.25a.5.5 0 0 1-.61-.39l-2-9.8a.5.5 0 0 1 .35-.58z"/></symbol><symbol id="j-fluent-globe" viewBox="0 0 20 20" fill="currentColor"><path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16m0-15c.66 0 1.4.59 2.02 1.9q.33.71.56 1.6H7.42q.23-.89.56-1.6C8.59 3.6 9.34 3 10 3M7.07 4.49q-.4.9-.68 2.01H3.94A7 7 0 0 1 7.7 3.38q-.36.5-.64 1.1M6.2 7.5a16 16 0 0 0 0 5H3.46a7 7 0 0 1 0-5zm.2 6q.26 1.12.68 2.01.28.61.64 1.1a7 7 0 0 1-3.77-3.11zm1.03 0h5.16a9 9 0 0 1-.56 1.6C11.41 16.4 10.66 17 10 17s-1.4-.59-2.02-1.9q-.33-.71-.56-1.6m5.37-1H7.21a15 15 0 0 1 0-5h5.58a15 15 0 0 1 0 5m.82 1h2.45a7 7 0 0 1-3.77 3.12q.36-.5.64-1.1.4-.9.68-2.02m2.93-1h-2.73a16 16 0 0 0 0-5h2.73a7 7 0 0 1 0 5m-4.25-9.12a7 7 0 0 1 3.77 3.12h-2.45a11 11 0 0 0-.68-2.01q-.28-.61-.64-1.1"/></symbol><symbol id="j-fluent-folder" viewBox="0 0 20 20" fill="currentColor"><path d="M4.5 3A2.5 2.5 0 0 0 2 5.5v9A2.5 2.5 0 0 0 4.5 17h11a2.5 2.5 0 0 0 2.5-2.5v-7A2.5 2.5 0 0 0 15.5 5H9.7L8.23 3.51A1.8 1.8 0 0 0 6.98 3zM3 5.5C3 4.67 3.67 4 4.5 4h2.48q.32 0 .53.22L8.8 5.5 7.44 6.85a.5.5 0 0 1-.35.15H3zM3 8h4.09c.4 0 .78-.16 1.06-.44L9.7 6h5.79c.83 0 1.5.67 1.5 1.5v7c0 .83-.67 1.5-1.5 1.5h-11A1.5 1.5 0 0 1 3 14.5z"/></symbol><symbol id="j-fluent-options" viewBox="0 0 20 20" fill="currentColor"><path d="M14.95 5a2.5 2.5 0 0 0-4.9 0H2.5a.5.5 0 0 0 0 1h7.55a2.5 2.5 0 0 0 4.9 0h2.55a.5.5 0 0 0 0-1zM12.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m-2.55 7a2.5 2.5 0 0 0-4.9 0H2.5a.5.5 0 0 0 0 1h2.55a2.5 2.5 0 0 0 4.9 0h7.55a.5.5 0 0 0 0-1zM7.5 16a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/></symbol><symbol id="j-fluent-share" viewBox="0 0 20 20" fill="currentColor"><path d="M9.5 3a.5.5 0 0 1 0 1H6a2 2 0 0 0-2 2v8c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2v-1.5a.5.5 0 0 1 1 0V14a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3zm3.8-.96a.5.5 0 0 1 .53.09l5 4.5a.5.5 0 0 1 0 .74l-5 4.5a.5.5 0 0 1-.83-.37V9.34c-1.4.13-2.67.78-3.7 1.6a10 10 0 0 0-2.2 2.5l-.15.28A.5.5 0 0 1 6 13.5c0-2.05.38-4.28 1.52-6.02A6.6 6.6 0 0 1 13 4.5V2.43a.5.5 0 0 1 .3-.39M14 5a.5.5 0 0 1-.5.5c-2.59 0-4.18 1.05-5.14 2.52a9 9 0 0 0-1.25 3.69 11 11 0 0 1 1.56-1.54 7.8 7.8 0 0 1 4.83-1.85c.28 0 .5.22.5.5v1.56L17.75 7 14 3.62z"/></symbol><symbol id="j-fluent-copy" viewBox="0 0 20 20" fill="currentColor"><path d="M7 7H5.5C4.67 7 4 7.67 4 8.5v6c0 .83.67 1.5 1.5 1.5h4c.65 0 1.2-.42 1.41-1h1.04a2.5 2.5 0 0 1-2.45 2h-4A2.5 2.5 0 0 1 3 14.5v-6A2.5 2.5 0 0 1 5.5 6H7zm7.5-4A2.5 2.5 0 0 1 17 5.5v6a2.5 2.5 0 0 1-2.5 2.5h-4A2.5 2.5 0 0 1 8 11.5v-6A2.5 2.5 0 0 1 10.5 3zm-4 1C9.67 4 9 4.67 9 5.5v6c0 .83.67 1.5 1.5 1.5h4c.83 0 1.5-.67 1.5-1.5v-6c0-.83-.67-1.5-1.5-1.5z"/></symbol><symbol id="j-fluent-arrow_export_ltr" viewBox="0 0 20 20" fill="currentColor"><path d="M2.5 4c.28 0 .5.22.5.5v11a.5.5 0 0 1-1 0v-11c0-.28.22-.5.5-.5M5 10c0-.28.22-.5.5-.5h10.8l-3.15-3.15a.5.5 0 0 1 .7-.7l4 4a.5.5 0 0 1 0 .7l-4 4a.5.5 0 0 1-.7-.7l3.14-3.15H5.5A.5.5 0 0 1 5 10"/></symbol><symbol id="j-fluent-dismiss" viewBox="0 0 20 20" fill="currentColor"><path d="m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07z"/></symbol><symbol id="j-fluent-link" viewBox="0 0 20 20" fill="currentColor"><path d="M8 6a.5.5 0 0 1 .09 1H6a3 3 0 0 0-.2 6H8a.5.5 0 0 1 .09 1H6a4 4 0 0 1-.22-8H8m6 0a4 4 0 0 1 .22 8H12a.5.5 0 0 1-.09-1H14a3 3 0 0 0 .2-6H12a.5.5 0 0 1-.09-1H14M6 9.5h8a.5.5 0 0 1 .09 1H6a.5.5 0 0 1-.09-1zh8z"/></symbol><symbol id="j-fluent-link_dismiss" viewBox="0 0 20 20" fill="currentColor"><path d="M8 4a.5.5 0 0 1 .09 1H6a3 3 0 0 0-.2 6H8a.5.5 0 0 1 .09 1H6a4 4 0 0 1-.22-8H8m6 0a4 4 0 0 1 3.52 5.9 6 6 0 0 0-.88-.47Q16.99 8.8 17 8a3 3 0 0 0-2.8-3H12a.5.5 0 0 1-.09-1H14M6 7.5h8a.5.5 0 0 1 .09 1H6a.5.5 0 0 1-.09-1zm13 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0m-2.73-1.06a.5.5 0 0 0-.7-.7l-1.07 1.05-1.06-1.06a.5.5 0 0 0-.7.7l1.05 1.07-1.06 1.06a.5.5 0 0 0 .7.7l1.07-1.05 1.06 1.06a.5.5 0 0 0 .7-.7l-1.05-1.07z"/></symbol><symbol id="j-fluent-arrow_turn_down_right" viewBox="0 0 20 20" fill="currentColor"><path d="M11.15 16.85c.2.2.5.2.7 0l4-4a.5.5 0 0 0 0-.7l-4-4a.5.5 0 0 0-.7.7L14.29 12H8a2 2 0 0 1-2-2V3.5a.5.5 0 0 0-1 0V10a3 3 0 0 0 3 3h6.3l-3.15 3.15a.5.5 0 0 0 0 .7"/></symbol><symbol id="j-fluent-key" viewBox="0 0 20 20" fill="currentColor"><path d="M15 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-2.5-4a5.45 5.45 0 0 0-5.38 6.67q.08.42-.14.64l-4.54 4.54A1.5 1.5 0 0 0 2 14.91v1.59c0 .83.67 1.5 1.5 1.5h2c.83 0 1.5-.67 1.5-1.5V16h1a1 1 0 0 0 1-1v-1h1a1 1 0 0 0 1-1v-.18q.75.19 1.5.18c3.08 0 5.5-2.42 5.5-5.5S15.58 2 12.5 2M8 7.5C8 4.98 9.98 3 12.5 3S17 4.98 17 7.5 15.02 12 12.5 12q-1 .01-1.78-.35a.5.5 0 0 0-.72.45v.9H9a1 1 0 0 0-1 1v1H7a1 1 0 0 0-1 1v.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.59a.5.5 0 0 1 .15-.35l4.54-4.54c.43-.43.52-1.04.4-1.56Q8 8 8 7.5"/></symbol><symbol id="j-fluent-error_circle" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16m0 1a7 7 0 1 0 0 14 7 7 0 0 0 0-14m0 9.5a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5M10 6a.5.5 0 0 1 .5.41V11a.5.5 0 0 1-1 .09V6.5c0-.28.22-.5.5-.5"/></symbol><symbol id="j-fluent-info" viewBox="0 0 20 20" fill="currentColor"><path d="M10.5 8.91a.5.5 0 0 0-1 .09v4.6a.5.5 0 0 0 1-.1V8.91m.3-2.16a.75.75 0 1 0-1.5 0 .75.75 0 0 0 1.5 0M18 10a8 8 0 1 0-16 0 8 8 0 0 0 16 0M3 10a7 7 0 1 1 14 0 7 7 0 0 1-14 0"/></symbol><symbol id="j-fluent-prohibited" viewBox="0 0 20 20" fill="currentColor"><path d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0m-1 0c0-1.75-.64-3.36-1.7-4.58l-9.88 9.87A7 7 0 0 0 17 10M4.7 14.58l9.88-9.87a7 7 0 0 0-9.87 9.87"/></symbol><symbol id="j-fluent-checkmark" viewBox="0 0 20 20" fill="currentColor"><path d="M3.37 10.17a.5.5 0 0 0-.74.66l4 4.5c.19.22.52.23.72.02l10.5-10.5a.5.5 0 0 0-.7-.7L7.02 14.27z"/></symbol><symbol id="j-fluent-puzzle_piece" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3c-.69 0-1.25.56-1.25 1.25V5H6.5a.5.5 0 0 0-.5.5v3.25h-.75a1.25 1.25 0 1 0 0 2.5H6v3.25c0 .28.22.5.5.5h3.25v.75a1.25 1.25 0 1 0 2.5 0V15h3.25a.5.5 0 0 0 .5-.5v-2.25h-.75a2.25 2.25 0 0 1 0-4.5H16V5.5a.5.5 0 0 0-.5-.5h-3.25v-.75C12.25 3.56 11.69 3 11 3M8.76 4a2.25 2.25 0 0 1 4.48 0h2.26c.83 0 1.5.67 1.5 1.5v3.25h-1.75a1.25 1.25 0 1 0 0 2.5H17v3.25c0 .83-.67 1.5-1.5 1.5h-2.26a2.25 2.25 0 0 1-4.48 0H6.5A1.5 1.5 0 0 1 5 14.5v-2.26a2.25 2.25 0 0 1 0-4.48V5.5C5 4.67 5.67 4 6.5 4z"/></symbol><symbol id="j-fluent-bot" viewBox="0 0 20 20" fill="currentColor"><path d="M12 5.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-5 1a1 1 0 1 1 2 0 1 1 0 0 1-2 0m3.5-4a.5.5 0 0 0-1 0V3h-3C5.67 3 5 3.67 5 4.5v4c0 .83.67 1.5 1.5 1.5h7c.83 0 1.5-.67 1.5-1.5v-4c0-.83-.67-1.5-1.5-1.5h-3zM6.5 4h7c.28 0 .5.22.5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-4c0-.28.22-.5.5-.5m3.75 14c2.62-.04 4.2-.6 5.12-1.44A3.5 3.5 0 0 0 16.5 14h.01v-.69c0-1-.81-1.8-1.8-1.8h-3.2v-.01H5.3c-.99 0-1.8.81-1.8 1.81v.7c.04.77.25 1.75 1.13 2.55.93.84 2.5 1.4 5.12 1.44zm-4.94-5.5h9.38c.45 0 .81.37.81.81v.44c0 .69-.13 1.46-.8 2.07C14 16.45 12.66 17 10 17s-4.01-.55-4.7-1.18a2.6 2.6 0 0 1-.8-2.07v-.44c0-.44.36-.8.8-.8"/></symbol><symbol id="j-fluent-prompt" viewBox="0 0 20 20" fill="currentColor"><path d="M17 2.5a.5.5 0 0 0-1 0V3h-.5a.5.5 0 0 0 0 1h.5v.5a.5.5 0 0 0 1 0V4h.5a.5.5 0 0 0 0-1H17zm-13 13a.5.5 0 0 0-1 0v.5h-.5a.5.5 0 0 0 0 1H3v.5a.5.5 0 0 0 1 0V17h.5a.5.5 0 0 0 0-1H4zm3-1.56V15a3 3 0 0 0 3 3h5a3 3 0 0 0 3-3v-5a3 3 0 0 0-3-3h-1.06a2 2 0 0 1 0 1H15a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2v-1.06a2 2 0 0 1-1 0m3.5-.94a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm-.5-1.5c0-.28.22-.5.5-.5H15a.5.5 0 0 1 0 1h-4.5a.5.5 0 0 1-.5-.5M7.24 3.26c.04-.17.18-.26.26-.26s.22.09.26.26a5.14 5.14 0 0 0 3.98 3.98c.17.04.26.17.26.26s-.09.22-.26.26c-.67.14-1.7.5-2.6 1.39-.89.9-1.24 1.92-1.38 2.59-.04.17-.17.26-.26.26s-.22-.09-.26-.26a5.14 5.14 0 0 0-3.98-3.98C3.1 7.72 3 7.59 3 7.5s.09-.22.26-.26a5.15 5.15 0 0 0 3.98-3.98M7.5 2c-.65 0-1.12.51-1.24 1.06s-.4 1.37-1.11 2.09-1.54 1-2.09 1.11S2 6.86 2 7.5c0 .65.52 1.13 1.06 1.24.55.11 1.37.4 2.09 1.11s1 1.54 1.11 2.1c.12.54.59 1.05 1.24 1.05s1.13-.51 1.24-1.06.4-1.37 1.11-2.09 1.54-1 2.1-1.11C12.48 8.63 13 8.15 13 7.5s-.51-1.13-1.06-1.24a4 4 0 0 1-2.09-1.11c-.71-.72-1-1.54-1.11-2.1C8.63 2.52 8.15 2 7.5 2"/></symbol><symbol id="j-fluent-plug_connected" viewBox="0 0 20 20" fill="currentColor"><path d="M17.85 2.85a.5.5 0 0 0-.7-.7L14.48 4.8a4.04 4.04 0 0 0-5.33.34l-.3.3a1.5 1.5 0 0 0 0 2.1l3.6 3.6c.58.59 1.52.59 2.1 0l.3-.3a4.04 4.04 0 0 0 .34-5.33zm-4 7.6c-.2.19-.5.19-.7 0l-3.6-3.6c-.19-.2-.19-.5 0-.7l.3-.3a3.04 3.04 0 0 1 4.3 4.3zm-6.3-1.6a1.5 1.5 0 0 0-2.1 0l-.3.3a4.04 4.04 0 0 0-.34 5.33l-2.66 2.67a.5.5 0 0 0 .7.7l2.67-2.66a4.04 4.04 0 0 0 5.33-.34l.3-.3c.59-.58.59-1.52 0-2.1zm-1.4.7c.2-.19.5-.19.7 0l3.6 3.6c.19.2.19.5 0 .7l-.3.3a3.04 3.04 0 1 1-4.3-4.3z"/></symbol><symbol id="j-fluent-script" viewBox="0 0 20 20" fill="currentColor"><path d="M16.56 2H6.5A2.5 2.5 0 0 0 4 4.5V13H2a1 1 0 0 0-1 1v1.69A2.3 2.3 0 0 0 3.38 18h9.14A2.5 2.5 0 0 0 15 15.53V7h3a1 1 0 0 0 1-1V4.5A2.5 2.5 0 0 0 16.56 2M6.5 3h8q-.45.6-.5 1.38V15.5a1.5 1.5 0 0 1-3 0V14a1 1 0 0 0-1-1H5V4.5C5 3.67 5.67 3 6.5 3m10 0c.83 0 1.5.67 1.5 1.5V6h-3V4.5c0-.83.67-1.5 1.5-1.5M2 14h8v1.5q.02.85.5 1.5H3.38C2.59 17 2 16.42 2 15.69z"/></symbol><symbol id="j-fluent-app_generic" viewBox="0 0 20 20" fill="currentColor"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3h9A2.5 2.5 0 0 1 17 5.5v9a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 3 14.5zM5.5 4C4.67 4 4 4.67 4 5.5V6h12v-.5c0-.83-.67-1.5-1.5-1.5zM16 7H4v7.5c0 .83.67 1.5 1.5 1.5h9c.83 0 1.5-.67 1.5-1.5zM5 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1zm3 0H6v5h2zm2 1.5c0-.28.22-.5.5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m.5-2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z"/></symbol><symbol id="j-phosphor-library" viewBox="0 0 256 256" fill="currentColor"><path d="M231.65,194.55,198.46,36.75a16,16,0,0,0-19-12.39L132.65,34.42a16.08,16.08,0,0,0-12.3,19l33.19,157.8A16,16,0,0,0,169.16,224a16.25,16.25,0,0,0,3.38-.36l46.81-10.06A16.09,16.09,0,0,0,231.65,194.55ZM136,50.15c0-.06,0-.09,0-.09l46.8-10,3.33,15.87L139.33,66Zm6.62,31.47,46.82-10.05,3.34,15.9L146,97.53Zm6.64,31.57,46.82-10.06,13.3,63.24-46.82,10.06ZM216,197.94l-46.8,10-3.33-15.87L212.67,182,216,197.85C216,197.91,216,197.94,216,197.94ZM104,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V48A16,16,0,0,0,104,32ZM56,48h48V64H56Zm0,32h48v96H56Zm48,128H56V192h48v16Z"/></symbol><symbol id="j-phosphor-globe" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"/></symbol><symbol id="j-phosphor-folder" viewBox="0 0 256 256" fill="currentColor"><path d="M216,72H131.31L104,44.69A15.86,15.86,0,0,0,92.69,40H40A16,16,0,0,0,24,56V200.62A15.4,15.4,0,0,0,39.38,216H216.89A15.13,15.13,0,0,0,232,200.89V88A16,16,0,0,0,216,72ZM40,56H92.69l16,16H40ZM216,200H40V88H216Z"/></symbol><symbol id="j-phosphor-options" viewBox="0 0 256 256" fill="currentColor"><path d="M40,88H73a32,32,0,0,0,62,0h81a8,8,0,0,0,0-16H135a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16Zm64-24A16,16,0,1,1,88,80,16,16,0,0,1,104,64ZM216,168H199a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16h97a32,32,0,0,0,62,0h17a8,8,0,0,0,0-16Zm-48,24a16,16,0,1,1,16-16A16,16,0,0,1,168,192Z"/></symbol><symbol id="j-phosphor-share" viewBox="0 0 256 256" fill="currentColor"><path d="M176,160a39.89,39.89,0,0,0-28.62,12.09l-46.1-29.63a39.8,39.8,0,0,0,0-28.92l46.1-29.63a40,40,0,1,0-8.66-13.45l-46.1,29.63a40,40,0,1,0,0,55.82l46.1,29.63A40,40,0,1,0,176,160Zm0-128a24,24,0,1,1-24,24A24,24,0,0,1,176,32ZM64,152a24,24,0,1,1,24-24A24,24,0,0,1,64,152Zm112,72a24,24,0,1,1,24-24A24,24,0,0,1,176,224Z"/></symbol><symbol id="j-phosphor-copy" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></symbol><symbol id="j-phosphor-arrow_export_ltr" viewBox="0 0 256 256" fill="currentColor"><path d="M216,112v96a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V112A16,16,0,0,1,56,96H80a8,8,0,0,1,0,16H56v96H200V112H176a8,8,0,0,1,0-16h24A16,16,0,0,1,216,112ZM93.66,69.66,120,43.31V136a8,8,0,0,0,16,0V43.31l26.34,26.35a8,8,0,0,0,11.32-11.32l-40-40a8,8,0,0,0-11.32,0l-40,40A8,8,0,0,0,93.66,69.66Z"/></symbol><symbol id="j-phosphor-dismiss" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol><symbol id="j-phosphor-link" viewBox="0 0 256 256" fill="currentColor"><path d="M240,88.23a54.43,54.43,0,0,1-16,37L189.25,160a54.27,54.27,0,0,1-38.63,16h-.05A54.63,54.63,0,0,1,96,119.84a8,8,0,0,1,16,.45A38.62,38.62,0,0,0,150.58,160h0a38.39,38.39,0,0,0,27.31-11.31l34.75-34.75a38.63,38.63,0,0,0-54.63-54.63l-11,11A8,8,0,0,1,135.7,59l11-11A54.65,54.65,0,0,1,224,48,54.86,54.86,0,0,1,240,88.23ZM109,185.66l-11,11A38.41,38.41,0,0,1,70.6,208h0a38.63,38.63,0,0,1-27.29-65.94L78,107.31A38.63,38.63,0,0,1,144,135.71a8,8,0,0,0,16,.45A54.86,54.86,0,0,0,144,96a54.65,54.65,0,0,0-77.27,0L32,130.75A54.62,54.62,0,0,0,70.56,224h0a54.28,54.28,0,0,0,38.64-16l11-11A8,8,0,0,0,109,185.66Z"/></symbol><symbol id="j-phosphor-link_dismiss" viewBox="0 0 256 256" fill="currentColor"><path d="M198.63,57.37a32,32,0,0,0-45.19-.06L141.79,69.52a8,8,0,0,1-11.58-11l11.72-12.29a1.59,1.59,0,0,1,.13-.13,48,48,0,0,1,67.88,67.88,1.59,1.59,0,0,1-.13.13l-12.29,11.72a8,8,0,0,1-11-11.58l12.21-11.65A32,32,0,0,0,198.63,57.37ZM114.21,186.48l-11.65,12.21a32,32,0,0,1-45.25-45.25l12.21-11.65a8,8,0,0,0-11-11.58L46.19,141.93a1.59,1.59,0,0,0-.13.13,48,48,0,0,0,67.88,67.88,1.59,1.59,0,0,0,.13-.13l11.72-12.29a8,8,0,1,0-11.58-11ZM216,152H192a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16ZM40,104H64a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16Zm120,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V192A8,8,0,0,0,160,184ZM96,72a8,8,0,0,0,8-8V40a8,8,0,0,0-16,0V64A8,8,0,0,0,96,72Z"/></symbol><symbol id="j-phosphor-arrow_turn_down_right" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,181.66l-48,48a8,8,0,0,1-11.32-11.32L196.69,184H72a8,8,0,0,1-8-8V32a8,8,0,0,1,16,0V168H196.69l-34.35-34.34a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,221.66,181.66Z"/></symbol><symbol id="j-phosphor-key" viewBox="0 0 256 256" fill="currentColor"><path d="M216.57,39.43A80,80,0,0,0,83.91,120.78L28.69,176A15.86,15.86,0,0,0,24,187.31V216a16,16,0,0,0,16,16H72a8,8,0,0,0,8-8V208H96a8,8,0,0,0,8-8V184h16a8,8,0,0,0,5.66-2.34l9.56-9.57A79.73,79.73,0,0,0,160,176h.1A80,80,0,0,0,216.57,39.43ZM224,98.1c-1.09,34.09-29.75,61.86-63.89,61.9H160a63.7,63.7,0,0,1-23.65-4.51,8,8,0,0,0-8.84,1.68L116.69,168H96a8,8,0,0,0-8,8v16H72a8,8,0,0,0-8,8v16H40V187.31l58.83-58.82a8,8,0,0,0,1.68-8.84A63.72,63.72,0,0,1,96,95.92c0-34.14,27.81-62.8,61.9-63.89A64,64,0,0,1,224,98.1ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></symbol><symbol id="j-phosphor-error_circle" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm-8-80V80a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,172Z"/></symbol><symbol id="j-phosphor-info" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/></symbol><symbol id="j-phosphor-prohibited" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm88,104a87.56,87.56,0,0,1-20.41,56.28L71.72,60.4A88,88,0,0,1,216,128ZM40,128A87.56,87.56,0,0,1,60.41,71.72L184.28,195.6A88,88,0,0,1,40,128Z"/></symbol><symbol id="j-phosphor-checkmark" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="j-phosphor-puzzle_piece" viewBox="0 0 256 256" fill="currentColor"><path d="M220.27,158.54a8,8,0,0,0-7.7-.46,20,20,0,1,1,0-36.16A8,8,0,0,0,224,114.69V72a16,16,0,0,0-16-16H171.78a35.36,35.36,0,0,0,.22-4,36.11,36.11,0,0,0-11.36-26.24,36,36,0,0,0-60.55,23.62,36.56,36.56,0,0,0,.14,6.62H64A16,16,0,0,0,48,72v32.22a35.36,35.36,0,0,0-4-.22,36.12,36.12,0,0,0-26.24,11.36,35.7,35.7,0,0,0-9.69,27,36.08,36.08,0,0,0,33.31,33.6,35.68,35.68,0,0,0,6.62-.14V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V165.31A8,8,0,0,0,220.27,158.54ZM208,208H64V165.31a8,8,0,0,0-11.43-7.23,20,20,0,1,1,0-36.16A8,8,0,0,0,64,114.69V72h46.69a8,8,0,0,0,7.23-11.43,20,20,0,1,1,36.16,0A8,8,0,0,0,161.31,72H208v32.23a35.68,35.68,0,0,0-6.62-.14A36,36,0,0,0,204,176a35.36,35.36,0,0,0,4-.22Z"/></symbol><symbol id="j-phosphor-bot" viewBox="0 0 256 256" fill="currentColor"><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16Zm-52-56H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Z"/></symbol><symbol id="j-phosphor-prompt" viewBox="0 0 256 256" fill="currentColor"><path d="M216,48H40A16,16,0,0,0,24,64V224a15.85,15.85,0,0,0,9.24,14.5A16.13,16.13,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78l.09-.07L83,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM40,224h0ZM216,192H80a8,8,0,0,0-5.23,1.95L40,224V64H216ZM88,112a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,112Zm0,32a8,8,0,0,1,8-8h64a8,8,0,1,1,0,16H96A8,8,0,0,1,88,144Z"/></symbol><symbol id="j-phosphor-plug_connected" viewBox="0 0 256 256" fill="currentColor"><path d="M237.66,66.34a8,8,0,0,0-11.32,0L192,100.69,155.31,64l34.35-34.34a8,8,0,1,0-11.32-11.32L144,52.69,117.66,26.34a8,8,0,0,0-11.32,11.32L112.69,44l-53,53a40,40,0,0,0,0,56.57l15.71,15.71L26.34,218.34a8,8,0,0,0,11.32,11.32l49.09-49.09,15.71,15.71a40,40,0,0,0,56.57,0l53-53,6.34,6.35a8,8,0,0,0,11.32-11.32L203.31,112l34.35-34.34A8,8,0,0,0,237.66,66.34ZM147.72,185a24,24,0,0,1-33.95,0L71,142.23a24,24,0,0,1,0-33.95l53-53L200.69,132Z"/></symbol><symbol id="j-phosphor-script" viewBox="0 0 256 256" fill="currentColor"><path d="M181.66,146.34a8,8,0,0,1,0,11.32l-24,24a8,8,0,0,1-11.32-11.32L164.69,152l-18.35-18.34a8,8,0,0,1,11.32-11.32Zm-72-24a8,8,0,0,0-11.32,0l-24,24a8,8,0,0,0,0,11.32l24,24a8,8,0,0,0,11.32-11.32L91.31,152l18.35-18.34A8,8,0,0,0,109.66,122.34ZM216,88V216a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88Zm-56-8h28.69L160,51.31Zm40,136V96H152a8,8,0,0,1-8-8V40H56V216H200Z"/></symbol><symbol id="j-phosphor-app_generic" viewBox="0 0 256 256" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM80,84A12,12,0,1,1,68,72,12,12,0,0,1,80,84Zm40,0a12,12,0,1,1-12-12A12,12,0,0,1,120,84Z"/></symbol><symbol id="j-lucide-library" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6 4 14" />
   <path d="M12 6v14" />
@@ -264,12 +244,12 @@ body{margin:0;background:var(--page);color:var(--page-ink);font:15px/1.55 system
   <path d="M2 8h20" />
   <path d="M6 4v4" /></symbol></svg>
 <header class="pagehead">
-  <h1>Mica · Lime — the working style</h1>
-  <p>Fixed by the owner on 11 Oct 2026 (<code>concept.md</code>, <i>Working style</i>): a top bar with the current place as a raised tile, the active row marked by a lime pill, findings as tinted tags, no rings anywhere. <b>This is the polish pass</b>: one stylesheet in tokens — a 4 px spacing scale, six type sizes, six radii, the colours with their contrast — and the states of every control. Every word on the screens is from <code>microcopy.md</code>.</p>
-  <div class="bar"><span class="k">Jump to</span><a href="#screen">The screen</a><a href="#export">Export</a><a href="#dialog">Dialog</a><a href="#system">The system</a></div>
+  <h1>Mica · Lime — the screens</h1>
+  <p>The working style on the fixed sample. Every value comes from <a href="tokens.css">tokens.css</a>; the system itself is laid out on <a href="concept.html">the stand</a>. Every word on the screens is from <code>microcopy.md</code>.</p>
+  <div class="bar"><span class="k">Jump to</span><a href="#screen">The screen</a><a href="#export">Export</a><a href="#dialog">Dialog</a><a href="concept.html">The stand</a></div>
 </header>
 <div class="ml">
-<section class="sec" id="screen" aria-labelledby="screen-h"><h2 id="screen-h">The project, with eslint-autofix open</h2><p>1:1 on a 1280 px canvas.</p>
+<section class="sec" id="screen" aria-labelledby="screen-h"><h2 id="screen-h">The project, with eslint-autofix open</h2><p>1:1 on the canvas width.</p>
   <div class="scale"><div class="native"><div class="app"><nav class="nav"><span class="product"><span class="logo"></span>AI Stack Builder</span><span class="links"><a><svg class="ic " aria-hidden="true"><use href="#j-lucide-library"/></svg>My library</a><a><svg class="ic " aria-hidden="true"><use href="#j-lucide-globe"/></svg>Public library</a><a class="on"><svg class="ic " aria-hidden="true"><use href="#j-lucide-folder"/></svg>Projects</a></span><span class="account"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=faces&auto=format&q=80" alt="" width="28" height="28"><span>Maya Chen</span></span></nav><main class="main">
   <header class="phead"><div class="ptitle"><p class="crumb">Projects /</p><h1>acme-billing-api</h1>
     <p class="pfactsline">14 items · 3 auto-added · 1 detached</p></div><div class="actions"><span class="btn"><svg class="ic " aria-hidden="true"><use href="#j-lucide-options"/></svg>Configure</span><span class="btn"><svg class="ic " aria-hidden="true"><use href="#j-lucide-share"/></svg>Share…</span><span class="btn"><svg class="ic " aria-hidden="true"><use href="#j-lucide-copy"/></svg>Duplicate</span><span class="btn primary"><svg class="ic " aria-hidden="true"><use href="#j-lucide-arrow_export_ltr"/></svg>Export…</span></div><div class="verdict"><p class="vline"><span class="dot vglyph" aria-hidden="true"></span><span>Checked 2 days ago · for Claude Code</span></p><p class="vcounts"><span class="c-problem"><svg class="ic " aria-hidden="true"><use href="#j-lucide-error_circle"/></svg>1 problem</span><span class="c-note"><svg class="ic " aria-hidden="true"><use href="#j-lucide-info"/></svg>2 notes</span><span class="c-skipped"><svg class="ic " aria-hidden="true"><use href="#j-lucide-prohibited"/></svg>1 skipped</span></p></div></header>
@@ -309,7 +289,7 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
       <span class="btn icon-only" title="Close"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg></span></header>
     <h3 class="group">Findings</h3><ol class="stages"><li class="stage s-checked"><div class="sum"><span class="n">01</span><span class="sname">Requirements</span><span class="res"><span class="dot g-checked" aria-hidden="true"></span><span>14 items · 3 auto-added · no cycles</span></span><span class="time">0.3 s</span></div></li><li class="stage s-problem"><div class="sum"><span class="n">02</span><span class="sname">Declared conflicts</span><span class="res"><svg class="ic g-problem" aria-hidden="true"><use href="#j-lucide-error_circle"/></svg><span>1 problem</span></span><span class="time">0.1 s</span></div><div class="sbody"><div class="callout c-problem"><span class="sev"><svg class="ic " aria-hidden="true"><use href="#j-lucide-error_circle"/></svg>Problem</span><span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span><span class="btn">Remove eslint-autofix…</span></div></div></li><li class="stage s-skipped"><div class="sum"><span class="n">03</span><span class="sname">Command names</span><span class="res"><svg class="ic g-skipped" aria-hidden="true"><use href="#j-lucide-prohibited"/></svg><span>Skipped — no item declares a command</span></span><span class="time">—</span></div></li><li class="stage s-checked"><div class="sum"><span class="n">04</span><span class="sname">Target paths</span><span class="res"><span class="dot g-checked" aria-hidden="true"></span><span>Checked — no two items write to the same path</span></span><span class="time">0.2 s</span></div></li><li class="stage s-note"><div class="sum"><span class="n">05</span><span class="sname">Env keys</span><span class="res"><svg class="ic g-note" aria-hidden="true"><use href="#j-lucide-info"/></svg><span>1 note · 3 keys named</span></span><span class="time">0.1 s</span></div><div class="sbody"><div class="callout c-note"><span class="sev"><svg class="ic " aria-hidden="true"><use href="#j-lucide-info"/></svg>Note</span><span><code>DATABASE_URL</code> (postgres-mcp), <code>GITHUB_TOKEN</code> (github-mcp) and <code>SENTRY_AUTH_TOKEN</code> (sentry-mcp) are needed. They go into <code>.env.example</code> as names; the receiving machine supplies the values.</span><span class="slots"><span class="slot"><svg class="ic " aria-hidden="true"><use href="#j-lucide-key"/></svg><code>DATABASE_URL</code><small>postgres-mcp</small></span><span class="slot"><svg class="ic " aria-hidden="true"><use href="#j-lucide-key"/></svg><code>GITHUB_TOKEN</code><small>github-mcp</small></span><span class="slot"><svg class="ic " aria-hidden="true"><use href="#j-lucide-key"/></svg><code>SENTRY_AUTH_TOKEN</code><small>sentry-mcp</small></span></span></div></div></li></ol>
   </div></section></div></div></div></section>
-<section class="sec" id="dialog" aria-labelledby="dialog-h"><h2 id="dialog-h">The remove dialog, over Export</h2><p>The same acrylic frame, smaller; the question on an opaque sheet.</p>
+<section class="sec" id="dialog" aria-labelledby="dialog-h"><h2 id="dialog-h">The remove dialog, over Export</h2><p>The same acrylic frame, smaller; the question on an opaque sheet; the remove in solid red.</p>
   <div class="scale"><div class="native"><div class="runwrap withdlg"><div class="app"><nav class="nav"><span class="product"><span class="logo"></span>AI Stack Builder</span><span class="links"><a><svg class="ic " aria-hidden="true"><use href="#j-lucide-library"/></svg>My library</a><a><svg class="ic " aria-hidden="true"><use href="#j-lucide-globe"/></svg>Public library</a><a class="on"><svg class="ic " aria-hidden="true"><use href="#j-lucide-folder"/></svg>Projects</a></span><span class="account"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=96&h=96&fit=crop&crop=faces&auto=format&q=80" alt="" width="28" height="28"><span>Maya Chen</span></span></nav><main class="main">
   <header class="phead"><div class="ptitle"><p class="crumb">Projects /</p><h1>acme-billing-api</h1>
     <p class="pfactsline">14 items · 3 auto-added · 1 detached</p></div><div class="actions"><span class="btn"><svg class="ic " aria-hidden="true"><use href="#j-lucide-options"/></svg>Configure</span><span class="btn"><svg class="ic " aria-hidden="true"><use href="#j-lucide-share"/></svg>Share…</span><span class="btn"><svg class="ic " aria-hidden="true"><use href="#j-lucide-copy"/></svg>Duplicate</span><span class="btn primary"><svg class="ic " aria-hidden="true"><use href="#j-lucide-arrow_export_ltr"/></svg>Export…</span></div><div class="verdict"><p class="vline"><span class="dot vglyph" aria-hidden="true"></span><span>Checked 2 days ago · for Claude Code</span></p><p class="vcounts"><span class="c-problem"><svg class="ic " aria-hidden="true"><use href="#j-lucide-error_circle"/></svg>1 problem</span><span class="c-note"><svg class="ic " aria-hidden="true"><use href="#j-lucide-info"/></svg>2 notes</span><span class="c-skipped"><svg class="ic " aria-hidden="true"><use href="#j-lucide-prohibited"/></svg>1 skipped</span></p></div></header>
@@ -323,23 +303,14 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
       <span class="btn icon-only" title="Close"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg></span></header>
     <h3 class="group">Findings</h3><ol class="stages"><li class="stage s-checked"><div class="sum"><span class="n">01</span><span class="sname">Requirements</span><span class="res"><span class="dot g-checked" aria-hidden="true"></span><span>14 items · 3 auto-added · no cycles</span></span><span class="time">0.3 s</span></div></li><li class="stage s-problem"><div class="sum"><span class="n">02</span><span class="sname">Declared conflicts</span><span class="res"><svg class="ic g-problem" aria-hidden="true"><use href="#j-lucide-error_circle"/></svg><span>1 problem</span></span><span class="time">0.1 s</span></div><div class="sbody"><div class="callout c-problem"><span class="sev"><svg class="ic " aria-hidden="true"><use href="#j-lucide-error_circle"/></svg>Problem</span><span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span><span class="btn">Remove eslint-autofix…</span></div></div></li><li class="stage s-skipped"><div class="sum"><span class="n">03</span><span class="sname">Command names</span><span class="res"><svg class="ic g-skipped" aria-hidden="true"><use href="#j-lucide-prohibited"/></svg><span>Skipped — no item declares a command</span></span><span class="time">—</span></div></li><li class="stage s-checked"><div class="sum"><span class="n">04</span><span class="sname">Target paths</span><span class="res"><span class="dot g-checked" aria-hidden="true"></span><span>Checked — no two items write to the same path</span></span><span class="time">0.2 s</span></div></li><li class="stage s-note"><div class="sum"><span class="n">05</span><span class="sname">Env keys</span><span class="res"><svg class="ic g-note" aria-hidden="true"><use href="#j-lucide-info"/></svg><span>1 note · 3 keys named</span></span><span class="time">0.1 s</span></div><div class="sbody"><div class="callout c-note"><span class="sev"><svg class="ic " aria-hidden="true"><use href="#j-lucide-info"/></svg>Note</span><span><code>DATABASE_URL</code> (postgres-mcp), <code>GITHUB_TOKEN</code> (github-mcp) and <code>SENTRY_AUTH_TOKEN</code> (sentry-mcp) are needed. They go into <code>.env.example</code> as names; the receiving machine supplies the values.</span><span class="slots"><span class="slot"><svg class="ic " aria-hidden="true"><use href="#j-lucide-key"/></svg><code>DATABASE_URL</code><small>postgres-mcp</small></span><span class="slot"><svg class="ic " aria-hidden="true"><use href="#j-lucide-key"/></svg><code>GITHUB_TOKEN</code><small>github-mcp</small></span><span class="slot"><svg class="ic " aria-hidden="true"><use href="#j-lucide-key"/></svg><code>SENTRY_AUTH_TOKEN</code><small>sentry-mcp</small></span></span></div></div></li></ol>
   </div></section><div class="dveil"></div><div class="dlg" role="dialog" aria-label="Remove eslint-autofix from acme-billing-api?"><div class="sheet"><h2>Remove eslint-autofix from acme-billing-api?</h2><p>It leaves this project only. It stays in My library and in the other projects that use it.</p><p class="meta">The check runs again as soon as it is removed.</p><div class="dact"><span class="btn">Cancel</span><span class="btn primary">Remove from project</span></div></div></div></div></div></div></section>
-<section class="sec" id="system" aria-labelledby="system-h"><h2 id="system-h">The system under it</h2><p>What stage 4 lifts into <code>tokens.css</code>. The states are drawn, so they can be judged without hovering.</p>
-  <div class="card"><div class="sys">
-  <div><h3>Colour — ratios computed at build</h3><ul class="swatches"><li><span class="chip" style="background:#1B1C19"></span><b>--ground #1B1C19</b><span>Mica ground, a faint lime tint</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#181916"></span><b>--bar #181916</b><span>the top bar</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#232420"></span><b>--tray #232420</b><span>the tray under the rows</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#1E1F1B"></span><b>--cutout #1E1F1B</b><span>a row’s cut-out</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#161714"></span><b>--well-deep #161714</b><span>a code block — darker than anything around it</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#2A2B27"></span><b>--raised #2A2B27</b><span>item panel, the active row, a sheet</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#2E302A"></span><b>--control #2E302A</b><span>a secondary button, a tag</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#383A33"></span><b>--control-hover #383A33</b><span>a secondary button, hovered</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#343630"></span><b>--line #343630</b><span>hairline</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#4A4C44"></span><b>--line-strong #4A4C44</b><span>a control’s edge, a dashed rule</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#F3F4EF"></span><b>--text #F3F4EF</b><span>text</span><span class="cr">14.1:1 on tray</span></li><li><span class="chip" style="background:#C5C7BE"></span><b>--text-2 #C5C7BE</b><span>secondary text</span><span class="cr">9.1:1 on tray</span></li><li><span class="chip" style="background:#A1A49A"></span><b>--text-3 #A1A49A</b><span>metadata, Skipped</span><span class="cr">5.6:1 on raised</span></li><li><span class="chip" style="background:#C6EF5A"></span><b>--lime #C6EF5A</b><span>brand: what you can press, where you are</span><span class="cr">13.4:1 on bar</span></li><li><span class="chip" style="background:#D3F57A"></span><b>--lime-hover #D3F57A</b><span>the primary button, hovered</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#141A08"></span><b>--on-lime #141A08</b><span>text on lime</span><span class="cr">13.5:1 on lime</span></li><li><span class="chip" style="background:#FF8F98"></span><b>--problem #FF8F98</b><span>Problem</span><span class="cr">6.5:1 on raised</span></li><li><span class="chip" style="background:#D4363F"></span><b>--danger #D4363F</b><span>a button that removes something</span><span class="cr">a surface</span></li><li><span class="chip" style="background:#FFFFFF"></span><b>--on-danger #FFFFFF</b><span>text on danger</span><span class="cr">4.8:1 on danger</span></li><li><span class="chip" style="background:#F2C661"></span><b>--note #F2C661</b><span>Note</span><span class="cr">8.8:1 on raised</span></li></ul>
-    <h3>Tags and findings</h3><div class="tagsrow"><span class="kind">script</span><span class="state st-conflict">Conflict</span><span class="state"><svg class="ic " aria-hidden="true"><use href="#j-lucide-arrow_turn_down_right"/></svg>Auto-added</span><span class="state"><svg class="ic " aria-hidden="true"><use href="#j-lucide-link_dismiss"/></svg>Detached</span><span class="mark m-problem"><svg class="ic " aria-hidden="true"><use href="#j-lucide-error_circle"/></svg><span>Problem</span></span><span class="mark m-note"><svg class="ic " aria-hidden="true"><use href="#j-lucide-info"/></svg><span>Note</span></span><span class="mark m-skipped"><svg class="ic " aria-hidden="true"><use href="#j-lucide-prohibited"/></svg><span>Skipped</span></span><span class="mark m-checked"><span class="dot " aria-hidden="true"></span><span>Checked</span></span></div></div>
-  <div><h3>Type — Geist · Geist Mono</h3><ul class="types"><li><span>display 28/34 · 600</span><span style="font:600 28px/34px var(--font);color:var(--text)">acme-billing-api</span></li><li><span>title 20/26 · 600</span><span style="font:600 20px/26px var(--font);color:var(--text)">Checked just now</span></li><li><span>heading 16/22 · 600</span><span style="font:600 16px/22px var(--font);color:var(--text)">Remove eslint-autofix from acme-billing-api?</span></li><li><span>body 14.5/21 · 400</span><span style="font:400 14.5px/21px var(--font);color:var(--text)">Reads a migration before it runs and flags long locks.</span></li><li><span>small 13/19 · 400</span><span style="font:400 13px/19px var(--font);color:var(--text)">14 items · 3 auto-added · 1 detached</span></li><li><span>micro 12/16 · 500</span><span style="font:500 12px/16px var(--font);color:var(--text)">scripts/eslint-autofix.sh · Auto-added</span></li></ul>
-    <h3>Spacing — a 4 px scale</h3><div class="row-of"><div><i style="width:4px;height:4px"></i>4</div><div><i style="width:8px;height:8px"></i>8</div><div><i style="width:12px;height:12px"></i>12</div><div><i style="width:16px;height:16px"></i>16</div><div><i style="width:20px;height:20px"></i>20</div><div><i style="width:24px;height:24px"></i>24</div><div><i style="width:32px;height:32px"></i>32</div><div><i style="width:40px;height:40px"></i>40</div></div>
-    <h3>Radius</h3><div class="row-of radii"><div><i style="border-radius:4px"></i>xs · 4</div><div><i style="border-radius:6px"></i>sm · 6</div><div><i style="border-radius:10px"></i>md · 10</div><div><i style="border-radius:14px"></i>lg · 14</div><div><i style="border-radius:18px"></i>xl · 18</div><div><i style="border-radius:22px"></i>pill</div></div>
-    <h3>Icons — Lucide, 1.75 px stroke, 16 px in controls</h3><div class="row-of"><div><svg class="ic " aria-hidden="true"><use href="#j-lucide-puzzle_piece"/></svg>skill</div><div><svg class="ic " aria-hidden="true"><use href="#j-lucide-bot"/></svg>agent</div><div><svg class="ic " aria-hidden="true"><use href="#j-lucide-prompt"/></svg>prompt</div><div><svg class="ic " aria-hidden="true"><use href="#j-lucide-plug_connected"/></svg>mcp</div><div><svg class="ic " aria-hidden="true"><use href="#j-lucide-script"/></svg>script</div><div><svg class="ic " aria-hidden="true"><use href="#j-lucide-app_generic"/></svg>app</div></div></div>
-  <div class="wide"><h3>States, drawn</h3><div class="states"><span>Primary</span><span class="btn primary"><svg class="ic " aria-hidden="true"><use href="#j-lucide-arrow_export_ltr"/></svg>Export…</span><span class="btn primary is-hover"><svg class="ic " aria-hidden="true"><use href="#j-lucide-arrow_export_ltr"/></svg>Export…</span><span class="btn primary is-focus"><svg class="ic " aria-hidden="true"><use href="#j-lucide-arrow_export_ltr"/></svg>Export…</span><span class="btn primary is-disabled"><svg class="ic " aria-hidden="true"><use href="#j-lucide-arrow_export_ltr"/></svg>Export…</span><span>Secondary</span><span class="btn "><svg class="ic " aria-hidden="true"><use href="#j-lucide-options"/></svg>Configure</span><span class="btn is-hover"><svg class="ic " aria-hidden="true"><use href="#j-lucide-options"/></svg>Configure</span><span class="btn is-focus"><svg class="ic " aria-hidden="true"><use href="#j-lucide-options"/></svg>Configure</span><span class="btn is-active"><svg class="ic " aria-hidden="true"><use href="#j-lucide-options"/></svg>Configure</span><span>Remove, muted</span><span class="btn danger-ghost"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg>Remove eslint-autofix…</span><span class="btn danger-ghost is-hover"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg>Remove eslint-autofix…</span><span class="btn danger-ghost is-focus"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg>Remove eslint-autofix…</span><span></span><span>Remove, confirm</span><span class="btn danger"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg>Remove from project</span><span class="btn danger is-hover"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg>Remove from project</span><span class="btn danger is-focus"><svg class="ic " aria-hidden="true"><use href="#j-lucide-dismiss"/></svg>Remove from project</span><span></span><span></span><span>default</span><span>hover</span><span>focus</span><span>inert · pressed</span><span>Place</span><span class="links"><a><svg class="ic " aria-hidden="true"><use href="#j-lucide-library"/></svg>My library</a><a class="is-hover"><svg class="ic " aria-hidden="true"><use href="#j-lucide-globe"/></svg>Public library</a><a class="on"><svg class="ic " aria-hidden="true"><use href="#j-lucide-folder"/></svg>Projects</a></span><span></span><span></span><span>default</span><span>hover</span><span>current</span><span></span></div><div class="states-rows"><figure><ol class="set"><li class="it "><article class="row"><div class="rmain"><h3><span class="nm">github-mcp</span><span class="kind">mcp</span></h3><p class="desc">Issues, pull requests and code search on GitHub.</p></div><p class="marks"></p></article></li></ol><figcaption>row · default</figcaption></figure><figure><ol class="set"><li class="it is-hover"><article class="row"><div class="rmain"><h3><span class="nm">github-mcp</span><span class="kind">mcp</span></h3><p class="desc">Issues, pull requests and code search on GitHub.</p></div><p class="marks"></p></article></li></ol><figcaption>row · hover</figcaption></figure><figure><ol class="set"><li class="it sel"><article class="row"><div class="rmain"><h3><span class="nm">github-mcp</span><span class="kind">mcp</span></h3><p class="desc">Issues, pull requests and code search on GitHub.</p></div><p class="marks"></p></article></li></ol><figcaption>row · active, the lime pill</figcaption></figure></div></div>
-</div></div></section>
 </div>
 <p class="pagefoot">Built by <code>tools/build_lime.py</code>. Icons: Lucide (ISC). Portrait: Jake Nackos on Unsplash (unsplash.com/photos/IF9TK5Uy-KI).</p>
 <script>
 (function(){
+  var C=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--canvas'))||1280;
   function fit(){document.querySelectorAll('.scale').forEach(function(s){
-    var n=s.firstElementChild,w=s.clientWidth,k=Math.min(1,w/1280);
-    n.style.width=(w>1280?w:1280)+'px';n.style.transform='scale('+k+')';s.style.height=(n.offsetHeight*k)+'px';});}
+    var n=s.firstElementChild,w=s.clientWidth,k=Math.min(1,w/C);
+    n.style.width=(w>C?w:C)+'px';n.style.transform='scale('+k+')';s.style.height=(n.offsetHeight*k)+'px';});}
   window.addEventListener('resize',fit);
   if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}
   window.addEventListener('load',fit);fit();

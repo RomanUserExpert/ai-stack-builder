@@ -317,3 +317,37 @@ each with its contrast, and drawn states for buttons, places and rows. **Lowest 
 
 **Nothing in the working style is open any more.** [`mica-lime.html`](mica-lime.html) shows the fixed screen and the
 Export mode; it is the input to stage 4 (`tokens.css` and the stand).
+
+---
+
+## Stage 4 — the stand and the tokens
+
+**Built 2026-10-11.** From the working style above, three files and one measurement:
+
+- **[`tokens.css`](tokens.css)** — every colour, type role, radius, spacing step, shadow, material and size of
+  *Mica · Lime*, 117 custom properties, written by `tools/concept_tokens.py`. **Each colour carries the attribute or
+  decision it follows from**, in a comment beside it. A `.theme-light` block holds the light slice.
+- **[`concept.html`](concept.html)** — the stand: the style in use (a shared project’s card with Maya Chen’s portrait,
+  the top bar, rows, buttons, the Export head), then colour by role with its reason, the type pair and its nine-step
+  scale, form (radius · spacing · shadow), Lucide icons in three uses, three components — **the item row**, **a stage
+  of the check**, **a field** — the light slice, and the contrast table. Built by `tools/build_concept.py`.
+- **[`mica-lime.html`](mica-lime.html)** — the screens, now on `tokens.css` too.
+- **[`contrast.md`](contrast.md)** — `tools/contrast.py` reads `tokens.css` as written, resolves the colour-mix boxes,
+  and checks 31 text-on-surface pairs in dark and 31 in light. **All 62 pass AA.**
+
+**No page holds a value of its own.** The components (`tools/concept_ui.py`) and both pages’ CSS use `var()` only;
+`python tools/concept_ui.py --check` lists any literal colour, px size or font name (none — even hairlines are
+`--hairline`). The one exception is the 1100 px breakpoint, because a media query cannot read a custom property.
+
+**What the measurement changed** — the reason to measure rather than eyeball:
+- `--danger-hover` was lighter than `--danger` and dropped white text to 3.99:1. **Hover on a red button darkens**:
+  `#BE2E37`, 5.78:1.
+- **In light, lime as a mark vanishes** — the current place’s icon and the active row’s pill measured 1.12:1 and
+  1.32:1. Light gets its own **`--lime-mark #55700F`** (4.8:1 and 5.7:1); the primary button keeps the lime fill,
+  where dark text on it is 13.5:1. This is exactly the risk the light slice was put in stage 4 to catch.
+
+**Colour roles, as the stand names them.** *Primary* is lime — the only colour that invites an action. *Accent* is the
+same lime used as a mark (`--lime-mark`), not a second hue: the product holds colour back (pair 5). *Neutrals* are the
+Mica layers. *States*: Problem, Note, Skipped — and **no success colour**: the best a check says is *Checked*, a quiet
+dot (D1-B). Red is reserved for an act that removes something.
+
