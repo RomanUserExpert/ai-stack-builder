@@ -32,9 +32,12 @@ LUCIDE = ROOT / "06-concept" / "icons" / "lucide"
 PORTRAIT = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
             "?w=96&h=96&fit=crop&crop=faces&auto=format&q=80")
 
-PAGES = ["projects-default", "projects-empty", "projects-loading", "projects-error-filtered", "projects-error-server",
-         "project-default", "project-empty", "project-loading", "project-error",
-         "run-loading", "run-default", "run-loading-export", "run-success", "run-error-check", "run-error-export"]
+# every state of a screen once the screen is started (owner, 2026-10-11: not only the first four)
+PAGES = ["projects-default", "projects-filters", "projects-delete", "projects-empty", "projects-loading",
+         "projects-error-filtered", "projects-error-server",
+         "project-default", "project-item", "project-share", "project-revoke", "project-empty", "project-loading", "project-error",
+         "run-loading", "run-default", "run-remove", "run-loading-export", "run-success",
+         "run-error-check", "run-error-export", "run-error-setup"]
 FLOWS = ["main-success"]
 
 # ------------------------------------------------------------------ the stylesheet
@@ -304,6 +307,20 @@ dialog.modal{position:absolute;top:calc(var(--s12) * 3);left:0;right:0;width:var
 dialog.modal h2,.sheet-head h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
 dialog.modal p{margin-top:var(--s2);font:var(--t-small);color:var(--text-2)}
 .sheet-head{display:flex;gap:var(--s4);align-items:flex-start}
+/* the Filters popover: it hangs from its button, on the same acrylic edge as a dialog */
+.find-zone{position:relative}
+dialog.popover{position:absolute;top:calc(var(--control-h) + var(--s2));right:0;left:auto;z-index:5;width:var(--col-xl);margin:0;padding:0;color:var(--text);
+  background:var(--raised);border:var(--hairline) solid var(--sheet-edge);border-radius:var(--r-lg);box-shadow:0 0 0 var(--s2) var(--acrylic-dialog),var(--shadow-sheet)}
+.popover-form{display:flex;flex-direction:column}
+.popover-head{display:flex;align-items:center;justify-content:space-between;padding:var(--s4) var(--s5);border-bottom:var(--hairline) solid var(--line)}
+.popover-head h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
+.popover-body{display:flex;flex-direction:column;gap:var(--s5);padding:var(--s4) var(--s5)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
+.popover-group{display:flex;flex-direction:column;gap:var(--s2)}
+.popover-group label{display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text)}
+.popover-group .hint{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.popover-foot{display:flex;justify-content:flex-end;gap:var(--s2);padding:var(--s3) var(--s5);border-top:var(--hairline) solid var(--line)}
 .form-actions{display:flex;gap:var(--s2);align-items:center;margin-top:var(--s5);padding-top:var(--s4);border-top:var(--hairline) solid var(--line)}
 .form-actions .push{margin-left:auto}
 """
@@ -392,7 +409,7 @@ def transform(html, css_href, tokens_href, page_name, unknown):
                             f'<svg class="glyph glyph-{g}" aria-hidden="true"><use href="#l-{n}"/></svg>')
     # tones the structure cannot carry: a Conflict tag; a primary button that removes something
     html = html.replace('<span class="tag tag-state">Conflict</span>', '<span class="tag tag-state tag-problem">Conflict</span>')
-    html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>.*?</svg>)?\s*(?:Remove|Delete))',
+    html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>.*?</svg>)?\s*(?:Remove|Delete|Stop sharing))',
                   r'class="button button-primary button-danger"\1', html, flags=re.S)
     html = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + sprite(used), html, count=1)
     return html

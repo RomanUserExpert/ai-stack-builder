@@ -22,7 +22,7 @@
   </style>
   <script>
     /* The Wireframe / Design switch (tools/build_mockups.py). Which screens and flows have a mockup. */
-    window.WF_MOCKUPS = {"pages": ["projects-default", "projects-empty", "projects-loading", "projects-error-filtered", "projects-error-server", "project-default", "project-empty", "project-loading", "project-error", "run-loading", "run-default", "run-loading-export", "run-success", "run-error-check", "run-error-export"], "flows": ["main-success"]};
+    window.WF_MOCKUPS = {"pages": ["projects-default", "projects-filters", "projects-delete", "projects-empty", "projects-loading", "projects-error-filtered", "projects-error-server", "project-default", "project-item", "project-share", "project-revoke", "project-empty", "project-loading", "project-error", "run-loading", "run-default", "run-remove", "run-loading-export", "run-success", "run-error-check", "run-error-export", "run-error-setup"], "flows": ["main-success"]};
     /* ?mode=design or ?mode=wire in the address opens the viewer in that mode, and remembers it */
     (function () { var q = new URLSearchParams(location.search).get('mode'); if (q === 'design' || q === 'wire') { window.WF_MODE_URL = q; try { localStorage.setItem('wf-mode', q); } catch (e) {} } })();
     window.wfMode = function () { try { return localStorage.getItem('wf-mode') || window.WF_MODE_URL || 'wire'; } catch (e) { return window.WF_MODE_URL || 'wire'; } };

@@ -365,7 +365,10 @@ dot (D1-B). Red is reserved for an act that removes something.
 **Started 2026-10-11.** The owner kept the wireframes and asked for a design twin instead of a repaint: the viewer is
 renamed **Wireframes and mockups** and carries a **Wireframe / Design** switch, so any screen or flow step that has a
 mockup opens in the working style with one click. **Scope, owner's call: the main job first** — Projects, Project and
-Run with their states (15 pages) and the flow `main-success` (7 steps).
+Run, **every state of each** (22 pages; the first pass drew only four states of Project and the owner caught it — a screen
+is drawn whole or not at all), and the flow `main-success` (7 steps). `?mode=design#<page>` opens the viewer straight on a
+mockup. *Stop sharing* joins *Remove* and *Delete* as a destructive confirmation (red); the Filters popover hangs from its
+button on the same acrylic edge as a dialog.
 
 **How.** `tools/build_mockups.py` reads each wireframe page and writes `04-wireframes/mockups/<page>.html`:
 - **the same markup and the same words.** Only the stylesheet changes, to `mockup.css` + `06-concept/tokens.css`;
