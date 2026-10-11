@@ -36,7 +36,7 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research is done, the information architecture is done, the screens are drawn and clickable, and the product has one voice. There is still no code.** Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. **Lesson 06, concept, is current.** No design system and no mockups yet, and **nothing so far decides how anything looks.**
+**Research is done, the information architecture is done, the screens are drawn and clickable, the product has one voice and one look. There is still no code.** Lesson 06, concept, closed on 2026-10-11 — the working style *Mica · Lime*, its tokens, a stand and the main job drawn as mockups ([the phase page](06-concept/style.html)). Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. **Lesson 06, concept, is current.** No design system and no mockups yet, and **nothing so far decides how anything looks.**
 
 **One decision from 20 September changes the shape of everything after it: the product is online**, a
 backend with accounts, so a person's library follows them between machines. **What the backend is

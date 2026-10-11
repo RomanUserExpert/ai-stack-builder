@@ -1,5 +1,10 @@
 # Phase 06 — Concept
 
+**Closed 2026-10-11.** All seven stages are done; the result is the working style *Mica · Lime*
+([`concept.md`](concept.md), [`tokens.css`](tokens.css), [the stand](concept.html)) and the main job drawn as
+mockups. **The phase page is [`style.html`](style.html)**, built by `tools/build_concept_page.py`. What follows is the
+plan as it was written, with each stage's state in the table.
+
 **A plan, not a result.** Written 2026-10-05, the day the phase's materials were read: the course
 overview, the prompt pack, the homework, the 22 slides, and the recorded session. It is numbered by
 the course's own seven stages from the start, as phase 05 was.

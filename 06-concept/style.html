@@ -1,0 +1,994 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The visual language of AI Stack Builder, Mica · Lime: four rounds of directions, the stand with every value and its reason, the mockups of the main job, and the check that held them to it.">
+<style>
+/* Baseline the artifact host normally supplies. */
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Phase 6 &mdash; Concept &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- the rounds: four directions pages, side by side --- */
+.rounds{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:22px 0 10px}
+.round{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.round .rn{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.round h3{margin:0;font-size:16px;line-height:1.3}
+.round p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.round .verdict-line{font-size:12.5px;color:var(--ink-3)}
+.round.kept{border-color:var(--accent-45);background:var(--accent-06)}
+.round.kept .rn{color:var(--accent)}
+.round a{font-size:13.5px}
+
+/* --- the style in one strip: the colours, as they are in tokens.css --- */
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0 8px}
+.palette div{border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--surface)}
+.palette i{display:block;height:44px}
+.palette span{display:block;padding:8px 10px 9px;font-size:12.5px;line-height:1.35}
+.palette code{font-size:11.5px}
+
+/* --- the stand, embedded --- */
+.stand{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:#1B1C19}
+.stand-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.stand-bar strong{color:var(--ink)}
+.stand-bar a{margin-left:auto}
+.stand iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#1B1C19}
+
+/* --- links out, as a short list of buttons --- */
+.outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
+.outs a:hover{border-color:var(--accent)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&display=swap">
+
+<style>
+/* ------------------------------------------------------------------
+   Design language carried over from r-o-design.tech — the same tokens,
+   the same type pairing, the same border-led component grammar.
+------------------------------------------------------------------ */
+:root{
+  --bg:#f9f9f7;
+  --paper:#f9f9f7;
+  --surface:#fdfdfb;
+  --sunken:#f0f0ee;
+  --surface-hover:#ebebea;
+  --ink:#0d0d0d;
+  --ink-2:#3f3f3d;
+  --ink-3:#5a5a56;
+  --rule:#d4d4cf;
+  --rule-soft:#e2e2dd;
+  --accent:#e05f03;
+  --accent-hover:#c45200;
+  --accent-06:#e05f0312;
+  --accent-18:#e05f0330;
+  --accent-45:#e05f0378;
+  --bad:#a3342a;
+  --bad-soft:#f4e3e0;
+  --fill-strong:#c45200;   /* white on the brand orange is only 3.6:1 — this is 5.2 */
+  --fill-bad:#a3342a;
+  --on-fill:#ffffff;
+  --shadow:0 2px 12px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur:.18s;
+  --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Symbol",sans-serif;
+  --font-display:"Special Gothic Expanded One",Inter,-apple-system,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614;
+    --paper:#161614;
+    --surface:#1e1e1c;
+    --sunken:#121210;
+    --surface-hover:#232321;
+    --ink:#f0efe9;
+    --ink-2:#ababab;
+    --ink-3:#909090;
+    --rule:#52524f;
+    --rule-soft:#3a3a37;
+    --accent:#f57722;
+    --accent-hover:#ff8c3d;
+    --accent-06:#e05f0326;
+    --accent-18:#e05f0347;
+    --accent-45:#e05f0385;
+    --bad:#e88b80;
+    --bad-soft:#3a201d;
+    --fill-strong:#f57722;
+    --fill-bad:#e0655a;
+    --on-fill:#161614;     /* on a bright fill, dark text is the legible one */
+    --shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614;
+  --paper:#161614;
+  --surface:#1e1e1c;
+  --sunken:#121210;
+  --surface-hover:#232321;
+  --ink:#f0efe9;
+  --ink-2:#ababab;
+  --ink-3:#909090;
+  --rule:#52524f;
+  --rule-soft:#3a3a37;
+  --accent:#f57722;
+  --accent-hover:#ff8c3d;
+  --accent-06:#e05f0326;
+  --accent-18:#e05f0347;
+  --accent-45:#e05f0385;
+  --bad:#e88b80;
+  --bad-soft:#3a201d;
+  --fill-strong:#f57722;
+  --fill-bad:#e0655a;
+  --on-fill:#161614;
+  --shadow:0 2px 12px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--font-display);font-weight:400}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:3px
+}
+
+/* ---------- shell ---------- */
+.shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
+/* On wide screens the phase list is a rail fixed to the window's left edge (below), and the
+   content column is centred in what is left. Same rail, same width, on every phase page and on
+   the wireframes. */
+:root{--phases-w:240px}
+html.phases-collapsed{--phases-w:64px}
+@media (min-width:1080px){
+  body{padding-left:var(--phases-w)}
+  .shell{max-width:980px;padding:0 40px 120px}
+}
+.col{max-width:100%}
+.col>*{max-width:74ch}
+.col>.wide{max-width:100%}
+
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 44px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px
+}
+.mast h1{
+  font-size:clamp(30px,4.4vw,54px);line-height:1.02;letter-spacing:-.005em;
+  margin:0 0 26px;text-wrap:balance;max-width:17ch
+}
+.standfirst{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:62ch;margin:0 0 36px}
+.standfirst strong{color:var(--ink);font-weight:500}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));
+  gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)
+}
+.facts div{padding:14px 16px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts dt{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 6px;font-weight:600
+}
+.facts dd{
+  margin:0;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;
+  color:var(--ink);line-height:1;letter-spacing:-.01em
+}
+.facts dd small{font-size:11.5px;color:var(--ink-3);display:block;margin-top:6px;font-weight:400;letter-spacing:0}
+
+.rail{
+  position:sticky;top:0;z-index:20;margin:0;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+}
+.rail::after{
+  content:"";position:absolute;right:0;top:0;bottom:1px;width:40px;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--paper) 72%);
+}
+.rail ol{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail ol::-webkit-scrollbar{display:none}
+.rail li{flex:0 0 auto;margin:0}
+.rail a{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap;
+  padding:9px 14px 8px;border:0;border-bottom:2px solid transparent;border-radius:0;
+  font-size:13px;line-height:1.3;font-weight:500;color:var(--ink-3);background:none;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.rail a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.rail a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.rail a b{
+  display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:600;
+}
+.rail a.on b{color:var(--accent)}
+.railhead{display:none}
+
+/* --- both horizontal bars are dragged with the mouse, not only wheeled --- */
+.rail ol.grabbable,.phases ol.grabbable{cursor:grab}
+.rail ol.dragging,.phases ol.dragging,
+.rail ol.dragging *,.phases ol.dragging *{cursor:grabbing;user-select:none}
+
+/* ---------- sections ---------- */
+section{padding:64px 0 8px;scroll-margin-top:80px}
+@media (min-width:1080px){section{scroll-margin-top:70px}}
+section+section{border-top:1px solid var(--rule-soft)}
+.stagehead{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.stagenum{
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:4px;padding:3px 8px;white-space:nowrap;background:var(--accent-06)
+}
+h2{font-size:clamp(24px,2.9vw,34px);line-height:1.06;letter-spacing:-.004em;margin:0;text-wrap:balance}
+.qline{color:var(--ink-2);font-size:16px;margin:14px 0 32px;max-width:64ch}
+h3{
+  font-family:var(--font);font-size:18px;line-height:1.3;font-weight:600;
+  letter-spacing:-.005em;margin:48px 0 14px;text-wrap:balance
+}
+h4{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);font-weight:600;margin:38px 0 14px
+}
+p{margin:0 0 18px}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:10px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+
+/* ---------- per-stage conclusion ---------- */
+.verdict{
+  margin:44px 0 8px;padding:24px 26px 22px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:10px
+}
+.verdict .vh{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--accent);margin:0 0 14px
+}
+.verdict p{margin:0 0 12px;font-size:15.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict ul{margin:0;font-size:15.5px}
+.verdict li:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
+.band td{
+  background:var(--sunken);font-size:10.5px;letter-spacing:.13em;font-weight:600;
+  text-transform:uppercase;color:var(--ink-3);padding:8px 14px
+}
+.tnote{font-size:13px;color:var(--ink-2);margin:-14px 0 28px;line-height:1.6}
+
+/* the score scale is one hue — the accent — because it measures magnitude.
+   Only the single 1 is a different colour, because it means something else. */
+td.s,th.s{
+  text-align:center;font-variant-numeric:tabular-nums;font-weight:600;
+  width:10%;min-width:58px;font-size:14px;color:var(--ink)
+}
+td.s5{background:var(--fill-strong);color:var(--on-fill)}
+td.s4{background:var(--accent-45);color:var(--ink)}
+td.s3{background:var(--accent-18)}
+td.s2{background:var(--accent-06)}
+td.s1{background:var(--fill-bad);color:var(--on-fill)}
+td.sx{color:var(--ink-3);font-weight:400}
+
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 26px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.chip{width:24px;height:15px;border-radius:3px;border:1px solid var(--rule);display:inline-block}
+
+/* ---------- flows: the site's numbered process list ---------- */
+.flows{margin:28px 0 0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)}
+details{border-bottom:1px solid var(--rule-soft)}
+details:last-child{border-bottom:none}
+summary{
+  list-style:none;cursor:pointer;padding:16px 46px 16px 20px;display:grid;
+  grid-template-columns:40px 1fr auto;gap:16px;align-items:center;position:relative;
+  transition:background var(--dur) var(--ease)
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--surface-hover)}
+summary:hover .chev::before{border-color:var(--accent)}
+.chev{position:absolute;right:19px;top:50%;width:16px;height:16px;transform:translateY(-50%);pointer-events:none}
+.chev::before{
+  content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;
+  margin:-5px 0 0 -4px;border-right:1.7px solid var(--ink-3);border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease)
+}
+details[open] .chev::before{transform:rotate(-135deg);margin:-2px 0 0 -4px;border-color:var(--accent)}
+details[open] summary{background:var(--sunken)}
+.fnum{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
+.ftitle{font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+.ftitle span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+.fstat{
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid var(--rule);
+  background:var(--sunken);color:var(--ink-3)
+}
+.st-closed{border-color:var(--accent);color:var(--accent);background:var(--accent-06)}
+.fbody{padding:2px 20px 24px 76px}
+@media (max-width:640px){
+  summary{grid-template-columns:32px 1fr;grid-template-rows:auto auto;gap:8px 12px;padding-right:44px}
+  .fstat{grid-column:2;justify-self:start}
+  .fbody{padding:2px 18px 22px 18px}
+}
+.fbody p{font-size:15.5px;margin:0 0 15px}
+.fbody .src{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+.fbody .src a{color:var(--ink-2)}
+
+/* ---------- captures ---------- */
+.shots{
+  max-height:480px;overflow-y:auto;background:var(--sunken);border:1px solid var(--rule);
+  border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:16px;margin:0 0 18px
+}
+.shots figure{margin:0}
+.shots img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;
+  background:#fff;cursor:zoom-in;transition:border-color var(--dur) var(--ease)
+}
+.shots img:hover,.shots img:focus-visible{border-color:var(--accent)}
+.shots figcaption{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+.scrollhint{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);margin:0 0 9px;display:flex;align-items:center;gap:9px
+}
+.scrollhint::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+.scrollhint em{font-style:normal;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--ink-3)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(13,13,13,.94);overflow:auto;padding:60px 24px 48px;display:flex}
+.lb[hidden]{display:none}
+.lb-inner{width:min(1360px,94vw);margin:auto}
+.lb-inner img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:#fff}
+.lb-cap{font-family:var(--font-mono);font-size:12px;line-height:1.65;color:#cfcdc6;margin:16px 0 0;max-width:96ch}
+.lb-close{
+  position:fixed;top:16px;right:20px;width:38px;height:38px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.45);color:#f0efe9;
+  font:600 15px/1 var(--font);cursor:pointer
+}
+.lb-close:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ---------- pain bars ---------- */
+.bars{margin:10px 0 26px;display:flex;flex-direction:column;gap:10px;max-width:66ch}
+.bar{display:grid;grid-template-columns:1fr 52px;gap:14px;align-items:center}
+.bar .lbl{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.bar .lbl b{color:var(--ink);font-weight:600}
+.bar .track{grid-column:1/-1;height:10px;background:var(--sunken);border:1px solid var(--rule-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink-3);border-radius:2px}
+.bar .fill.loud{background:var(--bad)}
+.bar .fill.ours{background:var(--accent)}
+.bar .n{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.barlegend{font-size:12.5px;color:var(--ink-3);margin:-16px 0 28px}
+
+/* ---------- pull quote ---------- */
+blockquote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid var(--accent);font-size:18px;line-height:1.5;color:var(--ink)}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+
+/* ---------- chosen shape ---------- */
+.shape{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0;background:var(--surface)
+}
+.shape div{padding:18px 18px 20px;border-right:1px solid var(--rule)}
+.shape div:last-child{border-right:0}
+.shape h5{font-size:14px;font-weight:600;margin:0 0 5px;color:var(--ink)}
+.shape .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-weight:600}
+.shape p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+
+/* ---------- decisions ---------- */
+.decisions{border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0 8px;background:var(--surface)}
+.dec{padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;border-bottom:1px solid var(--rule-soft)}
+.dec:last-child{border-bottom:0}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:10px}}
+.dec .what{font-size:14.5px;font-weight:600;line-height:1.45;color:var(--ink)}
+.dec .what b{
+  display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:6px
+}
+.dec .why{font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.dec .why em{color:var(--ink);font-style:italic}
+
+/* ---------- gaps ---------- */
+.gaps{display:flex;flex-direction:column;gap:14px;margin:26px 0 8px}
+.gap{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;border-top:2px solid var(--accent)}
+.gap.unverified{border-top-color:var(--bad)}
+.gaphead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.gid{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em}
+.gaphead h5{font-size:15.5px;font-weight:600;margin:0;line-height:1.35;color:var(--ink)}
+.gap p{font-size:15px;margin:0 0 12px;color:var(--ink-2)}
+.gap p:last-child{margin:0}
+.gap .hyp{color:var(--ink);padding:13px 16px;background:var(--sunken);border-radius:6px;font-size:14.5px;line-height:1.6}
+.gap .hyp b{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:6px;font-weight:600
+}
+.gap .from{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);margin-top:12px}
+.nd{
+  font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+  color:var(--bad);background:var(--bad-soft);border:1px solid var(--bad);
+  padding:2px 7px;border-radius:4px;white-space:nowrap
+}
+
+/* ---------- footer ---------- */
+.foot{
+  grid-column:1/-1;margin-top:72px;padding-top:28px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==================================================================
+   Personas & jobs-to-be-done components — shared with personas.html.
+   Both pages are built from this block; edit it once.
+================================================================== */
+
+/* ------------------------------------------------------------------
+   Personas & JTBD — components this page adds on top of the shared
+   design language pulled from research-page.tpl.html at build time.
+------------------------------------------------------------------ */
+
+/* --- evidence marks, the spine of both documents --- */
+.m{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.35em;height:1.35em;padding:0 .3em;margin:0 .12em;
+  border:1px solid var(--rule);border-radius:3px;
+  font-family:var(--font-mono);font-size:.72em;line-height:1;
+  vertical-align:.08em;font-weight:600;
+}
+.m-y{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.m-s{border-color:var(--rule);background:var(--sunken);color:var(--ink-2)}
+.m-q{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+
+.legend{
+  display:grid;gap:10px;margin:22px 0 0;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--surface);
+}
+.legend .lrow{display:grid;grid-template-columns:2.4em 1fr;gap:12px;align-items:start}
+.legend b{color:var(--ink)}
+.legend p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+/* --- persona cards --- */
+.people{display:grid;gap:20px;margin-top:26px;max-width:100%}
+@media (min-width:1180px){ .people{grid-template-columns:1fr 1fr} .people .pc.primary{grid-column:1 / -1} }
+
+.pc{border:1px solid var(--rule);background:var(--surface);display:flex;flex-direction:column}
+.pc.primary{border-color:var(--accent-45);box-shadow:var(--shadow)}
+.pc > header{padding:20px 22px 16px;border-bottom:1px solid var(--rule-soft)}
+.pc.primary > header{background:var(--accent-06)}
+.pc .tag{
+  display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+}
+.pc.primary .tag{color:var(--accent);font-weight:700}
+.pc h3{font-family:var(--font-display);font-weight:400;font-size:23px;line-height:1.2;margin:0 0 8px}
+.pc .axes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.pc .axes span{
+  font-family:var(--font-mono);font-size:11px;padding:3px 7px;
+  border:1px solid var(--rule-soft);background:var(--sunken);color:var(--ink-2);
+}
+.pc .standing{margin:12px 0 0;font-size:14px;color:var(--ink-2)}
+
+.pblock{padding:16px 22px;border-bottom:1px solid var(--rule-soft)}
+.pblock:last-child{border-bottom:0}
+.pblock h4{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 10px;font-weight:600;
+}
+.pblock p{margin:0 0 10px;font-size:15px}
+.pblock p:last-child{margin-bottom:0}
+.pblock ul{margin:0;padding-left:1.15em;font-size:15px}
+.pblock li{margin:0 0 8px}
+.pblock li:last-child{margin-bottom:0}
+.pblock .src{color:var(--ink-3);font-size:13.5px}
+
+.pq{
+  margin:0;padding:14px 16px;border-left:3px solid var(--accent);
+  background:var(--sunken);font-size:15.5px;line-height:1.55;
+}
+.pq cite{display:block;margin-top:10px;font-style:normal;font-size:13px;color:var(--ink-3)}
+.pq.empty{border-left-color:var(--bad)}
+
+.warn{
+  margin:0 0 14px;padding:12px 14px;border:1px solid var(--bad);
+  background:var(--bad-soft);font-size:14.5px;
+}
+
+/* --- a .warn that folds away: <details class="warn"> --- */
+details.warn{padding:0}
+details.warn>summary{
+  cursor:pointer;padding:11px 14px;font-weight:600;
+  list-style:none;display:flex;gap:9px;align-items:baseline;
+}
+details.warn>summary::-webkit-details-marker{display:none}
+details.warn>summary::before{
+  content:"▸";font-size:11px;opacity:.7;flex:none;
+  transition:transform .12s ease;
+}
+details.warn[open]>summary::before{transform:rotate(90deg)}
+details.warn>summary:hover{background:rgba(128,128,128,.09)}
+details.warn>summary:focus-visible{outline:2px solid var(--bad);outline-offset:-2px}
+details.warn>summary .sub{font-weight:400;opacity:.72;font-size:13.5px}
+details.warn[open]>summary{border-bottom:1px solid var(--bad)}
+details.warn>.inner{padding:11px 14px 12px}
+@media (prefers-reduced-motion:reduce){details.warn>summary::before{transition:none}}
+
+/* --- jobs hierarchy --- */
+.mainjob{
+  margin:26px 0 0;padding:26px 28px;border:1px solid var(--accent-45);background:var(--accent-06);
+}
+.mainjob .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mainjob p.j{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.34;margin:12px 0 0}
+@media (max-width:700px){ .mainjob p.j{font-size:18px} }
+.mainjob .note{margin:16px 0 0;font-size:14.5px;color:var(--ink-2)}
+
+.jobs{display:grid;gap:14px;margin-top:22px}
+.job{border:1px solid var(--rule);background:var(--surface);padding:18px 20px}
+.job .jid{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);
+  display:block;margin-bottom:8px;
+}
+.job p.j{margin:0;font-size:16px;line-height:1.5}
+.job .ev{margin:12px 0 0;font-size:13.5px;color:var(--ink-2)}
+.job.hyp{background:var(--sunken);border-style:dashed}
+
+.grouphead{
+  display:flex;align-items:baseline;gap:12px;margin:34px 0 0;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.grouphead h3{font-family:var(--font-display);font-weight:400;font-size:20px;margin:0}
+.grouphead span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.05em}
+
+/* --- the matrix --- */
+.mwrap{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);max-width:100%}
+table.matrix{border-collapse:collapse;width:100%;min-width:880px;font-size:13.5px;background:var(--surface)}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--rule-soft);padding:11px 12px;text-align:left;vertical-align:top}
+table.matrix thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+table.matrix tbody tr:last-child td{border-bottom:0}
+table.matrix td.job{width:22%;font-weight:500}
+table.matrix td.p{width:10%;text-align:center;white-space:nowrap}
+table.matrix td.f,table.matrix td.c{width:19%;font-size:13px;color:var(--ink-2)}
+table.matrix tr.hypo td{background:var(--sunken)}
+table.matrix tr.hypo td.job{color:var(--ink-2)}
+.score{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:1px solid var(--rule);
+  font-family:var(--font-mono);font-weight:700;font-size:13px;
+}
+.score.s3{border-color:var(--accent-45);background:var(--accent-18);color:var(--accent)}
+.score.s2{border-color:var(--rule);background:var(--sunken);color:var(--ink)}
+.score.s1{border-color:var(--rule-soft);background:transparent;color:var(--ink-3)}
+.score.sq{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);white-space:normal;text-align:left}
+.none{color:var(--bad);font-weight:600}
+
+/* --- conclusions --- */
+.picks{display:grid;gap:14px;margin-top:22px}
+@media (min-width:900px){ .picks{grid-template-columns:repeat(3,1fr)} }
+.pick{border:1px solid var(--accent-45);background:var(--surface);padding:18px 20px}
+.pick .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em;font-weight:700}
+.pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
+.pick p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* --- the course phases: a fixed, collapsible rail on wide screens, a strip below --- */
+.phases{
+  border-bottom:1px solid var(--rule);background:var(--sunken);
+  margin:0 -32px 0;padding:0 32px;
+}
+.phases ol{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+  list-style:none;margin:0;padding:0;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+}
+.phases ol::-webkit-scrollbar{display:none}
+.phases li{margin:0;flex:0 0 auto}
+.phases li>a,.phases li>span{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
+  border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
+  white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.phases li>a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases b{font-weight:700;color:var(--ink-2)}
+.phases li>a:hover b{color:var(--ink)}
+.phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.phases .now b{color:var(--accent)}
+.phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
+.phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.phaseshead,.phasestoggle{display:none}
+
+@media (min-width:1080px){
+  /* the rail sits one tone below the page, and every phase is its own bubble — no rules, no bars */
+  .phases{
+    position:fixed;top:0;left:0;bottom:0;z-index:15;width:var(--phases-w);
+    overflow-y:auto;scrollbar-width:none;
+    margin:0;padding:16px 12px 32px;background:var(--sunken);border:0;
+  }
+  .phases::-webkit-scrollbar{display:none}
+  .phaseshead{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 12px;padding-left:12px;
+  }
+  .phasestoggle{
+    display:inline-block;padding:4px 10px;border:0;border-radius:8px;
+    background:var(--surface);color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
+  }
+  .phasestoggle:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases ol{display:flex;flex-direction:column;gap:6px;overflow:visible;font-size:12.5px}
+  .phases li>a,.phases li>span{
+    display:block;padding:8px 12px 9px;white-space:normal;line-height:1.32;
+    border:0;border-radius:10px;background:var(--surface);
+  }
+  .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
+  .phases li>a:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases li>a:hover b{color:var(--ink)}
+  .phases .now{background:var(--accent-06);box-shadow:inset 0 0 0 1px var(--accent-45)}
+  .phases .soon{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);opacity:.5}
+  .phases .soon em{display:none}
+
+  /* collapsed: the numbers stay, each still its own bubble, and still links */
+  html.phases-collapsed .phases{padding:16px 8px 32px}
+  html.phases-collapsed .phaseshead{padding-left:0;justify-content:center}
+  html.phases-collapsed .phaseshead span,
+  html.phases-collapsed .phases .lbl{display:none}
+  html.phases-collapsed .phases li>a,
+  html.phases-collapsed .phases li>span{padding:10px 0;text-align:center}
+  html.phases-collapsed .phases b{margin:0}
+}
+
+/* --- skip link and the phase meta line --- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:20;padding:12px 18px;
+  background:var(--accent);color:var(--on-fill);font-weight:600;
+}
+.skip:focus{left:0}
+.phasemeta{
+  font-family:var(--font-mono);font-size:12px;color:var(--ink-3);
+  margin:0 0 18px;letter-spacing:.02em;
+}
+.phasemeta strong{color:var(--ink-2);font-weight:600}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><span class="now" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></span></li>
+      <li><span class="soon" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 06 &middot; Concept</p>
+  <h1>How the product looks, and why each value is there</h1>
+  <p class="phasemeta">Phase <strong>6 of 12</strong> &middot; all seven of the phase&rsquo;s stages &middot; <strong>5&ndash;11 Oct 2026</strong> &middot; source of truth: <strong>concept.md</strong> for the reasons, <strong>tokens.css</strong> for the values</p>
+  <p class="standfirst">The product had a structure (phase 04) and a voice (phase 05). <strong>This phase gives AI Stack Builder a look</strong>, found the way the voice was: from references the research already trusted, the owner&rsquo;s written taste, and attributes derived from the data &mdash; then drawn as directions, chosen in the browser, and proved on real screens. <strong>The result is one style, Mica&nbsp;&middot;&nbsp;Lime</strong>, every value of it in one file, every value of it with a reason.</p>
+  <dl class="facts">
+    <div><dt>Rounds</dt><dd>4<small>12 directions drawn</small></dd></div>
+    <div><dt>Tokens</dt><dd>143<small>one file, tokens.css</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>86<small>all WCAG AA</small></dd></div>
+    <div><dt>Mockups</dt><dd>22<small>+ 7 flow steps</small></dd></div>
+    <div><dt>Problems fixed</dt><dd>29<small>each with evidence</small></dd></div>
+    <div><dt>Register</dt><dd>1<small>Q38</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#references"><b>Stage 01</b>References</a></li>
+    <li><a href="#taste"><b>Stage 02</b>Taste and attributes</a></li>
+    <li><a href="#directions"><b>Stage 03</b>Directions</a></li>
+    <li><a href="#stand"><b>Stage 04</b>The stand</a></li>
+    <li><a href="#mockups"><b>Stage 05&ndash;06</b>Mockups</a></li>
+    <li><a href="#check"><b>Stage 07</b>The check</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">Seven stages in a week, four rounds of directions, and the two lists they produced.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>The category has a default, and it is easy to land in.</strong> A near-black ground with violet-blue neon, glass cards, icons in circles &mdash; the look an AI tool gets by default. The owner&rsquo;s anti-taste refused it in the first stage, and every direction was checked against it: <em>could this palette be guessed from the subject alone?</em></li>
+    <li><strong>The research already named the craft bar.</strong> Linear, Vercel, Raycast, GitHub &mdash; read for how they show a verdict, a state and a count, not for their brands. Linear became the base: three surfaces, hairlines instead of shadows, colour only for meaning.</li>
+    <li><strong>Colour is a claim, exactly as a word is.</strong> The product never claims <em>works</em>, so it has no success colour: <em>Checked</em> is a quiet dot. A green tick would have said what the product cannot know.</li>
+    <li><strong>The owner chose by looking, not by reading.</strong> Round 1 and round 2 were turned down whole; round 3 kept one style and one density; round 4 kept one colour; then a dozen precise corrections on the screens &mdash; a pill, a tag, a segmented track, a muted remove &mdash; each written down with its reason.</li>
+    <li><strong>Measuring caught what the eye did not, and the eye caught what measuring could not.</strong> The script found a hover that dropped below AA and lime vanishing on white; the owner found a hover gone dark because a token resolved in the wrong theme.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>One style, Mica&nbsp;&middot;&nbsp;Lime.</strong> A neutral ground with a faint lime tint, quiet layers, Geist and Geist&nbsp;Mono, Lucide icons, a 4&nbsp;px grid, density between default and comfortable.</li>
+    <li><strong>Lime only where you can act or where you are</strong> &mdash; the primary button, the current place, the active row. Never a verdict.</li>
+    <li><strong>Findings are tinted tags</strong>, Problem and Note; red only removes; amber only goes ahead despite a Problem. No rings round rows.</li>
+    <li><strong>Glass only around a mode or a dialog</strong>, text always on an opaque sheet &mdash; the owner&rsquo;s signature, used sparingly.</li>
+    <li><strong>Every value lives in <code>tokens.css</code></strong>, and no page holds one of its own &mdash; a build refuses it.</li>
+    <li><strong>The wireframes stay.</strong> The main job is drawn as design twins of the wireframe pages, one switch away.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="concept.html">The stand &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#project-default">The mockups, in the viewer &nearr;</a>
+    <a href="mica-lime.html">The screens &nearr;</a>
+    <a href="tokens.css">tokens.css &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section id="references" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 01</span><h2>References</h2></div>
+  <p class="qline">Where to look, and what to take &mdash; <strong>one base, and one or two named devices from each of the others.</strong></p>
+  <p>No new competitors were searched: the sources are the craft benchmark the research named in phase 01. <strong>Linear is the base</strong> &mdash; a dense list of named things with state, colour reserved for meaning. From <strong>Vercel</strong>, a stage row with its duration and verdict at the right edge, and status as a dot and a word. From <strong>GitHub</strong>, a neutral slashed circle for <em>Skipped</em>, and a count in a capsule after a tab. From <strong>Raycast</strong>, a dimmed line of facts under a description. <strong>None is copied whole</strong>, and each device is written down with the worry of the persona it removes.</p>
+  <p class="tnote">Refero was not connected; Lazyweb, SaaSUI and the captures from phase 01 were used instead, and the file says so. A wider idea base of 61 images was captured for the later stages.</p>
+</section>
+
+<!-- ============ TASTE ============ -->
+<section id="taste" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 02</span><h2>Taste and attributes</h2></div>
+  <p class="qline">The owner&rsquo;s taste in named products, and five pairs of opposites drawn from the data.</p>
+  <p><strong>Likes:</strong> Vercel &mdash; status, fact and consequence side by side, monochrome; Figma &mdash; a dense surface held by the grid and the type, not by colour; Teams and Slack &mdash; glass, noticeable but sparing. <strong>Does not want:</strong> the palette an AI produces for &ldquo;AI tool&rdquo;, a marketplace showcase, glass everywhere, a green tick as the main signal.</p>
+  <p><strong>Five attributes</strong>, each with the line of research it comes from: <em>an inspector&rsquo;s report, not a seller&rsquo;s badge</em>; <em>dense and counted, not spacious and showcased</em>; <em>the consequence visible before the step</em>; <em>glass is a layer over the work, not the work</em>; <em>colour is a claim, held back</em>. Five conflicts between taste and data were not resolved on paper &mdash; they were drawn as variants and chosen in the browser.</p>
+</section>
+
+<!-- ============ DIRECTIONS ============ -->
+<section id="directions" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 03</span><h2>Directions &mdash; four rounds</h2></div>
+  <p class="qline">Three directions that genuinely differ, drawn on one fixed piece of the product &mdash; and drawn again until one held.</p>
+  <div class="rounds wide">
+    <div class="round"><span class="rn">Round 1</span><h3>Acrylic &middot; Manifest &middot; Catalogue</h3><p>Fluent glass; customs papers in petrol and paper; a record sleeve in black and white.</p><span class="verdict-line">Turned down. Acrylic noted as close.</span><a href="directions.html">Open round 1 &nearr;</a></div>
+    <div class="round"><span class="rn">Round 2</span><h3>Glasshouse &middot; Kit &middot; Warm</h3><p>A palm house at night; a tool drawer of cut-outs; a soft consumer surface. Free to change the layout.</p><span class="verdict-line">Turned down. Kit&rsquo;s cut-outs noted as close.</span><a href="directions-2.html">Open round 2 &nearr;</a></div>
+    <div class="round"><span class="rn">Round 3</span><h3>Mica &middot; Cut-out &middot; Canon</h3><p>Calmer, better made, at three densities you can switch between.</p><span class="verdict-line">Mica kept, at a density between default and comfortable.</span><a href="directions-3.html">Open round 3 &nearr;</a></div>
+    <div class="round kept"><span class="rn">Round 4 &middot; kept</span><h3>Mica &middot; Cobalt &middot; Jade &middot; Lime</h3><p>One material, three typefaces, three icon libraries, three brand colours &mdash; in Kit&rsquo;s cut-out form.</p><span class="verdict-line">Lime kept. Then fixed as the working style.</span><a href="directions-4.html">Open round 4 &nearr;</a></div>
+  </div>
+  <p>After round 4 the owner corrected the style on the screen itself, one decision at a time: <strong>no rings round rows</strong>; the top bar kept, its current place a raised tile on no track; the active row marked by a <strong>lime pill along its edge</strong>; findings as <strong>tinted tags</strong>; a <strong>segmented control</strong> with its own track; <strong>+&nbsp;Add</strong> as an icon button; radios and checkboxes drawn for the dark; one neutral tile on every empty and error state; a <strong>muted remove</strong> inside a Problem and a red one only to confirm.</p>
+  <div class="palette wide"><div><i style="background:#1B1C19"></i><span><code>--ground</code><br>#1B1C19 &middot; Mica ground</span></div><div><i style="background:#232420"></i><span><code>--tray</code><br>#232420 &middot; the tray</span></div><div><i style="background:#2A2B27"></i><span><code>--raised</code><br>#2A2B27 &middot; a panel, the active row</span></div><div><i style="background:#F3F4EF"></i><span><code>--text</code><br>#F3F4EF &middot; text</span></div><div><i style="background:#C5C7BE"></i><span><code>--text-2</code><br>#C5C7BE &middot; secondary</span></div><div><i style="background:#A1A49A"></i><span><code>--text-3</code><br>#A1A49A &middot; metadata</span></div><div><i style="background:#C6EF5A"></i><span><code>--lime</code><br>#C6EF5A &middot; lime — act, or you are here</span></div><div><i style="background:#FF8F98"></i><span><code>--problem</code><br>#FF8F98 &middot; Problem</span></div><div><i style="background:#F2C661"></i><span><code>--note</code><br>#F2C661 &middot; Note</span></div><div><i style="background:#EFA23A"></i><span><code>--warning</code><br>#EFA23A &middot; going ahead despite a Problem</span></div><div><i style="background:#D4363F"></i><span><code>--danger</code><br>#D4363F &middot; removes</span></div></div>
+  <p class="tnote">The colours above are read out of <code>tokens.css</code> when this page is built &mdash; the same values the stand and the mockups use.</p>
+</section>
+
+<!-- ============ STAND ============ -->
+<section id="stand" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 04</span><h2>The stand</h2></div>
+  <p class="qline">The style at work, then every value with its reason &mdash; colour, type, form, icons, three components, a light slice and the contrast table.</p>
+  <p><strong>Every value lives in <code>tokens.css</code></strong> &mdash; 143 custom properties, generated by <code>tools/concept_tokens.py</code>, each colour with a comment naming the attribute or decision it follows from. <strong>Contrast is measured by a script</strong> on the file as written: 86 text-on-surface pairs in dark and in the light slice, all AA. The light slice did its job &mdash; it found that lime as a mark disappears on white, and light got its own <code>--lime-mark</code>.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>concept.html</strong> &middot; the stand, live &middot; scroll inside the frame<a href="concept.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="concept.html" title="The stand: Mica · Lime, the visual language of AI Stack Builder" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ MOCKUPS ============ -->
+<section id="mockups" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 05&ndash;06</span><h2>Mockups &mdash; the main job</h2></div>
+  <p class="qline">The style proved on the screens the product exists for: Projects, Project and <strong>Run, the contrasting one</strong> &mdash; every state of each.</p>
+  <p><strong>The wireframes were kept.</strong> Instead of repainting them, <code>tools/build_mockups.py</code> writes a design twin of each wireframe page &mdash; the same markup, the same words &mdash; with a stylesheet that takes every value from <code>tokens.css</code>, Lucide icons for the grey placeholders and the portrait for the avatar. <strong>22 pages and the 7 steps of the flow <code>main-success</code></strong> are drawn; the viewer, renamed <em>Wireframes and mockups</em>, switches any of them between <strong>Wireframe</strong> and <strong>Design</strong>.</p>
+  <div class="outs">
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#projects-default">Projects &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#project-default">Project &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">Run &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#flow/main-success">The flow main-success &nearr;</a>
+  </div>
+  <p class="tnote">A critique by two independent reviewers scored the first pass 29/40 and found a broken icon, a colour that contradicted its own count, and a flat payoff at the end of the export. All three were fixed in the stylesheet and the generator, never in the words.</p>
+</section>
+
+<!-- ============ CHECK ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 07</span><h2>The check</h2></div>
+  <p class="qline">Every page in the style, held against <code>concept.md</code> &mdash; <strong>29 problems, each with its evidence</strong>, and an audit.</p>
+  <p>Two measuring passes computed the contrast of every text node, compared every repeated component within a page, and listed every literal value; <strong><code>/impeccable audit</code> scored 13/20</strong> (accessibility 3, performance 3, theming 3, responsive 1 &mdash; phase 10 &mdash; integrity 3). <strong>The owner decided four</strong>: a warning colour for <em>Export with 1 problem</em>, accessible names for <em>+ Add</em>, no hidden heading or skip link yet, and <em>Add items from the left</em> for the empty project. <strong>And one more, in passing: <code>Export</code> lost its ellipsis everywhere</strong> &mdash; Q38, over Q36.</p>
+  <p>The rest was fixed in one order &mdash; tokens, then the generator, then the stand and the screens: focus that no longer reaches behind an open dialog, a spinner that stops for reduced motion, durations and measures and skeleton sizes taken from tokens, tones set by class rather than by context, dead links sent to their wireframes, sprites cut to what each page uses, the portrait stored in the repository.</p>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to which phase.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">The other screens and flows</td><td>Phase 07, UI assembly: the configuring mode, the detached row, the libraries, the item form, the receiver&rsquo;s pages &mdash; drawn the same way, one switch away from their wireframes.</td></tr>
+        <tr><td class="name">The light theme</td><td>Phase 09, the design system: one slice is proved here; the full theme is designed, not inverted.</td></tr>
+        <tr><td class="name">Responsive</td><td>Phase 10: the product is desktop-first, and at 390&nbsp;px the pages overflow as the wireframes do.</td></tr>
+        <tr><td class="name">The validation pass as a moment</td><td>Phase 11: the check is a designed moment, not a spinner (&sect;6 of the spec).</td></tr>
+        <tr><td class="name">A hidden heading and a skip link</td><td>Deferred by the owner in stage 07; they add markup the wireframes do not have.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 06 of twelve.</strong> Built by <code>tools/build_concept_page.py</code>; the stand by <code>tools/build_concept.py</code>; the values in <code>06-concept/tokens.css</code>. The specification is <code>CLAUDE.md</code>, &sect;15 <em>Concept</em>; every decision and its reason is in <code>06-concept/concept.md</code>.</p>
+  <p>Phase 05 &mdash; <a href="../05-tone-of-voice/voice.html">the voice</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  /* the phase rail's collapse toggle — the same key on every phase page and on the wireframes.
+     Deliberately not its own IIFE: the builders lift this script up to its first closing one. */
+  var phRoot = document.documentElement, phBtn = document.querySelector('.phasestoggle');
+  function phSync(){
+    var c = phRoot.classList.contains('phases-collapsed');
+    phBtn.setAttribute('aria-expanded', String(!c));
+    phBtn.innerHTML = c ? '&raquo;' : '&laquo;';
+    phBtn.title = c ? 'Expand phases' : 'Collapse phases';
+  }
+  if(phBtn){
+    phBtn.addEventListener('click', function(){
+      phRoot.classList.toggle('phases-collapsed');
+      try{ localStorage.setItem('phases', phRoot.classList.contains('phases-collapsed') ? 'collapsed' : 'open'); }catch(e){}
+      phSync();
+    });
+    phSync();
+  }
+  if(!links.length) return;
+  var rail = document.querySelector('.rail');
+  var ol   = rail ? rail.querySelector('ol') : null;
+
+  var map = links.map(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    return el ? { a:a, el:el } : null;
+  }).filter(Boolean);
+  if(!map.length) return;
+
+  var current = null;
+  var smoothly = !window.matchMedia
+              || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* One tab is always active: the last section whose top has passed the bar.
+     An IntersectionObserver band leaves the indicator blank between sections,
+     which is wrong for something shaped like tabs. */
+  function sync(){
+    /* a section becomes current once its top reaches the upper third of the
+       viewport, not when it touches the bar - otherwise the heading is already
+       well in view while the tabs still point at the section above it. */
+    var line = Math.max(110, window.innerHeight * 0.32), best = map[0], i;
+    for(i = 0; i < map.length; i++){
+      if(map[i].el.getBoundingClientRect().top <= line) best = map[i];
+    }
+    if(best === current) return;
+    current = best;
+    for(i = 0; i < links.length; i++) links[i].classList.remove('on');
+    best.a.classList.add('on');
+
+    /* keep the active tab inside the horizontal scroller */
+    if(ol && ol.scrollWidth > ol.clientWidth + 4){
+      var t = best.a.getBoundingClientRect(), o = ol.getBoundingClientRect(), to = null;
+      if(t.left < o.left + 12)        to = ol.scrollLeft + t.left  - o.left  - 28;
+      else if(t.right > o.right - 48) to = ol.scrollLeft + t.right - o.right + 56;
+      if(to !== null){
+        /* the bar is dragged by hand at 1:1, so smoothness is asked for here
+           rather than set on the element */
+        if(ol.scrollTo) ol.scrollTo({ left:to, behavior:smoothly ? 'smooth' : 'auto' });
+        else ol.scrollLeft = to;
+      }
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ sync(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  /* a click on a tab jumps without always producing a scroll event the throttle
+     can see, so the bar would keep pointing at the section we just left */
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(sync); });
+
+  /* Drag the horizontal bars with the mouse. They overflow at most widths and a
+     wheel alone only moves them with shift held, which nobody discovers. Touch
+     already scrolls them natively, so this is mouse-only; a drag of more than a
+     few pixels swallows the click it would otherwise end in. */
+  function dragScroll(box){
+    if(!box) return;
+    var SLOP = 5;                         /* a press only becomes a drag past this */
+    var down = false, dragging = false, swallow = false, startX = 0, startLeft = 0;
+    function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
+    function mark(){ box.classList.toggle('grabbable', !fits()); }
+
+    /* No setPointerCapture: a captured pointer retargets the click at the
+       scroller, and the tab under the cursor never receives it. The move and up
+       handlers go on the window instead, so a drag still survives leaving the
+       bar, and a plain click stays a plain click on the link. */
+    function move(e){
+      var dx = e.clientX - startX;
+      if(!dragging){
+        if(Math.abs(dx) < SLOP) return;
+        dragging = true; swallow = true;
+        box.classList.add('dragging');
+      }
+      box.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    }
+    function up(){
+      down = false; dragging = false;
+      box.classList.remove('dragging');
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    }
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; dragging = false; swallow = false;
+      startX = e.clientX; startLeft = box.scrollLeft;
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+    });
+    /* only a press that actually moved eats its click */
+    box.addEventListener('click', function(e){
+      if(!swallow) return;
+      swallow = false;
+      e.preventDefault(); e.stopPropagation();
+    }, true);
+    box.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    mark();
+    window.addEventListener('resize', mark);
+  }
+  dragScroll(ol);
+  dragScroll(document.querySelector('.phases ol'));
+
+  sync();
+})();
+</script>
+</body>
+</html>

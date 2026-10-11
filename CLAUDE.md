@@ -10,10 +10,11 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 **Phase: research was signed off on 2026-09-02 in five stages, and was re-opened on 2026-09-06 with
 two more — personas and jobs to be done. Those two are lesson 02; lesson 03, information
 architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; lesson 05, tone of voice and microcopy,
-closed on 2026-10-05 (§14); and the current lesson is 06, concept — not the design system, which is
-lesson 09.**
+closed on 2026-10-05 (§14); lesson 06, concept, closed on 2026-10-11 (§15); and the current lesson is 07, UI assembly —
+not the design system, which is lesson 09.**
 
-There is still no application code, no design system and no mockups. ~~no information architecture~~
+There is still no application code and no design system. ~~no mockups~~ **— the main job is drawn as mockups since
+2026-10-11** (§15), behind a Wireframe / Design switch in the viewer. ~~no information architecture~~
 **— the information architecture exists as of 2026-09-20**: all seven of lesson 03's steps are done,
 the summary is at the end of §8, and the lesson's page is
 [`ia.html`](03-information-architecture/ia.html). ~~What remains of the lesson is its page.~~
@@ -208,8 +209,8 @@ product *is* before anything decides what it looks like.
 | **03** | **Information architecture** | ~~done~~ — started 2026-09-15, **closed 2026-09-20**, all seven of the course's steps · [`ia.html`](03-information-architecture/ia.html) · [the plan](03-information-architecture/README.md). ~~Five of the course's seven steps are done; what remains is the IA critique and `ia.html`.~~ The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
 | **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
-| **06** | **Concept** | ← **current**, from 2026-10-05 — **all seven stages done 2026-10-11, awaiting the owner’s review.** The working style is **Mica · Lime** (§15): [`concept.html`](06-concept/concept.html) the stand, [`tokens.css`](06-concept/tokens.css) every value, the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html) · [the plan](06-concept/README.md) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
-| **07** | UI assembly | The screens built out of the concept — what the old list called *mockups* |
+| **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
+| **07** | **UI assembly** | ← **current**, from 2026-10-11. The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); what remains is every other screen and flow, generated the same way by `tools/build_mockups.py` |
 | **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
@@ -265,8 +266,9 @@ one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The current lesson is 06, concept**; if a request seems to jump
-past it — to components, tokens, a design system or a screen that looks finished — confirm before acting.
+Do not skip ahead. **The current lesson is 07, UI assembly**: the rest of the screens drawn in the working style
+(§15), the way the main job was. If a request jumps past it — to components as a system, the styling engine, the
+full light theme — confirm before acting.
 **Every line of copy from now on is written against §14, *Voice*.**
 Product logic described in this file is **specification, not a build order** — it is
 written down so design decisions are made with the real mechanics in view.
@@ -1638,8 +1640,8 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   were added on 2026-09-06 and are lesson 02.** **Lesson 03, information architecture, ran from 2026-09-15
   to 2026-09-20 and is closed; lesson 04, prototyping and wireframing, ran from 2026-09-26 to 2026-09-27
   and is closed; lesson 05, tone of voice and microcopy, ran from 2026-10-01 to 2026-10-05 and is
-  closed; lesson 06, concept, is current.** Do not
-  start tokens, components or a finished-looking screen before 06 is done, and do not
+  closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, is current.**
+  Every value comes from `06-concept/tokens.css`, never from a page (§15), and do not
   scaffold the app before there is something for it to hold.
 - **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
   2026-09-20). It is **gitignored** and it holds the day-by-day: what was tried, what was wrong for a

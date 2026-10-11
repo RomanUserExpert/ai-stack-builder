@@ -1,0 +1,216 @@
+<title>Phase 6 &mdash; Concept &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- the rounds: four directions pages, side by side --- */
+.rounds{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:22px 0 10px}
+.round{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.round .rn{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.round h3{margin:0;font-size:16px;line-height:1.3}
+.round p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.round .verdict-line{font-size:12.5px;color:var(--ink-3)}
+.round.kept{border-color:var(--accent-45);background:var(--accent-06)}
+.round.kept .rn{color:var(--accent)}
+.round a{font-size:13.5px}
+
+/* --- the style in one strip: the colours, as they are in tokens.css --- */
+.palette{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:18px 0 8px}
+.palette div{border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:var(--surface)}
+.palette i{display:block;height:44px}
+.palette span{display:block;padding:8px 10px 9px;font-size:12.5px;line-height:1.35}
+.palette code{font-size:11.5px}
+
+/* --- the stand, embedded --- */
+.stand{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:#1B1C19}
+.stand-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.stand-bar strong{color:var(--ink)}
+.stand-bar a{margin-left:auto}
+.stand iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#1B1C19}
+
+/* --- links out, as a short list of buttons --- */
+.outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
+.outs a:hover{border-color:var(--accent)}
+</style>
+
+
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><span class="now" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></span></li>
+      <li><span class="soon" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 06 &middot; Concept</p>
+  <h1>How the product looks, and why each value is there</h1>
+  <p class="phasemeta">Phase <strong>6 of 12</strong> &middot; all seven of the phase&rsquo;s stages &middot; <strong>5&ndash;11 Oct 2026</strong> &middot; source of truth: <strong>concept.md</strong> for the reasons, <strong>tokens.css</strong> for the values</p>
+  <p class="standfirst">The product had a structure (phase 04) and a voice (phase 05). <strong>This phase gives AI Stack Builder a look</strong>, found the way the voice was: from references the research already trusted, the owner&rsquo;s written taste, and attributes derived from the data &mdash; then drawn as directions, chosen in the browser, and proved on real screens. <strong>The result is one style, Mica&nbsp;&middot;&nbsp;Lime</strong>, every value of it in one file, every value of it with a reason.</p>
+  <dl class="facts">
+    <div><dt>Rounds</dt><dd>4<small>12 directions drawn</small></dd></div>
+    <div><dt>Tokens</dt><dd>{{N_TOKENS}}<small>one file, tokens.css</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>{{N_PAIRS}}<small>all WCAG AA</small></dd></div>
+    <div><dt>Mockups</dt><dd>{{N_MOCKUPS}}<small>+ {{N_FLOW}} flow steps</small></dd></div>
+    <div><dt>Problems fixed</dt><dd>29<small>each with evidence</small></dd></div>
+    <div><dt>Register</dt><dd>1<small>Q38</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#references"><b>Stage 01</b>References</a></li>
+    <li><a href="#taste"><b>Stage 02</b>Taste and attributes</a></li>
+    <li><a href="#directions"><b>Stage 03</b>Directions</a></li>
+    <li><a href="#stand"><b>Stage 04</b>The stand</a></li>
+    <li><a href="#mockups"><b>Stage 05&ndash;06</b>Mockups</a></li>
+    <li><a href="#check"><b>Stage 07</b>The check</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">Seven stages in a week, four rounds of directions, and the two lists they produced.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>The category has a default, and it is easy to land in.</strong> A near-black ground with violet-blue neon, glass cards, icons in circles &mdash; the look an AI tool gets by default. The owner&rsquo;s anti-taste refused it in the first stage, and every direction was checked against it: <em>could this palette be guessed from the subject alone?</em></li>
+    <li><strong>The research already named the craft bar.</strong> Linear, Vercel, Raycast, GitHub &mdash; read for how they show a verdict, a state and a count, not for their brands. Linear became the base: three surfaces, hairlines instead of shadows, colour only for meaning.</li>
+    <li><strong>Colour is a claim, exactly as a word is.</strong> The product never claims <em>works</em>, so it has no success colour: <em>Checked</em> is a quiet dot. A green tick would have said what the product cannot know.</li>
+    <li><strong>The owner chose by looking, not by reading.</strong> Round 1 and round 2 were turned down whole; round 3 kept one style and one density; round 4 kept one colour; then a dozen precise corrections on the screens &mdash; a pill, a tag, a segmented track, a muted remove &mdash; each written down with its reason.</li>
+    <li><strong>Measuring caught what the eye did not, and the eye caught what measuring could not.</strong> The script found a hover that dropped below AA and lime vanishing on white; the owner found a hover gone dark because a token resolved in the wrong theme.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>One style, Mica&nbsp;&middot;&nbsp;Lime.</strong> A neutral ground with a faint lime tint, quiet layers, Geist and Geist&nbsp;Mono, Lucide icons, a 4&nbsp;px grid, density between default and comfortable.</li>
+    <li><strong>Lime only where you can act or where you are</strong> &mdash; the primary button, the current place, the active row. Never a verdict.</li>
+    <li><strong>Findings are tinted tags</strong>, Problem and Note; red only removes; amber only goes ahead despite a Problem. No rings round rows.</li>
+    <li><strong>Glass only around a mode or a dialog</strong>, text always on an opaque sheet &mdash; the owner&rsquo;s signature, used sparingly.</li>
+    <li><strong>Every value lives in <code>tokens.css</code></strong>, and no page holds one of its own &mdash; a build refuses it.</li>
+    <li><strong>The wireframes stay.</strong> The main job is drawn as design twins of the wireframe pages, one switch away.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="concept.html">The stand &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#project-default">The mockups, in the viewer &nearr;</a>
+    <a href="mica-lime.html">The screens &nearr;</a>
+    <a href="tokens.css">tokens.css &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ REFERENCES ============ -->
+<section id="references" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 01</span><h2>References</h2></div>
+  <p class="qline">Where to look, and what to take &mdash; <strong>one base, and one or two named devices from each of the others.</strong></p>
+  <p>No new competitors were searched: the sources are the craft benchmark the research named in phase 01. <strong>Linear is the base</strong> &mdash; a dense list of named things with state, colour reserved for meaning. From <strong>Vercel</strong>, a stage row with its duration and verdict at the right edge, and status as a dot and a word. From <strong>GitHub</strong>, a neutral slashed circle for <em>Skipped</em>, and a count in a capsule after a tab. From <strong>Raycast</strong>, a dimmed line of facts under a description. <strong>None is copied whole</strong>, and each device is written down with the worry of the persona it removes.</p>
+  <p class="tnote">Refero was not connected; Lazyweb, SaaSUI and the captures from phase 01 were used instead, and the file says so. A wider idea base of 61 images was captured for the later stages.</p>
+</section>
+
+<!-- ============ TASTE ============ -->
+<section id="taste" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 02</span><h2>Taste and attributes</h2></div>
+  <p class="qline">The owner&rsquo;s taste in named products, and five pairs of opposites drawn from the data.</p>
+  <p><strong>Likes:</strong> Vercel &mdash; status, fact and consequence side by side, monochrome; Figma &mdash; a dense surface held by the grid and the type, not by colour; Teams and Slack &mdash; glass, noticeable but sparing. <strong>Does not want:</strong> the palette an AI produces for &ldquo;AI tool&rdquo;, a marketplace showcase, glass everywhere, a green tick as the main signal.</p>
+  <p><strong>Five attributes</strong>, each with the line of research it comes from: <em>an inspector&rsquo;s report, not a seller&rsquo;s badge</em>; <em>dense and counted, not spacious and showcased</em>; <em>the consequence visible before the step</em>; <em>glass is a layer over the work, not the work</em>; <em>colour is a claim, held back</em>. Five conflicts between taste and data were not resolved on paper &mdash; they were drawn as variants and chosen in the browser.</p>
+</section>
+
+<!-- ============ DIRECTIONS ============ -->
+<section id="directions" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 03</span><h2>Directions &mdash; four rounds</h2></div>
+  <p class="qline">Three directions that genuinely differ, drawn on one fixed piece of the product &mdash; and drawn again until one held.</p>
+  <div class="rounds wide">
+    <div class="round"><span class="rn">Round 1</span><h3>Acrylic &middot; Manifest &middot; Catalogue</h3><p>Fluent glass; customs papers in petrol and paper; a record sleeve in black and white.</p><span class="verdict-line">Turned down. Acrylic noted as close.</span><a href="directions.html">Open round 1 &nearr;</a></div>
+    <div class="round"><span class="rn">Round 2</span><h3>Glasshouse &middot; Kit &middot; Warm</h3><p>A palm house at night; a tool drawer of cut-outs; a soft consumer surface. Free to change the layout.</p><span class="verdict-line">Turned down. Kit&rsquo;s cut-outs noted as close.</span><a href="directions-2.html">Open round 2 &nearr;</a></div>
+    <div class="round"><span class="rn">Round 3</span><h3>Mica &middot; Cut-out &middot; Canon</h3><p>Calmer, better made, at three densities you can switch between.</p><span class="verdict-line">Mica kept, at a density between default and comfortable.</span><a href="directions-3.html">Open round 3 &nearr;</a></div>
+    <div class="round kept"><span class="rn">Round 4 &middot; kept</span><h3>Mica &middot; Cobalt &middot; Jade &middot; Lime</h3><p>One material, three typefaces, three icon libraries, three brand colours &mdash; in Kit&rsquo;s cut-out form.</p><span class="verdict-line">Lime kept. Then fixed as the working style.</span><a href="directions-4.html">Open round 4 &nearr;</a></div>
+  </div>
+  <p>After round 4 the owner corrected the style on the screen itself, one decision at a time: <strong>no rings round rows</strong>; the top bar kept, its current place a raised tile on no track; the active row marked by a <strong>lime pill along its edge</strong>; findings as <strong>tinted tags</strong>; a <strong>segmented control</strong> with its own track; <strong>+&nbsp;Add</strong> as an icon button; radios and checkboxes drawn for the dark; one neutral tile on every empty and error state; a <strong>muted remove</strong> inside a Problem and a red one only to confirm.</p>
+  <div class="palette wide">{{PALETTE}}</div>
+  <p class="tnote">The colours above are read out of <code>tokens.css</code> when this page is built &mdash; the same values the stand and the mockups use.</p>
+</section>
+
+<!-- ============ STAND ============ -->
+<section id="stand" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 04</span><h2>The stand</h2></div>
+  <p class="qline">The style at work, then every value with its reason &mdash; colour, type, form, icons, three components, a light slice and the contrast table.</p>
+  <p><strong>Every value lives in <code>tokens.css</code></strong> &mdash; {{N_TOKENS}} custom properties, generated by <code>tools/concept_tokens.py</code>, each colour with a comment naming the attribute or decision it follows from. <strong>Contrast is measured by a script</strong> on the file as written: {{N_PAIRS}} text-on-surface pairs in dark and in the light slice, all AA. The light slice did its job &mdash; it found that lime as a mark disappears on white, and light got its own <code>--lime-mark</code>.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>concept.html</strong> &middot; the stand, live &middot; scroll inside the frame<a href="concept.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="concept.html" title="The stand: Mica · Lime, the visual language of AI Stack Builder" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ MOCKUPS ============ -->
+<section id="mockups" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 05&ndash;06</span><h2>Mockups &mdash; the main job</h2></div>
+  <p class="qline">The style proved on the screens the product exists for: Projects, Project and <strong>Run, the contrasting one</strong> &mdash; every state of each.</p>
+  <p><strong>The wireframes were kept.</strong> Instead of repainting them, <code>tools/build_mockups.py</code> writes a design twin of each wireframe page &mdash; the same markup, the same words &mdash; with a stylesheet that takes every value from <code>tokens.css</code>, Lucide icons for the grey placeholders and the portrait for the avatar. <strong>{{N_MOCKUPS}} pages and the {{N_FLOW}} steps of the flow <code>main-success</code></strong> are drawn; the viewer, renamed <em>Wireframes and mockups</em>, switches any of them between <strong>Wireframe</strong> and <strong>Design</strong>.</p>
+  <div class="outs">
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#projects-default">Projects &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#project-default">Project &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">Run &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#flow/main-success">The flow main-success &nearr;</a>
+  </div>
+  <p class="tnote">A critique by two independent reviewers scored the first pass 29/40 and found a broken icon, a colour that contradicted its own count, and a flat payoff at the end of the export. All three were fixed in the stylesheet and the generator, never in the words.</p>
+</section>
+
+<!-- ============ CHECK ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 07</span><h2>The check</h2></div>
+  <p class="qline">Every page in the style, held against <code>concept.md</code> &mdash; <strong>29 problems, each with its evidence</strong>, and an audit.</p>
+  <p>Two measuring passes computed the contrast of every text node, compared every repeated component within a page, and listed every literal value; <strong><code>/impeccable audit</code> scored 13/20</strong> (accessibility 3, performance 3, theming 3, responsive 1 &mdash; phase 10 &mdash; integrity 3). <strong>The owner decided four</strong>: a warning colour for <em>Export with 1 problem</em>, accessible names for <em>+ Add</em>, no hidden heading or skip link yet, and <em>Add items from the left</em> for the empty project. <strong>And one more, in passing: <code>Export</code> lost its ellipsis everywhere</strong> &mdash; Q38, over Q36.</p>
+  <p>The rest was fixed in one order &mdash; tokens, then the generator, then the stand and the screens: focus that no longer reaches behind an open dialog, a spinner that stops for reduced motion, durations and measures and skeleton sizes taken from tokens, tones set by class rather than by context, dead links sent to their wireframes, sprites cut to what each page uses, the portrait stored in the repository.</p>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to which phase.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">The other screens and flows</td><td>Phase 07, UI assembly: the configuring mode, the detached row, the libraries, the item form, the receiver&rsquo;s pages &mdash; drawn the same way, one switch away from their wireframes.</td></tr>
+        <tr><td class="name">The light theme</td><td>Phase 09, the design system: one slice is proved here; the full theme is designed, not inverted.</td></tr>
+        <tr><td class="name">Responsive</td><td>Phase 10: the product is desktop-first, and at 390&nbsp;px the pages overflow as the wireframes do.</td></tr>
+        <tr><td class="name">The validation pass as a moment</td><td>Phase 11: the check is a designed moment, not a spinner (&sect;6 of the spec).</td></tr>
+        <tr><td class="name">A hidden heading and a skip link</td><td>Deferred by the owner in stage 07; they add markup the wireframes do not have.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 06 of twelve.</strong> Built by <code>tools/build_concept_page.py</code>; the stand by <code>tools/build_concept.py</code>; the values in <code>06-concept/tokens.css</code>. The specification is <code>CLAUDE.md</code>, &sect;15 <em>Concept</em>; every decision and its reason is in <code>06-concept/concept.md</code>.</p>
+  <p>Phase 05 &mdash; <a href="../05-tone-of-voice/voice.html">the voice</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
