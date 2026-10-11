@@ -301,8 +301,10 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Rows | Each item in its own rounded cut-out; auto-added items inside the parent's, behind a dashed rule | Owner, round 4 (Kit's form) |
 | Findings on a row | **No coloured ring round the row**, and no outline round a selected row | Owner, 2026-10-11 |
 
-**Open, with options on [`mica-lime.html`](mica-lime.html)** — the owner answers with three codes:
-- **Navigation:** N1 top bar · N2 sidebar with a lime pill · N3 icon rail.
-- **The active item:** S1 lime tint · S2 a lime pill at the edge · S3 lift, no colour.
-- **A finding:** F1 tinted tag · F2 coloured mark (dot-and-word) · F3 icon in a left gutter, word in grey.
+| Navigation | **Top bar (N1)** — the three places in one line across the top | Owner, 2026-10-11 |
+| Active row | **A short lime pill at the left edge of the cut-out, the cut-out one step lighter (S2)** — Fluent's selection indicator | Owner, 2026-10-11 |
+| Findings on a row | **A tinted tag with the icon and the word (F1)**: Problem and Note as capsules on the right, `Conflict` as a tag beside the name | Owner, 2026-10-11 |
 
+**Open, with options on [`mica-lime.html`](mica-lime.html):** how the **current place looks in the top bar** —
+T1 a lime under-pill (the S2 pill on its side) · T2 a segmented track with a raised tile · T3 a lime-tinted capsule ·
+T4 a lime dot and a heavier label. The round-4 look (a raised tile with a lime underline) was turned down.

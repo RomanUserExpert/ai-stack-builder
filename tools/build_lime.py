@@ -27,6 +27,12 @@ NAV = [
     ("n2", "Sidebar", "Fluent’s NavigationView: a left column with icon and label, the current place marked by a short lime pill. Room for more places later (a shared project, settings) without crowding the head."),
     ("n3", "Icon rail", "A narrow rail of icons with small labels under them, the current one on a lime-tinted tile. The most room for the work; the labels keep it readable without hovering."),
 ]
+TOP = [
+    ("t1", "Under-pill", "The same short lime pill as the active row (S2), turned on its side under the label. One indicator for “you are here” across the whole product."),
+    ("t2", "Segmented", "The three places sit in a recessed track; the current one is a raised tile. No lime in the bar at all — only the icon of the current place is lime."),
+    ("t3", "Lime capsule", "The current place is a capsule tinted with lime, its icon in full lime and the label in white. The most visible of the four."),
+    ("t4", "Dot and weight", "No shape at all: the current label turns white and semibold with a small lime dot before it; the others stay grey. The quietest."),
+]
 SEL = [
     ("s1", "Tint", "The active cut-out fills with a faint lime tint. No line at all; the row reads as lit."),
     ("s2", "Pill", "Fluent’s selection indicator: a short lime pill at the left edge of the cut-out, the cut-out itself one step lighter."),
@@ -99,6 +105,23 @@ CSS = bd4.CSS + r"""
 .n3 .account{margin-top:auto;font-size:0;gap:0}
 .n3 .account img{width:30px;height:30px}
 
+/* ---------- the current place in the top bar ---------- */
+.t1 .links a.on,.t2 .links a.on,.t3 .links a.on,.t4 .links a.on{box-shadow:none}
+.t1 .links a{position:relative;background:transparent!important}
+.t1 .links a.on{color:var(--text)}
+.t1 .links a.on::after{content:"";position:absolute;left:50%;bottom:-1px;width:18px;height:3px;margin-left:-9px;border-radius:2px;background:var(--brand)}
+.t1 .links a.on .ic{color:var(--text)}
+.t2 .links{background:var(--well);padding:3px;border-radius:10px;box-shadow:inset 0 0 0 1px var(--line),inset 0 1px 2px rgba(0,0,0,.4)}
+.t2 .links a{border-radius:8px}
+.t2 .links a.on{background:var(--raised);box-shadow:0 1px 2px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05)}
+.t2 .links a.on .ic{color:var(--brand)}
+.t3 .links a{border-radius:999px;padding-left:12px;padding-right:14px}
+.t3 .links a.on{background:color-mix(in srgb,var(--brand) 16%,transparent);color:var(--text)}
+.t3 .links a.on .ic{color:var(--brand)}
+.t4 .links a{background:transparent!important;position:relative}
+.t4 .links a.on{color:var(--text);font-weight:650}
+.t4 .links a.on::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);margin-right:-2px}
+
 /* ---------- the active item ---------- */
 .s1 .set>li.sel{background:color-mix(in srgb,var(--brand) 9%,var(--well));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--brand) 22%,transparent)}
 .s2 .set>li.sel{position:relative;background:var(--raised)}
@@ -143,11 +166,12 @@ def build():
     base_nav = "lime {axis} s1 f1"
     base_sel = "lime n1 {axis} f1"
     base_find = "lime n1 s1 {axis}"
+    top = option_block("top", "The current place in the top bar", "The top bar stays (N1). Only the look of the current place changes — here <i>Projects</i>. Shown with S2 and F1, which are fixed.", TOP, "lime n1 {axis} s2 f1", 150, 0)
     nav = option_block("nav", "Navigation", "Three ways to reach the three places — <i>My library</i>, <i>Public library</i>, <i>Projects</i>. Shown with selection S1 and findings F1.", NAV, base_nav, 300, 0)
     sel = option_block("sel", "The active item", "How the row you opened is marked — here <code>eslint-autofix</code>, open in the panel. No outline round it. Shown with N1 and F1.", SEL, base_sel, 420, 250)
     fnd = option_block("find", "A finding", "How a Problem and a Note show on a row now that the coloured rings are gone. Shown with N1 and S1.", FIND, base_find, 420, 250)
-    full = f'<section class="full" aria-label="The whole screen"><div class="opt"><header><h3><span class="oid">N1 · S1 · F1</span> The whole screen, one combination</h3><p>Any navigation goes with any selection and any finding style; answer with three codes, for example <b>N2 · S2 · F1</b>.</p></header>{sample("lime n1 s1 f1", 0)}</div></section>'
-    run = f'<section class="full" aria-label="Export"><div class="opt"><header><h3><span class="oid">Export</span> The same rules in the Export mode</h3><p>No rings on the stages either: a stage’s verdict is its icon and words; the finding’s box is a faint tint of its colour.</p></header>{sample("lime n1 s1 f1", 560, 0, overlay=True)}</div></section>'
+    full = f'<section class="full" aria-label="The whole screen"><div class="opt"><header><h3><span class="oid">N1 · S2 · F1</span> The whole screen, as fixed</h3><p>Top bar, the active row marked by a lime pill at its edge, findings as tinted tags. The current place in the bar is shown as T1; the four options are below.</p></header>{sample("lime n1 t1 s2 f1", 0)}</div></section>'
+    run = f'<section class="full" aria-label="Export"><div class="opt"><header><h3><span class="oid">Export</span> The same rules in the Export mode</h3><p>No rings on the stages either: a stage’s verdict is its icon and words; the finding’s box is a faint tint of its colour.</p></header>{sample("lime n1 t1 s2 f1", 560, 0, overlay=True)}</div></section>'
     html = f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Mica Lime · AI Stack Builder</title>
@@ -156,16 +180,17 @@ def build():
 <body data-density="between">{bd4.symbols()}
 <header class="pagehead">
   <h1>Mica · Lime — finishing the working style</h1>
-  <p>Fixed as the working style on 11 Oct 2026. Three things are still open, and each has three options below: <b>navigation</b> (N1–N3), <b>the active item</b> (S1–S3) and <b>a finding</b> (F1–F3). They combine freely. Every word is from <code>microcopy.md</code>.</p>
-  <div class="bar"><nav aria-label="Sections"><span class="k">Jump to</span><a href="#nav">Navigation</a><a href="#sel">Active item</a><a href="#find">Finding</a></nav></div>
+  <p>Fixed as the working style on 11 Oct 2026. Fixed by the owner the same evening: <b>the top bar (N1)</b>, <b>the active row as a lime pill at its edge (S2)</b> and <b>findings as tinted tags (F1)</b>. One thing is still open: <b>how the current place looks in the top bar</b> — four options, T1–T4. Every word is from <code>microcopy.md</code>.</p>
+  <div class="bar"><nav aria-label="Sections"><span class="k">Jump to</span><a href="#top">Current place, T1–T4</a></nav></div>
 </header>
 <section class="decided"><div class="box"><b>Already decided.</b><ul>
 <li><b>Material:</b> Mica — a neutral ground with a faint lime tint, quiet layers; acrylic only around the Export mode and a dialog, text always on an opaque sheet.</li>
 <li><b>Type:</b> Schibsted Grotesk; Source Code Pro for paths, refs and file contents. <b>Icons:</b> Lucide, 1.75 px stroke.</li>
 <li><b>Brand:</b> lime <code>#C6EF5A</code>, only on what you can press and where you are. <b>Density:</b> between Default and Comfortable.</li>
 <li><b>Rows:</b> each item in its own rounded cut-out, auto-added items inside their parent’s behind a dashed rule. <b>No rings</b> round a row for a finding or a selection.</li>
-<li><b>Checked</b> is a quiet dot, never green (D1-B).</li></ul></div></section>
-{wrap(full + nav + sel + fnd + run)}
+<li><b>Checked</b> is a quiet dot, never green (D1-B).</li>
+<li><b>Navigation:</b> the top bar (N1). <b>Active row:</b> a short lime pill at its left edge, the cut-out one step lighter (S2). <b>Findings:</b> a tinted tag with the icon and the word (F1).</li></ul></div></section>
+{wrap(full + top + run)}
 <p class="pagefoot">Built by <code>tools/build_lime.py</code>. Icons: Lucide (ISC). Portrait: Jake Nackos on Unsplash (unsplash.com/photos/IF9TK5Uy-KI).</p>
 <script>{JS}</script></body></html>'''
     OUT.write_text(html, encoding="utf-8")
