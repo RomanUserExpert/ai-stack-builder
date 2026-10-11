@@ -307,5 +307,12 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 
 | Current place in the top bar | **A raised tile, its icon in lime; the other places sit on no track** (T2 without its track). The round-4 look — a tile with a lime underline — was turned down | Owner, 2026-10-11 |
 
+**Polished on 2026-10-11** (impeccable *polish*): the style was drawn out of three generators' stylesheets layered
+on top of each other, so one component had several values. `tools/build_lime.py` now writes it as **one stylesheet in
+tokens** — spacing on a 4 px scale (4 · 8 · 12 · 16 · 20 · 24 · 32 · 40), six type roles (display 28/34 · title 20/26 ·
+heading 16/22 · body 14.5/21 · small 13/19 · micro 12/16), six radii (4 · 6 · 10 · 14 · 18 · pill), seventeen colours
+each with its contrast, and drawn states for buttons, places and rows. **Lowest text contrast on the page: 5.3:1**
+(`--text-3` on a secondary button); `--text-3` was raised from `#9C9F95` to `#A1A49A` for it.
+
 **Nothing in the working style is open any more.** [`mica-lime.html`](mica-lime.html) shows the fixed screen and the
 Export mode; it is the input to stage 4 (`tokens.css` and the stand).
