@@ -305,6 +305,7 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Active row | **A short lime pill at the left edge of the cut-out, the cut-out one step lighter (S2)** — Fluent's selection indicator | Owner, 2026-10-11 |
 | Findings on a row | **A tinted tag with the icon and the word (F1)**: Problem and Note as capsules on the right, `Conflict` as a tag beside the name | Owner, 2026-10-11 |
 
-**Open, with options on [`mica-lime.html`](mica-lime.html):** how the **current place looks in the top bar** —
-T1 a lime under-pill (the S2 pill on its side) · T2 a segmented track with a raised tile · T3 a lime-tinted capsule ·
-T4 a lime dot and a heavier label. The round-4 look (a raised tile with a lime underline) was turned down.
+| Current place in the top bar | **A raised tile, its icon in lime; the other places sit on no track** (T2 without its track). The round-4 look — a tile with a lime underline — was turned down | Owner, 2026-10-11 |
+
+**Nothing in the working style is open any more.** [`mica-lime.html`](mica-lime.html) shows the fixed screen and the
+Export mode; it is the input to stage 4 (`tokens.css` and the stand).
