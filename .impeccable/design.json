@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-19T08:25:32+00:00",
+  "title": "Design System: AI Stack Builder",
+  "extensions": {
+    "colorMeta": {
+      "lime": {
+        "role": "primary",
+        "displayName": "Signal Lime"
+      },
+      "mica-ground": {
+        "role": "neutral",
+        "displayName": "Mica Ground",
+        "tonalRamp": [
+          "#161714",
+          "#181916",
+          "#1B1C19",
+          "#1E1F1B",
+          "#232420",
+          "#2A2B27",
+          "#2E302A",
+          "#383A33"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "#A1A49A",
+          "#C5C7BE",
+          "#F3F4EF"
+        ]
+      },
+      "problem": {
+        "role": "state",
+        "displayName": "Problem Rose"
+      },
+      "note": {
+        "role": "state",
+        "displayName": "Note Amber"
+      },
+      "warning": {
+        "role": "state",
+        "displayName": "Warning Amber"
+      },
+      "danger": {
+        "role": "state",
+        "displayName": "Remove Red"
+      },
+      "checked": {
+        "role": "state",
+        "displayName": "Checked"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "A project's name, one per screen."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "The Export mode's verdict; an empty or error state's title."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Paths, refs, step numbers, durations, file contents."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-cutout",
+        "value": "inset 0 0 0 1px var(--line), inset 0 1px 2px rgba(0,0,0,.35)",
+        "purpose": "A row pressed into its tray."
+      },
+      {
+        "name": "shadow-tile",
+        "value": "0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04)",
+        "purpose": "The current place; a lifted segment."
+      },
+      {
+        "name": "shadow-sheet",
+        "value": "0 18px 40px rgba(0,0,0,.35)",
+        "purpose": "A dialog or popover over a mode."
+      },
+      {
+        "name": "shadow-focus",
+        "value": "0 0 0 2px var(--ground), 0 0 0 4px var(--lime)",
+        "purpose": "Keyboard focus."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.2,.7,.2,1)",
+        "purpose": "Every state transition."
+      },
+      {
+        "name": "dur",
+        "value": "140ms",
+        "purpose": "Hover and state changes."
+      },
+      {
+        "name": "dur-spin",
+        "value": "900ms",
+        "purpose": "The export spinner; stopped under reduced motion."
+      },
+      {
+        "name": "dur-shimmer",
+        "value": "1400ms",
+        "purpose": "Skeleton shimmer; stopped under reduced motion."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action per screen: lime fill, lime ink. Never a verdict.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"17 8 12 3 7 8\"/><line x1=\"12\" x2=\"12\" y1=\"3\" y2=\"15\"/></svg>Export</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);font:var(--t-button);border-radius:var(--r-sm);border:var(--hairline) solid;cursor:pointer;transition:background var(--dur) var(--ease);background:var(--lime);border-color:var(--lime);color:var(--on-lime);font-weight:600} .ds-btn-primary:hover{background:var(--lime-hover);border-color:var(--lime-hover)} .ds-btn-primary:focus-visible{outline:0;box-shadow:var(--shadow-focus)}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Every other action. Controls stay grey.",
+      "html": "<button class=\"ds-btn\">Configure</button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);font:var(--t-button);border-radius:var(--r-sm);border:var(--hairline) solid;cursor:pointer;transition:background var(--dur) var(--ease);background:var(--control);border-color:var(--line-strong);color:var(--text)} .ds-btn:hover{background:var(--control-hover)} .ds-btn:focus-visible{outline:0;box-shadow:var(--shadow-focus)}"
+    },
+    {
+      "name": "Warning Button",
+      "kind": "button",
+      "refersTo": "button-warning",
+      "description": "Going ahead despite a Problem: the cost named, never celebrated in lime.",
+      "html": "<button class=\"ds-btn-warning\">Export with 1 problem</button>",
+      "css": ".ds-btn-warning{display:inline-flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);font:var(--t-button);border-radius:var(--r-sm);border:var(--hairline) solid;cursor:pointer;transition:background var(--dur) var(--ease);background:var(--warning);border-color:var(--warning);color:var(--on-warning)} .ds-btn-warning:hover{background:var(--warning-hover);border-color:var(--warning-hover)} .ds-btn-warning:focus-visible{outline:0;box-shadow:var(--shadow-focus)}"
+    },
+    {
+      "name": "Danger Button",
+      "kind": "button",
+      "refersTo": "button-danger",
+      "description": "Only the confirmation of a removal. Hover darkens.",
+      "html": "<button class=\"ds-btn-danger\">Remove from project</button>",
+      "css": ".ds-btn-danger{display:inline-flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);font:var(--t-button);border-radius:var(--r-sm);border:var(--hairline) solid;cursor:pointer;transition:background var(--dur) var(--ease);background:var(--danger);border-color:var(--danger);color:var(--on-danger)} .ds-btn-danger:hover{background:var(--danger-hover);border-color:var(--danger-hover)} .ds-btn-danger:focus-visible{outline:0;box-shadow:var(--shadow-focus)}"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-field",
+      "description": "A recessed well with a hairline edge; the lime ring on focus.",
+      "html": "<label class=\"ds-search\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input placeholder=\"Search projects\"></label>",
+      "css": ".ds-search{display:flex;gap:var(--s2);align-items:center;width:320px;height:var(--control-h);padding:0 var(--s3);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);color:var(--text-3)} .ds-search input{flex:1;border:0;background:transparent;color:var(--text);font:var(--t-small);outline:0} .ds-search input::placeholder{color:var(--text-3)} .ds-search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}"
+    },
+    {
+      "name": "Top Bar Navigation",
+      "kind": "nav",
+      "refersTo": "nav-place-current",
+      "description": "Three places as text; the current one is a raised tile.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">My library</a><a href=\"#\">Public library</a><a href=\"#\" aria-current=\"page\">Projects</a></nav>",
+      "css": ".ds-nav{display:flex;gap:2px;padding:var(--s2);background:var(--bar)} .ds-nav a{display:flex;align-items:center;height:var(--control-h);padding:0 var(--s3);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button)} .ds-nav a:hover{color:var(--text);background:var(--hover-wash)} .ds-nav a[aria-current=page]{color:var(--text);background:var(--raised);box-shadow:var(--shadow-tile)} .ds-nav a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}"
+    },
+    {
+      "name": "Kind Tag and Finding Capsules",
+      "kind": "chip",
+      "refersTo": "finding-mark-problem",
+      "description": "Kind as an outlined pill; Conflict beside the name; Problem and Note as tinted capsules with icon and word.",
+      "html": "<div class=\"ds-tags\"><span class=\"ds-tag\">script</span><span class=\"ds-tag ds-tag-conflict\">Conflict</span><span class=\"ds-mark ds-mark-problem\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"/><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"/></svg>Problem</span><span class=\"ds-mark ds-mark-note\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/></svg>Note</span></div>",
+      "css": ".ds-tags{display:flex;gap:var(--s2);align-items:center} .ds-tag{display:inline-flex;align-items:center;height:var(--tag-h);padding:0 var(--s2);font:var(--t-micro);color:var(--text-2);border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} .ds-tag-conflict{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 var(--hairline) var(--problem-edge)} .ds-mark{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);font:var(--t-micro);font-weight:600;border-radius:var(--r-pill)} .ds-mark-problem{color:var(--problem);background:var(--problem-wash)} .ds-mark-note{color:var(--note);background:var(--note-wash)}"
+    },
+    {
+      "name": "Item Row in its Cut-out",
+      "kind": "custom",
+      "refersTo": "row-cutout",
+      "description": "The signature: every item pressed into its own cut-out inside a tray; the active one raised, with a lime pill.",
+      "html": "<ul class=\"ds-tray\"><li class=\"ds-row\"><b>code-style</b> <span class=\"ds-k\">skill</span><p>How I want TypeScript written.</p><code>.claude/skills/code-style/SKILL.md</code></li><li class=\"ds-row ds-row-active\"><b>eslint-autofix</b> <span class=\"ds-k\">script</span><p>Runs ESLint with --fix on staged files.</p><code>scripts/eslint-autofix.sh</code></li></ul>",
+      "css": ".ds-tray{list-style:none;margin:0;display:flex;flex-direction:column;gap:var(--s2);padding:var(--s2);background:var(--tray);border-radius:var(--r-lg);width:520px} .ds-row{position:relative;padding:var(--s3) var(--s4);background:var(--cutout);border-radius:var(--r-md);box-shadow:var(--shadow-cutout);font:var(--t-body);color:var(--text);transition:background var(--dur) var(--ease)} .ds-row:hover{background:var(--row-hover)} .ds-row b{font-weight:600} .ds-row p{margin:2px 0 0;font:var(--t-small);color:var(--text-2)} .ds-row code{font:var(--t-code);color:var(--text-3)} .ds-k{font:var(--t-micro);color:var(--text-2);padding:0 var(--s2);border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} .ds-row-active{background:var(--raised)} .ds-row-active::before{content:'';position:absolute;left:var(--s1);top:var(--s3);bottom:var(--s3);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Inspector's Report",
+    "overview": "The product reads like an inspection, not a sales sheet. It says what was examined, counts what it\nfound and names the cost before the step. It never says what any of that means, and it never says\n*works*. The interface is a dark, neutral working surface of quiet layers: a Mica ground with a faint\nlime tint, a tray, and every item pressed into its own cut-out. One lime marks what you can press and\nwhere you are. The severities are tinted tags carrying a word and an icon. There is no success colour\nat all: the best a check can say is *Checked*, drawn as a quiet dot.\n\nDensity sits between Default and Comfortable: a lot on the screen, held by the grid and the type\nrather than by colour, as in Figma's panels. Edges come from hairlines before shadows, as in Linear.\nGlass (acrylic) is the signature touch and is kept to the frame around a mode or a dialog. Text never\nsits on glass; it sits on an opaque sheet.\n\nThe components are **quiet and exact**: grey controls, hairline edges, states named by a word and a\nshape, and colour held in reserve.",
+    "keyCharacteristics": [
+      "Dark first; the light theme is designed, not inverted. One light slice exists, and the full theme comes in phase 09.",
+      "One brand colour, lime, which is never a verdict.",
+      "Every item in its own rounded cut-out inside a tray; auto-added items nest under their parent behind a dashed rule.",
+      "Findings are tinted capsules with an icon and a word: Problem and Note on the right of a row, `Conflict` beside the name.",
+      "Paths, refs, timings and file contents are in Geist Mono with tabular figures.",
+      "One primary action per screen."
+    ],
+    "rules": [
+      {
+        "name": "The Colour Is a Claim Rule",
+        "body": "A colour on screen asserts something. Lime asserts *you can act here* or *you are here*. Rose and amber assert a finding. Nothing else gets a hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Success Rule",
+        "body": "There is no green anywhere. A passed check is a quiet neutral dot, because we examined the set and ran nothing.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Red Rule",
+        "body": "Red appears only on the step that removes. Inside a Problem the remove is a ghost button with rose text and a rose edge, filled only on hover; the solid red is kept for the confirmation.",
+        "section": "colors"
+      },
+      {
+        "name": "The Machine Reads Mono Rule",
+        "body": "If a string would be typed into a terminal or read by an agent, it is set in Geist Mono. Step numbers and durations also take tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline First Rule",
+        "body": "Rows, cards and panels carry no drop shadow. A shadow appears only where something is lifted over the place under it: the current place, a segment, a dialog.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Glass Frames, Never Holds Rule",
+        "body": "Acrylic is an 8 px lime-tinted translucent edge with no blur. It belongs only to the frame around a dialog or the Filters popover, and the sheet inside is always opaque. The Export mode has no frame. *Owner, 2026-10-19: kept like this for now. The blurred frame lives only on the phase-06 stand.*",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** take every value from `06-concept/tokens.css` through `var()`. `tools/concept_ui.py --check` and the mockup build refuse a literal colour, px size or font name.",
+      "**Do** keep lime to what you can press and where you are, and keep one primary per screen.",
+      "**Do** pair a severity's colour with its icon and its word, as a tinted capsule or box.",
+      "**Do** draw *Checked* as the quiet neutral dot, and *Skipped* as `ban` with a dashed stage outline.",
+      "**Do** set paths, refs, timings, codes and file contents in Geist Mono.",
+      "**Do** put every item in its own cut-out, and nest auto-added items under their parent behind a dashed rule.",
+      "**Do** give every boxed object a visible edge; use hairlines before shadows.",
+      "**Do** measure every new colour pair with `tools/contrast.py`. AA applies to text, and 3:1 to a control's edge or a state mark. Today that is 88 pairs, all passing."
+    ],
+    "donts": [
+      "**Don't** use a green tick, or any success colour. We examined the set; we ran nothing.",
+      "**Don't** use violet-blue neon, gradients or glow: the palette an AI produces for \"AI tool\".",
+      "**Don't** add `Verified` or `Popular` badges, stars, ratings, scores or cover cards. Usage facts are the only per-item evidence.",
+      "**Don't** put text on glass, or use glass outside the frame of a mode, dialog or popover.",
+      "**Don't** draw a coloured ring round a row that carries a finding.",
+      "**Don't** use red for anything but removal, or lime for a verdict.",
+      "**Don't** let the browser draw a white checkbox or radio on the dark theme."
+    ]
+  }
+}

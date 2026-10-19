@@ -30,6 +30,7 @@ WF = ROOT / "04-wireframes"
 PAGES_DIR, PROTO_DIR, OUT = WF / "pages", WF / "prototypes", WF / "mockups"
 LUCIDE = ROOT / "06-concept" / "icons" / "lucide"
 PORTRAIT_FILE = "06-concept/img/portrait-96.jpg"  # stored in the repo (stage 7, #27)
+KIT_FILE = "07-ui-assembly/ui/kit.css"  # the one stylesheet of every mockup (phase 07, step 5)
 _UNSPLASH = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
             "?w=96&h=96&fit=crop&crop=faces&auto=format&q=80")
 
@@ -37,6 +38,11 @@ _UNSPLASH = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
 PAGES = ["projects-default", "projects-filters", "projects-delete", "projects-empty", "projects-loading",
          "projects-error-filtered", "projects-error-server",
          "project-default", "project-item", "project-share", "project-revoke", "project-empty", "project-loading", "project-error",
+         # group 2, the rest of it (phase 07, step 5): configuring and the detached row
+         "project-configuring-default", "project-configuring-item", "project-configuring-public", "project-configuring-empty",
+         "project-configuring-loading", "project-configuring-loading-add", "project-configuring-error-filtered",
+         "project-configuring-error-server",
+         "project-detached-default", "project-detached-promote", "project-detached-loading", "project-detached-error",
          "run-loading", "run-default", "run-remove", "run-loading-export", "run-success",
          "run-error-check", "run-error-export", "run-error-setup"]
 FLOWS = ["main-success"]
@@ -59,6 +65,13 @@ code{font:var(--t-code);line-height:inherit;color:var(--text);background:var(--c
 .meta{font:var(--t-micro);font-weight:400;color:var(--text-3)}
 .visually-hidden{position:absolute;width:var(--hairline);height:var(--hairline);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .canvas{position:relative;width:100%;min-height:100vh;margin:0;display:flex;flex-direction:column;background:var(--ground)}
+
+/* scrollbars, drawn: a thin pill on a clear track, never the system's grey slab (owner, phase 07) */
+::-webkit-scrollbar{width:var(--s3);height:var(--s3);background:transparent}
+::-webkit-scrollbar-track,::-webkit-scrollbar-corner{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border:calc(var(--s1) - var(--hairline)) solid transparent;background-clip:padding-box;border-radius:var(--r-pill)}
+::-webkit-scrollbar-thumb:hover{background-color:var(--control-edge)}
+@supports not selector(::-webkit-scrollbar){*{scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}}
 
 /* icons — Lucide, inlined by the build */
 svg.icon{display:inline-block;width:var(--icon);height:var(--icon);flex:none;vertical-align:calc(var(--s1) * -1 + var(--hairline))}
@@ -135,6 +148,7 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
   background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);color:var(--text-3)}
 .search input{flex:1;align-self:stretch;border:0;padding:0;font:var(--t-small);color:var(--text);background:transparent;outline:0}
 .search input::placeholder{color:var(--text-3)}
+.search:hover{border-color:var(--control-edge)}
 .search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
 .filters-button{margin-left:auto}
 
@@ -222,7 +236,8 @@ pre.file{margin:0;padding:var(--s3) var(--s4);background:var(--well-deep);border
 .run-bar .back:hover{color:var(--text)}
 .run-bar .title{font:var(--t-body);font-weight:600}
 .run-bar .pick{margin-left:auto;display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text-2);text-decoration:none}
-select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:var(--text);background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm)}
+select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:var(--text);background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);cursor:pointer;transition:background var(--dur) var(--ease)}
+select:hover{background:var(--control-hover)}
 .summary{display:flex;gap:var(--s2) var(--s6);align-items:baseline;flex-wrap:wrap}
 .summary h1{font:var(--t-title);letter-spacing:var(--track-title)}
 .summary p{font:var(--t-small);color:var(--text-2)}
@@ -301,12 +316,15 @@ svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:cal
   box-shadow:inset 0 0 0 var(--hairline) var(--line)}
 .scope a{flex:1;display:flex;align-items:center;justify-content:center;height:calc(var(--control-h) - var(--s1));border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button);
   transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
-.scope a:hover{color:var(--text)}
+.scope a:hover{color:var(--text);background:color-mix(in srgb,var(--raised) 55%,var(--well-deep))}
 .scope a[aria-current="page"]{color:var(--text);background:var(--control);box-shadow:var(--shadow-tile),inset 0 0 0 var(--hairline) var(--line-strong)}
 .scope a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .tabs{display:flex;gap:calc(var(--s1) / 2);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:var(--s2);border-bottom:var(--hairline) solid var(--line)}
 .tabs a{display:inline-flex;flex:none;align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
+.tabs a{transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.tabs a:hover{color:var(--text);background:var(--hover-wash)}
 .tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:600}
+.tabs a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .tabs .count{margin-left:var(--s1);color:var(--text-3);font-weight:400}
 /* radios and checkboxes, drawn for the dark theme: a recessed cell; checked is lime */
 input[type="checkbox"],input[type="radio"]{-webkit-appearance:none;appearance:none;flex:none;width:var(--icon);height:var(--icon);margin:0;cursor:pointer;
@@ -371,10 +389,10 @@ def sprite(names):
         svg = (LUCIDE / f"{n}.svg").read_text(encoding="utf-8")
         inner = re.search(r"<svg[^>]*>(.*)</svg>", svg, re.S).group(1).strip()
         out.append(f'<symbol id="l-{n}" {ATTRS}>{inner}</symbol>')
-    return '<svg width="0" height="0" style="position:absolute" aria-hidden="true">' + "".join(out) + "</svg>"
+    return '<svg class="sprite" width="0" height="0" aria-hidden="true">' + "".join(out) + "</svg>"
 
 
-LABEL_ICONS = [("New project", "plus"), ("Export", "upload"), ("Load again", "refresh-cw"), ("Check again", "refresh-cw"),
+LABEL_ICONS = [("New project", "plus"), ("Add item", "plus"), ("Add “", "plus"), ("Export", "upload"), ("Load again", "refresh-cw"), ("Check again", "refresh-cw"),
                ("Filters", "sliders-horizontal"), ("Configure", "sliders-horizontal"), ("Share", "share-2"),
                ("Duplicate", "copy"), ("Save", "check"), ("Open", "external-link"), ("Remove", "trash-2"), ("Delete", "trash-2")]
 
@@ -387,7 +405,7 @@ def icon_for(before, after):
         return None  # the product's mark: drawn as the lime square
     if re.search(r'class="(?:[\w-]+ )*search[^"]*"[^>]*>\s*$', b):
         return "search"
-    if re.search(r'class="(?:[\w-]+ )*close[^"]*"[^>]*>\s*$', b) or 'aria-label="Close"' in b[-120:]:
+    if re.search(r'class="(?:[\w-]+ )*(?:close|remove)[^"]*"[^>]*>\s*$', b) or 'aria-label="Close"' in b[-120:]:
         return "x"
     if re.search(r'class="back"[^>]*>\s*$', b):
         return "arrow-left"
@@ -397,19 +415,25 @@ def icon_for(before, after):
     return "circle-dashed"
 
 
-def transform(html, css_href, tokens_href, page_name, unknown):
+def transform(html, root, page_name, unknown, kit_href=None, frame=True):
+    """A wireframe page, dressed in the kit. `root` is the path from the page to the repo root."""
     used = set()
-    # head: Inter and the wireframe sheet out; Geist, tokens.css and mockup.css in
+    kit_href = kit_href or root + KIT_FILE
+    # head: Inter and the wireframe sheet out; Geist and the one kit.css in (phase 07, step 5)
     html = re.sub(r'\s*<link href="https://fonts\.googleapis\.com/css2\?family=Inter[^>]*>', "", html)
     html = re.sub(r'<link rel="stylesheet" href="[^"]*wireframe\.css">',
                   '<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">\n'
-                  f'  <link rel="stylesheet" href="{tokens_href}">\n  <link rel="stylesheet" href="{css_href}">', html)
+                  f'  <link rel="stylesheet" href="{kit_href}">', html)
+    if frame:
+        html = shell(html)
     html = re.sub(r"<title>(.*?)</title>", lambda m: f"<title>{m.group(1)} — design</title>", html, count=1)
 
     # the state placeholders: an illustration tile and an icon tile
     def state_icon(m):
         after = html_ref[0][m.end():m.end() + 300]
         name = "cloud-off" if "didn’t load" in after or "didn't load" in after or "didn’t" in after else ("search-x" if "Nothing matches" in after else "circle-alert")
+        if name == "circle-alert" and re.search(r"<h2[^>]*>[^<]*\byet\b", after):
+            name = "layers"  # an empty state is not an alarm: the empty-set icon the painted Project uses (phase 07)
         used.add(name)
         return f'<svg class="icon state-icon" aria-hidden="true"><use href="#l-{name}"/></svg>'
     html_ref = [html]
@@ -418,7 +442,7 @@ def transform(html, css_href, tokens_href, page_name, unknown):
         used.add("folder-plus")
     html = html.replace('<span class="image state-image" aria-hidden="true"></span>',
                         '<span class="image state-image" aria-hidden="true"><svg class="icon"><use href="#l-folder-plus"/></svg></span>')
-    portrait = tokens_href.replace("06-concept/tokens.css", PORTRAIT_FILE)
+    portrait = root + PORTRAIT_FILE
     html = re.sub(r'<span class="image avatar" aria-hidden="true"></span>', f'<img class="image avatar" src="{portrait}" alt="" width="24" height="24">', html)
 
     # every `.icon` placeholder: the icon its label asks for
@@ -447,14 +471,18 @@ def transform(html, css_href, tokens_href, page_name, unknown):
                             f'<svg class="glyph glyph-{g}" aria-hidden="true"><use href="#l-{n}"/></svg>')
     # tones the structure cannot carry: a Conflict tag; a primary button that removes something
     html = html.replace('<span class="tag tag-state">Conflict</span>', '<span class="tag tag-state tag-problem">Conflict</span>')
-    html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>.*?</svg>)?\s*(?:Remove|Delete|Stop sharing))',
+    # the keys reminder is not a finding (§11): a neutral box, not the Problem rose (phase 07, step 3)
+    html = re.sub(r'<div class="callout">(\s*<span class="severity">Before you)', r'<div class="callout callout-reminder">\1', html)
+    html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>(?:(?!</svg>).)*</svg>)?\s*(?:Remove|Delete|Stop sharing))',
                   r'class="button button-primary button-danger"\1', html, flags=re.S)
-    html = re.sub(r'(<div class="callout"(?: [^>]*)?>(?:(?!</div>\s*</div>).)*?<div class="row-actions">\s*<a class="button)"',
-                  r'\1 button-danger-quiet"', html, flags=re.S)
-    html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>.*?</svg>)?\s*Export with)',
+    html = re.sub(r'(<div class="callout"(?: [^>]*)?>(?:(?!</div>\s*</div>).)*?<div class="row-actions">\s*<a class="button)"'
+                  r'(?=[^>]*>(?:<svg(?:(?!</svg>).)*</svg>)?\s*(?:Remove|Delete))',
+                  r'\1 button-danger-quiet"', html, flags=re.S)  # only a remove is red — not Reset password (phase 07)
+    html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>(?:(?!</svg>).)*</svg>)?\s*Export with)',
                   r'class="button button-primary button-warning"\1', html, flags=re.S)
     html = name_checks(html)
-    html = re.sub(r'(<span class="skeleton") style="([^"]*)"', lambda m: m.group(1) + ' style="' + skeleton_style(m.group(2)) + '"', html)
+    html = progress(html)
+    html = re.sub(r'<span class="skeleton"([^>]*?) style="([^"]*)"', lambda m: f'<span class="skeleton {skeleton_classes(m.group(2))}"{m.group(1)}', html)
     html = inert_behind(html)
     html = relink(html, page_name)
     html = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + sprite(used), html, count=1)
@@ -465,7 +493,44 @@ SK = {"56px": "calc(var(--s12) + var(--s2))", "64px": "calc(var(--s12) + var(--s
       "72px": "calc(var(--s12) + var(--s6))", "80px": "calc(var(--s12) + var(--s8))", "160px": "var(--col-s)",
       "180px": "calc(var(--col-s) + var(--s5))", "200px": "var(--col-m)", "220px": "calc(var(--col-m) + var(--s5))",
       "260px": "calc(var(--col-m) + var(--s12) + var(--s3))", "420px": "calc(var(--col-xl) + var(--s12) + var(--s3))",
-      "480px": "calc(var(--side-w) + var(--s10))", "8px": "var(--s2)", "12px": "var(--s3)", "20px": "var(--s5)", "24px": "var(--s6)"}
+      "480px": "calc(var(--side-w) + var(--s10))", "8px": "var(--s2)", "12px": "var(--s3)", "20px": "var(--s5)", "24px": "var(--s6)",
+      # the grey pages' sizes too (phase 07, step 3)
+      "16px": "var(--s4)", "32px": "var(--s8)", "40px": "var(--s10)", "48px": "var(--s12)",
+      "140px": "calc(var(--s12) * 3 - var(--s1))", "240px": "calc(var(--col-m) + var(--s10))",
+      "280px": "calc(var(--col-l) - var(--s10))", "440px": "var(--side-w)", "460px": "calc(var(--side-w) + var(--s5))",
+      "520px": "var(--modal-w)"}
+
+
+def progress(html):
+    """The import's bar is drawn in the wireframe as a skeleton with an inline gradient; it is a progress bar, and
+    its value is the count above it — a native <progress>, no style on the screen (phase 07, step 5)."""
+    def one(m):
+        done, total = m.group(1), m.group(2)
+        return m.group(0)[:m.start(3) - m.start(0)] + f'<progress class="progress" value="{done}" max="{total}" aria-label="{done} of {total}"></progress>'
+    return re.sub(r'<strong>(\d+) of (\d+)</strong>.*?(<span class="skeleton" style="[^"]*linear-gradient[^"]*"></span>)', one, html, flags=re.S)
+
+
+def skeleton_parts(style):
+    """A skeleton's inline size, as (property, value) pairs — the wireframe's only inline styles."""
+    out = []
+    for decl in filter(None, (d.strip() for d in style.split(";"))):
+        prop, val = (x.strip() for x in decl.split(":", 1))
+        if prop not in SK_PROPS or not re.fullmatch(r"\d+(px|%)", val) or (val.endswith("px") and val not in SK):
+            raise SystemExit(f"skeleton style with no kit class: {decl}")
+        out.append((prop, val))
+    return out
+
+
+def skeleton_class(prop, val):
+    return f"sk-{SK_PROPS[prop]}{val[:-2] if val.endswith('px') else val[:-1] + 'p'}"
+
+
+def skeleton_classes(style):
+    """The inline size becomes kit classes, sk-w48 sk-h24 sk-mt8 (phase 07, step 5: no style on a screen)."""
+    return " ".join(skeleton_class(p, v) for p, v in skeleton_parts(style))
+
+
+SK_PROPS = {"width": "w", "height": "h", "margin-top": "mt"}
 
 
 def skeleton_style(style):
@@ -586,26 +651,52 @@ def patch_viewer(pages, flows):
     VIEWER.write_text(v, encoding="utf-8")
 
 
+def shell(html):
+    """The frame comes from the kit's shell (07-ui-assembly/ui/shell.html), not from the page: the app header and the
+    shared header are replaced by the shell's own markup, keeping the page's current place. The Run bar carries the
+    page's own words (where it was entered, what is exported), so it stays — and must have the shell's structure."""
+    import build_kit
+    sh = build_kit.shell_source()
+    m = re.search(r'<header class="app-header">.*?</header>', html, re.S)
+    if m:
+        cur = re.search(r'<a href="([^"]+)" aria-current="page">', m.group(0))
+        new = sh["app"].replace(' aria-current="page"', "")
+        if cur:
+            new = new.replace(f'<a href="{cur.group(1)}">', f'<a href="{cur.group(1)}" aria-current="page">', 1)
+        return html[:m.start()] + new + html[m.end():]
+    m = re.search(r'<header class="shared-header">.*?</header>', html, re.S)
+    if m:
+        new = sh["receiver"] if 'class="owner"' in m.group(0) else sh["door"]
+        return html[:m.start()] + new + html[m.end():]
+    m = re.search(r'<header class="run-bar">.*?</header>', html, re.S)
+    if m:
+        shape = lambda h: re.findall(r'<(\w+)(?: class="([^"]*)")?', h)
+        if shape(m.group(0)) != shape(sh["run"]):
+            raise SystemExit("a Run bar that is not the shell's shape")
+    return html
+
+
 def build():
-    bad = concept_ui.literals(MOCK_CSS)
-    if bad:
-        raise SystemExit(f"mockup.css holds values of its own: {bad}")
+    import build_kit
+    build_kit.build()  # kit.css first: every mockup links it
     OUT.mkdir(exist_ok=True)
-    (OUT / "mockup.css").write_text(MOCK_CSS.strip() + "\n", encoding="utf-8")
+    old = OUT / "mockup.css"
+    if old.exists():
+        old.unlink()  # retired in phase 07, step 5: kit.css is the one stylesheet
     unknown = []
     for p in PAGES:
         src = (PAGES_DIR / f"{p}.html").read_text(encoding="utf-8")
-        (OUT / f"{p}.html").write_text(transform(src, "mockup.css", "../../06-concept/tokens.css", p, unknown), encoding="utf-8")
+        (OUT / f"{p}.html").write_text(transform(src, "../../", p, unknown), encoding="utf-8")
     nflow = 0
     for f in FLOWS:
         (OUT / "flows" / f).mkdir(parents=True, exist_ok=True)
         for step in sorted((PROTO_DIR / f).glob("*.html")):
             src = step.read_text(encoding="utf-8")
             (OUT / "flows" / f / step.name).write_text(
-                transform(src, "../../mockup.css", "../../../../06-concept/tokens.css", f"{f}/{step.stem}", unknown), encoding="utf-8")
+                transform(src, "../../../../", f"{f}/{step.stem}", unknown), encoding="utf-8")
             nflow += 1
     patch_viewer(PAGES, FLOWS)
-    print(f"mockups: {len(PAGES)} pages, {nflow} flow steps · mockup.css literals: none · viewer patched")
+    print(f"mockups: {len(PAGES)} pages, {nflow} flow steps · on kit.css · viewer patched")
     for page, ctx in unknown:
         print("  icon guessed (circle-dashed):", page, "…", ctx[-90:])
 

@@ -292,7 +292,7 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Decision | Value | Reason |
 |---|---|---|
 | Material | Mica: neutral ground `#1B1C19` with a faint lime tint; layers `#232420` / `#2A2B27`; cut-out `#1E1F1B` | Taste: Teams glass, *noticeable but sparing*; pair 4 |
-| Glass | Acrylic **only around the Export mode and a dialog**; text always on an opaque sheet (D2, D3 accepted) | Pair 4, conflicts 1–4 |
+| Glass | Acrylic **only around ~~the Export mode and~~ a dialog** **and the Filters popover**; text always on an opaque sheet (D2, D3 accepted). *Phase 07, owner 2026-10-19, "for now": in the product it is an 8 px translucent edge with no blur, and Run has no frame; the blurred frame is on the stand only* | Pair 4, conflicts 1–4; owner, 2026-10-19 |
 | Brand | Lime `#C6EF5A`, ink `#141A08` on it (13.5:1). **Only on what you can press and where you are**: primary button, current place, selection | Pair 5: colour is a claim; lime is never a verdict |
 | Severities | Problem `#FF8F98`, Note `#F2C661`, Skipped neutral with Lucide `ban`, **Checked a quiet dot, never green (D1-B)** | §6; pair 1 |
 | Type | ~~Schibsted Grotesk; Source Code Pro~~ **Geist; Geist Mono for paths, refs, file contents** (owner, 2026-10-11, after the polish). *impeccable flags Geist as an overused face; kept on the owner's word — the brief wins* | Owner |
@@ -300,12 +300,12 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Add to the set | **An icon button, not a bare checkbox** (owner, 2026-10-11): *+ Add* is a small secondary button; once the item is in the set it reads *✓ In this project* — no fill, a lime-mark tick, quiet. The native checkbox stays for the keyboard and screen readers, out of sight. The two icons are tokens (`--icon-add`, `--icon-added`, Lucide as CSS masks), so the control needs no extra markup | Owner, 2026-10-11 |
 | Radios and checkboxes | **Drawn for the dark theme, never the browser’s white box** (owner, 2026-10-11): a recessed `--well-deep` cell with a `--control-edge` border (`#7C7F74`, added for WCAG 1.4.11 — a control’s boundary needs 3:1; `--line-strong` gave 1.6). Checked: a checkbox fills with lime and carries the `--glyph-check` tick in `--on-lime`; a radio becomes a lime ring with a lime dot. Hover lifts the edge, focus is the lime ring | Owner, 2026-10-11 |
 | Empty and error states | **One tile everywhere** (owner, 2026-10-11): a neutral 48 px tile (`--control`), the icon 20 px in `--text-2` — the empty Projects, no match, an empty project, a server error. Not lime, not a problem wash: the sentence carries what happened. A state the wireframe drew without an icon gets one from CSS (`--icon-empty-set`, Lucide *layers*), so no markup changes | Owner, 2026-10-11 |
-| Shadow | **Hairlines first; a shadow only where something is lifted over the place under it** (stage 7, #9): `--shadow-tile` on the top bar’s current place (one step up, `0 1px 2px`), `--shadow-sheet` under a dialog over a mode. Rows and panels carry none — Linear’s *border and a whisper of tone* (references.md, A) | Linear base; pair 4 |
-| Radius | **Soft, not round** (stage 7, #10): 6 on a control, 10 on a row’s cut-out and a box inside it, 14 on a panel or a tray, 18 on the acrylic frame, a pill on a tag. The cut-out form is the owner’s, from round 2’s *Kit*; the step grows with the size of the thing, so nesting reads | Owner, round 4 |
+| Shadow | **Hairlines first; a shadow only where something is lifted over the place under it** (stage 7, #9): `--shadow-tile` on the top bar’s current place (one step up, `0 1px 2px`) **and on a segmented control’s lifted segment**, `--shadow-sheet` under a dialog **or the Filters popover** over a mode. Rows and panels carry **no drop shadow** — Linear’s *border and a whisper of tone* (references.md, A). **A row’s cut-out carries an inward one, `--shadow-cutout`** (a hairline and a 1–2 px inner shade): it is the *pressed in* of the owner’s cut-out, not a lift. *Phase 07: this row read "rows carry none", and the mockups draw the inward shade on every row* | Linear base; pair 4; owner, round 4 (the cut-out) |
+| Radius | **Soft, not round** (stage 7, #10): 6 on a control, 10 on a row’s cut-out and a box inside it, 14 on a panel, a tray, **a card and a dialog**, 18 on the acrylic frame, a pill on a tag. The cut-out form is the owner’s, from round 2’s *Kit*; the step grows with the size of the thing, so nesting reads. *Phase 07: 18 appears only on the stand. The mockups have no acrylic frame round the Export mode (see* Phase 07 — reconciled with the mockups*)* | Owner, round 4 |
 | Warning | **`Export with 1 problem` is drawn in warning amber** (`--warning #EFA23A`, dark text 8.8:1; light `#9C5800` with white, 5.5:1) — the cost of going ahead is visible, never celebrated in lime (owner, stage 7, #11) | Owner, 2026-10-11; voice.md principle 2 |
 | Destructive action | **A red button, `--danger #D4363F` with white text (4.8:1)**, only on an act that removes something: *Remove from project* in its dialog. **Inside a Problem the remove is muted** — a ghost button, red text and a red-tinted edge, filled only on hover — because there it is one way out, not the loudest thing on the screen; the solid red is kept for the confirmation | Owner, 2026-10-11 |
 | Icons | **Lucide**, ISC, 1.75 px stroke, one style. **Replaces Fluent (owner, 2026-10-11)** | Owner, round 4 |
-| Density | Between Default and Comfortable: body 14.5 px, small 13, rows 11 px vertical padding, buttons 33 px | Owner, round 3 |
+| Density | Between Default and Comfortable: body 14.5 px, small 13, ~~rows 11 px vertical padding, buttons 33 px~~ **rows 12 px vertical padding, controls 32 px** — *phase 07: the values the mockups draw, on the 4 px scale (`--s3`, `--control-h`); 11 and 33 were stage-3 values from before the scale* | Owner, round 3; the 4 px scale (polish) |
 | Rows | Each item in its own rounded cut-out; auto-added items inside the parent's, behind a dashed rule | Owner, round 4 (Kit's form) |
 | Findings on a row | **No coloured ring round the row**, and no outline round a selected row | Owner, 2026-10-11 |
 
@@ -313,7 +313,11 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Active row | **A short lime pill at the left edge of the cut-out, the cut-out one step lighter (S2)** — Fluent's selection indicator | Owner, 2026-10-11 |
 | Findings on a row | **A tinted tag with the icon and the word (F1)**: Problem and Note as capsules on the right, `Conflict` as a tag beside the name | Owner, 2026-10-11 |
 
-| Current place in the top bar | **A raised tile, its icon in lime; the other places sit on no track** (T2 without its track). The round-4 look — a tile with a lime underline — was turned down | Owner, 2026-10-11 |
+| Current place in the top bar | **A raised tile ~~, its icon in lime~~ with the tile shadow, its label in `--text`; the other places sit on no track and wash on hover** (T2 without its track). The round-4 look — a tile with a lime underline — was turned down. *Phase 07: the places in the mockups carry no icons (the wireframes give them none), so there is no lime icon to draw; the tile alone marks the place* | Owner, 2026-10-11; the wireframes’ markup |
+| Product mark | **A 14 px lime square before *AI Stack Builder***, the one lime that is neither an action nor a place. *Phase 07: drawn on every mockup and never written down. It is the brand’s single mark, so pair 5 holds: it claims whose product this is, nothing about state* | The mockups; pair 5 |
+| One primary per screen | **When an empty or error state carries its own primary, the head’s primary drops to secondary** (stage 5 critique). *Phase 07: carried into this table from stage 5’s prose* | Pair 5; stage 5 |
+| Skipped stage | **A Skipped stage has no fill and a dashed `--line-strong` outline**, the result Lucide `ban` in `--text-3` — the check had nothing to check, so its row is drawn as absent rather than passed. *Phase 07: drawn in the mockups, not written down until now* | §6 (Skipped); D1-B |
+| Finding capsules | **Problem and Note capsules are a wash and a coloured word with its icon (`circle-alert`, `info`), with no edge**; the `Conflict` tag and the Problem and Note **boxes** do carry an edge. *Phase 07: the polish rule "every boxed object has a visible edge" is about a box holding inset text; a 24 px capsule is held by its wash* | Pair 1; polish |
 
 **Polished on 2026-10-11** (impeccable *polish*): the style was drawn out of three generators' stylesheets layered
 on top of each other, so one component had several values. `tools/build_lime.py` now writes it as **one stylesheet in
@@ -445,3 +449,41 @@ breakpoint on the stand (a media query cannot read a custom property — the one
 (lesson 10); detector notes that are content or wireframe structure (em dashes, heading order, Geist as overused —
 the owner’s font).
 
+
+---
+
+## Phase 07 — reconciled with the mockups
+
+**2026-10-19.** `DESIGN.md` was generated at the root by `/impeccable document` from the 22 mockups of the main
+job (`04-wireframes/mockups/`) and `tokens.css`, North Star **"The Inspector's Report"** (pair 1, voice.md
+principle 1; owner's pick), components **quiet and exact**. The mockups are the truth, so this file now follows them.
+Where it lagged, the *Working style* table was corrected in place, each change marked *Phase 07*:
+- **Density:** rows 12, controls 32. These were 11 and 33 before the 4 px scale.
+- **Current place:** a raised tile with the tile shadow. There is no lime icon, because the places
+  have no icons.
+- **Shadow:** a row's cut-out has an inward shadow; the segment and the popover are lifted.
+- **Radius:** a card and a dialog are 14. The 18 frame exists only on the stand.
+- **Four rows that were drawn but never written down:** the product mark, one primary per screen, the
+  Skipped stage, and finding capsules without an edge.
+
+**Two things in the mockups looked as if they disagreed with the owner's own words, and were not written in.** The
+owner decides:
+
+1. **Glass is almost gone from the mockups.**
+   - *Designer's taste* says Teams/Slack glass is *the product's signature touch. It should be
+     noticeable, but used sparingly*, and the working style puts acrylic round the Export mode and a
+     dialog.
+   - In the mockups, **Run (Export) is an opaque full-screen mode with no acrylic frame**. A dialog and
+     the Filters popover keep only an 8 px translucent lime-tinted edge **with no blur**, because
+     `mockup.css` has no `backdrop-filter`.
+   - The stand (`concept.html`, `mica-lime.html`) has the blurred frame. So the signature lives on the
+     stand and not in the product.
+   - **Owner, 2026-10-19: kept as it is in the mockups for now.** In the product, glass is the 8 px
+     translucent edge of a dialog and of the Filters popover. It has no blur, and Run has no frame.
+     The stand's blurred frame stays as the phase-06 record. *Not closed for good: "for now" is the
+     owner's word.*
+2. ~~**The active row draws an outline.**~~ **Not a conflict; I raised it wrongly** (checked with
+   the owner on 2026-10-19, zoomed). Every cut-out has its own hairline edge (`--line`, part of
+   `--shadow-cutout`). The active one only brightens that same edge a step, to `--line-strong`, along
+   with the raised fill and the lime pill. **There is no extra ring**, and *no outline round a
+   selected row* holds.

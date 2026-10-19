@@ -47,4 +47,12 @@
 !06-concept/tokens.css
 !06-concept/img
 !06-concept/img/*
+# 07 · UI assembly: the kit — every mockup links kit.css
+!07-ui-assembly
+07-ui-assembly/*
+!07-ui-assembly/ui
+07-ui-assembly/ui/*
+!07-ui-assembly/ui/kit.css
+!07-ui-assembly/ui/kit.html
+!07-ui-assembly/ui/shell.html
 !vercel.json

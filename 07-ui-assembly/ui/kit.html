@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI kit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="kit.css">
+  <style>.kit-page{min-height:100vh}
+.kit-top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
+.kit-top strong{font:var(--t-body);font-weight:600}
+.kit-top nav{display:flex;gap:var(--s4);font:var(--t-small)}
+.kit-top nav a{color:var(--text-2);text-decoration:none}
+.kit-top nav a:hover{color:var(--text)}
+.kit-top .kit-meta{margin-left:auto}
+.kit-body{display:flex;flex-direction:column;gap:var(--s12);padding:var(--s8);max-width:calc(var(--canvas) + var(--s12) * 3);margin:0 auto}
+.kit-intro{max-width:var(--measure-wide);display:flex;flex-direction:column;gap:var(--s2);color:var(--text-2)}
+.kit-intro h1{font:var(--t-display);letter-spacing:var(--track-display);color:var(--text)}
+.kit-group{display:flex;flex-direction:column;gap:var(--s8)}
+.kit-group>h2{font:var(--t-title);letter-spacing:var(--track-title);padding-bottom:var(--s3);border-bottom:var(--hairline) solid var(--line-strong)}
+.kit-comp{display:flex;flex-direction:column;gap:var(--s4)}
+.kit-comp-head h3{font:var(--t-heading);letter-spacing:var(--track-heading)}
+.kit-meta{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.kit-meta code{background:none;padding:0;color:var(--text-2)}
+.kit-painted{color:var(--text-2)}
+.kit-grey{color:var(--note)}
+.kit-state{display:grid;grid-template-columns:var(--col-m) minmax(0,1fr);gap:var(--s2) var(--s6);align-items:start}
+.kit-label{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
+.kit-note{grid-column:1;font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.kit-state>.kit-label{grid-column:1}
+.kit-demo{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3);min-width:0}
+.kit-demo>:is(ol,header,section,pre,.kit-clip,.kit-stage,.kit-row,.callout,.form-actions,.marks,div:not(.kit-narrow,.kit-panel,.kit-drawer,.kit-aside)){align-self:stretch}
+.kit-demo>.search{width:calc(var(--measure) - var(--s12) * 3)}
+.kit-demo>.field{width:calc(var(--side-w) - var(--s10))}
+.kit-row{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
+.kit-glyph{display:inline-flex;align-items:center;gap:var(--s1);margin-right:var(--s4)}
+.kit-glyph .kit-label{text-transform:none;letter-spacing:0}
+.kit-demo>header{border:var(--hairline) solid var(--line);border-radius:var(--r-md)}
+.kit-panel{width:var(--side-w);max-height:calc(var(--s12) * 12);overflow:auto;border:var(--hairline) solid var(--line);border-radius:var(--r-md)}
+.kit-drawer,.kit-aside,.kit-narrow{width:var(--side-w)}
+.kit-drawer .drawer,.kit-aside .aside-box{position:static}
+.kit-clip{max-height:calc(var(--s12) * 8);overflow:hidden;border-radius:var(--r-lg)}
+.kit-stage{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--ground);border:var(--hairline) solid var(--line)}
+.kit-stage dialog.modal{position:relative;top:auto;margin:var(--s8) auto}
+.kit-stage:has(.popover){min-height:calc(var(--s12) * 14)}
+.kit-find{position:absolute;top:var(--s6);right:var(--s6);display:flex;justify-content:flex-end}
+.kit-find dialog.popover{position:absolute}
+.kit-demo .door{margin:0;width:calc(var(--side-w) - var(--s10))}
+.kit-demo>.export-stage{max-width:var(--measure)}
+.kit-shell{display:flex;flex-direction:column;gap:var(--s8)}
+.kit-shell .canvas{min-height:0;border:var(--hairline) solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.kit-shell .app-main{min-height:calc(var(--s12) * 3);color:var(--text-3)}</style>
+</head>
+<body class="product-page kit-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" /></symbol><symbol id="l-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M4.929 4.929 19.07 19.071" /></symbol><symbol id="l-circle-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" /></symbol><symbol id="l-cloud-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057" />
+  <path d="M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78" />
+  <path d="m2 2 20 20" /></symbol><symbol id="l-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></symbol><symbol id="l-folder-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 10v6" />
+  <path d="M9 13h6" />
+  <path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /></symbol><symbol id="l-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></symbol><symbol id="l-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol><symbol id="l-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="M12 5v14" /></symbol><symbol id="l-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" /></symbol><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" /></symbol><symbol id="l-search-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m13.5 8.5-5 5" />
+  <path d="m8.5 8.5 5 5" />
+  <circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></symbol><symbol id="l-sliders-horizontal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5H3" />
+  <path d="M12 19H3" />
+  <path d="M14 3v4" />
+  <path d="M16 17v4" />
+  <path d="M21 12h-9" />
+  <path d="M21 19h-5" />
+  <path d="M21 5h-7" />
+  <path d="M8 10v4" />
+  <path d="M8 12H3" /></symbol><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
+  <path d="m17 8-5-5-5 5" />
+  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></symbol></svg>
+<header class="kit-top"><strong>UI kit</strong><nav><a href="#navigation">Navigation</a><a href="#cards-and-lists">Cards and lists</a><a href="#forms">Forms</a><a href="#feedback">Feedback</a><a href="../pages/shell.html">Shell</a></nav><span class="kit-meta">07 · UI assembly</span></header>
+<main class="kit-body"><div class="kit-intro"><h1>UI kit</h1><p>41 rows of <a href="inventory.md">the inventory</a>, every one with its states. Each component is cut from a wireframe page, so its words are the product's own (<code>microcopy.md</code>); the painted ones are drawn exactly as in the mockups, the grey ones take their look from <code>DESIGN.md</code>. One stylesheet: <code>kit.css</code>. The frame is on <a href="../pages/shell.html">the shell page</a>.</p></div><section class="kit-group" id="navigation"><h2 class="kit-h">Navigation <span class="kit-meta">8</span></h2><section class="kit-comp" id="c-app-header"><header class="kit-comp-head"><h3>App header</h3><p class="kit-meta"><code>app-header · app-nav · account</code> · 8 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Projects is the current place</p><div class="kit-demo"><header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="#">My library</a></li>
+          <li><a href="#">Public library</a></li>
+          <li><a href="#" aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header></div></div><div class="kit-state"><p class="kit-label">My library is the current place</p><p class="kit-note">Hover a place for the wash; Tab for the focus ring.</p><div class="kit-demo"><header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="#" aria-current="page">My library</a></li>
+          <li><a href="#">Public library</a></li>
+          <li><a href="#">Projects</a></li>
+        </ul>
+      </nav>
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header></div></div></section><section class="kit-comp" id="c-shared-header"><header class="kit-comp-head"><h3>Shared header</h3><p class="kit-meta"><code>shared-header · owner</code> · 7 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Door — the mark only</p><div class="kit-demo"><header class="shared-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+    </header></div></div><div class="kit-state"><p class="kit-label">Receiver — Shared by, with the sharer's portrait</p><div class="kit-demo"><header class="shared-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <p class="owner"><img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24"><span>Shared by Maya Chen</span></p>
+    </header></div></div></section><section class="kit-comp" id="c-run-bar"><header class="kit-comp-head"><h3>Run bar</h3><p class="kit-meta"><code>run-bar · back · title · pick</code> · 4 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><header class="run-bar">
+      <a class="back" href="#"><svg class="icon" aria-hidden="true"><use href="#l-arrow-left"/></svg>acme-billing-api</a>
+      <span class="title">Export</span>
+      <label class="pick">Agent target
+        <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
+      </label>
+    </header></div></div></section><section class="kit-comp" id="c-breadcrumb"><header class="kit-comp-head"><h3>Breadcrumb</h3><p class="kit-meta"><code>app-main > p.meta</code> · 3 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><p class="meta"><a href="#">Projects</a> /</p></div></div></section><section class="kit-comp" id="c-page-head"><header class="kit-comp-head"><h3>Page head</h3><p class="kit-meta"><code>page-head · head-meta · head-actions</code> · 10 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Project: head actions, the primary last</p><div class="kit-demo"><div class="page-head">
+          <div>
+            <h1 id="k11-page-title">acme-billing-api</h1>
+            <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="#">Configure</a>
+            <a class="button" href="#">Share…</a>
+            <button type="button">Duplicate</button>
+            <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
+          </div>
+        </div></div></div><div class="kit-state"><p class="kit-label">Projects: one action</p><div class="kit-demo"><div class="page-head">
+          <h1 id="k12-projects-title">Projects</h1>
+          <a class="button button-primary" href="#">
+            <svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project
+          </a>
+        </div></div></div><div class="kit-state"><p class="kit-label">Shared project: the Shared tag after the title</p><div class="kit-demo"><div class="page-head">
+          <div>
+            <h1 id="k13-page-title">agent-dotfiles</h1>
+            <p class="meta head-meta"><span>9 items</span><span>Changed 1 day ago</span><span>Maya checked it 5 days ago · for Claude Code — the project has changed since</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="#">Copy to My library</a>
+            <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
+          </div>
+        </div></div></div><div class="kit-state"><p class="kit-label">Loading: skeleton meta</p><div class="kit-demo"><div class="page-head">
+          <div>
+            <h1 id="k14-page-title">acme-billing-api</h1>
+            <p class="meta head-meta"><span class="skeleton sk-w480 sk-h12"></span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="#">Configure</a>
+            <button type="button">Share…</button>
+            <button type="button">Duplicate</button>
+            <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
+          </div>
+        </div></div></div></section><section class="kit-comp" id="c-tabs"><header class="kit-comp-head"><h3>Tabs</h3><p class="kit-meta"><code>tabs · tabs-page · count</code> · 7 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Page tabs, with counts</p><div class="kit-demo"><nav class="tabs tabs-page" aria-label="Kind"><a href="#" aria-current="page">All <span class="count">11</span></a><a href="#">skill <span class="count">1</span></a><a href="#">agent <span class="count">2</span></a><a href="#">prompt <span class="count">2</span></a><a href="#">mcp <span class="count">2</span></a><a href="#">script <span class="count">3</span></a><a href="#">app <span class="count">1</span></a></nav></div></div><div class="kit-state"><p class="kit-label">Panel tabs: Related first and current</p><p class="kit-note">One line; it scrolls rather than wraps.</p><div class="kit-demo"><nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav></div></div></section><section class="kit-comp" id="c-scope-switch"><header class="kit-comp-head"><h3>Scope switch</h3><p class="kit-meta"><code>scope</code> · 3 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">My library current</p><div class="kit-demo"><div class="kit-narrow"><nav class="scope" aria-label="Scope"><a href="#" aria-current="page">My library</a><a href="#">Public library</a></nav></div></div></div><div class="kit-state"><p class="kit-label">Public library current</p><div class="kit-demo"><div class="kit-narrow"><nav class="scope" aria-label="Scope"><a href="#">My library</a><a href="#" aria-current="page">Public library</a></nav></div></div></div></section><section class="kit-comp" id="c-library-panel"><header class="kit-comp-head"><h3>Library panel</h3><p class="kit-meta"><code>config-layout · library-sidebar · panel-head · panel-body</code> · 3 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><div class="kit-panel"><aside class="panel library-sidebar" aria-label="Add items">
+      <div class="panel-head">
+        <h2>Add from</h2>
+        <nav class="scope" aria-label="Scope"><a href="#" aria-current="page">My library</a><a href="#">Public library</a></nav>
+        <label class="search"><svg class="icon" aria-hidden="true"><use href="#l-search"/></svg><input type="search" placeholder="Search My library — migrate, GITHUB_TOKEN, review"></label>
+        <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+      </div>
+      <div class="panel-body">
+        <ol class="row-list">
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a href="#">db-migrate</a><span class="tag">script</span></h3>
+                <p class="state-line">Required by <code>migration-reviewer</code></p>
+              </div>
+              <label class="check" aria-label="db-migrate, in this project"><input type="checkbox" checked> In this project</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a href="#">postgres-mcp</a><span class="tag">mcp</span></h3>
+                <p class="state-line">Required by <code>migration-reviewer</code></p>
+              </div>
+              <label class="check" aria-label="postgres-mcp, in this project"><input type="checkbox" checked> In this project</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a href="#">seed-data</a><span class="tag">script</span></h3>
+                <p class="state-line">Required by <code>db-migrate</code></p>
+              </div>
+              <label class="check" aria-label="seed-data, in this project"><input type="checkbox" checked> In this project</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a href="#">schema-docs</a><span class="tag">prompt</span></h3>
+                <p class="state-line">Requires <code>postgres-mcp</code></p>
+              </div>
+              <label class="check" aria-label="Add schema-docs"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a href="#">query-explainer</a><span class="tag">agent</span></h3>
+                <p class="state-line">Requires <code>postgres-mcp</code></p>
+              </div>
+              <label class="check" aria-label="Add query-explainer"><input type="checkbox"> Add</label>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact">
+              <div>
+                <h3><a href="#">pr-reviewer</a><span class="tag">agent</span></h3>
+                <p class="state-line">Used with <code>github-mcp</code> in 2 projects</p>
+              </div>
+              <label class="check" aria-label="pr-reviewer, in this project"><input type="checkbox" checked> In this project</label>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </aside></div></div></div><div class="kit-state"><p class="kit-label">Empty — No items in My library yet</p><div class="kit-demo"><div class="kit-panel"><aside class="panel library-sidebar" aria-label="Add items">
+      <div class="panel-head">
+        <h2>Add from</h2>
+        <nav class="scope" aria-label="Scope"><a href="#" aria-current="page">My library</a><a href="#">Public library</a></nav>
+        <label class="search"><svg class="icon" aria-hidden="true"><use href="#l-search"/></svg><input type="search" placeholder="Search My library — migrate, GITHUB_TOKEN, review"></label>
+        <nav class="tabs" aria-label="Kind"><a href="#">Related</a><a href="#" aria-current="page">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+      </div>
+      <div class="panel-body">
+        <section class="state-block" aria-label="No items in My library yet">
+      <svg class="icon state-icon" aria-hidden="true"><use href="#l-layers"/></svg>
+      <h2>No items in My library yet</h2>
+      <p>Items you add to My library appear here. The Public library has 8 items, each pinned to the version we checked, and you can add any of them now.</p>
+      <div class="state-actions">
+        <a class="button button-primary" href="#">Open Public library</a>
+        <a class="button" href="#"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>Add item</a>
+      </div>
+    </section>
+      </div>
+    </aside></div></div></div><div class="kit-state"><p class="kit-label">Loading</p><div class="kit-demo"><div class="kit-panel"><aside class="panel library-sidebar" aria-label="Add items">
+      <div class="panel-head">
+        <h2>Add from</h2>
+        <nav class="scope" aria-label="Scope"><a href="#" aria-current="page">My library</a><a href="#">Public library</a></nav>
+        <label class="search"><svg class="icon" aria-hidden="true"><use href="#l-search"/></svg><input type="search" placeholder="Search My library — migrate, GITHUB_TOKEN, review"></label>
+        <nav class="tabs" aria-label="Kind"><a href="#" aria-current="page">Related</a><a href="#">All</a><a href="#">skill</a><a href="#">agent</a><a href="#">prompt</a><a href="#">mcp</a><a href="#">script</a><a href="#">app</a></nav>
+      </div>
+      <div class="panel-body">
+        <ol class="row-list" aria-busy="true">
+          <li>
+            <article class="row row-compact" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w140 sk-h20"></span>
+                <span class="skeleton sk-w200 sk-h12 sk-mt8"></span>
+              </div>
+              <span class="skeleton sk-w64 sk-h16"></span>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w140 sk-h20"></span>
+                <span class="skeleton sk-w200 sk-h12 sk-mt8"></span>
+              </div>
+              <span class="skeleton sk-w64 sk-h16"></span>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w140 sk-h20"></span>
+                <span class="skeleton sk-w200 sk-h12 sk-mt8"></span>
+              </div>
+              <span class="skeleton sk-w64 sk-h16"></span>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w140 sk-h20"></span>
+                <span class="skeleton sk-w200 sk-h12 sk-mt8"></span>
+              </div>
+              <span class="skeleton sk-w64 sk-h16"></span>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w140 sk-h20"></span>
+                <span class="skeleton sk-w200 sk-h12 sk-mt8"></span>
+              </div>
+              <span class="skeleton sk-w64 sk-h16"></span>
+            </article>
+          </li>
+          <li>
+            <article class="row row-compact" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w140 sk-h20"></span>
+                <span class="skeleton sk-w200 sk-h12 sk-mt8"></span>
+              </div>
+              <span class="skeleton sk-w64 sk-h16"></span>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </aside></div></div></div></section></section><section class="kit-group" id="cards-and-lists"><h2 class="kit-h">Cards and lists <span class="kit-meta">12</span></h2><section class="kit-comp" id="c-row-list"><header class="kit-comp-head"><h3>Row list</h3><p class="kit-meta"><code>row-list > row · row-tight · set-item · row-compact</code> · 8 screens · <span class="kit-painted kit-painted">painted (set rows) · grey (library rows)</span></p></header><div class="kit-state"><p class="kit-label">Library rows, with usage facts</p><div class="kit-demo"><div class="kit-clip"><ol class="row-list">
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">code-style</a><span class="tag">skill</span></h2>
+                <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
+                <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code></span><span>Defers to <em>the client’s ESLint config</em></span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · last exported 2 days ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">db-migrate</a><span class="tag">script</span></h2>
+                <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files</span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · 1 item requires this · requires <code>seed-data</code> · last exported 12 days ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">seed-data</a><span class="tag">script</span></h2>
+                <p class="description">Loads a small, realistic dataset into a fresh database.</p>
+                <p class="facts meta"><span><code>scripts/seed-data.sh</code></span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · 1 item requires this</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">migration-reviewer</a><span class="tag">agent</span></h2>
+                <p class="description">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
+                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code></span></p>
+              </div>
+              <p class="usage meta">Used in 1 project</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">postgres-mcp</a><span class="tag">mcp</span></h2>
+                <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
+                <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT</span><span>Needs <code>DATABASE_URL</code></span></p>
+              </div>
+              <p class="usage meta">Used in 2 projects · 1 item requires this</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">github-mcp</a><span class="tag">mcp</span><span class="tag">Shared</span></h2>
+                <p class="description">Issues, pull requests and code search on GitHub, through GitHub’s own server.</p>
+                <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT</span><span>Needs <code>GITHUB_TOKEN</code></span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · copied from the Public library</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">pr-reviewer</a><span class="tag">agent</span></h2>
+                <p class="description">Reads a pull request diff and leaves review comments the way I would write them.</p>
+                <p class="facts meta"><span><code>.claude/agents/pr-reviewer.md</code></span></p>
+              </div>
+              <p class="usage meta">Used in 2 projects · detached in 1</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">commit-conventions</a><span class="tag">prompt</span></h2>
+                <p class="description">Conventional commits, imperative mood, and a body that says why rather than what.</p>
+                <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
+              </div>
+              <p class="usage meta">Used in 4 projects · last exported 2 days ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">writing-style</a><span class="tag">prompt</span></h2>
+                <p class="description">Plain English for docs: short sentences, no marketing words, an example before every rule.</p>
+                <p class="facts meta"><span><code>CLAUDE.md</code>, appended</span></p>
+              </div>
+              <p class="usage meta">Used in 1 project</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">link-checker</a><span class="tag">script</span></h2>
+                <p class="description">Crawls the built docs and lists every broken internal and external link, with the page it is on.</p>
+                <p class="facts meta"><span><code>scripts/check-links.mjs</code></span></p>
+              </div>
+              <p class="usage meta">Used in 1 project</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">whisper</a><span class="tag">app</span></h2>
+                <p class="description">Speech-to-text, run locally on voice memos before they are summarised.</p>
+                <p class="facts meta"><span><code>openai/whisper</code> @ <code>v20240930</code> · MIT</span></p>
+              </div>
+              <p class="usage meta">Used in 1 project · last exported 3 weeks ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+        </ol></div></div></div><div class="kit-state"><p class="kit-label">Set rows</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">test-runner</a><span class="tag">agent</span></h3>
+                <p class="description">Runs the affected tests after a change and reports only the failures.</p>
+                <p class="facts meta"><span><code>.claude/agents/test-runner.md</code></span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"></div>
+            </article>
+          </li></ol><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">changelog-writer</a><span class="tag">skill</span></h3>
+                <p class="description">Writes the changelog entry from merged pull requests since the last tag.</p>
+                <p class="facts meta"><span><code>.claude/skills/changelog-writer/SKILL.md</code></span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"></div>
+            </article>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">Active — the item open beside the set</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item is-selected">
+              <div>
+                <h3><a href="#">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
+                <p class="description">Reviews Acme pull requests against their billing rules.</p>
+                <p class="facts meta"><span>differs from the original in <em>content</em> and <em>lands at</em></span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove pr-reviewer from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div>
+            </article>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">Loading</p><div class="kit-demo"><ol class="row-list">
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+        </ol></div></div></section><section class="kit-comp" id="c-item-text-block"><header class="kit-comp-head"><h3>Item text block</h3><p class="kit-meta"><code>description · facts</code> · 9 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Defers to</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">code-style</a><span class="tag">skill</span></h3>
+                <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
+                <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
+              </div>
+              <p class="marks"><span class="mark"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">Pinned repo · licence · needs an env key</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">github-mcp</a><span class="tag">mcp</span></h3>
+                <p class="description">Issues, pull requests and code search on GitHub, through GitHub’s own server.</p>
+                <p class="facts meta"><span><code>github/github-mcp-server</code> @ <code>v0.9.0</code> · MIT · needs <code>GITHUB_TOKEN</code></span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"></div>
+            </article>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">A detached row names the fields that differ</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
+                <p class="description">Reviews Acme pull requests against their billing rules.</p>
+                <p class="facts meta"><span>differs from the original in <em>content</em> and <em>lands at</em></span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"></div>
+            </article>
+          </li></ol></div></div></section><section class="kit-comp" id="c-set-row-states-7"><header class="kit-comp-head"><h3>Set row states (§7)</h3><p class="kit-meta"><code>sub-rows · tag-state · marks · state-line</code> · 3 screens · <span class="kit-painted kit-painted">painted (Project) · grey (configuring)</span></p></header><div class="kit-state"><p class="kit-label">Auto-added, nested under what pulled it in</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">migration-reviewer</a><span class="tag">agent</span></h3>
+                <p class="description">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
+                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code> · 3 auto-added</span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"></div>
+            </article>
+            <ol class="sub-rows" aria-label="Auto-added for migration-reviewer">
+              <li>
+                <article class="row row-tight set-item">
+                  <div>
+                    <h3><a href="#">db-migrate</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                    <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                    <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · 1 auto-added</span></p>
+                  </div>
+                  <p class="marks"></p>
+                  <div class="row-actions"></div>
+                </article>
+                <ol class="sub-rows" aria-label="Auto-added for db-migrate">
+                  <li>
+                    <article class="row row-tight set-item">
+                      <div>
+                        <h3><a href="#">seed-data</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                        <p class="description">Loads a small, realistic dataset into a fresh database.</p>
+                        <p class="facts meta"><span><code>scripts/seed-data.sh</code></span></p>
+                      </div>
+                      <p class="marks"></p>
+                      <div class="row-actions"></div>
+                    </article>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <article class="row row-tight set-item">
+                  <div>
+                    <h3><a href="#">postgres-mcp</a><span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
+                    <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
+                    <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
+                  </div>
+                  <p class="marks"><span class="mark"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
+                  <div class="row-actions"></div>
+                </article>
+              </li>
+            </ol>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">Conflicting</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">eslint-autofix</a><span class="tag">script</span><span class="tag tag-state tag-problem">Conflict</span></h3>
+                <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+                <p class="facts meta"><span><code>scripts/eslint-autofix.sh</code> · conflicts with <code>code-style</code></span></p>
+              </div>
+              <p class="marks"><span class="mark"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem</span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">Configuring: Required by, and the remove</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight set-item">
+              <div>
+                <h3><a href="#">migration-reviewer</a><span class="tag">agent</span></h3>
+                <p class="description">Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills.</p>
+                <p class="facts meta"><span>requires <code>db-migrate</code>, <code>postgres-mcp</code> · 3 auto-added</span></p>
+              </div>
+              <p class="marks"></p>
+              <div class="row-actions"><button type="button" class="remove" aria-label="Remove migration-reviewer and its 3 auto-added items from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div>
+            </article>
+            <ol class="sub-rows" aria-label="Auto-added for migration-reviewer">
+              <li>
+                <article class="row row-tight set-item">
+                  <div>
+                    <h3><a href="#">db-migrate</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                    <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                    <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files · 1 auto-added</span></p>
+                  </div>
+                  <p class="marks"></p>
+                  <div class="row-actions"></div>
+                </article>
+                <ol class="sub-rows" aria-label="Auto-added for db-migrate">
+                  <li>
+                    <article class="row row-tight set-item">
+                      <div>
+                        <h3><a href="#">seed-data</a><span class="tag">script</span><span class="tag tag-state">Auto-added</span></h3>
+                        <p class="description">Loads a small, realistic dataset into a fresh database.</p>
+                        <p class="facts meta"><span><code>scripts/seed-data.sh</code></span></p>
+                      </div>
+                      <p class="marks"></p>
+                      <div class="row-actions"></div>
+                    </article>
+                  </li>
+                </ol>
+              </li>
+              <li>
+                <article class="row row-tight set-item">
+                  <div>
+                    <h3><a href="#">postgres-mcp</a><span class="tag">mcp</span><span class="tag tag-state">Auto-added</span></h3>
+                    <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
+                    <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
+                  </div>
+                  <p class="marks"><span class="mark"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
+                  <div class="row-actions"></div>
+                </article>
+              </li>
+            </ol>
+          </li></ol></div></div></section><section class="kit-comp" id="c-kind-tag"><header class="kit-comp-head"><h3>Kind tag</h3><p class="kit-meta"><code>tag · tag-state</code> · 10 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Kinds</p><div class="kit-demo"><div class="kit-row"><span class="tag">skill</span><span class="tag">agent</span><span class="tag">prompt</span><span class="tag">mcp</span><span class="tag">script</span><span class="tag">app</span></div></div></div><div class="kit-state"><p class="kit-label">States</p><div class="kit-demo"><div class="kit-row"><span class="tag">Shared</span> <span class="tag">Example</span> <span class="tag tag-state tag-problem">Conflict</span> <span class="tag tag-state">Auto-added</span> <span class="tag tag-state">Detached</span></div></div></div></section><section class="kit-comp" id="c-usage-facts"><header class="kit-comp-head"><h3>Usage facts</h3><p class="kit-meta"><code>usage</code> · 3 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">db-migrate</a><span class="tag">script</span></h2>
+                <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files</span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · 1 item requires this · requires <code>seed-data</code> · last exported 12 days ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li></ol></div></div></section><section class="kit-comp" id="c-item-side-panel"><header class="kit-comp-head"><h3>Item side panel</h3><p class="kit-meta"><code>with-drawer · drawer · drawer-head · drawer-section · drawer-facts · drawer-actions</code> · 3 screens · <span class="kit-painted kit-painted">painted (linked) · grey (detached)</span></p></header><div class="kit-state"><p class="kit-label">A linked item</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="k34-drawer-title">
+          <div class="drawer-head">
+            <h2 id="k34-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+
+          <div class="callout">
+            <span class="severity"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem at last check</span>
+            <span>Declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+          </div>
+
+          <section class="drawer-section" aria-labelledby="k34-d-in">
+            <h3 id="k34-d-in">In this project</h3>
+            <p>Added by you · linked to the original in My library</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="k34-d-contents">
+            <h3 id="k34-d-contents">Contents</h3>
+            <pre class="file">#!/usr/bin/env bash
+# Fix what ESLint can fix, on staged files only.
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx)$')
+[ -z "$files" ] &amp;&amp; exit 0
+npx eslint --fix $files &amp;&amp; git add $files</pre>
+            <p class="meta">No files attached · no repo</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="k34-d-deps">
+            <h3 id="k34-d-deps">Dependencies</h3>
+            <dl class="drawer-facts">
+              <dt>Requires</dt><dd>None</dd>
+              <dt>Conflicts with</dt><dd><code>code-style</code></dd>
+              <dt>Env keys</dt><dd>None</dd>
+              <dt>Lands at</dt><dd><code>scripts/eslint-autofix.sh</code></dd>
+            </dl>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="k34-d-use">
+            <h3 id="k34-d-use">Use</h3>
+            <p>Used in 2 projects · last exported 2 days ago</p>
+          </section>
+
+          <div class="drawer-actions">
+            <a class="button" href="#">Open in My library</a>
+            <a class="button" href="#">Configure to remove</a>
+          </div>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">A detached item: Reset, Promote</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="k35-drawer-title">
+          <div class="drawer-head">
+            <h2 id="k35-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="meta">Edited for this project only. The original in My library, and the other project that uses <code>pr-reviewer</code>, don’t get these changes.</p>
+
+          <section class="drawer-section" aria-labelledby="k35-d-diff">
+            <h3 id="k35-d-diff">2 fields differ from the original</h3>
+            <label class="field"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
+            <p class="meta">Original: <code>.claude/agents/pr-reviewer.md</code> · <button type="button" class="link-button">Reset this field</button></p>
+            <label class="field"><span>Content</span><textarea>---
+name: pr-reviewer
+description: Review Acme pull requests against their billing rules.
+---
+Read the diff. Flag any change to invoice rounding, currency handling or
+the retry policy of the Stripe webhook consumer — Acme treats those as
+release-blocking. Otherwise comment the way Maya would.</textarea></label>
+            <details class="library-version">
+              <summary class="meta">Original · <span class="link-button">Reset this field</span></summary>
+              <pre class="file">---
+name: pr-reviewer
+description: Review a pull request the way I would.
+---
+Read the diff. Comment the way Maya would: short,
+specific, one suggestion per comment.</pre>
+            </details>
+          </section>
+
+          <div class="drawer-actions">
+            <button type="button">Reset to the original</button>
+            <a class="button" href="#">Promote to My library…</a>
+            <button type="button" class="button-quiet">Remove from project</button>
+          </div>
+          <p class="meta">Changes here are kept when you save the project.</p>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">One-off: the original of a detached field</p><p class="kit-note">Detached row only; in the kit because a screen holds no style.</p><div class="kit-demo"><div class="kit-drawer"><details class="library-version">
+              <summary class="meta">Original · <span class="link-button">Reset this field</span></summary>
+              <pre class="file">---
+name: pr-reviewer
+description: Review a pull request the way I would.
+---
+Read the diff. Comment the way Maya would: short,
+specific, one suggestion per comment.</pre>
+            </details></div></div></div></section><section class="kit-comp" id="c-check-stages"><header class="kit-comp-head"><h3>Check stages</h3><p class="kit-meta"><code>stage-group · stages · stage-body</code> · 4 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Checked: note · problem (open) · skipped</p><div class="kit-demo"><section class="stage-group" aria-labelledby="k37-g-find">
+        <h2 id="k37-g-find">Findings</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>14 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
+              <div class="stage-body">
+                <p>You added 11. 3 more were auto-added because another item <code>requires</code> them: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary><span class="n">02</span><span class="name">Declared conflicts</span><span class="result"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>1 problem</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout">
+                  <span class="severity">Problem</span>
+                  <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+                  <div class="row-actions"><a class="button button-danger-quiet" href="#">Remove eslint-autofix…</a></div>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.2 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>1 note · 3 keys named</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet">
+                  <span class="severity">Note</span>
+                  <span><code>DATABASE_URL</code> (postgres-mcp), <code>GITHUB_TOKEN</code> (github-mcp) and <code>SENTRY_AUTH_TOKEN</code> (sentry-mcp) are needed. They go into <code>.env.example</code> as names; the receiving machine supplies the values.</span>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>1 note</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet">
+                  <span class="severity">Note</span>
+                  <span><code>code-style</code> defers to the client’s ESLint config. Where they disagree, that wins.</span>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.4 s</span></summary>
+            </details>
+          </li>
+        </ol>
+      </section></div></div><div class="kit-state"><p class="kit-label">Checking: running · waiting</p><div class="kit-demo"><section class="stage-group" aria-labelledby="k38-g-find">
+        <h2 id="k38-g-find">Findings</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>14 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
+              <div class="stage-body">
+                <p>You added 11. 3 more were auto-added because another item <code>requires</code> them: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary><span class="n">02</span><span class="name">Declared conflicts</span><span class="result"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>1 problem</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout">
+                  <span class="severity">Problem</span>
+                  <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+                  <div class="row-actions"><a class="button button-danger-quiet" href="#">Remove eslint-autofix…</a></div>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-running" aria-hidden="true"></span>Checking</span><span class="time"></span></summary>
+            </details>
+          </li>
+          <li class="waiting">
+            <details>
+              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Waiting</span><span class="time"></span></summary>
+            </details>
+          </li>
+          <li class="waiting">
+            <details>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Waiting</span><span class="time"></span></summary>
+            </details>
+          </li>
+          <li class="waiting">
+            <details>
+              <summary><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Waiting</span><span class="time"></span></summary>
+            </details>
+          </li>
+        </ol>
+      </section></div></div></section><section class="kit-comp" id="c-run-summary"><header class="kit-comp-head"><h3>Run summary</h3><p class="kit-meta"><code>summary</code> · 4 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Checking</p><div class="kit-demo"><section class="summary" aria-label="Verdict">
+        <h1 role="status">Checking — stage 4 of 10</h1>
+        <p class="meta">acme-billing-api · 14 items · for Claude Code</p>
+      </section></div></div><div class="kit-state"><p class="kit-label">Checked, with counts</p><div class="kit-demo"><section class="summary" aria-label="Verdict">
+        <h1>Checked just now</h1>
+        <p><strong>1 problem · 2 notes · 1 skipped</strong></p>
+        <p class="meta">acme-billing-api · 14 items · for Claude Code · 1.8 s</p>
+      </section></div></div><div class="kit-state"><p class="kit-label">Error, the code in mono</p><div class="kit-demo"><section class="summary" aria-label="Verdict">
+        <h1 role="alert">The check didn’t finish</h1>
+        <p>Our server stopped answering at stage 4 of 10. Nothing in the project changed, and its last check still reads 2 days ago.</p>
+        <p class="meta">503 · Service unavailable · 14:05</p>
+        <p class="meta">acme-billing-api · 14 items · for Claude Code</p>
+      </section></div></div></section><section class="kit-comp" id="c-export-stage"><header class="kit-comp-head"><h3>Export stage</h3><p class="kit-meta"><code>export-stage · export-actions</code> · 4 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Ready, with a Problem</p><div class="kit-demo"><section class="export-stage" aria-labelledby="k42-export-title">
+        <h2 id="k42-export-title">11 · Export</h2>
+        <p><strong>1 problem is still in this project.</strong> The archive will contain both <code>eslint-autofix</code> and <code>code-style</code>, and the agent will get two rules that disagree about imports.</p>
+        <div class="export-actions">
+          <a class="button button-primary button-warning" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export with 1 problem</a>
+          <a class="button" href="#">Configure acme-billing-api</a>
+        </div>
+      </section></div></div><div class="kit-state"><p class="kit-label">Exporting</p><div class="kit-demo"><section class="export-stage" aria-labelledby="k43-export-title">
+        <h2 id="k43-export-title">11 · Export</h2>
+        <p role="status"><strong>Exporting — 18 files for Claude Code</strong></p>
+        <p class="meta">acme-billing-api-claude-code.zip</p>
+      </section></div></div><div class="kit-state"><p class="kit-label">Exported</p><div class="kit-demo"><section class="export-stage" aria-labelledby="k44-export-title">
+        <h2 id="k44-export-title">Exported — acme-billing-api-claude-code.zip</h2>
+        <p>18 files · 41 KB · saved to Downloads. Checked just now · 1 problem · 2 notes · 1 skipped.</p>
+        <div>
+          <p><strong>The receiving machine still needs</strong></p>
+          <ul class="plain-list">
+            <li>Values for <code>DATABASE_URL</code>, <code>GITHUB_TOKEN</code> and <code>SENTRY_AUTH_TOKEN</code></li>
+            <li>3 repos cloned at their pinned refs — <code>SETUP.md</code> says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+        </div>
+        <div class="export-actions">
+          <a class="button button-primary" href="#">Back to acme-billing-api</a>
+          <button type="button">Download again</button>
+          <button type="button">Share…</button>
+        </div>
+      </section></div></div><div class="kit-state"><p class="kit-label">Failed</p><div class="kit-demo"><section class="export-stage" aria-labelledby="k45-export-title" role="alert">
+        <h2 id="k45-export-title">11 · Export — the archive didn’t build</h2>
+        <p>Our server stopped at 12 of 18 files. Nothing was exported. The check above still stands — nothing in the project changed.</p>
+        <p class="meta">503 · Service unavailable · 14:07</p>
+        <div class="export-actions">
+          <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export again</a>
+          <a class="button" href="#">Back to acme-billing-api</a>
+        </div>
+      </section></div></div></section><section class="kit-comp" id="c-file-block"><header class="kit-comp-head"><h3>File block</h3><p class="kit-meta"><code>pre.file</code> · 7 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">SETUP.md</p><div class="kit-demo"><pre class="file"># Setup — acme-billing-api (Claude Code)
+
+Read this first and perform each step.
+
+## postgres-mcp
+- External. Clone modelcontextprotocol/servers-archived at 9be4674.
+- Needs DATABASE_URL. Ask the person for it; do not invent one.
+- Required by migration-reviewer.
+
+## code-style
+- Defers to the client’s ESLint config. Where they disagree, the ESLint config wins.
+…</pre></div></div></section><section class="kit-comp" id="c-plain-list"><header class="kit-comp-head"><h3>Plain list</h3><p class="kit-meta"><code>plain-list</code> · 7 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul></div></div></section><section class="kit-comp" id="c-aside-box"><header class="kit-comp-head"><h3>Aside box</h3><p class="kit-meta"><code>with-aside · aside-box</code> · 2 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-labelledby="k48-needs-title">
+          <h2 id="k48-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">Loading</p><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-hidden="true">
+          <span class="skeleton sk-w200"></span>
+          <span class="skeleton sk-w280 sk-h12"></span>
+          <span class="skeleton sk-w240 sk-h12"></span>
+        </aside></div></div></div></section></section><section class="kit-group" id="forms"><h2 class="kit-h">Forms <span class="kit-meta">14</span></h2><section class="kit-comp" id="c-button"><header class="kit-comp-head"><h3>Button</h3><p class="kit-meta"><code>button · button-primary · button-quiet · button-danger · button-warning · button-danger-quiet</code> · 17 screens · <span class="kit-painted kit-painted">painted · busy: grey</span></p></header><div class="kit-state"><p class="kit-label">Primary · secondary · quiet</p><p class="kit-note">One primary per screen. Hover and Tab are live.</p><div class="kit-demo"><div class="kit-row"><a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a><a class="button" href="#">Configure</a><button type="button"><svg class="icon" aria-hidden="true"><use href="#l-copy"/></svg>Duplicate</button><a class="button button-quiet" href="#">Cancel</a></div></div></div><div class="kit-state"><p class="kit-label">Danger — only a removal's confirmation</p><div class="kit-demo"><div class="kit-row"><button type="button" class="button button-primary button-danger">Delete</button><button type="button" class="button button-primary button-danger">Stop sharing</button></div></div></div><div class="kit-state"><p class="kit-label">Warning — only Export with 1 problem</p><div class="kit-demo"><div class="kit-row"><button type="button" class="button button-primary button-warning">Export with 1 problem</button></div></div></div><div class="kit-state"><p class="kit-label">Quiet danger — the remove inside a Problem</p><div class="kit-demo"><div class="callout">
+                  <span class="severity">Problem</span>
+                  <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+                  <div class="row-actions"><a class="button button-danger-quiet" href="#">Remove eslint-autofix…</a></div>
+                </div></div></div><div class="kit-state"><p class="kit-label">Disabled — only Export on an empty project</p><div class="kit-demo"><div class="kit-row"><button type="button" disabled title="Add an item first"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</button></div></div></div><div class="kit-state"><p class="kit-label">Busy</p><div class="kit-demo"><button type="submit" class="button-primary"><span class="glyph glyph-running" aria-hidden="true"></span>Signing in</button></div></div></section><section class="kit-comp" id="c-link-button"><header class="kit-comp-head"><h3>Link button</h3><p class="kit-meta"><code>link-button</code> · 5 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Clear filters, in the popover's head</p><div class="kit-demo"><button type="reset" class="link-button">Clear filters</button></div></div></section><section class="kit-comp" id="c-search-field"><header class="kit-comp-head"><h3>Search field</h3><p class="kit-meta"><code>find · search</code> · 8 screens · <span class="kit-painted kit-painted">painted (Projects) · grey (panel)</span></p></header><div class="kit-state"><p class="kit-label">Empty, with a placeholder</p><div class="kit-demo"><label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
+            <input type="search" name="q" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
+          </label></div></div><div class="kit-state"><p class="kit-label">Filled — the no-match state</p><div class="kit-demo"><label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
+            <input type="search" name="q" value="stripe" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
+          </label></div></div><div class="kit-state"><p class="kit-label">In the panel</p><p class="kit-note">Focus: the lime edge and ring.</p><div class="kit-demo"><label class="search"><svg class="icon" aria-hidden="true"><use href="#l-search"/></svg><input type="search" placeholder="Search My library — migrate, GITHUB_TOKEN, review"></label></div></div></section><section class="kit-comp" id="c-filters-button-and-popover"><header class="kit-comp-head"><h3>Filters button and popover</h3><p class="kit-meta"><code>filters-button · find-zone · popover</code> · 5 · 3 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Open</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><div class="kit-find"><section class="find-zone" aria-label="Find projects">
+        <form class="find" role="search">
+          <label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
+            <input type="search" name="q" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button" aria-expanded="true"><svg class="icon" aria-hidden="true"><use href="#l-sliders-horizontal"/></svg>Filters · 1</button>
+        </form>
+        <dialog class="popover" open aria-labelledby="k56-filters-title">
+          <form class="popover-form">
+            <div class="popover-head">
+              <h2 id="k56-filters-title">Filters</h2>
+              <button type="reset" class="link-button">Clear filters</button>
+            </div>
+            <div class="popover-body">
+            <fieldset class="popover-group">
+              <legend>Last check</legend>
+              <label><input type="radio" name="check" checked> Any</label>
+              <label><input type="radio" name="check"> Problems at last check</label>
+              <label><input type="radio" name="check"> Out of date</label>
+              <label><input type="radio" name="check"> Not checked yet</label>
+            </fieldset>
+            <fieldset class="popover-group">
+              <legend>Checked for</legend>
+              <label><input type="checkbox" name="target" checked> Claude Code</label>
+              <label><input type="checkbox" name="target"> Cursor</label>
+              <label><input type="checkbox" name="target"> Codex</label>
+              <label><input type="checkbox" name="target"> Universal</label>
+            </fieldset>
+            <fieldset class="popover-group">
+              <legend>Sharing</legend>
+              <label><input type="checkbox" name="shared"> Only projects shared by link</label>
+            </fieldset>
+            <fieldset class="popover-group">
+              <legend>Sort by</legend>
+              <label><input type="radio" name="sort" checked> Last changed</label>
+              <label><input type="radio" name="sort"> Last checked</label>
+              <label><input type="radio" name="sort"> Name</label>
+            </fieldset>
+            </div>
+            <div class="popover-foot">
+              <a class="button" href="#">Cancel</a>
+              <button type="submit" class="button-primary">Apply</button>
+            </div>
+          </form>
+        </dialog>
+      </section></div></div></div></div></section><section class="kit-comp" id="c-text-field"><header class="kit-comp-head"><h3>Text field</h3><p class="kit-meta"><code>field · field-label</code> · 5 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Empty, with a placeholder</p><div class="kit-demo"><label class="field"><span>Email</span>
+            <input type="email" name="email" autocomplete="email" placeholder="maya@chen.dev">
+          </label></div></div><div class="kit-state"><p class="kit-label">With an inline link</p><div class="kit-demo"><label class="field"><span class="field-label">Password <a class="meta" href="#">Reset password</a></span>
+            <input type="password" name="password" autocomplete="current-password">
+          </label></div></div><div class="kit-state"><p class="kit-label">Filled</p><div class="kit-demo"><label class="field"><span>Email</span>
+            <input type="email" name="email" autocomplete="email" value="maya@chen.dev" placeholder="maya@chen.dev">
+          </label></div></div></section><section class="kit-comp" id="c-select"><header class="kit-comp-head"><h3>Select</h3><p class="kit-meta"><code>select</code> · 5 screens · <span class="kit-painted kit-painted">painted (agent target) · grey (Kind)</span></p></header><div class="kit-state"><p class="kit-label">Agent target</p><div class="kit-demo"><label class="pick">Agent target
+        <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
+      </label></div></div><div class="kit-state"><p class="kit-label">Kind, in a field</p><div class="kit-demo"><label class="field"><span>Kind</span><select name="kind"><option>skill</option><option>agent</option><option>prompt</option><option>mcp</option><option selected>script</option><option>app</option></select></label></div></div></section><section class="kit-comp" id="c-textarea"><header class="kit-comp-head"><h3>Textarea</h3><p class="kit-meta"><code>field textarea</code> · 2 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Filled</p><div class="kit-demo"><label class="field"><span>Content</span><textarea name="content" placeholder="Write or paste it here">#!/usr/bin/env bash
+# db-migrate — diff the schema, write a migration, dry-run it, then apply.
+set -euo pipefail
+
+npx drizzle-kit generate --name "$1"
+psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.sql" --echo-errors --dry-run
+</textarea></label></div></div></section><section class="kit-comp" id="c-add-to-set"><header class="kit-comp-head"><h3>Add to set</h3><p class="kit-meta"><code>check</code> · 3 screens · <span class="kit-painted kit-painted">painted (CSS) · grey (screen)</span></p></header><div class="kit-state"><p class="kit-label">Not in the set · in the set</p><div class="kit-demo"><label class="check"><input type="checkbox"> Add</label> <label class="check"><input type="checkbox" checked> In this project</label></div></div></section><section class="kit-comp" id="c-checkbox"><header class="kit-comp-head"><h3>Checkbox</h3><p class="kit-meta"><code>input[type=checkbox]</code> · 3 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Unchecked · checked</p><div class="kit-demo"><fieldset class="popover-group">
+              <legend>Checked for</legend>
+              <label><input type="checkbox" name="target" checked> Claude Code</label>
+              <label><input type="checkbox" name="target"> Cursor</label>
+              <label><input type="checkbox" name="target"> Codex</label>
+              <label><input type="checkbox" name="target"> Universal</label>
+            </fieldset></div></div></section><section class="kit-comp" id="c-radio"><header class="kit-comp-head"><h3>Radio</h3><p class="kit-meta"><code>input[type=radio]</code> · 2 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Unselected · selected</p><div class="kit-demo"><fieldset class="popover-group">
+              <legend>Last check</legend>
+              <label><input type="radio" name="check" checked> Any</label>
+              <label><input type="radio" name="check"> Problems at last check</label>
+              <label><input type="radio" name="check"> Out of date</label>
+              <label><input type="radio" name="check"> Not checked yet</label>
+            </fieldset></div></div></section><section class="kit-comp" id="c-remove-from-set"><header class="kit-comp-head"><h3>Remove from set</h3><p class="kit-meta"><code>remove</code> · 2 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">On a set row; absent on an auto-added one</p><p class="kit-note">Its aria-label names the item: Remove code-style from this project.</p><div class="kit-demo"><button type="button" class="remove" aria-label="Remove code-style from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div></div></section><section class="kit-comp" id="c-close"><header class="kit-comp-head"><h3>Close</h3><p class="kit-meta"><code>close</code> · 5 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a></div></div></section><section class="kit-comp" id="c-form-actions"><header class="kit-comp-head"><h3>Form actions</h3><p class="kit-meta"><code>form-actions · push</code> · 6 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Cancel … the primary pushed right</p><div class="kit-demo"><div class="form-actions">
+        <a class="button" href="#">Choose another file</a>
+        <a class="button push" href="#">Cancel</a>
+        <a class="button button-primary" href="#">Import 47 items</a>
+      </div></div></div></section><section class="kit-comp" id="c-door-form"><header class="kit-comp-head"><h3>Door form</h3><p class="kit-meta"><code>door · form · door-alt</code> · 3 screens · <span class="kit-painted kit-grey">grey</span></p></header><div class="kit-state"><p class="kit-label">Sign in</p><div class="kit-demo"><section class="door" aria-labelledby="k70-door-title">
+        <div>
+          <h1 id="k70-door-title">Sign in</h1>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
+        </div>
+        <form class="form">
+          <label class="field"><span>Email</span>
+            <input type="email" name="email" autocomplete="email" placeholder="maya@chen.dev">
+          </label>
+          <label class="field"><span class="field-label">Password <a class="meta" href="#">Reset password</a></span>
+            <input type="password" name="password" autocomplete="current-password">
+          </label>
+          <button type="submit" class="button-primary">Sign in</button>
+        </form>
+        <p class="door-alt">No account yet? <a href="#">Create account</a></p>
+      </section></div></div><div class="kit-state"><p class="kit-label">Error</p><div class="kit-demo"><section class="door" aria-labelledby="k71-door-title">
+        <div>
+          <h1 id="k71-door-title">Sign in</h1>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
+        </div>
+        <div class="callout" role="alert">
+          <span class="severity">Email or password is wrong</span>
+          <span>Enter them again. If you don’t remember the password, reset it — we’ll send a link to maya@chen.dev.</span>
+          <div class="row-actions"><a class="button" href="#">Reset password</a></div>
+        </div>
+        <form class="form">
+          <label class="field"><span>Email</span>
+            <input type="email" name="email" autocomplete="email" value="maya@chen.dev" placeholder="maya@chen.dev">
+          </label>
+          <label class="field"><span class="field-label">Password <a class="meta" href="#">Reset password</a></span>
+            <input type="password" name="password" autocomplete="current-password">
+          </label>
+          <button type="submit" class="button-primary">Sign in</button>
+        </form>
+        <p class="door-alt">No account yet? <a href="#">Create account</a></p>
+      </section></div></div><div class="kit-state"><p class="kit-label">Signing in</p><div class="kit-demo"><section class="door" aria-labelledby="k72-door-title">
+        <div>
+          <h1 id="k72-door-title">Sign in</h1>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
+        </div>
+        <form class="form" aria-busy="true">
+          <label class="field"><span>Email</span>
+            <input type="email" name="email" autocomplete="email" value="maya@chen.dev" placeholder="maya@chen.dev">
+          </label>
+          <label class="field"><span class="field-label">Password <a class="meta" href="#">Reset password</a></span>
+            <input type="password" name="password" autocomplete="current-password" value="••••••••••">
+          </label>
+          <button type="submit" class="button-primary"><span class="glyph glyph-running" aria-hidden="true"></span>Signing in</button>
+          <p class="visually-hidden" role="status">Signing in as maya@chen.dev</p>
+        </form>
+        <p class="door-alt">No account yet? <a href="#">Create account</a></p>
+      </section></div></div><div class="kit-state"><p class="kit-label">Reset password — sent</p><div class="kit-demo"><section class="door" aria-labelledby="k73-door-title">
+        <div>
+          <h1 id="k73-door-title">Reset link requested</h1>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
+        </div>
+        <div class="form">
+          <p>If an account exists for <strong>maya@chen.dev</strong>, a link to set a new password is on its way. It works once, for an hour.</p>
+          <a class="button button-primary" href="#">Sign in</a>
+        </div>
+        <p class="door-alt">Nothing arrived? <a href="#">Send it again</a></p>
+      </section></div></div></section></section><section class="kit-group" id="feedback"><h2 class="kit-h">Feedback <span class="kit-meta">7</span></h2><section class="kit-comp" id="c-finding-box"><header class="kit-comp-head"><h3>Finding box</h3><p class="kit-meta"><code>callout · callout-quiet · severity</code> · 11 screens · <span class="kit-painted kit-painted">painted (Problem, Note) · grey (reminder)</span></p></header><div class="kit-state"><p class="kit-label">Problem</p><div class="kit-demo"><div class="callout">
+                  <span class="severity">Problem</span>
+                  <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+                  <div class="row-actions"><a class="button button-danger-quiet" href="#">Remove eslint-autofix…</a></div>
+                </div></div></div><div class="kit-state"><p class="kit-label">Note</p><div class="kit-demo"><div class="callout callout-quiet">
+                  <span class="severity">Note</span>
+                  <span><code>DATABASE_URL</code> (postgres-mcp), <code>GITHUB_TOKEN</code> (github-mcp) and <code>SENTRY_AUTH_TOKEN</code> (sentry-mcp) are needed. They go into <code>.env.example</code> as names; the receiving machine supplies the values.</span>
+                </div></div></div><div class="kit-state"><p class="kit-label">Our failure</p><div class="kit-demo"><div class="callout" role="alert">
+                  <span class="severity">Missing, not empty</span>
+                  <span><code>SETUP.md</code> wasn’t written — our server stopped while writing it. What you would read here is missing because our server failed, not because there is nothing to say.</span>
+                  <span class="meta">503 · Service unavailable · 14:06</span>
+                  <div class="row-actions"><a class="button button-primary" href="#">Write SETUP.md again</a></div>
+                </div></div></div><div class="kit-state"><p class="kit-label">The keys reminder — not a finding</p><div class="kit-demo"><div class="callout callout-reminder">
+          <span class="severity">Before you import it</span>
+          <span><strong>Check that these files carry no keys.</strong> We don’t read your files looking for secrets. What you import is stored on our server, goes out in every archive built from it, and — if you ever share it — onto a link anyone can open.</span>
+        </div></div></div></section><section class="kit-comp" id="c-finding-capsule"><header class="kit-comp-head"><h3>Finding capsule</h3><p class="kit-meta"><code>marks · mark</code> · 3 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Problem · Note</p><div class="kit-demo"><div class="kit-row"><p class="marks"><span class="mark"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem</span></p><p class="marks"><span class="mark"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p></div></div></div></section><section class="kit-comp" id="c-severity-glyph"><header class="kit-comp-head"><h3>Severity glyph</h3><p class="kit-meta"><code>glyph-*</code> · 9 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">problem · note · checked · skipped · waiting · running</p><div class="kit-demo"><div class="kit-row"><span class="kit-glyph"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg><span class="kit-label">problem</span></span><span class="kit-glyph"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg><span class="kit-label">note</span></span><span class="kit-glyph"><span class="glyph glyph-checked" aria-hidden="true"></span><span class="kit-label">checked</span></span><span class="kit-glyph"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg><span class="kit-label">skipped</span></span><span class="kit-glyph"><span class="glyph glyph-waiting" aria-hidden="true"></span><span class="kit-label">waiting</span></span><span class="kit-glyph"><span class="glyph glyph-running" aria-hidden="true"></span><span class="kit-label">running</span></span></div></div></div></section><section class="kit-comp" id="c-empty-and-error-state"><header class="kit-comp-head"><h3>Empty and error state</h3><p class="kit-meta"><code>state-block · state-image · state-icon · state-actions</code> · 7 screens · <span class="kit-painted kit-painted">painted (Projects, Project) · grey (the rest)</span></p></header><div class="kit-state"><p class="kit-label">Empty</p><div class="kit-demo"><section class="state-block" aria-labelledby="k80-empty-title">
+        <span class="image state-image" aria-hidden="true"><svg class="icon"><use href="#l-folder-plus"/></svg></span>
+        <h2 id="k80-empty-title">No projects yet</h2>
+        <p>A project holds items from My library. It is checked as a whole and exported as one archive.</p>
+        <div class="state-actions">
+          <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project</a>
+          <a class="button" href="#">Open Public library</a>
+        </div>
+      </section></div></div><div class="kit-state"><p class="kit-label">No match</p><div class="kit-demo"><section class="state-block" aria-labelledby="k81-none-title">
+        <svg class="icon state-icon" aria-hidden="true"><use href="#l-search-x"/></svg>
+        <h2 id="k81-none-title">Nothing matches “stripe”</h2>
+        <p>The filter shows only projects that are <strong>Not checked yet</strong>.
+          You have 5 projects — the search and the filter hide all of them.</p>
+        <div class="state-actions">
+          <a class="button button-primary" href="#">Clear filters</a>
+        </div>
+      </section></div></div><div class="kit-state"><p class="kit-label">Server error</p><div class="kit-demo"><section class="state-block" aria-labelledby="k82-error-title" role="alert">
+        <svg class="icon state-icon" aria-hidden="true"><use href="#l-cloud-off"/></svg>
+        <h2 id="k82-error-title">Projects didn’t load</h2>
+        <p>Our server didn’t answer, so your projects can’t be shown right now. Nothing in them changed.</p>
+        <p class="meta">503 · Service unavailable · 14:02</p>
+        <div class="state-actions">
+          <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-refresh-cw"/></svg>Load again</a>
+          <a class="button" href="#">Open My library</a>
+        </div>
+      </section></div></div><div class="kit-state"><p class="kit-label">Dead link</p><div class="kit-demo"><section class="state-block" aria-label="This link doesn’t open anything any more">
+        <span class="image state-image" aria-hidden="true"><svg class="icon"><use href="#l-folder-plus"/></svg></span>
+        <h2>This link doesn’t open anything any more</h2>
+        <p>The person who shared this project turned the link off, or deleted the project. Ask them for a new link. If you already exported an archive or copied items from it, those are still yours.</p>
+      </section></div></div></section><section class="kit-comp" id="c-skeleton"><header class="kit-comp-head"><h3>Skeleton</h3><p class="kit-meta"><code>skeleton</code> · 10 screens · <span class="kit-painted kit-painted">painted</span></p></header><div class="kit-state"><p class="kit-label">Loading</p><p class="kit-note">Still under reduced motion.</p><div class="kit-demo"><div class="kit-clip"><ol class="card-grid">
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+        </ol></div></div></div></section><section class="kit-comp" id="c-busy-indicator"><header class="kit-comp-head"><h3>Busy indicator</h3><p class="kit-meta"><code>glyph-running · role=status</code> · 6 screens · <span class="kit-painted kit-painted">painted (Run)</span></p></header><div class="kit-state"><p class="kit-label">Exporting</p><div class="kit-demo"><div class="export-stage"><p role="status"><strong>Exporting — 18 files for Claude Code</strong></p></div></div></div><div class="kit-state"><p class="kit-label">Importing — a progress bar under the count</p><p class="kit-note">A native progress element; the count above says the same in words.</p><div class="kit-demo"><div class="kit-narrow"><div aria-busy="true">
+        <p role="status"><strong>18 of 47</strong> · <code>release-notes</code></p>
+        <progress class="progress" value="18" max="47" aria-label="18 of 47"></progress>
+      </div></div></div></div></section><section class="kit-comp" id="c-dialog"><header class="kit-comp-head"><h3>Dialog</h3><p class="kit-meta"><code>modal · sheet-head · scrim</code> · 6 screens · <span class="kit-painted kit-painted">painted (confirms) · grey (import, promote)</span></p></header><div class="kit-state"><p class="kit-label">Destructive confirm</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="k87-modal-title">
+      <div class="sheet-head">
+        <h2 id="k87-modal-title">Delete repo-triage-kit?</h2>
+      </div>
+      <p><code>repo-triage-kit</code> leaves Projects. Its 7 items stay in the Public library, where it came from.</p>
+      <p class="meta">This can’t be undone.</p>
+      <div class="form-actions">
+        <a class="button push" href="#">Cancel</a>
+        <a class="button button-primary button-danger" href="#">Delete example</a>
+      </div>
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Disclosure confirm — Share</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="k88-modal-title">
+      <div class="sheet-head">
+        <h2 id="k88-modal-title">Share acme-billing-api by link?</h2>
+      </div>
+      <p>Anyone with the link can open this project and see it as it is now — and every edit you make later.</p>
+      <div>
+        <p><strong>What becomes visible</strong></p>
+        <ul class="plain-list">
+          <li>The content of all 14 items — whatever is inside them goes with them</li>
+          <li>3 env key names: <code>DATABASE_URL</code>, <code>GITHUB_TOKEN</code>, <code>SENTRY_AUTH_TOKEN</code> — names only, never values</li>
+          <li>3 external items: modelcontextprotocol/servers-archived, github/github-mcp-server, getsentry/sentry-mcp — at their pinned refs</li>
+          <li>When you last checked it</li>
+        </ul>
+      </div>
+      <div class="callout callout-quiet">
+        <span class="severity">Note</span>
+        <span>We can’t tell what in these items is your client’s — a rule naming them, an API shape in an example. Look before you share.</span>
+      </div>
+      <div class="form-actions">
+        <a class="button push" href="#">Cancel</a>
+        <a class="button button-primary" href="#">Create link</a>
+      </div>
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Neutral confirm — Promote</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="k89-modal-title">
+      <div class="sheet-head">
+        <h2 id="k89-modal-title">Promote pr-reviewer to My library?</h2>
+      </div>
+      <form class="form">
+        <label class="field"><span>Name of the new item</span><input name="name" value="acme-pr-reviewer"></label>
+      </form>
+      <p>It becomes a new item in My library with this project’s changes, and this row links to it. The original <code>pr-reviewer</code>, and the other project that uses it, stay as they are. This happens now, not when you save the project.</p>
+      <div class="form-actions">
+        <a class="button push" href="#">Cancel</a>
+        <a class="button button-primary" href="#">Promote</a>
+      </div>
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — the keys reminder</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="k90-modal-title">
+      <div class="sheet-head">
+        <h2 id="k90-modal-title">Import a library</h2>
+        <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+      </div>
+      <p><strong>maya-library-2026-09.json</strong> · 47 items · 212 KB</p>
+      <p class="meta">31 skills · 6 agents · 5 prompts · 3 MCP servers · 2 scripts. They are added to My library beside the 11 you have.</p>
+        <div class="callout callout-reminder">
+          <span class="severity">Before you import it</span>
+          <span><strong>Check that these files carry no keys.</strong> We don’t read your files looking for secrets. What you import is stored on our server, goes out in every archive built from it, and — if you ever share it — onto a link anyone can open.</span>
+        </div>
+      <div class="form-actions">
+        <a class="button" href="#">Choose another file</a>
+        <a class="button push" href="#">Cancel</a>
+        <a class="button button-primary" href="#">Import 47 items</a>
+      </div>
+
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — in progress</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="k91-modal-title">
+      <div class="sheet-head">
+        <h2 id="k91-modal-title">Importing 47 items</h2>
+        <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+      </div>
+      <div aria-busy="true">
+        <p role="status"><strong>18 of 47</strong> · <code>release-notes</code></p>
+        <progress class="progress" value="18" max="47" aria-label="18 of 47"></progress>
+      </div>
+      <p class="meta">If this stops before the end, My library stays exactly as it was before the import — none of the 47 are kept.</p>
+      <div class="form-actions">
+        <a class="button push" href="#">Cancel import</a>
+      </div>
+
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — failed</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="k92-modal-title">
+      <div class="sheet-head">
+        <h2 id="k92-modal-title">The import didn’t finish</h2>
+        <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+      </div>
+      <div class="callout" role="alert">
+        <span class="severity">Nothing was imported</span>
+        <span>Our server stopped at item 18 of 47. My library is as it was before — the 11 items you had, and none of the 47.</span>
+      </div>
+      <p class="meta">maya-library-2026-09.json · 503 · Service unavailable · 14:02</p>
+      <div class="form-actions">
+        <a class="button push" href="#">Close</a>
+        <a class="button button-primary" href="#">Import again</a>
+      </div>
+
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — done</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="k93-modal-title">
+      <div class="sheet-head">
+        <h2 id="k93-modal-title">47 items imported</h2>
+        <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+      </div>
+      <p>All 47 items from <strong>maya-library-2026-09.json</strong> are in My library, beside the 11 you had.</p>
+      <p class="meta">None of them are in a project yet. Their <code>requires</code> fields came with them, and 3 point at items the file didn’t hold — a check names each of those as a Problem.</p>
+      <div class="form-actions">
+        <a class="button push" href="#">Close</a>
+        <a class="button button-primary" href="#">See the new items</a>
+      </div>
+
+    </dialog></div></div></div></section></section></main>
+</body>
+</html>
