@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shared item · default — wireframe — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
+  <path d="m17 8-5-5-5 5" />
+  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <!-- The receiver's header: no global navigation, no sign-in — the viewer is anonymous (§5, Q25). -->
+    <header class="shared-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <p class="owner"><img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24"><span>Shared by Maya Chen</span></p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">code-style <span class="tag">skill</span></h1>
+            <p class="meta head-meta"><span>Written by Maya Chen, not from an external source</span><span>Changed 2 days ago</span></p>
+          </div>
+          <div class="head-actions">
+            <a class="button" href="sign-in-default.html">Copy to My library</a>
+            <a class="button button-primary" href="run-shared-item-loading.html"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="with-aside">
+        <section aria-labelledby="content-title" class="form">
+          <h2 id="content-title" class="heading-small">Content · lands at <code>.claude/skills/code-style/SKILL.md</code></h2>
+          <pre class="file">---
+name: code-style
+description: How TypeScript is written in my projects.
+---
+- Named exports only. No default exports.
+- Imports: node built-ins, then packages, then local — one blank line between groups.
+- Errors: throw typed errors from lib code; catch only at the edge.
+- Names say what a thing is, not what type it is: `invoices`, not `invoiceArray`.</pre>
+        </section>
+        <aside class="aside-box" aria-labelledby="needs-title">
+          <h2 id="needs-title">What it needs, and what it answers to</h2>
+          <ul class="plain-list">
+            <li>Requires nothing else</li>
+            <li>No env keys</li>
+            <li><strong>Defers to the client’s ESLint config</strong> — where they disagree, that wins</li>
+          </ul>
+          <p class="meta">This page is live — it shows the item as Maya has it now.</p>
+        </aside>
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

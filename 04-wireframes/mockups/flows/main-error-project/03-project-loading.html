@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>03 · Project, loading — prototype · main-error-project — design</title>
+  <meta http-equiv="refresh" content="2;url=04-project-default.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <p class="meta"><a>Projects</a> /</p>
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">acme-billing-api</h1>
+            <p class="meta head-meta"><span class="skeleton sk-w480 sk-h12"></span></p>
+          </div>
+          <div class="head-actions">
+            <!-- Loading: nothing here can act yet, and Share… or Stop sharing… is not known — so nothing is shown,
+                 as on project-configuring-loading (§9: an action that cannot act is not shown). Phase 07, critique #19. -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Loading: the name is known from the list you came from; the set and every row's state are not. -->
+      <section aria-label="Items in this project" aria-busy="true">
+        <p class="visually-hidden" role="status">Loading acme-billing-api</p>
+        <ol class="row-list">
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+          <li>
+            <article class="row row-tight set-item" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w180 sk-h20"></span>
+                <span class="skeleton sk-w420 sk-mt8"></span>
+                <span class="skeleton sk-w260 sk-h12 sk-mt8"></span>
+              </div>
+              <p class="marks"><span class="skeleton sk-w64 sk-h12"></span></p>
+              <div class="row-actions"></div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

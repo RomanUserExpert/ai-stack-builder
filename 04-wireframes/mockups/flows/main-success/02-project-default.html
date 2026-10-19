@@ -23,11 +23,12 @@
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
       <nav class="app-nav" aria-label="Global">
         <ul>
-          <li><a href="library-my-default.html">My library</a></li>
-          <li><a href="library-public-default.html">Public library</a></li>
-          <li><a href="projects-default.html">Projects</a></li>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
         </ul>
       </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
       <p class="account" aria-label="Signed in as Maya Chen">
         <img class="image avatar" src="../../../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
         <span>Maya Chen</span>
@@ -58,6 +59,7 @@
            Detached, Conflict; findings from the last check as a mark, a glyph and a word — Problem, Note.
            Clicking a row opens the item beside the list, not over it: project-item.html. -->
       <section aria-label="Items in this project">
+        <h2 class="visually-hidden">Items in this project</h2>
         <ol class="row-list">
           <!-- Auto-added items sit under the item that pulled them in (owner, 2026-09-26): a row with
                sub-rows. They have no remove of their own — removing the parent takes them with it. -->
@@ -68,7 +70,7 @@
                 <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
                 <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
               </div>
-              <p class="marks"><span class="mark"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
+              <p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
               <div class="row-actions"></div>
             </article>
           </li>
@@ -114,7 +116,7 @@
                     <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
                     <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
                   </div>
-                  <p class="marks"><span class="mark"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
+                  <p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
                   <div class="row-actions"></div>
                 </article>
               </li>

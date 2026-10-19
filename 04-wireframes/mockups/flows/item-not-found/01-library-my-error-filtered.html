@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 · My library, nothing matches — prototype · item-not-found — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="M12 5v14" /></symbol><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" /></symbol><symbol id="l-search-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m13.5 8.5-5 5" />
+  <path d="m8.5 8.5 5 5" />
+  <circle cx="11" cy="11" r="8" />
+  <path d="m21 21-4.3-4.3" /></symbol><symbol id="l-sliders-horizontal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5H3" />
+  <path d="M12 19H3" />
+  <path d="M14 3v4" />
+  <path d="M16 17v4" />
+  <path d="M21 12h-9" />
+  <path d="M21 19h-5" />
+  <path d="M21 5h-7" />
+  <path d="M8 10v4" />
+  <path d="M8 12H3" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a aria-current="page">My library</a></li>
+          <li><a href="02-library-public-error-filtered.html">Public library</a></li>
+          <li><a>Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <div class="page-head">
+          <div><h1 id="page-title">My library</h1></div>
+          <div class="head-actions">
+            <a class="button">Import JSON</a>
+            <button type="button">Export JSON</button>
+            <a class="button"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>Add item</a>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Find">
+        <form class="find" role="search">
+          <label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
+            <input type="search" name="q" value="terraform" placeholder="Search My library — migrate, GITHUB_TOKEN, review">
+          </label>
+          <button type="button" class="filters-button"><svg class="icon" aria-hidden="true"><use href="#l-sliders-horizontal"/></svg>Filters</button>
+        </form>
+      </section>
+
+      <!-- Kind tabs, the same as the library panel in Configuring, with counts (owner, 2026-09-26).
+           All first; then one tab per kind, in §5's order, a zero shown rather than hidden so the order holds.
+           Counts follow the search: here every tab reads 0, so no other tab is a way out. -->
+      <nav class="tabs tabs-page" aria-label="Kind"><a>All <span class="count">0</span></a><a>skill <span class="count">0</span></a><a aria-current="page">agent <span class="count">0</span></a><a>prompt <span class="count">0</span></a><a>mcp <span class="count">0</span></a><a>script <span class="count">0</span></a><a>app <span class="count">0</span></a></nav>
+
+      <!-- Filtered to nothing: the items exist, the search and the agent tab hide them all.
+           Two ways out: clear filters, or the row that creates — the first item and the thousandth arrive the same way (§8). -->
+      <section class="state-block" aria-label="Nothing matches “terraform”">
+        <svg class="icon state-icon" aria-hidden="true"><use href="#l-search-x"/></svg>
+        <h2>Nothing matches “terraform”</h2>
+        <p>The tab shows only <strong>agents</strong>. You have 11 items — the search hides all of them in this tab.</p>
+        <div class="state-actions">
+          <a class="button button-primary">Clear search</a>
+          <a class="button"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>Add “terraform” as a new item</a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

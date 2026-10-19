@@ -86,7 +86,7 @@ included**: 58 of the 80 pages have no mockup yet. They count the same as the 22
 | **Finding capsule** — icon + word on a set row (`marks`, `mark`) | 3: Project, Configuring, Detached row | Problem · Note | no | yes |
 | **Severity glyph** (`glyph-problem`, `-note`, `-checked`, `-skipped`, `-waiting`, `-running`) | 9: Sign in, Create account, Project, Configuring, Detached row, the four Run modes | problem · note · checked (dot) · skipped (`ban`) · waiting · running (spinner) · **stopped** (`cloud-off`, our server broke mid-stage — added in step 6) | no | yes |
 | **Empty and error state** — a tile, a title, a sentence, actions (`state-block`, `state-icon` / `state-image`, `state-actions`) | 7: My library, Public library, Projects, Project, Configuring, Shared project, Shared item | **empty** (*No items in My library yet*, *No projects yet*, *No items in this project yet*) · **no match** (*Nothing matches “…”*) · **server error** (*… didn't load*, with a mono code) · **dead link** (*This link doesn't open anything any more*) | the wireframes draw an image placeholder (`state-image`) on 4 pages; **no photo**: the mockups draw one neutral icon tile (owner, phase 06) | yes (Projects, Project) · no (the rest) |
-| **Skeleton** (`skeleton`) | 10: My library, Public library, Import/export, Item overlay, Projects, Project, Configuring, Detached row, Shared project, Shared item | shimmering · still under reduced motion. Widths are inline styles today, to become kit classes | no | yes (Projects, Project) |
+| **Skeleton** (`skeleton`) | 10: My library, Public library, Import/export, Item overlay, Projects, Project, Configuring, Detached row, Shared project, Shared item | shimmering · still under reduced motion. Widths are kit classes (`sk-w48 sk-h24 sk-mt8`, on the 4 px base) since step 5 | no | yes (Projects, Project) |
 | **Busy indicator** — spinner with a status line (`glyph-running`, `role=status`) | 6: Sign in, Create account, the four Run modes | running · stopped under reduced motion | no | yes (Run) |
 | **Dialog** — a sheet over a scrim: title, sentence, sometimes a box, actions (`modal`, `sheet-head`, `scrim`) | 6: Projects (*Delete repo-triage-kit?*), Project (*Share … by link?*, *Stop sharing …?*), Run project (*Remove eslint-autofix …?*), Item overlay (*Delete db-migrate?*), Import/export (*Import a library*), Detached row (*Promote pr-reviewer to My library?*) | **variants**: destructive confirm (delete, remove, stop sharing) · disclosure confirm (share) · neutral confirm (promote) · import with **progress**, **error** and **result** | no | yes (Projects, Project, Run) · no (Item, Import, Promote) |
 
@@ -195,3 +195,16 @@ to the components in this table.
   is mono (`field-mono`).
 - **Error codes**: wherever they stand, they carry `error-code`, which is mono Ink 3.
 - **Dialog**: the veil is .58, and a field inside it sits 16 below the title.
+
+---
+
+## Step 7 — every screen dressed
+
+All 80 wireframe pages and all 239 flow steps have a dressed twin (2026-10-19). **The *Painted* column above records
+the state before step 7: every component is painted now.**
+
+- **The Item sheet** (`sheet`, `form-section`, `field-row`, `file-list`, `dropzone`, `attach`) and **the small
+  heading** (`heading-small`) are one-offs. They are styled in the kit and shown on `kit.html`, under *One-off,
+  styled in the kit*.
+- **Run bar**: one state. It is the same in every Run state, so `kit.html` shows it once.
+- **The guards** that keep it so are `tools/kit_check.py`, described in [`../README.md`](../README.md) §2.

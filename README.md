@@ -36,7 +36,7 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research is done, the information architecture is done, the screens are drawn and clickable, the product has one voice and one look. There is still no code.** Lesson 06, concept, closed on 2026-10-11 — the working style *Mica · Lime*, its tokens, a stand and the main job drawn as mockups ([the phase page](06-concept/style.html)). Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. **Lesson 06, concept, is current.** No design system and no mockups yet, and **nothing so far decides how anything looks.**
+**Research is done, the information architecture is done, the screens are drawn and clickable, the product has one voice and one look. There is still no code.** Lesson 06, concept, closed on 2026-10-11 — the working style *Mica · Lime*, its tokens, a stand and the main job drawn as mockups ([the phase page](06-concept/style.html)). Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. ~~Lesson 06, concept, is current.~~ **Lesson 07, UI assembly, is current: every screen is dressed** (see *UI* below). There is no design system as a system yet; that is lesson 09.
 
 **One decision from 20 September changes the shape of everything after it: the product is online**, a
 backend with accounts, so a person's library follows them between machines. **What the backend is
@@ -48,7 +48,7 @@ this line used to read `research → design system → mockups → frontend → 
 design system second when it is ninth.*
 
 ~~01 research and benchmark~~ → ~~02 personas and JTBD~~ → ~~03 information architecture~~ →
-~~04 prototyping~~ → ~~05 tone of voice~~ → **06 concept** → 07 UI assembly → 08 design tokens →
+~~04 prototyping~~ → ~~05 tone of voice~~ → ~~06 concept~~ → **07 UI assembly** → 08 design tokens →
 09 design system → 10 responsive → 11 animation → 12 handoff. Product logic — state,
 storage, validation, export — comes after all twelve.
 
@@ -101,11 +101,35 @@ led to it.
 
 In short: a neutral dark ground, **lime only on what you can press or where you are**, findings as tinted tags,
 *Checked* as a quiet dot (the product never claims *works*), every item in its own rounded cut-out, glass only around a
-mode or a dialog. Contrast is measured by a script, not eyeballed: 88 text-on-surface pairs, all WCAG AA.
+dialog or the Filters popover. Contrast is measured by a script, not eyeballed: 120 pairs, 60 per theme, all WCAG AA.
 
-**The main job is drawn in this style** — Projects, Project and Run with every state, and the flow `main-success`. The
+~~The main job is drawn in this style~~ **Every screen is drawn in this style** (see *UI*). The
 wireframes are kept: [the viewer](04-wireframes/pages/wireframes.html), *Wireframes and mockups*, switches any drawn screen
 between **Wireframe** and **Design** (`?mode=design#project-default` opens one directly).
+
+## UI
+
+**Every screen of the product is dressed, from one stylesheet.** That is all 80 wireframe pages and all 239 steps of
+the 37 clickable cases. Each is a generated twin of its wireframe, with the same markup and words; only the look
+changes. **[The viewer](04-wireframes/pages/wireframes.html)** switches any screen or flow step between **Wireframe**
+and **Design**. You can open one directly with `?mode=design#run-default`.
+
+- **[`07-ui-assembly/ui/kit.css`](07-ui-assembly/ui/kit.css)** is the kit, and it is flat. Its `:root` holds the values,
+  copied from `06-concept/tokens.css`, and below that come the component classes. No screen holds a style of its own.
+- **[`kit.html`](07-ui-assembly/ui/kit.html)** shows every component with its states, cut from the real pages, so its
+  words are the product's. **[`shell.html`](07-ui-assembly/ui/shell.html)** holds the three frames every screen sits in.
+- **[`DESIGN.md`](DESIGN.md)** documents the system: tokens in the frontmatter, rules and components in prose, each
+  phase-07 change signed with its reason.
+- **[`07-ui-assembly/README.md`](07-ui-assembly/README.md)** is the pipeline, the rule for where each kind of change
+  goes, and the guards. `tools/kit_check.py` fails the build on any value outside a variable, any style on a screen,
+  any class outside the kit, or two primaries on one screen.
+- The phase kept its own record of what it found:
+  - [inventory](07-ui-assembly/ui/inventory.md);
+  - [critique](07-ui-assembly/ui/critique.md), 55 findings;
+  - [review](07-ui-assembly/ui/review.md), 76 findings;
+  - [audit](07-ui-assembly/ui/audit.md), against the kit, DESIGN.md and microcopy.md.
+
+  Every finding there has a disposition.
 
 ## Structure
 

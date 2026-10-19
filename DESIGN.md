@@ -4,6 +4,7 @@ description: A workspace where one person keeps their AI building blocks and ass
 colors:
   lime: "#C6EF5A"
   lime-hover: "#D3F57A"
+  lime-mark: "#C6EF5A"
   on-lime: "#141A08"
   mica-ground: "#1B1C19"
   bar: "#181916"
@@ -25,10 +26,11 @@ colors:
   skipped: "#A1A49A"
   warning: "#EFA23A"
   on-warning: "#1A1200"
+  warning-hover: "#E0962E"
   danger: "#D4363F"
   danger-hover: "#BE2E37"
   on-danger: "#FFFFFF"
-  problem-box: "#352A28"
+  problem-box: "#342A28"
   note-box: "#312E21"
 typography:
   display:
@@ -37,13 +39,13 @@ typography:
     fontWeight: 600
     lineHeight: "34px"
     letterSpacing: "-0.018em"
-  headline:
+  title:
     fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "20px"
     fontWeight: 600
     lineHeight: "26px"
     letterSpacing: "-0.012em"
-  title:
+  heading:
     fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "16px"
     fontWeight: 600
@@ -59,6 +61,11 @@ typography:
     fontSize: "13.5px"
     fontWeight: 500
     lineHeight: "16px"
+  button-strong:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "13.5px"
+    fontWeight: 600
+    lineHeight: "16px"
   small:
     fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "13px"
@@ -68,6 +75,11 @@ typography:
     fontFamily: "Geist, system-ui, sans-serif"
     fontSize: "12px"
     fontWeight: 500
+    lineHeight: "16px"
+  micro-strong:
+    fontFamily: "Geist, system-ui, sans-serif"
+    fontSize: "12px"
+    fontWeight: 600
     lineHeight: "16px"
   label:
     fontFamily: "Geist, system-ui, sans-serif"
@@ -101,7 +113,7 @@ components:
   button-primary:
     backgroundColor: "{colors.lime}"
     textColor: "{colors.on-lime}"
-    typography: "{typography.button}"
+    typography: "{typography.button-strong}"
     rounded: "{rounded.sm}"
     padding: "0 12px"
     height: "32px"
@@ -153,13 +165,13 @@ components:
     height: "20px"
   finding-mark-problem:
     textColor: "{colors.problem}"
-    typography: "{typography.micro}"
+    typography: "{typography.micro-strong}"
     rounded: "{rounded.pill}"
     padding: "0 12px 0 8px"
     height: "24px"
   finding-mark-note:
     textColor: "{colors.note}"
-    typography: "{typography.micro}"
+    typography: "{typography.micro-strong}"
     rounded: "{rounded.pill}"
     padding: "0 12px 0 8px"
     height: "24px"
@@ -180,10 +192,124 @@ components:
     rounded: "{rounded.lg}"
     padding: "24px"
     width: "520px"
+  button-warning-hover:
+    backgroundColor: "{colors.warning-hover}"
+  button-quiet:
+    textColor: "{colors.text-2}"
+    typography: "{typography.button}"
+    rounded: "{rounded.sm}"
+    padding: "0 12px"
+    height: "32px"
+  button-danger-quiet:
+    textColor: "{colors.problem}"
+    typography: "{typography.button}"
+    rounded: "{rounded.sm}"
+    height: "32px"
+  button-disabled:
+    backgroundColor: "{colors.control}"
+    textColor: "{colors.text-3}"
+    rounded: "{rounded.sm}"
+    height: "32px"
+  link-button:
+    textColor: "{colors.text-2}"
+    typography: "{typography.small}"
+  text-field:
+    backgroundColor: "{colors.well-deep}"
+    textColor: "{colors.text}"
+    typography: "{typography.small}"
+    rounded: "{rounded.sm}"
+    padding: "0 12px"
+    height: "32px"
+  select:
+    backgroundColor: "{colors.control}"
+    textColor: "{colors.text}"
+    typography: "{typography.button}"
+    rounded: "{rounded.sm}"
+    padding: "0 12px"
+    height: "32px"
+  kind-tab-current:
+    backgroundColor: "{colors.raised}"
+    textColor: "{colors.text}"
+    typography: "{typography.small}"
+    rounded: "{rounded.sm}"
+    height: "28px"
+  scope-segment-current:
+    backgroundColor: "{colors.control}"
+    textColor: "{colors.text}"
+    typography: "{typography.button}"
+    rounded: "{rounded.sm}"
+    height: "28px"
+  add-to-set:
+    backgroundColor: "{colors.control}"
+    textColor: "{colors.text}"
+    typography: "{typography.button}"
+    rounded: "{rounded.sm}"
+    height: "28px"
+  callout-problem:
+    backgroundColor: "{colors.problem-box}"
+    textColor: "{colors.text}"
+    typography: "{typography.small}"
+    rounded: "{rounded.md}"
+    padding: "12px 16px"
+  callout-note:
+    backgroundColor: "{colors.note-box}"
+    textColor: "{colors.text}"
+    typography: "{typography.small}"
+    rounded: "{rounded.md}"
+    padding: "12px 16px"
+  callout-neutral:
+    backgroundColor: "{colors.cutout}"
+    textColor: "{colors.text}"
+    typography: "{typography.small}"
+    rounded: "{rounded.md}"
+    padding: "12px 16px"
+  check-stage:
+    backgroundColor: "{colors.cutout}"
+    rounded: "{rounded.md}"
+    padding: "8px 16px"
+    height: "44px"
+  export-stage:
+    backgroundColor: "{colors.raised}"
+    rounded: "{rounded.lg}"
+    padding: "20px"
+  state-block:
+    backgroundColor: "{colors.tray}"
+    textColor: "{colors.text-2}"
+    rounded: "{rounded.lg}"
+    padding: "48px 32px"
+  item-panel:
+    backgroundColor: "{colors.raised}"
+    rounded: "{rounded.lg}"
+    padding: "20px"
+    width: "440px"
+  aside-box:
+    backgroundColor: "{colors.raised}"
+    rounded: "{rounded.lg}"
+    padding: "20px"
+    width: "360px"
+  popover:
+    backgroundColor: "{colors.raised}"
+    rounded: "{rounded.lg}"
+    width: "360px"
+  item-sheet:
+    backgroundColor: "{colors.raised}"
+    textColor: "{colors.text}"
+    padding: "32px"
+    width: "640px"
+  dropzone:
+    backgroundColor: "{colors.well-deep}"
+    textColor: "{colors.text-2}"
+    typography: "{typography.small}"
+    rounded: "{rounded.md}"
+    padding: "32px 24px"
+  state-tag:
+    textColor: "{colors.text-2}"
+    typography: "{typography.micro}"
+    height: "20px"
 ---
 
-<!-- Generated 2026-10-19 by /impeccable document from the 22 mockups of the main job
-     (04-wireframes/mockups/: Projects, Project and Run, every state) and 06-concept/tokens.css.
+<!-- Generated 2026-10-19 by /impeccable document from the 22 mockups of the main job and 06-concept/tokens.css,
+     and kept since by phase 07 as all 80 screens were dressed from 07-ui-assembly/ui/kit.css.
      The values above mirror tokens.css. Values are changed there (tools/concept_tokens.py) and
      this file is regenerated; where the two disagree, tokens.css wins. -->
 
@@ -202,7 +328,7 @@ at all: the best a check can say is *Checked*, drawn as a quiet dot.
 
 Density sits between Default and Comfortable: a lot on the screen, held by the grid and the type
 rather than by colour, as in Figma's panels. Edges come from hairlines before shadows, as in Linear.
-Glass (acrylic) is the signature touch and is kept to the frame around a mode or a dialog. Text never
+Glass (acrylic) is the signature touch and is kept to the frame around a dialog or the Filters popover. Text never
 sits on glass; it sits on an opaque sheet.
 
 The components are **quiet and exact**: grey controls, hairline edges, states named by a word and a
@@ -255,7 +381,8 @@ only ever appear as tags and boxes.
 
 ### State
 - **Problem Rose** (`problem`): *the archive will be wrong.* Used on a tag, a capsule or a box's edge,
-  always on a 10–14 % wash of itself.
+  on a 10–14 % wash of itself — except a stage's result line, where the rose word stands on the cut-out beside
+  its glyph, as the same line does in Ink for *Checked*.
 - **Note Amber** (`note`): *correct but incomplete.* Same treatment as Problem.
 - **Checked** (`checked`) and **Skipped** (`skipped`): neutral. A 6 px dot and a slashed circle.
 - **Warning Amber** (`warning`): only on the button that goes ahead despite a Problem (*Export with
@@ -278,7 +405,7 @@ confirmation.
 
 **Display Font:** Geist (with system-ui)
 **Body Font:** Geist (with system-ui)
-**Label/Mono Font:** Geist Mono (with ui-monospace)
+**Mono Font:** Geist Mono (with ui-monospace), for everything a machine reads. Labels are Geist.
 
 **Character:** One sans face for everything a person reads, and a mono for everything a machine
 reads: paths, refs, timings, error codes, file contents. The hierarchy is carried by size and weight
@@ -286,13 +413,16 @@ steps, not by colour.
 
 ### Hierarchy
 - **Display** (600, 28/34, −0.018em): a project's name, the one per screen.
-- **Headline** (600, 20/26, −0.012em): the Export mode's verdict (*Checked just now*), and the title
+- **Title** (600, 20/26, −0.012em, `--t-title`): the Export mode's verdict (*Checked just now*), and the title
   of an empty, error or finished-export state.
-- **Title** (600, 16/22, −0.008em): a card's name, the side panel's item, a dialog.
+- **Heading** (600, 16/22, −0.008em, `--t-heading`): a card's name, the side panel's item, a dialog, a sheet.
 - **Body** (400, 14.5/21): names and sentences. Row names are body at 600. Prose holds to 640 px.
 - **Button** (500, 13.5/16): buttons, places in the top bar, segments.
 - **Small** (400, 13/19): descriptions, counts, head meta, dialog text.
-- **Micro** (500, 12/16): tags and finding capsules (600 there); facts under a row at 400.
+- **Micro** (500, 12/16): tags; **Micro Strong** (600) is the finding capsule; facts under a row at 400.
+- **Button Strong** (600, 13.5/16): the primary button's label.
+- **Weights** are three tokens, `--weight-regular` 400, `--weight-medium` 500, `--weight-strong` 600; a role is never
+  overridden with a bare number. *Phase 07 review, 2026-10-19 (B-13).*
 - **Label** (600, 11.5/16, +0.06em, uppercase): section labels such as *FINDINGS* and *IN THIS
   PROJECT*.
 - **Code** (Geist Mono 400, 12/20): paths, refs, step numbers, durations, contents.
@@ -383,7 +513,9 @@ items, and a Skipped stage's outline.
   inert control teaches. *Phase 07 critique, 2026-10-19 (#13).*
 - **Busy:** the primary keeps its lime and shows a dark spinner on a faint dark track. It cannot be sent twice
   (`aria-busy`). *Phase 07 critique, 2026-10-19 (#12).*
-- **Link button:** underlined Ink 2 text. On hover it brightens, and it never becomes a chip. *Phase 07 critique, 2026-10-19 (#11).*
+- **Link button:** underlined Ink 2 text. On hover it brightens, and it never becomes a chip.
+- **Code inside a button** takes the button's colour, with no chip, so a file name never stands in Ink on lime. *Phase 07 audit, 2026-10-19
+  (#3): *Write `SETUP.md` again* was 1.2:1.* *Phase 07 critique, 2026-10-19 (#11).*
 - **Focus:** the lime focus ring.
 
 ### Tags and finding capsules
@@ -409,7 +541,7 @@ items, and a Skipped stage's outline.
 
 ### Cards
 - **Project card:** Raised, 14 px, a Hairline edge (Strong on hover), 20 px padding. The name is
-  Title, with tags after it. The last check sits at the foot above a hairline, as a Label-cased
+  Heading, with tags after it. The last check sits at the foot above a hairline, as a Label-cased
   *Last check* with its line, so verdicts align across a row of cards.
 
 ### Inputs / Fields
@@ -445,7 +577,7 @@ items, and a Skipped stage's outline.
   *Waiting* is an empty ring in Control Edge. Both marks are at 3:1. **Stopped** (our server broke mid-stage) is
   Lucide `cloud-off` in Ink 2, never the waiting ring. *Phase 07 critique, 2026-10-19 (#22, #41).*
 - The **Export stage** is last: a Raised card, its number in mono Ink 3 like the stages above it. When it is
-  finished (class `is-exported`) it gets a lime pill at its left edge and a Headline title. When our server
+  finished (class `is-exported`) it gets a lime pill at its left edge and a Title-sized heading. When our server
   fails it (class `is-failed`), the card stays neutral, with a Strong Hairline edge: our failure is not a
   Problem. While it is in progress it shows a lime-headed spinner. The archive's name is set in mono. *Phase 07 critique, 2026-10-19 (#5, #7,
   #15, #27): states are classes, not guesses from content.*
@@ -459,11 +591,56 @@ items, and a Skipped stage's outline.
   rose (Colour Is a Claim). Its error code is mono Ink 3. *Phase 07 critique, 2026-10-19 (#5).*
 
 ### Empty and error states
-- **One tile everywhere:** on a Tray, centred. A 48 px Control tile holds a 20 px icon in Ink 2. The
-  title is Headline, the sentence is body in Ink 2, and error codes are in mono Ink 3. Not lime and
+- **One tile everywhere:** on a Tray, centred. A 48 px Control tile holds a 20 px icon in Ink 2. **It is one element
+  on every screen**, `svg.icon.state-icon`, its icon chosen by the build: `layers` when the state is empty, `search-x`
+  for no match, `cloud-off` when our server failed, `unlink` for a dead link. *Phase 07 audit, 2026-10-19 (#2): it was three drawings, one of
+  them a CSS mask.* The
+  title is Title, the sentence is body in Ink 2, and error codes are in mono Ink 3. Not lime and
   not a wash: the sentence carries what happened.
 - **Loading:** skeleton bars (4 px radius) shimmering Raised → Control Hover → Raised, still under
   reduced motion.
+
+### The frame
+- **Three bars, one shape:** 52 px on Top Bar with a hairline below. The app header (owner); the shared header —
+  the mark alone at the door (Sign in, Create account, Reset password), the mark and *Shared by …* with the
+  sharer's portrait on the receiver's surfaces; and the Run bar (back to where it was entered, *Export*, the agent
+  target). **The receiver's Run stacks the shared header over the Run bar** (Q39). The markup is
+  `07-ui-assembly/ui/shell.html`; every screen is framed from it.
+- **Page head:** Display title, head meta in Small Ink 2 split by dots, actions at the right. **One shape**: a `div`
+  with the title and its meta, then `div.head-actions`. *Phase 07 audit, 2026-10-19 (#1).* A section named only by `aria-label` whose rows
+  are `h3` gets a visually hidden `h2` with that name, so the outline never skips a level (#4). The breadcrumb above
+  it is Small Ink 3.
+- **The door:** one 400 px column, centred; Display title, the product's one-line description, the form, and the
+  way to the other door under a hairline.
+
+### Item sheet and forms
+- **Item sheet:** the add/edit overlay. A 640 px side sheet the height of the viewport, on Raised with a hairline
+  sheet edge and the sheet shadow, over a veil. Its body scrolls; a dialog over it brings its own veil.
+- **Form sections:** Label-cased headings (*CONTENTS*, *DEPENDENCIES*) over their fields, a hairline above each.
+  Two short fields share a row. **Text field and textarea** as under *Inputs*; the textarea is mono.
+- **File list:** files as mono names in rows split by hairlines, the size in Ink 3, a link-button *Remove* at
+  the end. **Drop zone:** a Deep Well with a dashed Control Edge, its sentence in Ink 2, *Drop files or a folder
+  here* in Ink 600; a small one under a list. **Attach a repo** is a secondary button with a link icon.
+- **Remove from set (`✕`)** and **Close** are square 32 px buttons — quiet on a row, secondary on a panel.
+  **Form actions:** a hairline above, Cancel … the primary pushed right.
+
+### Lists, blocks, smaller parts
+- **Plain list:** Small Ink 2, a dash in Ink 3 that hangs, so a wrapped line returns to the text.
+- **File block:** a Deep Well with a Strong Hairline, 10 px, mono; it scrolls sideways.
+- **Usage facts** and the **state line** (*Required by …*, *differs from the original in …*): Micro, inline
+  code bare and kept on one line. **State tags** (*Auto-added*, *Detached*, *Shared*, *Example*,
+  *Configuring*) are the tag's type without its outline; *Conflict* is rose on its wash.
+- **Page tabs:** the kind tabs at Button size, with counts.
+- **Import progress:** a native progress bar, 8 px, lime-mark on Control, under the count it repeats.
+- **The original of a detached field:** a quiet disclosure, a turning chevron, the original in a file block.
+- **Small heading:** Body 600, for a content title inside a page.
+- **The receiver's aside:** Raised, 14 px, 20 px in; *What your machine still needs* as a plain list, then the
+  live-page sentence.
+- **The portrait** in the headers is a placeholder: a stock photo kept on the owner's word when the product's own
+  visuals were skipped (phase 07, step 4). It is the only image in the product. *Phase 07 audit, 2026-10-19 (#7).*
+- **Scrollbars:** a thin pill in Strong Hairline on a clear track; Control Edge under the pointer.
+- **One primary per screen** holds across all 80 screens and every flow step; `tools/kit_check.py` fails the
+  build otherwise. *Phase 07 review, 2026-10-19: these families were in the kit and missing here (B-8).*
 
 ### Dialogs and the Filters popover
 - **Dialog:** a 520 px Raised sheet with a 14 px radius, an opaque body and the sheet shadow. Its
@@ -493,7 +670,7 @@ items, and a Skipped stage's outline.
 - **Don't** use violet-blue neon, gradients or glow: the palette an AI produces for "AI tool".
 - **Don't** add `Verified` or `Popular` badges, stars, ratings, scores or cover cards. Usage facts are
   the only per-item evidence.
-- **Don't** put text on glass, or use glass outside the frame of a mode, dialog or popover.
+- **Don't** put text on glass, or use glass outside the frame of a dialog or the Filters popover.
 - **Don't** draw a coloured ring round a row that carries a finding.
 - **Don't** use red for anything but removal, or lime for a verdict.
 - **Don't** let the browser draw a white checkbox or radio on the dark theme.

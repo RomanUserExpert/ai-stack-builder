@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in · loading — wireframe — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="shared-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+    </header>
+
+    <main class="app-main">
+
+      <!-- Sign in (Q25): the minimum the online decision forces. No profile, no settings, no session list.
+           After it, you are handed on to where you were — no success screen. -->
+      <section class="door" aria-labelledby="door-title">
+        <div>
+          <h1 id="door-title">Sign in</h1>
+          <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
+        </div>
+        <form class="form" aria-busy="true">
+          <label class="field"><span>Email</span>
+            <input type="email" name="email" autocomplete="email" value="maya@chen.dev" placeholder="maya@chen.dev" readonly>
+          </label>
+          <label class="field"><span class="field-label">Password <a class="meta" href="password-reset-default.html">Reset password</a></span>
+            <input type="password" name="password" autocomplete="current-password" value="••••••••••" readonly>
+          </label>
+          <button type="submit" class="button-primary" aria-disabled="true" aria-busy="true"><span class="glyph glyph-running" aria-hidden="true"></span>Signing in</button>
+          <p class="visually-hidden" role="status">Signing in as maya@chen.dev</p>
+        </form>
+        <p class="door-alt">No account yet? <a href="sign-up-default.html">Create account</a></p>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

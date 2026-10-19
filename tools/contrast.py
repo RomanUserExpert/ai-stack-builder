@@ -45,6 +45,21 @@ PAIRS = [
     ("control-edge", "raised", "mockups: a checkbox or radio’s edge in a popover (non-text, 3:1)", 3.0),
     ("control-edge", "bar", "mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1)", 3.0),
     ("on-lime", "lime", "mockups: the tick in a checked checkbox", 4.5),
+    # added by the phase 07 review (2026-10-19): pairs the kit draws that were never measured
+    ("problem", "problem-wash@problem-box", "kit: the quiet remove inside a Problem, hovered", 4.5),
+    ("problem", "problem-wash@raised", "kit: a Conflict tag or a Problem capsule on the active row", 4.5),
+    ("note", "note-wash@raised", "kit: a Note capsule on the active row", 4.5),
+    ("text-3", "row-hover", "kit: a row's facts, hovered", 4.5), ("text-2", "row-hover", "kit: a row's description, hovered", 4.5),
+    ("text-3", "bar", "kit: a tab's count in the library sidebar", 4.5),
+    ("text-2", "well-deep", "kit: a segment not current; the drop zone's sentence", 4.5),
+    ("text-2", "hover-wash@cutout", "kit: In this project, hovered", 4.5),
+    ("text", "control-hover", "kit: a secondary button, hovered", 4.5), ("text", "segment-hover", "kit: a segment, hovered", 4.5),
+    ("text", "hover-wash@bar", "kit: a place in the top bar, hovered", 4.5),
+    ("control-edge", "ground", "kit: a field's edge; the Skipped outline (non-text, 3:1)", 3.0),
+    ("control-edge", "cutout", "kit: the waiting ring (non-text, 3:1)", 3.0),
+    ("control-edge", "well-deep", "kit: a field's edge on its own well (non-text, 3:1)", 3.0),
+    ("lime-mark", "control", "kit: the import progress bar (non-text, 3:1)", 3.0),
+    ("lime-mark", "ground", "kit: the focus ring (non-text, 3:1)", 3.0),
 ]
 
 

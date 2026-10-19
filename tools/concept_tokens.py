@@ -69,7 +69,7 @@ SHADOW = [
     ("tile", "0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04)", "the current place in the top bar"),
     ("cutout", "inset 0 0 0 1px var(--line), inset 0 1px 2px rgba(0,0,0,.35)", "a row’s cut-out, pressed into the tray"),
     ("sheet", "0 18px 40px rgba(0,0,0,.35)", "a dialog over a mode"),
-    ("focus", "0 0 0 2px var(--ground), 0 0 0 4px var(--lime)", "keyboard focus — 2 px lime with a gap"),
+    ("focus", "0 0 0 2px var(--ground), 0 0 0 4px var(--lime-mark)", "keyboard focus — 2 px lime with a gap; lime-mark, so the light theme’s ring holds 3:1 (phase 07 review)"),
 ]
 MATERIAL = [
     ("acrylic", "color-mix(in srgb, var(--lime) 7%, rgba(62,64,58,.42))", "acrylic: the frame of the Export mode"),
@@ -96,8 +96,7 @@ SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", 
         ("icon-l", "20px", "an icon shown alone"), ("panel-w", "384px", "the item panel"), ("pill-w", "3px", "the active row’s lime pill"),
         ("dot", "6px", "the Checked dot"), ("dt-w", "116px", "a fact’s label column"), ("stage-name-w", "300px", "a stage’s name column — wide enough for SETUP.md’s two-line name"),
         ("canvas", "1280px", "the width a screen is drawn at on the stand"),
-        ("col-xs", "96px", "a narrow column: a finding beside a row"), ("col-s", "160px", "a row’s usage column"),
-        ("col-m", "200px", "a row’s actions column"), ("col-l", "320px", "a row’s middle column"), ("col-xl", "360px", "an aside"),
+                ("col-m", "200px", "a row’s actions column"), ("col-l", "320px", "a row’s middle column"), ("col-xl", "360px", "an aside"),
         ("side-w", "440px", "the library sidebar, the item drawer"), ("sheet-w", "640px", "a side sheet"),
         ("modal-w", "520px", "a dialog"), ("measure", "640px", "a readable line of prose"),
         ("measure-wide", "820px", "a lead paragraph on the stand"),
@@ -105,6 +104,8 @@ SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", 
 FONTS = [("font", '"Geist", system-ui, sans-serif'), ("mono", '"Geist Mono", ui-monospace, monospace')]
 MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms"), ("dur-spin", "900ms"), ("dur-shimmer", "1400ms")]
 TRACK = [("track-display", "-.018em"), ("track-title", "-.012em"), ("track-heading", "-.008em"), ("track-label", ".06em")]
+# weights a role overrides (phase 07 review, B-13: they were bare numbers in the kit)
+WEIGHT = [("weight-regular", "400"), ("weight-medium", "500"), ("weight-strong", "600")]
 # icons that CSS draws itself (a mask), so a control needs no extra markup — Lucide, 1.75 stroke
 CSS_ICONS = [("icon-add", "plus", "a row you can add to the set"), ("icon-added", "check", "a row already in the set"),
              ("icon-empty-set", "layers", "an empty state that has no icon of its own in the markup"),
@@ -141,6 +142,7 @@ def css():
     out += [f"  --{n}: {v};" for n, v in FONTS]
     out += [f"  --t-{n}: {w} {s}px/{lh}px var(--{'mono' if n == 'code' else 'font'});  /* {use} */" for n, w, s, lh, _, use in TYPE]
     out += [f"  --{n}: {v};" for n, v in TRACK]
+    out += [f"  --{n}: {v};" for n, v in WEIGHT]
     out.append("  /* spacing — a 4 px scale */")
     out += [f"  --s{n}: {px}px;" for n, px in SPACE]
     out.append("  /* radius */")

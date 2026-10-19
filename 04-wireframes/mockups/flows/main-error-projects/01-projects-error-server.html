@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 · Projects didn't load — prototype · main-error-projects — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-cloud-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057" />
+  <path d="M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78" />
+  <path d="m2 2 20 20" /></symbol><symbol id="l-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="M12 5v14" /></symbol><symbol id="l-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <div><h1 id="projects-title">Projects</h1></div>
+          <div class="head-actions"><a class="button">
+            <svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project
+          </a></div>
+        </div>
+      </section>
+
+      <!-- Error: the list did not load (Q24 — the product is online). No Find: it has nothing to
+           search. Two ways out — try again, or go where the work also lives. New project stays in
+           the head: creating does not depend on this list having loaded. -->
+      <section class="state-block" aria-labelledby="error-title" role="alert">
+        <svg class="icon state-icon" aria-hidden="true"><use href="#l-cloud-off"/></svg>
+        <h2 id="error-title">Projects didn’t load</h2>
+        <p>Our server didn’t answer, so your projects can’t be shown right now. Nothing in them changed.</p>
+        <p class="meta error-code">503 · Service unavailable · 14:02</p>
+        <div class="state-actions">
+          <a href="02-projects-loading.html" class="button button-primary"><svg class="icon" aria-hidden="true"><use href="#l-refresh-cw"/></svg>Load again</a>
+          <a class="button">Open My library</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

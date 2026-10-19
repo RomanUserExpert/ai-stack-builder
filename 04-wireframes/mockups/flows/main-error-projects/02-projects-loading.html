@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>02 · Projects, loading — prototype · main-error-projects — design</title>
+  <meta http-equiv="refresh" content="2;url=03-projects-default.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="M12 5v14" /></symbol><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" /></symbol><symbol id="l-sliders-horizontal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5H3" />
+  <path d="M12 19H3" />
+  <path d="M14 3v4" />
+  <path d="M16 17v4" />
+  <path d="M21 12h-9" />
+  <path d="M21 19h-5" />
+  <path d="M21 5h-7" />
+  <path d="M8 10v4" />
+  <path d="M8 12H3" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <div><h1 id="projects-title">Projects</h1></div>
+          <div class="head-actions"><a class="button button-primary">
+            <svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project
+          </a></div>
+        </div>
+      </section>
+
+      <!-- Find stays where it is: the zones do not move between states. -->
+      <section aria-label="Find projects">
+        <form class="find" role="search">
+          <label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
+            <input type="search" name="q" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button"><svg class="icon" aria-hidden="true"><use href="#l-sliders-horizontal"/></svg>Filters</button>
+        </form>
+      </section>
+
+      <!-- Loading: a skeleton of the same cards, in the same grid — no spinner, and no row is
+           shown before it is real (the optimistic option is not taken silently — register, Waits). -->
+      <section aria-label="Projects" aria-busy="true">
+        <p class="visually-hidden" role="status">Loading projects</p>
+        <ol class="card-grid">
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

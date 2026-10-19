@@ -52,6 +52,22 @@
 | `--control-edge` #7C7F74 | `--raised` #2A2B27 | 3.49 | pass | mockups: a checkbox or radio’s edge in a popover (non-text, 3:1) |
 | `--control-edge` #7C7F74 | `--bar` #181916 | 4.33 | pass | mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1) |
 | `--on-lime` #141A08 | `--lime` #C6EF5A | 13.46 | pass | mockups: the tick in a checked checkbox |
+| `--problem` #FF8F98 | `--problem-wash@problem-box` #503838 | 4.91 | pass | kit: the quiet remove inside a Problem, hovered |
+| `--problem` #FF8F98 | `--problem-wash@raised` #483937 | 5.03 | pass | kit: a Conflict tag or a Problem capsule on the active row |
+| `--note` #F2C661 | `--note-wash@raised` #443F2F | 6.52 | pass | kit: a Note capsule on the active row |
+| `--text-3` #A1A49A | `--row-hover` #242521 | 6.09 | pass | kit: a row's facts, hovered |
+| `--text-2` #C5C7BE | `--row-hover` #242521 | 9.02 | pass | kit: a row's description, hovered |
+| `--text-3` #A1A49A | `--bar` #181916 | 6.97 | pass | kit: a tab's count in the library sidebar |
+| `--text-2` #C5C7BE | `--well-deep` #161714 | 10.53 | pass | kit: a segment not current; the drop zone's sentence |
+| `--text-2` #C5C7BE | `--hover-wash@cutout` #252622 | 8.91 | pass | kit: In this project, hovered |
+| `--text` #F3F4EF | `--control-hover` #383A33 | 10.43 | pass | kit: a secondary button, hovered |
+| `--text` #F3F4EF | `--segment-hover` #21221E | 14.48 | pass | kit: a segment, hovered |
+| `--text` #F3F4EF | `--hover-wash@bar` #232420 | 14.13 | pass | kit: a place in the top bar, hovered |
+| `--control-edge` #7C7F74 | `--ground` #1B1C19 | 4.19 | pass | kit: a field's edge; the Skipped outline (non-text, 3:1) |
+| `--control-edge` #7C7F74 | `--cutout` #1E1F1B | 4.06 | pass | kit: the waiting ring (non-text, 3:1) |
+| `--control-edge` #7C7F74 | `--well-deep` #161714 | 4.41 | pass | kit: a field's edge on its own well (non-text, 3:1) |
+| `--lime-mark` #C6EF5A | `--control` #2E302A | 10.11 | pass | kit: the import progress bar (non-text, 3:1) |
+| `--lime-mark` #C6EF5A | `--ground` #1B1C19 | 12.96 | pass | kit: the focus ring (non-text, 3:1) |
 
 ## Light — the slice
 
@@ -101,3 +117,19 @@
 | `--control-edge` #7E8276 | `--raised` #FFFFFF | 3.93 | pass | mockups: a checkbox or radio’s edge in a popover (non-text, 3:1) |
 | `--control-edge` #7E8276 | `--bar` #ECEDE6 | 3.34 | pass | mockups: a checkbox or radio’s edge in the sidebar (non-text, 3:1) |
 | `--on-lime` #141A08 | `--lime` #C6EF5A | 13.46 | pass | mockups: the tick in a checked checkbox |
+| `--problem` #B4232E | `--problem-wash@problem-box` #EDD0D0 | 4.51 | pass | kit: the quiet remove inside a Problem, hovered |
+| `--problem` #B4232E | `--problem-wash@raised` #F4E0E2 | 5.16 | pass | kit: a Conflict tag or a Problem capsule on the active row |
+| `--note` #7A5600 | `--note-wash@raised` #EEE9DE | 5.49 | pass | kit: a Note capsule on the active row |
+| `--text-3` #5F6358 | `--row-hover` #FDFDFC | 6.05 | pass | kit: a row's facts, hovered |
+| `--text-2` #464A40 | `--row-hover` #FDFDFC | 8.92 | pass | kit: a row's description, hovered |
+| `--text-3` #5F6358 | `--bar` #ECEDE6 | 5.22 | pass | kit: a tab's count in the library sidebar |
+| `--text-2` #464A40 | `--well-deep` #F0F1EA | 7.98 | pass | kit: a segment not current; the drop zone's sentence |
+| `--text-2` #464A40 | `--hover-wash@cutout` #FDFDFC | 8.92 | pass | kit: In this project, hovered |
+| `--text` #181A14 | `--control-hover` #F1F2EB | 15.58 | pass | kit: a secondary button, hovered |
+| `--text` #181A14 | `--segment-hover` #F8F9F6 | 16.61 | pass | kit: a segment, hovered |
+| `--text` #181A14 | `--hover-wash@bar` #F7F8F5 | 16.46 | pass | kit: a place in the top bar, hovered |
+| `--control-edge` #7E8276 | `--ground` #F4F5EF | 3.59 | pass | kit: a field's edge; the Skipped outline (non-text, 3:1) |
+| `--control-edge` #7E8276 | `--cutout` #FBFBF8 | 3.79 | pass | kit: the waiting ring (non-text, 3:1) |
+| `--control-edge` #7E8276 | `--well-deep` #F0F1EA | 3.46 | pass | kit: a field's edge on its own well (non-text, 3:1) |
+| `--lime-mark` #55700F | `--control` #FFFFFF | 5.66 | pass | kit: the import progress bar (non-text, 3:1) |
+| `--lime-mark` #55700F | `--ground` #F4F5EF | 5.16 | pass | kit: the focus ring (non-text, 3:1) |

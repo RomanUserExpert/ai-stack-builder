@@ -10,7 +10,9 @@
   <link rel="stylesheet" href="../../07-ui-assembly/ui/kit.css">
 </head>
 <body class="product-page">
-<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+  <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+  <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" /></symbol><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
   <circle cx="11" cy="11" r="8" /></symbol><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
   <path d="m17 8-5-5-5 5" />
   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol></svg>
@@ -22,8 +24,8 @@
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
       <nav class="app-nav" aria-label="Global">
         <ul>
-          <li><a href="../pages/library-my-default.html">My library</a></li>
-          <li><a href="../pages/library-public-default.html">Public library</a></li>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html">Public library</a></li>
           <li><a href="projects-default.html" aria-current="page">Projects</a></li>
         </ul>
       </nav>
@@ -170,6 +172,7 @@
         <!-- Empty (Q16, Q34): a new project opens in configuring, the panel already open — no button to press
              first. The body keeps only its text; Check stays inert until the set holds something. -->
         <div class="state-block">
+          <svg class="icon state-icon" aria-hidden="true"><use href="#l-layers"/></svg>
           <h2>No items in this project yet</h2>
           <p id="export-why">Add items from the left. Anything they require is auto-added. Export opens once this project has an item.</p>
         </div>

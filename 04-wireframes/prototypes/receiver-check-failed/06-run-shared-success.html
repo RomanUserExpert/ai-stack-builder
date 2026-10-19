@@ -90,11 +90,43 @@
           <li>
             <details>
               <summary><span class="n">08</span><span class="name">What the archive contains</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>13 files for Claude Code</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <pre class="file">agent-dotfiles/
+├── CLAUDE.md                       commit-conventions, shell-safety
+├── SETUP.md
+├── .env.example                    GITHUB_TOKEN
+├── .mcp.json                       github-mcp, filesystem, memory
+├── .claude/skills/code-style/SKILL.md
+├── .claude/skills/session-notes/SKILL.md + 1 file
+├── .claude/agents/pr-reviewer.md
+└── scripts/  dotfiles-sync.sh + 4 files</pre>
+              </div>
             </details>
           </li>
           <li>
             <details>
               <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Written · 9 items</span><span class="time">0.2 s</span></summary>
+              <div class="stage-body">
+                <pre class="file"># Setup — agent-dotfiles (Claude Code)
+
+Read this first and perform each step.
+
+## github-mcp
+- External. Clone github/github-mcp-server at v0.9.0.
+- Needs GITHUB_TOKEN. Ask the person for it; do not invent one.
+- Required by pr-reviewer.
+
+## filesystem
+- External. Clone modelcontextprotocol/servers at 2025.9.25.
+
+## memory
+- External. Same clone as filesystem.
+- Required by session-notes.
+
+## code-style
+- Defers to the client’s ESLint config. Where they disagree, the ESLint config wins.
+…</pre>
+              </div>
             </details>
           </li>
           <li>

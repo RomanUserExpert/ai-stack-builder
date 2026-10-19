@@ -303,7 +303,7 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Shadow | **Hairlines first; a shadow only where something is lifted over the place under it** (stage 7, #9): `--shadow-tile` on the top bar’s current place (one step up, `0 1px 2px`) **and on a segmented control’s lifted segment**, `--shadow-sheet` under a dialog **or the Filters popover** over a mode. Rows and panels carry **no drop shadow** — Linear’s *border and a whisper of tone* (references.md, A). **A row’s cut-out carries an inward one, `--shadow-cutout`** (a hairline and a 1–2 px inner shade): it is the *pressed in* of the owner’s cut-out, not a lift. *Phase 07: this row read "rows carry none", and the mockups draw the inward shade on every row* | Linear base; pair 4; owner, round 4 (the cut-out) |
 | Radius | **Soft, not round** (stage 7, #10): 6 on a control, 10 on a row’s cut-out and a box inside it, 14 on a panel, a tray, **a card and a dialog**, 18 on the acrylic frame, a pill on a tag. The cut-out form is the owner’s, from round 2’s *Kit*; the step grows with the size of the thing, so nesting reads. *Phase 07: 18 appears only on the stand. The mockups have no acrylic frame round the Export mode (see* Phase 07 — reconciled with the mockups*)* | Owner, round 4 |
 | Warning | **`Export with 1 problem` is drawn in warning amber** (`--warning #EFA23A`, dark text 8.8:1; light `#9C5800` with white, 5.5:1) — the cost of going ahead is visible, never celebrated in lime (owner, stage 7, #11) | Owner, 2026-10-11; voice.md principle 2 |
-| Destructive action | **A red button, `--danger #D4363F` with white text (4.8:1)**, only on an act that removes something: *Remove from project* in its dialog. **Inside a Problem the remove is muted** — a ghost button, red text and a red-tinted edge, filled only on hover — because there it is one way out, not the loudest thing on the screen; the solid red is kept for the confirmation | Owner, 2026-10-11 |
+| Destructive action | **A red button, `--danger #D4363F` with white text (4.8:1)**, only on an act that removes something: *Remove from project* in its dialog. **Inside a Problem the remove is muted** — a ghost button, rose (`--problem`) text and a rose edge, washed only on hover (*phase 07 review: it read “red”, the kit draws rose*) — because there it is one way out, not the loudest thing on the screen; the solid red is kept for the confirmation | Owner, 2026-10-11 |
 | Icons | **Lucide**, ISC, 1.75 px stroke, one style. **Replaces Fluent (owner, 2026-10-11)** | Owner, round 4 |
 | Density | Between Default and Comfortable: body 14.5 px, small 13, ~~rows 11 px vertical padding, buttons 33 px~~ **rows 12 px vertical padding, controls 32 px** — *phase 07: the values the mockups draw, on the 4 px scale (`--s3`, `--control-h`); 11 and 33 were stage-3 values from before the scale* | Owner, round 3; the 4 px scale (polish) |
 | Rows | Each item in its own rounded cut-out; auto-added items inside the parent's, behind a dashed rule | Owner, round 4 (Kit's form) |
@@ -316,14 +316,14 @@ from these five pairs, and **a direction that breaks a pair is not drawn**.
 | Current place in the top bar | **A raised tile ~~, its icon in lime~~ with the tile shadow, its label in `--text`; the other places sit on no track and wash on hover** (T2 without its track). The round-4 look — a tile with a lime underline — was turned down. *Phase 07: the places in the mockups carry no icons (the wireframes give them none), so there is no lime icon to draw; the tile alone marks the place* | Owner, 2026-10-11; the wireframes’ markup |
 | Product mark | **A 14 px lime square before *AI Stack Builder***, the one lime that is neither an action nor a place. *Phase 07: drawn on every mockup and never written down. It is the brand’s single mark, so pair 5 holds: it claims whose product this is, nothing about state* | The mockups; pair 5 |
 | One primary per screen | **When an empty or error state carries its own primary, the head’s primary drops to secondary** (stage 5 critique). *Phase 07: carried into this table from stage 5’s prose* | Pair 5; stage 5 |
-| Skipped stage | **A Skipped stage has no fill and a dashed `--line-strong` outline**, the result Lucide `ban` in `--text-3` — the check had nothing to check, so its row is drawn as absent rather than passed. *Phase 07: drawn in the mockups, not written down until now* | §6 (Skipped); D1-B |
+| Skipped stage | **A Skipped stage has no fill and a dashed `--control-edge` outline** (*`--line-strong` until the phase 07 critique #41: a state mark needs 3:1*), the result Lucide `ban` in `--text-3` — the check had nothing to check, so its row is drawn as absent rather than passed. *Phase 07: drawn in the mockups, not written down until now* | §6 (Skipped); D1-B |
 | Finding capsules | **Problem and Note capsules are a wash and a coloured word with its icon (`circle-alert`, `info`), with no edge**; the `Conflict` tag and the Problem and Note **boxes** do carry an edge. *Phase 07: the polish rule "every boxed object has a visible edge" is about a box holding inset text; a 24 px capsule is held by its wash* | Pair 1; polish |
 
 **Polished on 2026-10-11** (impeccable *polish*): the style was drawn out of three generators' stylesheets layered
 on top of each other, so one component had several values. `tools/build_lime.py` now writes it as **one stylesheet in
 tokens** — spacing on a 4 px scale (4 · 8 · 12 · 16 · 20 · 24 · 32 · 40), six type roles (display 28/34 · title 20/26 ·
 heading 16/22 · body 14.5/21 · small 13/19 · micro 12/16), six radii (4 · 6 · 10 · 14 · 18 · pill), seventeen colours
-each with its contrast, and drawn states for buttons, places and rows. **Lowest text contrast on the page: 5.3:1**
+each with its contrast, and drawn states for buttons, places and rows. *(This counts the stand of 2026-10-11. `tokens.css` holds more now: nine spacing steps up to 48, nine type roles, three weights and 28 colours (plus the stand's five page greys). The phase 07 note at the end says what was added and why.)* **Lowest text contrast on the page: 5.3:1**
 (`--text-3` on a secondary button); `--text-3` was raised from `#9C9F95` to `#A1A49A` for it. **Every boxed object has a visible edge** (tags as outlines, callouts and the code block edged): an object whose fill disappears into its surface makes its inset text read as a broken left edge.
 
 **Nothing in the working style is open any more.** [`mica-lime.html`](mica-lime.html) shows the fixed screen and the
@@ -505,3 +505,30 @@ The critique of the dressed screens ([`07-ui-assembly/ui/critique.md`](../07-ui-
 
 **Edges are not a new value; they are an existing value used for more.** `--control-edge`, the checkbox's 3:1 edge,
 now also edges the search field, the text field, the select, the waiting ring and the Skipped outline (#10, #41).
+
+## Phase 07 — the review's binding fixes (2026-10-19)
+
+The review of every dressed screen and of the token chain ([`07-ui-assembly/ui/review.md`](../07-ui-assembly/ui/review.md))
+found values that had been written without a reason, and tokens that nobody read. Each is signed here.
+
+**Values that were never signed:**
+- **`--ease` `cubic-bezier(.2,.7,.2,1)` and `--dur` 140 ms.** A short ease-out: a state answers the pointer at once
+  and settles, with no bounce. This is the polish pass's *calm* (§3: the bar is Linear and Raycast, where
+  transitions are felt and not watched).
+- **`--dur-spin` 900 ms and `--dur-shimmer` 1400 ms.** The spinner turns once a second, which reads as working, not
+  as alarmed. The shimmer is slower than the spinner, so a loading page reads as waiting rather than busy. Both
+  stop under reduced motion.
+- **`--track-display` −.018em, `--track-title` −.012em, `--track-heading` −.008em, `--track-label` .06em.** Geist
+  is tightened as it grows, so large type does not look loose. The uppercase label is opened, so capitals do not
+  clot.
+- **`--s12` 48 px.** It is the largest step: the empty-state tile and the empty state's own padding. It extends the
+  4 px scale (the stand stopped at 40) and stays on it.
+- **`--weight-regular` 400, `--weight-medium` 500, `--weight-strong` 600 (new).** They were bare numbers in about
+  25 places in the kit. A role that is drawn heavier now says so with a token: *Button Strong* (the primary) and
+  *Micro Strong* (a finding capsule), both named in `DESIGN.md`.
+
+**Tokens:**
+- **`--col-xs` and `--col-s` are gone.** Neither the kit nor the stand read them.
+- **`--panel-w` (384) is the stand's item panel; `--side-w` (440) is the product's.** They are two drawings, and the
+  stand is frozen as phase 06's record.
+- **`--canvas` (1280) is the stand's width.** Product screens are drawn at 1440.

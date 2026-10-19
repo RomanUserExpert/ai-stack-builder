@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-19T13:00:25+00:00",
+  "generatedAt": "2026-10-19T14:26:38+00:00",
   "title": "Design System: AI Stack Builder",
   "extensions": {
     "colorMeta": {
@@ -57,8 +57,8 @@
         "displayName": "Display",
         "purpose": "A project's name, one per screen."
       },
-      "headline": {
-        "displayName": "Headline",
+      "title": {
+        "displayName": "Title",
         "purpose": "The Export mode's verdict; an empty or error state's title."
       },
       "code": {
@@ -80,11 +80,11 @@
       {
         "name": "shadow-sheet",
         "value": "0 18px 40px rgba(0,0,0,.35)",
-        "purpose": "A dialog or popover over a mode."
+        "purpose": "A dialog, a popover or the Item sheet over the page."
       },
       {
         "name": "shadow-focus",
-        "value": "0 0 0 2px var(--ground), 0 0 0 4px var(--lime)",
+        "value": "0 0 0 2px var(--ground), 0 0 0 4px var(--lime-mark)",
         "purpose": "Keyboard focus."
       }
     ],
@@ -102,7 +102,7 @@
       {
         "name": "dur-spin",
         "value": "900ms",
-        "purpose": "The export spinner; stopped under reduced motion."
+        "purpose": "The spinners; stopped under reduced motion."
       },
       {
         "name": "dur-shimmer",
@@ -150,7 +150,7 @@
       "refersTo": "search-field",
       "description": "A recessed well with a hairline edge; the lime ring on focus.",
       "html": "<label class=\"ds-search\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg><input placeholder=\"Search projects\"></label>",
-      "css": ".ds-search{display:flex;gap:var(--s2);align-items:center;width:320px;height:var(--control-h);padding:0 var(--s3);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);color:var(--text-3)} .ds-search input{flex:1;border:0;background:transparent;color:var(--text);font:var(--t-small);outline:0} .ds-search input::placeholder{color:var(--text-3)} .ds-search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}"
+      "css": ".ds-search{display:flex;gap:var(--s2);align-items:center;width:var(--col-l);height:var(--control-h);padding:0 var(--s3);background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);color:var(--text-3)} .ds-search input{flex:1;border:0;background:transparent;color:var(--text);font:var(--t-small);outline:0} .ds-search input::placeholder{color:var(--text-3)} .ds-search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}"
     },
     {
       "name": "Top Bar Navigation",
@@ -158,7 +158,7 @@
       "refersTo": "nav-place-current",
       "description": "Three places as text; the current one is a raised tile.",
       "html": "<nav class=\"ds-nav\"><a href=\"#\">My library</a><a href=\"#\">Public library</a><a href=\"#\" aria-current=\"page\">Projects</a></nav>",
-      "css": ".ds-nav{display:flex;gap:2px;padding:var(--s2);background:var(--bar)} .ds-nav a{display:flex;align-items:center;height:var(--control-h);padding:0 var(--s3);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button)} .ds-nav a:hover{color:var(--text);background:var(--hover-wash)} .ds-nav a[aria-current=page]{color:var(--text);background:var(--raised);box-shadow:var(--shadow-tile)} .ds-nav a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}"
+      "css": ".ds-nav{display:flex;gap:calc(var(--s1) / 2);padding:var(--s2);background:var(--bar)} .ds-nav a{display:flex;align-items:center;height:var(--control-h);padding:0 var(--s3);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button)} .ds-nav a:hover{color:var(--text);background:var(--hover-wash)} .ds-nav a[aria-current=page]{color:var(--text);background:var(--raised);box-shadow:var(--shadow-tile)} .ds-nav a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}"
     },
     {
       "name": "Kind Tag and Finding Capsules",
@@ -166,7 +166,7 @@
       "refersTo": "finding-mark-problem",
       "description": "Kind as an outlined pill; Conflict beside the name; Problem and Note as tinted capsules with icon and word.",
       "html": "<div class=\"ds-tags\"><span class=\"ds-tag\">script</span><span class=\"ds-tag ds-tag-conflict\">Conflict</span><span class=\"ds-mark ds-mark-problem\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><line x1=\"12\" x2=\"12\" y1=\"8\" y2=\"12\"/><line x1=\"12\" x2=\"12.01\" y1=\"16\" y2=\"16\"/></svg>Problem</span><span class=\"ds-mark ds-mark-note\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/></svg>Note</span></div>",
-      "css": ".ds-tags{display:flex;gap:var(--s2);align-items:center} .ds-tag{display:inline-flex;align-items:center;height:var(--tag-h);padding:0 var(--s2);font:var(--t-micro);color:var(--text-2);border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} .ds-tag-conflict{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 var(--hairline) var(--problem-edge)} .ds-mark{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);font:var(--t-micro);font-weight:600;border-radius:var(--r-pill)} .ds-mark-problem{color:var(--problem);background:var(--problem-wash)} .ds-mark-note{color:var(--note);background:var(--note-wash)}"
+      "css": ".ds-tags{display:flex;gap:var(--s2);align-items:center} .ds-tag{display:inline-flex;align-items:center;height:var(--tag-h);padding:0 var(--s2);font:var(--t-micro);color:var(--text-2);border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} .ds-tag-conflict{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 var(--hairline) var(--problem-edge)} .ds-mark{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);font:var(--t-micro);font-weight:var(--weight-strong);border-radius:var(--r-pill)} .ds-mark-problem{color:var(--problem);background:var(--problem-wash)} .ds-mark-note{color:var(--note);background:var(--note-wash)}"
     },
     {
       "name": "Item Row in its Cut-out",
@@ -174,12 +174,12 @@
       "refersTo": "row-cutout",
       "description": "The signature: every item pressed into its own cut-out inside a tray; the active one raised, with a lime pill.",
       "html": "<ul class=\"ds-tray\"><li class=\"ds-row\"><b>code-style</b> <span class=\"ds-k\">skill</span><p>How I want TypeScript written.</p><code>.claude/skills/code-style/SKILL.md</code></li><li class=\"ds-row ds-row-active\"><b>eslint-autofix</b> <span class=\"ds-k\">script</span><p>Runs ESLint with --fix on staged files.</p><code>scripts/eslint-autofix.sh</code></li></ul>",
-      "css": ".ds-tray{list-style:none;margin:0;display:flex;flex-direction:column;gap:var(--s2);padding:var(--s2);background:var(--tray);border-radius:var(--r-lg);width:520px} .ds-row{position:relative;padding:var(--s3) var(--s4);background:var(--cutout);border-radius:var(--r-md);box-shadow:var(--shadow-cutout);font:var(--t-body);color:var(--text);transition:background var(--dur) var(--ease)} .ds-row:hover{background:var(--row-hover)} .ds-row b{font-weight:600} .ds-row p{margin:2px 0 0;font:var(--t-small);color:var(--text-2)} .ds-row code{font:var(--t-code);color:var(--text-3)} .ds-k{font:var(--t-micro);color:var(--text-2);padding:0 var(--s2);border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} .ds-row-active{background:var(--raised)} .ds-row-active::before{content:'';position:absolute;left:var(--s1);top:var(--s3);bottom:var(--s3);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}"
+      "css": ".ds-tray{list-style:none;margin:0;display:flex;flex-direction:column;gap:var(--s2);padding:var(--s2);background:var(--tray);border-radius:var(--r-lg);width:var(--modal-w)} .ds-row{position:relative;padding:var(--s3) var(--s4);background:var(--cutout);border-radius:var(--r-md);box-shadow:var(--shadow-cutout);font:var(--t-body);color:var(--text);transition:background var(--dur) var(--ease)} .ds-row:hover{background:var(--row-hover)} .ds-row b{font-weight:var(--weight-strong)} .ds-row p{margin:calc(var(--s1) / 2) 0 0;font:var(--t-small);color:var(--text-2)} .ds-row code{font:var(--t-code);color:var(--text-3)} .ds-k{font:var(--t-micro);color:var(--text-2);padding:0 var(--s2);border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} .ds-row-active{background:var(--raised)} .ds-row-active::before{content:'';position:absolute;left:var(--s1);top:var(--s3);bottom:var(--s3);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}"
     }
   ],
   "narrative": {
     "northStar": "The Inspector's Report",
-    "overview": "The product reads like an inspection, not a sales sheet. It says what was examined, counts what it\nfound and names the cost before the step. It never says what any of that means, and it never says\n*works*. The interface is a dark, neutral working surface of quiet layers: a Mica ground with a faint\nlime tint, a tray, and every item pressed into its own cut-out. One lime marks what you can press and\nwhere you are. The severities are tinted tags carrying a word and an icon. There is no success colour\nat all: the best a check can say is *Checked*, drawn as a quiet dot.\n\nDensity sits between Default and Comfortable: a lot on the screen, held by the grid and the type\nrather than by colour, as in Figma's panels. Edges come from hairlines before shadows, as in Linear.\nGlass (acrylic) is the signature touch and is kept to the frame around a mode or a dialog. Text never\nsits on glass; it sits on an opaque sheet.\n\nThe components are **quiet and exact**: grey controls, hairline edges, states named by a word and a\nshape, and colour held in reserve.",
+    "overview": "The product reads like an inspection, not a sales sheet. It says what was examined, counts what it\nfound and names the cost before the step. It never says what any of that means, and it never says\n*works*. The interface is a dark, neutral working surface of quiet layers: a Mica ground with a faint\nlime tint, a tray, and every item pressed into its own cut-out. One lime marks what you can press and\nwhere you are. The severities are tinted tags carrying a word and an icon. There is no success colour\nat all: the best a check can say is *Checked*, drawn as a quiet dot.\n\nDensity sits between Default and Comfortable: a lot on the screen, held by the grid and the type\nrather than by colour, as in Figma's panels. Edges come from hairlines before shadows, as in Linear.\nGlass (acrylic) is the signature touch and is kept to the frame around a dialog or the Filters popover. Text never\nsits on glass; it sits on an opaque sheet.\n\nThe components are **quiet and exact**: grey controls, hairline edges, states named by a word and a\nshape, and colour held in reserve.",
     "keyCharacteristics": [
       "Dark first; the light theme is designed, not inverted. One light slice exists, and the full theme comes in phase 09.",
       "One brand colour, lime, which is never a verdict.",
@@ -234,7 +234,7 @@
       "**Don't** use a green tick, or any success colour. We examined the set; we ran nothing.",
       "**Don't** use violet-blue neon, gradients or glow: the palette an AI produces for \"AI tool\".",
       "**Don't** add `Verified` or `Popular` badges, stars, ratings, scores or cover cards. Usage facts are the only per-item evidence.",
-      "**Don't** put text on glass, or use glass outside the frame of a mode, dialog or popover.",
+      "**Don't** put text on glass, or use glass outside the frame of a dialog or the Filters popover.",
       "**Don't** draw a coloured ring round a row that carries a finding.",
       "**Don't** use red for anything but removal, or lime for a verdict.",
       "**Don't** let the browser draw a white checkbox or radio on the dark theme."

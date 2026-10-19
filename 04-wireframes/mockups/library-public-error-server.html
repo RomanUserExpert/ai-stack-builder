@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Public library · error · server — wireframe — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-cloud-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057" />
+  <path d="M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78" />
+  <path d="m2 2 20 20" /></symbol><symbol id="l-refresh-cw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+  <path d="M21 3v5h-5" />
+  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+  <path d="M8 16H3v5" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a href="library-my-default.html">My library</a></li>
+          <li><a href="library-public-default.html" aria-current="page">Public library</a></li>
+          <li><a href="projects-default.html">Projects</a></li>
+        </ul>
+      </nav>
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="page-title">
+        <div class="page-head">
+          <div>
+            <h1 id="page-title">Public library</h1>
+            <p class="meta head-meta">Read-only. Every item is pinned to the version we checked — not the latest one.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="state-block" role="alert" aria-label="Public library didn’t load">
+        <svg class="icon state-icon" aria-hidden="true"><use href="#l-cloud-off"/></svg>
+        <h2>Public library didn’t load</h2>
+        <p>Our server didn’t answer, so Public library can’t be shown right now. My library isn’t affected.</p>
+        <p class="meta error-code">503 · Service unavailable · 14:02</p>
+        <div class="state-actions">
+          <a class="button button-primary" href="library-public-loading.html"><svg class="icon" aria-hidden="true"><use href="#l-refresh-cw"/></svg>Load again</a>
+          <a class="button" href="library-my-default.html">Open My library</a>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

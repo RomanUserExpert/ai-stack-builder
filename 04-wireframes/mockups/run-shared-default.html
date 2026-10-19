@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Run — shared project · default — wireframe — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7" />
+  <path d="M19 12H5" /></symbol><symbol id="l-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M4.929 4.929 19.07 19.071" /></symbol><symbol id="l-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></symbol><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
+  <path d="m17 8-5-5-5 5" />
+  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <!-- The receiver's header: no global navigation, no sign-in — the viewer is anonymous (§5, Q25). -->
+    <header class="shared-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <p class="owner"><img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24"><span>Shared by Maya Chen</span></p>
+    </header>
+    <!-- Run takes the whole surface. It is a mode, not a place: the way out is back to where it was entered. -->
+    <header class="run-bar">
+      <a class="back" href="shared-project-default.html"><svg class="icon" aria-hidden="true"><use href="#l-arrow-left"/></svg>agent-dotfiles</a>
+      <span class="title">Export</span>
+      <label class="pick">Agent target
+        <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
+      </label>
+    </header>
+
+    <main class="app-main">
+
+      <section class="summary" aria-label="Verdict">
+        <h1>Checked just now by you</h1>
+        <p><strong>0 problems · 2 notes · 1 skipped</strong></p>
+        <p class="meta">agent-dotfiles, as it is now · 9 items · for Claude Code · nothing is saved from this check</p>
+      </section>
+
+      <section class="stage-group" aria-labelledby="g-find">
+        <h2 id="g-find">Findings</h2>
+        <ol class="stages">
+          <li>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>9 items · 2 auto-added · no cycles</span><span class="time">0.2 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">02</span><span class="name">Declared conflicts</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — none found</span><span class="time">0.1 s</span></summary>
+            </details>
+          </li>
+          <li class="is-skipped">
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.1 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result result-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>1 note</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet"><span class="severity">Note</span><span>Your machine needs a value for <code>GITHUB_TOKEN</code> (github-mcp). The archive carries only its name.</span></div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result result-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>1 note</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet"><span class="severity">Note</span><span><code>code-style</code> defers to <em>the client’s ESLint config</em>. Where they disagree, that wins.</span></div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.3 s</span></summary>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <!-- The handover is read before Export, never after it (§6). -->
+      <section class="stage-group" aria-labelledby="g-hand">
+        <h2 id="g-hand">Handover — what your machine still needs</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">08</span><span class="name">What the archive contains</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>13 files for Claude Code</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <pre class="file">agent-dotfiles/
+├── CLAUDE.md                       commit-conventions, shell-safety
+├── SETUP.md
+├── .env.example                    GITHUB_TOKEN
+├── .mcp.json                       github-mcp, filesystem, memory
+├── .claude/skills/code-style/SKILL.md
+├── .claude/skills/session-notes/SKILL.md + 1 file
+├── .claude/agents/pr-reviewer.md
+└── scripts/  dotfiles-sync.sh + 4 files</pre>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">09</span><span class="name"><code>SETUP.md</code> — for the agent that opens it</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Written · 9 items</span><span class="time">0.2 s</span></summary>
+              <div class="stage-body">
+                <pre class="file"># Setup — agent-dotfiles (Claude Code)
+
+Read this first and perform each step.
+
+## github-mcp
+- External. Clone github/github-mcp-server at v0.9.0.
+- Needs GITHUB_TOKEN. Ask the person for it; do not invent one.
+- Required by pr-reviewer.
+
+## filesystem
+- External. Clone modelcontextprotocol/servers at 2025.9.25.
+
+## memory
+- External. Same clone as filesystem.
+- Required by session-notes.
+
+## code-style
+- Defers to the client’s ESLint config. Where they disagree, the ESLint config wins.
+…</pre>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">10</span><span class="name">.env.example</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>1 key, name only</span><span class="time">0.1 s</span></summary>
+            </details>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Q20: show more, promise less. "Checked" answers whether the set coheres — not whether it runs on your machine. -->
+      <section class="export-stage" aria-labelledby="export-title">
+        <h2 id="export-title"><span class="n">11</span> · Export</h2>
+        <p>The archive is a snapshot of agent-dotfiles as it is now. The shared page may change after you export it.</p>
+        <div class="export-actions"><a class="button button-primary" href="run-shared-success.html"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a></div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

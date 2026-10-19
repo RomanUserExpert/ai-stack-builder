@@ -40,10 +40,10 @@ KIT_CSS = r"""
 /* a text field and a textarea: a label over a Deep Well, the search field's material */
 .form{display:flex;flex-direction:column;gap:var(--s4)}
 .field{display:flex;flex-direction:column;gap:var(--s1)}
-.field>span:first-child{font:var(--t-micro);font-weight:600;color:var(--text-2)}
+.field>span:first-child{font:var(--t-micro);font-weight:var(--weight-strong);color:var(--text-2)}
 .field-label{display:flex;justify-content:space-between;align-items:baseline}
-.field-label .meta{font-weight:400}
-.field .hint{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.field-label .meta{font-weight:var(--weight-regular)}
+.field .hint{font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .field input:not([type="checkbox"]):not([type="radio"]),.field textarea{width:100%;height:var(--control-h);padding:0 var(--s3);
   font:var(--t-small);color:var(--text);background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);outline:0;
   transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
@@ -74,9 +74,6 @@ KIT_CSS = r"""
 .aside-box .meta{font:var(--t-small);color:var(--text-2)}
 .aside-box .button{align-self:flex-start}
 
-/* a sheet's close: right-aligned and square, as in the item panel */
-.sheet-head .close{margin-left:auto;width:var(--control-h);padding:0}
-
 /* page tabs: the panel's tabs at page size */
 .tabs-page a{font:var(--t-button)}
 
@@ -90,6 +87,27 @@ KIT_CSS = r"""
 .library-version summary .link-button{margin:0;padding:0 var(--s1)}
 .library-version summary:focus-visible{outline:0;box-shadow:var(--shadow-focus);border-radius:var(--r-xs)}
 .library-version pre.file{margin-top:var(--s2)}
+
+/* the Item sheet: the add/edit overlay over the Library — a side sheet, the item's whole form (group 1, phase 07) */
+dialog.sheet{position:fixed;top:0;right:0;bottom:0;left:auto;width:var(--sheet-w);max-width:none;max-height:none;height:auto;margin:0;padding:var(--s8);
+  overflow:auto;display:flex;flex-direction:column;gap:var(--s6);color:var(--text);background:var(--raised);border:0;border-left:var(--hairline) solid var(--sheet-edge);box-shadow:var(--shadow-sheet)}
+.form-section{display:flex;flex-direction:column;gap:var(--s4);padding-top:var(--s5);border-top:var(--hairline) solid var(--line)}
+.form-section>h3{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
+.field-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4)}
+.file-list{display:flex;flex-direction:column;margin-bottom:var(--s2);border-top:var(--hairline) solid var(--line)}
+.file-list li{display:flex;gap:var(--s3);align-items:center;padding:var(--s2) 0;border-bottom:var(--hairline) solid var(--line);font:var(--t-small)}
+.file-list .meta{margin-left:auto}
+.dropzone{display:flex;flex-direction:column;align-items:center;gap:var(--s2);padding:var(--s8) var(--s6);text-align:center;cursor:pointer;
+  font:var(--t-small);color:var(--text-2);background:var(--well-deep);border:var(--hairline) dashed var(--control-edge);border-radius:var(--r-md);
+  transition:border-color var(--dur) var(--ease)}
+.dropzone:hover{border-color:var(--text-3)}
+.dropzone:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
+.dropzone strong{color:var(--text);font-weight:var(--weight-strong)}
+.dropzone-small{padding:var(--s4);gap:var(--s1)}
+.attach{align-self:flex-start}
+
+/* a small heading: the shared item's content title (group 4) */
+h2.heading-small{font:var(--t-body);font-weight:var(--weight-strong)}
 
 /* the icon sprite every page carries: out of the flow */
 svg.sprite{position:absolute}
@@ -109,15 +127,30 @@ progress.progress::-moz-progress-bar{background:var(--lime-mark);border-radius:v
 svg.glyph-stopped{color:var(--text-2)}
 
 /* the Export stage's number, as the other stages carry theirs (critique #27); the archive's name in mono (#15) */
-.export-stage h2 .n{font-family:var(--mono);font-weight:400;color:var(--text-3)}
+.export-stage h2 .n{font-family:var(--mono);font-weight:var(--weight-regular);color:var(--text-3)}
 .export-stage h2 code{font:inherit;font-family:var(--mono);background:none;padding:0}
 .export-stage .meta code{background:none;padding:0;color:inherit}
 .field-mono input:not([type="checkbox"]):not([type="radio"]){font:var(--t-code)}
+/* code inside a button takes the button's colour: no Ink on lime (audit #3) */
+:is(button,.button) code{color:inherit;background:none;padding:0}
+/* a file's name inside a stage's name: mono, but no chip in a heading-like line */
+.stages summary .name code{font:inherit;font-family:var(--mono);background:none;padding:0}
 
-/* a path or an item name keeps together on a narrow row (critique #14) */
-.row .facts code{white-space:nowrap}
+/* a path or an item name keeps together on a narrow row (critique #14, review G01-5); inline code in a row's
+   lines is bare, as in its facts (review G34-10, G01-20) */
+.row .facts code,.usage code,.callout code,.state-line code{white-space:nowrap}
+.usage code,.state-line code{background:none;padding:0}
 
-/* hover where it was missing (critique #11, #40) */
+/* hover where it was missing (critique #11, #40; review G01-18, B-21) */
+.row h2 a:hover,.row h3 a:hover,.card h2 a:hover,.callout a:hover{text-decoration:underline}
+.popover-group label{cursor:pointer}
+.popover-group label:hover{color:var(--text)}
+/* a disabled control does not answer the pointer, whatever its tone (review B-18) */
+button[disabled]:hover,.button[aria-disabled="true"]:hover{background:var(--control);border-color:var(--line);color:var(--text-3)}
+/* the file list's remove sits inside its row (review F10) */
+.file-list .link-button{margin:0;padding:0 0 0 var(--s2)}
+/* a long popover scrolls inside itself; its head and foot stay (review G01-12) */
+.popover-body{max-height:calc(100vh - var(--s12) * 6);overflow:auto}
 button.link-button:hover{background:none;color:var(--text)}
 .door-alt a:hover,a.meta:hover{color:var(--text);text-decoration:underline;text-decoration-thickness:calc(var(--hairline) * 2)}
 .library-version summary:hover{color:var(--text-2)}
@@ -191,7 +224,8 @@ def kit_css():
             "   below it, the component classes: the painted ones exactly as in the mockups, then the grey ones.\n"
             "   No token levels — that is lesson 08. */\n")
     rest = body.strip() + "\n" + KIT_CSS + skeleton_css()
-    return head + used_root(root_block(), rest) + "\n/* ===== painted: as in 04-wireframes/mockups (tools/build_mockups.py) ===== */\n" + rest
+    showcase = PAGE_CSS  # kit.html and shell.html link kit.css alone: their variables must be in its :root
+    return head + used_root(root_block(), rest + showcase) + "\n/* ===== painted: as in 04-wireframes/mockups (tools/build_mockups.py) ===== */\n" + rest
 
 
 # ------------------------------------------------------------------ cutting components out of the pages
@@ -259,8 +293,8 @@ def stage(*frags):
 
 def comp(name, cls, screens, painted, *states):
     return (f'<section class="kit-comp" id="c-{re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")}">'
-            f'<header class="kit-comp-head"><h3>{name}</h3><p class="kit-meta"><code>{cls}</code> · {screens} · '
-            f'<span class="kit-status kit-{painted.split()[0]}">{painted}</span></p></header>{"".join(states)}</section>')
+            f'<header class="kit-comp-head"><h3>{name}</h3><p class="kit-meta"><code>{cls}</code> · {screens}</p></header>{"".join(states)}</section>')
+    # every screen is dressed since phase 07 step 7, so "painted / grey" no longer tells anything (review B-24)
 
 
 RL = '<ol class="row-list">{}</ol>'
@@ -272,13 +306,15 @@ def components():
     g["Navigation"] = [
         comp("App header", "app-header · app-nav · account", "8 screens", "painted",
              state("Projects is the current place", cut("project-default", "header", 'class="app-header"')),
+             state("Public library is the current place", cut("library-public-default", "header", 'class="app-header"')),
              state("My library is the current place", cut("library-my-default", "header", 'class="app-header"'),
                    note="Hover a place for the wash; Tab for the focus ring.")),
         comp("Shared header", "shared-header · owner", "7 screens", "grey",
              state("Door — the mark only", cut("sign-in-default", "header", 'class="shared-header"')),
              state("Receiver — Shared by, with the sharer's portrait", cut("shared-project-default", "header", 'class="shared-header"'))),
         comp("Run bar", "run-bar · back · title · pick", "4 screens", "painted",
-             state("Default", cut("run-default", "header", 'class="run-bar"'))),
+             state("Default", cut("run-default", "header", 'class="run-bar"'),
+                   note="The same in every Run state: loading, exporting, exported, error.")),
         comp("Breadcrumb", "app-main > p.meta", "3 screens", "painted",
              state("Default", cut("project-default", "p", 'class="meta"', contains="Projects</a> /"))),
         comp("Page head", "page-head · head-meta · head-actions", "10 screens", "painted",
@@ -438,14 +474,29 @@ def components():
              state("Import — failed", stage(cut("library-json-error", "dialog", 'class="modal"'))),
              state("Import — done", stage(cut("library-json-success", "dialog", 'class="modal"')))),
     ]
+    g["One-off, styled in the kit"] = [
+        comp("Item sheet", "dialog.sheet · sheet-head · form-section", "Item overlay",
+             state("Edit db-migrate — the whole form, over My library", stage(cut("item-default", "dialog", 'class="sheet"')),
+                   note="A side sheet the viewport's height; its body scrolls.")),
+        comp("Two fields in a row", "field-row", "Item overlay",
+             state("Requires · Conflicts with", cut("item-default", "div", 'class="field-row"'))),
+        comp("File list", "file-list", "Item overlay",
+             state("Two files, each removable", cut("item-default", "ul", 'class="file-list"', wrap='<div class="kit-narrow">{}</div>'))),
+        comp("Drop zone", "dropzone · dropzone-small · attach", "Item overlay",
+             state("Empty item", cut("item-empty", "label", 'class="dropzone', wrap='<div class="kit-narrow">{}</div>')),
+             state("Below a file list — small", cut("item-default", "label", 'class="dropzone dropzone-small"', wrap='<div class="kit-narrow">{}</div>')),
+             state("Attach a repo", cut("item-default", "button", 'class="attach"'))),
+        comp("Small heading", "heading-small", "Shared item",
+             state("Content · lands at", cut("shared-item-default", "h2", 'class="heading-small"'))),
+    ]
     return g
 
 
 # ------------------------------------------------------------------ the showcase's own frame
 PAGE_CSS = r"""
 .kit-page{min-height:100vh}
-.kit-top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
-.kit-top strong{font:var(--t-body);font-weight:600}
+.kit-top{position:sticky;top:0;z-index:calc(var(--z-popover) + var(--z-sticky));display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
+.kit-top strong{font:var(--t-body);font-weight:var(--weight-strong)}
 .kit-top nav{display:flex;gap:var(--s4);font:var(--t-small)}
 .kit-top nav a{color:var(--text-2);text-decoration:none}
 .kit-top nav a:hover{color:var(--text)}
@@ -457,13 +508,11 @@ PAGE_CSS = r"""
 .kit-group>h2{font:var(--t-title);letter-spacing:var(--track-title);padding-bottom:var(--s3);border-bottom:var(--hairline) solid var(--line-strong)}
 .kit-comp{display:flex;flex-direction:column;gap:var(--s4)}
 .kit-comp-head h3{font:var(--t-heading);letter-spacing:var(--track-heading)}
-.kit-meta{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.kit-meta{font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .kit-meta code{background:none;padding:0;color:var(--text-2)}
-.kit-status{color:var(--text-2)}
-.kit-grey{color:var(--text-3);font-style:italic}
 .kit-state{display:grid;grid-template-columns:var(--col-m) minmax(0,1fr);gap:var(--s2) var(--s6);align-items:start}
 .kit-label{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
-.kit-note{grid-column:1;font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.kit-note{grid-column:1;font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .kit-state>.kit-label{grid-column:1}
 .kit-demo{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-start;gap:var(--s3);min-width:0}
 .kit-demo>:is(ol,header,section,pre,.kit-clip,.kit-stage,.kit-row,.callout,.form-actions,.marks,div:not(.kit-narrow,.kit-panel,.kit-drawer,.kit-aside)){align-self:stretch}
@@ -471,7 +520,7 @@ PAGE_CSS = r"""
 .kit-demo>.field{width:calc(var(--side-w) - var(--s10))}
 .kit-row{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
 .kit-glyph{display:inline-flex;align-items:center;gap:var(--s1);margin-right:var(--s4)}
-.kit-glyph .kit-label{text-transform:none;letter-spacing:0}
+.kit-glyph .kit-label{text-transform:none;letter-spacing:normal}
 .kit-demo>header{border:var(--hairline) solid var(--line);border-radius:var(--r-md)}
 .kit-panel{width:var(--side-w);max-height:calc(var(--s12) * 12);overflow:auto;border:var(--hairline) solid var(--line);border-radius:var(--r-md)}
 .kit-drawer,.kit-aside,.kit-narrow{width:var(--side-w)}
@@ -479,6 +528,7 @@ PAGE_CSS = r"""
 .kit-clip{max-height:calc(var(--s12) * 8);overflow:hidden;border-radius:var(--r-lg)}
 .kit-stage{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--ground);border:var(--hairline) solid var(--line)}
 .kit-stage dialog.modal{position:relative;top:auto;margin:var(--s8) auto}
+.kit-stage dialog.sheet{position:relative;inset:auto;margin:0 0 0 auto;max-height:calc(var(--s12) * 14)}
 .kit-stage:has(.popover){min-height:calc(var(--s12) * 15);max-width:calc(var(--col-xl) + var(--s12) * 4)}
 .kit-find{position:absolute;top:var(--s6);right:var(--s6);display:flex;justify-content:flex-end}
 .kit-find dialog.popover{position:absolute}
@@ -548,7 +598,7 @@ def kit_html():
     groups = components()
     n = sum(len(v) for v in groups.values())
     body = ['<main class="kit-body"><div class="kit-intro"><h1>UI kit</h1>'
-            f'<p>{n} rows of <a href="inventory.md">the inventory</a>, every one with its states. Each component is cut from a wireframe page, '
+            f'<p>{n} components: the 41 rows of <a href="inventory.md">the inventory</a> and the one-offs that need a class, every one with its states. Each component is cut from a wireframe page, '
             'so its words are the product\'s own (<code>microcopy.md</code>); the painted ones are drawn exactly as in the mockups, '
             'the grey ones take their look from <code>DESIGN.md</code>. One stylesheet: <code>kit.css</code>. '
             'The frame is on <a href="shell.html">the shell page</a>.</p></div>']
@@ -573,6 +623,7 @@ def words_check(out):
     body = re.sub(r'<(p|span|h1|h2|h3|header)[^>]*class="kit-[^"]*"[^>]*>.*?</\1>', "", body, flags=re.S)
     body = re.sub(r'<div class="kit-intro">.*?</div>', "", body, flags=re.S)
     body = re.sub(r"<pre.*?</pre>", "", body, flags=re.S)  # generated files: their own table rows, line by line
+    body = re.sub(r"<textarea.*?</textarea>", "", body, flags=re.S)  # a person's content, not the product's words
     missing = set()
     for chunk in re.split(r"<[^>]+>", body):
         t = re.sub(r"\s+", " ", htmllib.unescape(chunk)).strip(" ·,.—:()")

@@ -8,6 +8,8 @@ narrative pulled verbatim from DESIGN.md. Re-run whenever DESIGN.md changes.
 """
 import json, datetime, re, sys
 
+TOK = dict(re.findall(r"^\s*--([\w-]+):\s*(.*?);", open("06-concept/tokens.css", encoding="utf-8").read().split("\n.theme-light {")[0], re.M))
+
 DESIGN = open('DESIGN.md', encoding='utf-8').read()
 
 ca = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>'
@@ -49,15 +51,15 @@ comps += [
     {"name": "Search Field", "kind": "input", "refersTo": "search-field",
      "description": "A recessed well with a hairline edge; the lime ring on focus.",
      "html": f'<label class="ds-search">{srch}<input placeholder="Search projects"></label>',
-     "css": (".ds-search{display:flex;gap:var(--s2);align-items:center;width:320px;height:var(--control-h);padding:0 var(--s3);"
-             "background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);color:var(--text-3)} "
+     "css": (".ds-search{display:flex;gap:var(--s2);align-items:center;width:var(--col-l);height:var(--control-h);padding:0 var(--s3);"
+             "background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);color:var(--text-3)} "
              ".ds-search input{flex:1;border:0;background:transparent;color:var(--text);font:var(--t-small);outline:0} "
              ".ds-search input::placeholder{color:var(--text-3)} "
              ".ds-search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}")},
     {"name": "Top Bar Navigation", "kind": "nav", "refersTo": "nav-place-current",
      "description": "Three places as text; the current one is a raised tile.",
      "html": '<nav class="ds-nav"><a href="#">My library</a><a href="#">Public library</a><a href="#" aria-current="page">Projects</a></nav>',
-     "css": (".ds-nav{display:flex;gap:2px;padding:var(--s2);background:var(--bar)} "
+     "css": (".ds-nav{display:flex;gap:calc(var(--s1) / 2);padding:var(--s2);background:var(--bar)} "
              ".ds-nav a{display:flex;align-items:center;height:var(--control-h);padding:0 var(--s3);border-radius:var(--r-sm);"
              "color:var(--text-2);text-decoration:none;font:var(--t-button)} "
              ".ds-nav a:hover{color:var(--text);background:var(--hover-wash)} "
@@ -72,7 +74,7 @@ comps += [
              "border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} "
              ".ds-tag-conflict{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 var(--hairline) var(--problem-edge)} "
              ".ds-mark{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);"
-             "font:var(--t-micro);font-weight:600;border-radius:var(--r-pill)} "
+             "font:var(--t-micro);font-weight:var(--weight-strong);border-radius:var(--r-pill)} "
              ".ds-mark-problem{color:var(--problem);background:var(--problem-wash)} "
              ".ds-mark-note{color:var(--note);background:var(--note-wash)}")},
     {"name": "Item Row in its Cut-out", "kind": "custom", "refersTo": "row-cutout",
@@ -82,11 +84,11 @@ comps += [
               '<li class="ds-row ds-row-active"><b>eslint-autofix</b> <span class="ds-k">script</span>'
               '<p>Runs ESLint with --fix on staged files.</p><code>scripts/eslint-autofix.sh</code></li></ul>'),
      "css": (".ds-tray{list-style:none;margin:0;display:flex;flex-direction:column;gap:var(--s2);padding:var(--s2);"
-             "background:var(--tray);border-radius:var(--r-lg);width:520px} "
+             "background:var(--tray);border-radius:var(--r-lg);width:var(--modal-w)} "
              ".ds-row{position:relative;padding:var(--s3) var(--s4);background:var(--cutout);border-radius:var(--r-md);"
              "box-shadow:var(--shadow-cutout);font:var(--t-body);color:var(--text);transition:background var(--dur) var(--ease)} "
-             ".ds-row:hover{background:var(--row-hover)} .ds-row b{font-weight:600} "
-             ".ds-row p{margin:2px 0 0;font:var(--t-small);color:var(--text-2)} .ds-row code{font:var(--t-code);color:var(--text-3)} "
+             ".ds-row:hover{background:var(--row-hover)} .ds-row b{font-weight:var(--weight-strong)} "
+             ".ds-row p{margin:calc(var(--s1) / 2) 0 0;font:var(--t-small);color:var(--text-2)} .ds-row code{font:var(--t-code);color:var(--text-3)} "
              ".ds-k{font:var(--t-micro);color:var(--text-2);padding:0 var(--s2);border-radius:var(--r-pill);"
              "box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)} "
              ".ds-row-active{background:var(--raised)} "
@@ -128,21 +130,16 @@ data = {
         },
         "typographyMeta": {
             "display": {"displayName": "Display", "purpose": "A project's name, one per screen."},
-            "headline": {"displayName": "Headline", "purpose": "The Export mode's verdict; an empty or error state's title."},
+            "title": {"displayName": "Title", "purpose": "The Export mode's verdict; an empty or error state's title."},
             "code": {"displayName": "Code", "purpose": "Paths, refs, step numbers, durations, file contents."},
         },
-        "shadows": [
-            {"name": "shadow-cutout", "value": "inset 0 0 0 1px var(--line), inset 0 1px 2px rgba(0,0,0,.35)", "purpose": "A row pressed into its tray."},
-            {"name": "shadow-tile", "value": "0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04)", "purpose": "The current place; a lifted segment."},
-            {"name": "shadow-sheet", "value": "0 18px 40px rgba(0,0,0,.35)", "purpose": "A dialog or popover over a mode."},
-            {"name": "shadow-focus", "value": "0 0 0 2px var(--ground), 0 0 0 4px var(--lime)", "purpose": "Keyboard focus."},
-        ],
-        "motion": [
-            {"name": "ease", "value": "cubic-bezier(.2,.7,.2,1)", "purpose": "Every state transition."},
-            {"name": "dur", "value": "140ms", "purpose": "Hover and state changes."},
-            {"name": "dur-spin", "value": "900ms", "purpose": "The export spinner; stopped under reduced motion."},
-            {"name": "dur-shimmer", "value": "1400ms", "purpose": "Skeleton shimmer; stopped under reduced motion."},
-        ],
+        # read from tokens.css, never typed here (phase 07 review, B-7)
+        "shadows": [{"name": f"shadow-{n}", "value": TOK[f"shadow-{n}"], "purpose": w} for n, w in (
+            ("cutout", "A row pressed into its tray."), ("tile", "The current place; a lifted segment."),
+            ("sheet", "A dialog, a popover or the Item sheet over the page."), ("focus", "Keyboard focus."))],
+        "motion": [{"name": n, "value": TOK[n], "purpose": w} for n, w in (
+            ("ease", "Every state transition."), ("dur", "Hover and state changes."),
+            ("dur-spin", "The spinners; stopped under reduced motion."), ("dur-shimmer", "Skeleton shimmer; stopped under reduced motion."))],
     },
     "components": comps,
     "narrative": {

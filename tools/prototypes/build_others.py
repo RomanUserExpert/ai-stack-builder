@@ -161,7 +161,7 @@ def _():
 
 PREVIEW_FAILED = '''<li>
             <details open>
-              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-waiting" aria-hidden="true"></span>Stopped — our server didn’t answer</span><span class="time">—</span></summary>
+              <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-stopped" aria-hidden="true"></span>Stopped — our server didn’t answer</span><span class="time">—</span></summary>
               <div class="stage-body">
                 <div class="callout" role="alert">
                   <span class="severity">Missing, not empty</span>
@@ -227,13 +227,16 @@ def _():
         k = s.rindex('<article class="row row-tight set-item">', 0, i)
         return s[:k] + '<article class="row row-tight set-item is-selected">' + s[k + len('<article class="row row-tight set-item">'):]
     drop_mr = lambda s: drop_li(s, ">migration-reviewer</a><span class=\"tag\">agent</span></h3>\n                <p class=\"description\">Reads a migration")
+    # the three it brought leave with it, so the panel offers them again (phase 07 review, F4)
+    freed = lambda s: s.replace('<label class="check" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label>',
+                                '<label class="check"><input type="checkbox"> Add</label>')
     return chain(c, [
         ("project-configuring-default", "Configuring", "project-configuring-default.html",
          ("after", 'aria-label="Items in this project"', '<a>db-migrate</a>'), None),
         ("project-configuring-item", "Configuring, db-migrate open — it will not go on its own", "project-configuring-item.html",
          ("btn", '<button type="button" class="remove" aria-label="Remove migration-reviewer and its 3 auto-added items from this project">'), drawer),
         ("project-configuring-default", "Configuring, migration-reviewer removed — and the 3 it brought", "project-configuring-default.html",
-         ("a", '<a class="button button-primary">Save</a>'), seq(drop_mr, subs([(ORIG_HEAD[0], "10 items · 1 detached"), (ORIG_HEAD[1], removed)]))),
+         ("a", '<a class="button button-primary">Save</a>'), seq(drop_mr, freed, subs([(ORIG_HEAD[0], "10 items · 1 detached"), (ORIG_HEAD[1], removed)]))),
         ("project-default", "Project, saved", "project-default.html", None,
          seq(lambda s: drop_li(s, ">migration-reviewer</a><span class=\"tag\">agent</span></h3>\n                <p class=\"description\">Reads a migration"),
              subs([(ORIG_HEAD[0], "10 items · 1 detached"), (ORIG_HEAD[1], removed)]))),

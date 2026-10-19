@@ -511,11 +511,11 @@ State pages: `default` · `delete` · `empty` · `error` · `loading`
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Cloned at a pinned commit or tag when the archive is set up — never copied into it | = | field hint | default · delete · error | product |  |  |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Dependencies | = | heading | default · delete · error | product |  |  |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Requires | = | field label | default · delete · error | product |  |  |
-| Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Items this one needs — postgres-mcp | **Items this one requires — postgres-mcp** | placeholder | default · delete · error | product |  | Dictionary: needs is for env keys only |
+| Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Items this one needs — postgres-mcp | **postgres-mcp, seed-data** | placeholder | default · delete · error | product |  | Dictionary: needs is for env keys only; Phase 07 review G01-13: the label says Requires; the placeholder only shows an example that fits |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | seed-data | = | value | default · delete · error | user |  |  |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Pulled into every project that holds this one | **Auto-added to every project that holds this one** | field hint | default · delete · error | product | D7 | D7 |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Conflicts with | = | field label | default · delete · error | product |  |  |
-| Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Items it must not travel with | **Items that clash with this one in a project — eslint-autofix** | placeholder | default · delete · error | product |  | Nothing blocks: must not promises enforcement |
+| Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Items it must not travel with | **eslint-autofix** | placeholder | default · delete · error | product |  | Nothing blocks: must not promises enforcement; Phase 07 review G01-13: the label says Conflicts with |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | Env keys it needs | = | field label | default · delete · error | product |  |  |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | GITHUB_TOKEN | = | placeholder | default · delete · error | product |  |  |
 | Item — the add/edit overlay | Sheet: Edit db-migrate › Form | DATABASE_URL | = | value | default · delete · error | user |  |  |
@@ -564,10 +564,10 @@ State pages: `default` · `delete` · `empty` · `error` · `loading`
 | Item — the add/edit overlay | Sheet: Add item › Form | Cloned at a pinned commit or tag when the archive is set up — never copied into it | = | field hint | empty | product |  |  |
 | Item — the add/edit overlay | Sheet: Add item › Form | Dependencies | = | heading | empty | product |  |  |
 | Item — the add/edit overlay | Sheet: Add item › Form | Requires | = | field label | empty | product |  |  |
-| Item — the add/edit overlay | Sheet: Add item › Form | Items this one needs — postgres-mcp | **Items this one requires — postgres-mcp** | placeholder | empty | product |  | Dictionary: needs is for env keys only |
+| Item — the add/edit overlay | Sheet: Add item › Form | Items this one needs — postgres-mcp | **postgres-mcp, seed-data** | placeholder | empty | product |  | Dictionary: needs is for env keys only; Phase 07 review G01-13: the label says Requires; the placeholder only shows an example that fits |
 | Item — the add/edit overlay | Sheet: Add item › Form | Pulled into every project that holds this one | **Auto-added to every project that holds this one** | field hint | empty | product | D7 | D7 |
 | Item — the add/edit overlay | Sheet: Add item › Form | Conflicts with | = | field label | empty | product |  |  |
-| Item — the add/edit overlay | Sheet: Add item › Form | Items it must not travel with | **Items that clash with this one in a project — eslint-autofix** | placeholder | empty | product |  | Nothing blocks: must not promises enforcement |
+| Item — the add/edit overlay | Sheet: Add item › Form | Items it must not travel with | **eslint-autofix** | placeholder | empty | product |  | Nothing blocks: must not promises enforcement; Phase 07 review G01-13: the label says Conflicts with |
 | Item — the add/edit overlay | Sheet: Add item › Form | Env keys it needs | = | field label | empty | product |  |  |
 | Item — the add/edit overlay | Sheet: Add item › Form | GITHUB_TOKEN | = | placeholder | empty | product |  |  |
 | Item — the add/edit overlay | Sheet: Add item › Form | Names only. Values never live here. | = | field hint | empty | product |  |  |
@@ -1250,6 +1250,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | Library panel › Row | A guide for building an MCP server: tool design, error messages, evaluation. | = | panel row line | public | user |  |  |
 | Project — configuring the set | Library panel › Row | webapp-testing | = | item name | public | user | U2 |  |
 | Project — configuring the set | Library panel › Row | Tests a local web app with Playwright: start the server, drive the page, read the logs. | = | panel row line | public | user |  |  |
+| Project — configuring the set | Library panel › Row | — | **Auto-added — remove what requires it** | tooltip | default · error-server · item | product |  | Phase 07 critique #2 (§8's refusal, shown): an auto-added row cannot be unchecked |
 
 ### Project — a detached row
 
@@ -1392,6 +1393,7 @@ State pages: `default` · `error` · `loading` · `promote`
 | Project — a detached row | Modal: Promote pr-reviewer to My library? | It becomes a new item in My library with this project’s changes, and this row links to it. The original `pr-reviewer`, and the other project that uses it, stay as they are. | **It becomes a new item in My library with this project’s changes, and this row links to it. The original `pr-reviewer`, and the other project that uses it, stay as they are. This happens now, not when you save the project.** | body | promote | product, with slots | D8 | Principle 2: Promote is immediate inside a draft |
 | Project — a detached row | Modal: Promote pr-reviewer to My library? | Cancel | = | button | promote | product | D16 |  |
 | Project — a detached row | Modal: Promote pr-reviewer to My library? | Promote | = | button | promote | product |  |  |
+| Project — a detached row | Library panel › Row | — | **Auto-added — remove what requires it** | tooltip | all | product |  | Phase 07 critique #2 |
 
 ### Run
 
@@ -1486,6 +1488,7 @@ State pages: `default` · `error-check` · `error-export` · `error-setup` · `l
 | Run | Main › Export stage | An agent that reads `SETUP.md` first | = | state message | success | product, with slots |  |  |
 | Run | Main › Export stage | Download again | = | button | success | product | D4 D12 |  |
 | Run | Main › Export stage | Share the project | **Share…** | button | success | product | D21 | Dictionary: Share… opens the disclosure (D21, D20) |
+| Run | Main › Stages: Findings › Finding | — | **The check is still running** | tooltip | loading | product |  | Phase 07 critique #32: no remove while the check that would re-run is still running |
 
 ### Run — a single item
 
@@ -1556,6 +1559,7 @@ State pages: `default` · `error` · `loading` · `success`
 | Run — a single item | Main › Export stage | `modelcontextprotocol/servers-archived` cloned at `9be4674` — `SETUP.md` says how | = | state message | success | product, with slots |  |  |
 | Run — a single item | Main › Export stage | Back to My library | = | button | success | product |  |  |
 | Run — a single item | Main › Export stage | Download again | = | button | success | product | D4 D12 |  |
+| Run — a single item | Main › Stages: Handover — what the receiving machine still needs | — | **# Setup — migration-reviewer (Claude Code)<br><br>Read this first and perform each step.<br><br>## postgres-mcp<br>- External. Clone modelcontextprotocol/servers-archived at 9be4674.<br>- Needs DATABASE_URL. Ask the person for it; do not invent one.<br>- Required by migration-reviewer.<br><br>## db-migrate<br>- Lands at scripts/db-migrate.sh, with 2 files beside it.<br>- Needs DATABASE_URL.<br>- Requires seed-data. Required by migration-reviewer.<br><br>## seed-data<br>- Lands at scripts/seed-data.sh. Required by db-migrate.<br><br>## migration-reviewer<br>- Lands at .claude/agents/migration-reviewer.md.** | generated file | default · success | generated |  | Phase 07 review G34-4/5 (owner: yes): the handover is readable before Export, derived from the items' fields |
 
 ### Shared project
 
@@ -1683,6 +1687,8 @@ State pages: `default` · `error` · `loading` · `success`
 | Run — a shared project | Main › Export stage | An agent that reads `SETUP.md` first — it clones the 2 external repos — 3 items — at their pinned refs | **An agent that reads `SETUP.md` first. It clones 2 repos at their pinned refs, for the 3 external items** | state message | success | product, with slots |  | Typography: one separator per job |
 | Run — a shared project | Main › Export stage | Back to the shared page | **Back to the shared project** | button | success | product |  | Back to + the place by name, as Back to the shared item |
 | Run — a shared project | Main › Export stage | Copy into a library of my own | **Copy to My library** | button | success | product | D1 D5 | D1, D5 |
+| Run — a shared project | Main › Stages: Handover — what the receiving machine still needs | — | **agent-dotfiles/<br>├── CLAUDE.md                       commit-conventions, shell-safety<br>├── SETUP.md<br>├── .env.example                    GITHUB_TOKEN<br>├── .mcp.json                       github-mcp, filesystem, memory<br>├── .claude/skills/code-style/SKILL.md<br>├── .claude/skills/session-notes/SKILL.md + 1 file<br>├── .claude/agents/pr-reviewer.md<br>└── scripts/  dotfiles-sync.sh + 4 files** | generated file | default · success | generated |  | Phase 07 review G34-4/5 (owner: yes): the handover is readable before Export, derived from the items' fields |
+| Run — a shared project | Main › Stages: Handover — what the receiving machine still needs | — | **# Setup — agent-dotfiles (Claude Code)<br><br>Read this first and perform each step.<br><br>## github-mcp<br>- External. Clone github/github-mcp-server at v0.9.0.<br>- Needs GITHUB_TOKEN. Ask the person for it; do not invent one.<br>- Required by pr-reviewer.<br><br>## filesystem<br>- External. Clone modelcontextprotocol/servers at 2025.9.25.<br><br>## memory<br>- External. Same clone as filesystem.<br>- Required by session-notes.<br><br>## code-style<br>- Defers to the client’s ESLint config. Where they disagree, the ESLint config wins.<br>…** | generated file | default · success | generated |  | Phase 07 review G34-4/5 (owner: yes): the handover is readable before Export, derived from the items' fields |
 
 ### Shared item
 
@@ -1780,6 +1786,7 @@ State pages: `default` · `error` · `loading` · `success`
 | Run — a shared item | Main › Export stage | To know that the client’s ESLint config wins where it disagrees with this skill | **The client’s ESLint config, which wins where it disagrees with this skill** | state message | success | product, with slots |  | Step 7 #13 a thing the machine needs |
 | Run — a shared item | Main › Export stage | Back to the shared item | = | button | success | product |  |  |
 | Run — a shared item | Main › Export stage | Copy into a library of my own | **Copy to My library** | button | success | product | D1 D5 | D1, D5 |
+| Run — a shared item | Main › Stages: Handover — what the receiving machine still needs | — | **# Setup — code-style (Claude Code)<br><br>Read this first and perform each step.<br><br>## code-style<br>- Lands at .claude/skills/code-style/SKILL.md.<br>- Defers to the client’s ESLint config. Where they disagree, the ESLint config wins.<br>- Requires nothing. Needs no env keys.** | generated file | default · success | generated |  | Phase 07 review G34-4/5 (owner: yes): the handover is readable before Export, derived from the items' fields |
 
 
 ---
@@ -1804,3 +1811,19 @@ Copy found by the critique of the dressed screens (`07-ui-assembly/ui/critique.m
 
 **Q41 (2026-10-19):** the `Conflict` state badge now also stands on `code-style`, the other side of the pair, in Project,
 Configuring and Detached row. It uses the same word, on one more row.
+
+---
+
+## Phase 07 — the review (2026-10-19)
+
+The review of all 80 dressed pages and 239 flow steps is in `07-ui-assembly/ui/review.md`. It changed copy in one
+place, applied to the wireframe pages by `tools/review07_pages.py`:
+
+| Review | Screen | Was | Now | Why |
+|---|---|---|---|---|
+| G01-13 | Item overlay (×4 pages) | *Items this one requires — postgres-mcp* · *Items that clash with this one in a project — eslint-autofix* | *postgres-mcp, seed-data* · *eslint-autofix* | the placeholders were clipped, and the field labels already say *Requires* and *Conflicts with* |
+
+It also added four generated blocks, the handover previews on the single-item and the two shared Runs (rows marked *G34-4/5*).
+The rest of that review changed structure, not words. It kept the typed email on an error, used `new-password`,
+made fields read-only while a request runs, used the stopped glyph, gave the failure summary `role="alert"`, and
+opened the failed stage.

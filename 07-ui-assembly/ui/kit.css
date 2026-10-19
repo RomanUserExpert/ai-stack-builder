@@ -50,6 +50,9 @@
   --track-title: -.012em;
   --track-heading: -.008em;
   --track-label: .06em;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-strong: 600;
   /* spacing — a 4 px scale */
   --s1: 4px;
   --s2: 8px;
@@ -80,18 +83,20 @@
   --dot: 6px;  /* the Checked dot */
   --dt-w: 116px;  /* a fact’s label column */
   --stage-name-w: 300px;  /* a stage’s name column — wide enough for SETUP.md’s two-line name */
+  --canvas: 1280px;  /* the width a screen is drawn at on the stand */
   --col-m: 200px;  /* a row’s actions column */
   --col-l: 320px;  /* a row’s middle column */
   --col-xl: 360px;  /* an aside */
   --side-w: 440px;  /* the library sidebar, the item drawer */
+  --sheet-w: 640px;  /* a side sheet */
   --modal-w: 520px;  /* a dialog */
   --measure: 640px;  /* a readable line of prose */
+  --measure-wide: 820px;  /* a lead paragraph on the stand */
   --z-sticky: 1;  /* a sticky head above its own list — phase 07 */
   --z-popover: 5;  /* a popover above the page — phase 07 */
   /* icons CSS draws as a mask */
   --icon-add: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14' /%3E %3Cpath d='M12 5v14' /%3E%3C/svg%3E");  /* a row you can add to the set */
   --icon-added: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5' /%3E%3C/svg%3E");  /* a row already in the set */
-  --icon-empty-set: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z' /%3E %3Cpath d='M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12' /%3E %3Cpath d='M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17' /%3E%3C/svg%3E");  /* an empty state that has no icon of its own in the markup */
   --icon-chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6' /%3E%3C/svg%3E");  /* a disclosure that opens: the original of a detached field (phase 07) */
   --glyph-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141A08' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5' /%3E%3C/svg%3E");  /* the tick in a checked checkbox, --on-lime on --lime */
   /* motion */
@@ -103,7 +108,7 @@
   --shadow-tile: 0 1px 2px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);  /* the current place in the top bar */
   --shadow-cutout: inset 0 0 0 1px var(--line), inset 0 1px 2px rgba(0,0,0,.35);  /* a row’s cut-out, pressed into the tray */
   --shadow-sheet: 0 18px 40px rgba(0,0,0,.35);  /* a dialog over a mode */
-  --shadow-focus: 0 0 0 2px var(--ground), 0 0 0 4px var(--lime);  /* keyboard focus — 2 px lime with a gap */
+  --shadow-focus: 0 0 0 2px var(--ground), 0 0 0 4px var(--lime-mark);  /* keyboard focus — 2 px lime with a gap; lime-mark, so the light theme’s ring holds 3:1 (phase 07 review) */
   /* material and washes */
   --acrylic-dialog: color-mix(in srgb, var(--lime) 7%, rgba(70,72,66,.45));  /* acrylic: the frame of a dialog */
   --sheet-edge: rgba(255,255,255,.05);  /* an opaque sheet inside the frame */
@@ -123,7 +128,7 @@
 
 /* ===== painted: as in 04-wireframes/mockups (tools/build_mockups.py) ===== */
 *{box-sizing:border-box}
-html{background:var(--ground)}
+html{background:var(--ground);color-scheme:dark}  /* native controls (a select's list) drawn dark — review G01-3 */
 body{margin:0;background:var(--ground);color:var(--text);font:var(--t-body);-webkit-font-smoothing:antialiased}
 body.product-page{overflow-x:hidden}
 a{color:inherit}
@@ -133,7 +138,7 @@ ul,ol{padding:0;list-style:none}
 code{font:var(--t-code);line-height:inherit;color:var(--text);background:var(--control);padding:0 calc(var(--s1) / 2);border-radius:var(--r-xs)}
 .meta a{color:var(--text-2);text-decoration:none}
 .meta a:hover{color:var(--text);text-decoration:underline}
-.meta{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.meta{font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .visually-hidden{position:absolute;width:var(--hairline);height:var(--hairline);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .canvas{position:relative;width:100%;min-height:100vh;margin:0;display:flex;flex-direction:column;background:var(--ground)}
 
@@ -156,7 +161,7 @@ button,.button{display:inline-flex;align-items:center;justify-content:center;gap
 button svg.icon,.button svg.icon{color:var(--text-2)}
 button:hover,.button:hover{background:var(--control-hover)}
 button:focus-visible,.button:focus-visible,a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
-.button-primary{background:var(--lime);border-color:var(--lime);color:var(--on-lime);font-weight:600}
+.button-primary{background:var(--lime);border-color:var(--lime);color:var(--on-lime);font-weight:var(--weight-strong)}
 .button-primary svg.icon{color:var(--on-lime)}
 .button-primary:hover{background:var(--lime-hover);border-color:var(--lime-hover)}
 .button-quiet{background:transparent;border-color:transparent;color:var(--text-2)}
@@ -173,9 +178,9 @@ button[disabled] svg.icon,button[aria-disabled="true"]:not([aria-busy]) svg.icon
 .tag-state{box-shadow:none;padding:0 calc(var(--s1) / 2);color:var(--text-2)}
 .tag-problem{color:var(--problem);background:var(--problem-wash);box-shadow:inset 0 0 0 var(--hairline) var(--problem-edge);padding:0 var(--s2)}
 .marks{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:flex-start;justify-content:flex-end}
-.mark{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);font:var(--t-micro);font-weight:600;border-radius:var(--r-pill);white-space:nowrap}
-.mark:has(.glyph-problem){color:var(--problem);background:var(--problem-wash)}
-.mark:has(.glyph-note){color:var(--note);background:var(--note-wash)}
+.mark{display:inline-flex;align-items:center;gap:var(--s1);height:var(--mark-h);padding:0 var(--s3) 0 var(--s2);font:var(--t-micro);font-weight:var(--weight-strong);border-radius:var(--r-pill);white-space:nowrap}
+.mark-problem{color:var(--problem);background:var(--problem-wash)}
+.mark-note{color:var(--note);background:var(--note-wash)}
 .glyph{display:inline-block;width:var(--icon-s);height:var(--icon-s);flex:none;margin-right:var(--s1);vertical-align:calc(var(--s1) * -0.5)}
 svg.glyph-problem{color:var(--problem)} svg.glyph-note{color:var(--note)} svg.glyph-skipped{color:var(--skipped)}
 span.glyph-checked{width:var(--dot);height:var(--dot);margin:0 var(--s2) 0 var(--s1);border-radius:var(--r-pill);background:var(--checked);vertical-align:calc(var(--hairline) * 1)}
@@ -184,12 +189,12 @@ span.glyph-waiting{border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hair
 span.glyph-running,.export-stage [role="status"]::before{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
 @keyframes mk-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){span.glyph-running,.export-stage [role="status"]::before{animation:none}*{transition:none!important}}
-.severity{display:inline-flex;align-items:center;gap:var(--s1);font:var(--t-small);font-weight:600}
+.severity{display:inline-flex;align-items:center;gap:var(--s1);font:var(--t-small);font-weight:var(--weight-strong)}
 
 /* --- the app's frame --- */
 /* the three bars share one shape (critique #38) */
 .app-header,.shared-header,.run-bar{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
-.app-header .product,.shared-header .product{display:flex;align-items:center;gap:var(--s2);font:var(--t-body);font-weight:600}
+.app-header .product,.shared-header .product{display:flex;align-items:center;gap:var(--s2);font:var(--t-body);font-weight:var(--weight-strong)}
 .app-nav ul{display:flex;gap:calc(var(--s1) / 2)}
 .app-nav a{display:flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button)}
 .app-nav a:hover{color:var(--text);background:var(--hover-wash)}
@@ -202,7 +207,7 @@ img.avatar{width:var(--mark-h);height:var(--mark-h);border-radius:var(--r-pill);
 /* --- page head --- */
 .page-head{display:flex;align-items:flex-start;gap:var(--s6)}
 .page-head h1{display:flex;gap:var(--s3);align-items:center;font:var(--t-display);letter-spacing:var(--track-display)}
-.page-head .head-actions,.page-head>.button{margin-left:auto}
+.page-head .head-actions{margin-left:auto}
 .head-actions{display:flex;gap:var(--s2);align-items:center}
 .head-meta{margin-top:var(--s2);display:flex;gap:var(--s1) var(--s4);flex-wrap:wrap;font:var(--t-small);color:var(--text-2)}
 .head-meta span+span::before{content:"·";margin-right:var(--s4);color:var(--text-3)}
@@ -230,7 +235,7 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 .card h2 a{text-decoration:none}
 .card h2 .tag{order:1}
 .card .description{margin-top:var(--s2);font:var(--t-small);color:var(--text-2)}
-.card .facts{margin-top:var(--s3);display:flex;gap:var(--s1) var(--s3);flex-wrap:wrap;font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.card .facts{margin-top:var(--s3);display:flex;gap:var(--s1) var(--s3);flex-wrap:wrap;font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .card .facts span+span::before{content:"·";margin-right:var(--s3)}
 .card .verdict{margin-top:auto;padding-top:var(--s4);border-top:var(--hairline) solid var(--line)}
 .verdict dt{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
@@ -252,14 +257,14 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 .set-item{grid-template-columns:minmax(0,1fr) auto}
 .set-item:has(.row-actions:not(:empty)){grid-template-columns:minmax(0,1fr) auto auto}
 .set-item .row-actions:empty{display:none}
-.row h2,.row h3{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;min-height:var(--mark-h);font:var(--t-body);font-weight:600}
+.row h2,.row h3{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;min-height:var(--mark-h);font:var(--t-body);font-weight:var(--weight-strong)}
 .row h2 a,.row h3 a{text-decoration:none}
 .row .description{margin-top:calc(var(--s1) / 2);font:var(--t-small);color:var(--text-2);max-width:var(--measure)}
-.row .facts{margin-top:var(--s1);display:flex;gap:var(--s1) var(--s3);flex-wrap:wrap;font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.row .facts{margin-top:var(--s1);display:flex;gap:var(--s1) var(--s3);flex-wrap:wrap;font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .row .facts code{background:none;padding:0;color:var(--text-3)}
 .row .facts em{font-style:normal;color:var(--text-2)}
-.state-line{margin-top:var(--s1);font:var(--t-micro);font-weight:400;color:var(--text-2)}
-.state-line strong{color:var(--text);font-weight:600}
+.state-line{margin-top:var(--s1);font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-2)}
+.state-line strong{color:var(--text);font-weight:var(--weight-strong)}
 .row-list>li:has(> .is-selected){background:var(--raised);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
 .row-list>li:has(> .is-selected)::before{content:"";position:absolute;left:var(--s1);top:var(--s3);bottom:var(--s3);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}
 .set-item.is-selected{background:transparent;box-shadow:none}
@@ -291,18 +296,17 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 .callout code{background:none;padding:0}
 .callout>span{max-width:calc(var(--measure) + var(--s12) * 4)}
 .callout .row-actions{justify-content:flex-start;margin-top:var(--s1)}
-.button-danger-quiet{background:transparent;border-color:var(--problem-edge);color:var(--problem);font-weight:500}
+.button-danger-quiet{background:transparent;border-color:var(--problem-edge);color:var(--problem);font-weight:var(--weight-medium)}
 .button-danger-quiet:hover{background:var(--problem-wash)}
 .button-warning{background:var(--warning);border-color:var(--warning);color:var(--on-warning)}
 .button-warning:hover{background:var(--warning-hover);border-color:var(--warning-hover)}
 .button-warning svg.icon{color:var(--on-warning)}
-.callout-spaced{margin-top:var(--s2)}
 pre.file{margin:0;padding:var(--s3) var(--s4);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-md);font:var(--t-code);color:var(--text);white-space:pre;overflow-x:auto}
 
 /* --- Run: the mode that takes the screen --- */
 .run-bar .back{display:flex;gap:var(--s2);align-items:center;height:var(--control-h);color:var(--text-2);text-decoration:none;font:var(--t-button)}
 .run-bar .back:hover{color:var(--text)}
-.run-bar .title{font:var(--t-body);font-weight:600}
+.run-bar .title{font:var(--t-body);font-weight:var(--weight-strong)}
 .run-bar .pick{margin-left:auto;display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text-2);text-decoration:none}
 select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:var(--text);background:var(--control);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);cursor:pointer;transition:background var(--dur) var(--ease)}
 select:hover{background:var(--control-hover)}
@@ -327,14 +331,14 @@ select:hover{background:var(--control-hover)}
 .stages .stage-empty>summary{cursor:default}
 .stages .stage-empty>summary::after{visibility:hidden}
 .stages summary .n{font:var(--t-code);color:var(--text-3);font-variant-numeric:tabular-nums}
-.stages summary .name{font:var(--t-body);font-weight:600}
+.stages summary .name{font:var(--t-body);font-weight:var(--weight-strong)}
 .stages summary .result{display:flex;align-items:center;font:var(--t-small);color:var(--text-2)}
-.stages summary .result:has(.glyph-problem){color:var(--problem);font-weight:600}
-.stages summary .result:has(.glyph-note){color:var(--note);font-weight:600}
+.stages summary .result-problem{color:var(--problem);font-weight:var(--weight-strong)}
+.stages summary .result-note{color:var(--note);font-weight:var(--weight-strong)}
 .stages summary .time{font:var(--t-code);color:var(--text-3);text-align:right;font-variant-numeric:tabular-nums}
 .stage-body{padding:0 var(--s4) var(--s4) calc(var(--s4) + var(--s6) + var(--s3));display:flex;flex-direction:column;gap:var(--s3)}
 .stages .waiting summary{color:var(--text-3);cursor:default}
-.stages .waiting summary .name{font-weight:400;color:var(--text-3)}
+.stages .waiting summary .name{font-weight:var(--weight-regular);color:var(--text-3)}
 .export-stage{display:flex;flex-direction:column;gap:var(--s3);padding:var(--s5);background:var(--raised);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-lg)}
 .export-stage h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
 .export-stage.is-exported{position:relative;padding-left:calc(var(--s5) + var(--s2));border-color:var(--line-strong)}
@@ -350,7 +354,8 @@ select:hover{background:var(--control-hover)}
 .export-stage p strong{color:var(--text)}
 .export-actions{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap}
 .plain-list{display:flex;flex-direction:column;gap:var(--s1);font:var(--t-small);color:var(--text-2)}
-.plain-list li::before{content:"– ";color:var(--text-3)}
+.plain-list li{position:relative;padding-left:var(--s3)}
+.plain-list li::before{content:"–";position:absolute;left:0;color:var(--text-3)}  /* a wrapped line returns to the text — review G34-7 */
 
 /* --- empty, error, loading --- */
 .state-block{position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--s3);padding:var(--s12) var(--s8);text-align:center;background:var(--tray);border-radius:var(--r-lg)}
@@ -359,11 +364,6 @@ select:hover{background:var(--control-hover)}
 .state-block .meta{font:var(--t-code);color:var(--text-3)}
 .state-block strong{color:var(--text)}
 /* one tile for every empty and error state (owner, 2026-10-11): neutral, the same size, the icon in --text-2 */
-.state-image{display:grid;place-items:center;width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
-.state-image svg.icon{width:var(--icon-l);height:var(--icon-l)}
-.state-block:not(:has(.state-icon,.state-image))::before{content:"";width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control)}
-.state-block:not(:has(.state-icon,.state-image))::after{content:"";position:absolute;top:calc(var(--s12) + (var(--s12) - var(--icon-l)) / 2);left:50%;width:var(--icon-l);height:var(--icon-l);
-  transform:translateX(-50%);background:var(--text-2);-webkit-mask:var(--icon-empty-set) center / contain no-repeat;mask:var(--icon-empty-set) center / contain no-repeat}
 svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:calc((var(--s12) - var(--icon-l)) / 2);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
 
 .state-actions{display:flex;gap:var(--s2);margin-top:var(--s2)}
@@ -385,7 +385,7 @@ svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:cal
 .panel-body .row-list{background:transparent;padding:0}
 .panel-body .state-block{background:transparent;padding:var(--s10) var(--s4)}
 /* a segmented control is not the top bar: it has a track, and the current segment is lifted out of it */
-.scope{display:flex;gap:calc(var(--s1) / 2);padding:calc(var(--s1) - var(--hairline));background:var(--well-deep);border-radius:calc(var(--r-sm) + var(--s1));
+.scope{display:flex;gap:calc(var(--s1) / 2);padding:calc(var(--s1) - var(--hairline));background:var(--well-deep);border-radius:var(--r-md);
   box-shadow:inset 0 0 0 var(--hairline) var(--line)}
 .scope a{flex:1;display:flex;align-items:center;justify-content:center;height:var(--control-h-s);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button);
   transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
@@ -395,9 +395,9 @@ svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:cal
 .tabs{display:flex;gap:calc(var(--s1) / 2);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:var(--s2);border-bottom:var(--hairline) solid var(--line)}
 .tabs a{transition:background var(--dur) var(--ease),color var(--dur) var(--ease);display:inline-flex;flex:none;align-items:center;height:var(--control-h-s);padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
 .tabs a:hover{color:var(--text);background:var(--hover-wash)}
-.tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:600}
+.tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:var(--weight-strong)}
 .tabs a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
-.tabs .count{margin-left:var(--s1);color:var(--text-3);font-weight:400}
+.tabs .count{margin-left:var(--s1);color:var(--text-3);font-weight:var(--weight-regular)}
 /* radios and checkboxes, drawn for the dark theme: a recessed cell; checked is lime */
 input[type="checkbox"],input[type="radio"]{-webkit-appearance:none;appearance:none;flex:none;width:var(--icon);height:var(--icon);margin:0;cursor:pointer;
   background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-xs);
@@ -445,7 +445,7 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .popover-group{display:flex;flex-direction:column;gap:var(--s2)}
 .popover-group label{display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text)}
-.popover-group .hint{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.popover-group .hint{font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .popover-foot{display:flex;justify-content:flex-end;gap:var(--s2);padding:var(--s3) var(--s5);border-top:var(--hairline) solid var(--line)}
 .form-actions{display:flex;gap:var(--s2);align-items:center;margin-top:var(--s5);padding-top:var(--s4);border-top:var(--hairline) solid var(--line)}
 .form-actions .push{margin-left:auto}
@@ -455,10 +455,10 @@ legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(
 /* a text field and a textarea: a label over a Deep Well, the search field's material */
 .form{display:flex;flex-direction:column;gap:var(--s4)}
 .field{display:flex;flex-direction:column;gap:var(--s1)}
-.field>span:first-child{font:var(--t-micro);font-weight:600;color:var(--text-2)}
+.field>span:first-child{font:var(--t-micro);font-weight:var(--weight-strong);color:var(--text-2)}
 .field-label{display:flex;justify-content:space-between;align-items:baseline}
-.field-label .meta{font-weight:400}
-.field .hint{font:var(--t-micro);font-weight:400;color:var(--text-3)}
+.field-label .meta{font-weight:var(--weight-regular)}
+.field .hint{font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .field input:not([type="checkbox"]):not([type="radio"]),.field textarea{width:100%;height:var(--control-h);padding:0 var(--s3);
   font:var(--t-small);color:var(--text);background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);outline:0;
   transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
@@ -489,9 +489,6 @@ legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(
 .aside-box .meta{font:var(--t-small);color:var(--text-2)}
 .aside-box .button{align-self:flex-start}
 
-/* a sheet's close: right-aligned and square, as in the item panel */
-.sheet-head .close{margin-left:auto;width:var(--control-h);padding:0}
-
 /* page tabs: the panel's tabs at page size */
 .tabs-page a{font:var(--t-button)}
 
@@ -505,6 +502,27 @@ legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(
 .library-version summary .link-button{margin:0;padding:0 var(--s1)}
 .library-version summary:focus-visible{outline:0;box-shadow:var(--shadow-focus);border-radius:var(--r-xs)}
 .library-version pre.file{margin-top:var(--s2)}
+
+/* the Item sheet: the add/edit overlay over the Library — a side sheet, the item's whole form (group 1, phase 07) */
+dialog.sheet{position:fixed;top:0;right:0;bottom:0;left:auto;width:var(--sheet-w);max-width:none;max-height:none;height:auto;margin:0;padding:var(--s8);
+  overflow:auto;display:flex;flex-direction:column;gap:var(--s6);color:var(--text);background:var(--raised);border:0;border-left:var(--hairline) solid var(--sheet-edge);box-shadow:var(--shadow-sheet)}
+.form-section{display:flex;flex-direction:column;gap:var(--s4);padding-top:var(--s5);border-top:var(--hairline) solid var(--line)}
+.form-section>h3{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
+.field-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--s4)}
+.file-list{display:flex;flex-direction:column;margin-bottom:var(--s2);border-top:var(--hairline) solid var(--line)}
+.file-list li{display:flex;gap:var(--s3);align-items:center;padding:var(--s2) 0;border-bottom:var(--hairline) solid var(--line);font:var(--t-small)}
+.file-list .meta{margin-left:auto}
+.dropzone{display:flex;flex-direction:column;align-items:center;gap:var(--s2);padding:var(--s8) var(--s6);text-align:center;cursor:pointer;
+  font:var(--t-small);color:var(--text-2);background:var(--well-deep);border:var(--hairline) dashed var(--control-edge);border-radius:var(--r-md);
+  transition:border-color var(--dur) var(--ease)}
+.dropzone:hover{border-color:var(--text-3)}
+.dropzone:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
+.dropzone strong{color:var(--text);font-weight:var(--weight-strong)}
+.dropzone-small{padding:var(--s4);gap:var(--s1)}
+.attach{align-self:flex-start}
+
+/* a small heading: the shared item's content title (group 4) */
+h2.heading-small{font:var(--t-body);font-weight:var(--weight-strong)}
 
 /* the icon sprite every page carries: out of the flow */
 svg.sprite{position:absolute}
@@ -524,15 +542,30 @@ progress.progress::-moz-progress-bar{background:var(--lime-mark);border-radius:v
 svg.glyph-stopped{color:var(--text-2)}
 
 /* the Export stage's number, as the other stages carry theirs (critique #27); the archive's name in mono (#15) */
-.export-stage h2 .n{font-family:var(--mono);font-weight:400;color:var(--text-3)}
+.export-stage h2 .n{font-family:var(--mono);font-weight:var(--weight-regular);color:var(--text-3)}
 .export-stage h2 code{font:inherit;font-family:var(--mono);background:none;padding:0}
 .export-stage .meta code{background:none;padding:0;color:inherit}
 .field-mono input:not([type="checkbox"]):not([type="radio"]){font:var(--t-code)}
+/* code inside a button takes the button's colour: no Ink on lime (audit #3) */
+:is(button,.button) code{color:inherit;background:none;padding:0}
+/* a file's name inside a stage's name: mono, but no chip in a heading-like line */
+.stages summary .name code{font:inherit;font-family:var(--mono);background:none;padding:0}
 
-/* a path or an item name keeps together on a narrow row (critique #14) */
-.row .facts code{white-space:nowrap}
+/* a path or an item name keeps together on a narrow row (critique #14, review G01-5); inline code in a row's
+   lines is bare, as in its facts (review G34-10, G01-20) */
+.row .facts code,.usage code,.callout code,.state-line code{white-space:nowrap}
+.usage code,.state-line code{background:none;padding:0}
 
-/* hover where it was missing (critique #11, #40) */
+/* hover where it was missing (critique #11, #40; review G01-18, B-21) */
+.row h2 a:hover,.row h3 a:hover,.card h2 a:hover,.callout a:hover{text-decoration:underline}
+.popover-group label{cursor:pointer}
+.popover-group label:hover{color:var(--text)}
+/* a disabled control does not answer the pointer, whatever its tone (review B-18) */
+button[disabled]:hover,.button[aria-disabled="true"]:hover{background:var(--control);border-color:var(--line);color:var(--text-3)}
+/* the file list's remove sits inside its row (review F10) */
+.file-list .link-button{margin:0;padding:0 0 0 var(--s2)}
+/* a long popover scrolls inside itself; its head and foot stay (review G01-12) */
+.popover-body{max-height:calc(100vh - var(--s12) * 6);overflow:auto}
 button.link-button:hover{background:none;color:var(--text)}
 .door-alt a:hover,a.meta:hover{color:var(--text);text-decoration:underline;text-decoration-thickness:calc(var(--hairline) * 2)}
 .library-version summary:hover{color:var(--text-2)}

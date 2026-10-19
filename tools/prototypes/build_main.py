@@ -78,8 +78,16 @@ def wait(s, target, seconds=2):
 def drop_li(s, needle, indent="          "):
     i = s.index(needle)
     start = s.rindex(f"{indent}<li>", 0, i)
-    end = s.index(f"{indent}</li>\n", i) + len(f"{indent}</li>\n")
+    # the whole line: a deeper sub-row's </li> ends with the same characters (phase 07 review, F4)
+    end = s.index(f"\n{indent}</li>\n", i) + len(f"\n{indent}</li>\n")
     return s[:start] + s[end:]
+
+
+def facts_line(facts):
+    """A row still being added is busy, as on project-configuring-loading-add (phase 07 review, F6)."""
+    if facts.startswith("Adding — "):
+        return f'<p class="facts meta" role="status"><span class="glyph glyph-running" aria-hidden="true"></span><span>{facts}</span></p>'
+    return f'<p class="facts meta"><span>{facts}</span></p>'
 
 
 def set_row(name, kind, desc, facts, remove=False, state=None, mark=None, extra=""):
@@ -91,7 +99,7 @@ def set_row(name, kind, desc, facts, remove=False, state=None, mark=None, extra=
               <div>
                 <h3><a href="project-configuring-item.html">{name}</a>{tags}</h3>
                 <p class="description">{desc}</p>
-                <p class="facts meta"><span>{facts}</span></p>{extra}
+                {facts_line(facts)}{extra}
               </div>
               <p class="marks">{marks}</p>
               <div class="row-actions">{act}</div>
@@ -928,15 +936,18 @@ def _():
     removed = "Checked 2 days ago · for Claude Code · out of date since <code>eslint-autofix</code> was removed"
     s3 = btn(inert(configuring_page("orig", *ORIG_HEAD, c, "03 · Configuring")), '<button type="button" class="remove" aria-label="Remove eslint-autofix from this project">', P(c, 4, "project-configuring-default"))
     s4 = live(inert(configuring_page("clean", CLEAN[0], removed, c, "04 · Configuring, not saved yet")), '<a class="button button-primary">Save</a>', P(c, 5, "project-configuring-error-server"))
-    callout = f'''<section aria-label="Items in this project">
-        <!-- Save did not land (Q33's draft model, Q26): the project reads as it was, the draft stays here. -->
-        <div class="callout" role="alert" style="margin-bottom: 16px">
+    callout = f'''<!-- Save did not land (Q33's draft model, Q26): the project reads as it was, the draft stays here.
+           Before the set, not inside it: the page's own gap spaces it (phase 07 — no style on a screen). -->
+        <div class="callout" role="alert">
           <span class="severity">Not saved</span>
           <span>Our server didn’t confirm the save, so acme-billing-api is as it was — 14 items, <code>eslint-autofix</code> still in it. Your changes are still here.</span>
           <span class="meta">503 · Service unavailable · 14:09</span>
           <div class="row-actions"><button type="button" class="button-primary">Save again</button><button type="button">Discard changes</button></div>
-        </div>'''
-    s5 = configuring_page("clean", CLEAN[0], "Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped", c, "05 · Configuring, the save didn't land",
+        </div>
+      <section aria-label="Items in this project">'''
+    s5 = configuring_page("clean", "13 items in your changes · not saved",
+                          "The saved project: 14 items · checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped",  # critique #16, Q26
+                          c, "05 · Configuring, the save didn't land",
                           pre=lambda s: must(s, '<section aria-label="Items in this project">', callout))
     s5 = btn(inert(s5), '<button type="button" class="button-primary">', P(c, 6, "project-default"))
     pages = {
@@ -957,7 +968,7 @@ def _():
     s = run_page("run-loading.html", "clean", c, "04 · Run, the check didn't finish")
     s = must(s, '<h1 role="status">Checking — stage 4 of 10</h1>',
              '<h1 role="alert">The check didn’t finish</h1>\n        <p>Our server stopped answering at stage 4 of 10. Nothing in the project changed, and its last check still reads 2 days ago.</p>\n        <p class="meta">503 · Service unavailable · 14:05</p>')
-    s = must(s, '<span class="glyph glyph-running" aria-hidden="true"></span>Checking', '<span class="glyph glyph-waiting" aria-hidden="true"></span>Stopped — our server didn’t answer')
+    s = must(s, '<span class="glyph glyph-running" aria-hidden="true"></span>Checking', '<span class="glyph glyph-stopped" aria-hidden="true"></span>Stopped — our server didn’t answer')
     s = s.replace('<span class="glyph glyph-waiting" aria-hidden="true"></span>Waiting', '<span class="glyph glyph-waiting" aria-hidden="true"></span>Not run')
     s = export_section(s, f'''<section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">11 · Export</h2>

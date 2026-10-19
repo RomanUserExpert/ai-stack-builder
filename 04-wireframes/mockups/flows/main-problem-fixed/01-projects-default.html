@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>01 · Projects — prototype · main-problem-fixed — design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../../07-ui-assembly/ui/kit.css">
+</head>
+<body class="product-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
+  <path d="M12 5v14" /></symbol><symbol id="l-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" />
+  <circle cx="11" cy="11" r="8" /></symbol><symbol id="l-sliders-horizontal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 5H3" />
+  <path d="M12 19H3" />
+  <path d="M14 3v4" />
+  <path d="M16 17v4" />
+  <path d="M21 12h-9" />
+  <path d="M21 19h-5" />
+  <path d="M21 5h-7" />
+  <path d="M8 10v4" />
+  <path d="M8 12H3" /></symbol></svg>
+
+  <!-- Product canvas, 1440 wide -->
+  <div class="canvas">
+
+    <header class="app-header">
+      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <nav class="app-nav" aria-label="Global">
+        <ul>
+          <li><a>My library</a></li>
+          <li><a>Public library</a></li>
+          <li><a aria-current="page">Projects</a></li>
+        </ul>
+      </nav>
+      <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
+      <p class="account" aria-label="Signed in as Maya Chen">
+        <img class="image avatar" src="../../../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span>Maya Chen</span>
+      </p>
+    </header>
+
+    <main class="app-main">
+
+      <section aria-labelledby="projects-title">
+        <div class="page-head">
+          <div><h1 id="projects-title">Projects</h1></div>
+          <div class="head-actions"><a class="button button-primary">
+            <svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project
+          </a></div>
+        </div>
+      </section>
+
+      <!-- Find (Q30): search, and one Filters button in the far right corner. Filters opens the
+           verdict filter (All · Problems at last check · Out of date · Not checked yet · Shared),
+           Checked for a target, and sort — not drawn here. Filtered to zero: projects-error-filtered. -->
+      <section aria-label="Find projects">
+        <form class="find" role="search">
+          <label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
+            <input type="search" name="q" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
+          </label>
+          <button type="button" class="filters-button"><svg class="icon" aria-hidden="true"><use href="#l-sliders-horizontal"/></svg>Filters</button>
+        </form>
+      </section>
+
+      <section aria-label="Projects">
+
+        <!-- Projects are cards, items are rows (owner, 2026-09-26): a project is a set you come back to,
+             an item is a line in a list. The two must never be mistaken for each other. -->
+        <ol class="card-grid">
+
+          <!-- Checked, clean enough to send: counts, date, target -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a href="02-project-default.html">acme-billing-api</a></h2>
+                <p class="description">Client repo for Acme’s billing service. Code style, migration and review agents, the Postgres and GitHub MCP servers.</p>
+                <p class="facts meta"><span>14 items</span><span>3 auto-added</span><span>1 detached</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 2 days ago · for Claude Code</dd>
+                <dd class="meta">1 problem · 2 notes · 1 skipped</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Stale verdict: the date stays, the verdict does not, the cause is named -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a>agent-dotfiles</a><span class="tag tag-state">Shared</span></h2>
+                <p class="description">My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers.</p>
+                <p class="facts meta"><span>9 items</span><span>2 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 5 days ago · for Claude Code</dd>
+                <dd class="meta">Out of date since <code>code-style</code> was edited in My library</dd>
+                <dt>Shared</dt>
+                <dd class="meta">Anyone with the link sees it as it is now — every edit is visible to them</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Stop sharing…</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Checked with Problems: still a project that can be exported -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a>docs-site-rewrite</a></h2>
+                <p class="description">Rewriting the product docs in MDX. Writing-style prompt, link checker script, the Context7 and Playwright MCP servers.</p>
+                <p class="facts meta"><span>11 items</span><span>4 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Checked 3 weeks ago · for Cursor</dd>
+                <dd class="meta">1 problem · 1 note · 0 skipped</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- Never checked -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><a>voice-notes-pipeline</a></h2>
+                <p class="description">Transcribe voice memos, summarise them, file them into notes. Whisper as an external app, a summariser prompt, a sorting script.</p>
+                <p class="facts meta"><span>6 items</span><span>1 auto-added</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Not checked yet</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li>
+
+          <!-- The example project that ships on first run: labelled, deletable -->
+          <li>
+            <article class="card">
+              <div>
+                <h2><span class="tag tag-state">Example</span><a>repo-triage-kit</a></h2>
+                <p class="description">Built from the Public library to show what a check finds. Two items write to <code>.mcp.json</code>, and one needs <code>GITHUB_TOKEN</code>.</p>
+                <p class="facts meta"><span>7 items</span><span>2 auto-added</span><span>all from the Public library</span></p>
+              </div>
+              <dl class="verdict">
+                <dt>Last check</dt>
+                <dd>Not checked yet</dd>
+              </dl>
+              <div class="row-actions">
+                <button type="button">Duplicate</button>
+                <a class="button">Delete example…</a>
+              </div>
+            </article>
+          </li>
+
+        </ol>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

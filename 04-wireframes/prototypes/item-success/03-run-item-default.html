@@ -98,6 +98,27 @@
           <li>
             <details>
               <summary><span class="n">09</span><span class="name">SETUP.md — for the agent that opens it</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Written · 4 items</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <pre class="file"># Setup — migration-reviewer (Claude Code)
+
+Read this first and perform each step.
+
+## postgres-mcp
+- External. Clone modelcontextprotocol/servers-archived at 9be4674.
+- Needs DATABASE_URL. Ask the person for it; do not invent one.
+- Required by migration-reviewer.
+
+## db-migrate
+- Lands at scripts/db-migrate.sh, with 2 files beside it.
+- Needs DATABASE_URL.
+- Requires seed-data. Required by migration-reviewer.
+
+## seed-data
+- Lands at scripts/seed-data.sh. Required by db-migrate.
+
+## migration-reviewer
+- Lands at .claude/agents/migration-reviewer.md.</pre>
+              </div>
             </details>
           </li>
           <li>

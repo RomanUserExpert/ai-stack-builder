@@ -210,7 +210,7 @@ product *is* before anything decides what it looks like.
 | **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
-| **07** | **UI assembly** | ← **current**, from 2026-10-11. The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); what remains is every other screen and flow, generated the same way by `tools/build_mockups.py` |
+| **07** | **UI assembly** | ← **current**, from 2026-10-11. The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) |
 | **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
@@ -1738,11 +1738,13 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 **The rules that came out of it, and hold from now on:**
 - **Colour is a claim.** A new colour needs an attribute or the owner’s word in `concept.md`, and its contrast in
   `06-concept/contrast.md`, which `tools/contrast.py` measures on `tokens.css` as written. AA for text, 3:1 for a control’s
-  edge or a state mark. **88 pairs, all pass.**
+  edge or a state mark. **120 pairs, 60 per theme, all pass** (88 until phase 07's review added the pairs the kit draws).
 - **One element, one set of values**, by class, never by where it sits.
 - **A screen is drawn whole**: every state, or none.
 - **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with the same
-  markup and words; the viewer, *Wireframes and mockups*, switches between them. Only the main job is drawn so far.
+  markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 80 pages and all 239 flow steps are
+  dressed** from one stylesheet, `07-ui-assembly/ui/kit.css`, guarded by `tools/kit_check.py`. The pipeline and the rule for
+  where a change goes are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 - **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
   the prototypes, `microcopy.md` and `voice.md` together (Q38).
 - **"Оставляем" on a visual change means the kit, not the screen** (owner, 2026-10-19, lesson 07). When the owner says
@@ -1754,3 +1756,58 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 **Left on purpose:** light is one slice on the stand, the full theme is lesson 09; responsive is lesson 10; motion
 (the validation pass as a designed moment) is lesson 11.
 
+---
+
+## 16. UI assembly
+
+**Added 2026-10-19, lesson 07 (Сборка UI).** Every screen of the product is dressed in Mica · Lime as a **generated
+twin of its wireframe**: all 80 pages in [`04-wireframes/mockups/`](04-wireframes/mockups/), and all 239 steps of the 37
+clickable cases in `mockups/flows/`. The wireframes stay as they are, and the viewer's **Wireframe / Design** switch moves
+between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
+
+**One way in, so nothing drifts:**
+- **A value** goes into `tools/concept_tokens.py` → `06-concept/tokens.css`, signed in `concept.md`.
+- **How a component looks** goes into the kit: `tools/build_kit.py` (KIT_CSS) or `tools/build_mockups.py` (MOCK_CSS)
+  → [`07-ui-assembly/ui/kit.css`](07-ui-assembly/ui/kit.css), shown on [`kit.html`](07-ui-assembly/ui/kit.html) and
+  signed in [`DESIGN.md`](DESIGN.md).
+- **Structure** goes into the wireframe page, then everything is rebuilt.
+- **A word** goes into `microcopy.md` and the page together (§14).
+- **A tone the structure cannot carry** goes into `build_mockups.transform`. That covers danger, warning, the one
+  primary, state classes, the shell, mono for machine text, the state tile, and hidden section headings.
+- **A mockup is never edited by hand**, because the next build overwrites it. The *оставляем* rule in §15 is this
+  table's second row.
+
+**The guards** are `tools/kit_check.py`. They run at the end of every build and fail it on any of these:
+- a literal value in the kit's classes;
+- a `style=` or `<style>` on a screen;
+- a class the kit does not define;
+- an undeclared variable, including in `kit.html`'s own styles;
+- a `:root` that differs from `tokens.css`;
+- a page linking anything but `kit.css`;
+- two primaries on one screen;
+- a word on `kit.html` that is not in `microcopy.md`.
+
+**Three checks are re-runnable, beyond the build:**
+- `tools/kit_pixel_test.py`: goldens before a change, the same pages after;
+- `tools/audit07.py`: markup consistency per component, contrast measured in the browser on every text run, images and
+  icons, words against `microcopy.md`;
+- `tools/contrast.py`: 120 pairs, 60 per theme, all pass.
+
+**What the phase decided, in brief:**
+- **One primary per screen**, settled by the build. Ranked from first to last: an open dialog's primary, a failure
+  box's, the Item sheet's, an empty or error state's, the page head's, the item panel's, the Export stage's.
+- **Our failure is neutral**, not Problem rose. So are the keys reminder and the blast radius.
+- **A disabled control takes focus and points at its reason.**
+- **Machine text is mono.**
+- **Every state is a class**, never a guess from content.
+
+**The record:**
+- [`ui/inventory.md`](07-ui-assembly/ui/inventory.md): 41 components, plus the one-offs that need a class;
+- [`ui/critique.md`](07-ui-assembly/ui/critique.md): 55 findings;
+- [`ui/review.md`](07-ui-assembly/ui/review.md): 76 findings;
+- [`ui/audit.md`](07-ui-assembly/ui/audit.md): the final check against the kit, DESIGN.md and microcopy.md.
+
+Each finding has a disposition. Q39–Q41 were answered by the owner.
+
+**Open:** whether a shared *item* reads *Stop sharing…*, as Q37 decided for a project. **Left on purpose:** the light
+theme (lesson 09), responsive (lesson 10), motion (lesson 11).
