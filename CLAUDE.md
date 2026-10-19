@@ -999,7 +999,8 @@ which lifts the modified copy into the Library as a new item and re-links this r
 
 **A former state, "blocked because of a conflict", is gone** (2026-09-01). Nothing blocks — see
 section 6 — so no item is ever unselectable. A conflicting item reads as state 4, and the Problem
-is carried by the project, not by the card.
+is carried by the project, not by the card. **Both items of a declared conflict read as state 4** (Q41, 2026-10-19): the `Conflict` mark stands on
+the item that declares it and on the one it names; the Problem itself annotates the declaring row (§8).
 
 ---
 
@@ -1502,6 +1503,11 @@ off the door; **every page the prototypes drew first is kept into the wireframes
 `db-migrate` requires `seed-data`, one direction everywhere. *The choices were proposed with the fix, not
 picked by the owner, and the register says so.*
 
+**Added 2026-10-19, by lesson 07's critique — Q39, Q40, Q41, raised and answered the same day by the owner.** **Q39** —
+the receiver's Run keeps two bars, the shared header over the Run bar; **Q40** — a single item's Run keeps every Skipped
+stage on its own row; **Q41** — **both items of a declared conflict read as state 4** (§7), while the Problem still
+annotates the declaring row (§8). The critique itself is [`07-ui-assembly/ui/critique.md`](07-ui-assembly/ui/critique.md).
+
 **Added 2026-10-11, by lesson 06 — Q38.** **`Export` loses its ellipsis everywhere** (owner): the control, the
 configuring head, a shared project, a shared item, a Library row. Changed on every wireframe page by
 `tools/rewrite_copy.py stage7`, in the prototypes, in `microcopy.md` and `voice.md` together (§14).
@@ -1739,6 +1745,11 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
   markup and words; the viewer, *Wireframes and mockups*, switches between them. Only the main job is drawn so far.
 - **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
   the prototypes, `microcopy.md` and `voice.md` together (Q38).
+- **"Оставляем" on a visual change means the kit, not the screen** (owner, 2026-10-19, lesson 07). When the owner says
+  *оставляем* (*we keep it*) about a visual edit: update `07-ui-assembly/ui/kit.css` (values as `:root` variables) and
+  `kit.html`, sign the reason in [`DESIGN.md`](DESIGN.md), and carry the markup to **every screen where the component
+  stands**. **A fix on one screen is a desync.** The kit is built by `tools/build_kit.py` and the screens by
+  `tools/build_mockups.py`, so the change goes into those generators — never by hand into a generated page.
 
 **Left on purpose:** light is one slice on the stand, the full theme is lesson 09; responsive is lesson 10; motion
 (the validation pass as a designed moment) is lesson 11.

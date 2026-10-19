@@ -54,7 +54,7 @@
       <h2>No items in My library yet</h2>
       <p>Items you add to My library appear here. The Public library has 8 items, each pinned to the version we checked, and you can add any of them now.</p>
       <div class="state-actions">
-        <a class="button button-primary" href="project-configuring-public.html">Open Public library</a>
+        <a class="button button-primary" href="project-configuring-public.html">Show Public library</a>
         <a class="button" href="../pages/item-empty.html"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>Add item</a>
       </div>
     </section>
@@ -67,14 +67,14 @@
         <p class="meta"><a href="projects-default.html">Projects</a> /</p>
         <div class="page-head">
           <div>
-            <h1 id="page-title">stripe-webhooks<span class="tag">Configuring</span></h1>
+            <h1 id="page-title">stripe-webhooks<span class="tag tag-state">Configuring</span></h1>
             <p class="meta head-meta"><span>No items yet</span></p>
           </div>
           <div class="head-actions">
             <!-- Save is the main action here; Check is secondary, and still inert on an empty set (Q16). -->
             <a class="button button-quiet" href="project-default.html">Cancel</a>
-            <button type="button" disabled title="Add an item first"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</button>
-            <a class="button button-primary" href="project-default.html">Save</a>
+            <button type="button" aria-disabled="true" aria-describedby="export-why" title="Add an item first"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</button>
+            <a class="button" href="project-default.html">Save</a>
           </div>
         </div>
       </section>
@@ -84,7 +84,7 @@
              first. The body keeps only its text; Check stays inert until the set holds something. -->
         <div class="state-block">
           <h2>No items in this project yet</h2>
-          <p>Add items from the left. Anything they require is auto-added. Export opens once this project has an item.</p>
+          <p id="export-why">Add items from the left. Anything they require is auto-added. Export opens once this project has an item.</p>
         </div>
       </section>
 

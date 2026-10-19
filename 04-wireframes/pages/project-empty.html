@@ -151,13 +151,13 @@
         <p class="meta"><a href="projects-default.html">Projects</a> /</p>
         <div class="page-head">
           <div>
-            <h1 id="page-title">stripe-webhooks<span class="tag">Configuring</span></h1>
+            <h1 id="page-title">stripe-webhooks<span class="tag tag-state">Configuring</span></h1>
             <p class="meta head-meta"><span>Created just now · no items yet</span></p>
           </div>
           <div class="head-actions">
             <!-- Save is the main action here; Check is secondary, and still inert on an empty set (Q16). -->
             <a class="button button-quiet" href="project-default.html">Cancel</a>
-            <button type="button" disabled title="Add an item first"><span class="icon" aria-hidden="true"></span>Export</button>
+            <button type="button" aria-disabled="true" aria-describedby="export-why" title="Add an item first"><span class="icon" aria-hidden="true"></span>Export</button>
             <a class="button button-primary" href="project-default.html">Save</a>
           </div>
         </div>
@@ -168,7 +168,7 @@
              first. The body keeps only its text; Check stays inert until the set holds something. -->
         <div class="state-block">
           <h2>No items in this project yet</h2>
-          <p>Add items from the left. Anything they require is auto-added. Export opens once this project has an item.</p>
+          <p id="export-why">Add items from the left. Anything they require is auto-added. Export opens once this project has an item.</p>
         </div>
       </section>
 

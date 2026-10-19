@@ -261,11 +261,11 @@ def run_success(variant, case, title, back, target="Claude Code"):
     s = run_page("run-success.html", variant, case, title, target)
     files = int(re.search(r"(\d+) files for " + target, s).group(1))
     verdict = "1 problem · 2 notes · 1 skipped" if variant == "orig" else "0 problems · 2 notes · 1 skipped"
-    s = must(s, "18 files · 41 KB · saved to Downloads. Checked just now · 1 problem · 2 notes · 1 skipped.",
-             f"{files} files · {files * 2 + 5} KB · saved to Downloads. Checked just now · {verdict}.")
+    s = must(s, "18 files · 41 KB. Checked just now · 1 problem · 2 notes · 1 skipped.",
+             f"{files} files · {files * 2 + 5} KB. Checked just now · {verdict}.")
     s = s.replace("acme-billing-api-claude-code.zip", "acme-billing-api-" + target.lower().replace(" ", "-") + ".zip")
     s = inert(s)
-    return live(s, '<a class="button button-primary">Back to acme-billing-api</a>', back)
+    return live(s, '<a class="button">Back to acme-billing-api</a>', back)
 
 
 def run_loading(variant, case, title, nxt, target="Claude Code", heading=None):
@@ -380,14 +380,17 @@ def configuring_new(case, title, name, meta, panel_html, set_html, scope="My lib
     scope_nav = f'<nav class="scope" aria-label="Scope"><a href="#"{" aria-current=\"page\"" if scope == "My library" else ""}>My library</a><a href="#"{" aria-current=\"page\"" if scope == "Public library" else ""}>Public library</a></nav>'
     s = re.sub(r'<nav class="scope".*?</nav>', scope_nav, s, count=1)
     if scope == "Public library":   # the placeholder project-configuring-public.html carries
-        s = must(s, 'placeholder="Search My library — migrate, GITHUB_TOKEN, review"', 'placeholder="Search Public library — filesystem, playwright, anthropics"')
+        s = must(s, 'placeholder="Search My library — migrate, GITHUB_TOKEN, review"', 'placeholder="Search Public library — filesystem, playwright"')
     s = re.sub(r'(<div class="panel-body">).*?(\n      </div>\n    </aside>)', lambda m: m.group(1) + "\n        " + panel_html + m.group(2), s, count=1, flags=re.S)
     s = s.replace("<h1 id=\"page-title\">stripe-webhooks", f"<h1 id=\"page-title\">{name}")
     s = must(s, '<p class="meta head-meta"><span>No items yet</span></p>', f'<p class="meta head-meta"><span>{meta}</span></p>')
     if set_html is not None:
         s = re.sub(r'<section aria-label="Items in this project">.*?</section>', '<section aria-label="Items in this project">\n      <ol class="row-list">\n' + set_html + '        </ol>\n      </section>', s, count=1, flags=re.S)
     if check_live:
-        s = must(s, f'<button type="button" disabled title="Add an item first">{ICON}Export</button>', f'<a class="button" href="run-loading.html">{ICON}Export</a>')
+        # the inert Export takes focus and points at its reason since phase 07 (critique #13)
+        s, n = re.subn(r'<button type="button" aria-disabled="true"[^>]*title="Add an item first">' + re.escape(ICON) + 'Export</button>',
+                       f'<a class="button" href="run-loading.html">{ICON}Export</a>', s, count=1)
+        assert n == 1, "missing: the inert Export"
     return titled(s, title, case)
 
 
@@ -449,7 +452,7 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
         exp = f'''<!-- Success: the archive is built and in hand. Checked, never works (§6). -->
       <section class="export-stage" aria-labelledby="export-title">
         <h2 id="export-title">Exported — {spec["zip"]}</h2>
-        <p>{spec["files"]} files · {spec["files"] * 2 + 3} KB · saved to Downloads. Checked just now · {spec["verdict"]}.</p>
+        <p>{spec["files"]} files · {spec["files"] * 2 + 3} KB. Checked just now · {spec["verdict"]}.</p>
         <div>
           <p><strong>The receiving machine still needs</strong></p>
           <ul class="plain-list">
@@ -457,7 +460,7 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
           </ul>
         </div>
         <div class="export-actions">
-          <a class="button button-primary">Back to {spec["name"]}</a>
+          <a class="button">Back to {spec["name"]}</a>
           <button type="button">Download again</button>
           <button type="button">Share…</button>
         </div>
@@ -495,7 +498,7 @@ def run_generic(spec, case, title, mode, nxt=None, back=None):
     if mode in ("loading", "building"):
         s = wait(s, nxt)
     if mode == "success":
-        s = live(s, f'<a class="button button-primary">Back to {spec["name"]}</a>', back)
+        s = live(s, f'<a class="button">Back to {spec["name"]}</a>', back)
     return s
 
 
@@ -781,7 +784,7 @@ def _():
     c = "main-first-run"
     pages = {P(c, 1, "projects-default"): projects(c, "01 · Projects, only the example", only_example=True, new_to=P(c, 2, "project-configuring-empty"))}
     s = titled(inert(read("project-configuring-empty.html")), "02 · Project, just created — My library empty on first run", c)
-    pages[P(c, 2, "project-configuring-empty")] = live(s, '<a class="button button-primary">Open Public library</a>', P(c, 3, "project-configuring-public"))
+    pages[P(c, 2, "project-configuring-empty")] = live(s, '<a class="button button-primary">Show Public library</a>', P(c, 3, "project-configuring-public"))
     O = -1  # every later step is one earlier than before
     shelf_lines = {"playwright-mcp": "Required by <code>webapp-testing</code>"}
     s = configuring_new(c, "03 · Configuring, the Public library", "stripe-webhooks", "No items yet", panel_rows(PUBLIC_LIBRARY, set()), None, scope="Public library")

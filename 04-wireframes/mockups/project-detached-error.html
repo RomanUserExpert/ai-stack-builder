@@ -56,7 +56,7 @@
                 <h3><a href="project-configuring-item.html">db-migrate</a><span class="tag">script</span></h3>
                 <p class="state-line">Required by <code>migration-reviewer</code></p>
               </div>
-              <label class="check" aria-label="db-migrate, in this project"><input type="checkbox" checked> In this project</label>
+              <label class="check" aria-label="db-migrate, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label>
             </article>
           </li>
           <li>
@@ -65,7 +65,7 @@
                 <h3><a href="project-configuring-item.html">postgres-mcp</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Required by <code>migration-reviewer</code></p>
               </div>
-              <label class="check" aria-label="postgres-mcp, in this project"><input type="checkbox" checked> In this project</label>
+              <label class="check" aria-label="postgres-mcp, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label>
             </article>
           </li>
           <li>
@@ -74,7 +74,7 @@
                 <h3><a href="project-configuring-item.html">seed-data</a><span class="tag">script</span></h3>
                 <p class="state-line">Required by <code>db-migrate</code></p>
               </div>
-              <label class="check" aria-label="seed-data, in this project"><input type="checkbox" checked> In this project</label>
+              <label class="check" aria-label="seed-data, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label>
             </article>
           </li>
           <li>
@@ -114,14 +114,14 @@
         <p class="meta"><a href="projects-default.html">Projects</a> /</p>
         <div class="page-head">
           <div>
-            <h1 id="page-title">acme-billing-api<span class="tag">Configuring</span></h1>
+            <h1 id="page-title">acme-billing-api<span class="tag tag-state">Configuring</span></h1>
             <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
           </div>
           <div class="head-actions">
             <!-- Save is the main action here; Check is secondary (owner, 2026-09-26). -->
             <a class="button button-quiet" href="project-default.html">Cancel</a>
             <a class="button" href="run-loading.html"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
-            <a class="button button-primary" href="project-default.html">Save</a>
+            <a class="button" href="project-default.html">Save</a>
           </div>
         </div>
       </section>
@@ -134,7 +134,7 @@
           <li>
             <article class="row row-tight set-item">
               <div>
-                <h3><a href="project-configuring-item.html">code-style</a><span class="tag">skill</span></h3>
+                <h3><a href="project-configuring-item.html">code-style</a><span class="tag">skill</span><span class="tag tag-state tag-problem">Conflict</span></h3>
                 <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
                 <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
               </div>
@@ -217,7 +217,7 @@
               <div>
                 <h3><a href="project-detached-default.html">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
                 <p class="description">Reviews Acme pull requests against their billing rules.</p>
-                <p class="facts meta"><span>differs from the original in <em>content</em> and <em>lands at</em></span></p>
+                <p class="facts meta"><span>differs from the original in <em>Content</em> and <em>Lands at</em></span></p>
               </div>
               <p class="marks"></p>
               <div class="row-actions"><button type="button" class="remove" aria-label="Remove pr-reviewer from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div>
@@ -301,16 +301,16 @@
           </div>
           <p class="meta">Edited for this project only. The original in My library, and the other project that uses <code>pr-reviewer</code>, don’t get these changes.</p>
           <!-- Error: Promote is the one immediate action here — it creates a library item — and it did not land. -->
-          <div class="callout" role="alert">
+          <div class="callout callout-failure" role="alert">
             <span class="severity">Promote didn’t land</span>
             <span>Our server didn’t confirm it, so there is no new item in My library and this row is still detached. Your edits below are untouched.</span>
-            <span class="meta">503 · Service unavailable · 14:02</span>
+            <span class="meta error-code">503 · Service unavailable · 14:02</span>
             <div class="row-actions"><button type="button" class="button-primary">Promote again</button><button type="button">Close</button></div>
           </div>
 
           <section class="drawer-section" aria-labelledby="d-diff">
             <h3 id="d-diff">2 fields differ from the original</h3>
-            <label class="field"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
+            <label class="field field-mono"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
             <p class="meta">Original: <code>.claude/agents/pr-reviewer.md</code> · <button type="button" class="link-button">Reset this field</button></p>
             <label class="field"><span>Content</span><textarea>---
 name: pr-reviewer

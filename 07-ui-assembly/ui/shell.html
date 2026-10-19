@@ -22,8 +22,8 @@
 .kit-comp-head h3{font:var(--t-heading);letter-spacing:var(--track-heading)}
 .kit-meta{font:var(--t-micro);font-weight:400;color:var(--text-3)}
 .kit-meta code{background:none;padding:0;color:var(--text-2)}
-.kit-painted{color:var(--text-2)}
-.kit-grey{color:var(--note)}
+.kit-status{color:var(--text-2)}
+.kit-grey{color:var(--text-3);font-style:italic}
 .kit-state{display:grid;grid-template-columns:var(--col-m) minmax(0,1fr);gap:var(--s2) var(--s6);align-items:start}
 .kit-label{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .kit-note{grid-column:1;font:var(--t-micro);font-weight:400;color:var(--text-3)}
@@ -42,7 +42,7 @@
 .kit-clip{max-height:calc(var(--s12) * 8);overflow:hidden;border-radius:var(--r-lg)}
 .kit-stage{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--ground);border:var(--hairline) solid var(--line)}
 .kit-stage dialog.modal{position:relative;top:auto;margin:var(--s8) auto}
-.kit-stage:has(.popover){min-height:calc(var(--s12) * 14)}
+.kit-stage:has(.popover){min-height:calc(var(--s12) * 15);max-width:calc(var(--col-xl) + var(--s12) * 4)}
 .kit-find{position:absolute;top:var(--s6);right:var(--s6);display:flex;justify-content:flex-end}
 .kit-find dialog.popover{position:absolute}
 .kit-demo .door{margin:0;width:calc(var(--side-w) - var(--s10))}
@@ -54,7 +54,7 @@
 <body class="product-page kit-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7" />
   <path d="M19 12H5" /></symbol></svg>
-<header class="kit-top"><strong>Shell</strong><nav><a href="#app-header">App header</a><a href="#shared-header-door">Shared header — door</a><a href="#shared-header-receiver">Shared header — receiver</a><a href="#run-bar">Run bar</a><a href="../pages/kit.html">Kit</a></nav><span class="kit-meta">07 · UI assembly</span></header>
+<header class="kit-top"><strong>Shell</strong><nav><a href="#app-header">App header</a><a href="#shared-header-door">Shared header — door</a><a href="#shared-header-receiver">Shared header — receiver</a><a href="#run-bar">Run bar</a><a href="kit.html">Kit</a></nav><span class="kit-meta">07 · UI assembly</span></header>
 <main class="kit-body"><div class="kit-intro"><h1>Shell</h1><p>The frame every screen sits in, as markup: a <code>.canvas</code>, one of these headers, and <code>&lt;main class="app-main"&gt;</code> for the screen. Grey screens take their frame from here.</p></div><div class="kit-shell"><section id="app-header"><p class="kit-label">App header</p><p class="kit-note">The owner's places: My library · Public library · Projects. Put aria-current="page" on the current one.</p><div class="canvas">
 <header class="app-header">
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>

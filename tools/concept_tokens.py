@@ -77,7 +77,7 @@ MATERIAL = [
     ("acrylic-blur", "blur(28px) saturate(140%)", "what the acrylic does to the place behind"),
     ("acrylic-edge", "rgba(255,255,255,.12)", "the frame’s edge"),
     ("sheet-edge", "rgba(255,255,255,.05)", "an opaque sheet inside the frame"),
-    ("veil", "rgba(10,11,9,.42)", "the place behind a mode, dimmed"),
+    ("veil", "rgba(10,11,9,.58)", "the place behind a mode or a dialog, dimmed — .42 until phase 07: the critique found it barely separated"),
     ("veil-dialog", "rgba(10,11,9,.30)", "a mode behind a dialog, dimmed"),
     ("problem-wash", "color-mix(in srgb, var(--problem) 14%, transparent)", "a Problem tag’s fill"),
     ("note-wash", "color-mix(in srgb, var(--note) 13%, transparent)", "a Note tag’s fill"),
@@ -88,8 +88,10 @@ MATERIAL = [
     ("hover-wash", "color-mix(in srgb, var(--raised) 60%, transparent)", "a place in the top bar under the pointer"),
     ("row-hover", "color-mix(in srgb, var(--raised) 50%, var(--cutout))", "a row under the pointer — opaque, half a step up"),
     ("lime-selection", "color-mix(in srgb, var(--lime) 35%, transparent)", "selected text"),
+    ("segment-hover", "color-mix(in srgb, var(--raised) 55%, var(--well-deep))", "a segment under the pointer, on its recessed track — phase 07"),
+    ("on-lime-track", "color-mix(in srgb, var(--on-lime) 25%, transparent)", "a spinner’s track on a lime button — phase 07"),
 ]
-SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", "a button, a field"), ("tag-h", "20px", "a kind tag"), ("mark-h", "24px", "a finding tag"),
+SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", "a button, a field"), ("control-h-s", "28px", "a control inside a panel or a track: a tab, a segment, Add — phase 07"), ("tag-h", "20px", "a kind tag"), ("mark-h", "24px", "a finding tag"),
         ("bar-h", "52px", "the top bar"), ("icon", "16px", "an icon in a control"), ("icon-s", "14px", "an icon in a tag"),
         ("icon-l", "20px", "an icon shown alone"), ("panel-w", "384px", "the item panel"), ("pill-w", "3px", "the active row’s lime pill"),
         ("dot", "6px", "the Checked dot"), ("dt-w", "116px", "a fact’s label column"), ("stage-name-w", "300px", "a stage’s name column — wide enough for SETUP.md’s two-line name"),
@@ -98,7 +100,8 @@ SIZE = [("hairline", "1px", "every line, edge and rule"), ("control-h", "32px", 
         ("col-m", "200px", "a row’s actions column"), ("col-l", "320px", "a row’s middle column"), ("col-xl", "360px", "an aside"),
         ("side-w", "440px", "the library sidebar, the item drawer"), ("sheet-w", "640px", "a side sheet"),
         ("modal-w", "520px", "a dialog"), ("measure", "640px", "a readable line of prose"),
-        ("measure-wide", "820px", "a lead paragraph on the stand")]
+        ("measure-wide", "820px", "a lead paragraph on the stand"),
+        ("z-sticky", "1", "a sticky head above its own list — phase 07"), ("z-popover", "5", "a popover above the page — phase 07")]
 FONTS = [("font", '"Geist", system-ui, sans-serif'), ("mono", '"Geist Mono", ui-monospace, monospace')]
 MOTION = [("ease", "cubic-bezier(.2,.7,.2,1)"), ("dur", "140ms"), ("dur-spin", "900ms"), ("dur-shimmer", "1400ms")]
 TRACK = [("track-display", "-.018em"), ("track-title", "-.012em"), ("track-heading", "-.008em"), ("track-label", ".06em")]

@@ -63,14 +63,14 @@
               </div>
             </details>
           </li>
-          <li>
-            <details>
-              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
+          <li class="is-skipped">
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
             </details>
           </li>
           <li>
-            <details>
-              <summary><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.2 s</span></summary>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.2 s</span></summary>
             </details>
           </li>
           <li>
@@ -96,8 +96,8 @@
             </details>
           </li>
           <li>
-            <details>
-              <summary><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.4 s</span></summary>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.4 s</span></summary>
             </details>
           </li>
         </ol>
@@ -160,7 +160,7 @@ SENTRY_AUTH_TOKEN=</pre>
       <!-- Export is the final stage, always live (§6). With a Problem in the set it is confirmed here, in the row
            below the finding, naming the cost in the present tense — never a modal, never a disabled button. -->
       <section class="export-stage" aria-labelledby="export-title">
-        <h2 id="export-title">11 · Export</h2>
+        <h2 id="export-title"><span class="n">11 ·</span> Export</h2>
         <p><strong>1 problem is still in this project.</strong> The archive will contain both <code>eslint-autofix</code> and <code>code-style</code>, and the agent will get two rules that disagree about imports.</p>
         <div class="export-actions">
           <a class="button button-primary button-warning" href="run-loading-export.html"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export with 1 problem</a>

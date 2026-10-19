@@ -303,7 +303,7 @@ def _():
     ])
 
 
-RESET_PAIRS = [("differs from the original in <em>content</em> and <em>lands at</em>", "<code>.claude/agents/pr-reviewer.md</code> · back to the original")]
+RESET_PAIRS = [("differs from the original in <em>Content</em> and <em>Lands at</em>", "<code>.claude/agents/pr-reviewer.md</code> · back to the original")]
 
 
 def pr_linked(s):
@@ -349,7 +349,7 @@ PROMOTE_MODAL = '''
 def promoted(s):
     s = must(s, '<a href="project-detached-default.html">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span>',
              '<a href="project-detached-default.html">acme-pr-reviewer</a><span class="tag">agent</span>')
-    return must(s, "differs from the original in <em>content</em> and <em>lands at</em>", "<code>.claude/agents/acme-pr-reviewer.md</code> · promoted to My library just now")
+    return must(s, "differs from the original in <em>Content</em> and <em>Lands at</em>", "<code>.claude/agents/acme-pr-reviewer.md</code> · promoted to My library just now")
 
 
 def promote_steps(c, fail):

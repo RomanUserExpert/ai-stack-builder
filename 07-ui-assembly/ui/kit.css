@@ -65,33 +65,29 @@
   --r-sm: 6px;
   --r-md: 10px;
   --r-lg: 14px;
-  --r-xl: 18px;
   --r-pill: 999px;
   /* size */
   --hairline: 1px;  /* every line, edge and rule */
   --control-h: 32px;  /* a button, a field */
+  --control-h-s: 28px;  /* a control inside a panel or a track: a tab, a segment, Add — phase 07 */
   --tag-h: 20px;  /* a kind tag */
   --mark-h: 24px;  /* a finding tag */
   --bar-h: 52px;  /* the top bar */
   --icon: 16px;  /* an icon in a control */
   --icon-s: 14px;  /* an icon in a tag */
   --icon-l: 20px;  /* an icon shown alone */
-  --panel-w: 384px;  /* the item panel */
   --pill-w: 3px;  /* the active row’s lime pill */
   --dot: 6px;  /* the Checked dot */
   --dt-w: 116px;  /* a fact’s label column */
   --stage-name-w: 300px;  /* a stage’s name column — wide enough for SETUP.md’s two-line name */
-  --canvas: 1280px;  /* the width a screen is drawn at on the stand */
-  --col-xs: 96px;  /* a narrow column: a finding beside a row */
-  --col-s: 160px;  /* a row’s usage column */
   --col-m: 200px;  /* a row’s actions column */
   --col-l: 320px;  /* a row’s middle column */
   --col-xl: 360px;  /* an aside */
   --side-w: 440px;  /* the library sidebar, the item drawer */
-  --sheet-w: 640px;  /* a side sheet */
   --modal-w: 520px;  /* a dialog */
   --measure: 640px;  /* a readable line of prose */
-  --measure-wide: 820px;  /* a lead paragraph on the stand */
+  --z-sticky: 1;  /* a sticky head above its own list — phase 07 */
+  --z-popover: 5;  /* a popover above the page — phase 07 */
   /* icons CSS draws as a mask */
   --icon-add: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14' /%3E %3Cpath d='M12 5v14' /%3E%3C/svg%3E");  /* a row you can add to the set */
   --icon-added: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5' /%3E%3C/svg%3E");  /* a row already in the set */
@@ -109,13 +105,9 @@
   --shadow-sheet: 0 18px 40px rgba(0,0,0,.35);  /* a dialog over a mode */
   --shadow-focus: 0 0 0 2px var(--ground), 0 0 0 4px var(--lime);  /* keyboard focus — 2 px lime with a gap */
   /* material and washes */
-  --acrylic: color-mix(in srgb, var(--lime) 7%, rgba(62,64,58,.42));  /* acrylic: the frame of the Export mode */
   --acrylic-dialog: color-mix(in srgb, var(--lime) 7%, rgba(70,72,66,.45));  /* acrylic: the frame of a dialog */
-  --acrylic-blur: blur(28px) saturate(140%);  /* what the acrylic does to the place behind */
-  --acrylic-edge: rgba(255,255,255,.12);  /* the frame’s edge */
   --sheet-edge: rgba(255,255,255,.05);  /* an opaque sheet inside the frame */
-  --veil: rgba(10,11,9,.42);  /* the place behind a mode, dimmed */
-  --veil-dialog: rgba(10,11,9,.30);  /* a mode behind a dialog, dimmed */
+  --veil: rgba(10,11,9,.58);  /* the place behind a mode or a dialog, dimmed — .42 until phase 07: the critique found it barely separated */
   --problem-wash: color-mix(in srgb, var(--problem) 14%, transparent);  /* a Problem tag’s fill */
   --note-wash: color-mix(in srgb, var(--note) 13%, transparent);  /* a Note tag’s fill */
   --problem-edge: color-mix(in srgb, var(--problem) 38%, transparent);  /* a Problem box’s and the muted remove’s edge */
@@ -125,6 +117,8 @@
   --hover-wash: color-mix(in srgb, var(--raised) 60%, transparent);  /* a place in the top bar under the pointer */
   --row-hover: color-mix(in srgb, var(--raised) 50%, var(--cutout));  /* a row under the pointer — opaque, half a step up */
   --lime-selection: color-mix(in srgb, var(--lime) 35%, transparent);  /* selected text */
+  --segment-hover: color-mix(in srgb, var(--raised) 55%, var(--well-deep));  /* a segment under the pointer, on its recessed track — phase 07 */
+  --on-lime-track: color-mix(in srgb, var(--on-lime) 25%, transparent);  /* a spinner’s track on a lime button — phase 07 */
 }
 
 /* ===== painted: as in 04-wireframes/mockups (tools/build_mockups.py) ===== */
@@ -165,14 +159,12 @@ button:focus-visible,.button:focus-visible,a:focus-visible{outline:0;box-shadow:
 .button-primary{background:var(--lime);border-color:var(--lime);color:var(--on-lime);font-weight:600}
 .button-primary svg.icon{color:var(--on-lime)}
 .button-primary:hover{background:var(--lime-hover);border-color:var(--lime-hover)}
-.canvas:has(.state-block .button-primary) .page-head .button-primary{background:var(--control);border-color:var(--line-strong);color:var(--text);font-weight:500}
-.canvas:has(.state-block .button-primary) .page-head .button-primary svg.icon{color:var(--text-2)}
 .button-quiet{background:transparent;border-color:transparent;color:var(--text-2)}
 .button-danger{background:var(--danger);border-color:var(--danger);color:var(--on-danger)}
 .button-danger:hover{background:var(--danger-hover);border-color:var(--danger-hover)}
 .button-danger svg.icon{color:var(--on-danger)}
-button[disabled],.button[aria-disabled="true"]{background:var(--control);border-color:var(--line);color:var(--text-3);cursor:not-allowed}
-button[disabled] svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--text-3)}
+button[disabled],button[aria-disabled="true"]:not([aria-busy]),.button[aria-disabled="true"]{background:var(--control);border-color:var(--line);color:var(--text-3);cursor:not-allowed}
+button[disabled] svg.icon,button[aria-disabled="true"]:not([aria-busy]) svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--text-3)}
 .link-button{height:auto;padding:var(--s1) var(--s2);margin:calc(var(--s1) * -1) calc(var(--s2) * -1);border:0;background:none;color:var(--text-2);font:var(--t-small);text-decoration:underline}
 
 /* --- tags and findings --- */
@@ -187,14 +179,16 @@ button[disabled] svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--tex
 .glyph{display:inline-block;width:var(--icon-s);height:var(--icon-s);flex:none;margin-right:var(--s1);vertical-align:calc(var(--s1) * -0.5)}
 svg.glyph-problem{color:var(--problem)} svg.glyph-note{color:var(--note)} svg.glyph-skipped{color:var(--skipped)}
 span.glyph-checked{width:var(--dot);height:var(--dot);margin:0 var(--s2) 0 var(--s1);border-radius:var(--r-pill);background:var(--checked);vertical-align:calc(var(--hairline) * 1)}
-span.glyph-waiting{border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
-span.glyph-running{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
+span.glyph-waiting{border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--control-edge)}
+/* one spinner: the stage glyph and the export status draw the same ring (critique #38) */
+span.glyph-running,.export-stage [role="status"]::before{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
 @keyframes mk-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){span.glyph-running,.export-stage [role="status"]::before{animation:none}*{transition:none!important}}
 .severity{display:inline-flex;align-items:center;gap:var(--s1);font:var(--t-small);font-weight:600}
 
 /* --- the app's frame --- */
-.app-header{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
+/* the three bars share one shape (critique #38) */
+.app-header,.shared-header,.run-bar{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .app-header .product,.shared-header .product{display:flex;align-items:center;gap:var(--s2);font:var(--t-body);font-weight:600}
 .app-nav ul{display:flex;gap:calc(var(--s1) / 2)}
 .app-nav a{display:flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button)}
@@ -203,7 +197,6 @@ span.glyph-running{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) 
 .app-nav a:focus-visible,.app-nav a[aria-current="page"]:focus-visible,select:focus-visible,.stages summary:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .app-header .account,.shared-header .owner{margin-left:auto;display:flex;align-items:center;gap:var(--s2);font:var(--t-small);color:var(--text-2)}
 img.avatar{width:var(--mark-h);height:var(--mark-h);border-radius:var(--r-pill);object-fit:cover;box-shadow:0 0 0 var(--hairline) var(--line)}
-.shared-header{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .app-main{padding:var(--s8);display:flex;flex-direction:column;gap:var(--s6)}
 
 /* --- page head --- */
@@ -222,10 +215,10 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 /* --- find --- */
 .find{display:flex;gap:var(--s4);align-items:center}
 .search{flex:1;max-width:calc(var(--measure) - var(--s12) * 3);display:flex;gap:var(--s2);align-items:center;height:var(--control-h);padding:0 var(--s3);
-  background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);color:var(--text-3)}
+  background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);color:var(--text-3)}
 .search input{flex:1;align-self:stretch;border:0;padding:0;font:var(--t-small);color:var(--text);background:transparent;outline:0}
 .search input::placeholder{color:var(--text-3)}
-.search:hover{border-color:var(--control-edge)}
+.search:hover{border-color:var(--text-3)}
 .search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
 .filters-button{margin-left:auto}
 
@@ -278,11 +271,10 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 
 /* --- the item beside the list --- */
 .with-drawer{display:grid;grid-template-columns:minmax(0,1fr) var(--side-w);gap:var(--s5);align-items:start}
-.with-drawer .set-item .row-actions{display:none}
 .drawer{position:sticky;top:var(--s4);display:flex;flex-direction:column;gap:var(--s4);padding:var(--s5);background:var(--raised);border:var(--hairline) solid var(--line);border-radius:var(--r-lg)}
 .drawer-head{display:flex;gap:var(--s3);align-items:flex-start}
 .drawer-head h2{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;font:var(--t-heading);letter-spacing:var(--track-heading)}
-.drawer-head .close{margin-left:auto;width:var(--control-h);padding:0}
+.drawer-head .close,.sheet-head .close{margin-left:auto;width:var(--control-h);padding:0}
 .drawer-section{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4);border-top:var(--hairline) solid var(--line)}
 .drawer-section h3{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .drawer-section p{font:var(--t-small);color:var(--text-2)}
@@ -308,27 +300,32 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 pre.file{margin:0;padding:var(--s3) var(--s4);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-md);font:var(--t-code);color:var(--text);white-space:pre;overflow-x:auto}
 
 /* --- Run: the mode that takes the screen --- */
-.run-bar{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .run-bar .back{display:flex;gap:var(--s2);align-items:center;height:var(--control-h);color:var(--text-2);text-decoration:none;font:var(--t-button)}
 .run-bar .back:hover{color:var(--text)}
 .run-bar .title{font:var(--t-body);font-weight:600}
 .run-bar .pick{margin-left:auto;display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text-2);text-decoration:none}
-select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:var(--text);background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);cursor:pointer;transition:background var(--dur) var(--ease)}
+select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:var(--text);background:var(--control);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);cursor:pointer;transition:background var(--dur) var(--ease)}
 select:hover{background:var(--control-hover)}
 .summary{display:flex;gap:var(--s2) var(--s6);align-items:baseline;flex-wrap:wrap}
 .summary h1{font:var(--t-title);letter-spacing:var(--track-title)}
 .summary p{font:var(--t-small);color:var(--text-2)}
 .summary p strong{color:var(--text)}
-.summary:has(> p:nth-of-type(3)){flex-direction:column;align-items:flex-start;gap:var(--s1)}
-.summary:has(h1[role="alert"]) p.meta:nth-of-type(2),.export-stage[role="alert"] .meta{font:var(--t-code);color:var(--text-3)}
+.summary.is-failed{flex-direction:column;align-items:flex-start;gap:var(--s1)}
+/* an error code, wherever it stands: machine text, mono (critique #15) */
+:is(p,span).meta.error-code{font:var(--t-code);color:var(--text-3)}
 .stage-group{display:flex;flex-direction:column;gap:var(--s2)}
 .stage-group>h2{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .stages{display:flex;flex-direction:column;gap:var(--s2)}
 .stages>li{background:var(--cutout);border-radius:var(--r-md);box-shadow:inset 0 0 0 var(--hairline) var(--line)}
-.stages>li:has(.glyph-skipped){background:transparent;box-shadow:none;outline:var(--hairline) dashed var(--line-strong);outline-offset:calc(var(--hairline) * -1)}
-.stages summary{display:grid;grid-template-columns:var(--s6) var(--stage-name-w) minmax(0,1fr) var(--s12);gap:var(--s3);align-items:center;
+.stages>li.is-skipped{background:transparent;box-shadow:none;outline:var(--hairline) dashed var(--control-edge);outline-offset:calc(var(--hairline) * -1)}
+.stages summary{display:grid;grid-template-columns:var(--s6) var(--stage-name-w) minmax(0,1fr) var(--s12) var(--icon);border-radius:var(--r-md);transition:background var(--dur) var(--ease);gap:var(--s3);align-items:center;
   min-height:calc(var(--s10) + var(--s1));padding:var(--s2) var(--s4);cursor:pointer;list-style:none}
 .stages summary::-webkit-details-marker{display:none}
+.stages summary::after{content:"";width:var(--icon);height:var(--icon);background:var(--text-3);-webkit-mask:var(--icon-chevron) center / contain no-repeat;mask:var(--icon-chevron) center / contain no-repeat;transition:transform var(--dur) var(--ease)}
+.stages details[open]>summary::after{transform:rotate(90deg)}
+.stages details:not(.stage-empty)>summary:hover{background:var(--row-hover)}
+.stages .stage-empty>summary{cursor:default}
+.stages .stage-empty>summary::after{visibility:hidden}
 .stages summary .n{font:var(--t-code);color:var(--text-3);font-variant-numeric:tabular-nums}
 .stages summary .name{font:var(--t-body);font-weight:600}
 .stages summary .result{display:flex;align-items:center;font:var(--t-small);color:var(--text-2)}
@@ -340,15 +337,15 @@ select:hover{background:var(--control-hover)}
 .stages .waiting summary .name{font-weight:400;color:var(--text-3)}
 .export-stage{display:flex;flex-direction:column;gap:var(--s3);padding:var(--s5);background:var(--raised);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-lg)}
 .export-stage h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
-.export-stage:has(.plain-list){position:relative;padding-left:calc(var(--s5) + var(--s2));border-color:var(--line-strong)}
-.export-stage:has(.plain-list)::before{content:"";position:absolute;left:var(--s2);top:var(--s5);bottom:var(--s5);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}
-.export-stage:has(.plain-list) h2{font:var(--t-title);letter-spacing:var(--track-title)}
-.export-stage:has(.plain-list)>div:not(.export-actions){margin-top:var(--s2)}
-.export-stage:has(.plain-list)>div>p{margin-bottom:var(--s2)}
-.export-stage[role="alert"]{background:var(--problem-box);border-color:var(--problem-edge)}
+.export-stage.is-exported{position:relative;padding-left:calc(var(--s5) + var(--s2));border-color:var(--line-strong)}
+.export-stage.is-exported::before{content:"";position:absolute;left:var(--s2);top:var(--s5);bottom:var(--s5);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}
+.export-stage.is-exported h2{font:var(--t-title);letter-spacing:var(--track-title)}
+.export-stage.is-exported>div:not(.export-actions){margin-top:var(--s2)}
+.export-stage.is-exported>div>p{margin-bottom:var(--s2)}
+.export-stage.is-failed{background:var(--raised);border-color:var(--line-strong)}
 .export-stage[role="alert"] h2{color:var(--text)}
 .export-stage [role="status"]{display:flex;align-items:center;gap:var(--s2)}
-.export-stage [role="status"]::before{content:"";width:var(--icon-s);height:var(--icon-s);border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
+.export-stage [role="status"]::before{content:"";width:var(--icon-s);height:var(--icon-s)}
 .export-stage p{font:var(--t-small);color:var(--text-2)}
 .export-stage p strong{color:var(--text)}
 .export-actions{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap}
@@ -356,13 +353,12 @@ select:hover{background:var(--control-hover)}
 .plain-list li::before{content:"– ";color:var(--text-3)}
 
 /* --- empty, error, loading --- */
-.state-block{display:flex;flex-direction:column;align-items:center;gap:var(--s3);padding:var(--s12) var(--s8);text-align:center;background:var(--tray);border-radius:var(--r-lg)}
+.state-block{position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--s3);padding:var(--s12) var(--s8);text-align:center;background:var(--tray);border-radius:var(--r-lg)}
 .state-block h2{font:var(--t-title);letter-spacing:var(--track-title)}
 .state-block p{max-width:var(--modal-w);font:var(--t-body);color:var(--text-2)}
 .state-block .meta{font:var(--t-code);color:var(--text-3)}
 .state-block strong{color:var(--text)}
 /* one tile for every empty and error state (owner, 2026-10-11): neutral, the same size, the icon in --text-2 */
-.state-block{position:relative}
 .state-image{display:grid;place-items:center;width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
 .state-image svg.icon{width:var(--icon-l);height:var(--icon-l)}
 .state-block:not(:has(.state-icon,.state-image))::before{content:"";width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control)}
@@ -382,7 +378,7 @@ svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:cal
 .library-sidebar{background:var(--bar);border-right:var(--hairline) solid var(--line)}
 .panel{display:flex;flex-direction:column}
 .panel-head{padding:var(--s6) var(--s6) var(--s4);display:flex;flex-direction:column;gap:var(--s3)}
-.library-sidebar .panel-head{position:sticky;top:0;background:var(--bar);z-index:1}
+.library-sidebar .panel-head{position:sticky;top:0;background:var(--bar);z-index:var(--z-sticky)}
 .panel-body{padding:0 var(--s6) var(--s6)}
 .panel h2{font:var(--t-heading)}
 .panel .search{max-width:none;flex:none}
@@ -391,14 +387,13 @@ svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:cal
 /* a segmented control is not the top bar: it has a track, and the current segment is lifted out of it */
 .scope{display:flex;gap:calc(var(--s1) / 2);padding:calc(var(--s1) - var(--hairline));background:var(--well-deep);border-radius:calc(var(--r-sm) + var(--s1));
   box-shadow:inset 0 0 0 var(--hairline) var(--line)}
-.scope a{flex:1;display:flex;align-items:center;justify-content:center;height:calc(var(--control-h) - var(--s1));border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button);
+.scope a{flex:1;display:flex;align-items:center;justify-content:center;height:var(--control-h-s);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button);
   transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
-.scope a:hover{color:var(--text);background:color-mix(in srgb,var(--raised) 55%,var(--well-deep))}
+.scope a:hover{color:var(--text);background:var(--segment-hover)}
 .scope a[aria-current="page"]{color:var(--text);background:var(--control);box-shadow:var(--shadow-tile),inset 0 0 0 var(--hairline) var(--line-strong)}
 .scope a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .tabs{display:flex;gap:calc(var(--s1) / 2);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:var(--s2);border-bottom:var(--hairline) solid var(--line)}
-.tabs a{display:inline-flex;flex:none;align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
-.tabs a{transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.tabs a{transition:background var(--dur) var(--ease),color var(--dur) var(--ease);display:inline-flex;flex:none;align-items:center;height:var(--control-h-s);padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
 .tabs a:hover{color:var(--text);background:var(--hover-wash)}
 .tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:600}
 .tabs a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
@@ -415,7 +410,7 @@ input[type="checkbox"]:focus-visible,input[type="radio"]:focus-visible{outline:0
 input[type="radio"]:checked:focus-visible{box-shadow:inset 0 0 0 calc(var(--s1) - var(--hairline)) var(--well-deep),var(--shadow-focus)}
 /* Add / In this project: an icon button, not a bare checkbox. The checkbox stays for the keyboard and
    the screen reader, out of sight; the label is what you see and press. */
-.check{position:relative;display:inline-flex;gap:var(--s1);align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 var(--s3) 0 var(--s2);
+.check{position:relative;display:inline-flex;gap:var(--s1);align-items:center;height:var(--control-h-s);padding:0 var(--s3) 0 var(--s2);
   font:var(--t-button);color:var(--text);white-space:nowrap;text-decoration:none;cursor:pointer;
   background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);transition:background var(--dur) var(--ease)}
 .check:hover{background:var(--control-hover)}
@@ -440,7 +435,7 @@ dialog.modal .callout{margin-top:var(--s4)}
 .sheet-head{display:flex;gap:var(--s4);align-items:flex-start}
 /* the Filters popover: it hangs from its button, on the same acrylic edge as a dialog */
 .find-zone{position:relative}
-dialog.popover{position:absolute;top:calc(var(--control-h) + var(--s2));right:0;left:auto;z-index:5;width:var(--col-xl);margin:0;padding:0;color:var(--text);
+dialog.popover{position:absolute;top:calc(var(--control-h) + var(--s2));right:0;left:auto;z-index:var(--z-popover);width:var(--col-xl);margin:0;padding:0;color:var(--text);
   background:var(--raised);border:var(--hairline) solid var(--sheet-edge);border-radius:var(--r-lg);box-shadow:0 0 0 var(--s2) var(--acrylic-dialog),var(--shadow-sheet)}
 .popover-form{display:flex;flex-direction:column}
 .popover-head{display:flex;align-items:center;justify-content:space-between;padding:var(--s4) var(--s5);border-bottom:var(--hairline) solid var(--line)}
@@ -465,23 +460,23 @@ legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(
 .field-label .meta{font-weight:400}
 .field .hint{font:var(--t-micro);font-weight:400;color:var(--text-3)}
 .field input:not([type="checkbox"]):not([type="radio"]),.field textarea{width:100%;height:var(--control-h);padding:0 var(--s3);
-  font:var(--t-small);color:var(--text);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);outline:0;
+  font:var(--t-small);color:var(--text);background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);outline:0;
   transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
-.field input:not([type="checkbox"]):not([type="radio"]):hover,.field textarea:hover{border-color:var(--control-edge)}
+.field input:not([type="checkbox"]):not([type="radio"]):hover,.field textarea:hover{border-color:var(--text-3)}
 .field input::placeholder,.field textarea::placeholder{color:var(--text-3)}
-.field input:focus-visible,.field textarea:focus-visible{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
+.field input:not([type="checkbox"]):not([type="radio"]):focus-visible,.field textarea:focus-visible{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
 .field textarea{height:auto;min-height:calc(var(--s10) * 4);padding:var(--s2) var(--s3);font:var(--t-code);resize:vertical}
 .field select{width:100%}
 
 /* busy: the spinner inside a primary button turns dark on lime */
-.button-primary span.glyph-running{border-color:var(--lime-hover);border-top-color:var(--on-lime)}
+.button-primary span.glyph-running{border-color:var(--on-lime-track);border-top-color:var(--on-lime)}
 
 /* remove from set: the ✕ on a set row — quiet, square, named by its aria-label */
 .remove{width:var(--control-h);padding:0;background:transparent;border-color:transparent}
 .remove:hover{background:var(--control-hover)}
 
 /* the door: the signed-out page, one column */
-.door{width:calc(var(--side-w) - var(--s10));margin:calc(var(--s12) * 2 + var(--s6)) auto 0;display:flex;flex-direction:column;gap:var(--s6)}
+.door{width:calc(var(--s1) * 100);margin:calc(var(--s12) * 2 + var(--s6)) auto 0;display:flex;flex-direction:column;gap:var(--s6)}
 .door h1{font:var(--t-display);letter-spacing:var(--track-display)}
 .door .head-meta{display:block;font:var(--t-body);color:var(--text-2)}
 .door-alt{padding-top:var(--s4);border-top:var(--hairline) solid var(--line);font:var(--t-small);color:var(--text-2);text-align:center}
@@ -499,11 +494,6 @@ legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(
 
 /* page tabs: the panel's tabs at page size */
 .tabs-page a{font:var(--t-button)}
-
-/* one primary per screen: when an error box carries its own primary, the head's drops to secondary —
-   the rule the empty and error states already follow (DESIGN.md, Buttons) */
-.canvas:has(.callout[role="alert"] .button-primary) .page-head .button-primary{background:var(--control);border-color:var(--line-strong);color:var(--text);font-weight:500}
-.canvas:has(.callout[role="alert"] .button-primary) .page-head .button-primary svg.icon{color:var(--text-2)}
 
 /* the original of a detached field — one-off (Detached row), styled here because a screen holds no style:
    a quiet disclosure, the library's version in a file block under it */
@@ -526,41 +516,73 @@ progress.progress::-webkit-progress-value{background:var(--lime-mark);border-rad
 progress.progress::-moz-progress-bar{background:var(--lime-mark);border-radius:var(--r-pill)}
 
 /* the keys reminder: not a finding (§11) — so no Problem rose and no Note amber, a neutral box */
-.callout-reminder{background:var(--cutout);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
-.callout-reminder>.severity{color:var(--text)}
+.callout-reminder,.callout-failure{background:var(--cutout);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
+.callout-reminder>.severity,.callout-failure>.severity{color:var(--text)}
+/* our failure is not a finding either (critique #5): the same neutral box; its code is mono, Ink 3 */
+
+/* a stage that started and broke — not one that waits (critique #22) */
+svg.glyph-stopped{color:var(--text-2)}
+
+/* the Export stage's number, as the other stages carry theirs (critique #27); the archive's name in mono (#15) */
+.export-stage h2 .n{font-family:var(--mono);font-weight:400;color:var(--text-3)}
+.export-stage h2 code{font:inherit;font-family:var(--mono);background:none;padding:0}
+.export-stage .meta code{background:none;padding:0;color:inherit}
+.field-mono input:not([type="checkbox"]):not([type="radio"]){font:var(--t-code)}
+
+/* a path or an item name keeps together on a narrow row (critique #14) */
+.row .facts code{white-space:nowrap}
+
+/* hover where it was missing (critique #11, #40) */
+button.link-button:hover{background:none;color:var(--text)}
+.door-alt a:hover,a.meta:hover{color:var(--text);text-decoration:underline;text-decoration-thickness:calc(var(--hairline) * 2)}
+.library-version summary:hover{color:var(--text-2)}
+.library-version summary:hover::before{background:var(--text-2)}
+
+/* an auto-added row refuses, and looks it: no hover, the tick in Ink 3 (critique #2, §8) */
+.check:has(input:disabled){color:var(--text-3);cursor:default}
+.check:has(input:disabled) input{cursor:default}
+.check:has(input:disabled):hover{background:transparent}
+.check:has(input:checked:disabled)::before{background:var(--text-3)}
+
+/* busy: cannot be sent twice, keeps its lime; the spinner's track shows on lime (critique #12) */
+.button-primary[aria-busy="true"]{cursor:progress}
+.button-primary[aria-busy="true"]:hover{background:var(--lime);border-color:var(--lime)}
+
+/* a dialog's field sits below its title (critique #46) */
+dialog.modal .field{margin-top:var(--s4)}
 
 /* skeleton sizes: the wireframes' inline sizes as classes (phase 07, step 5 — no style on a screen) */
-.sk-w32{width:var(--s8)}
-.sk-w48{width:var(--s12)}
-.sk-w56{width:calc(var(--s12) + var(--s2))}
-.sk-w64{width:calc(var(--s12) + var(--s4))}
-.sk-w72{width:calc(var(--s12) + var(--s6))}
-.sk-w80{width:calc(var(--s12) + var(--s8))}
-.sk-w140{width:calc(var(--s12) * 3 - var(--s1))}
-.sk-w160{width:var(--col-s)}
-.sk-w180{width:calc(var(--col-s) + var(--s5))}
-.sk-w200{width:var(--col-m)}
-.sk-w220{width:calc(var(--col-m) + var(--s5))}
-.sk-w240{width:calc(var(--col-m) + var(--s10))}
-.sk-w260{width:calc(var(--col-m) + var(--s12) + var(--s3))}
-.sk-w280{width:calc(var(--col-l) - var(--s10))}
-.sk-w420{width:calc(var(--col-xl) + var(--s12) + var(--s3))}
-.sk-w440{width:var(--side-w)}
-.sk-w460{width:calc(var(--side-w) + var(--s5))}
-.sk-w480{width:calc(var(--side-w) + var(--s10))}
-.sk-w520{width:var(--modal-w)}
+.sk-w32{width:calc(var(--s1) * 8)}
+.sk-w48{width:calc(var(--s1) * 12)}
+.sk-w56{width:calc(var(--s1) * 14)}
+.sk-w64{width:calc(var(--s1) * 16)}
+.sk-w72{width:calc(var(--s1) * 18)}
+.sk-w80{width:calc(var(--s1) * 20)}
+.sk-w140{width:calc(var(--s1) * 35)}
+.sk-w160{width:calc(var(--s1) * 40)}
+.sk-w180{width:calc(var(--s1) * 45)}
+.sk-w200{width:calc(var(--s1) * 50)}
+.sk-w220{width:calc(var(--s1) * 55)}
+.sk-w240{width:calc(var(--s1) * 60)}
+.sk-w260{width:calc(var(--s1) * 65)}
+.sk-w280{width:calc(var(--s1) * 70)}
+.sk-w420{width:calc(var(--s1) * 105)}
+.sk-w440{width:calc(var(--s1) * 110)}
+.sk-w460{width:calc(var(--s1) * 115)}
+.sk-w480{width:calc(var(--s1) * 120)}
+.sk-w520{width:calc(var(--s1) * 130)}
 .sk-w50p{width:50%}
 .sk-w60p{width:60%}
 .sk-w70p{width:70%}
 .sk-w90p{width:90%}
 .sk-w100p{width:100%}
-.sk-h12{height:var(--s3)}
-.sk-h16{height:var(--s4)}
-.sk-h20{height:var(--s5)}
-.sk-h24{height:var(--s6)}
-.sk-h32{height:var(--s8)}
-.sk-h40{height:var(--s10)}
-.sk-h160{height:var(--col-s)}
-.sk-h240{height:calc(var(--col-m) + var(--s10))}
-.sk-mt8{margin-top:var(--s2)}
-.sk-mt12{margin-top:var(--s3)}
+.sk-h12{height:calc(var(--s1) * 3)}
+.sk-h16{height:calc(var(--s1) * 4)}
+.sk-h20{height:calc(var(--s1) * 5)}
+.sk-h24{height:calc(var(--s1) * 6)}
+.sk-h32{height:calc(var(--s1) * 8)}
+.sk-h40{height:calc(var(--s1) * 10)}
+.sk-h160{height:calc(var(--s1) * 40)}
+.sk-h240{height:calc(var(--s1) * 60)}
+.sk-mt8{margin-top:calc(var(--s1) * 2)}
+.sk-mt12{margin-top:calc(var(--s1) * 3)}

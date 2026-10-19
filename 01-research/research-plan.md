@@ -1915,6 +1915,38 @@ the one recorded exception, by the owner's word.
 of phase 06. **The same edit fixed one stale line** (stage 7, #29): the empty project said *Tick items on the left*
 while the panel adds with `+ Add` buttons — it reads *Add items from the left.* now.
 
+### Q39 — the receiver's Run: two bars, or one — raised and answered 2026-10-19
+
+**Raised by phase 07's critique of the dressed screens** ([`07-ui-assembly/ui/critique.md`](../07-ui-assembly/ui/critique.md), #54).
+The wireframes `run-shared-*` stack two 52 px bars: the shared header (*Shared by Maya Chen*) and below it the Run bar
+(back · `Export` · agent target). The Run bar assumes it is the top of the page. **Either the Run bar absorbs the sharer
+line, or the receiver's Run keeps both.**
+
+**Answer (owner, after seeing both drawn on `run-shared-default` in the kit): two bars are fine — *два хедера норм*.**
+The shared header stays on top (whose work this is), the Run bar under it (the mode). Nothing changes on the wireframes.
+
+### Q40 — a single item's Run: ten stages, most of them Skipped — raised and answered 2026-10-19
+
+**Raised by the same critique** (#55). `run-item-*` carries the whole ten-stage stack for one item, and three to five of
+the stages are Skipped, so the screen reads mostly as dashed rows. §6 (*A single item exports on its own*) says *for a
+bare item most stages are Skipped, which is what that glyph exists for* — so the glyph is right; the open question is
+whether the Skipped stages **collapse into one line** (*4 checks had nothing to check*) on a set of one.
+
+**Answer (owner): no — *та не*.** A single item's Run keeps the whole stack, every Skipped stage on its own row, as §6
+already says. Nothing changes.
+
+### Q41 — a declared conflict on both rows, or on the one that declares it — raised and answered 2026-10-19
+
+**Raised by the same critique** (#50). `eslint-autofix` declares `conflicts: [code-style]`; the Problem and the
+`Conflict` tag sit on `eslint-autofix` only, and `code-style` shows its own Note. §8 says *a finding annotates the row
+that owns it*, and the declaring item owns the declaration — so the screens are right **by the letter**. §7's state 4,
+*conflicts with something already selected*, reads as symmetric. **Whether the other side of a conflict carries a
+mark** is the question.
+
+**Answer (owner): on both — *на обеих*.** Both items of a declared conflict read as §7's state 4: the `Conflict` tag
+stands on `code-style` too. **The Problem itself still annotates the row that declares it** (§8), so the count stays one
+problem. Applied by `tools/critique07_pages.py --q41`: 11 set rows and the code-style item panel.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

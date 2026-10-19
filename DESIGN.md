@@ -28,6 +28,8 @@ colors:
   danger: "#D4363F"
   danger-hover: "#BE2E37"
   on-danger: "#FFFFFF"
+  problem-box: "#352A28"
+  note-box: "#312E21"
 typography:
   display:
     fontFamily: "Geist, system-ui, sans-serif"
@@ -360,14 +362,28 @@ items, and a Skipped stage's outline.
 - **Shape:** soft rectangle (6 px), 32 px high, 12 px side padding, icon (16) and label 8 px apart.
 - **Secondary (default):** a Control fill with a Strong Hairline edge and Ink text. On hover it steps
   to Control Hover.
-- **Primary:** lime fill, Lime Ink at 600. **One per screen.** When an empty or error state carries
-  its own primary, the head's primary drops to secondary.
+- **Primary:** lime fill, Lime Ink at 600. **One per screen, settled in the markup by the build.** Ranked from
+  first to last:
+  1. an open dialog's primary;
+  2. a failure box's;
+  3. an empty or error state's;
+  4. the page head's;
+  5. the item panel's;
+  6. the Export stage's.
+
+  Every other primary on the screen is drawn as secondary, with its own hover. *Phase 07 critique, 2026-10-19 (#4, #8): it was a page-context
+  rule, which allowed two limes on Configuring, Run and the Filters popover, lost its hover, and stripped the
+  amber off a demoted warning.*
 - **Warning:** amber fill, dark text. Only *Export with 1 problem*.
 - **Danger:** red fill, white text. Only a removal confirmation. **Quiet danger** is the in-Problem
   remove: transparent, rose text and edge, washed on hover.
 - **Quiet:** no fill, no edge, Ink 2.
 - **Disabled:** Control fill, Hairline edge, Ink 3. It exists for one case only, the empty project's
-  `Export`.
+  `Export`. **It still takes focus and points at its reason** (`aria-disabled`, `aria-describedby`): Q16 says the
+  inert control teaches. *Phase 07 critique, 2026-10-19 (#13).*
+- **Busy:** the primary keeps its lime and shows a dark spinner on a faint dark track. It cannot be sent twice
+  (`aria-busy`). *Phase 07 critique, 2026-10-19 (#12).*
+- **Link button:** underlined Ink 2 text. On hover it brightens, and it never becomes a chip. *Phase 07 critique, 2026-10-19 (#11).*
 - **Focus:** the lime focus ring.
 
 ### Tags and finding capsules
@@ -397,13 +413,17 @@ items, and a Skipped stage's outline.
   *Last check* with its line, so verdicts align across a row of cards.
 
 ### Inputs / Fields
-- **Search:** Deep Well, a Strong Hairline edge, 6 px, 32 px high, a search icon in Ink 3 and
-  placeholder in Ink 3. On focus the edge goes lime-mark and the focus ring shows.
-- **Select:** a secondary button's shape.
+- **Search and text field:** Deep Well, a **Control Edge** (3:1, WCAG 1.4.11), 6 px, 32 px high. A label
+  sits above in Micro 600 Ink 2, and placeholder text is in Ink 3. On hover the edge goes Ink 3. On focus it goes
+  lime-mark and the focus ring shows. A field that holds a path, an item name or a key is set in mono. *Phase 07 critique, 2026-10-19
+  (#10, #15, #25): the edge was Strong Hairline at about 1.9:1.*
+- **Select:** a secondary button's shape with a Control Edge.
 - **Checkbox / radio:** a 16 px Deep Well cell with a Control Edge border. Checked: the checkbox fills
   with lime and shows a dark tick; the radio becomes a lime ring with a lime dot.
 - **Add to set:** an icon button, *+ Add*. Once added it reads *✓ In this project*, unfilled, with a
-  lime-mark tick. The native checkbox stays underneath for the keyboard.
+  lime-mark tick. The native checkbox stays underneath for the keyboard. **An auto-added row refuses:** its tick
+  is in Ink 3, it has no hover, its checkbox is disabled, and it says *Required by …*. This is §8's only refusal,
+  shown rather than only stated. *Phase 07 critique, 2026-10-19 (#2).*
 
 ### Navigation
 - **Top bar:** 52 px on Top Bar. It holds the product mark (a 14 px lime square), then the three
@@ -418,18 +438,25 @@ items, and a Skipped stage's outline.
 
 ### Check stages (Run)
 - A stack of 10 px cut-outs, each a disclosure: step number (mono, Ink 3), name (body 600), result,
-  and duration (mono, tabular, right-aligned). Expanding shows the finding's box under the result
-  column.
-- A **Skipped** stage has no fill and a dashed Strong Hairline outline: the check had nothing to
-  check.
-- The **Export stage** is last: a Raised card. When it is finished it gets a lime pill at its left
-  edge and a Headline title. When it has failed it sits on the Problem box. While it is in progress
-  it shows a lime-headed spinner.
+  duration (mono, tabular, right-aligned), and a **chevron** that turns when the stage is open. A stage with
+  something inside washes on hover. **A stage with nothing inside is not a disclosure**: it takes no focus and shows no
+  chevron. Expanding shows the finding's box under the stage's name, across the row. *Phase 07 critique, 2026-10-19 (#6, #26).*
+- A **Skipped** stage has no fill and a dashed **Control Edge** outline: the check had nothing to check.
+  *Waiting* is an empty ring in Control Edge. Both marks are at 3:1. **Stopped** (our server broke mid-stage) is
+  Lucide `cloud-off` in Ink 2, never the waiting ring. *Phase 07 critique, 2026-10-19 (#22, #41).*
+- The **Export stage** is last: a Raised card, its number in mono Ink 3 like the stages above it. When it is
+  finished (class `is-exported`) it gets a lime pill at its left edge and a Headline title. When our server
+  fails it (class `is-failed`), the card stays neutral, with a Strong Hairline edge: our failure is not a
+  Problem. While it is in progress it shows a lime-headed spinner. The archive's name is set in mono. *Phase 07 critique, 2026-10-19 (#5, #7,
+  #15, #27): states are classes, not guesses from content.*
 
 ### Findings boxes (callouts)
 - **Problem box:** rose at 10 % over the cut-out, a rose edge, 10 px. A bold rose *Problem* label,
   then the sentence in Ink with inline code, then actions.
 - **Note box:** the same in amber.
+- **Our failure, and the keys reminder:** a neutral box: Cut-out, a Strong Hairline edge, the label in Ink.
+  **Neither is a finding.** *Our server didn't answer* is not *the archive will be wrong*, so it does not wear
+  rose (Colour Is a Claim). Its error code is mono Ink 3. *Phase 07 critique, 2026-10-19 (#5).*
 
 ### Empty and error states
 - **One tile everywhere:** on a Tray, centred. A 48 px Control tile holds a 20 px icon in Ink 2. The
@@ -440,8 +467,9 @@ items, and a Skipped stage's outline.
 
 ### Dialogs and the Filters popover
 - **Dialog:** a 520 px Raised sheet with a 14 px radius, an opaque body and the sheet shadow. Its
-  frame is an 8 px acrylic edge (`acrylic-dialog`) over a veil that dims the mode behind. The
-  confirmation names the consequence; the destructive confirm is Remove Red.
+  frame is an 8 px acrylic edge (`acrylic-dialog`) over a veil (`--veil`, .58) that dims the place behind. The
+  confirmation names the consequence; the destructive confirm is Remove Red. A field inside sits 16 below the title.
+  *Phase 07 critique, 2026-10-19 (#33, #46): the veil was .42 and barely separated.*
 - **Popover:** the same sheet and edge, 360 wide, hanging from its button. It has a header, groups
   under Label legends, and a footer with *Clear* and the primary.
 

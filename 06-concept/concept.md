@@ -487,3 +487,21 @@ owner decides:
    `--shadow-cutout`). The active one only brightens that same edge a step, to `--line-strong`, along
    with the raised fill and the lime pill. **There is no extra ring**, and *no outline round a
    selected row* holds.
+
+## Phase 07 — the critique's token changes (2026-10-19)
+
+The critique of the dressed screens ([`07-ui-assembly/ui/critique.md`](../07-ui-assembly/ui/critique.md)) changed
+`tokens.css` (through `tools/concept_tokens.py`) in these places, each signed with its reason:
+
+- **`--veil` went from .42 to .58.** A dialog's veil barely separated the dialog from the page behind it (#33). It is
+  a dim, not a colour, so `contrast.md` is unchanged at 88 of 88.
+- **`--control-h-s`, 28 px**, is now a token. It is the control inside a panel or a track: a tab, a segment, *+ Add*.
+  It was a `calc()` used three times, with no name (#43).
+- **`--segment-hover`** and **`--on-lime-track`** are now tokens. They were inline `color-mix()` values on a screen
+  (#42, #12).
+- **`--z-sticky` and `--z-popover`** are now tokens. They were literal `z-index` values (#42).
+- **`--icon-chevron`** (Lucide `chevron-right`) is a new mask. It is the marker of a disclosure: the detached field's
+  original, and a Run stage that opens (#6).
+
+**Edges are not a new value; they are an existing value used for more.** `--control-edge`, the checkbox's 3:1 edge,
+now also edges the search field, the text field, the select, the waiting ring and the Skipped outline (#10, #41).

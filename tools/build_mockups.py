@@ -88,14 +88,12 @@ button:focus-visible,.button:focus-visible,a:focus-visible{outline:0;box-shadow:
 .button-primary{background:var(--lime);border-color:var(--lime);color:var(--on-lime);font-weight:600}
 .button-primary svg.icon{color:var(--on-lime)}
 .button-primary:hover{background:var(--lime-hover);border-color:var(--lime-hover)}
-.canvas:has(.state-block .button-primary) .page-head .button-primary{background:var(--control);border-color:var(--line-strong);color:var(--text);font-weight:500}
-.canvas:has(.state-block .button-primary) .page-head .button-primary svg.icon{color:var(--text-2)}
 .button-quiet{background:transparent;border-color:transparent;color:var(--text-2)}
 .button-danger{background:var(--danger);border-color:var(--danger);color:var(--on-danger)}
 .button-danger:hover{background:var(--danger-hover);border-color:var(--danger-hover)}
 .button-danger svg.icon{color:var(--on-danger)}
-button[disabled],.button[aria-disabled="true"]{background:var(--control);border-color:var(--line);color:var(--text-3);cursor:not-allowed}
-button[disabled] svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--text-3)}
+button[disabled],button[aria-disabled="true"]:not([aria-busy]),.button[aria-disabled="true"]{background:var(--control);border-color:var(--line);color:var(--text-3);cursor:not-allowed}
+button[disabled] svg.icon,button[aria-disabled="true"]:not([aria-busy]) svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--text-3)}
 .link-button{height:auto;padding:var(--s1) var(--s2);margin:calc(var(--s1) * -1) calc(var(--s2) * -1);border:0;background:none;color:var(--text-2);font:var(--t-small);text-decoration:underline}
 
 /* --- tags and findings --- */
@@ -110,14 +108,16 @@ button[disabled] svg.icon,.button[aria-disabled="true"] svg.icon{color:var(--tex
 .glyph{display:inline-block;width:var(--icon-s);height:var(--icon-s);flex:none;margin-right:var(--s1);vertical-align:calc(var(--s1) * -0.5)}
 svg.glyph-problem{color:var(--problem)} svg.glyph-note{color:var(--note)} svg.glyph-skipped{color:var(--skipped)}
 span.glyph-checked{width:var(--dot);height:var(--dot);margin:0 var(--s2) 0 var(--s1);border-radius:var(--r-pill);background:var(--checked);vertical-align:calc(var(--hairline) * 1)}
-span.glyph-waiting{border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
-span.glyph-running{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
+span.glyph-waiting{border-radius:var(--r-pill);box-shadow:inset 0 0 0 var(--hairline) var(--control-edge)}
+/* one spinner: the stage glyph and the export status draw the same ring (critique #38) */
+span.glyph-running,.export-stage [role="status"]::before{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
 @keyframes mk-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){span.glyph-running,.export-stage [role="status"]::before{animation:none}*{transition:none!important}}
 .severity{display:inline-flex;align-items:center;gap:var(--s1);font:var(--t-small);font-weight:600}
 
 /* --- the app's frame --- */
-.app-header{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
+/* the three bars share one shape (critique #38) */
+.app-header,.shared-header,.run-bar{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .app-header .product,.shared-header .product{display:flex;align-items:center;gap:var(--s2);font:var(--t-body);font-weight:600}
 .app-nav ul{display:flex;gap:calc(var(--s1) / 2)}
 .app-nav a{display:flex;align-items:center;gap:var(--s2);height:var(--control-h);padding:0 var(--s3);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button)}
@@ -126,7 +126,6 @@ span.glyph-running{border-radius:var(--r-pill);border:calc(var(--hairline) * 2) 
 .app-nav a:focus-visible,.app-nav a[aria-current="page"]:focus-visible,select:focus-visible,.stages summary:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .app-header .account,.shared-header .owner{margin-left:auto;display:flex;align-items:center;gap:var(--s2);font:var(--t-small);color:var(--text-2)}
 img.avatar{width:var(--mark-h);height:var(--mark-h);border-radius:var(--r-pill);object-fit:cover;box-shadow:0 0 0 var(--hairline) var(--line)}
-.shared-header{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .app-main{padding:var(--s8);display:flex;flex-direction:column;gap:var(--s6)}
 
 /* --- page head --- */
@@ -145,10 +144,10 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 /* --- find --- */
 .find{display:flex;gap:var(--s4);align-items:center}
 .search{flex:1;max-width:calc(var(--measure) - var(--s12) * 3);display:flex;gap:var(--s2);align-items:center;height:var(--control-h);padding:0 var(--s3);
-  background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);color:var(--text-3)}
+  background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);color:var(--text-3)}
 .search input{flex:1;align-self:stretch;border:0;padding:0;font:var(--t-small);color:var(--text);background:transparent;outline:0}
 .search input::placeholder{color:var(--text-3)}
-.search:hover{border-color:var(--control-edge)}
+.search:hover{border-color:var(--text-3)}
 .search:focus-within{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
 .filters-button{margin-left:auto}
 
@@ -201,11 +200,10 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 
 /* --- the item beside the list --- */
 .with-drawer{display:grid;grid-template-columns:minmax(0,1fr) var(--side-w);gap:var(--s5);align-items:start}
-.with-drawer .set-item .row-actions{display:none}
 .drawer{position:sticky;top:var(--s4);display:flex;flex-direction:column;gap:var(--s4);padding:var(--s5);background:var(--raised);border:var(--hairline) solid var(--line);border-radius:var(--r-lg)}
 .drawer-head{display:flex;gap:var(--s3);align-items:flex-start}
 .drawer-head h2{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap;font:var(--t-heading);letter-spacing:var(--track-heading)}
-.drawer-head .close{margin-left:auto;width:var(--control-h);padding:0}
+.drawer-head .close,.sheet-head .close{margin-left:auto;width:var(--control-h);padding:0}
 .drawer-section{display:flex;flex-direction:column;gap:var(--s2);padding-top:var(--s4);border-top:var(--hairline) solid var(--line)}
 .drawer-section h3{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .drawer-section p{font:var(--t-small);color:var(--text-2)}
@@ -231,27 +229,32 @@ p.meta.head-meta,.head-meta.meta{font:var(--t-small)}
 pre.file{margin:0;padding:var(--s3) var(--s4);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-md);font:var(--t-code);color:var(--text);white-space:pre;overflow-x:auto}
 
 /* --- Run: the mode that takes the screen --- */
-.run-bar{display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .run-bar .back{display:flex;gap:var(--s2);align-items:center;height:var(--control-h);color:var(--text-2);text-decoration:none;font:var(--t-button)}
 .run-bar .back:hover{color:var(--text)}
 .run-bar .title{font:var(--t-body);font-weight:600}
 .run-bar .pick{margin-left:auto;display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text-2);text-decoration:none}
-select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:var(--text);background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);cursor:pointer;transition:background var(--dur) var(--ease)}
+select{height:var(--control-h);padding:0 var(--s3);font:var(--t-button);color:var(--text);background:var(--control);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);cursor:pointer;transition:background var(--dur) var(--ease)}
 select:hover{background:var(--control-hover)}
 .summary{display:flex;gap:var(--s2) var(--s6);align-items:baseline;flex-wrap:wrap}
 .summary h1{font:var(--t-title);letter-spacing:var(--track-title)}
 .summary p{font:var(--t-small);color:var(--text-2)}
 .summary p strong{color:var(--text)}
-.summary:has(> p:nth-of-type(3)){flex-direction:column;align-items:flex-start;gap:var(--s1)}
-.summary:has(h1[role="alert"]) p.meta:nth-of-type(2),.export-stage[role="alert"] .meta{font:var(--t-code);color:var(--text-3)}
+.summary.is-failed{flex-direction:column;align-items:flex-start;gap:var(--s1)}
+/* an error code, wherever it stands: machine text, mono (critique #15) */
+:is(p,span).meta.error-code{font:var(--t-code);color:var(--text-3)}
 .stage-group{display:flex;flex-direction:column;gap:var(--s2)}
 .stage-group>h2{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .stages{display:flex;flex-direction:column;gap:var(--s2)}
 .stages>li{background:var(--cutout);border-radius:var(--r-md);box-shadow:inset 0 0 0 var(--hairline) var(--line)}
-.stages>li:has(.glyph-skipped){background:transparent;box-shadow:none;outline:var(--hairline) dashed var(--line-strong);outline-offset:calc(var(--hairline) * -1)}
-.stages summary{display:grid;grid-template-columns:var(--s6) var(--stage-name-w) minmax(0,1fr) var(--s12);gap:var(--s3);align-items:center;
+.stages>li.is-skipped{background:transparent;box-shadow:none;outline:var(--hairline) dashed var(--control-edge);outline-offset:calc(var(--hairline) * -1)}
+.stages summary{display:grid;grid-template-columns:var(--s6) var(--stage-name-w) minmax(0,1fr) var(--s12) var(--icon);border-radius:var(--r-md);transition:background var(--dur) var(--ease);gap:var(--s3);align-items:center;
   min-height:calc(var(--s10) + var(--s1));padding:var(--s2) var(--s4);cursor:pointer;list-style:none}
 .stages summary::-webkit-details-marker{display:none}
+.stages summary::after{content:"";width:var(--icon);height:var(--icon);background:var(--text-3);-webkit-mask:var(--icon-chevron) center / contain no-repeat;mask:var(--icon-chevron) center / contain no-repeat;transition:transform var(--dur) var(--ease)}
+.stages details[open]>summary::after{transform:rotate(90deg)}
+.stages details:not(.stage-empty)>summary:hover{background:var(--row-hover)}
+.stages .stage-empty>summary{cursor:default}
+.stages .stage-empty>summary::after{visibility:hidden}
 .stages summary .n{font:var(--t-code);color:var(--text-3);font-variant-numeric:tabular-nums}
 .stages summary .name{font:var(--t-body);font-weight:600}
 .stages summary .result{display:flex;align-items:center;font:var(--t-small);color:var(--text-2)}
@@ -263,15 +266,15 @@ select:hover{background:var(--control-hover)}
 .stages .waiting summary .name{font-weight:400;color:var(--text-3)}
 .export-stage{display:flex;flex-direction:column;gap:var(--s3);padding:var(--s5);background:var(--raised);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-lg)}
 .export-stage h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
-.export-stage:has(.plain-list){position:relative;padding-left:calc(var(--s5) + var(--s2));border-color:var(--line-strong)}
-.export-stage:has(.plain-list)::before{content:"";position:absolute;left:var(--s2);top:var(--s5);bottom:var(--s5);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}
-.export-stage:has(.plain-list) h2{font:var(--t-title);letter-spacing:var(--track-title)}
-.export-stage:has(.plain-list)>div:not(.export-actions){margin-top:var(--s2)}
-.export-stage:has(.plain-list)>div>p{margin-bottom:var(--s2)}
-.export-stage[role="alert"]{background:var(--problem-box);border-color:var(--problem-edge)}
+.export-stage.is-exported{position:relative;padding-left:calc(var(--s5) + var(--s2));border-color:var(--line-strong)}
+.export-stage.is-exported::before{content:"";position:absolute;left:var(--s2);top:var(--s5);bottom:var(--s5);width:var(--pill-w);border-radius:var(--r-xs);background:var(--lime-mark)}
+.export-stage.is-exported h2{font:var(--t-title);letter-spacing:var(--track-title)}
+.export-stage.is-exported>div:not(.export-actions){margin-top:var(--s2)}
+.export-stage.is-exported>div>p{margin-bottom:var(--s2)}
+.export-stage.is-failed{background:var(--raised);border-color:var(--line-strong)}
 .export-stage[role="alert"] h2{color:var(--text)}
 .export-stage [role="status"]{display:flex;align-items:center;gap:var(--s2)}
-.export-stage [role="status"]::before{content:"";width:var(--icon-s);height:var(--icon-s);border-radius:var(--r-pill);border:calc(var(--hairline) * 2) solid var(--line-strong);border-top-color:var(--lime-mark);animation:mk-spin var(--dur-spin) linear infinite}
+.export-stage [role="status"]::before{content:"";width:var(--icon-s);height:var(--icon-s)}
 .export-stage p{font:var(--t-small);color:var(--text-2)}
 .export-stage p strong{color:var(--text)}
 .export-actions{display:flex;gap:var(--s2);align-items:center;flex-wrap:wrap}
@@ -279,13 +282,12 @@ select:hover{background:var(--control-hover)}
 .plain-list li::before{content:"– ";color:var(--text-3)}
 
 /* --- empty, error, loading --- */
-.state-block{display:flex;flex-direction:column;align-items:center;gap:var(--s3);padding:var(--s12) var(--s8);text-align:center;background:var(--tray);border-radius:var(--r-lg)}
+.state-block{position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--s3);padding:var(--s12) var(--s8);text-align:center;background:var(--tray);border-radius:var(--r-lg)}
 .state-block h2{font:var(--t-title);letter-spacing:var(--track-title)}
 .state-block p{max-width:var(--modal-w);font:var(--t-body);color:var(--text-2)}
 .state-block .meta{font:var(--t-code);color:var(--text-3)}
 .state-block strong{color:var(--text)}
 /* one tile for every empty and error state (owner, 2026-10-11): neutral, the same size, the icon in --text-2 */
-.state-block{position:relative}
 .state-image{display:grid;place-items:center;width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control);color:var(--text-2)}
 .state-image svg.icon{width:var(--icon-l);height:var(--icon-l)}
 .state-block:not(:has(.state-icon,.state-image))::before{content:"";width:var(--s12);height:var(--s12);margin-bottom:var(--s1);border-radius:var(--r-md);background:var(--control)}
@@ -305,7 +307,7 @@ svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:cal
 .library-sidebar{background:var(--bar);border-right:var(--hairline) solid var(--line)}
 .panel{display:flex;flex-direction:column}
 .panel-head{padding:var(--s6) var(--s6) var(--s4);display:flex;flex-direction:column;gap:var(--s3)}
-.library-sidebar .panel-head{position:sticky;top:0;background:var(--bar);z-index:1}
+.library-sidebar .panel-head{position:sticky;top:0;background:var(--bar);z-index:var(--z-sticky)}
 .panel-body{padding:0 var(--s6) var(--s6)}
 .panel h2{font:var(--t-heading)}
 .panel .search{max-width:none;flex:none}
@@ -314,14 +316,13 @@ svg.icon.state-icon{display:block;width:var(--s12);height:var(--s12);padding:cal
 /* a segmented control is not the top bar: it has a track, and the current segment is lifted out of it */
 .scope{display:flex;gap:calc(var(--s1) / 2);padding:calc(var(--s1) - var(--hairline));background:var(--well-deep);border-radius:calc(var(--r-sm) + var(--s1));
   box-shadow:inset 0 0 0 var(--hairline) var(--line)}
-.scope a{flex:1;display:flex;align-items:center;justify-content:center;height:calc(var(--control-h) - var(--s1));border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button);
+.scope a{flex:1;display:flex;align-items:center;justify-content:center;height:var(--control-h-s);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-button);
   transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
-.scope a:hover{color:var(--text);background:color-mix(in srgb,var(--raised) 55%,var(--well-deep))}
+.scope a:hover{color:var(--text);background:var(--segment-hover)}
 .scope a[aria-current="page"]{color:var(--text);background:var(--control);box-shadow:var(--shadow-tile),inset 0 0 0 var(--hairline) var(--line-strong)}
 .scope a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
 .tabs{display:flex;gap:calc(var(--s1) / 2);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:var(--s2);border-bottom:var(--hairline) solid var(--line)}
-.tabs a{display:inline-flex;flex:none;align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
-.tabs a{transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.tabs a{transition:background var(--dur) var(--ease),color var(--dur) var(--ease);display:inline-flex;flex:none;align-items:center;height:var(--control-h-s);padding:0 calc(var(--s2) - var(--hairline) * 2);border-radius:var(--r-sm);color:var(--text-2);text-decoration:none;font:var(--t-small)}
 .tabs a:hover{color:var(--text);background:var(--hover-wash)}
 .tabs a[aria-current="page"]{color:var(--text);background:var(--raised);font-weight:600}
 .tabs a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
@@ -338,7 +339,7 @@ input[type="checkbox"]:focus-visible,input[type="radio"]:focus-visible{outline:0
 input[type="radio"]:checked:focus-visible{box-shadow:inset 0 0 0 calc(var(--s1) - var(--hairline)) var(--well-deep),var(--shadow-focus)}
 /* Add / In this project: an icon button, not a bare checkbox. The checkbox stays for the keyboard and
    the screen reader, out of sight; the label is what you see and press. */
-.check{position:relative;display:inline-flex;gap:var(--s1);align-items:center;height:calc(var(--control-h) - var(--s1));padding:0 var(--s3) 0 var(--s2);
+.check{position:relative;display:inline-flex;gap:var(--s1);align-items:center;height:var(--control-h-s);padding:0 var(--s3) 0 var(--s2);
   font:var(--t-button);color:var(--text);white-space:nowrap;text-decoration:none;cursor:pointer;
   background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);transition:background var(--dur) var(--ease)}
 .check:hover{background:var(--control-hover)}
@@ -363,7 +364,7 @@ dialog.modal .callout{margin-top:var(--s4)}
 .sheet-head{display:flex;gap:var(--s4);align-items:flex-start}
 /* the Filters popover: it hangs from its button, on the same acrylic edge as a dialog */
 .find-zone{position:relative}
-dialog.popover{position:absolute;top:calc(var(--control-h) + var(--s2));right:0;left:auto;z-index:5;width:var(--col-xl);margin:0;padding:0;color:var(--text);
+dialog.popover{position:absolute;top:calc(var(--control-h) + var(--s2));right:0;left:auto;z-index:var(--z-popover);width:var(--col-xl);margin:0;padding:0;color:var(--text);
   background:var(--raised);border:var(--hairline) solid var(--sheet-edge);border-radius:var(--r-lg);box-shadow:0 0 0 var(--s2) var(--acrylic-dialog),var(--shadow-sheet)}
 .popover-form{display:flex;flex-direction:column}
 .popover-head{display:flex;align-items:center;justify-content:space-between;padding:var(--s4) var(--s5);border-bottom:var(--hairline) solid var(--line)}
@@ -464,7 +465,7 @@ def transform(html, root, page_name, unknown, kit_href=None, frame=True):
     html = html.replace('<span class="name">Requirements</span><span class="result"><span class="glyph glyph-note"',
                         '<span class="name">Requirements</span><span class="result"><span class="glyph glyph-checked"')
     # finding glyphs: Lucide shapes; Checked, running and waiting stay drawn by CSS
-    for g, n in (("problem", "circle-alert"), ("note", "info"), ("skipped", "ban")):
+    for g, n in (("problem", "circle-alert"), ("note", "info"), ("skipped", "ban"), ("stopped", "cloud-off")):
         if f"glyph-{g}" in html:
             used.add(n)
         html = html.replace(f'<span class="glyph glyph-{g}" aria-hidden="true"></span>',
@@ -482,6 +483,9 @@ def transform(html, root, page_name, unknown, kit_href=None, frame=True):
                   r'class="button button-primary button-warning"\1', html, flags=re.S)
     html = name_checks(html)
     html = progress(html)
+    html = state_classes(html)
+    if frame:
+        html = one_primary(html)
     html = re.sub(r'<span class="skeleton"([^>]*?) style="([^"]*)"', lambda m: f'<span class="skeleton {skeleton_classes(m.group(2))}"{m.group(1)}', html)
     html = inert_behind(html)
     html = relink(html, page_name)
@@ -499,6 +503,68 @@ SK = {"56px": "calc(var(--s12) + var(--s2))", "64px": "calc(var(--s12) + var(--s
       "140px": "calc(var(--s12) * 3 - var(--s1))", "240px": "calc(var(--col-m) + var(--s10))",
       "280px": "calc(var(--col-l) - var(--s10))", "440px": "var(--side-w)", "460px": "calc(var(--side-w) + var(--s5))",
       "520px": "var(--modal-w)"}
+
+
+def state_classes(html):
+    """A state is a class the build sets from the page's structure, so the kit draws it by class, never by
+    counting what a block happens to contain (phase 07, critique #7)."""
+    html = re.sub(r'<section class="export-stage"([^>]*)>(\s*<h2[^>]*>Exported)', r'<section class="export-stage is-exported"\1>\2', html)
+    html = re.sub(r'<section class="summary"([^>]*)>(\s*<h1 role="alert")', r'<section class="summary is-failed"\1>\2', html)
+    html = re.sub(r'<li>(\s*<details[^>]*>\s*<summary>(?:(?!</summary>).)*glyph-skipped)', r'<li class="is-skipped">\1', html, flags=re.S)
+    html = re.sub(r'<(p|span) class="meta">(\d{3} · )', r'<\1 class="meta error-code">\2', html)
+    # our own failure is not a finding (critique #5)
+    html = html.replace('<div class="callout" role="alert"', '<div class="callout callout-failure" role="alert"')
+    html = re.sub(r'<section class="export-stage"([^>]*role="alert")', r'<section class="export-stage is-failed"\1', html)
+    # a stage with nothing inside is not a disclosure: it takes no focus and shows no chevron (critique #6)
+    html = re.sub(r'<details>(\s*)<summary>((?:(?!</summary>).)*</summary>\s*</details>)',
+                  r'<details class="stage-empty">\1<summary tabindex="-1">\2', html, flags=re.S)
+    # the Export stage's number sits with the others', mono (critique #27)
+    html = re.sub(r'(<section class="export-stage[^"]*"[^>]*>\s*<h2[^>]*>)(\d\d) · ', r'\1<span class="n">\2 ·</span> ', html)
+    # machine text is mono: an archive's name, and the fields that hold paths, item names and keys (critique #15)
+    html = re.sub(r'(>[^<]*?)(?<![\w.-])([a-z0-9][a-z0-9-]*\.zip)\b', r'\1<code>\2</code>', html)
+    html = re.sub(r'<label class="field"><span>(Lands at|Requires|Conflicts with|Env keys it needs)</span>',
+                  r'<label class="field field-mono"><span>\1</span>', html)
+    return html
+
+
+PRIORITY = [r'<dialog class="(?:modal|popover|sheet)"[^>]*\bopen', r'<div class="callout[^"]*" role="alert"',
+            r'<(?:section|div) class="state-block', r'<div class="page-head"', r'<aside class="drawer"', r'<section class="export-stage']
+
+
+def _end(html, start):
+    tag = re.match(r"<(\w+)", html[start:]).group(1)
+    depth, pos = 0, start
+    for t in re.finditer(rf"<{tag}\b[^>]*>|</{tag}>", html[start:]):
+        depth += -1 if t.group(0).startswith("</") else 1
+        if depth == 0:
+            return start + t.end()
+    return len(html)
+
+
+def one_primary(html):
+    """One primary per screen (DESIGN.md, Buttons), decided here, in the markup: the primary of the place that
+    speaks loudest wins — an open dialog, then a failure box, then an empty or error state, then the page head,
+    then the item panel, then the Export stage — and every other primary on the screen drops to secondary.
+    Phase 07, critique #4 and #8: it was a page-context CSS rule, which lost its hover and stripped the amber."""
+    spans = [(rank, m.start(), _end(html, m.start())) for rank, pat in enumerate(PRIORITY) for m in re.finditer(pat, html)]
+    found = []
+    for m in re.finditer(r'<(?:a|button)\b[^>]*class="([^"]*\bbutton-primary\b[^"]*)"', html):
+        rank = min([r for r, a, b in spans if a <= m.start() < b], default=len(PRIORITY))
+        found.append((rank, m))
+    if len(found) < 2:
+        return html
+    best = min(r for r, _ in found)
+    out, pos = [], 0
+    for rank, m in found:
+        if rank == best:
+            continue
+        cls = [c for c in m.group(1).split() if c not in ("button-primary", "button-warning", "button-danger")]
+        if "button" not in cls:
+            cls.insert(0, "button")
+        out.append(html[pos:m.start(1)] + " ".join(cls))
+        pos = m.end(1)
+    out.append(html[pos:])
+    return "".join(out)
 
 
 def progress(html):
@@ -552,6 +618,8 @@ def name_checks(html):
         name = nm.group(1).strip()
         art = art.replace('<label class="check"><input type="checkbox"> Add',
                           f'<label class="check" aria-label="Add {name}"><input type="checkbox"> Add')
+        art = art.replace('<label class="check" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project',
+                          f'<label class="check" aria-label="{name}, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project')
         return art.replace('<label class="check"><input type="checkbox" checked> In this project',
                            f'<label class="check" aria-label="{name}, in this project"><input type="checkbox" checked> In this project')
     return re.sub(r"<article\b.*?</article>", row, html, flags=re.S)
@@ -571,7 +639,7 @@ def inert_behind(html):
 
 def relink(html, page_name):
     """A link to a page with no mockup yet opens its wireframe, never a dead end (stage 7, #21)."""
-    if "/" in page_name:  # flow steps link to their own neighbours
+    if "/" in page_name or page_name in ("kit", "shell"):  # flow steps link to their own neighbours; the kit to itself
         return html
     def fix(m):
         target = m.group(1)

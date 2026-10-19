@@ -45,23 +45,23 @@ KIT_CSS = r"""
 .field-label .meta{font-weight:400}
 .field .hint{font:var(--t-micro);font-weight:400;color:var(--text-3)}
 .field input:not([type="checkbox"]):not([type="radio"]),.field textarea{width:100%;height:var(--control-h);padding:0 var(--s3);
-  font:var(--t-small);color:var(--text);background:var(--well-deep);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);outline:0;
+  font:var(--t-small);color:var(--text);background:var(--well-deep);border:var(--hairline) solid var(--control-edge);border-radius:var(--r-sm);outline:0;
   transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
-.field input:not([type="checkbox"]):not([type="radio"]):hover,.field textarea:hover{border-color:var(--control-edge)}
+.field input:not([type="checkbox"]):not([type="radio"]):hover,.field textarea:hover{border-color:var(--text-3)}
 .field input::placeholder,.field textarea::placeholder{color:var(--text-3)}
-.field input:focus-visible,.field textarea:focus-visible{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
+.field input:not([type="checkbox"]):not([type="radio"]):focus-visible,.field textarea:focus-visible{border-color:var(--lime-mark);box-shadow:var(--shadow-focus)}
 .field textarea{height:auto;min-height:calc(var(--s10) * 4);padding:var(--s2) var(--s3);font:var(--t-code);resize:vertical}
 .field select{width:100%}
 
 /* busy: the spinner inside a primary button turns dark on lime */
-.button-primary span.glyph-running{border-color:var(--lime-hover);border-top-color:var(--on-lime)}
+.button-primary span.glyph-running{border-color:var(--on-lime-track);border-top-color:var(--on-lime)}
 
 /* remove from set: the ✕ on a set row — quiet, square, named by its aria-label */
 .remove{width:var(--control-h);padding:0;background:transparent;border-color:transparent}
 .remove:hover{background:var(--control-hover)}
 
 /* the door: the signed-out page, one column */
-.door{width:calc(var(--side-w) - var(--s10));margin:calc(var(--s12) * 2 + var(--s6)) auto 0;display:flex;flex-direction:column;gap:var(--s6)}
+.door{width:calc(var(--s1) * 100);margin:calc(var(--s12) * 2 + var(--s6)) auto 0;display:flex;flex-direction:column;gap:var(--s6)}
 .door h1{font:var(--t-display);letter-spacing:var(--track-display)}
 .door .head-meta{display:block;font:var(--t-body);color:var(--text-2)}
 .door-alt{padding-top:var(--s4);border-top:var(--hairline) solid var(--line);font:var(--t-small);color:var(--text-2);text-align:center}
@@ -79,11 +79,6 @@ KIT_CSS = r"""
 
 /* page tabs: the panel's tabs at page size */
 .tabs-page a{font:var(--t-button)}
-
-/* one primary per screen: when an error box carries its own primary, the head's drops to secondary —
-   the rule the empty and error states already follow (DESIGN.md, Buttons) */
-.canvas:has(.callout[role="alert"] .button-primary) .page-head .button-primary{background:var(--control);border-color:var(--line-strong);color:var(--text);font-weight:500}
-.canvas:has(.callout[role="alert"] .button-primary) .page-head .button-primary svg.icon{color:var(--text-2)}
 
 /* the original of a detached field — one-off (Detached row), styled here because a screen holds no style:
    a quiet disclosure, the library's version in a file block under it */
@@ -106,8 +101,40 @@ progress.progress::-webkit-progress-value{background:var(--lime-mark);border-rad
 progress.progress::-moz-progress-bar{background:var(--lime-mark);border-radius:var(--r-pill)}
 
 /* the keys reminder: not a finding (§11) — so no Problem rose and no Note amber, a neutral box */
-.callout-reminder{background:var(--cutout);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
-.callout-reminder>.severity{color:var(--text)}
+.callout-reminder,.callout-failure{background:var(--cutout);box-shadow:inset 0 0 0 var(--hairline) var(--line-strong)}
+.callout-reminder>.severity,.callout-failure>.severity{color:var(--text)}
+/* our failure is not a finding either (critique #5): the same neutral box; its code is mono, Ink 3 */
+
+/* a stage that started and broke — not one that waits (critique #22) */
+svg.glyph-stopped{color:var(--text-2)}
+
+/* the Export stage's number, as the other stages carry theirs (critique #27); the archive's name in mono (#15) */
+.export-stage h2 .n{font-family:var(--mono);font-weight:400;color:var(--text-3)}
+.export-stage h2 code{font:inherit;font-family:var(--mono);background:none;padding:0}
+.export-stage .meta code{background:none;padding:0;color:inherit}
+.field-mono input:not([type="checkbox"]):not([type="radio"]){font:var(--t-code)}
+
+/* a path or an item name keeps together on a narrow row (critique #14) */
+.row .facts code{white-space:nowrap}
+
+/* hover where it was missing (critique #11, #40) */
+button.link-button:hover{background:none;color:var(--text)}
+.door-alt a:hover,a.meta:hover{color:var(--text);text-decoration:underline;text-decoration-thickness:calc(var(--hairline) * 2)}
+.library-version summary:hover{color:var(--text-2)}
+.library-version summary:hover::before{background:var(--text-2)}
+
+/* an auto-added row refuses, and looks it: no hover, the tick in Ink 3 (critique #2, §8) */
+.check:has(input:disabled){color:var(--text-3);cursor:default}
+.check:has(input:disabled) input{cursor:default}
+.check:has(input:disabled):hover{background:transparent}
+.check:has(input:checked:disabled)::before{background:var(--text-3)}
+
+/* busy: cannot be sent twice, keeps its lime; the spinner's track shows on lime (critique #12) */
+.button-primary[aria-busy="true"]{cursor:progress}
+.button-primary[aria-busy="true"]:hover{background:var(--lime);border-color:var(--lime)}
+
+/* a dialog's field sits below its title (critique #46) */
+dialog.modal .field{margin-top:var(--s4)}
 """
 
 
@@ -130,8 +157,27 @@ def skeleton_css():
     order = {"width": 0, "height": 1, "margin-top": 2}
     rules = []
     for prop, val in sorted(seen, key=lambda pv: (order[pv[0]], pv[1].endswith("%"), int(pv[1].rstrip("px%")))):
-        rules.append(f".{bm.skeleton_class(prop, val)}{{{prop}:{bm.SK[val] if val.endswith('px') else val}}}")
+        v = f"calc(var(--s1) * {int(val[:-2]) // 4})" if val.endswith("px") else val
+        if val.endswith("px") and int(val[:-2]) % 4:
+            raise SystemExit(f"a skeleton size off the 4 px scale: {val}")
+        rules.append(f".{bm.skeleton_class(prop, val)}{{{prop}:{v}}}")
     return "\n/* skeleton sizes: the wireframes' inline sizes as classes (phase 07, step 5 — no style on a screen) */\n" + "\n".join(rules) + "\n"
+
+
+def used_root(root, rest):
+    """Only the variables the kit reads, and what they read in turn — an unused value is a claim nobody checks
+    (critique #39: --panel-w and --acrylic-blur contradicted DESIGN.md and were read by nothing)."""
+    decl = {m.group(1): m.group(0) for m in re.finditer(r"^\s*--([\w-]+):.*$", root, re.M)}
+    need, todo = set(), set(re.findall(r"var\(--([\w-]+)\)", rest))
+    while todo:
+        n = todo.pop()
+        if n in need or n not in decl:
+            continue
+        need.add(n)
+        todo |= set(re.findall(r"var\(--([\w-]+)\)", decl[n]))
+    keep = [ln for ln in root.splitlines() if not re.match(r"^\s*--([\w-]+):", ln) or re.match(r"^\s*--([\w-]+):", ln).group(1) in need]
+    out = "\n".join(ln for i, ln in enumerate(keep) if not (ln.strip().startswith("/*") and (i + 1 >= len(keep) or keep[i + 1].strip().startswith(("/*", "}")))))
+    return out + "\n"
 
 
 def kit_css():
@@ -144,7 +190,8 @@ def kit_css():
             "   :root holds every value (copied from 06-concept/tokens.css, dark — tokens.css wins on conflict);\n"
             "   below it, the component classes: the painted ones exactly as in the mockups, then the grey ones.\n"
             "   No token levels — that is lesson 08. */\n")
-    return head + root_block() + "\n/* ===== painted: as in 04-wireframes/mockups (tools/build_mockups.py) ===== */\n" + body.strip() + "\n" + KIT_CSS + skeleton_css()
+    rest = body.strip() + "\n" + KIT_CSS + skeleton_css()
+    return head + used_root(root_block(), rest) + "\n/* ===== painted: as in 04-wireframes/mockups (tools/build_mockups.py) ===== */\n" + rest
 
 
 # ------------------------------------------------------------------ cutting components out of the pages
@@ -213,7 +260,7 @@ def stage(*frags):
 def comp(name, cls, screens, painted, *states):
     return (f'<section class="kit-comp" id="c-{re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")}">'
             f'<header class="kit-comp-head"><h3>{name}</h3><p class="kit-meta"><code>{cls}</code> · {screens} · '
-            f'<span class="kit-painted kit-{painted.split()[0]}">{painted}</span></p></header>{"".join(states)}</section>')
+            f'<span class="kit-status kit-{painted.split()[0]}">{painted}</span></p></header>{"".join(states)}</section>')
 
 
 RL = '<ol class="row-list">{}</ol>'
@@ -239,21 +286,26 @@ def components():
              state("Projects: one action", cut("projects-default", "div", 'class="page-head"')),
              state("Shared project: the Shared tag after the title", cut("shared-project-default", "div", 'class="page-head"')),
              state("Loading: skeleton meta", cut("project-loading", "div", 'class="page-head"'))),
-        comp("Tabs", "tabs · tabs-page · count", "7 screens", "grey",
+        comp("Tabs", "tabs · tabs-page · count", "7 screens", "painted (panel tabs) · grey (page tabs)",
              state("Page tabs, with counts", cut("library-my-default", "nav", 'class="tabs tabs-page"')),
+             state("A count of 0", cut("library-public-default", "nav", 'class="tabs tabs-page"')),
+             state("Loading — no counts yet", cut("library-my-loading", "nav", 'class="tabs tabs-page"')),
              state("Panel tabs: Related first and current", cut("project-configuring-default", "nav", 'class="tabs"'),
                    note="One line; it scrolls rather than wraps.")),
-        comp("Scope switch", "scope", "3 screens", "grey",
+        comp("Scope switch", "scope", "3 screens", "painted",
              state("My library current", cut("project-configuring-default", "nav", 'class="scope"', wrap='<div class="kit-narrow">{}</div>')),
              state("Public library current", cut("project-configuring-public", "nav", 'class="scope"', wrap='<div class="kit-narrow">{}</div>'))),
-        comp("Library panel", "config-layout · library-sidebar · panel-head · panel-body", "3 screens", "grey",
+        comp("Library panel", "config-layout · library-sidebar · panel-head · panel-body", "3 screens", "painted",
              state("Default", cut("project-configuring-default", "aside", 'class="panel library-sidebar"', wrap='<div class="kit-panel">{}</div>')),
              state("Empty — No items in My library yet", cut("project-configuring-empty", "aside", 'class="panel library-sidebar"', wrap='<div class="kit-panel">{}</div>')),
-             state("Loading", cut("project-configuring-loading", "aside", 'class="panel library-sidebar"', wrap='<div class="kit-panel">{}</div>'))),
+             state("Loading", cut("project-configuring-loading", "aside", 'class="panel library-sidebar"', wrap='<div class="kit-panel">{}</div>')),
+             state("No match", cut("project-configuring-error-filtered", "aside", 'class="panel library-sidebar"', wrap='<div class="kit-panel">{}</div>')),
+             state("Just added — the row at once, what it requires after the round trip", cut("project-configuring-loading-add", "aside", 'class="panel library-sidebar"', wrap='<div class="kit-panel">{}</div>')),
+             state("Public library — each item with its origin", cut("project-configuring-public", "aside", 'class="panel library-sidebar"', wrap='<div class="kit-panel">{}</div>'))),
     ]
     g["Cards and lists"] = [
-        comp("Row list", "row-list > row · row-tight · set-item · row-compact", "8 screens", "painted (set rows) · grey (library rows)",
-             state("Library rows, with usage facts", cut("library-my-default", "ol", 'class="row-list"', wrap='<div class="kit-clip">{}</div>')),
+        comp("Row list", "row-list > row · row-tight · set-item · row-compact", "8 screens", "painted (set rows, panel rows) · grey (library rows)",
+             state("Library rows, with usage facts", cut("library-my-default", "li", contains='class="usage', n=0, wrap=RL), cut("library-my-default", "li", contains='class="usage', n=1, wrap=RL)),
              state("Set rows", cut("project-default", "li", contains="test-runner", wrap=RL), cut("project-default", "li", contains="changelog-writer", n=0, wrap=RL)),
              state("Active — the item open beside the set", cut("project-detached-default", "li", contains="is-selected", wrap=RL)),
              state("Loading", cut("project-loading", "ol", 'class="row-list"'))),
@@ -261,7 +313,7 @@ def components():
              state("Defers to", cut("project-default", "li", contains="code-style</a>", wrap=RL)),
              state("Pinned repo · licence · needs an env key", cut("project-default", "li", contains="github-mcp</a>", wrap=RL)),
              state("A detached row names the fields that differ", cut("project-default", "li", contains="pr-reviewer</a>", wrap=RL))),
-        comp("Set row states (§7)", "sub-rows · tag-state · marks · state-line", "3 screens", "painted (Project) · grey (configuring)",
+        comp("Set row states (§7)", "sub-rows · tag-state · marks · state-line", "3 screens", "painted",
              state("Auto-added, nested under what pulled it in", cut("project-default", "li", contains="migration-reviewer</a><span", wrap=RL)),
              state("Conflicting", cut("project-default", "li", contains="eslint-autofix</a>", wrap=RL)),
              state("Configuring: Required by, and the remove", cut("project-configuring-default", "li", contains="Remove migration-reviewer", wrap=RL))),
@@ -271,23 +323,29 @@ def components():
                    '<span class="tag tag-state">Conflict</span> <span class="tag tag-state">Auto-added</span> <span class="tag tag-state">Detached</span></div>')),
         comp("Usage facts", "usage", "3 screens", "grey",
              state("Default", cut("library-my-default", "li", contains="1 item requires this · requires", wrap=RL))),
-        comp("Item side panel", "with-drawer · drawer · drawer-head · drawer-section · drawer-facts · drawer-actions", "3 screens", "painted (linked) · grey (detached)",
+        comp("Item side panel", "with-drawer · drawer · drawer-head · drawer-section · drawer-facts · drawer-actions", "3 screens", "painted",
              state("A linked item", cut("project-item", "aside", 'class="drawer"', wrap='<div class="kit-drawer">{}</div>')),
+             state("A linked item with a Note", cut("project-configuring-item", "aside", 'class="drawer"', wrap='<div class="kit-drawer">{}</div>')),
              state("A detached item: Reset, Promote", cut("project-detached-default", "aside", 'class="drawer"', wrap='<div class="kit-drawer">{}</div>')),
+             state("Loading", cut("project-detached-loading", "aside", 'class="drawer"', wrap='<div class="kit-drawer">{}</div>')),
+             state("Our failure — Promote didn’t land", cut("project-detached-error", "aside", 'class="drawer"', wrap='<div class="kit-drawer">{}</div>')),
              state("One-off: the original of a detached field", cut("project-detached-default", "details", 'class="library-version"', wrap='<div class="kit-drawer">{}</div>'),
                    note="Detached row only; in the kit because a screen holds no style.")),
         comp("Check stages", "stage-group · stages · stage-body", "4 screens", "painted",
-             state("Checked: note · problem (open) · skipped", cut("run-default", "section", 'class="stage-group"')),
+             state("Checked: note · problem (open) · skipped", cut("run-default", "section", 'class="stage-group"'),
+                   note="A stage with something inside carries a chevron; one with nothing takes no focus."),
+             state("Our failure: stopped, then not run", cut("run-error-check", "section", 'class="stage-group"')),
              state("Checking: running · waiting", cut("run-loading", "section", 'class="stage-group"'))),
         comp("Run summary", "summary", "4 screens", "painted",
              state("Checking", cut("run-loading", "section", 'class="summary"')),
              state("Checked, with counts", cut("run-default", "section", 'class="summary"')),
              state("Error, the code in mono", cut("run-error-check", "section", 'class="summary"'))),
         comp("Export stage", "export-stage · export-actions", "4 screens", "painted",
+             state("Ready", cut("run-item-default", "section", 'class="export-stage"')),
              state("Ready, with a Problem", cut("run-default", "section", 'class="export-stage"')),
              state("Exporting", cut("run-loading-export", "section", 'class="export-stage"')),
              state("Exported", cut("run-success", "section", 'class="export-stage"')),
-             state("Failed", cut("run-error-export", "section", 'class="export-stage"'))),
+             state("Failed — our failure, neutral", cut("run-error-export", "section", 'class="export-stage"'))),
         comp("File block", "pre.file", "7 screens", "painted",
              state("SETUP.md", cut("run-default", "pre", 'class="file"', n=1))),
         comp("Plain list", "plain-list", "7 screens", "painted",
@@ -309,29 +367,32 @@ def components():
              state("Busy", cut("sign-in-loading", "button", 'type="submit"'))),
         comp("Link button", "link-button", "5 screens", "painted",
              state("Clear filters, in the popover's head", cut("projects-filters", "button", 'class="link-button"'))),
-        comp("Search field", "find · search", "8 screens", "painted (Projects) · grey (panel)",
+        comp("Search field", "find · search", "8 screens", "painted",
              state("Empty, with a placeholder", cut("projects-default", "label", 'class="search"')),
              state("Filled — the no-match state", cut("projects-error-filtered", "label", 'class="search"')),
              state("In the panel", cut("project-configuring-default", "label", 'class="search"'), note="Focus: the lime edge and ring.")),
         comp("Filters button and popover", "filters-button · find-zone · popover", "5 · 3 screens", "painted",
+             state("Closed, one filter on", cut("projects-error-filtered", "form", 'class="find"')),
              state("Open", stage(cut("projects-filters", "section", 'class="find-zone"', wrap='<div class="kit-find">{}</div>')))),
-        comp("Text field", "field · field-label", "5 screens", "grey",
+        comp("Text field", "field · field-label", "5 screens", "painted (side panel) · grey (door, item form)",
              state("Empty, with a placeholder", cut("sign-in-default", "label", 'class="field"')),
              state("With an inline link", cut("sign-in-default", "label", 'class="field"', n=1)),
              state("Filled", cut("sign-in-error", "label", 'class="field"'))),
         comp("Select", "select", "5 screens", "painted (agent target) · grey (Kind)",
              state("Agent target", cut("run-default", "label", 'class="pick"')),
              state("Kind, in a field", cut("item-default", "label", 'class="field"', contains="<select"))),
-        comp("Textarea", "field textarea", "2 screens", "grey",
+        comp("Textarea", "field textarea", "2 screens", "painted (side panel) · grey (item form)",
+             state("Empty, with a placeholder", cut("item-empty", "label", 'class="field"', contains="<textarea")),
              state("Filled", cut("item-default", "label", 'class="field"', contains="<textarea"))),
-        comp("Add to set", "check", "3 screens", "painted (CSS) · grey (screen)",
+        comp("Add to set", "check", "3 screens", "painted",
+             state("Auto-added — refuses: remove what requires it", cut("project-configuring-default", "label", 'class="check"', contains="disabled")),
              state("Not in the set · in the set", cut("project-configuring-default", "label", 'class="check"', contains="Add"),
                    ' ', cut("project-configuring-default", "label", 'class="check"', contains="checked"))),
         comp("Checkbox", "input[type=checkbox]", "3 screens", "painted",
              state("Unchecked · checked", cut("projects-filters", "fieldset", contains='type="checkbox"'))),
         comp("Radio", "input[type=radio]", "2 screens", "painted",
              state("Unselected · selected", cut("projects-filters", "fieldset", contains='type="radio"'))),
-        comp("Remove from set", "remove", "2 screens", "grey",
+        comp("Remove from set", "remove", "2 screens", "painted",
              state("On a set row; absent on an auto-added one", cut("project-configuring-default", "button", 'class="remove"'),
                    note="Its aria-label names the item: Remove code-style from this project.")),
         comp("Close", "close", "5 screens", "painted",
@@ -348,14 +409,14 @@ def components():
         comp("Finding box", "callout · callout-quiet · severity", "11 screens", "painted (Problem, Note) · grey (reminder)",
              state("Problem", cut("run-default", "div", 'class="callout"', contains="declares a conflict")),
              state("Note", cut("run-default", "div", 'class="callout callout-quiet"')),
-             state("Our failure", cut("run-error-setup", "div", 'role="alert"')),
+             state("Our failure — not a finding, so neutral", cut("run-error-setup", "div", 'role="alert"')),
              state("The keys reminder — not a finding", cut("library-json-default", "div", 'class="callout"', contains="carry no keys"))),
         comp("Finding capsule", "marks · mark", "3 screens", "painted",
              state("Problem · Note", '<div class="kit-row">', cut("project-default", "p", 'class="marks"', contains="glyph-problem"), cut("project-default", "p", 'class="marks"', contains="glyph-note"), '</div>')),
         comp("Severity glyph", "glyph-*", "9 screens", "painted",
-             state("problem · note · checked · skipped · waiting · running",
+             state("problem · note · checked · skipped · waiting · running · stopped",
                    '<div class="kit-row">' + "".join(f'<span class="kit-glyph"><span class="glyph glyph-{x}" aria-hidden="true"></span><span class="kit-label">{x}</span></span>'
-                                                     for x in ("problem", "note", "checked", "skipped", "waiting", "running")) + '</div>')),
+                                                     for x in ("problem", "note", "checked", "skipped", "waiting", "running", "stopped")) + '</div>')),
         comp("Empty and error state", "state-block · state-image · state-icon · state-actions", "7 screens", "painted (Projects, Project) · grey (the rest)",
              state("Empty", cut("projects-empty", "section", 'class="state-block"')),
              state("No match", cut("projects-error-filtered", "section", 'class="state-block"')),
@@ -398,8 +459,8 @@ PAGE_CSS = r"""
 .kit-comp-head h3{font:var(--t-heading);letter-spacing:var(--track-heading)}
 .kit-meta{font:var(--t-micro);font-weight:400;color:var(--text-3)}
 .kit-meta code{background:none;padding:0;color:var(--text-2)}
-.kit-painted{color:var(--text-2)}
-.kit-grey{color:var(--note)}
+.kit-status{color:var(--text-2)}
+.kit-grey{color:var(--text-3);font-style:italic}
 .kit-state{display:grid;grid-template-columns:var(--col-m) minmax(0,1fr);gap:var(--s2) var(--s6);align-items:start}
 .kit-label{font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
 .kit-note{grid-column:1;font:var(--t-micro);font-weight:400;color:var(--text-3)}
@@ -418,7 +479,7 @@ PAGE_CSS = r"""
 .kit-clip{max-height:calc(var(--s12) * 8);overflow:hidden;border-radius:var(--r-lg)}
 .kit-stage{position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--ground);border:var(--hairline) solid var(--line)}
 .kit-stage dialog.modal{position:relative;top:auto;margin:var(--s8) auto}
-.kit-stage:has(.popover){min-height:calc(var(--s12) * 14)}
+.kit-stage:has(.popover){min-height:calc(var(--s12) * 15);max-width:calc(var(--col-xl) + var(--s12) * 4)}
 .kit-find{position:absolute;top:var(--s6);right:var(--s6);display:flex;justify-content:flex-end}
 .kit-find dialog.popover{position:absolute}
 .kit-demo .door{margin:0;width:calc(var(--side-w) - var(--s10))}

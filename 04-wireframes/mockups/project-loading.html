@@ -10,9 +10,7 @@
   <link rel="stylesheet" href="../../07-ui-assembly/ui/kit.css">
 </head>
 <body class="product-page">
-<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
-  <path d="m17 8-5-5-5 5" />
-  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol></svg>
+<svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
 
   <!-- Product canvas, 1440 wide -->
   <div class="canvas">
@@ -42,10 +40,8 @@
             <p class="meta head-meta"><span class="skeleton sk-w480 sk-h12"></span></p>
           </div>
           <div class="head-actions">
-            <a class="button" href="project-configuring-default.html">Configure</a>
-            <button type="button">Share…</button>
-            <button type="button">Duplicate</button>
-            <a class="button button-primary" href="run-loading.html"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
+            <!-- Loading: nothing here can act yet, and Share… or Stop sharing… is not known — so nothing is shown,
+                 as on project-configuring-loading (§9: an action that cannot act is not shown). Phase 07, critique #19. -->
           </div>
         </div>
       </section>

@@ -54,7 +54,7 @@
                 <h3><a href="project-configuring-item.html">db-migrate</a><span class="tag">script</span></h3>
                 <p class="state-line">Required by <code>migration-reviewer</code></p>
               </div>
-              <label class="check" aria-label="db-migrate, in this project"><input type="checkbox" checked> In this project</label>
+              <label class="check" aria-label="db-migrate, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label>
             </article>
           </li>
           <li>
@@ -63,7 +63,7 @@
                 <h3><a href="project-configuring-item.html">postgres-mcp</a><span class="tag">mcp</span></h3>
                 <p class="state-line">Required by <code>migration-reviewer</code></p>
               </div>
-              <label class="check" aria-label="postgres-mcp, in this project"><input type="checkbox" checked> In this project</label>
+              <label class="check" aria-label="postgres-mcp, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label>
             </article>
           </li>
           <li>
@@ -72,7 +72,7 @@
                 <h3><a href="project-configuring-item.html">seed-data</a><span class="tag">script</span></h3>
                 <p class="state-line">Required by <code>db-migrate</code></p>
               </div>
-              <label class="check" aria-label="seed-data, in this project"><input type="checkbox" checked> In this project</label>
+              <label class="check" aria-label="seed-data, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label>
             </article>
           </li>
           <li>
@@ -112,24 +112,24 @@
         <p class="meta"><a href="projects-default.html">Projects</a> /</p>
         <div class="page-head">
           <div>
-            <h1 id="page-title">acme-billing-api<span class="tag">Configuring</span></h1>
-            <p class="meta head-meta"><span>13 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
+            <h1 id="page-title">acme-billing-api<span class="tag tag-state">Configuring</span></h1>
+            <p class="meta head-meta"><span>13 items in your changes · not saved</span><span>The saved project: 14 items · checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
           </div>
           <div class="head-actions">
             <!-- Save is the main action here; Check is secondary (owner, 2026-09-26). -->
             <a class="button button-quiet" href="project-default.html">Cancel</a>
             <a class="button" href="run-loading.html"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
-            <a class="button button-primary" href="project-default.html">Save</a>
+            <a class="button" href="project-default.html">Save</a>
           </div>
         </div>
       </section>
 
       <section aria-label="Items in this project">
         <!-- Error · server (Q33's draft, Q26): the save did not land. The project reads as it was; the draft stays here. -->
-        <div class="callout" role="alert">
+        <div class="callout callout-failure" role="alert">
           <span class="severity">Not saved</span>
           <span>Our server didn’t confirm the save, so acme-billing-api is as it was — 14 items, <code>eslint-autofix</code> still in it. Your changes are still here.</span>
-          <span class="meta">503 · Service unavailable · 14:09</span>
+          <span class="meta error-code">503 · Service unavailable · 14:09</span>
           <div class="row-actions"><a class="button button-primary" href="project-default.html">Save again</a><a class="button" href="project-default.html">Discard changes</a></div>
         </div>
       <ol class="row-list">
@@ -210,7 +210,7 @@
               <div>
                 <h3><a href="project-detached-default.html">pr-reviewer</a><span class="tag">agent</span><span class="tag tag-state">Detached</span></h3>
                 <p class="description">Reviews Acme pull requests against their billing rules.</p>
-                <p class="facts meta"><span>differs from the original in <em>content</em> and <em>lands at</em></span></p>
+                <p class="facts meta"><span>differs from the original in <em>Content</em> and <em>Lands at</em></span></p>
               </div>
               <p class="marks"></p>
               <div class="row-actions"><button type="button" class="remove" aria-label="Remove pr-reviewer from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div>

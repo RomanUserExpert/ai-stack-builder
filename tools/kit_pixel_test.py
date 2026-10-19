@@ -45,7 +45,7 @@ def main(mode, out, pages):
                 continue
             gold = Image.open(out / f"{name}.png").convert("RGB")
             if gold.size != img.size:
-                print(f"  DIFF  {name}  size {gold.size} → {img.size}")
+                print(f"  DIFF  {name}  size {gold.size} -> {img.size}")
                 bad += 1
                 img.save(out / f"{name}-now.png")
                 continue

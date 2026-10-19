@@ -63,14 +63,14 @@
               </div>
             </details>
           </li>
-          <li>
-            <details>
-              <summary><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
+          <li class="is-skipped">
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
             </details>
           </li>
           <li>
-            <details>
-              <summary><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.2 s</span></summary>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.2 s</span></summary>
             </details>
           </li>
           <li>
@@ -96,8 +96,8 @@
             </details>
           </li>
           <li>
-            <details>
-              <summary><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.4 s</span></summary>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.4 s</span></summary>
             </details>
           </li>
         </ol>
@@ -159,10 +159,10 @@ SENTRY_AUTH_TOKEN=</pre>
 
       <!-- Error: the archive failed to build — the most expensive failure, because the handover has been read.
            The check stands (nothing in the set changed); the way out is to build again, or go back. -->
-      <section class="export-stage" aria-labelledby="export-title" role="alert">
-        <h2 id="export-title">11 · Export — the archive didn’t build</h2>
+      <section class="export-stage is-failed" aria-labelledby="export-title" role="alert">
+        <h2 id="export-title"><span class="n">11 ·</span> Export — the archive didn’t build</h2>
         <p>Our server stopped at 12 of 18 files. Nothing was exported. The check above still stands — nothing in the project changed.</p>
-        <p class="meta">503 · Service unavailable · 14:07</p>
+        <p class="meta error-code">503 · Service unavailable · 14:07</p>
         <div class="export-actions">
           <a class="button button-primary" href="run-success.html"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export again</a>
           <a class="button" href="project-default.html">Back to acme-billing-api</a>

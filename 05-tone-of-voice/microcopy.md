@@ -713,7 +713,7 @@ State pages: `default` · `error-filtered` · `error-server` · `filters` · `lo
 | Public library | Main › Page head | Public library | = | title | all | product |  |  |
 | Public library | Main › Page head | Read-only. Every item is pinned to the version we checked — not the latest one. | = | fact | all | product |  |  |
 | Public library | Main › Find | Find | = | a11y label | default · error-filtered · filters · loading | product |  |  |
-| Public library | Main › Find | Search the shelf by name, kind or source — filesystem, playwright, anthropics | **Search Public library — filesystem, playwright, anthropics** | placeholder | default · error-filtered · filters · loading | product | D2 D15 | D2, D15 |
+| Public library | Main › Find | Search the shelf by name, kind or source — filesystem, playwright, anthropics | **Search Public library — filesystem, playwright** | placeholder | default · error-filtered · filters · loading | product | D2 D15 | D2, D15; Phase 07 critique #51: fits the field |
 | Public library | Main › Find | Filters | = | button | default · error-filtered · loading | product |  |  |
 | Public library | Main › Kind | Kind | = | a11y label | default · error-filtered · filters · loading | product |  |  |
 | Public library | Main › Kind | All 8 | = | nav | default · filters | product |  |  |
@@ -812,6 +812,7 @@ State pages: `default` · `delete` · `empty` · `error-filtered` · `error-serv
 | Projects | Projects › Project card | 1 problem · 2 notes · 1 skipped | = | fact | default · delete · filters | product |  |  |
 | Projects | Projects › Project card | Duplicate | = | button | default · delete · filters | product |  |  |
 | Projects | Projects › Project card | Share | **Share…** | button | default · delete · filters | product | D20 D21 | D20, D21 |
+| Projects | Projects › Project card | Share… | **Stop sharing…** | button | default · delete · filters | product | D20 D21 | Phase 07 critique #17 (Q37): the shared card (agent-dotfiles) reads as shared |
 | Projects | Projects › Project card | agent-dotfiles | = | item name | default · delete · filters | user |  |  |
 | Projects | Projects › Project card | Shared | = | state badge | default · delete · filters | product |  |  |
 | Projects | Projects › Project card | My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers. | = | description | default · delete · filters | user |  |  |
@@ -932,7 +933,7 @@ State pages: `default` · `empty` · `error` · `item` · `loading` · `revoke` 
 | Project | The set › Set row | pr-reviewer | = | item name | default · item · revoke · share | user |  |  |
 | Project | The set › Set row | Detached | = | state badge | default · item · revoke · share | product | D8 |  |
 | Project | The set › Set row | Reviews Acme pull requests against their billing rules. | = | description | default · item · revoke · share | user | U1 |  |
-| Project | The set › Set row | differs from the library in content and lands at | **differs from the original in content and lands at** | fact | default · item · revoke · share | product | D1 D8 | D8 |
+| Project | The set › Set row | differs from the library in content and lands at | **differs from the original in Content and Lands at** | fact | default · item · revoke · share | product | D1 D8 | D8; Phase 07 critique #49: the fields named as their labels read them |
 | Project | The set › Set row | commit-conventions | = | item name | default · item · revoke · share | user |  |  |
 | Project | The set › Set row | prompt | = | kind badge | default · item · revoke · share | product |  |  |
 | Project | The set › Set row | Conventional commits, imperative mood, a body that says why. | **Conventional commits, imperative mood, and a body that says why rather than what.** | description | default · item · revoke · share | user |  | Step 7 #22 U1 |
@@ -1096,7 +1097,8 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | Main › Page head | acme-billing-api | = | title | default · error-filtered · error-server · item · loading | user |  |  |
 | Project — configuring the set | Main › Page head | Configuring | = | state badge | all | product |  |  |
 | Project — configuring the set | Main › Page head | 14 items · 3 auto-added · 1 detached | = | fact | default · error-filtered · item | product | D7 D8 |  |
-| Project — configuring the set | Main › Page head | Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped | = | fact | default · error-filtered · error-server · item | product | D19 |  |
+| Project — configuring the set | Main › Page head | Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped | = | fact | default · error-filtered · item | product | D19 |  |
+| Project — configuring the set | Main › Page head | — | **The saved project: 14 items · checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped** | fact | error-server | product | D19 | Phase 07 critique #16 (Q26): the verdict stands beside the set it describes |
 | Project — configuring the set | Main › Page head | Cancel | = | button | all | product | D16 |  |
 | Project — configuring the set | Main › Page head | Check | **Export** | button | default · empty · error-filtered · error-server · item · loading-add · public | product |  | Q36: the mode is titled by what it ends in; the check is its sub-process. Q38: no ellipsis |
 | Project — configuring the set | Main › Page head | Save | = | button | default · empty · error-filtered · error-server · item · loading-add · public | product |  |  |
@@ -1139,7 +1141,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | The set › Set row | pr-reviewer | = | item name | default · error-filtered · error-server · item | user |  |  |
 | Project — configuring the set | The set › Set row | Detached | = | state badge | default · error-filtered · error-server · item | product | D8 |  |
 | Project — configuring the set | The set › Set row | Reviews Acme pull requests against their billing rules. | = | description | default · error-filtered · error-server · item | user | U1 |  |
-| Project — configuring the set | The set › Set row | differs from the library in content and lands at | **differs from the original in content and lands at** | fact | default · error-filtered · error-server · item | product | D1 D8 | D8 |
+| Project — configuring the set | The set › Set row | differs from the library in content and lands at | **differs from the original in Content and Lands at** | fact | default · error-filtered · error-server · item | product | D1 D8 | D8; Phase 07 critique #49: the fields named as their labels read them |
 | Project — configuring the set | The set › Set row | Remove pr-reviewer | **Remove pr-reviewer from this project** | a11y label | default · error-filtered · error-server · item | product, with slots | D22 | D22 |
 | Project — configuring the set | The set › Set row | commit-conventions | = | item name | default · error-filtered · error-server · item | user |  |  |
 | Project — configuring the set | The set › Set row | prompt | = | kind badge | default · error-filtered · error-server · item | product |  |  |
@@ -1168,7 +1170,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | Library panel › State block | My library is empty | **No items in My library yet** | a11y label | empty | product |  | D13 |
 | Project — configuring the set | Library panel › State block | My library is empty | **No items in My library yet** | heading | empty | product | D13 | D13 |
 | Project — configuring the set | Library panel › State block | Your own items appear here once you add them. The Public library has 8 items, each pinned to the version we checked, that you can add right now. | **Items you add to My library appear here. The Public library has 8 items, each pinned to the version we checked, and you can add any of them now.** | state message | empty | product | D1 | D1 |
-| Project — configuring the set | Library panel › State block | Switch to Public library | **Open Public library** | button | empty | product |  | Button: plain verb |
+| Project — configuring the set | Library panel › State block | Switch to Public library | **Show Public library** | button | empty | product |  | Button: plain verb; Phase 07 critique #52: it switches the panel's scope; *Open* read as leaving the draft |
 | Project — configuring the set | Library panel › State block | Add item | = | button | empty | product |  |  |
 | Project — configuring the set | Main › Page head | stripe-webhooks | = | title | empty · loading-add · public | user | U2 |  |
 | Project — configuring the set | Main › Page head | Nothing in it yet | **No items yet** | fact | empty · public | product |  | D13 |
@@ -1181,7 +1183,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | Library panel › State block | No item related to this set matches “sentry”. It may be under another kind, on the shelf, or not written yet. | **The tab shows only items related to this project. It holds 6 — the search hides all of them. “sentry” may be under All, in Public library, or not written yet.** | state message | error-filtered | product | D2 D6 | D13, principle 4, D2, D6; Step 7 #8 filtered body, one form |
 | Project — configuring the set | Library panel › State block | Clear search | = | button | error-filtered | product | D14 |  |
 | Project — configuring the set | Library panel › State block | Add “sentry” as a new item | = | button | error-filtered | product |  |  |
-| Project — configuring the set | Main › Page head | 13 items · 3 auto-added · 1 detached | = | fact | error-server | product | D7 D8 |  |
+| Project — configuring the set | Main › Page head | 13 items · 3 auto-added · 1 detached | **13 items in your changes · not saved** | fact | error-server | product | D7 D8 | Phase 07 critique #16 (Q26): the draft and the saved project are named apart |
 | Project — configuring the set | The set › Finding | Not saved | = | status label | error-server | product |  |  |
 | Project — configuring the set | The set › Finding | The server didn’t confirm the save, so acme-billing-api is as it was — 14 items, `eslint-autofix` still in it. Your changes are still here. 503 · 14:09 | **Our server didn’t confirm the save, so acme-billing-api is as it was — 14 items, `eslint-autofix` still in it. Your changes are still here.** | state message | error-server | product, with slots | D9 D10 | D9, D10; Step 7 #19: the error code moved to a line of its own (D10) |
 | Project — configuring the set | Items in this project › Finding | (added) | **503 · Service unavailable · 14:09** | state message | error-server | product |  | Step 7 #18/#19: the error code on its own line (D10) |
@@ -1231,7 +1233,7 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `item
 | Project — configuring the set | The set › Set row | Reads a migration before it runs and flags long locks, missing down steps and unbatched backfills. | = | description | loading-add | user |  |  |
 | Project — configuring the set | The set › Set row | Adding — finding what it requires… | **Adding — finding what it requires** | fact | loading-add | product | D11 | D20, D11 |
 | Project — configuring the set | Main › The set | Loading the set and the library | **Loading acme-billing-api and My library** | body | loading | product | D1 D6 D11 | D11, D1, D6 |
-| Project — configuring the set | Library panel | Search Public library | **Search Public library — filesystem, playwright, anthropics** | placeholder | public | product | D15 | D15 |
+| Project — configuring the set | Library panel | Search Public library | **Search Public library — filesystem, playwright** | placeholder | public | product | D15 | D15; Phase 07 critique #51: fits the field |
 | Project — configuring the set | Library panel › Row | filesystem | = | item name | public | user |  |  |
 | Project — configuring the set | Library panel › Row | Read and write files inside the directories you allow, and nowhere else. | = | panel row line | public | user |  |  |
 | Project — configuring the set | Library panel › Row | memory | = | item name | public | user |  |  |
@@ -1333,7 +1335,7 @@ State pages: `default` · `error` · `loading` · `promote`
 | Project — a detached row | The set › Set row | pr-reviewer | = | item name | all | user |  |  |
 | Project — a detached row | The set › Set row | Detached | = | state badge | all | product | D8 |  |
 | Project — a detached row | The set › Set row | Reviews Acme pull requests against their billing rules. | = | description | all | user | U1 |  |
-| Project — a detached row | The set › Set row | differs from the library in content and lands at | **differs from the original in content and lands at** | fact | all | product | D1 D8 | D8 |
+| Project — a detached row | The set › Set row | differs from the library in content and lands at | **differs from the original in Content and Lands at** | fact | all | product | D1 D8 | D8; Phase 07 critique #49: the fields named as their labels read them |
 | Project — a detached row | The set › Set row | Remove pr-reviewer | **Remove pr-reviewer from this project** | a11y label | all | product, with slots | D22 | D22 |
 | Project — a detached row | The set › Set row | commit-conventions | = | item name | all | user |  |  |
 | Project — a detached row | The set › Set row | prompt | = | kind badge | all | product |  |  |
@@ -1442,6 +1444,7 @@ State pages: `default` · `error-check` · `error-export` · `error-setup` · `l
 | Run | Main › Stages: Handover — what the receiving machine still needs | DATABASE_URL=<br>GITHUB_TOKEN=<br>SENTRY_AUTH_TOKEN= | = | generated file | default · error-export · error-setup · loading-export · remove · success | generated |  |  |
 | Run | Main › Export stage | 11 · Export | = | heading | default · error-check · error-setup · loading-export · loading · remove | product | D4 |  |
 | Run | Main › Export stage | 1 problem is still in the set. The archive will contain both `eslint-autofix` and `code-style`, and the agent will get two rules that disagree about imports. | **1 problem is still in this project. The archive will contain both `eslint-autofix` and `code-style`, and the agent will get two rules that disagree about imports.** | state message | default · error-setup · remove | product, with slots | D6 | D6 |
+| Run | Main › Export stage | — | **`SETUP.md` isn’t written. An archive exported now goes without it, and the agent that opens it has no setup to read.** | state message | error-setup | product, with slots |  | Phase 07 critique #1 (Q28): a disclosure that could not be produced says so before the step |
 | Run | Main › Export stage | Export with 1 problem | = | button | default · error-setup · remove | product | D4 |  |
 | Run | Main › Export stage | Fix it in the project first | **Configure acme-billing-api** | button | default · error-setup · remove | product |  | Button: verb + object, the result visible — it opens the configuring mode |
 | Run | Main › Verdict | The check didn’t finish | = | title | error-check | product |  |  |
@@ -1476,7 +1479,7 @@ State pages: `default` · `error-check` · `error-export` · `error-setup` · `l
 | Run | Modal: Remove eslint-autofix from acme-billing-api? | Cancel | = | button | remove | product | D16 |  |
 | Run | Modal: Remove eslint-autofix from acme-billing-api? | Remove | **Remove from project** | button | remove | product | D22 | Dangerous action: the confirm button repeats the verb of the act (D22) |
 | Run | Main › Export stage | Archive built — acme-billing-api-claude-code.zip | **Exported — acme-billing-api-claude-code.zip** | heading | success | product | D4 | Dictionary: it is built — *Exported* (D4) |
-| Run | Main › Export stage | 18 files · 41 KB · saved to Downloads. Checked just now with 1 problem, 2 notes and 1 skipped. | **18 files · 41 KB · saved to Downloads. Checked just now · 1 problem · 2 notes · 1 skipped.** | state message | success | product | D19 | D19 |
+| Run | Main › Export stage | 18 files · 41 KB. Checked just now with 1 problem, 2 notes and 1 skipped. | **18 files · 41 KB. Checked just now · 1 problem · 2 notes · 1 skipped.** | state message | success | product | D19 | D19; Phase 07 critique #35: principle 1 — we cannot know where the browser put the file |
 | Run | Main › Export stage | The receiving machine still needs | = | state message | success | product | D18 |  |
 | Run | Main › Export stage | Values for `DATABASE_URL`, `GITHUB_TOKEN` and `SENTRY_AUTH_TOKEN` | = | state message | success | product, with slots |  |  |
 | Run | Main › Export stage | Three repos cloned at their pinned refs — `SETUP.md` says which | **3 repos cloned at their pinned refs — `SETUP.md` says which** | state message | success | product, with slots |  | Step 7 #14 numbers as digits |
@@ -1547,7 +1550,7 @@ State pages: `default` · `error` · `loading` · `success`
 | Run — a single item | Main › Stages: Handover — what the receiving machine still needs | Waiting | = | stage result | loading | product | D23 |  |
 | Run — a single item | Main › Export stage | After the handover stages. | **Opens after the handover stages.** | state message | loading | product |  | Loading |
 | Run — a single item | Main › Export stage | Archive built — migration-reviewer-claude-code.zip | **Exported — migration-reviewer-claude-code.zip** | heading | success | product | D4 | D4 |
-| Run — a single item | Main › Export stage | 4 files · 9 KB · saved to Downloads. Checked just now with 0 problems, 1 note and 3 skipped. Nothing is saved from this check. | **8 files · 9 KB · saved to Downloads. Checked just now · 0 problems · 1 note · 3 skipped. Nothing is saved from this check.** | state message | success | product | D19 | D19; Step 7 #21 U3 |
+| Run — a single item | Main › Export stage | 4 files · 9 KB. Checked just now with 0 problems, 1 note and 3 skipped. Nothing is saved from this check. | **8 files · 9 KB. Checked just now · 0 problems · 1 note · 3 skipped. Nothing is saved from this check.** | state message | success | product | D19 | D19; Step 7 #21 U3; Phase 07 critique #35: principle 1 — we cannot know where the browser put the file |
 | Run — a single item | Main › Export stage | The receiving machine still needs | = | state message | success | product | D18 |  |
 | Run — a single item | Main › Export stage | A value for `DATABASE_URL` | = | state message | success | product, with slots |  |  |
 | Run — a single item | Main › Export stage | `modelcontextprotocol/servers-archived` cloned at `9be4674` — `SETUP.md` says how | = | state message | success | product, with slots |  |  |
@@ -1771,9 +1774,33 @@ State pages: `default` · `error` · `loading` · `success`
 | Run — a shared item | Main › Stages: Handover — what your machine still needs | Waiting | = | stage result | loading | product | D23 |  |
 | Run — a shared item | Main › Export stage | After the handover stages. | **Opens after the handover stages.** | state message | loading | product |  | Loading |
 | Run — a shared item | Main › Export stage | Archive downloaded — code-style-claude-code.zip | **Exported — code-style-claude-code.zip** | heading | success | product | D4 | D4 |
-| Run — a shared item | Main › Export stage | 2 files · 3 KB. A snapshot of the item as it was a minute ago, checked by you with 0 problems and 1 note. | **2 files · 3 KB · saved to Downloads. A snapshot of the item as it was a minute ago. Checked just now by you · 0 problems · 1 note · 5 skipped.** | state message | success | product | D19 | D19 |
+| Run — a shared item | Main › Export stage | 2 files · 3 KB. A snapshot of the item as it was a minute ago, checked by you with 0 problems and 1 note. | **2 files · 3 KB. A snapshot of the item as it was a minute ago. Checked just now by you · 0 problems · 1 note · 5 skipped.** | state message | success | product | D19 | D19; Phase 07 critique #35: principle 1 — we cannot know where the browser put the file |
 | Run — a shared item | Main › Export stage | Your machine still needs | = | state message | success | product | D18 |  |
 | Run — a shared item | Main › Export stage | An agent that reads `SETUP.md` first | = | state message | success | product, with slots |  |  |
 | Run — a shared item | Main › Export stage | To know that the client’s ESLint config wins where it disagrees with this skill | **The client’s ESLint config, which wins where it disagrees with this skill** | state message | success | product, with slots |  | Step 7 #13 a thing the machine needs |
 | Run — a shared item | Main › Export stage | Back to the shared item | = | button | success | product |  |  |
 | Run — a shared item | Main › Export stage | Copy into a library of my own | **Copy to My library** | button | success | product | D1 D5 | D1, D5 |
+
+
+---
+
+## Phase 07 — the critique (2026-10-19)
+
+Copy found by the critique of the dressed screens (`07-ui-assembly/ui/critique.md`) and changed on the wireframe pages by
+`tools/critique07_pages.py`; the rows above carry *Phase 07 critique #n* in their last column. Seven changes:
+
+| Critique | Screen | Was | Now | Why |
+|---|---|---|---|---|
+| #1 | Run · error-setup | — | *`SETUP.md` isn’t written. An archive exported now goes without it, and the agent that opens it has no setup to read.* | Q28 — the missing disclosure is named before Export |
+| #16 | Configuring · error-server | *13 items · 3 auto-added · 1 detached* · *Checked 2 days ago …* | *13 items in your changes · not saved* · *The saved project: 14 items · checked 2 days ago …* | Q26 — no verdict beside a set it does not describe |
+| #17 | Projects | *Share…* on the shared card | *Stop sharing…* | Q37 |
+| #35 | Run · success (×3) | *· saved to Downloads.* | — | Principle 1: we cannot know where the browser saved it |
+| #49 | Project, Configuring, Detached | *in content and lands at* | *in Content and Lands at* | the field names as their labels read |
+| #51 | Public library, Configuring · public | *— filesystem, playwright, anthropics* | *— filesystem, playwright* | the placeholder fits its field |
+| #52 | Configuring · empty | *Open Public library* | *Show Public library* | it switches the panel's scope, it does not leave the draft |
+
+**Declined, with the reason:** #31 *stage 4 of 10* stays — the check has ten stages and Export is the act after it, not an eleventh check;
+#36 the em dash in result lines stays — it is the dictionary's form (D23), and the detector's count is not the voice contract.
+
+**Q41 (2026-10-19):** the `Conflict` state badge now also stands on `code-style`, the other side of the pair, in Project,
+Configuring and Detached row. It uses the same word, on one more row.

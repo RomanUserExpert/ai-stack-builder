@@ -57,7 +57,7 @@ included**: 58 of the 80 pages have no mockup yet. They count the same as the 22
 | **Export stage** — the last stage, which makes the archive (`export-stage`, `export-actions`) | 4: the four Run modes | ready · ready with a Problem (`Export with 1 problem`) · exporting (`role=status`) · exported (`plain-list` of what is inside) · failed (`role=alert`) | no | yes |
 | **File block** — a file's contents or a path tree in mono (`pre.file`) | 7: Project, Configuring, Detached row, Run project, Run single item, Run shared item, Shared item | default · scrolls sideways | no | yes |
 | **Plain list** — a dash list of facts (`plain-list`) | 7: Project, Run project, Run single item, Run shared project, Run shared item, Shared project, Shared item | default | no | yes |
-| **Aside box** — *What your machine still needs*, with the Export action (`with-aside`, `aside-box`) | 2: Shared project, Shared item | default · loading · error | no | no |
+| **Aside box** — *What your machine still needs*, with the Export action (`with-aside`, `aside-box`) | 2: Shared project, Shared item | default · loading. *There is no error state of its own: on error the dead-link state replaces the page (corrected in step 6).* | no | no |
 
 ## Forms
 
@@ -84,7 +84,7 @@ included**: 58 of the 80 pages have no mockup yet. They count the same as the 22
 |---|---|---|---|---|
 | **Finding box** — a severity label, the sentence, actions (`callout` = Problem, `callout-quiet` = Note, `severity`) | 11: Sign in, Create account, Import/export, Item overlay, Project, Configuring, Detached row, Run project, Run single item, Run shared project, Run shared item | **variants**: Problem · Note · **our failure** (`role=alert`: *Our server didn't…*, on 10 screens) · **keys reminder** (*Check that these files carry no keys*: Item overlay, Import/export) | no | yes (Problem, Note) · our failure: partly · reminder: no |
 | **Finding capsule** — icon + word on a set row (`marks`, `mark`) | 3: Project, Configuring, Detached row | Problem · Note | no | yes |
-| **Severity glyph** (`glyph-problem`, `-note`, `-checked`, `-skipped`, `-waiting`, `-running`) | 9: Sign in, Create account, Project, Configuring, Detached row, the four Run modes | problem · note · checked (dot) · skipped (`ban`) · waiting · running (spinner) | no | yes |
+| **Severity glyph** (`glyph-problem`, `-note`, `-checked`, `-skipped`, `-waiting`, `-running`) | 9: Sign in, Create account, Project, Configuring, Detached row, the four Run modes | problem · note · checked (dot) · skipped (`ban`) · waiting · running (spinner) · **stopped** (`cloud-off`, our server broke mid-stage — added in step 6) | no | yes |
 | **Empty and error state** — a tile, a title, a sentence, actions (`state-block`, `state-icon` / `state-image`, `state-actions`) | 7: My library, Public library, Projects, Project, Configuring, Shared project, Shared item | **empty** (*No items in My library yet*, *No projects yet*, *No items in this project yet*) · **no match** (*Nothing matches “…”*) · **server error** (*… didn't load*, with a mono code) · **dead link** (*This link doesn't open anything any more*) | the wireframes draw an image placeholder (`state-image`) on 4 pages; **no photo**: the mockups draw one neutral icon tile (owner, phase 06) | yes (Projects, Project) · no (the rest) |
 | **Skeleton** (`skeleton`) | 10: My library, Public library, Import/export, Item overlay, Projects, Project, Configuring, Detached row, Shared project, Shared item | shimmering · still under reduced motion. Widths are inline styles today, to become kit classes | no | yes (Projects, Project) |
 | **Busy indicator** — spinner with a status line (`glyph-running`, `role=status`) | 6: Sign in, Create account, the four Run modes | running · stopped under reduced motion | no | yes (Run) |
@@ -167,3 +167,31 @@ that needs a look gets its class in `kit.css` and a line on `kit.html`, and stay
   head's (*Save again* beside *Save*).
 - **An empty state's tile is the empty-set icon** (`layers`), not the alert circle: the panel's *No items in
   My library yet* is not an alarm.
+
+---
+
+## Step 6 — what the critique changed in the kit
+
+The critique is in [`critique.md`](critique.md), and its disposition is at the end of that file. These changes are
+to the components in this table.
+
+- **Finding box**: *our failure* is now its own class, `callout-failure`. It is neutral, as the keys reminder is,
+  because neither is a finding.
+- **Export stage**: it has state classes, `is-exported` and `is-failed`. A failed stage is neutral.
+- **Run summary**: when the run fails, its summary gets the state class `is-failed`.
+- **Check stages**:
+  - a stage with something inside has a chevron and a hover;
+  - a stage with nothing inside (`stage-empty`) takes no focus;
+  - Skipped is drawn by the class `is-skipped`;
+  - the waiting ring and the Skipped outline are now at 3:1.
+- **Severity glyph**: the new *stopped* glyph.
+- **Add to set**: a new *auto-added, refuses* state, with the checkbox disabled.
+- **Button**:
+  - a primary that has been demoted is drawn as a real secondary;
+  - *busy* is `aria-busy`;
+  - *disabled* takes focus (`aria-disabled`);
+  - the link button keeps its look on hover.
+- **Text field, search and select**: the edge is now Control Edge, at 3:1. A field holding a path, a name or a key
+  is mono (`field-mono`).
+- **Error codes**: wherever they stand, they carry `error-code`, which is mono Ink 3.
+- **Dialog**: the veil is .58, and a field inside it sits 16 below the title.
