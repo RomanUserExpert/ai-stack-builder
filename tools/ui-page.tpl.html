@@ -1,0 +1,384 @@
+<title>Phase 7 &mdash; UI assembly &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- the pipeline: where a value, a look, a structure and a word go in --- */
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:22px 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.pipe > div{position:relative;padding:16px 18px 18px;border-right:1px solid var(--rule-soft)}
+.pipe > div:last-child{border-right:0}
+.pipe > div:not(:last-child)::after{content:"";position:absolute;right:-7px;top:22px;width:12px;height:12px;background:var(--surface);border-top:1px solid var(--rule);border-right:1px solid var(--rule);transform:rotate(45deg);z-index:1}
+.pipe .k{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.pipe b{display:block;margin:6px 0 4px;font-family:var(--font-mono);font-size:13.5px;font-weight:600;color:var(--ink)}
+.pipe p{margin:0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.pipe > div.out{background:var(--accent-06)}
+.pipe > div.out .k{color:var(--accent)}
+@media (max-width:760px){.pipe{grid-template-columns:1fr}.pipe > div{border-right:0;border-bottom:1px solid var(--rule-soft)}.pipe > div:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-7px;transform:rotate(135deg)}}
+
+/* --- the guards: nine checks that stop the build --- */
+.guards{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:18px 0 8px;padding:0}
+.guards li{counter-increment:g;position:relative;margin:0;padding:12px 14px 12px 44px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.guards li::before{content:counter(g);position:absolute;left:12px;top:11px;width:22px;height:22px;border:1px solid var(--accent-45);border-radius:4px;font-family:var(--font-mono);font-size:11.5px;line-height:20px;text-align:center;color:var(--accent)}
+.guards li b{color:var(--ink)}
+
+/* --- the twins: one screen, wireframe or design, live --- */
+.twins{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--sunken)}
+.twins-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.screens{display:flex;flex-wrap:wrap;gap:4px}
+.screens button,.mode button{font:inherit;font-size:13px;font-weight:500;padding:6px 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.screens button:hover,.mode button:hover{background:var(--surface-hover);color:var(--ink)}
+.screens button[aria-pressed="true"]{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.mode{display:inline-flex;margin-left:auto;padding:2px;border:1px solid var(--rule);border-radius:8px;background:var(--sunken)}
+.mode button{padding:5px 12px}
+.mode button[aria-pressed="true"]{background:var(--fill-strong);color:var(--on-fill)}
+.twins-stage{position:relative;overflow:hidden;height:560px}
+.twins-stage iframe{position:absolute;left:0;top:0;width:1440px;height:960px;border:0;transform-origin:0 0;background:#1B1C19}
+.twins-cap{display:flex;flex-wrap:wrap;gap:6px 16px;padding:9px 14px;border-top:1px solid var(--rule);background:var(--surface);font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
+.twins-cap a{margin-left:auto;font-family:var(--font);font-size:13px}
+.twins + .tnote{margin-top:12px}
+
+/* --- a live page in a frame: the showcase and the shell --- */
+.stand{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:#1B1C19}
+.stand-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.stand-bar strong{color:var(--ink)}
+.stand-bar a{margin-left:auto}
+.stand iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#1B1C19}
+.stand.short iframe{height:340px}
+
+/* --- the ledger: three passes over the screens, and what became of each finding --- */
+.ledger{margin:20px 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+.ledger > div{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr) 56px;gap:16px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--rule-soft)}
+.ledger > div:last-child{border-bottom:0}
+.ledger .who b{display:block;font-size:14.5px;color:var(--ink)}
+.ledger .who span{display:block;margin-top:2px;font-size:12.5px;line-height:1.45;color:var(--ink-3)}
+.ledger .split{display:flex;height:12px;border-radius:3px;overflow:hidden;background:var(--sunken)}
+.ledger .split i{display:block;height:100%}
+.ledger .split .f{background:var(--fill-strong)}
+.ledger .split .p{background:var(--accent-45)}
+.ledger .split .d{background:var(--rule)}
+.ledger .split .ok{background:transparent;box-shadow:inset 0 0 0 1px var(--accent-45)}
+.ledger .tally{margin-top:6px;font-size:12.5px;color:var(--ink-3)}
+.ledger .n{font-family:var(--font-mono);font-size:20px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.keys{display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 24px;font-size:12.5px;color:var(--ink-3)}
+.keys span::before{content:"";display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:2px;vertical-align:-1px}
+.keys .f::before{background:var(--fill-strong)}.keys .p::before{background:var(--accent-45)}.keys .ok::before{box-shadow:inset 0 0 0 1px var(--accent-45)}.keys .d::before{background:var(--rule)}
+@media (max-width:640px){.ledger > div{grid-template-columns:1fr 48px}.ledger .who{grid-column:1 / -1}}
+
+/* --- the register: owner's answers, one card each --- */
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0 8px}
+.q{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.q .qid{font-family:var(--font-mono);font-size:11.5px;color:var(--accent)}
+.q h3{margin:0;font-size:15px;line-height:1.35}
+.q p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.q .said{margin-top:auto;padding-top:6px;font-size:12.5px;color:var(--ink-3)}
+
+/* --- links out, as a short list of buttons --- */
+.outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
+.outs a:hover{border-color:var(--accent)}
+</style>
+
+
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><a href="../06-concept/style.html" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></a></li>
+      <li><span class="now" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span></span></li>
+      <li><span class="soon" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 07 &middot; UI assembly</p>
+  <h1>Every screen, built from one kit</h1>
+  <p class="phasemeta">Phase <strong>7 of 12</strong> &middot; all seven of the phase&rsquo;s stages, one skipped by the owner &middot; <strong>19&ndash;23 Oct 2026</strong> &middot; source of truth: <strong>kit.css</strong> for the look, <strong>tokens.css</strong> for the values, <strong>microcopy.md</strong> for the words</p>
+  <p class="standfirst">Phase 06 found the look and proved it on the main job. <strong>This phase turns it into the product.</strong> Painting the rest of the screens one by one, &ldquo;like the sample&rdquo;, would have let the look drift a little on every page. <strong>So a kit stands between the style and the screens</strong> &mdash; one stylesheet, one shell, one showcase &mdash; and every screen is generated from its wireframe on that kit and nothing else. <strong>A build that finds a style of its own on any page fails.</strong></p>
+  <dl class="facts">
+    <div><dt>Screens</dt><dd>{{N_PAGES}}<small>+ {{N_STEPS}} flow steps</small></dd></div>
+    <div><dt>The kit</dt><dd>{{N_CLASSES}}<small>classes on {{N_VARS}} variables</small></dd></div>
+    <div><dt>Components</dt><dd>41<small>in the inventory</small></dd></div>
+    <div><dt>Findings</dt><dd>142<small>critique, review, audit</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>{{N_PAIRS}}<small>all WCAG AA</small></dd></div>
+    <div><dt>Register</dt><dd>5<small>Q39&ndash;Q43</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#twins"><b>Look</b>Wireframe and design</a></li>
+    <li><a href="#design-md"><b>Stage 01</b>DESIGN.md</a></li>
+    <li><a href="#inventory"><b>Stage 02</b>Inventory</a></li>
+    <li><a href="#kit"><b>Stage 03</b>The kit</a></li>
+    <li><a href="#assembly"><b>Stage 04&ndash;05</b>Assembly</a></li>
+    <li><a href="#passes"><b>Stage 06&ndash;07</b>Critique and audit</a></li>
+    <li><a href="#register"><b>Register</b>Q39&ndash;Q43</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">Five days, every screen of the product dressed, and the two lists they produced.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>A screen is a composition, not a painting.</strong> The main job had been painted by hand in phase 06, and the first read of it found the same component drawn three ways &mdash; a page head, an empty-state tile, a finding box. Sixty more screens painted the same way would have multiplied that.</li>
+    <li><strong>The wireframes are the specification, and they already held the answer.</strong> Structure and words were settled in phases 04 and 05; a dressed screen that changed either would have been a second specification. So the twins keep the wireframe&rsquo;s markup and lines exactly, and the audit proves it: <strong>0 pages whose words differ from their wireframe.</strong></li>
+    <li><strong>The kit was read, not drawn.</strong> The inventory came from all the wireframe pages and the sitemap &mdash; 41 components, each named with the screens it stands on &mdash; and the kit was lifted from the painted screens, so nothing in it is remembered or invented.</li>
+    <li><strong>The worst defect of the phase was ours, and only walking every link found it.</strong> The shell was swapped into the flow screens and broke 402 links; a review that rendered every step and followed every link caught it, and a guard now refuses it.</li>
+    <li><strong>Measuring keeps finding what looking does not.</strong> The new contrast pairs caught a focus ring at 1.21:1 in the light theme; the audit caught a file name on lime at 1.2:1 inside a button &mdash; both invisible on a quick look.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>One stylesheet, <code>kit.css</code>, and every screen links only it.</strong> Its <code>:root</code> mirrors <code>tokens.css</code> character for character; its classes hold no literal value.</li>
+    <li><strong>The wireframes stay grey, and the design is their generated twin</strong> &mdash; the owner&rsquo;s call from phase 06, kept. A mockup is never edited by hand.</li>
+    <li><strong>One way in for every kind of change</strong> &mdash; a value, a look, a structure, a word &mdash; and nine guards that fail the build when a change goes in anywhere else.</li>
+    <li><strong>One primary per screen, settled by the build</strong>, with a fixed rank from an open dialog down to the Export stage.</li>
+    <li><strong>Our own failure is neutral</strong>, not Problem rose &mdash; and so are the keys reminder and the blast radius, because they are disclosures, not findings.</li>
+    <li><strong><em>Оставляем</em> means the kit.</strong> When the owner keeps a visual change, it goes into the kit, is signed in DESIGN.md, and reaches every screen where the component stands.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="ui/kit.html">The kit showcase &nearr;</a>
+    <a href="ui/shell.html">The shell &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">Every screen, in the viewer &nearr;</a>
+    <a href="ui/kit.css">kit.css &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ TWINS ============ -->
+<section id="twins" class="col">
+  <div class="stagehead"><span class="stagenum">LOOK</span><h2>Wireframe and design, one switch apart</h2></div>
+  <p class="qline">The same page twice &mdash; the grey specification and its dressed twin, with the same markup and the same words.</p>
+  <div class="twins wide" data-twins>
+    <div class="twins-bar">
+      <div class="screens" role="group" aria-label="Screen">
+        <button type="button" data-page="run-default" aria-pressed="true">Run</button>
+        <button type="button" data-page="project-default" aria-pressed="false">Project</button>
+        <button type="button" data-page="project-configuring-default" aria-pressed="false">Configuring</button>
+        <button type="button" data-page="library-my-default" aria-pressed="false">My library</button>
+        <button type="button" data-page="item-default" aria-pressed="false">Item</button>
+        <button type="button" data-page="shared-project-default" aria-pressed="false">Shared project</button>
+        <button type="button" data-page="project-link" aria-pressed="false">A link (Q43)</button>
+        <button type="button" data-page="sign-in-default" aria-pressed="false">Sign in</button>
+      </div>
+      <div class="mode" role="group" aria-label="Wireframe or design">
+        <button type="button" data-mode="pages" aria-pressed="false">Wireframe</button>
+        <button type="button" data-mode="mockups" aria-pressed="true">Design</button>
+      </div>
+    </div>
+    <div class="twins-stage"><iframe src="../04-wireframes/mockups/run-default.html" title="Run, dressed" tabindex="-1"></iframe></div>
+    <div class="twins-cap"><span data-cap>04-wireframes/mockups/run-default.html</span><a data-open href="../04-wireframes/mockups/run-default.html" target="_blank" rel="noopener">Open it full size &nearr;</a></div>
+  </div>
+  <p class="tnote">Drawn at 1440 and scaled to fit. Every one of the {{N_PAGES}} pages and every flow step is in <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">the viewer</a>, behind its <strong>Wireframe / Design</strong> switch.</p>
+</section>
+
+<!-- ============ DESIGN.md ============ -->
+<section id="design-md" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 01</span><h2>DESIGN.md, read off the painted screens</h2></div>
+  <p class="qline">The look written down from what was drawn, not from what was meant &mdash; <strong>and where the two disagreed, the screens won.</strong></p>
+  <p><code>/impeccable document</code> read the 22 painted mockups and <code>tokens.css</code>. It asked for a north star and a character for the components, as it always does; <strong>the answers were taken from what already existed</strong> &mdash; <em>The Inspector&rsquo;s Report</em>, from the voice&rsquo;s first principle, and <em>quiet and exact</em> &mdash; so a new metaphor could not pull the look somewhere else. <code>DESIGN.md</code> sits at the root, describes and points, and <strong>holds no value of its own</strong>: its frontmatter mirrors <code>tokens.css</code>, and a comment says which file wins.</p>
+  <p><strong><code>concept.md</code> was corrected to follow the mockups</strong>, each line marked <em>Phase 07</em>: the density, the current place, the cut-out&rsquo;s inward shadow, the radius on cards and dialogs &mdash; and four things drawn but never written, among them <em>one primary per screen</em> and the Skipped stage. <strong>Two conflicts were named for the owner rather than written in</strong>: glass was nearly absent, and the active row seemed to carry a ring. The owner kept glass as it is, and the ring turned out to be the cut-out&rsquo;s own edge, one step brighter.</p>
+</section>
+
+<!-- ============ INVENTORY ============ -->
+<section id="inventory" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 02</span><h2>The inventory</h2></div>
+  <p class="qline">What the screens are made of, read from every wireframe page &mdash; <strong>a component counts when it stands on two screens.</strong></p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Role</th><th>Components</th><th>What it holds</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Navigation</td><td>8</td><td>The app header, the shared header, the Run bar, the breadcrumb, the page head, tabs, the scope switch, the library panel</td></tr>
+        <tr><td class="name">Cards and lists</td><td>12</td><td>Rows and their tray, the item text block, the set row in its six states (&sect;7), the kind tag, usage facts, the side panel, check stages, the Run summary, the Export stage, the file block</td></tr>
+        <tr><td class="name">Forms</td><td>14</td><td>Fields, the search, the filters popover, radio and checkbox, the segmented control, the Item sheet&rsquo;s sections and drop zone</td></tr>
+        <tr><td class="name">Feedback</td><td>7</td><td>Finding tags, the state tile for empty and error, the confirmation dialog, callouts, skeletons</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>15 were painted in full, 17 in part, 9 only grey</strong> &mdash; the kit had to finish those from DESIGN.md. Seven one-offs are listed apart. <strong>The photo column is almost empty</strong>: the only image in the product is the sharer&rsquo;s portrait, which is why the visuals stage was skipped.</p>
+  <p>The reading also found three things the kit would have to carry: <strong>the shell has three variants</strong> (the app, the door and the receiver, the Run bar), <strong>empty and error are one component</strong> with four variants, and <strong>the wireframes mark a destructive confirm as a plain primary</strong> &mdash; only the design makes it red.</p>
+  <div class="outs"><a href="ui/inventory.md">inventory.md &nearr;</a></div>
+</section>
+
+<!-- ============ KIT ============ -->
+<section id="kit" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 03</span><h2>The kit: a stylesheet, a shell, a showcase</h2></div>
+  <p class="qline">Three files, and every screen is built from the first.</p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">File</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><td class="name"><code>ui/kit.css</code></td><td><strong>{{N_VARS}} variables in one flat <code>:root</code></strong>, copied from <code>tokens.css</code> by the build, and <strong>{{N_CLASSES}} classes</strong> with no literal value in them. Generated by <code>tools/build_kit.py</code></td></tr>
+        <tr><td class="name"><code>ui/shell.html</code></td><td>The shell as markup, in its three variants. A screen takes its header from here rather than drawing its own</td></tr>
+        <tr><td class="name"><code>ui/kit.html</code></td><td>The showcase: <strong>every component in every state it has</strong>, cut from the real pages rather than typed, with the product&rsquo;s own lines &mdash; a word on it that is not in <code>microcopy.md</code> fails the build</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Flat on purpose.</strong> One level of variables; the split into primitives, semantic and component tokens is phase 08, and it is not anticipated here. <strong>And it was proved before it was used</strong>: the 22 painted mockups were shot, moved onto <code>kit.css</code> alone, and shot again &mdash; <strong>22 of 22 identical</strong> to the pixel. The same test now runs on every page after every change, and a painted screen may move only when the change meant it to.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>kit.html</strong> &middot; the showcase, live &middot; scroll inside the frame<a href="ui/kit.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="ui/kit.html" title="The UI kit: every component of AI Stack Builder in every state" loading="lazy"></iframe>
+  </div>
+  <div class="stand short wide">
+    <div class="stand-bar"><strong>shell.html</strong> &middot; the three headers<a href="ui/shell.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="ui/shell.html" title="The shell: the app header, the shared header and the Run bar" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ ASSEMBLY ============ -->
+<section id="assembly" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 04&ndash;05</span><h2>Assembly: every screen, through one door</h2></div>
+  <p class="qline">How a screen is made, where each kind of change goes in, and what stops a change that goes in anywhere else.</p>
+  <p><strong>Stage 04, the product&rsquo;s own visuals, was skipped by the owner</strong>: the product has one photo, the sharer&rsquo;s portrait, not a layer of imagery, and the stock portrait is recorded as accepted rather than as a defect. Assembly went by the viewer&rsquo;s groups &mdash; <strong>the configuring mode and the detached row first, under the owner&rsquo;s eye</strong>, because they close the main job &mdash; then the door, the libraries and the Item sheet, every Run, the receiver&rsquo;s pages, and every flow.</p>
+  <div class="pipe wide">
+    <div><span class="k">A value</span><b>tokens.css</b><p>Generated by <code>concept_tokens.py</code>, signed in <code>concept.md</code>. The only place a value is written.</p></div>
+    <div><span class="k">How it looks</span><b>kit.css</b><p>The kit&rsquo;s classes, shown on <code>kit.html</code>, signed in <code>DESIGN.md</code>.</p></div>
+    <div><span class="k">Structure and words</span><b>pages/*.html</b><p>The wireframe is the specification; a word goes into <code>microcopy.md</code> with it.</p></div>
+    <div class="out"><span class="k">The screen</span><b>mockups/*.html</b><p>Written by <code>build_mockups.py</code>. Never edited by hand: the next build overwrites it.</p></div>
+  </div>
+  <p><strong>A tone the structure cannot carry</strong> &mdash; danger, warning, the one primary, a state class, mono for machine text &mdash; is set by the build&rsquo;s transform, never by a class added to the wireframe only for looks. <strong>And every state is a class</strong>, never a guess from the content.</p>
+  <h3>Nine guards, and they stop the build</h3>
+  <ol class="guards wide">
+    <li><b>No value outside a variable</b> in the kit&rsquo;s classes</li>
+    <li><b>No style on a screen</b> &mdash; no <code>style=</code>, no <code>&lt;style&gt;</code></li>
+    <li><b>Every class is the kit&rsquo;s</b>, save a short named list</li>
+    <li><b>Every variable is declared</b>, in the kit and in its showcase</li>
+    <li><b>The kit mirrors the tokens</b>, character for character</li>
+    <li><b>One stylesheet</b>: a page links <code>kit.css</code> and nothing else</li>
+    <li><b>One primary</b> on any screen</li>
+    <li><b>The words are the product&rsquo;s</b>: the showcase against <code>microcopy.md</code></li>
+    <li><b>Coverage</b>: {{N_PAGES}} of {{N_PAGES}} pages and {{N_STEPS}} of {{N_STEPS}} flow steps have a twin</li>
+  </ol>
+</section>
+
+<!-- ============ PASSES ============ -->
+<section id="passes" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 06&ndash;07</span><h2>Three passes over the screens</h2></div>
+  <p class="qline">A critique of the first screens and the kit, a review of every screen once all were dressed, and an audit against the kit &mdash; <strong>every finding with a disposition</strong>, and every fix made in the kit, never on one screen.</p>
+  <div class="ledger wide">
+    <div>
+      <div class="who"><b>Critique</b><span>3 reviewers &middot; the first dressed screens, Run, the kit</span></div>
+      <div><div class="split"><i class="f" style="width:78.2%"></i><i class="p" style="width:7.3%"></i><i class="d" style="width:14.5%"></i></div><p class="tally">43 fixed &middot; 4 in part &middot; 8 declined with the reason</p></div>
+      <div class="n">55</div>
+    </div>
+    <div>
+      <div class="who"><b>Review</b><span>4 reviewers &middot; every screen, every flow, the token chain</span></div>
+      <div><div class="split"><i class="f" style="width:71.1%"></i><i class="p" style="width:3.9%"></i><i class="d" style="width:25%"></i></div><p class="tally">54 fixed &middot; 3 in part &middot; 19 declined with the reason</p></div>
+      <div class="n">76</div>
+    </div>
+    <div>
+      <div class="who"><b>Audit</b><span>re-runnable checks &middot; and the impeccable detector</span></div>
+      <div><div class="split"><i class="f" style="width:54.5%"></i><i class="d" style="width:18.2%"></i><i class="ok" style="width:27.3%"></i></div><p class="tally">6 fixed &middot; 2 kept on purpose &middot; 3 checks clean from the start</p></div>
+      <div class="n">11</div>
+    </div>
+  </div>
+  <p class="keys"><span class="f">fixed</span><span class="p">fixed in part</span><span class="d">declined or kept, with the reason</span><span class="ok">clean</span></p>
+  <p><strong>The critique</strong> ran on what was dressed by then and found an auto-added row that could be unchecked, though &sect;8 says it refuses; two primaries on one screen; a <code>SETUP.md</code> that failed to write while the verdict read as normal. <strong>The review</strong> ran once every page was dressed, and its worst finding was our own: <strong>402 dead links in the flows</strong>, now 0 of 144, and the current place shown on 134 of 134 flow steps. <strong>The audit</strong> held every page to the kit, <code>DESIGN.md</code> and <code>microcopy.md</code>, and ended at <strong>0 contrast failures, 0 lines outside the table, 0 icons outside Lucide.</strong></p>
+  <div class="verdict">
+    <p class="vh">Stages 06&ndash;07 &mdash; conclusion</p>
+    <p>Every fix went in through the same door as everything else, so it reached every screen at once. <strong>A markup fix made once in the generator is the advantage of twins</strong>: nothing had to be carried by hand to forty pages, and nothing could be missed on the forty-first.</p>
+  </div>
+  <div class="outs">
+    <a href="ui/critique.md">critique.md &nearr;</a>
+    <a href="ui/review.md">review.md &nearr;</a>
+    <a href="ui/audit.md">audit.md &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register" class="col">
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Five questions the screens raised</h2></div>
+  <p class="qline">When assembly found the specification silent, the question went to the register and the owner answered it &mdash; <strong>nothing was decided on a screen.</strong></p>
+  <div class="qs wide">
+    <div class="q"><span class="qid">Q39</span><h3>The receiver&rsquo;s Run keeps two bars</h3><p>The shared header stays above the Run bar, so a visitor always sees whose set they are checking.</p><span class="said">Owner: two headers are fine</span></div>
+    <div class="q"><span class="qid">Q40</span><h3>A single item&rsquo;s Run keeps every Skipped stage</h3><p>Each on its own row, rather than folded into one line &mdash; the check says what it had nothing to check.</p><span class="said">Owner: no collapse</span></div>
+    <div class="q"><span class="qid">Q41</span><h3>Both sides of a conflict read as conflicting</h3><p>The <code>Conflict</code> tag on the item that declares it and on the one it names; the Problem still annotates the declaring row.</p><span class="said">Owner: on both</span></div>
+    <div class="q"><span class="qid">Q42</span><h3>A shared item reads as shared</h3><p>As a project does: the row says so, and stopping the share is within reach, with the same honest confirmation.</p><span class="said">Owner: yes, draw it</span></div>
+    <div class="q"><span class="qid">Q43</span><h3>The link can be had again</h3><p><code>Share&hellip;</code> on a shared thing opens its link with <code>Copy link</code>, and <code>Stop sharing&hellip;</code> inside. Before, the link was shown nowhere after it was made.</p><span class="said">Owner: option 2 of three</span></div>
+  </div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to which phase.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Tokens in levels</td><td>Phase 08, design tokens: the flat <code>:root</code> splits into primitive, semantic and component tokens, and the styling engine is chosen on two built components (Q6). Two type names known to be swapped wait for it.</td></tr>
+        <tr><td class="name">The light theme</td><td>Phase 09, the design system: only dark is dressed; light is one measured slice, and the full theme is designed rather than inverted.</td></tr>
+        <tr><td class="name">Responsive</td><td>Phase 10: the screens are drawn at 1440 with fixed panels, and controls sit under the 44&nbsp;px touch target &mdash; desktop-first, by the specification.</td></tr>
+        <tr><td class="name">The check as a moment</td><td>Phase 11: the validation pass is a designed moment, not a spinner (&sect;6).</td></tr>
+        <tr><td class="name">A link replaced in place</td><td>Not decided: whether the owner can swap a shared link for a new one without stopping the share (Q43).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 07 of twelve.</strong> Built by <code>tools/build_ui_page.py</code>; the kit by <code>tools/build_kit.py</code>; the screens by <code>tools/build_mockups.py</code>, guarded by <code>tools/kit_check.py</code>. The specification is <code>CLAUDE.md</code>, &sect;16 <em>UI assembly</em>; the look is signed in <code>DESIGN.md</code>.</p>
+  <p>Phase 06 &mdash; <a href="../06-concept/style.html">the concept</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var box = document.querySelector('[data-twins]');
+  if (!box) return;
+  var stage = box.querySelector('.twins-stage'), frame = stage.querySelector('iframe');
+  var cap = box.querySelector('[data-cap]'), open = box.querySelector('[data-open]');
+  var page = 'run-default', mode = 'mockups';
+  function fit(){
+    var k = stage.clientWidth / 1440;
+    frame.style.transform = 'scale(' + k + ')';
+    stage.style.height = Math.round(Math.min(960, 900) * k) + 'px';
+  }
+  function show(){
+    var src = '../04-wireframes/' + mode + '/' + page + '.html';
+    frame.src = src; open.href = src;
+    cap.textContent = '04-wireframes/' + mode + '/' + page + '.html';
+    frame.title = page + (mode === 'mockups' ? ', dressed' : ', wireframe');
+  }
+  function press(group, btn){
+    group.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+  }
+  box.querySelector('.screens').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    page = b.dataset.page; press(this, b); show();
+  });
+  box.querySelector('.mode').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    mode = b.dataset.mode; press(this, b); show();
+  });
+  fit();
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else window.addEventListener('resize', fit);
+})();
+</script>

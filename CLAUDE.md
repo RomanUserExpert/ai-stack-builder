@@ -210,7 +210,7 @@ product *is* before anything decides what it looks like.
 | **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
-| **07** | **UI assembly** | ← **current**, from 2026-10-11. The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) |
+| **07** | **UI assembly** | ← **current**, from 2026-10-11. The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
 | **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
@@ -1506,6 +1506,13 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-10-23 — Q43, the owner's choice of three.** **The link of a shared project or item can be had again.** A shared
+thing keeps its `Shared` tag and its button reads **`Share…`** again; on a shared thing it opens **the link** — `Copy link`,
+`Close`, and **`Stop sharing…` inside the dialog**, which opens the Q37/Q42 confirmation. `Create link` lands on the same
+dialog, so the link is first seen there. Drawn as `project-link.html` and `library-my-link.html`, on a reserved domain,
+`aistack.example`, because the product's own is not decided. *Q37 and Q42 are re-drawn, not undone: the tag still says it is
+shared.*
+
 **Added 2026-10-19, by lesson 07's critique — Q39, Q40, Q41, raised and answered the same day by the owner.** **Q39** —
 the receiver's Run keeps two bars, the shared header over the Run bar; **Q40** — a single item's Run keeps every Skipped
 stage on its own row; **Q41** — **both items of a declared conflict read as state 4** (§7), while the Problem still
@@ -1745,7 +1752,7 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 - **One element, one set of values**, by class, never by where it sits.
 - **A screen is drawn whole**: every state, or none.
 - **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with the same
-  markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 81 pages (80, plus `library-my-revoke` from Q42) and all 239 flow steps are
+  markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 83 pages (80, plus `library-my-revoke` from Q42 and the two link dialogs from Q43) and all 241 flow steps are
   dressed** from one stylesheet, `07-ui-assembly/ui/kit.css`, guarded by `tools/kit_check.py`. The pipeline and the rule for
   where a change goes are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 - **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
@@ -1764,7 +1771,7 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 ## 16. UI assembly
 
 **Added 2026-10-19, lesson 07 (Сборка UI).** Every screen of the product is dressed in Mica · Lime as a **generated
-twin of its wireframe**: all 81 pages in [`04-wireframes/mockups/`](04-wireframes/mockups/), and all 239 steps of the 37
+twin of its wireframe**: all 83 pages in [`04-wireframes/mockups/`](04-wireframes/mockups/), and all 241 steps of the 37
 clickable cases in `mockups/flows/`. The wireframes stay as they are, and the viewer's **Wireframe / Design** switch moves
 between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 
@@ -1812,5 +1819,6 @@ between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/R
 
 Each finding has a disposition. Q39–Q41 were answered by the owner.
 
-~~**Open:** whether a shared *item* reads *Stop sharing…*.~~ **Answered, Q42: it does.** **Left on purpose:** the light
+~~**Open:** whether a shared *item* reads *Stop sharing…*.~~ **Answered, Q42: it does** — and since Q43 (2026-10-23) `Stop
+sharing…` sits inside the link dialog that `Share…` opens, beside `Copy link`. **Left on purpose:** the light
 theme (lesson 09), responsive (lesson 10), motion (lesson 11).

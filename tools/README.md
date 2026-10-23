@@ -112,6 +112,17 @@ as of step 1 (2026-10-05)**; the findings above the table are hand-written. From
 edited by hand and the script is not re-run over it — it stays as a way to re-inventory the pages and
 diff against the table in step 7.
 
+## `build_ui_page.py` — phase 07, the UI assembly page
+
+```
+python tools/build_ui_page.py   # -> 07-ui-assembly/ui.html
+```
+
+Built like `build_concept_page.py`: the shared `<style>` and scroll-spy come from `research-page.tpl.html`, and its
+own head and body are `ui-page.tpl.html`. The counts (kit variables and classes, pages, flow steps, contrast pairs)
+are read from `07-ui-assembly/ui/kit.css`, `04-wireframes/mockups/` and `06-concept/contrast.md`. The kit, the shell
+and eight screens are embedded live, so rebuild the kit and the mockups first.
+
 ## `build_voice.py` — phase 05, the voice page
 
 ```

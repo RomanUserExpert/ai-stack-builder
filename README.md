@@ -109,7 +109,7 @@ between **Wireframe** and **Design** (`?mode=design#project-default` opens one d
 
 ## UI
 
-**Every screen of the product is dressed, from one stylesheet.** That is all 81 wireframe pages and all 239 steps of
+**Every screen of the product is dressed, from one stylesheet.** That is all 83 wireframe pages and all 241 steps of
 the 37 clickable cases. Each is a generated twin of its wireframe, with the same markup and words; only the look
 changes. **[The viewer](04-wireframes/pages/wireframes.html)** switches any screen or flow step between **Wireframe**
 and **Design**. You can open one directly with `?mode=design#run-default`.
@@ -179,7 +179,8 @@ that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
 | [`03-information-architecture/`](03-information-architecture/README.md) | 03 · Information architecture — `sitemap.md`, `flows.md`, `ia-critique.md` | [`ia.html`](03-information-architecture/ia.html) |
 | [`04-wireframes/`](04-wireframes/_screens.md) | 04 · Prototyping and wireframing — 80 pages in `pages/`, 37 clickable flows in `prototypes/` | [`wireframes.html`](04-wireframes/pages/wireframes.html) |
 | [`05-tone-of-voice/`](05-tone-of-voice/README.md) | 05 · Tone of voice and microcopy — `voice.md`, `microcopy.md` | [`voice.html`](05-tone-of-voice/voice.html) |
-| [`06-concept/`](06-concept/README.md) | 06 · Concept — **current**; the plan is written | — |
+| [`06-concept/`](06-concept/README.md) | 06 · Concept — Mica · Lime, `tokens.css`, the stand | [`style.html`](06-concept/style.html) |
+| [`07-ui-assembly/`](07-ui-assembly/README.md) | 07 · UI assembly — the kit in `ui/`, every screen dressed, critique, review, audit | [`ui.html`](07-ui-assembly/ui.html) |
 
 **Everything that is not a lesson:**
 

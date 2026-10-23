@@ -72,7 +72,7 @@ A mockup is never edited by hand, because the next build would overwrite it.
 | **B** | 1 · What I keep: My library, Public library, Import/export, the Item overlay | 20 | the Item sheet: `sheet`, `form-section`, `field-row`, `file-list`, `dropzone`, `attach` |
 | **C** | 3 · What leaves: Run for a single item, a shared project, a shared item | 12 | — |
 | **D** | 4 · What somebody else opens: Shared project, Shared item | 6 | `heading-small` |
-| **E** | every flow step of the 37 clickable cases | 239 | — |
+| **E** | every flow step of the 37 clickable cases | 241 | — |
 
 Each batch follows the same steps:
 1. new components go into the kit;
@@ -100,7 +100,7 @@ Each finding goes by the table in §1.
 
 ## State, 2026-10-19
 
-**Steps 7 and 8 are done.** All 81 pages and 239 flow steps are dressed, and the guards pass. The review
+**Steps 7 and 8 are done.** All 83 pages and 241 flow steps are dressed, and the guards pass. The review
 ([`ui/review.md`](ui/review.md)) has 76 findings, each with a disposition: 54 fixed, 3 fixed in part, 19 declined with the reason.
 One of the declined is a question for the owner. The goldens were re-saved after the fixes.
 
@@ -110,9 +110,13 @@ head, the state tile, and code inside a button at 1.2:1), one heading level skip
 tooltips missing from the table. All of them are fixed. The re-run shows 0 contrast failures, 0 lines outside
 microcopy.md, 0 pages whose words differ from their wireframe, and 0 icons outside Lucide.
 
+**The phase page is [`ui.html`](ui.html)** (2026-10-23), built by `tools/build_ui_page.py` from `tools/ui-page.tpl.html`
+like the pages of phases 01–06. It embeds the kit, the shell and a Wireframe / Design switch over eight screens, and
+reads its counts from `kit.css`, the mockups and `contrast.md` at build time. Phase 07 is a link on every phase rail.
+
 ## 6. Done means
 
-- 81 of 81 wireframe pages and every flow step have a dressed twin.
+- 83 of 83 wireframe pages and every flow step have a dressed twin.
 - The guards pass, and the goldens are re-saved.
 - `review.md` has a disposition for every row.
 - `DESIGN.md`, `inventory.md`, `kit.html` and the register agree.

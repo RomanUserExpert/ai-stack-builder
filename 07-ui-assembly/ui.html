@@ -1,0 +1,1162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Every screen of AI Stack Builder built from one UI kit: DESIGN.md, the inventory, the kit and its showcase, the wireframe and its dressed twin, the guards that stop the build, and three passes over the screens.">
+<style>
+/* Baseline the artifact host normally supplies. */
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Phase 7 &mdash; UI assembly &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- the pipeline: where a value, a look, a structure and a word go in --- */
+.pipe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin:22px 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.pipe > div{position:relative;padding:16px 18px 18px;border-right:1px solid var(--rule-soft)}
+.pipe > div:last-child{border-right:0}
+.pipe > div:not(:last-child)::after{content:"";position:absolute;right:-7px;top:22px;width:12px;height:12px;background:var(--surface);border-top:1px solid var(--rule);border-right:1px solid var(--rule);transform:rotate(45deg);z-index:1}
+.pipe .k{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.pipe b{display:block;margin:6px 0 4px;font-family:var(--font-mono);font-size:13.5px;font-weight:600;color:var(--ink)}
+.pipe p{margin:0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.pipe > div.out{background:var(--accent-06)}
+.pipe > div.out .k{color:var(--accent)}
+@media (max-width:760px){.pipe{grid-template-columns:1fr}.pipe > div{border-right:0;border-bottom:1px solid var(--rule-soft)}.pipe > div:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-7px;transform:rotate(135deg)}}
+
+/* --- the guards: nine checks that stop the build --- */
+.guards{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:18px 0 8px;padding:0}
+.guards li{counter-increment:g;position:relative;margin:0;padding:12px 14px 12px 44px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.guards li::before{content:counter(g);position:absolute;left:12px;top:11px;width:22px;height:22px;border:1px solid var(--accent-45);border-radius:4px;font-family:var(--font-mono);font-size:11.5px;line-height:20px;text-align:center;color:var(--accent)}
+.guards li b{color:var(--ink)}
+
+/* --- the twins: one screen, wireframe or design, live --- */
+.twins{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--sunken)}
+.twins-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.screens{display:flex;flex-wrap:wrap;gap:4px}
+.screens button,.mode button{font:inherit;font-size:13px;font-weight:500;padding:6px 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.screens button:hover,.mode button:hover{background:var(--surface-hover);color:var(--ink)}
+.screens button[aria-pressed="true"]{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.mode{display:inline-flex;margin-left:auto;padding:2px;border:1px solid var(--rule);border-radius:8px;background:var(--sunken)}
+.mode button{padding:5px 12px}
+.mode button[aria-pressed="true"]{background:var(--fill-strong);color:var(--on-fill)}
+.twins-stage{position:relative;overflow:hidden;height:560px}
+.twins-stage iframe{position:absolute;left:0;top:0;width:1440px;height:960px;border:0;transform-origin:0 0;background:#1B1C19}
+.twins-cap{display:flex;flex-wrap:wrap;gap:6px 16px;padding:9px 14px;border-top:1px solid var(--rule);background:var(--surface);font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
+.twins-cap a{margin-left:auto;font-family:var(--font);font-size:13px}
+.twins + .tnote{margin-top:12px}
+
+/* --- a live page in a frame: the showcase and the shell --- */
+.stand{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:#1B1C19}
+.stand-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.stand-bar strong{color:var(--ink)}
+.stand-bar a{margin-left:auto}
+.stand iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#1B1C19}
+.stand.short iframe{height:340px}
+
+/* --- the ledger: three passes over the screens, and what became of each finding --- */
+.ledger{margin:20px 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+.ledger > div{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr) 56px;gap:16px;align-items:center;padding:14px 18px;border-bottom:1px solid var(--rule-soft)}
+.ledger > div:last-child{border-bottom:0}
+.ledger .who b{display:block;font-size:14.5px;color:var(--ink)}
+.ledger .who span{display:block;margin-top:2px;font-size:12.5px;line-height:1.45;color:var(--ink-3)}
+.ledger .split{display:flex;height:12px;border-radius:3px;overflow:hidden;background:var(--sunken)}
+.ledger .split i{display:block;height:100%}
+.ledger .split .f{background:var(--fill-strong)}
+.ledger .split .p{background:var(--accent-45)}
+.ledger .split .d{background:var(--rule)}
+.ledger .split .ok{background:transparent;box-shadow:inset 0 0 0 1px var(--accent-45)}
+.ledger .tally{margin-top:6px;font-size:12.5px;color:var(--ink-3)}
+.ledger .n{font-family:var(--font-mono);font-size:20px;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+.keys{display:flex;flex-wrap:wrap;gap:6px 16px;margin:10px 0 24px;font-size:12.5px;color:var(--ink-3)}
+.keys span::before{content:"";display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:2px;vertical-align:-1px}
+.keys .f::before{background:var(--fill-strong)}.keys .p::before{background:var(--accent-45)}.keys .ok::before{box-shadow:inset 0 0 0 1px var(--accent-45)}.keys .d::before{background:var(--rule)}
+@media (max-width:640px){.ledger > div{grid-template-columns:1fr 48px}.ledger .who{grid-column:1 / -1}}
+
+/* --- the register: owner's answers, one card each --- */
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0 8px}
+.q{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.q .qid{font-family:var(--font-mono);font-size:11.5px;color:var(--accent)}
+.q h3{margin:0;font-size:15px;line-height:1.35}
+.q p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.q .said{margin-top:auto;padding-top:6px;font-size:12.5px;color:var(--ink-3)}
+
+/* --- links out, as a short list of buttons --- */
+.outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
+.outs a:hover{border-color:var(--accent)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&display=swap">
+
+<style>
+/* ------------------------------------------------------------------
+   Design language carried over from r-o-design.tech — the same tokens,
+   the same type pairing, the same border-led component grammar.
+------------------------------------------------------------------ */
+:root{
+  --bg:#f9f9f7;
+  --paper:#f9f9f7;
+  --surface:#fdfdfb;
+  --sunken:#f0f0ee;
+  --surface-hover:#ebebea;
+  --ink:#0d0d0d;
+  --ink-2:#3f3f3d;
+  --ink-3:#5a5a56;
+  --rule:#d4d4cf;
+  --rule-soft:#e2e2dd;
+  --accent:#e05f03;
+  --accent-hover:#c45200;
+  --accent-06:#e05f0312;
+  --accent-18:#e05f0330;
+  --accent-45:#e05f0378;
+  --bad:#a3342a;
+  --bad-soft:#f4e3e0;
+  --fill-strong:#c45200;   /* white on the brand orange is only 3.6:1 — this is 5.2 */
+  --fill-bad:#a3342a;
+  --on-fill:#ffffff;
+  --shadow:0 2px 12px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur:.18s;
+  --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Symbol",sans-serif;
+  --font-display:"Special Gothic Expanded One",Inter,-apple-system,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614;
+    --paper:#161614;
+    --surface:#1e1e1c;
+    --sunken:#121210;
+    --surface-hover:#232321;
+    --ink:#f0efe9;
+    --ink-2:#ababab;
+    --ink-3:#909090;
+    --rule:#52524f;
+    --rule-soft:#3a3a37;
+    --accent:#f57722;
+    --accent-hover:#ff8c3d;
+    --accent-06:#e05f0326;
+    --accent-18:#e05f0347;
+    --accent-45:#e05f0385;
+    --bad:#e88b80;
+    --bad-soft:#3a201d;
+    --fill-strong:#f57722;
+    --fill-bad:#e0655a;
+    --on-fill:#161614;     /* on a bright fill, dark text is the legible one */
+    --shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614;
+  --paper:#161614;
+  --surface:#1e1e1c;
+  --sunken:#121210;
+  --surface-hover:#232321;
+  --ink:#f0efe9;
+  --ink-2:#ababab;
+  --ink-3:#909090;
+  --rule:#52524f;
+  --rule-soft:#3a3a37;
+  --accent:#f57722;
+  --accent-hover:#ff8c3d;
+  --accent-06:#e05f0326;
+  --accent-18:#e05f0347;
+  --accent-45:#e05f0385;
+  --bad:#e88b80;
+  --bad-soft:#3a201d;
+  --fill-strong:#f57722;
+  --fill-bad:#e0655a;
+  --on-fill:#161614;
+  --shadow:0 2px 12px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--font-display);font-weight:400}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:3px
+}
+
+/* ---------- shell ---------- */
+.shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
+/* On wide screens the phase list is a rail fixed to the window's left edge (below), and the
+   content column is centred in what is left. Same rail, same width, on every phase page and on
+   the wireframes. */
+:root{--phases-w:240px}
+html.phases-collapsed{--phases-w:64px}
+@media (min-width:1080px){
+  body{padding-left:var(--phases-w)}
+  .shell{max-width:980px;padding:0 40px 120px}
+}
+.col{max-width:100%}
+.col>*{max-width:74ch}
+.col>.wide{max-width:100%}
+
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 44px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px
+}
+.mast h1{
+  font-size:clamp(30px,4.4vw,54px);line-height:1.02;letter-spacing:-.005em;
+  margin:0 0 26px;text-wrap:balance;max-width:17ch
+}
+.standfirst{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:62ch;margin:0 0 36px}
+.standfirst strong{color:var(--ink);font-weight:500}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));
+  gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)
+}
+.facts div{padding:14px 16px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts dt{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 6px;font-weight:600
+}
+.facts dd{
+  margin:0;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;
+  color:var(--ink);line-height:1;letter-spacing:-.01em
+}
+.facts dd small{font-size:11.5px;color:var(--ink-3);display:block;margin-top:6px;font-weight:400;letter-spacing:0}
+
+.rail{
+  position:sticky;top:0;z-index:20;margin:0;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+}
+.rail::after{
+  content:"";position:absolute;right:0;top:0;bottom:1px;width:40px;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--paper) 72%);
+}
+.rail ol{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail ol::-webkit-scrollbar{display:none}
+.rail li{flex:0 0 auto;margin:0}
+.rail a{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap;
+  padding:9px 14px 8px;border:0;border-bottom:2px solid transparent;border-radius:0;
+  font-size:13px;line-height:1.3;font-weight:500;color:var(--ink-3);background:none;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.rail a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.rail a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.rail a b{
+  display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:600;
+}
+.rail a.on b{color:var(--accent)}
+.railhead{display:none}
+
+/* --- both horizontal bars are dragged with the mouse, not only wheeled --- */
+.rail ol.grabbable,.phases ol.grabbable{cursor:grab}
+.rail ol.dragging,.phases ol.dragging,
+.rail ol.dragging *,.phases ol.dragging *{cursor:grabbing;user-select:none}
+
+/* ---------- sections ---------- */
+section{padding:64px 0 8px;scroll-margin-top:80px}
+@media (min-width:1080px){section{scroll-margin-top:70px}}
+section+section{border-top:1px solid var(--rule-soft)}
+.stagehead{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.stagenum{
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:4px;padding:3px 8px;white-space:nowrap;background:var(--accent-06)
+}
+h2{font-size:clamp(24px,2.9vw,34px);line-height:1.06;letter-spacing:-.004em;margin:0;text-wrap:balance}
+.qline{color:var(--ink-2);font-size:16px;margin:14px 0 32px;max-width:64ch}
+h3{
+  font-family:var(--font);font-size:18px;line-height:1.3;font-weight:600;
+  letter-spacing:-.005em;margin:48px 0 14px;text-wrap:balance
+}
+h4{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);font-weight:600;margin:38px 0 14px
+}
+p{margin:0 0 18px}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:10px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+
+/* ---------- per-stage conclusion ---------- */
+.verdict{
+  margin:44px 0 8px;padding:24px 26px 22px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:10px
+}
+.verdict .vh{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--accent);margin:0 0 14px
+}
+.verdict p{margin:0 0 12px;font-size:15.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict ul{margin:0;font-size:15.5px}
+.verdict li:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
+.band td{
+  background:var(--sunken);font-size:10.5px;letter-spacing:.13em;font-weight:600;
+  text-transform:uppercase;color:var(--ink-3);padding:8px 14px
+}
+.tnote{font-size:13px;color:var(--ink-2);margin:-14px 0 28px;line-height:1.6}
+
+/* the score scale is one hue — the accent — because it measures magnitude.
+   Only the single 1 is a different colour, because it means something else. */
+td.s,th.s{
+  text-align:center;font-variant-numeric:tabular-nums;font-weight:600;
+  width:10%;min-width:58px;font-size:14px;color:var(--ink)
+}
+td.s5{background:var(--fill-strong);color:var(--on-fill)}
+td.s4{background:var(--accent-45);color:var(--ink)}
+td.s3{background:var(--accent-18)}
+td.s2{background:var(--accent-06)}
+td.s1{background:var(--fill-bad);color:var(--on-fill)}
+td.sx{color:var(--ink-3);font-weight:400}
+
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 26px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.chip{width:24px;height:15px;border-radius:3px;border:1px solid var(--rule);display:inline-block}
+
+/* ---------- flows: the site's numbered process list ---------- */
+.flows{margin:28px 0 0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)}
+details{border-bottom:1px solid var(--rule-soft)}
+details:last-child{border-bottom:none}
+summary{
+  list-style:none;cursor:pointer;padding:16px 46px 16px 20px;display:grid;
+  grid-template-columns:40px 1fr auto;gap:16px;align-items:center;position:relative;
+  transition:background var(--dur) var(--ease)
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--surface-hover)}
+summary:hover .chev::before{border-color:var(--accent)}
+.chev{position:absolute;right:19px;top:50%;width:16px;height:16px;transform:translateY(-50%);pointer-events:none}
+.chev::before{
+  content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;
+  margin:-5px 0 0 -4px;border-right:1.7px solid var(--ink-3);border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease)
+}
+details[open] .chev::before{transform:rotate(-135deg);margin:-2px 0 0 -4px;border-color:var(--accent)}
+details[open] summary{background:var(--sunken)}
+.fnum{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
+.ftitle{font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+.ftitle span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+.fstat{
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid var(--rule);
+  background:var(--sunken);color:var(--ink-3)
+}
+.st-closed{border-color:var(--accent);color:var(--accent);background:var(--accent-06)}
+.fbody{padding:2px 20px 24px 76px}
+@media (max-width:640px){
+  summary{grid-template-columns:32px 1fr;grid-template-rows:auto auto;gap:8px 12px;padding-right:44px}
+  .fstat{grid-column:2;justify-self:start}
+  .fbody{padding:2px 18px 22px 18px}
+}
+.fbody p{font-size:15.5px;margin:0 0 15px}
+.fbody .src{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+.fbody .src a{color:var(--ink-2)}
+
+/* ---------- captures ---------- */
+.shots{
+  max-height:480px;overflow-y:auto;background:var(--sunken);border:1px solid var(--rule);
+  border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:16px;margin:0 0 18px
+}
+.shots figure{margin:0}
+.shots img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;
+  background:#fff;cursor:zoom-in;transition:border-color var(--dur) var(--ease)
+}
+.shots img:hover,.shots img:focus-visible{border-color:var(--accent)}
+.shots figcaption{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+.scrollhint{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);margin:0 0 9px;display:flex;align-items:center;gap:9px
+}
+.scrollhint::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+.scrollhint em{font-style:normal;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--ink-3)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(13,13,13,.94);overflow:auto;padding:60px 24px 48px;display:flex}
+.lb[hidden]{display:none}
+.lb-inner{width:min(1360px,94vw);margin:auto}
+.lb-inner img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:#fff}
+.lb-cap{font-family:var(--font-mono);font-size:12px;line-height:1.65;color:#cfcdc6;margin:16px 0 0;max-width:96ch}
+.lb-close{
+  position:fixed;top:16px;right:20px;width:38px;height:38px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.45);color:#f0efe9;
+  font:600 15px/1 var(--font);cursor:pointer
+}
+.lb-close:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ---------- pain bars ---------- */
+.bars{margin:10px 0 26px;display:flex;flex-direction:column;gap:10px;max-width:66ch}
+.bar{display:grid;grid-template-columns:1fr 52px;gap:14px;align-items:center}
+.bar .lbl{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.bar .lbl b{color:var(--ink);font-weight:600}
+.bar .track{grid-column:1/-1;height:10px;background:var(--sunken);border:1px solid var(--rule-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink-3);border-radius:2px}
+.bar .fill.loud{background:var(--bad)}
+.bar .fill.ours{background:var(--accent)}
+.bar .n{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.barlegend{font-size:12.5px;color:var(--ink-3);margin:-16px 0 28px}
+
+/* ---------- pull quote ---------- */
+blockquote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid var(--accent);font-size:18px;line-height:1.5;color:var(--ink)}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+
+/* ---------- chosen shape ---------- */
+.shape{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0;background:var(--surface)
+}
+.shape div{padding:18px 18px 20px;border-right:1px solid var(--rule)}
+.shape div:last-child{border-right:0}
+.shape h5{font-size:14px;font-weight:600;margin:0 0 5px;color:var(--ink)}
+.shape .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-weight:600}
+.shape p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+
+/* ---------- decisions ---------- */
+.decisions{border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0 8px;background:var(--surface)}
+.dec{padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;border-bottom:1px solid var(--rule-soft)}
+.dec:last-child{border-bottom:0}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:10px}}
+.dec .what{font-size:14.5px;font-weight:600;line-height:1.45;color:var(--ink)}
+.dec .what b{
+  display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:6px
+}
+.dec .why{font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.dec .why em{color:var(--ink);font-style:italic}
+
+/* ---------- gaps ---------- */
+.gaps{display:flex;flex-direction:column;gap:14px;margin:26px 0 8px}
+.gap{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;border-top:2px solid var(--accent)}
+.gap.unverified{border-top-color:var(--bad)}
+.gaphead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.gid{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em}
+.gaphead h5{font-size:15.5px;font-weight:600;margin:0;line-height:1.35;color:var(--ink)}
+.gap p{font-size:15px;margin:0 0 12px;color:var(--ink-2)}
+.gap p:last-child{margin:0}
+.gap .hyp{color:var(--ink);padding:13px 16px;background:var(--sunken);border-radius:6px;font-size:14.5px;line-height:1.6}
+.gap .hyp b{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:6px;font-weight:600
+}
+.gap .from{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);margin-top:12px}
+.nd{
+  font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+  color:var(--bad);background:var(--bad-soft);border:1px solid var(--bad);
+  padding:2px 7px;border-radius:4px;white-space:nowrap
+}
+
+/* ---------- footer ---------- */
+.foot{
+  grid-column:1/-1;margin-top:72px;padding-top:28px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==================================================================
+   Personas & jobs-to-be-done components — shared with personas.html.
+   Both pages are built from this block; edit it once.
+================================================================== */
+
+/* ------------------------------------------------------------------
+   Personas & JTBD — components this page adds on top of the shared
+   design language pulled from research-page.tpl.html at build time.
+------------------------------------------------------------------ */
+
+/* --- evidence marks, the spine of both documents --- */
+.m{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.35em;height:1.35em;padding:0 .3em;margin:0 .12em;
+  border:1px solid var(--rule);border-radius:3px;
+  font-family:var(--font-mono);font-size:.72em;line-height:1;
+  vertical-align:.08em;font-weight:600;
+}
+.m-y{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.m-s{border-color:var(--rule);background:var(--sunken);color:var(--ink-2)}
+.m-q{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+
+.legend{
+  display:grid;gap:10px;margin:22px 0 0;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--surface);
+}
+.legend .lrow{display:grid;grid-template-columns:2.4em 1fr;gap:12px;align-items:start}
+.legend b{color:var(--ink)}
+.legend p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+/* --- persona cards --- */
+.people{display:grid;gap:20px;margin-top:26px;max-width:100%}
+@media (min-width:1180px){ .people{grid-template-columns:1fr 1fr} .people .pc.primary{grid-column:1 / -1} }
+
+.pc{border:1px solid var(--rule);background:var(--surface);display:flex;flex-direction:column}
+.pc.primary{border-color:var(--accent-45);box-shadow:var(--shadow)}
+.pc > header{padding:20px 22px 16px;border-bottom:1px solid var(--rule-soft)}
+.pc.primary > header{background:var(--accent-06)}
+.pc .tag{
+  display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+}
+.pc.primary .tag{color:var(--accent);font-weight:700}
+.pc h3{font-family:var(--font-display);font-weight:400;font-size:23px;line-height:1.2;margin:0 0 8px}
+.pc .axes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.pc .axes span{
+  font-family:var(--font-mono);font-size:11px;padding:3px 7px;
+  border:1px solid var(--rule-soft);background:var(--sunken);color:var(--ink-2);
+}
+.pc .standing{margin:12px 0 0;font-size:14px;color:var(--ink-2)}
+
+.pblock{padding:16px 22px;border-bottom:1px solid var(--rule-soft)}
+.pblock:last-child{border-bottom:0}
+.pblock h4{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 10px;font-weight:600;
+}
+.pblock p{margin:0 0 10px;font-size:15px}
+.pblock p:last-child{margin-bottom:0}
+.pblock ul{margin:0;padding-left:1.15em;font-size:15px}
+.pblock li{margin:0 0 8px}
+.pblock li:last-child{margin-bottom:0}
+.pblock .src{color:var(--ink-3);font-size:13.5px}
+
+.pq{
+  margin:0;padding:14px 16px;border-left:3px solid var(--accent);
+  background:var(--sunken);font-size:15.5px;line-height:1.55;
+}
+.pq cite{display:block;margin-top:10px;font-style:normal;font-size:13px;color:var(--ink-3)}
+.pq.empty{border-left-color:var(--bad)}
+
+.warn{
+  margin:0 0 14px;padding:12px 14px;border:1px solid var(--bad);
+  background:var(--bad-soft);font-size:14.5px;
+}
+
+/* --- a .warn that folds away: <details class="warn"> --- */
+details.warn{padding:0}
+details.warn>summary{
+  cursor:pointer;padding:11px 14px;font-weight:600;
+  list-style:none;display:flex;gap:9px;align-items:baseline;
+}
+details.warn>summary::-webkit-details-marker{display:none}
+details.warn>summary::before{
+  content:"▸";font-size:11px;opacity:.7;flex:none;
+  transition:transform .12s ease;
+}
+details.warn[open]>summary::before{transform:rotate(90deg)}
+details.warn>summary:hover{background:rgba(128,128,128,.09)}
+details.warn>summary:focus-visible{outline:2px solid var(--bad);outline-offset:-2px}
+details.warn>summary .sub{font-weight:400;opacity:.72;font-size:13.5px}
+details.warn[open]>summary{border-bottom:1px solid var(--bad)}
+details.warn>.inner{padding:11px 14px 12px}
+@media (prefers-reduced-motion:reduce){details.warn>summary::before{transition:none}}
+
+/* --- jobs hierarchy --- */
+.mainjob{
+  margin:26px 0 0;padding:26px 28px;border:1px solid var(--accent-45);background:var(--accent-06);
+}
+.mainjob .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mainjob p.j{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.34;margin:12px 0 0}
+@media (max-width:700px){ .mainjob p.j{font-size:18px} }
+.mainjob .note{margin:16px 0 0;font-size:14.5px;color:var(--ink-2)}
+
+.jobs{display:grid;gap:14px;margin-top:22px}
+.job{border:1px solid var(--rule);background:var(--surface);padding:18px 20px}
+.job .jid{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);
+  display:block;margin-bottom:8px;
+}
+.job p.j{margin:0;font-size:16px;line-height:1.5}
+.job .ev{margin:12px 0 0;font-size:13.5px;color:var(--ink-2)}
+.job.hyp{background:var(--sunken);border-style:dashed}
+
+.grouphead{
+  display:flex;align-items:baseline;gap:12px;margin:34px 0 0;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.grouphead h3{font-family:var(--font-display);font-weight:400;font-size:20px;margin:0}
+.grouphead span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.05em}
+
+/* --- the matrix --- */
+.mwrap{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);max-width:100%}
+table.matrix{border-collapse:collapse;width:100%;min-width:880px;font-size:13.5px;background:var(--surface)}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--rule-soft);padding:11px 12px;text-align:left;vertical-align:top}
+table.matrix thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+table.matrix tbody tr:last-child td{border-bottom:0}
+table.matrix td.job{width:22%;font-weight:500}
+table.matrix td.p{width:10%;text-align:center;white-space:nowrap}
+table.matrix td.f,table.matrix td.c{width:19%;font-size:13px;color:var(--ink-2)}
+table.matrix tr.hypo td{background:var(--sunken)}
+table.matrix tr.hypo td.job{color:var(--ink-2)}
+.score{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:1px solid var(--rule);
+  font-family:var(--font-mono);font-weight:700;font-size:13px;
+}
+.score.s3{border-color:var(--accent-45);background:var(--accent-18);color:var(--accent)}
+.score.s2{border-color:var(--rule);background:var(--sunken);color:var(--ink)}
+.score.s1{border-color:var(--rule-soft);background:transparent;color:var(--ink-3)}
+.score.sq{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);white-space:normal;text-align:left}
+.none{color:var(--bad);font-weight:600}
+
+/* --- conclusions --- */
+.picks{display:grid;gap:14px;margin-top:22px}
+@media (min-width:900px){ .picks{grid-template-columns:repeat(3,1fr)} }
+.pick{border:1px solid var(--accent-45);background:var(--surface);padding:18px 20px}
+.pick .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em;font-weight:700}
+.pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
+.pick p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* --- the course phases: a fixed, collapsible rail on wide screens, a strip below --- */
+.phases{
+  border-bottom:1px solid var(--rule);background:var(--sunken);
+  margin:0 -32px 0;padding:0 32px;
+}
+.phases ol{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+  list-style:none;margin:0;padding:0;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+}
+.phases ol::-webkit-scrollbar{display:none}
+.phases li{margin:0;flex:0 0 auto}
+.phases li>a,.phases li>span{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
+  border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
+  white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.phases li>a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases b{font-weight:700;color:var(--ink-2)}
+.phases li>a:hover b{color:var(--ink)}
+.phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.phases .now b{color:var(--accent)}
+.phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
+.phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.phaseshead,.phasestoggle{display:none}
+
+@media (min-width:1080px){
+  /* the rail sits one tone below the page, and every phase is its own bubble — no rules, no bars */
+  .phases{
+    position:fixed;top:0;left:0;bottom:0;z-index:15;width:var(--phases-w);
+    overflow-y:auto;scrollbar-width:none;
+    margin:0;padding:16px 12px 32px;background:var(--sunken);border:0;
+  }
+  .phases::-webkit-scrollbar{display:none}
+  .phaseshead{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 12px;padding-left:12px;
+  }
+  .phasestoggle{
+    display:inline-block;padding:4px 10px;border:0;border-radius:8px;
+    background:var(--surface);color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
+  }
+  .phasestoggle:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases ol{display:flex;flex-direction:column;gap:6px;overflow:visible;font-size:12.5px}
+  .phases li>a,.phases li>span{
+    display:block;padding:8px 12px 9px;white-space:normal;line-height:1.32;
+    border:0;border-radius:10px;background:var(--surface);
+  }
+  .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
+  .phases li>a:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases li>a:hover b{color:var(--ink)}
+  .phases .now{background:var(--accent-06);box-shadow:inset 0 0 0 1px var(--accent-45)}
+  .phases .soon{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);opacity:.5}
+  .phases .soon em{display:none}
+
+  /* collapsed: the numbers stay, each still its own bubble, and still links */
+  html.phases-collapsed .phases{padding:16px 8px 32px}
+  html.phases-collapsed .phaseshead{padding-left:0;justify-content:center}
+  html.phases-collapsed .phaseshead span,
+  html.phases-collapsed .phases .lbl{display:none}
+  html.phases-collapsed .phases li>a,
+  html.phases-collapsed .phases li>span{padding:10px 0;text-align:center}
+  html.phases-collapsed .phases b{margin:0}
+}
+
+/* --- skip link and the phase meta line --- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:20;padding:12px 18px;
+  background:var(--accent);color:var(--on-fill);font-weight:600;
+}
+.skip:focus{left:0}
+.phasemeta{
+  font-family:var(--font-mono);font-size:12px;color:var(--ink-3);
+  margin:0 0 18px;letter-spacing:.02em;
+}
+.phasemeta strong{color:var(--ink-2);font-weight:600}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><a href="../06-concept/style.html" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></a></li>
+      <li><span class="now" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span></span></li>
+      <li><span class="soon" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 07 &middot; UI assembly</p>
+  <h1>Every screen, built from one kit</h1>
+  <p class="phasemeta">Phase <strong>7 of 12</strong> &middot; all seven of the phase&rsquo;s stages, one skipped by the owner &middot; <strong>19&ndash;23 Oct 2026</strong> &middot; source of truth: <strong>kit.css</strong> for the look, <strong>tokens.css</strong> for the values, <strong>microcopy.md</strong> for the words</p>
+  <p class="standfirst">Phase 06 found the look and proved it on the main job. <strong>This phase turns it into the product.</strong> Painting the rest of the screens one by one, &ldquo;like the sample&rdquo;, would have let the look drift a little on every page. <strong>So a kit stands between the style and the screens</strong> &mdash; one stylesheet, one shell, one showcase &mdash; and every screen is generated from its wireframe on that kit and nothing else. <strong>A build that finds a style of its own on any page fails.</strong></p>
+  <dl class="facts">
+    <div><dt>Screens</dt><dd>83<small>+ 241 flow steps</small></dd></div>
+    <div><dt>The kit</dt><dd>177<small>classes on 110 variables</small></dd></div>
+    <div><dt>Components</dt><dd>41<small>in the inventory</small></dd></div>
+    <div><dt>Findings</dt><dd>142<small>critique, review, audit</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>120<small>all WCAG AA</small></dd></div>
+    <div><dt>Register</dt><dd>5<small>Q39&ndash;Q43</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#twins"><b>Look</b>Wireframe and design</a></li>
+    <li><a href="#design-md"><b>Stage 01</b>DESIGN.md</a></li>
+    <li><a href="#inventory"><b>Stage 02</b>Inventory</a></li>
+    <li><a href="#kit"><b>Stage 03</b>The kit</a></li>
+    <li><a href="#assembly"><b>Stage 04&ndash;05</b>Assembly</a></li>
+    <li><a href="#passes"><b>Stage 06&ndash;07</b>Critique and audit</a></li>
+    <li><a href="#register"><b>Register</b>Q39&ndash;Q43</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">Five days, every screen of the product dressed, and the two lists they produced.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>A screen is a composition, not a painting.</strong> The main job had been painted by hand in phase 06, and the first read of it found the same component drawn three ways &mdash; a page head, an empty-state tile, a finding box. Sixty more screens painted the same way would have multiplied that.</li>
+    <li><strong>The wireframes are the specification, and they already held the answer.</strong> Structure and words were settled in phases 04 and 05; a dressed screen that changed either would have been a second specification. So the twins keep the wireframe&rsquo;s markup and lines exactly, and the audit proves it: <strong>0 pages whose words differ from their wireframe.</strong></li>
+    <li><strong>The kit was read, not drawn.</strong> The inventory came from all the wireframe pages and the sitemap &mdash; 41 components, each named with the screens it stands on &mdash; and the kit was lifted from the painted screens, so nothing in it is remembered or invented.</li>
+    <li><strong>The worst defect of the phase was ours, and only walking every link found it.</strong> The shell was swapped into the flow screens and broke 402 links; a review that rendered every step and followed every link caught it, and a guard now refuses it.</li>
+    <li><strong>Measuring keeps finding what looking does not.</strong> The new contrast pairs caught a focus ring at 1.21:1 in the light theme; the audit caught a file name on lime at 1.2:1 inside a button &mdash; both invisible on a quick look.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>One stylesheet, <code>kit.css</code>, and every screen links only it.</strong> Its <code>:root</code> mirrors <code>tokens.css</code> character for character; its classes hold no literal value.</li>
+    <li><strong>The wireframes stay grey, and the design is their generated twin</strong> &mdash; the owner&rsquo;s call from phase 06, kept. A mockup is never edited by hand.</li>
+    <li><strong>One way in for every kind of change</strong> &mdash; a value, a look, a structure, a word &mdash; and nine guards that fail the build when a change goes in anywhere else.</li>
+    <li><strong>One primary per screen, settled by the build</strong>, with a fixed rank from an open dialog down to the Export stage.</li>
+    <li><strong>Our own failure is neutral</strong>, not Problem rose &mdash; and so are the keys reminder and the blast radius, because they are disclosures, not findings.</li>
+    <li><strong><em>Оставляем</em> means the kit.</strong> When the owner keeps a visual change, it goes into the kit, is signed in DESIGN.md, and reaches every screen where the component stands.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="ui/kit.html">The kit showcase &nearr;</a>
+    <a href="ui/shell.html">The shell &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">Every screen, in the viewer &nearr;</a>
+    <a href="ui/kit.css">kit.css &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ TWINS ============ -->
+<section id="twins" class="col">
+  <div class="stagehead"><span class="stagenum">LOOK</span><h2>Wireframe and design, one switch apart</h2></div>
+  <p class="qline">The same page twice &mdash; the grey specification and its dressed twin, with the same markup and the same words.</p>
+  <div class="twins wide" data-twins>
+    <div class="twins-bar">
+      <div class="screens" role="group" aria-label="Screen">
+        <button type="button" data-page="run-default" aria-pressed="true">Run</button>
+        <button type="button" data-page="project-default" aria-pressed="false">Project</button>
+        <button type="button" data-page="project-configuring-default" aria-pressed="false">Configuring</button>
+        <button type="button" data-page="library-my-default" aria-pressed="false">My library</button>
+        <button type="button" data-page="item-default" aria-pressed="false">Item</button>
+        <button type="button" data-page="shared-project-default" aria-pressed="false">Shared project</button>
+        <button type="button" data-page="project-link" aria-pressed="false">A link (Q43)</button>
+        <button type="button" data-page="sign-in-default" aria-pressed="false">Sign in</button>
+      </div>
+      <div class="mode" role="group" aria-label="Wireframe or design">
+        <button type="button" data-mode="pages" aria-pressed="false">Wireframe</button>
+        <button type="button" data-mode="mockups" aria-pressed="true">Design</button>
+      </div>
+    </div>
+    <div class="twins-stage"><iframe src="../04-wireframes/mockups/run-default.html" title="Run, dressed" tabindex="-1"></iframe></div>
+    <div class="twins-cap"><span data-cap>04-wireframes/mockups/run-default.html</span><a data-open href="../04-wireframes/mockups/run-default.html" target="_blank" rel="noopener">Open it full size &nearr;</a></div>
+  </div>
+  <p class="tnote">Drawn at 1440 and scaled to fit. Every one of the 83 pages and every flow step is in <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">the viewer</a>, behind its <strong>Wireframe / Design</strong> switch.</p>
+</section>
+
+<!-- ============ DESIGN.md ============ -->
+<section id="design-md" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 01</span><h2>DESIGN.md, read off the painted screens</h2></div>
+  <p class="qline">The look written down from what was drawn, not from what was meant &mdash; <strong>and where the two disagreed, the screens won.</strong></p>
+  <p><code>/impeccable document</code> read the 22 painted mockups and <code>tokens.css</code>. It asked for a north star and a character for the components, as it always does; <strong>the answers were taken from what already existed</strong> &mdash; <em>The Inspector&rsquo;s Report</em>, from the voice&rsquo;s first principle, and <em>quiet and exact</em> &mdash; so a new metaphor could not pull the look somewhere else. <code>DESIGN.md</code> sits at the root, describes and points, and <strong>holds no value of its own</strong>: its frontmatter mirrors <code>tokens.css</code>, and a comment says which file wins.</p>
+  <p><strong><code>concept.md</code> was corrected to follow the mockups</strong>, each line marked <em>Phase 07</em>: the density, the current place, the cut-out&rsquo;s inward shadow, the radius on cards and dialogs &mdash; and four things drawn but never written, among them <em>one primary per screen</em> and the Skipped stage. <strong>Two conflicts were named for the owner rather than written in</strong>: glass was nearly absent, and the active row seemed to carry a ring. The owner kept glass as it is, and the ring turned out to be the cut-out&rsquo;s own edge, one step brighter.</p>
+</section>
+
+<!-- ============ INVENTORY ============ -->
+<section id="inventory" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 02</span><h2>The inventory</h2></div>
+  <p class="qline">What the screens are made of, read from every wireframe page &mdash; <strong>a component counts when it stands on two screens.</strong></p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Role</th><th>Components</th><th>What it holds</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Navigation</td><td>8</td><td>The app header, the shared header, the Run bar, the breadcrumb, the page head, tabs, the scope switch, the library panel</td></tr>
+        <tr><td class="name">Cards and lists</td><td>12</td><td>Rows and their tray, the item text block, the set row in its six states (&sect;7), the kind tag, usage facts, the side panel, check stages, the Run summary, the Export stage, the file block</td></tr>
+        <tr><td class="name">Forms</td><td>14</td><td>Fields, the search, the filters popover, radio and checkbox, the segmented control, the Item sheet&rsquo;s sections and drop zone</td></tr>
+        <tr><td class="name">Feedback</td><td>7</td><td>Finding tags, the state tile for empty and error, the confirmation dialog, callouts, skeletons</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>15 were painted in full, 17 in part, 9 only grey</strong> &mdash; the kit had to finish those from DESIGN.md. Seven one-offs are listed apart. <strong>The photo column is almost empty</strong>: the only image in the product is the sharer&rsquo;s portrait, which is why the visuals stage was skipped.</p>
+  <p>The reading also found three things the kit would have to carry: <strong>the shell has three variants</strong> (the app, the door and the receiver, the Run bar), <strong>empty and error are one component</strong> with four variants, and <strong>the wireframes mark a destructive confirm as a plain primary</strong> &mdash; only the design makes it red.</p>
+  <div class="outs"><a href="ui/inventory.md">inventory.md &nearr;</a></div>
+</section>
+
+<!-- ============ KIT ============ -->
+<section id="kit" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 03</span><h2>The kit: a stylesheet, a shell, a showcase</h2></div>
+  <p class="qline">Three files, and every screen is built from the first.</p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">File</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><td class="name"><code>ui/kit.css</code></td><td><strong>110 variables in one flat <code>:root</code></strong>, copied from <code>tokens.css</code> by the build, and <strong>177 classes</strong> with no literal value in them. Generated by <code>tools/build_kit.py</code></td></tr>
+        <tr><td class="name"><code>ui/shell.html</code></td><td>The shell as markup, in its three variants. A screen takes its header from here rather than drawing its own</td></tr>
+        <tr><td class="name"><code>ui/kit.html</code></td><td>The showcase: <strong>every component in every state it has</strong>, cut from the real pages rather than typed, with the product&rsquo;s own lines &mdash; a word on it that is not in <code>microcopy.md</code> fails the build</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Flat on purpose.</strong> One level of variables; the split into primitives, semantic and component tokens is phase 08, and it is not anticipated here. <strong>And it was proved before it was used</strong>: the 22 painted mockups were shot, moved onto <code>kit.css</code> alone, and shot again &mdash; <strong>22 of 22 identical</strong> to the pixel. The same test now runs on every page after every change, and a painted screen may move only when the change meant it to.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>kit.html</strong> &middot; the showcase, live &middot; scroll inside the frame<a href="ui/kit.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="ui/kit.html" title="The UI kit: every component of AI Stack Builder in every state" loading="lazy"></iframe>
+  </div>
+  <div class="stand short wide">
+    <div class="stand-bar"><strong>shell.html</strong> &middot; the three headers<a href="ui/shell.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="ui/shell.html" title="The shell: the app header, the shared header and the Run bar" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ ASSEMBLY ============ -->
+<section id="assembly" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 04&ndash;05</span><h2>Assembly: every screen, through one door</h2></div>
+  <p class="qline">How a screen is made, where each kind of change goes in, and what stops a change that goes in anywhere else.</p>
+  <p><strong>Stage 04, the product&rsquo;s own visuals, was skipped by the owner</strong>: the product has one photo, the sharer&rsquo;s portrait, not a layer of imagery, and the stock portrait is recorded as accepted rather than as a defect. Assembly went by the viewer&rsquo;s groups &mdash; <strong>the configuring mode and the detached row first, under the owner&rsquo;s eye</strong>, because they close the main job &mdash; then the door, the libraries and the Item sheet, every Run, the receiver&rsquo;s pages, and every flow.</p>
+  <div class="pipe wide">
+    <div><span class="k">A value</span><b>tokens.css</b><p>Generated by <code>concept_tokens.py</code>, signed in <code>concept.md</code>. The only place a value is written.</p></div>
+    <div><span class="k">How it looks</span><b>kit.css</b><p>The kit&rsquo;s classes, shown on <code>kit.html</code>, signed in <code>DESIGN.md</code>.</p></div>
+    <div><span class="k">Structure and words</span><b>pages/*.html</b><p>The wireframe is the specification; a word goes into <code>microcopy.md</code> with it.</p></div>
+    <div class="out"><span class="k">The screen</span><b>mockups/*.html</b><p>Written by <code>build_mockups.py</code>. Never edited by hand: the next build overwrites it.</p></div>
+  </div>
+  <p><strong>A tone the structure cannot carry</strong> &mdash; danger, warning, the one primary, a state class, mono for machine text &mdash; is set by the build&rsquo;s transform, never by a class added to the wireframe only for looks. <strong>And every state is a class</strong>, never a guess from the content.</p>
+  <h3>Nine guards, and they stop the build</h3>
+  <ol class="guards wide">
+    <li><b>No value outside a variable</b> in the kit&rsquo;s classes</li>
+    <li><b>No style on a screen</b> &mdash; no <code>style=</code>, no <code>&lt;style&gt;</code></li>
+    <li><b>Every class is the kit&rsquo;s</b>, save a short named list</li>
+    <li><b>Every variable is declared</b>, in the kit and in its showcase</li>
+    <li><b>The kit mirrors the tokens</b>, character for character</li>
+    <li><b>One stylesheet</b>: a page links <code>kit.css</code> and nothing else</li>
+    <li><b>One primary</b> on any screen</li>
+    <li><b>The words are the product&rsquo;s</b>: the showcase against <code>microcopy.md</code></li>
+    <li><b>Coverage</b>: 83 of 83 pages and 241 of 241 flow steps have a twin</li>
+  </ol>
+</section>
+
+<!-- ============ PASSES ============ -->
+<section id="passes" class="col">
+  <div class="stagehead"><span class="stagenum">STAGE 06&ndash;07</span><h2>Three passes over the screens</h2></div>
+  <p class="qline">A critique of the first screens and the kit, a review of every screen once all were dressed, and an audit against the kit &mdash; <strong>every finding with a disposition</strong>, and every fix made in the kit, never on one screen.</p>
+  <div class="ledger wide">
+    <div>
+      <div class="who"><b>Critique</b><span>3 reviewers &middot; the first dressed screens, Run, the kit</span></div>
+      <div><div class="split"><i class="f" style="width:78.2%"></i><i class="p" style="width:7.3%"></i><i class="d" style="width:14.5%"></i></div><p class="tally">43 fixed &middot; 4 in part &middot; 8 declined with the reason</p></div>
+      <div class="n">55</div>
+    </div>
+    <div>
+      <div class="who"><b>Review</b><span>4 reviewers &middot; every screen, every flow, the token chain</span></div>
+      <div><div class="split"><i class="f" style="width:71.1%"></i><i class="p" style="width:3.9%"></i><i class="d" style="width:25%"></i></div><p class="tally">54 fixed &middot; 3 in part &middot; 19 declined with the reason</p></div>
+      <div class="n">76</div>
+    </div>
+    <div>
+      <div class="who"><b>Audit</b><span>re-runnable checks &middot; and the impeccable detector</span></div>
+      <div><div class="split"><i class="f" style="width:54.5%"></i><i class="d" style="width:18.2%"></i><i class="ok" style="width:27.3%"></i></div><p class="tally">6 fixed &middot; 2 kept on purpose &middot; 3 checks clean from the start</p></div>
+      <div class="n">11</div>
+    </div>
+  </div>
+  <p class="keys"><span class="f">fixed</span><span class="p">fixed in part</span><span class="d">declined or kept, with the reason</span><span class="ok">clean</span></p>
+  <p><strong>The critique</strong> ran on what was dressed by then and found an auto-added row that could be unchecked, though &sect;8 says it refuses; two primaries on one screen; a <code>SETUP.md</code> that failed to write while the verdict read as normal. <strong>The review</strong> ran once every page was dressed, and its worst finding was our own: <strong>402 dead links in the flows</strong>, now 0 of 144, and the current place shown on 134 of 134 flow steps. <strong>The audit</strong> held every page to the kit, <code>DESIGN.md</code> and <code>microcopy.md</code>, and ended at <strong>0 contrast failures, 0 lines outside the table, 0 icons outside Lucide.</strong></p>
+  <div class="verdict">
+    <p class="vh">Stages 06&ndash;07 &mdash; conclusion</p>
+    <p>Every fix went in through the same door as everything else, so it reached every screen at once. <strong>A markup fix made once in the generator is the advantage of twins</strong>: nothing had to be carried by hand to forty pages, and nothing could be missed on the forty-first.</p>
+  </div>
+  <div class="outs">
+    <a href="ui/critique.md">critique.md &nearr;</a>
+    <a href="ui/review.md">review.md &nearr;</a>
+    <a href="ui/audit.md">audit.md &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register" class="col">
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Five questions the screens raised</h2></div>
+  <p class="qline">When assembly found the specification silent, the question went to the register and the owner answered it &mdash; <strong>nothing was decided on a screen.</strong></p>
+  <div class="qs wide">
+    <div class="q"><span class="qid">Q39</span><h3>The receiver&rsquo;s Run keeps two bars</h3><p>The shared header stays above the Run bar, so a visitor always sees whose set they are checking.</p><span class="said">Owner: two headers are fine</span></div>
+    <div class="q"><span class="qid">Q40</span><h3>A single item&rsquo;s Run keeps every Skipped stage</h3><p>Each on its own row, rather than folded into one line &mdash; the check says what it had nothing to check.</p><span class="said">Owner: no collapse</span></div>
+    <div class="q"><span class="qid">Q41</span><h3>Both sides of a conflict read as conflicting</h3><p>The <code>Conflict</code> tag on the item that declares it and on the one it names; the Problem still annotates the declaring row.</p><span class="said">Owner: on both</span></div>
+    <div class="q"><span class="qid">Q42</span><h3>A shared item reads as shared</h3><p>As a project does: the row says so, and stopping the share is within reach, with the same honest confirmation.</p><span class="said">Owner: yes, draw it</span></div>
+    <div class="q"><span class="qid">Q43</span><h3>The link can be had again</h3><p><code>Share&hellip;</code> on a shared thing opens its link with <code>Copy link</code>, and <code>Stop sharing&hellip;</code> inside. Before, the link was shown nowhere after it was made.</p><span class="said">Owner: option 2 of three</span></div>
+  </div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to which phase.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Tokens in levels</td><td>Phase 08, design tokens: the flat <code>:root</code> splits into primitive, semantic and component tokens, and the styling engine is chosen on two built components (Q6). Two type names known to be swapped wait for it.</td></tr>
+        <tr><td class="name">The light theme</td><td>Phase 09, the design system: only dark is dressed; light is one measured slice, and the full theme is designed rather than inverted.</td></tr>
+        <tr><td class="name">Responsive</td><td>Phase 10: the screens are drawn at 1440 with fixed panels, and controls sit under the 44&nbsp;px touch target &mdash; desktop-first, by the specification.</td></tr>
+        <tr><td class="name">The check as a moment</td><td>Phase 11: the validation pass is a designed moment, not a spinner (&sect;6).</td></tr>
+        <tr><td class="name">A link replaced in place</td><td>Not decided: whether the owner can swap a shared link for a new one without stopping the share (Q43).</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 07 of twelve.</strong> Built by <code>tools/build_ui_page.py</code>; the kit by <code>tools/build_kit.py</code>; the screens by <code>tools/build_mockups.py</code>, guarded by <code>tools/kit_check.py</code>. The specification is <code>CLAUDE.md</code>, &sect;16 <em>UI assembly</em>; the look is signed in <code>DESIGN.md</code>.</p>
+  <p>Phase 06 &mdash; <a href="../06-concept/style.html">the concept</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var box = document.querySelector('[data-twins]');
+  if (!box) return;
+  var stage = box.querySelector('.twins-stage'), frame = stage.querySelector('iframe');
+  var cap = box.querySelector('[data-cap]'), open = box.querySelector('[data-open]');
+  var page = 'run-default', mode = 'mockups';
+  function fit(){
+    var k = stage.clientWidth / 1440;
+    frame.style.transform = 'scale(' + k + ')';
+    stage.style.height = Math.round(Math.min(960, 900) * k) + 'px';
+  }
+  function show(){
+    var src = '../04-wireframes/' + mode + '/' + page + '.html';
+    frame.src = src; open.href = src;
+    cap.textContent = '04-wireframes/' + mode + '/' + page + '.html';
+    frame.title = page + (mode === 'mockups' ? ', dressed' : ', wireframe');
+  }
+  function press(group, btn){
+    group.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+  }
+  box.querySelector('.screens').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    page = b.dataset.page; press(this, b); show();
+  });
+  box.querySelector('.mode').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    mode = b.dataset.mode; press(this, b); show();
+  });
+  fit();
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else window.addEventListener('resize', fit);
+})();
+</script>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  /* the phase rail's collapse toggle — the same key on every phase page and on the wireframes.
+     Deliberately not its own IIFE: the builders lift this script up to its first closing one. */
+  var phRoot = document.documentElement, phBtn = document.querySelector('.phasestoggle');
+  function phSync(){
+    var c = phRoot.classList.contains('phases-collapsed');
+    phBtn.setAttribute('aria-expanded', String(!c));
+    phBtn.innerHTML = c ? '&raquo;' : '&laquo;';
+    phBtn.title = c ? 'Expand phases' : 'Collapse phases';
+  }
+  if(phBtn){
+    phBtn.addEventListener('click', function(){
+      phRoot.classList.toggle('phases-collapsed');
+      try{ localStorage.setItem('phases', phRoot.classList.contains('phases-collapsed') ? 'collapsed' : 'open'); }catch(e){}
+      phSync();
+    });
+    phSync();
+  }
+  if(!links.length) return;
+  var rail = document.querySelector('.rail');
+  var ol   = rail ? rail.querySelector('ol') : null;
+
+  var map = links.map(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    return el ? { a:a, el:el } : null;
+  }).filter(Boolean);
+  if(!map.length) return;
+
+  var current = null;
+  var smoothly = !window.matchMedia
+              || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* One tab is always active: the last section whose top has passed the bar.
+     An IntersectionObserver band leaves the indicator blank between sections,
+     which is wrong for something shaped like tabs. */
+  function sync(){
+    /* a section becomes current once its top reaches the upper third of the
+       viewport, not when it touches the bar - otherwise the heading is already
+       well in view while the tabs still point at the section above it. */
+    var line = Math.max(110, window.innerHeight * 0.32), best = map[0], i;
+    for(i = 0; i < map.length; i++){
+      if(map[i].el.getBoundingClientRect().top <= line) best = map[i];
+    }
+    if(best === current) return;
+    current = best;
+    for(i = 0; i < links.length; i++) links[i].classList.remove('on');
+    best.a.classList.add('on');
+
+    /* keep the active tab inside the horizontal scroller */
+    if(ol && ol.scrollWidth > ol.clientWidth + 4){
+      var t = best.a.getBoundingClientRect(), o = ol.getBoundingClientRect(), to = null;
+      if(t.left < o.left + 12)        to = ol.scrollLeft + t.left  - o.left  - 28;
+      else if(t.right > o.right - 48) to = ol.scrollLeft + t.right - o.right + 56;
+      if(to !== null){
+        /* the bar is dragged by hand at 1:1, so smoothness is asked for here
+           rather than set on the element */
+        if(ol.scrollTo) ol.scrollTo({ left:to, behavior:smoothly ? 'smooth' : 'auto' });
+        else ol.scrollLeft = to;
+      }
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ sync(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  /* a click on a tab jumps without always producing a scroll event the throttle
+     can see, so the bar would keep pointing at the section we just left */
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(sync); });
+
+  /* Drag the horizontal bars with the mouse. They overflow at most widths and a
+     wheel alone only moves them with shift held, which nobody discovers. Touch
+     already scrolls them natively, so this is mouse-only; a drag of more than a
+     few pixels swallows the click it would otherwise end in. */
+  function dragScroll(box){
+    if(!box) return;
+    var SLOP = 5;                         /* a press only becomes a drag past this */
+    var down = false, dragging = false, swallow = false, startX = 0, startLeft = 0;
+    function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
+    function mark(){ box.classList.toggle('grabbable', !fits()); }
+
+    /* No setPointerCapture: a captured pointer retargets the click at the
+       scroller, and the tab under the cursor never receives it. The move and up
+       handlers go on the window instead, so a drag still survives leaving the
+       bar, and a plain click stays a plain click on the link. */
+    function move(e){
+      var dx = e.clientX - startX;
+      if(!dragging){
+        if(Math.abs(dx) < SLOP) return;
+        dragging = true; swallow = true;
+        box.classList.add('dragging');
+      }
+      box.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    }
+    function up(){
+      down = false; dragging = false;
+      box.classList.remove('dragging');
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    }
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; dragging = false; swallow = false;
+      startX = e.clientX; startLeft = box.scrollLeft;
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+    });
+    /* only a press that actually moved eats its click */
+    box.addEventListener('click', function(e){
+      if(!swallow) return;
+      swallow = false;
+      e.preventDefault(); e.stopPropagation();
+    }, true);
+    box.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    mark();
+    window.addEventListener('resize', mark);
+  }
+  dragScroll(ol);
+  dragScroll(document.querySelector('.phases ol'));
+
+  sync();
+})();
+</script>
+</body>
+</html>
