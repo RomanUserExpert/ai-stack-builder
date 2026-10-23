@@ -318,7 +318,7 @@
   "Read and write files inside the directories you allow, and nowhere else.": "Step 7 #22 U1",
   "A knowledge graph the agent can write to and read back between sessions.": "Step 7 #22 U1",
   "503 · Service unavailable": "Step 7 #18/#19: the error code on its own line (D10)",
-  "Stop sharing…": "Step 7 #20, Q37: a shared project reads as shared, and stopping it is one press away",
+  "Stop sharing…": "Q43: inside the link dialog of a shared project or item, opening the confirmation (Q37, Q42 drew it on the head and the row)",
   "Shared": "Step 7 #20, Q37",
   "Password": "Step 7 #17 (L3): the stray Reset password link removed from the label"
  },

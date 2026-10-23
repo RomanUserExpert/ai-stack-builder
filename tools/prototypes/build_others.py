@@ -454,11 +454,30 @@ REVOKE_MODAL = '''
     </dialog>
 '''
 
+LINK_MODAL = '''
+    <!-- A shared project's link (Q43): the address again, to copy, and stopping it one step further (§5, Revocable). -->
+    <div class="scrim" aria-hidden="true"></div>
+    <dialog class="modal" open aria-labelledby="modal-title">
+      <div class="sheet-head">
+        <h2 id="modal-title">acme-billing-api is shared by link</h2>
+      </div>
+      <p>Anyone with the link can open this project and see it as it is now — and every edit you make later.</p>
+      <label class="field"><span>Link</span>
+        <input type="text" readonly value="https://aistack.example/s/k7Qm2xVb9RtL">
+      </label>
+      <div class="form-actions">
+        <a class="button">Stop sharing…</a>
+        <a class="button push">Close</a>
+        <a class="button button-primary">Copy link</a>
+      </div>
+    </dialog>
+'''
+
 
 def shared(s):
     s = must(s, '<h1 id="page-title">acme-billing-api</h1>', '<h1 id="page-title">acme-billing-api<span class="tag">Shared</span></h1>')
     s = must(s, f"<span>{ORIG_HEAD[1]}</span></p>", f'<span>{ORIG_HEAD[1]}</span><span>Anyone with the link sees it as it is now — every edit is visible to them</span></p>')
-    return must(s, '<a class="button" href="project-share.html">Share…</a>', '<a class="button" href="project-revoke.html">Stop sharing</a>')
+    return must(s, '<a class="button" href="project-share.html">Share…</a>', '<a class="button" href="project-link.html">Share…</a>')
 
 
 @case("rj4-share")
@@ -466,6 +485,7 @@ def _():
     return chain("rj4-share", [
         ("project-default", "Project", "project-default.html", ("a", '<a class="button">Share…</a>'), None),
         ("project-share", "Share — what becomes visible, before the link exists", "project-default.html", ("a", '<a class="button button-primary">Create link</a>'), modal(SHARE_MODAL)),
+        ("project-link", "The link, to copy (Q43)", "project-default.html", ("a", '<a class="button push">Close</a>'), seq(shared, modal(LINK_MODAL))),
         ("project-default", "Project, shared — every later edit is a publication", "project-default.html", None, shared),
     ])
 
@@ -473,7 +493,8 @@ def _():
 @case("rj4-revoke")
 def _():
     return chain("rj4-revoke", [
-        ("project-default", "Project, shared", "project-default.html", ("a", '<a class="button">Stop sharing</a>'), shared),
+        ("project-default", "Project, shared", "project-default.html", ("a", '<a class="button">Share…</a>'), shared),
+        ("project-link", "Its link — and Stop sharing… beside it (Q43)", "project-default.html", ("a", '<a class="button">Stop sharing…</a>'), seq(shared, modal(LINK_MODAL))),
         ("project-revoke", "Stop sharing — copies already taken stay taken", "project-default.html", ("a", '<a class="button button-primary">Stop sharing</a>'), seq(shared, modal(REVOKE_MODAL))),
         ("project-default", "Project, no longer shared", "project-default.html", None, None),
     ])

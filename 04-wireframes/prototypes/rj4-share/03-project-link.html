@@ -3,26 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>03 · Project, no longer shared — prototype · rj4-revoke — design</title>
+  <title>03 · The link, to copy (Q43) — prototype · rj4-share</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../../07-ui-assembly/ui/kit.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../pages/wireframe.css">
 </head>
 <body class="product-page">
-<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-circle-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
-  <line x1="12" x2="12" y1="8" y2="12" />
-  <line x1="12" x2="12.01" y1="16" y2="16" /></symbol><symbol id="l-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
-  <path d="M12 16v-4" />
-  <path d="M12 8h.01" /></symbol><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
-  <path d="m17 8-5-5-5 5" />
-  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol></svg>
 
   <!-- Product canvas, 1440 wide -->
   <div class="canvas">
 
     <header class="app-header">
-      <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
+      <span class="product"><span class="icon" aria-hidden="true"></span>AI Stack Builder</span>
       <nav class="app-nav" aria-label="Global">
         <ul>
           <li><a>My library</a></li>
@@ -32,7 +25,7 @@
       </nav>
       <!-- The signed-in person. Shown, not a menu: no profile, settings or sessions (Q25, Q29). -->
       <p class="account" aria-label="Signed in as Maya Chen">
-        <img class="image avatar" src="../../../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
+        <span class="image avatar" aria-hidden="true"></span>
         <span>Maya Chen</span>
       </p>
     </header>
@@ -43,14 +36,14 @@
         <p class="meta"><a>Projects</a> /</p>
         <div class="page-head">
           <div>
-            <h1 id="page-title">acme-billing-api</h1>
-            <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
+            <h1 id="page-title">acme-billing-api<span class="tag">Shared</span></h1>
+            <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span><span>Anyone with the link sees it as it is now — every edit is visible to them</span></p>
           </div>
           <div class="head-actions">
             <a class="button">Configure</a>
             <a class="button">Share…</a>
             <button type="button">Duplicate</button>
-            <a class="button button-primary"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
+            <a class="button button-primary"><span class="icon" aria-hidden="true"></span>Export</a>
           </div>
         </div>
       </section>
@@ -61,29 +54,28 @@
            Detached, Conflict; findings from the last check as a mark, a glyph and a word — Problem, Note.
            Clicking a row opens the item beside the list, not over it: project-item.html. -->
       <section aria-label="Items in this project">
-        <h2 class="visually-hidden">Items in this project</h2>
         <ol class="row-list">
           <!-- Auto-added items sit under the item that pulled them in (owner, 2026-09-26): a row with
                sub-rows. They have no remove of their own — removing the parent takes them with it. -->
           <li>
             <article class="row row-tight set-item">
               <div>
-                <h3><a>code-style</a><span class="tag">skill</span><span class="tag tag-state tag-problem">Conflict</span></h3>
+                <h3><a>code-style</a><span class="tag">skill</span><span class="tag tag-state">Conflict</span></h3>
                 <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
                 <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code> · defers to <em>the client’s ESLint config</em></span></p>
               </div>
-              <p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
+              <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
               <div class="row-actions"></div>
             </article>
           </li>
           <li>
             <article class="row row-tight set-item">
               <div>
-                <h3><a>eslint-autofix</a><span class="tag">script</span><span class="tag tag-state tag-problem">Conflict</span></h3>
+                <h3><a>eslint-autofix</a><span class="tag">script</span><span class="tag tag-state">Conflict</span></h3>
                 <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
                 <p class="facts meta"><span><code>scripts/eslint-autofix.sh</code> · conflicts with <code>code-style</code></span></p>
               </div>
-              <p class="marks"><span class="mark mark-problem"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem</span></p>
+              <p class="marks"><span class="mark"><span class="glyph glyph-problem" aria-hidden="true"></span>Problem</span></p>
               <div class="row-actions"></div>
             </article>
           </li>
@@ -129,7 +121,7 @@
                     <p class="description">Read-only Postgres access for the agent: schema, explain plans, sample rows.</p>
                     <p class="facts meta"><span><code>modelcontextprotocol/servers-archived</code> @ <code>9be4674</code> · MIT · needs <code>DATABASE_URL</code></span></p>
                   </div>
-                  <p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
+                  <p class="marks"><span class="mark"><span class="glyph glyph-note" aria-hidden="true"></span>Note</span></p>
                   <div class="row-actions"></div>
                 </article>
               </li>
@@ -227,6 +219,24 @@
       </section>
 
     </main>
+
+
+    <!-- A shared project's link (Q43): the address again, to copy, and stopping it one step further (§5, Revocable). -->
+    <div class="scrim" aria-hidden="true"></div>
+    <dialog class="modal" open aria-labelledby="modal-title">
+      <div class="sheet-head">
+        <h2 id="modal-title">acme-billing-api is shared by link</h2>
+      </div>
+      <p>Anyone with the link can open this project and see it as it is now — and every edit you make later.</p>
+      <label class="field"><span>Link</span>
+        <input type="text" readonly value="https://aistack.example/s/k7Qm2xVb9RtL">
+      </label>
+      <div class="form-actions">
+        <a class="button">Stop sharing…</a>
+        <a href="04-project-default.html" class="button push">Close</a>
+        <a class="button button-primary">Copy link</a>
+      </div>
+    </dialog>
 
   </div>
 

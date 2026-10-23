@@ -540,7 +540,7 @@ def state_classes(html):
     for i in range(0, len(parts), 3):
         parts[i] = re.sub(r'(>[^<]*?)(?<![\w./-])([A-Za-z0-9][\w-]*\.(?:zip|json|md))\b(?!</code>)', r'\1<code>\2</code>', parts[i])
     html = "".join(p for i, p in enumerate(parts) if i % 3 != 2)
-    html = re.sub(r'<label class="field"><span>(Lands at|Requires|Conflicts with|Env keys it needs|Name|Name of the new item)</span>',
+    html = re.sub(r'<label class="field"><span>(Lands at|Requires|Conflicts with|Env keys it needs|Name|Name of the new item|Link)</span>',
                   r'<label class="field field-mono"><span>\1</span>', html)
     return html
 

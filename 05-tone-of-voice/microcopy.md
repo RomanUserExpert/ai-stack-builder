@@ -398,12 +398,18 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `filt
 | My library | Main › Kind | script | = | nav | loading | product |  |  |
 | My library | Main › Kind | app | = | nav | loading | product |  |  |
 | My library | Main › Items | Loading your library | **Loading My library** | body | loading | product | D1 D11 | D11, D1 |
-| My library | Items › Row | Share… | **Stop sharing…** | button | default · filters · revoke | product | D20 | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project |
+| My library | Items › Row | Share… | = | button | default · filters · link · revoke | product | D20 | Q42 drew *Stop sharing…* here; Q43 (owner, 2026-10-23): the link of a shared project or item can be had again: the tag says it is shared, and `Share…` opens the link |
 | My library | Modal: Stop sharing github-mcp? | — | **Stop sharing github-mcp?** | heading | revoke | product, with slots |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project |
 | My library | Modal: Stop sharing github-mcp? | — | **The link stops working at once.** | body | revoke | product |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project; the same line as project-revoke |
 | My library | Modal: Stop sharing github-mcp? | — | **It can’t reach what was already taken: anyone who exported the item or copied it into a library keeps it.** | body | revoke | product |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project; §5: revoking cannot recall a copy |
 | My library | Modal: Stop sharing github-mcp? | — | **Cancel** | button | revoke | product |  |  |
 | My library | Modal: Stop sharing github-mcp? | — | **Stop sharing** | button | revoke | product |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project |
+| My library | Modal: github-mcp is shared by link | — | **github-mcp is shared by link** | heading | link | product, with slots |  | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again |
+| My library | Modal: github-mcp is shared by link | — | **Anyone with the link can open this item and see it as it is now — and every edit you make later.** | body | link | product |  | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again; the same line as the share disclosure |
+| My library | Modal: github-mcp is shared by link | — | **Link** | label | link | product |  | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again; the address is drawn on a reserved domain, `aistack.example`: the product's own is not decided |
+| My library | Modal: github-mcp is shared by link | — | **Stop sharing…** | button | link | product | D21 | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again: stopping is one step inside the dialog, and opens the confirmation |
+| My library | Modal: github-mcp is shared by link | — | **Close** | button | link | product |  |  |
+| My library | Modal: github-mcp is shared by link | — | **Copy link** | button | link | product | D21 | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again; voice.md, *Forbidden*: show the link with `Copy link` beside it |
 
 ### Item — the add/edit overlay
 
@@ -818,7 +824,7 @@ State pages: `default` · `delete` · `empty` · `error-filtered` · `error-serv
 | Projects | Projects › Project card | 1 problem · 2 notes · 1 skipped | = | fact | default · delete · filters | product |  |  |
 | Projects | Projects › Project card | Duplicate | = | button | default · delete · filters | product |  |  |
 | Projects | Projects › Project card | Share | **Share…** | button | default · delete · filters | product | D20 D21 | D20, D21 |
-| Projects | Projects › Project card | Share… | **Stop sharing…** | button | default · delete · filters | product | D20 D21 | Phase 07 critique #17 (Q37): the shared card (agent-dotfiles) reads as shared |
+| Projects | Projects › Project card | Share… | = | button | default · delete · filters | product | D20 D21 | Critique #17 drew *Stop sharing…* here (Q37); Q43 (owner, 2026-10-23): the link of a shared project or item can be had again: the tag says it is shared, and `Share…` opens the link |
 | Projects | Projects › Project card | agent-dotfiles | = | item name | default · delete · filters | user |  |  |
 | Projects | Projects › Project card | Shared | = | state badge | default · delete · filters | product |  |  |
 | Projects | Projects › Project card | My everyday setup across machines: commit conventions, the review subagent, the filesystem and memory MCP servers. | = | description | default · delete · filters | user |  |  |
@@ -1044,12 +1050,18 @@ State pages: `default` · `empty` · `error` · `item` · `loading` · `revoke` 
 | Project | Main › Side panel: eslint-autofix | Remove in Configure | **Configure to remove** | button | item | product | D22 | D22 |
 | Project | Main › The set | Opening acme-billing-api | **Loading acme-billing-api** | body | loading | product, with slots | D11 | D11 |
 | Project | Main › Page head | (added) | **Shared** | state badge | revoke | product |  | Step 7 #20, Q37 |
-| Project | Main › Page head | Share | **Stop sharing…** | button | revoke | product | D20 D21 | D20, D21; Step 7 #20, Q37: a shared project reads as shared, and stopping it is one press away |
+| Project | Main › Page head | Share | **Share…** | button | link · revoke | product | D20 D21 | D20, D21; Step 7 #20, Q37 drew *Stop sharing…* here; Q43 (owner, 2026-10-23): the link of a shared project or item can be had again: the tag says it is shared, and `Share…` opens the link |
 | Project | Modal: Stop sharing acme-billing-api? | Stop sharing acme-billing-api? | = | heading | revoke | product, with slots |  |  |
 | Project | Modal: Stop sharing acme-billing-api? | The link stops working at once. | = | body | revoke | product |  |  |
 | Project | Modal: Stop sharing acme-billing-api? | It can’t reach what was already taken: anyone who downloaded the archive or copied its items keeps them. | **It can’t reach what was already taken: anyone who exported the archive or copied its items keeps them.** | body | revoke | product |  | D4; Dangerous action example |
 | Project | Modal: Stop sharing acme-billing-api? | Cancel | = | button | revoke | product | D16 |  |
 | Project | Modal: Stop sharing acme-billing-api? | Stop sharing | = | button | revoke | product | D21 |  |
+| Project | Modal: acme-billing-api is shared by link | — | **acme-billing-api is shared by link** | heading | link | product, with slots |  | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again |
+| Project | Modal: acme-billing-api is shared by link | — | **Anyone with the link can open this project and see it as it is now — and every edit you make later.** | body | link | product |  | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again; the same line as the share disclosure |
+| Project | Modal: acme-billing-api is shared by link | — | **Link** | label | link | product |  | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again; the address is drawn on a reserved domain, `aistack.example`: the product's own is not decided |
+| Project | Modal: acme-billing-api is shared by link | — | **Stop sharing…** | button | link | product | D21 | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again: stopping is one step inside the dialog, and opens the confirmation |
+| Project | Modal: acme-billing-api is shared by link | — | **Close** | button | link | product |  |  |
+| Project | Modal: acme-billing-api is shared by link | — | **Copy link** | button | link | product | D21 | Q43 (owner, 2026-10-23): the link of a shared project or item can be had again; voice.md, *Forbidden*: show the link with `Copy link` beside it |
 | Project | Modal: Share acme-billing-api by link? | Share acme-billing-api by link? | = | heading | share | product, with slots |  |  |
 | Project | Modal: Share acme-billing-api by link? | Anyone with the link can open this project and see it as it is now — and every edit you make later. | = | body | share | product |  |  |
 | Project | Modal: Share acme-billing-api by link? | What becomes visible | = | body | share | product |  |  |

@@ -1958,6 +1958,24 @@ confirmation in the same words as `project-revoke`: *The link stops working at o
 already taken. Drawn as `library-my-revoke.html`, a new state of My library, by `tools/q42_pages.py`, and on all 11
 pages that draw the row. Whether the owner can copy an item's link again is not decided, as for a project.
 
+### Q43 — the link of a shared thing can be had again — raised and answered 2026-10-23
+
+**Raised by Q42's leftover**: Q37 and Q42 put `Stop sharing…` where `Share…` stood, and the link was shown nowhere after it
+was created. Somebody who wanted to send the same link to one more person had one way: stop sharing and share again, which
+makes a new `shareRef` and breaks the link for everybody it was already sent to.
+
+**Three options were put** — `Copy link` beside `Stop sharing…`; `Share…` opening the link, with `Stop sharing…` inside it;
+or nothing, the link shown once. **Answer (owner: *давай 2*):** a shared project or item keeps its `Shared` tag and its button
+reads **`Share…`**; on a shared thing it opens a dialog — *acme-billing-api is shared by link*, the link, **`Copy link`**,
+`Close`, and **`Stop sharing…`**, which opens the confirmation Q37 and Q42 drew (its `Cancel` returns to the link).
+`Create link` lands on the same dialog, so the link is first seen there, as `voice.md`'s *Forbidden* list already asked
+(*show the link with `Copy link` beside it*).
+
+**Q37 and Q42 are re-drawn, not undone**: the tag still says the thing is shared, and stopping is one press further. Drawn as
+`project-link.html` and `library-my-link.html` by `tools/q43_pages.py`, on 18 pages that drew `Stop sharing…`, and in the
+`rj4-share` and `rj4-revoke` cases. The address is drawn on `aistack.example`, a reserved domain, because the product's own
+is not decided anywhere. **Not decided:** whether a link can be replaced by a new one without stopping the share.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions
