@@ -1947,6 +1947,17 @@ mark** is the question.
 stands on `code-style` too. **The Problem itself still annotates the row that declares it** (§8), so the count stays one
 problem. Applied by `tools/critique07_pages.py --q41`: 11 set rows and the code-style item panel.
 
+### Q42 — a shared item reads as shared, and stopping is one press away — raised and answered 2026-10-19
+
+**Raised by phase 07's review** ([`07-ui-assembly/ui/review.md`](../07-ui-assembly/ui/review.md), G01-8). In My library,
+`github-mcp` carries the `Shared` tag, but its row offered `Share…`, as if it were not shared. Q37 had decided this for a
+**project** only. §5 already makes an item's link revocable, so the function existed and was not drawn.
+
+**Answer (owner: *да, создай*):** an item does what a project does. Its row reads **`Stop sharing…`**, which opens a
+confirmation in the same words as `project-revoke`: *The link stops working at once*, and it can't reach what was
+already taken. Drawn as `library-my-revoke.html`, a new state of My library, by `tools/q42_pages.py`, and on all 11
+pages that draw the row. Whether the owner can copy an item's link again is not decided, as for a project.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

@@ -398,6 +398,12 @@ State pages: `default` · `empty` · `error-filtered` · `error-server` · `filt
 | My library | Main › Kind | script | = | nav | loading | product |  |  |
 | My library | Main › Kind | app | = | nav | loading | product |  |  |
 | My library | Main › Items | Loading your library | **Loading My library** | body | loading | product | D1 D11 | D11, D1 |
+| My library | Items › Row | Share… | **Stop sharing…** | button | default · filters · revoke | product | D20 | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project |
+| My library | Modal: Stop sharing github-mcp? | — | **Stop sharing github-mcp?** | heading | revoke | product, with slots |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project |
+| My library | Modal: Stop sharing github-mcp? | — | **The link stops working at once.** | body | revoke | product |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project; the same line as project-revoke |
+| My library | Modal: Stop sharing github-mcp? | — | **It can’t reach what was already taken: anyone who exported the item or copied it into a library keeps it.** | body | revoke | product |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project; §5: revoking cannot recall a copy |
+| My library | Modal: Stop sharing github-mcp? | — | **Cancel** | button | revoke | product |  |  |
+| My library | Modal: Stop sharing github-mcp? | — | **Stop sharing** | button | revoke | product |  | Q42 (owner, 2026-10-19): a shared item reads as shared, as Q37 for a project |
 
 ### Item — the add/edit overlay
 

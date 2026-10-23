@@ -1503,6 +1503,9 @@ off the door; **every page the prototypes drew first is kept into the wireframes
 `db-migrate` requires `seed-data`, one direction everywhere. *The choices were proposed with the fix, not
 picked by the owner, and the register says so.*
 
+**And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
+reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
+
 **Added 2026-10-19, by lesson 07's critique — Q39, Q40, Q41, raised and answered the same day by the owner.** **Q39** —
 the receiver's Run keeps two bars, the shared header over the Run bar; **Q40** — a single item's Run keeps every Skipped
 stage on its own row; **Q41** — **both items of a declared conflict read as state 4** (§7), while the Problem still
@@ -1742,7 +1745,7 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 - **One element, one set of values**, by class, never by where it sits.
 - **A screen is drawn whole**: every state, or none.
 - **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with the same
-  markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 80 pages and all 239 flow steps are
+  markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 81 pages (80, plus `library-my-revoke` from Q42) and all 239 flow steps are
   dressed** from one stylesheet, `07-ui-assembly/ui/kit.css`, guarded by `tools/kit_check.py`. The pipeline and the rule for
   where a change goes are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 - **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
@@ -1761,7 +1764,7 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 ## 16. UI assembly
 
 **Added 2026-10-19, lesson 07 (Сборка UI).** Every screen of the product is dressed in Mica · Lime as a **generated
-twin of its wireframe**: all 80 pages in [`04-wireframes/mockups/`](04-wireframes/mockups/), and all 239 steps of the 37
+twin of its wireframe**: all 81 pages in [`04-wireframes/mockups/`](04-wireframes/mockups/), and all 239 steps of the 37
 clickable cases in `mockups/flows/`. The wireframes stay as they are, and the viewer's **Wireframe / Design** switch moves
 between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 
@@ -1809,5 +1812,5 @@ between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/R
 
 Each finding has a disposition. Q39–Q41 were answered by the owner.
 
-**Open:** whether a shared *item* reads *Stop sharing…*, as Q37 decided for a project. **Left on purpose:** the light
+~~**Open:** whether a shared *item* reads *Stop sharing…*.~~ **Answered, Q42: it does.** **Left on purpose:** the light
 theme (lesson 09), responsive (lesson 10), motion (lesson 11).

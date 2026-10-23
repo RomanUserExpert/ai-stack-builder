@@ -44,5 +44,4 @@
 | Responsive | **1, deliberate** | Desktop-first by §3. Screens are drawn at 1440 with fixed panels (440, 640). Controls are 28–32 px, under the 44 px touch target. **Lesson 10 is this** |
 | Implementation integrity | **4** | The guards make drift fail the build, and the detector's findings were checked one by one above. Nothing decorative or generic is left, other than what the owner chose |
 
-**Open, not a defect of this audit:** whether a shared *item* reads *Stop sharing…* (review G01-8). It waits for the
-owner's answer.
+**Answered since:** a shared *item* reads *Stop sharing…* (Q42), with its confirmation drawn as `library-my-revoke`.

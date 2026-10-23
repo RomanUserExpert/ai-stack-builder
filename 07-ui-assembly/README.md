@@ -60,7 +60,7 @@ signed in `DESIGN.md`, and reaches every screen where the component stands.
 7. **One primary.** No dressed page has more than one `button-primary`.
 8. **The words are the product's.** The showcase's words are in `microcopy.md`, as `build_kit.py` already checks.
    On a screen they stay the wireframe's own, by construction.
-9. **Coverage.** The check reports how many of the 80 wireframe pages, and how many flow steps, have a twin.
+9. **Coverage.** The check reports how many of the wireframe pages, and how many flow steps, have a twin.
 
 A mockup is never edited by hand, because the next build would overwrite it.
 
@@ -100,7 +100,7 @@ Each finding goes by the table in §1.
 
 ## State, 2026-10-19
 
-**Steps 7 and 8 are done.** All 80 pages and 239 flow steps are dressed, and the guards pass. The review
+**Steps 7 and 8 are done.** All 81 pages and 239 flow steps are dressed, and the guards pass. The review
 ([`ui/review.md`](ui/review.md)) has 76 findings, each with a disposition: 54 fixed, 3 fixed in part, 19 declined with the reason.
 One of the declined is a question for the owner. The goldens were re-saved after the fixes.
 
@@ -112,7 +112,7 @@ microcopy.md, 0 pages whose words differ from their wireframe, and 0 icons outsi
 
 ## 6. Done means
 
-- 80 of 80 wireframe pages and every flow step have a dressed twin.
+- 81 of 81 wireframe pages and every flow step have a dressed twin.
 - The guards pass, and the goldens are re-saved.
 - `review.md` has a disposition for every row.
 - `DESIGN.md`, `inventory.md`, `kit.html` and the register agree.

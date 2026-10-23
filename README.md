@@ -109,7 +109,7 @@ between **Wireframe** and **Design** (`?mode=design#project-default` opens one d
 
 ## UI
 
-**Every screen of the product is dressed, from one stylesheet.** That is all 80 wireframe pages and all 239 steps of
+**Every screen of the product is dressed, from one stylesheet.** That is all 81 wireframe pages and all 239 steps of
 the 37 clickable cases. Each is a generated twin of its wireframe, with the same markup and words; only the look
 changes. **[The viewer](04-wireframes/pages/wireframes.html)** switches any screen or flow step between **Wireframe**
 and **Design**. You can open one directly with `?mode=design#run-default`.

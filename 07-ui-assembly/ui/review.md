@@ -89,6 +89,6 @@ Before → after:
 
 ## Owner's questions raised by this review
 
-1. **G01-8:** does a shared *item* read *Stop sharing…*, as Q37 decided for a project?
+1. ~~**G01-8:** does a shared *item* read *Stop sharing…*?~~ **Yes (owner) — Q42**, drawn as `library-my-revoke`.
 2. ~~**G34-4/5:** should the single-item Run and the shared Runs carry the `SETUP.md` preview and the archive tree?~~
    **Yes (owner)**, and they do.
