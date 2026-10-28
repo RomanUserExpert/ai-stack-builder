@@ -36,7 +36,7 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research is done, the information architecture is done, the screens are drawn and clickable, the product has one voice and one look. There is still no code.** Lesson 06, concept, closed on 2026-10-11 — the working style *Mica · Lime*, its tokens, a stand and the main job drawn as mockups ([the phase page](06-concept/style.html)). Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. ~~Lesson 06, concept, is current.~~ **Lesson 07, UI assembly, is current: every screen is dressed** (see *UI* below). There is no design system as a system yet; that is lesson 09.
+**Research is done, the information architecture is done, the screens are drawn and clickable, the product has one voice and one look. There is still no code.** Lesson 06, concept, closed on 2026-10-11 — the working style *Mica · Lime*, its tokens, a stand and the main job drawn as mockups ([the phase page](06-concept/style.html)). Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. ~~Lesson 06, concept, is current.~~ Lesson 07, UI assembly, closed on 2026-10-28: **every screen is dressed** from one kit (see *UI* below, and [the phase page](07-ui-assembly/ui.html)). **Lesson 08, design tokens, is current.** There is no design system as a system yet; that is lesson 09.
 
 **One decision from 20 September changes the shape of everything after it: the product is online**, a
 backend with accounts, so a person's library follows them between machines. **What the backend is
@@ -48,7 +48,7 @@ this line used to read `research → design system → mockups → frontend → 
 design system second when it is ninth.*
 
 ~~01 research and benchmark~~ → ~~02 personas and JTBD~~ → ~~03 information architecture~~ →
-~~04 prototyping~~ → ~~05 tone of voice~~ → ~~06 concept~~ → **07 UI assembly** → 08 design tokens →
+~~04 prototyping~~ → ~~05 tone of voice~~ → ~~06 concept~~ → ~~07 UI assembly~~ → **08 design tokens** →
 09 design system → 10 responsive → 11 animation → 12 handoff. Product logic — state,
 storage, validation, export — comes after all twelve.
 
@@ -181,6 +181,7 @@ that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
 | [`05-tone-of-voice/`](05-tone-of-voice/README.md) | 05 · Tone of voice and microcopy — `voice.md`, `microcopy.md` | [`voice.html`](05-tone-of-voice/voice.html) |
 | [`06-concept/`](06-concept/README.md) | 06 · Concept — Mica · Lime, `tokens.css`, the stand | [`style.html`](06-concept/style.html) |
 | [`07-ui-assembly/`](07-ui-assembly/README.md) | 07 · UI assembly — the kit in `ui/`, every screen dressed, critique, review, audit | [`ui.html`](07-ui-assembly/ui.html) |
+| [`08-design-tokens/`](08-design-tokens/README.md) | 08 · Design tokens — current: the plan; `tokens.css` on two levels and `components/` to come | — |
 
 **Everything that is not a lesson:**
 

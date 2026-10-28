@@ -114,6 +114,11 @@ microcopy.md, 0 pages whose words differ from their wireframe, and 0 icons outsi
 like the pages of phases 01–06. It embeds the kit, the shell and a Wireframe / Design switch over eight screens, and
 reads its counts from `kit.css`, the mockups and `contrast.md` at build time. Phase 07 is a link on every phase rail.
 
+## Closed, 2026-10-28
+
+**The lesson is closed.** Every line of *Done means* below holds. Left open on purpose: whether a shared link can be
+replaced by a new one without stopping the share (register, Q43). The light theme is lesson 09, responsive 10, motion 11.
+
 ## 6. Done means
 
 - 83 of 83 wireframe pages and every flow step have a dressed twin.

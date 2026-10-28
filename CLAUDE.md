@@ -10,8 +10,8 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 **Phase: research was signed off on 2026-09-02 in five stages, and was re-opened on 2026-09-06 with
 two more — personas and jobs to be done. Those two are lesson 02; lesson 03, information
 architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; lesson 05, tone of voice and microcopy,
-closed on 2026-10-05 (§14); lesson 06, concept, closed on 2026-10-11 (§15); and the current lesson is 07, UI assembly —
-not the design system, which is lesson 09.**
+closed on 2026-10-05 (§14); lesson 06, concept, closed on 2026-10-11 (§15); lesson 07, UI assembly, closed on 2026-10-28
+(§16); and the current lesson is 08, design tokens — not the design system, which is lesson 09.**
 
 There is still no application code and no design system. ~~no mockups~~ **— the main job is drawn as mockups since
 2026-10-11** (§15), behind a Wireframe / Design switch in the viewer. ~~no information architecture~~
@@ -210,8 +210,8 @@ product *is* before anything decides what it looks like.
 | **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
-| **07** | **UI assembly** | ← **current**, from 2026-10-11. The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
-| **08** | Design tokens | Where **Q6, the styling engine**, is finally decided, on two built components |
+| **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
+| **08** | **Design tokens** | ← **current**, from 2026-10-28 · [the plan](08-design-tokens/README.md). Where **Q6, the styling engine**, is finally decided, on two built components |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
@@ -266,9 +266,9 @@ one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The current lesson is 07, UI assembly**: the rest of the screens drawn in the working style
-(§15), the way the main job was. If a request jumps past it — to components as a system, the styling engine, the
-full light theme — confirm before acting.
+Do not skip ahead. **The current lesson is 08, design tokens**: where Q6, the styling engine, is decided on two built
+components (§10). If a request jumps past it — to components as a system, the full light theme, responsive, motion —
+confirm before acting.
 **Every line of copy from now on is written against §14, *Voice*.**
 Product logic described in this file is **specification, not a build order** — it is
 written down so design decisions are made with the real mechanics in view.
@@ -1656,7 +1656,8 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   were added on 2026-09-06 and are lesson 02.** **Lesson 03, information architecture, ran from 2026-09-15
   to 2026-09-20 and is closed; lesson 04, prototyping and wireframing, ran from 2026-09-26 to 2026-09-27
   and is closed; lesson 05, tone of voice and microcopy, ran from 2026-10-01 to 2026-10-05 and is
-  closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, is current.**
+  closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, ran from 2026-10-11 to
+  2026-10-28 and is closed; lesson 08, design tokens, is current.**
   Every value comes from `06-concept/tokens.css`, never from a page (§15), and do not
   scaffold the app before there is something for it to hold.
 - **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
@@ -1671,7 +1672,7 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   in a specification and all of it was worth being able to read back.*
 - **The repo is one folder per lesson, numbered as the course numbers them** (reorganised 2026-10-01):
   `01-research/` · `02-personas-jtbd/` · `03-information-architecture/` · `04-wireframes/` ·
-  `05-tone-of-voice/` · `06-concept/`, each indexed by its own `README.md`. **The register stays in
+  `05-tone-of-voice/` · `06-concept/` · `07-ui-assembly/` · `08-design-tokens/`, each indexed by its own `README.md`. **The register stays in
   `01-research/research-plan.md`** — it was born there and every lesson writes to it. Generators —
   the lesson pages and the prototypes — live in `tools/`; **nothing that builds something lives only in
   a scratchpad.** The deploy is `vercel.json` plus `.vercelignore`, a whitelist: a new page is not
@@ -1770,7 +1771,7 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 
 ## 16. UI assembly
 
-**Added 2026-10-19, lesson 07 (Сборка UI).** Every screen of the product is dressed in Mica · Lime as a **generated
+**Added 2026-10-19, lesson 07 (Сборка UI); the lesson closed on 2026-10-28.** Every screen of the product is dressed in Mica · Lime as a **generated
 twin of its wireframe**: all 83 pages in [`04-wireframes/mockups/`](04-wireframes/mockups/), and all 241 steps of the 37
 clickable cases in `mockups/flows/`. The wireframes stay as they are, and the viewer's **Wireframe / Design** switch moves
 between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
