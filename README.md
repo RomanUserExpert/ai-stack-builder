@@ -114,8 +114,9 @@ the 37 clickable cases. Each is a generated twin of its wireframe, with the same
 changes. **[The viewer](04-wireframes/pages/wireframes.html)** switches any screen or flow step between **Wireframe**
 and **Design**. You can open one directly with `?mode=design#run-default`.
 
-- **[`07-ui-assembly/ui/kit.css`](07-ui-assembly/ui/kit.css)** is the kit, and it is flat. Its `:root` holds the values,
-  copied from `06-concept/tokens.css`, and below that come the component classes. No screen holds a style of its own.
+- ~~`07-ui-assembly/ui/kit.css` is the kit, and it is flat.~~ **Since lesson 08 the kit is two things**: the values in
+  `08-design-tokens/tokens.css` and one file per component in `08-design-tokens/components/` (see *Tokens*). No screen
+  holds a style of its own.
 - **[`kit.html`](07-ui-assembly/ui/kit.html)** shows every component with its states, cut from the real pages, so its
   words are the product's. **[`shell.html`](07-ui-assembly/ui/shell.html)** holds the three frames every screen sits in.
 - **[`DESIGN.md`](DESIGN.md)** documents the system: tokens in the frontmatter, rules and components in prose, each
@@ -130,6 +131,35 @@ and **Design**. You can open one directly with `?mode=design#run-default`.
   - [audit](07-ui-assembly/ui/audit.md), against the kit, DESIGN.md and microcopy.md.
 
   Every finding there has a disposition.
+
+## Tokens
+
+**Since lesson 08 the values live on two levels, and nothing on screen moved to get there.**
+[`08-design-tokens/tokens.css`](08-design-tokens/tokens.css) holds them:
+- **primitive** says what a value is: `--mica-776`, `--lime-105`, `--s4`, `--r-md`;
+- **semantic** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`. Each role names, in a
+  comment, the uses it grew from.
+
+[`08-design-tokens/components/`](08-design-tokens/components/) holds one file per component. A component reads
+colour only through a role and geometry straight from a primitive. Every screen links these two, and the flat
+`kit.css` of lesson 07 is gone.
+
+**The proof is a theme.** One block, `[data-theme="light"]`, overrides semantic roles and nothing else, and every
+screen turns light. In [the viewer](04-wireframes/pages/wireframes.html), choose **Design**, then **Light**. Contrast
+is written into each theme block by the generator: 62 pairs, all AA, in both. Whether light ships in the product is
+still the owner's call.
+
+- [`08-design-tokens/README.md`](08-design-tokens/README.md): the plan, mapped from the course's six steps;
+- [`tokens-audit.md`](08-design-tokens/tokens-audit.md): every variable of the old kit, where it is read, and the
+  role it plays in each place;
+- [`tokens-check.md`](08-design-tokens/tokens-check.md): the defect table and `/impeccable audit`, each finding
+  with its disposition.
+
+The generators prove the refactor rather than claim it:
+- `tools/concept_tokens.py` checks that every role resolves to the value lesson 07 used;
+- `tools/build_components.py` checks, in a browser, that splitting the kit into files reordered nothing that
+  matters;
+- `tools/kit_check.py` fails the build on a colour primitive in a component, or on geometry written as a count.
 
 ## Structure
 
@@ -181,7 +211,7 @@ that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
 | [`05-tone-of-voice/`](05-tone-of-voice/README.md) | 05 · Tone of voice and microcopy — `voice.md`, `microcopy.md` | [`voice.html`](05-tone-of-voice/voice.html) |
 | [`06-concept/`](06-concept/README.md) | 06 · Concept — Mica · Lime, `tokens.css`, the stand | [`style.html`](06-concept/style.html) |
 | [`07-ui-assembly/`](07-ui-assembly/README.md) | 07 · UI assembly — the kit in `ui/`, every screen dressed, critique, review, audit | [`ui.html`](07-ui-assembly/ui.html) |
-| [`08-design-tokens/`](08-design-tokens/README.md) | 08 · Design tokens — current: the plan; `tokens.css` on two levels and `components/` to come | — |
+| [`08-design-tokens/`](08-design-tokens/README.md) | 08 · Design tokens — current: `tokens.css` on two levels, `components/`, the audit and the check | — |
 
 **Everything that is not a lesson:**
 

@@ -28,12 +28,15 @@
     /* ?mode=design or ?mode=wire in the address opens the viewer in that mode, and remembers it */
     (function () { var q = new URLSearchParams(location.search).get('mode'); if (q === 'design' || q === 'wire') { window.WF_MODE_URL = q; try { localStorage.setItem('wf-mode', q); } catch (e) {} } })();
     window.wfMode = function () { try { return localStorage.getItem('wf-mode') || window.WF_MODE_URL || 'wire'; } catch (e) { return window.WF_MODE_URL || 'wire'; } };
+    /* the theme of a mockup: dark is the product; light is phase 08's stress test of the semantic level */
+    window.wfTheme = function () { try { return localStorage.getItem('wf-theme') || 'dark'; } catch (e) { return 'dark'; } };
     window.wfDesign = function (src) {
       if (window.wfMode() !== 'design') return src;
+      var t = '?theme=' + window.wfTheme();
       var m = src.match(/^\.\.\/prototypes\/([^\/]+)\/(.+)$/);
-      if (m) return window.WF_MOCKUPS.flows.indexOf(m[1]) >= 0 ? '../mockups/flows/' + m[1] + '/' + m[2] : src;
+      if (m) return window.WF_MOCKUPS.flows.indexOf(m[1]) >= 0 ? '../mockups/flows/' + m[1] + '/' + m[2] + t : src;
       var p = src.replace(/\.html$/, '');
-      return window.WF_MOCKUPS.pages.indexOf(p) >= 0 ? '../mockups/' + src : src;
+      return window.WF_MOCKUPS.pages.indexOf(p) >= 0 ? '../mockups/' + src + t : src;
     };
   </script>
   <!-- mockups:end -->
@@ -438,6 +441,7 @@
       </div>
       <div class="wf-tools">
         <!-- Flows only: outlines every live link in the frame. Viewer chrome, never the page's. -->
+        <div class="wf-mode" id="wf-theme" role="group" aria-label="Theme" title="Phase 08: the light theme, by semantic tokens alone"><button type="button" data-theme="dark">Dark</button><button type="button" data-theme="light">Light</button></div>
         <div class="wf-mode" id="wf-mode" role="group" aria-label="View"><button type="button" data-mode="wire">Wireframe</button><button type="button" data-mode="design">Design</button></div>
         <button type="button" class="wf-open" id="wf-hotspots" aria-pressed="false" hidden>Show hotspots</button>
         <a class="wf-open" id="wf-open" href="projects-default.html" target="_blank" rel="noopener">Open as a page &nearr;</a>
@@ -653,6 +657,25 @@
     });
     window.addEventListener("hashchange", syncMode);
     syncMode();
+    /* wf-theme:behaviour */
+    var themeBox = document.getElementById("wf-theme");
+    function syncTheme() {
+      var t = wfTheme(), design = wfMode() === "design";
+      themeBox.querySelectorAll("button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-theme") === t));
+        if (design) { b.removeAttribute("data-none"); b.title = ""; } else { b.setAttribute("data-none", ""); b.title = "Themes are for the mockups: switch to Design"; }
+      });
+    }
+    themeBox.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-theme]"); if (!b) return;
+      try { localStorage.setItem("wf-theme", b.getAttribute("data-theme")); } catch (err) {}
+      syncTheme();
+      /* the frame keeps the step it was clicked to, in the new theme */
+      var cur = ""; try { cur = iframe.contentWindow.location.href; } catch (err) { cur = iframe.src; }
+      if (/\/mockups\//.test(cur)) { iframe.removeAttribute("srcdoc"); iframe.src = cur.replace(/[?#].*$/, "") + "?theme=" + wfTheme(); }
+    });
+    modeBox.addEventListener("click", syncTheme);
+    syncTheme();
     window.addEventListener("hashchange", show);
     window.addEventListener("resize", fit);
     show();

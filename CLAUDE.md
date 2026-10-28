@@ -211,7 +211,7 @@ product *is* before anything decides what it looks like.
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
-| **08** | **Design tokens** | ← **current**, from 2026-10-28 · [the plan](08-design-tokens/README.md). Where **Q6, the styling engine**, is finally decided, on two built components |
+| **08** | **Design tokens** | ← **current**, from 2026-10-28 · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). Where **Q6, the styling engine**, is finally decided, on two built components |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
@@ -1506,6 +1506,10 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-10-28, by lesson 08 — Q44.** The owner's decisions on the tokens: A (splits), B (signed single-use colours stay
+roles), C (hover recipes kept), D3 (one generator), D4 (hue + OKLab step); the light glass and shadow; Deep Lime for a checked
+control in light. **Open:** whether light ships in the product, and the light values of `--sheet-edge` and Remove Red (§17).
+
 **Added 2026-10-23 — Q43, the owner's choice of three.** **The link of a shared project or item can be had again.** A shared
 thing keeps its `Shared` tag and its button reads **`Share…`** again; on a shared thing it opens **the link** — `Copy link`,
 `Close`, and **`Stop sharing…` inside the dialog**, which opens the Q37/Q42 confirmation. `Create link` lands on the same
@@ -1658,7 +1662,8 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   and is closed; lesson 05, tone of voice and microcopy, ran from 2026-10-01 to 2026-10-05 and is
   closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, ran from 2026-10-11 to
   2026-10-28 and is closed; lesson 08, design tokens, is current.**
-  Every value comes from `06-concept/tokens.css`, never from a page (§15), and do not
+  Every value comes from `08-design-tokens/tokens.css` (since lesson 08; `06-concept/tokens.css` is the same source,
+  written flat for the stand), never from a page (§15, §17), and do not
   scaffold the app before there is something for it to hold.
 - **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
   2026-09-20). It is **gitignored** and it holds the day-by-day: what was tried, what was wrong for a
@@ -1754,18 +1759,28 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 - **A screen is drawn whole**: every state, or none.
 - **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with the same
   markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 83 pages (80, plus `library-my-revoke` from Q42 and the two link dialogs from Q43) and all 241 flow steps are
-  dressed** from one stylesheet, `07-ui-assembly/ui/kit.css`, guarded by `tools/kit_check.py`. The pipeline and the rule for
-  where a change goes are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
+  dressed** ~~from one stylesheet, `07-ui-assembly/ui/kit.css`~~ — since lesson 08 from `08-design-tokens/tokens.css` and
+  `components/` (§17) — guarded by `tools/kit_check.py`. The rule for where a change goes is §16 and the *оставляем* rule below.
 - **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
   the prototypes, `microcopy.md` and `voice.md` together (Q38).
-- **"Оставляем" on a visual change means the kit, not the screen** (owner, 2026-10-19, lesson 07). When the owner says
-  *оставляем* (*we keep it*) about a visual edit: update `07-ui-assembly/ui/kit.css` (values as `:root` variables) and
-  `kit.html`, sign the reason in [`DESIGN.md`](DESIGN.md), and carry the markup to **every screen where the component
-  stands**. **A fix on one screen is a desync.** The kit is built by `tools/build_kit.py` and the screens by
-  `tools/build_mockups.py`, so the change goes into those generators — never by hand into a generated page.
+- **"Оставляем" on a visual change means the tokens and the kit, not the screen** (owner, 2026-10-19, lesson 07;
+  re-routed 2026-10-28, lesson 08, when `kit.css` split in two). When the owner says *оставляем* (*we keep it*) about a
+  visual edit, it goes to one of three places, by what changed:
+  - **a value** goes into the token of its level in
+    [`08-design-tokens/tokens.css`](08-design-tokens/tokens.css), through `tools/concept_tokens.py`, signed in
+    `concept.md`. A raw value goes in **PRIMITIVE**. What a colour is for goes in **SEMANTIC**, and in every theme block
+    that overrides it. It never goes into a component, and a component never reads a colour primitive;
+  - **how a component looks** goes into its file in `08-design-tokens/components/`, through `MOCK_CSS` or `KIT_CSS` and
+    `tools/build_components.py`, signed in [`DESIGN.md`](DESIGN.md);
+  - **markup** goes into `07-ui-assembly/ui/kit.html` and onto **every screen where the component stands**, through
+    the wireframe page and the generators.
 
-**Left on purpose:** light is one slice on the stand, the full theme is lesson 09; responsive is lesson 10; motion
-(the validation pass as a designed moment) is lesson 11.
+  **A fix on one screen is a desync**, and so is a theme fixed in a component. Everything is generated by
+  `tools/build_mockups.py`, so the change goes into the generators, never by hand into a generated file.
+
+**Left on purpose:** ~~light is one slice on the stand~~ light works on every screen as a stress test since lesson 08
+(§17), and the full theme with its unsigned gaps is lesson 09; responsive is lesson 10; motion (the validation pass as a
+designed moment) is lesson 11.
 
 ---
 
@@ -1777,10 +1792,11 @@ clickable cases in `mockups/flows/`. The wireframes stay as they are, and the vi
 between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 
 **One way in, so nothing drifts:**
-- **A value** goes into `tools/concept_tokens.py` → `06-concept/tokens.css`, signed in `concept.md`.
-- **How a component looks** goes into the kit: `tools/build_kit.py` (KIT_CSS) or `tools/build_mockups.py` (MOCK_CSS)
-  → [`07-ui-assembly/ui/kit.css`](07-ui-assembly/ui/kit.css), shown on [`kit.html`](07-ui-assembly/ui/kit.html) and
-  signed in [`DESIGN.md`](DESIGN.md).
+- **A value** goes into `tools/concept_tokens.py` → [`08-design-tokens/tokens.css`](08-design-tokens/tokens.css), at its
+  level, signed in `concept.md` (§17). *Until lesson 08: `06-concept/tokens.css`, which is still written, flat, for the stand.*
+- **How a component looks** goes into `tools/build_kit.py` (KIT_CSS) or `tools/build_mockups.py` (MOCK_CSS)
+  → `tools/build_components.py` → [`08-design-tokens/components/`](08-design-tokens/components/), shown on
+  [`kit.html`](07-ui-assembly/ui/kit.html) and signed in [`DESIGN.md`](DESIGN.md). *Until lesson 08: one flat `kit.css`.*
 - **Structure** goes into the wireframe page, then everything is rebuilt.
 - **A word** goes into `microcopy.md` and the page together (§14).
 - **A tone the structure cannot carry** goes into `build_mockups.transform`. That covers danger, warning, the one
@@ -1788,15 +1804,17 @@ between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/R
 - **A mockup is never edited by hand**, because the next build overwrites it. The *оставляем* rule in §15 is this
   table's second row.
 
-**The guards** are `tools/kit_check.py`. They run at the end of every build and fail it on any of these:
-- a literal value in the kit's classes;
+**The guards** are `tools/kit_check.py`. They run at the end of every build and fail it on any of these (re-pointed in
+lesson 08 from `kit.css` to the two files that replaced it, §17):
+- a literal value in a component;
 - a `style=` or `<style>` on a screen;
-- a class the kit does not define;
-- an undeclared variable, including in `kit.html`'s own styles;
-- a `:root` that differs from `tokens.css`;
-- a page linking anything but `kit.css`;
+- a class no component defines;
+- a variable `tokens.css` does not declare, including in `kit.html`'s own styles;
+- a colour primitive read by a component (lesson 08);
+- a page linking anything but `tokens.css` and `components/index.css`, or `kit.css` coming back;
 - two primaries on one screen;
-- a word on `kit.html` that is not in `microcopy.md`.
+- a word on `kit.html` that is not in `microcopy.md`;
+- geometry written as a count of a primitive (lesson 08).
 
 **Three checks are re-runnable, beyond the build:**
 - `tools/kit_pixel_test.py`: goldens before a change, the same pages after;
@@ -1823,3 +1841,63 @@ Each finding has a disposition. Q39–Q41 were answered by the owner.
 ~~**Open:** whether a shared *item* reads *Stop sharing…*.~~ **Answered, Q42: it does** — and since Q43 (2026-10-23) `Stop
 sharing…` sits inside the link dialog that `Share…` opens, beside `Copy link`. **Left on purpose:** the light
 theme (lesson 09), responsive (lesson 10), motion (lesson 11).
+
+---
+
+## 17. Tokens
+
+**Added 2026-10-28, lesson 08 (Design tokens).** The flat kit of lesson 07 was split in two **without a pixel
+moving**. `07-ui-assembly/ui/kit.css` is gone; git keeps it, last in `d6d419a`. Every screen, the showcase and the
+shell now link two things:
+- **[`08-design-tokens/tokens.css`](08-design-tokens/tokens.css)** holds the values, on two levels.
+- **[`08-design-tokens/components/`](08-design-tokens/components/)** holds one file per component (27), and
+  `index.css` imports them in the kit's order.
+
+The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md):
+- [the audit](08-design-tokens/tokens-audit.md): every variable, where it is read, and the role in each place;
+- [the check](08-design-tokens/tokens-check.md): the defect table and the `/impeccable audit` findings, each with a
+  disposition.
+
+**The two levels:**
+- **PRIMITIVE** says what a value is: colour, type, space, radius, size, motion, icons, with no roles.
+  - A colour is named by its hue, taken from DESIGN.md (Mica, Lime, Rose, Amber, Red), and its **step**.
+  - The step is OKLab lightness, inverted and × 1000. `--mica-776` is the dark ground. Nobody chose the number, and
+    every value of both themes gets its own.
+- **SEMANTIC** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`.
+  - Every role is a `var()` to a primitive, and its comment names the uses in the audit it grew from.
+  - The washes, hovers and shadows are recipes over a role, so they follow it into any theme.
+  - **Two roles are two tokens even when their value is the same today**, which is the owner's approval A. So are
+    `--selected` and `--current`, and `--focus` and `--mark`. In light, `--mark` and `--action` already part.
+
+**The rules that hold from now on:**
+- **A component reads colour only through a role, and geometry straight from a primitive.** Geometry has no
+  semantic level.
+- **No geometry is written as a count of a primitive** (`--s12 * 3`). It gets a name, as `--modal-top` did. The 34
+  skeleton sizes are kept on purpose: they are content, measured in the scale's unit.
+- **A theme overrides semantic roles and nothing else.** `:root` is dark, the product (§3).
+  `[data-theme="light"]` is the stress test of this lesson. It is phase 06's signed slice, role by role, plus four
+  values with their reasons:
+  - the light glass and the lighter sheet shadow, on the owner's word;
+  - Deep Lime with a white tick for a checked control, because lime on white is 1.32:1.
+- **Four roles still have no light value of their own**: `--sheet-edge` and the Remove Red family. They are listed
+  in the block. Signing them is lesson 09's, never a refactor's.
+- **Whether light ships in the product is the owner's call** (Q44). Until then its switch lives in the viewer's
+  toolbar (*Dark · Light*, beside *Wireframe · Design*) and on `kit.html`. It is not in the product's top bar.
+
+**One generator per level, and each refuses what this section forbids:**
+- `tools/concept_tokens.py` writes both `tokens.css` files: phase 06's flat one for the stand, unchanged to the byte,
+  and this one. **It proves the refactor**:
+  - every role resolves to the value phase 07 used for it;
+  - no hex appears that was not in phase 06's file;
+  - every named geometry equals the `calc()` it replaced;
+  - the light block holds no primitive and no hex.
+
+  It writes **the contrast of 62 pairs into each theme block**. All 62 pass in each.
+- `tools/build_components.py` writes `components/`:
+  - every rule goes to its component's file, in order;
+  - every phase-07 colour becomes the role its selector names;
+  - it checks in a browser, on every page, that no reordering between files lets one rule override another.
+- `tools/kit_check.py`, at the end of every build, carries ten guards. **New in this lesson**:
+  - 5: no colour primitive in a component;
+  - 6: two links, `index.css` imports every file, and `kit.css` never returns;
+  - 10: no geometry written as a count.

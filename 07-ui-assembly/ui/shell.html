@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shell</title>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="kit.css">
+  <link rel="stylesheet" href="../../08-design-tokens/tokens.css">
+  <link rel="stylesheet" href="../../08-design-tokens/components/index.css">
+  <script>/* theme: ?theme=light, from the viewer's switch (phase 08) */(function(){var d=document.documentElement;window.dsTheme=function(t){if(t==='light')d.setAttribute('data-theme','light');else d.removeAttribute('data-theme');try{sessionStorage.setItem('ds-theme',t)}catch(e){}};var t=new URLSearchParams(location.search).get('theme');if(!t){try{t=sessionStorage.getItem('ds-theme')}catch(e){}}if(t)dsTheme(t)})();</script>
   <style>.kit-page{min-height:100vh}
 .kit-top{position:sticky;top:0;z-index:calc(var(--z-popover) + var(--z-sticky));display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .kit-top strong{font:var(--t-body);font-weight:var(--weight-strong)}
 .kit-top nav{display:flex;gap:var(--s4);font:var(--t-small)}
 .kit-top nav a{color:var(--text-2);text-decoration:none}
 .kit-top nav a:hover{color:var(--text)}
-.kit-top .kit-meta{margin-left:auto}
+.kit-top .kit-theme{margin-left:auto}
 .kit-body{display:flex;flex-direction:column;gap:var(--s12);padding:var(--s8);max-width:calc(var(--canvas) + var(--s12) * 3);margin:0 auto}
 .kit-intro{max-width:var(--measure-wide);display:flex;flex-direction:column;gap:var(--s2);color:var(--text-2)}
 .kit-intro h1{font:var(--t-display);letter-spacing:var(--track-display);color:var(--text)}
@@ -53,7 +55,7 @@
 <body class="product-page kit-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7" />
   <path d="M19 12H5" /></symbol></svg>
-<header class="kit-top"><strong>Shell</strong><nav><a href="#app-header">App header</a><a href="#shared-header-door">Shared header — door</a><a href="#shared-header-receiver">Shared header — receiver</a><a href="#run-bar">Run bar</a><a href="kit.html">Kit</a></nav><span class="kit-meta">07 · UI assembly</span></header>
+<header class="kit-top"><strong>Shell</strong><nav><a href="#app-header">App header</a><a href="#shared-header-door">Shared header — door</a><a href="#shared-header-receiver">Shared header — receiver</a><a href="#run-bar">Run bar</a><a href="kit.html">Kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme'">Light theme</button><span class="kit-meta">07 · UI assembly</span></header>
 <main class="kit-body"><div class="kit-intro"><h1>Shell</h1><p>The frame every screen sits in, as markup: a <code>.canvas</code>, one of these headers, and <code>&lt;main class="app-main"&gt;</code> for the screen. Grey screens take their frame from here.</p></div><div class="kit-shell"><section id="app-header"><p class="kit-label">App header</p><p class="kit-note">The owner's places: My library · Public library · Projects. Put aria-current="page" on the current one.</p><div class="canvas">
 <header class="app-header">
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>

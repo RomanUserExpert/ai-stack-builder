@@ -17,7 +17,10 @@ DST = os.path.join(SRC, "ui.html")
 
 shared = io.open(SHARED, encoding="utf-8").read()
 tpl = io.open(TPL, encoding="utf-8").read()
-kit = io.open(os.path.join(SRC, "ui", "kit.css"), encoding="utf-8").read()
+# phase 07's kit, as phase 07 closed it: kit.css left the tree in phase 08, step 4, and git keeps it
+import subprocess
+kit = subprocess.run(["git", "show", "d6d419a:07-ui-assembly/ui/kit.css"], cwd=ROOT, capture_output=True,
+                     check=True).stdout.decode("utf-8")
 contrast = io.open(os.path.join(ROOT, "06-concept", "contrast.md"), encoding="utf-8").read()
 
 i = shared.index("</style>") + len("</style>")

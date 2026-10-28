@@ -1976,6 +1976,31 @@ reads **`Share…`**; on a shared thing it opens a dialog — *acme-billing-api 
 `rj4-share` and `rj4-revoke` cases. The address is drawn on `aistack.example`, a reserved domain, because the product's own
 is not decided anywhere. **Not decided:** whether a link can be replaced by a new one without stopping the share.
 
+### Q44 — the tokens of lesson 08: what the owner decided, and what is still the owner's — raised and answered 2026-10-28
+
+**Raised by lesson 08**, which split the flat kit into `tokens.css` on two levels and `components/`
+(`08-design-tokens/`). **The owner answered on the recommendations** (*делай все по рекомендациям*):
+- **A, splits.** A role that may come apart from another is its own token, even at the same value today.
+  `--selected`, `--current`, `--disabled`, `--code-chip`, `--tile`, `--focus`, `--brand` and `--control-on` were
+  split from the variables that carried them.
+- **B, single-use colours.** A colour signed as a role stays one, even on one screen: the warning family, Checked,
+  Skipped.
+- **C, hover recipes and washes.** They are kept apart. Merging them would be a redesign.
+- **D3, the source of values.** One generator writes both files.
+- **D4, primitive names.** A primitive is its hue plus an OKLab step.
+
+**On the light theme's preview** (*слишком темный гласс* · *тень слишком мощная в лайт теме*), the owner gave
+light a light glass and a lighter sheet shadow. The step-6 check (*исправь всё*) gave a checked control Deep Lime
+with a white tick in light, because lime on white is 1.32:1.
+
+**Not decided, and the owner's:**
+- **whether the light theme ships in the product.** Until it does, its switch lives in the viewer and on
+  `kit.html`, not in the product's top bar, which would need its own entry here;
+- **the light values of `--sheet-edge` and the Remove Red family**, which still draw dark (lesson 09).
+
+**And one finding was recorded rather than fixed:** a skeleton's width is written as a count of `--s1`, and the 34
+skeleton classes keep it (`tokens-check.md`, T5-4).
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

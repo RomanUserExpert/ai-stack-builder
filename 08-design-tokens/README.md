@@ -103,6 +103,22 @@ needs a change in `components/`, that change is a hole in the architecture, and 
 **And the lesson's page**, `08-design-tokens/tokens.html`, built from a template in `tools/` like every phase page, with
 phase 08 linked in every rail and the page listed in `.vercelignore`.
 
+## State, 2026-10-28
+
+**Steps 1–6 are done.** Step 7 (Q6, the styling engine) is owed, and so is the lesson's page.
+- **1. The audit**, [`tokens-audit.md`](tokens-audit.md). Two of its counts were corrected later: `--canvas` and
+  `--measure-wide` are read by the showcase, and the light slice has 28 entries.
+- **2. [`tokens.css`](tokens.css)** on two levels.
+- **3. [`components/`](components/)**, 27 files.
+- **4. Every screen moved**, with `kit.css` deleted. 83 of 83 pages and 241 of 241 steps match their goldens. The
+  only differences are two flaky spots seen before the change.
+- **5. The light theme**, by semantic overrides only: no component file touched. Its switch is in the viewer and on
+  `kit.html`.
+- **6. [`tokens-check.md`](tokens-check.md)**: every defect has a disposition, and the fixes are in.
+
+The owner's answers are register entry **Q44**: A, B, C, D3 and D4 as recommended, plus the light glass and
+shadow. **Still the owner's:** whether light ships, and the light values of `--sheet-edge` and Remove Red.
+
 ## Decisions owed — the owner's, before or during the steps
 
 - **D1 · What the light stress test may use.** The signed slice covers 27 colour variables. The materials, shadows,

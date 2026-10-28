@@ -149,7 +149,9 @@ def check_d():
             icons[sym] += 1
         if "#l-circle-dashed" in h:
             guessed.append(p.relative_to(MOCK).as_posix())
-    css = (ROOT / "07-ui-assembly" / "ui" / "kit.css").read_text(encoding="utf-8")
+    import subprocess  # phase 07's kit, from git: it left the tree in phase 08, step 4
+    css = subprocess.run(["git", "show", "d6d419a:07-ui-assembly/ui/kit.css"], cwd=ROOT, capture_output=True,
+                         check=True).stdout.decode("utf-8")
     masks = re.findall(r"--(icon-[\w-]+|glyph-[\w-]+):", css)
     return {"images": dict(imgs), "icons_outside": sorted(set(icons) - lucide), "icons": len(icons),
             "guessed": guessed, "masks": masks}

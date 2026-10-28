@@ -30,7 +30,16 @@ WF = ROOT / "04-wireframes"
 PAGES_DIR, PROTO_DIR, OUT = WF / "pages", WF / "prototypes", WF / "mockups"
 LUCIDE = ROOT / "06-concept" / "icons" / "lucide"
 PORTRAIT_FILE = "06-concept/img/portrait-96.jpg"  # stored in the repo (stage 7, #27)
-KIT_FILE = "07-ui-assembly/ui/kit.css"  # the one stylesheet of every mockup (phase 07, step 5)
+# what every mockup links (phase 08, step 4): the values on two levels, then one file per component
+KIT_FILES = ["08-design-tokens/tokens.css", "08-design-tokens/components/index.css"]
+# the theme of a dressed page (phase 08, step 5): dark is the product (§3); ?theme=light is the stress test of the
+# semantic level, set by the viewer's switch and kept for the tab, so a flow clicked through stays in its theme.
+# It only sets data-theme on <html>: every value comes from tokens.css, and no page holds a style.
+THEME_SCRIPT = ("<script>/* theme: ?theme=light, from the viewer's switch (phase 08) */(function(){var d=document.documentElement;"
+                "window.dsTheme=function(t){if(t==='light')d.setAttribute('data-theme','light');else d.removeAttribute('data-theme');"
+                "try{sessionStorage.setItem('ds-theme',t)}catch(e){}};var t=new URLSearchParams(location.search).get('theme');"
+                "if(!t){try{t=sessionStorage.getItem('ds-theme')}catch(e){}}if(t)dsTheme(t)})();</script>")
+
 _UNSPLASH = ("https://images.unsplash.com/photo-1580489944761-15a19d654956"
             "?w=96&h=96&fit=crop&crop=faces&auto=format&q=80")
 
@@ -405,12 +414,13 @@ def icon_for(before, after):
 def transform(html, root, page_name, unknown, kit_href=None, frame=True):
     """A wireframe page, dressed in the kit. `root` is the path from the page to the repo root."""
     used = set()
-    kit_href = kit_href or root + KIT_FILE
-    # head: Inter and the wireframe sheet out; Geist and the one kit.css in (phase 07, step 5)
+    kit_href = kit_href or [root + f for f in KIT_FILES]
+    # head: Inter and the wireframe sheet out; Geist, tokens.css and components/ in (phase 08, step 4)
     html = re.sub(r'\s*<link href="https://fonts\.googleapis\.com/css2\?family=Inter[^>]*>', "", html)
     html = re.sub(r'<link rel="stylesheet" href="[^"]*wireframe\.css">',
                   '<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">\n'
-                  f'  <link rel="stylesheet" href="{kit_href}">', html)
+                  + "\n".join(f'  <link rel="stylesheet" href="{h}">' for h in ([kit_href] if isinstance(kit_href, str) else kit_href))
+                  + "\n  " + THEME_SCRIPT, html)
     if frame:
         html = shell(html, flow="/" in page_name)
     html = re.sub(r"<title>(.*?)</title>", lambda m: f"<title>{m.group(1)} — design</title>", html, count=1)
@@ -690,12 +700,15 @@ def patch_viewer(pages, flows):
              "    /* ?mode=design or ?mode=wire in the address opens the viewer in that mode, and remembers it */\n"
              "    (function () { var q = new URLSearchParams(location.search).get('mode'); if (q === 'design' || q === 'wire') { window.WF_MODE_URL = q; try { localStorage.setItem('wf-mode', q); } catch (e) {} } })();\n"
              "    window.wfMode = function () { try { return localStorage.getItem('wf-mode') || window.WF_MODE_URL || 'wire'; } catch (e) { return window.WF_MODE_URL || 'wire'; } };\n"
+             "    /* the theme of a mockup: dark is the product; light is phase 08's stress test of the semantic level */\n"
+             "    window.wfTheme = function () { try { return localStorage.getItem('wf-theme') || 'dark'; } catch (e) { return 'dark'; } };\n"
              "    window.wfDesign = function (src) {\n"
              "      if (window.wfMode() !== 'design') return src;\n"
+             "      var t = '?theme=' + window.wfTheme();\n"
              "      var m = src.match(/^\\.\\.\\/prototypes\\/([^\\/]+)\\/(.+)$/);\n"
-             "      if (m) return window.WF_MOCKUPS.flows.indexOf(m[1]) >= 0 ? '../mockups/flows/' + m[1] + '/' + m[2] : src;\n"
+             "      if (m) return window.WF_MOCKUPS.flows.indexOf(m[1]) >= 0 ? '../mockups/flows/' + m[1] + '/' + m[2] + t : src;\n"
              "      var p = src.replace(/\\.html$/, '');\n"
-             "      return window.WF_MOCKUPS.pages.indexOf(p) >= 0 ? '../mockups/' + src : src;\n"
+             "      return window.WF_MOCKUPS.pages.indexOf(p) >= 0 ? '../mockups/' + src + t : src;\n"
              "    };\n  </script>\n  <!-- mockups:end -->")
     if "<!-- mockups:start -->" in v:
         v = re.sub(r"<!-- mockups:start -->.*?<!-- mockups:end -->", lambda m: block, v, flags=re.S)
@@ -714,6 +727,34 @@ def patch_viewer(pages, flows):
     v = v.replace('else load(page + ".html");', 'else load(wfDesign(page + ".html"));')
     v = v.replace('open.href = "../prototypes/" + flow[0] + "/" + step + ".html";', 'open.href = wfDesign("../prototypes/" + flow[0] + "/" + step + ".html");')
     v = v.replace(r'var m = path.match(/\/prototypes\/([^\/]+)\/([^\/]+?)(?:\.html)?$/);', r'var m = path.match(/\/(?:prototypes|mockups\/flows)\/([^\/]+)\/([^\/]+?)(?:\.html)?$/);')
+    # phase 08, step 5: the theme switch beside the view switch — Design only
+    if 'id="wf-theme"' not in v:
+        v = v.replace('<div class="wf-mode" id="wf-mode"',
+                      '<div class="wf-mode" id="wf-theme" role="group" aria-label="Theme" title="Phase 08: the light theme, by semantic tokens alone">'
+                      '<button type="button" data-theme="dark">Dark</button><button type="button" data-theme="light">Light</button></div>\n        '
+                      '<div class="wf-mode" id="wf-mode"', 1)
+    if "/* wf-theme:behaviour */" not in v:
+        v = v.replace('    window.addEventListener("hashchange", show);',
+                      '''    /* wf-theme:behaviour */
+    var themeBox = document.getElementById("wf-theme");
+    function syncTheme() {
+      var t = wfTheme(), design = wfMode() === "design";
+      themeBox.querySelectorAll("button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-theme") === t));
+        if (design) { b.removeAttribute("data-none"); b.title = ""; } else { b.setAttribute("data-none", ""); b.title = "Themes are for the mockups: switch to Design"; }
+      });
+    }
+    themeBox.addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-theme]"); if (!b) return;
+      try { localStorage.setItem("wf-theme", b.getAttribute("data-theme")); } catch (err) {}
+      syncTheme();
+      /* the frame keeps the step it was clicked to, in the new theme */
+      var cur = ""; try { cur = iframe.contentWindow.location.href; } catch (err) { cur = iframe.src; }
+      if (/\\/mockups\\//.test(cur)) { iframe.removeAttribute("srcdoc"); iframe.src = cur.replace(/[?#].*$/, "") + "?theme=" + wfTheme(); }
+    });
+    modeBox.addEventListener("click", syncTheme);
+    syncTheme();
+    window.addEventListener("hashchange", show);''', 1)
     # the switch's behaviour: pressed state, and whether this screen or flow has a design yet
     if "/* wf-mode:behaviour */" not in v:
         v = v.replace('    window.addEventListener("hashchange", show);',
@@ -770,12 +811,14 @@ def shell(html, flow=False):
 
 
 def build():
-    import build_kit
-    build_kit.build()  # kit.css first: every mockup links it
+    import build_kit, build_components, concept_tokens
+    concept_tokens.build()     # the values, on two levels: 08-design-tokens/tokens.css
+    build_components.build()   # the classes, one file per component: 08-design-tokens/components/
+    build_kit.build()          # the shell and the showcase
     OUT.mkdir(exist_ok=True)
     old = OUT / "mockup.css"
     if old.exists():
-        old.unlink()  # retired in phase 07, step 5: kit.css is the one stylesheet
+        old.unlink()  # retired in phase 07, step 5
     unknown = []
     for p in PAGES:
         src = (PAGES_DIR / f"{p}.html").read_text(encoding="utf-8")
@@ -792,7 +835,7 @@ def build():
     import kit_check
     if kit_check.main():
         raise SystemExit("kit check failed — see 07-ui-assembly/README.md §2")
-    print(f"mockups: {len(PAGES)} pages, {nflow} flow steps · on kit.css · viewer patched")
+    print(f"mockups: {len(PAGES)} pages, {nflow} flow steps · on tokens.css + components/ · viewer patched")
     for page, ctx in unknown:
         print("  icon guessed (circle-dashed):", page, "…", ctx[-90:])
 

@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UI kit</title>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="kit.css">
+  <link rel="stylesheet" href="../../08-design-tokens/tokens.css">
+  <link rel="stylesheet" href="../../08-design-tokens/components/index.css">
+  <script>/* theme: ?theme=light, from the viewer's switch (phase 08) */(function(){var d=document.documentElement;window.dsTheme=function(t){if(t==='light')d.setAttribute('data-theme','light');else d.removeAttribute('data-theme');try{sessionStorage.setItem('ds-theme',t)}catch(e){}};var t=new URLSearchParams(location.search).get('theme');if(!t){try{t=sessionStorage.getItem('ds-theme')}catch(e){}}if(t)dsTheme(t)})();</script>
   <style>.kit-page{min-height:100vh}
 .kit-top{position:sticky;top:0;z-index:calc(var(--z-popover) + var(--z-sticky));display:flex;align-items:center;gap:var(--s6);height:var(--bar-h);padding:0 var(--s6);background:var(--bar);border-bottom:var(--hairline) solid var(--line)}
 .kit-top strong{font:var(--t-body);font-weight:var(--weight-strong)}
 .kit-top nav{display:flex;gap:var(--s4);font:var(--t-small)}
 .kit-top nav a{color:var(--text-2);text-decoration:none}
 .kit-top nav a:hover{color:var(--text)}
-.kit-top .kit-meta{margin-left:auto}
+.kit-top .kit-theme{margin-left:auto}
 .kit-body{display:flex;flex-direction:column;gap:var(--s12);padding:var(--s8);max-width:calc(var(--canvas) + var(--s12) * 3);margin:0 auto}
 .kit-intro{max-width:var(--measure-wide);display:flex;flex-direction:column;gap:var(--s2);color:var(--text-2)}
 .kit-intro h1{font:var(--t-display);letter-spacing:var(--track-display);color:var(--text)}
@@ -90,8 +92,8 @@
   <path d="m17 8-5-5-5 5" />
   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong>UI kit</strong><nav><a href="#navigation">Navigation</a><a href="#cards-and-lists">Cards and lists</a><a href="#forms">Forms</a><a href="#feedback">Feedback</a><a href="#one-off-styled-in-the-kit">One-off, styled in the kit</a><a href="shell.html">Shell</a></nav><span class="kit-meta">07 · UI assembly</span></header>
-<main class="kit-body"><div class="kit-intro"><h1>UI kit</h1><p>46 components: the 41 rows of <a href="inventory.md">the inventory</a> and the one-offs that need a class, every one with its states. Each component is cut from a wireframe page, so its words are the product's own (<code>microcopy.md</code>); the painted ones are drawn exactly as in the mockups, the grey ones take their look from <code>DESIGN.md</code>. One stylesheet: <code>kit.css</code>. The frame is on <a href="shell.html">the shell page</a>.</p></div><section class="kit-group" id="navigation"><h2 class="kit-h">Navigation <span class="kit-meta">8</span></h2><section class="kit-comp" id="c-app-header"><header class="kit-comp-head"><h3>App header</h3><p class="kit-meta"><code>app-header · app-nav · account</code> · 8 screens</p></header><div class="kit-state"><p class="kit-label">Projects is the current place</p><div class="kit-demo"><header class="app-header">
+<header class="kit-top"><strong>UI kit</strong><nav><a href="#navigation">Navigation</a><a href="#cards-and-lists">Cards and lists</a><a href="#forms">Forms</a><a href="#feedback">Feedback</a><a href="#one-off-styled-in-the-kit">One-off, styled in the kit</a><a href="shell.html">Shell</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme'">Light theme</button><span class="kit-meta">07 · UI assembly</span></header>
+<main class="kit-body"><div class="kit-intro"><h1>UI kit</h1><p>46 components: the 41 rows of <a href="inventory.md">the inventory</a> and the one-offs that need a class, every one with its states. Each component is cut from a wireframe page, so its words are the product's own (<code>microcopy.md</code>); the painted ones are drawn exactly as in the mockups, the grey ones take their look from <code>DESIGN.md</code>. Two stylesheets: <code>tokens.css</code>, the values on two levels, and <code>components/</code>, one file per component. The frame is on <a href="shell.html">the shell page</a>.</p></div><section class="kit-group" id="navigation"><h2 class="kit-h">Navigation <span class="kit-meta">8</span></h2><section class="kit-comp" id="c-app-header"><header class="kit-comp-head"><h3>App header</h3><p class="kit-meta"><code>app-header · app-nav · account</code> · 8 screens</p></header><div class="kit-state"><p class="kit-label">Projects is the current place</p><div class="kit-demo"><header class="app-header">
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
       <nav class="app-nav" aria-label="Global">
         <ul>

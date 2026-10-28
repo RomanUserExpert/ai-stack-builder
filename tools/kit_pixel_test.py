@@ -6,7 +6,8 @@
 Each page is drawn at 1440 wide, full height. The look is compared, not the motion: shimmer, spinners,
 transitions and the caret are stopped, and the page's sheets are reloaded once so every shot goes the
 same render path. A difference of at most 1/255 is the rasteriser on a rounded corner — reported, not
-failed. With no PAGE, every page in 04-wireframes/mockups/.
+failed. With no PAGE, every page in 04-wireframes/mockups/. A PAGE that ends in .html is a path from the repo root
+(phase 08: 07-ui-assembly/ui/kit.html, shell.html); its golden is named after the file.
 """
 import io
 import sys
@@ -22,7 +23,7 @@ RELOAD = """() => Promise.all([...document.querySelectorAll('link[rel=stylesheet
 
 
 def shoot(pg, name):
-    pg.goto((MOCKUPS / f"{name}.html").as_uri())
+    pg.goto((ROOT / name if name.endswith(".html") else MOCKUPS / f"{name}.html").as_uri())
     pg.add_style_tag(content=STILL)
     pg.evaluate(RELOAD)
     pg.evaluate("document.fonts.ready")
@@ -38,8 +39,12 @@ def main(mode, out, pages):
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1440, "height": 900})
-        for name in pages:
-            img = shoot(pg, name)
+        for page in pages:
+            img = shoot(pg, page)
+            name = page
+            if page.endswith(".html"):  # a path; a flow step is named with its case, since step names repeat
+                pth = Path(page)
+                name = f"{pth.parent.name}__{pth.stem}" if pth.parent.parent.name == "flows" else pth.stem
             if mode == "save":
                 img.save(out / f"{name}.png")
                 continue

@@ -532,3 +532,17 @@ found values that had been written without a reason, and tokens that nobody read
 - **`--panel-w` (384) is the stand's item panel; `--side-w` (440) is the product's.** They are two drawings, and the
   stand is frozen as phase 06's record.
 - **`--canvas` (1280) is the stand's width.** Product screens are drawn at 1440.
+
+## Phase 08 — the light theme's own values (2026-10-28)
+
+Phase 08 split the tokens into two levels (`08-design-tokens/tokens.css`). It proved the split with the light slice,
+applied to every screen as semantic overrides. Every light role takes the slice's value for the colour it was split
+from, except three, which are signed here:
+
+| Role, light | Value | Why | Signed by |
+|---|---|---|---|
+| `--acrylic-dialog` | the same 7 % lime over **`rgba(195,198,186,.45)`** (Mica 179 at 45 %), not the dark grey | the dark glass read too heavy on a light page | owner, 2026-10-28 (*слишком темный гласс*) |
+| `--shadow-sheet` | **`0 18px 40px rgba(0,0,0,.12)`**, a third of the dark black | the dark theme's shadow read as a smudge on light | owner, 2026-10-28 (*тень слишком мощная*) |
+| `--control-on`, `--control-on-ink` | **Deep Lime `#55700F`** with a **white** tick, not lime with Lime Ink | lime on white is 1.32:1, and a checked checkbox or radio needs 3:1 (WCAG 1.4.11). Deep Lime is 5.66:1 on a panel, and white on it is 5.66:1 | phase 08 check, T7-1 (*исправь всё*) |
+
+**Still unsigned, and drawn dark in light:** `--sheet-edge`, and Remove Red with its hover and its ink. Lesson 09.
