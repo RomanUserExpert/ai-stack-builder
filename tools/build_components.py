@@ -116,7 +116,7 @@ ROLES = {
     "tray": [(r"^\.state-block$", "state-ground"), (r".", "tray")],
     "cutout": [(r"^\.callout-reminder,\.callout-failure$", "neutral-box"), (r".", "cutout")],
 }
-COLOUR_PRIMITIVE = re.compile(r"var\(--(mica|lime|rose|amber|red)-\d+|var\(--white\)|var\(--(black|white)-a\d+")
+COLOUR_PRIMITIVE = re.compile(r"var\(--(mica|lime|rose|amber|red)-(light-)?(\d+|a\d+)|var\(--white\)|var\(--(black|white)-a\d+")
 
 
 def units(css):

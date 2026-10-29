@@ -144,7 +144,7 @@
     <li><a href="#light"><b>Step 05</b>The stress test</a></li>
     <li><a href="#check"><b>Step 06</b>The check</a></li>
     <li><a href="#engine"><b>Step 07</b>No engine</a></li>
-    <li><a href="#register"><b>Register</b>Q44&ndash;Q45</a></li>
+    <li><a href="#register"><b>Register</b>Q44&ndash;Q46</a></li>
     <li><a href="#open"><b>Close</b>What is open</a></li>
   </ol>
 </nav>
@@ -166,7 +166,7 @@
 
   <h3>What we decided</h3>
   <ul>
-    <li><strong>Two levels.</strong> A primitive says what a value is &mdash; hue plus a measured step; a semantic token says what a colour is for, and names the uses it grew from.</li>
+    <li><strong>Two levels.</strong> A primitive says what a value is &mdash; hue plus a grade, 50, 100, 150&hellip;; a semantic token says what a colour is for, and names the uses it grew from.</li>
     <li><strong>A component reads colour only through a role, and geometry straight from a primitive.</strong> Geometry has no semantic level.</li>
     <li><strong>Two roles are two tokens</strong>, even when their value is the same today.</li>
     <li><strong>A theme overrides roles and nothing else.</strong> Dark is the product; light is the stress test, and whether it ships is the owner&rsquo;s call.</li>
@@ -231,11 +231,11 @@
   <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Two levels: what a value is, and what it is for</h2></div>
   <p class="qline">One real chain, from the hex to the button that shows it.</p>
   <div class="pipe wide">
-    <div><span class="k">Primitive</span><b>--lime-105: #C6EF5A</b><p>What the value <strong>is</strong>: a hue from DESIGN.md and its step &mdash; OKLab lightness, inverted, &times;&nbsp;1000. Nobody chose the number.</p></div>
-    <div><span class="k">Semantic</span><b>--action: var(--lime-105)</b><p>What the colour is <strong>for</strong>: the primary action. Its comment names the uses it grew from &mdash; 64 pages, 168 steps.</p></div>
+    <div><span class="k">Primitive</span><b>--lime-100: #C6EF5A</b><p>What the value <strong>is</strong>: a hue from DESIGN.md and its grade &mdash; 50, 100, 150&hellip; from the lightest of that hue.</p></div>
+    <div><span class="k">Semantic</span><b>--action: var(--lime-100)</b><p>What the colour is <strong>for</strong>: the primary action. Its comment names the uses it grew from &mdash; 64 pages, 168 steps.</p></div>
     <div class="out"><span class="k">Component</span><b>.button-primary{background: var(--action)}</b><p>The component knows the role and <strong>never the primitive</strong>. A theme changes the role; the button does not move.</p></div>
   </div>
-  <p><strong>The step is measured, not picked.</strong> <code>--mica-776</code> is the dark ground and <code>--mica-35</code> the brightest text; every value of both themes gets its own number, so a new one can never collide with an old name. The washes, hovers and shadows are <strong>recipes over a role</strong> &mdash; <code>color-mix()</code> on <code>--problem</code>, <code>--raised</code>, <code>--brand</code> &mdash; so they follow the role into any theme.</p>
+  <p><strong>One scale per theme.</strong> <code>--mica-50</code> is the brightest text and <code>--mica-600</code> the dark ground, ordered by OKLab lightness; a value only light reads is <code>--mica-light-50</code>&hellip;, because Mica&rsquo;s quiet layers &mdash; 26 values, 1&ndash;2&nbsp;% of lightness apart &mdash; do not fit one 50&ndash;950 grid of 19 steps. The washes, hovers and shadows are <strong>recipes over a role</strong> &mdash; <code>color-mix()</code> on <code>--problem</code>, <code>--raised</code>, <code>--brand</code> &mdash; so they follow the role into any theme.</p>
   <p><strong>And the refactor proves itself.</strong> <code>tools/concept_tokens.py</code> writes both token files from one source &mdash; phase 06&rsquo;s flat one, unchanged to the byte, and this one &mdash; and refuses to finish unless <strong>every role resolves to the value phase 07 used</strong>, no hex appears that was not already signed, and every named geometry equals the <code>calc()</code> it replaced.</p>
 </section>
 
@@ -341,10 +341,11 @@
 
 <!-- ============ REGISTER ============ -->
 <section id="register" class="col">
-  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Two entries</h2></div>
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Three entries</h2></div>
   <p class="qline">What the owner decided on the tokens, and what is still the owner&rsquo;s.</p>
   <div class="qs wide">
-    <div class="q"><span class="qid">Q44</span><h3>The tokens, as recommended</h3><p>Splits where two roles may part; signed single-use colours stay roles; hover recipes kept apart; one generator; hue plus OKLab step for a primitive&rsquo;s name. And the light glass, the light shadow, Deep Lime.</p><span class="said">Owner: everything as recommended</span></div>
+    <div class="q"><span class="qid">Q44</span><h3>The tokens, as recommended</h3><p>Splits where two roles may part; signed single-use colours stay roles; hover recipes kept apart; one generator; a primitive named by its hue. And the light glass, the light shadow, Deep Lime.</p><span class="said">Owner: everything as recommended</span></div>
+    <div class="q"><span class="qid">Q46</span><h3>Primitives by grade</h3><p>50, 100, 150&hellip; one scale per theme, light-only values as <code>--mica-light-*</code>. Replaces the OKLab number; nothing moved.</p><span class="said">Owner: a scale per theme</span></div>
     <div class="q"><span class="qid">Q45</span><h3>No styling engine</h3><p>Plain CSS by hand: <code>tokens.css</code> and <code>components/</code>. Closes Q6, open since 2 September.</p><span class="said">Owner: we build it ourselves, to understand it</span></div>
   </div>
 </section>

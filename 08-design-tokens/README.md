@@ -142,7 +142,8 @@ shadow. **Still the owner's:** whether light ships, and the light values of `--s
   so no drift. §13's line *every value comes from `06-concept/tokens.css`* is then reworded.
 - **D4 · How primitives are named.** The instructor argued with the model's `green`/`red` names on the recording.
   **Recommended:** hue plus step, from the style's own words: `--mica-950 … --mica-50`, `--lime-400`, `--rose-300`,
-  `--amber-300` and the like. They are names of what a value **is**. Every name that says what it is **for** stays on
+  `--amber-300` and the like. They are names of what a value **is**. *Answered as hue plus OKLab step (Q44);
+  renamed by the owner on 2026-10-29 to a 50-step grade, one scale per theme (Q46).* Every name that says what it is **for** stays on
   the semantic level.
 - **D5 · `--canvas` and `--measure-wide`, declared and unused.** **Recommended:** keep them in primitive if `concept.md`
   signs them, otherwise drop them. The audit says which.

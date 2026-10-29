@@ -1987,7 +1987,7 @@ is not decided anywhere. **Not decided:** whether a link can be replaced by a ne
   Skipped.
 - **C, hover recipes and washes.** They are kept apart. Merging them would be a redesign.
 - **D3, the source of values.** One generator writes both files.
-- **D4, primitive names.** A primitive is its hue plus an OKLab step.
+- **D4, primitive names.** A primitive is its hue plus an OKLab step. *Renamed on 2026-10-29, Q46.*
 
 **On the light theme's preview** (*слишком темный гласс* · *тень слишком мощная в лайт теме*), the owner gave
 light a light glass and a lighter sheet shadow. The step-6 check (*исправь всё*) gave a checked control Deep Lime
@@ -2022,6 +2022,26 @@ already enforce it.
 **What it does not decide.** How the CSS is loaded once there is an app (global files or one file per component
 imported where it is used) is an implementation question for the build, after lesson 12 (§1). Nothing is
 scaffolded (§13).
+
+### Q46 — primitive names: a 50-step grade, one scale per theme — raised and answered 2026-10-29
+
+**Raised by the owner** on the phase page's token map (*почему такие цифры странные у токенов, сделай у примитивов
+грейд 50-100-150*). D4 (Q44) had named a colour primitive by its OKLab lightness × 1000, `--mica-776`.
+
+**The constraint was put to the owner first.** One 50–950 grid per hue cannot hold the palette: Mica has 26 values
+against 19 steps, because its layers sit 1–2 % of lightness apart (seven light surfaces round to `50`, four dark
+grounds to `800`). Merging them would move pixels. Three options were offered: a scale per theme, one scale in steps
+of 25, or the OKLab numbers kept.
+
+**Answered: a scale per theme.** Within a hue, the dark kit's values take 50, 100, 150 … from the lightest
+(`--mica-50` is the text, `--mica-600` the ground, `--mica-700` the deepest well); a value only the light theme reads
+takes `--<hue>-light-50 …`. An alpha is `--mica-a45`, `--mica-light-a45`, `--black-a35`. OKLab lightness stays the
+order, not the name. **The cost, stated:** a grade now says *which in order*, not *how light* — `--mica-600` and
+`--mica-light-600` are not the same lightness.
+
+**Nothing moved.** Every role resolves to the value it had (`check08`), `06-concept/tokens.css` is unchanged to the
+byte, and no file in `components/` changed: components read roles, never primitives (guard 5, its pattern widened to
+the new names).
 
 ### Earlier decisions
 

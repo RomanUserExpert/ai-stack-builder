@@ -136,7 +136,8 @@ and **Design**. You can open one directly with `?mode=design#run-default`.
 
 **Since lesson 08 the values live on two levels, and nothing on screen moved to get there.**
 [`08-design-tokens/tokens.css`](08-design-tokens/tokens.css) holds them:
-- **primitive** says what a value is: `--mica-776`, `--lime-105`, `--s4`, `--r-md`;
+- **primitive** says what a value is: `--mica-600`, `--lime-100`, `--s4`, `--r-md` (a colour is its hue and a 50-step grade,
+  one scale per theme: light-only values are `--mica-light-*`);
 - **semantic** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`. Each role names, in a
   comment, the uses it grew from.
 

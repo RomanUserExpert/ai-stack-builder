@@ -1511,11 +1511,14 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-10-29, by lesson 08 — Q46.** **Primitives are named by a 50-step grade, one scale per theme** (owner):
+`--mica-50 … --mica-700` for dark, `--mica-light-50 …` for light-only values. Replaces D4's OKLab number (§17).
+
 **Added 2026-10-29, by lesson 08 — Q45.** **No styling engine** (owner): plain CSS by hand, `tokens.css` plus `components/`;
 Q6 is closed (§10).
 
 **Added 2026-10-28, by lesson 08 — Q44.** The owner's decisions on the tokens: A (splits), B (signed single-use colours stay
-roles), C (hover recipes kept), D3 (one generator), D4 (hue + OKLab step); the light glass and shadow; Deep Lime for a checked
+roles), C (hover recipes kept), D3 (one generator), D4 (hue + OKLab step, renamed to a 50-step grade per theme by Q46); the light glass and shadow; Deep Lime for a checked
 control in light. **Open:** whether light ships in the product, and the light values of `--sheet-edge` and Remove Red (§17).
 
 **Added 2026-10-23 — Q43, the owner's choice of three.** **The link of a shared project or item can be had again.** A shared
@@ -1868,9 +1871,11 @@ The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md)
 
 **The two levels:**
 - **PRIMITIVE** says what a value is: colour, type, space, radius, size, motion, icons, with no roles.
-  - A colour is named by its hue, taken from DESIGN.md (Mica, Lime, Rose, Amber, Red), and its **step**.
-  - The step is OKLab lightness, inverted and × 1000. `--mica-776` is the dark ground. Nobody chose the number, and
-    every value of both themes gets its own.
+  - A colour is named by its hue, taken from DESIGN.md (Mica, Lime, Rose, Amber, Red), and its **grade**: 50,
+    100, 150 … from the lightest value of that hue, in OKLab order. `--mica-600` is the dark ground.
+  - **One scale per theme** (owner, 2026-10-29, Q46): a value only light reads is `--mica-light-50 …`. The tight Mica
+    layers do not fit one 50–950 grid — 26 values against 19 steps. An alpha is `--mica-a45`, `--black-a35`.
+    ~~The step was OKLab lightness × 1000, `--mica-776`~~ (D4, until Q46).
 - **SEMANTIC** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`.
   - Every role is a `var()` to a primitive, and its comment names the uses in the audit it grew from.
   - The washes, hovers and shadows are recipes over a role, so they follow it into any theme.
