@@ -122,7 +122,9 @@ Built like `build_ui_page.py`: the shared `<style>` and scroll-spy come from `re
 head and body are `tokens-page.tpl.html`. The counts (primitives, roles, light overrides, contrast pairs per theme,
 component files, pages, flow steps) are read from `08-design-tokens/tokens.css`, `components/` and
 `04-wireframes/mockups/`; it fails if the light block holds a literal or the two themes measure different pairs.
-The kit and seven screens, in either theme, are embedded live, so rebuild the tokens and the mockups first.
+The kit and seven screens, in either theme, are embedded live, so rebuild the tokens and the mockups first. The four layer sections — primitive colour (cards), primitive geometry (with previews), semantic colour (dark and
+light side by side) and contrast (every pair drawn in both themes) — come from `tokens.css` through
+`concept_tokens`' own resolver and contrast pairs, and the build fails if a pair falls below its bar.
 
 ## `build_ui_page.py` — phase 07, the UI assembly page
 

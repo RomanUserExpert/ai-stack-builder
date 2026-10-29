@@ -1,6 +1,7 @@
 <title>Phase 8 &mdash; Design tokens &middot; AI Stack Builder</title>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap");
 /* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
    Only what this page has and the others do not lives here. */
 
@@ -59,56 +60,88 @@
 .outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
 .outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
 .outs a:hover{border-color:var(--accent)}
-/* --- the token map: one collapsible block per hue and per geometry group, each an aligned table --- */
-.tmap-box{margin:22px 0 8px}
-.tmap-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:10px;padding:10px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:13px;color:var(--ink-2)}
-.tmap-bar .mode{margin-left:auto}
-.tmap-bar .all{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--rule);border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer}
-.tmap-bar .all:hover{background:var(--surface-hover);color:var(--ink)}
-.tmap-h{margin:22px 0 8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
-.tm{margin:0 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
-.tm > summary{display:grid;grid-template-columns:14px 180px 230px 170px 1fr;align-items:center;gap:6px 14px;padding:11px 14px;cursor:pointer;list-style:none}
+/* --- the layers: every block folds; tables and cards are built from tokens.css --- */
+.tm{margin:0 0 10px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.tm > summary{display:grid;grid-template-columns:14px minmax(0,auto) auto 1fr;align-items:center;gap:6px 14px;padding:12px 16px;cursor:pointer;list-style:none}
 .tm > summary::-webkit-details-marker{display:none}
 .tm > summary::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:rotate(-45deg);transition:transform var(--dur) var(--ease)}
 .tm[open] > summary::before{transform:rotate(45deg) translate(-2px,-1px)}
 .tm > summary:hover{background:var(--surface-hover)}
-.tm-t{font-size:14.5px;font-weight:600;color:var(--ink)}
+.tm[open] > summary{border-bottom:1px solid var(--rule)}
+.tm-t{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:600;color:var(--ink)}
 .tm-strip{display:inline-flex}
-.tm-strip .sw{width:18px;height:18px;border-radius:0;margin-right:-1px}
+.tm-strip .sw{width:16px;height:16px;border-radius:0;margin-right:-1px}
 .tm-strip .sw:first-child{border-radius:4px 0 0 4px}.tm-strip .sw:last-child{border-radius:0 4px 4px 0}
 .tm-n{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
 .tm-d{font-size:13px;color:var(--ink-3)}
-.tm[open] > summary{border-bottom:1px solid var(--rule)}
-.tm-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
-.tm-table col.c-sw{width:38px}.tm-table col.c-nm{width:250px}.tm-table col.c-val{width:200px}.tm-table col.c-to{width:30px}
-.tm-table col.c-from{width:330px}.tm-table col.c-gv{width:440px}
-.tm-table td{overflow-wrap:anywhere}
-.tm-table th{padding:7px 14px;text-align:left;font-family:var(--font-mono);font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--sunken);border-bottom:1px solid var(--rule-soft)}
-.tm-table td{padding:7px 14px;vertical-align:middle;border-bottom:1px solid var(--rule-soft)}
-.tm-table tr:last-child td{border-bottom:0}
-.tm-table tbody tr:hover td{background:var(--accent-06)}
-.tm-table code{font-size:12px;background:none;padding:0;border:0}
-.tm-table .sw-c{width:22px;padding-right:0}
-.tm-table .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tm-table .nm code{color:var(--ink)}
-.tm-table .val{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tm-table .val code{color:var(--ink-3)}
-.tm-table .to{padding:7px 4px;color:var(--ink-3);text-align:center}
-.tm-table .rl{line-height:1.9}
-.tm-table .rl code{display:inline-block;margin:0 4px 0 0;padding:0 7px;border:1px solid var(--rule);border-radius:4px;background:var(--sunken);font-size:12px;line-height:20px;color:var(--ink-2);cursor:help}
-.tm-table .rl code.kept{border-style:dashed;color:var(--ink-3)}
-.tm-table tr.own .nm code{color:var(--accent)}
-.tm-table .ds{font-size:12.5px;color:var(--ink-3)}
-.tm-table .ds em{font-style:normal;color:var(--accent)}
+.tm-body{padding:0}
+.tm-body > .sub{margin:0;padding:14px 16px 0;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.layer-bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 14px}
+.layer-bar button{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--surface);color:var(--ink-2);cursor:pointer}
+.layer-bar button:hover{background:var(--surface-hover);color:var(--ink)}
 
 .sw{display:inline-block;flex:none;width:16px;height:16px;border-radius:4px;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);vertical-align:middle}
 .sw.a{background:linear-gradient(var(--sw),var(--sw)),repeating-conic-gradient(#ccc 0 25%,#fff 0 50%) 0 0/8px 8px}
+.sw.big{display:block;width:100%;height:52px;border-radius:7px}
+
+/* primitive colour: cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:12px 16px 16px}
+.card-sw{display:flex;flex-direction:column;gap:3px;padding:8px 8px 10px;border:1px solid var(--rule-soft);border-radius:10px;background:var(--sunken)}
+.card-sw .nm{margin-top:7px;font-size:12.5px;color:var(--ink);background:none;padding:0;border:0}
+.card-sw .hx{font-size:11.5px;color:var(--ink-3);background:none;padding:0;border:0}
+.card-sw .rd{margin-top:4px;font-size:11.5px;line-height:1.6;color:var(--ink-3)}
+.card-sw .rd b{display:inline-block;width:34px;font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.card-sw .rd code{margin-right:4px;font-size:11.5px;color:var(--ink-2);background:none;padding:0;border:0}
+.card-sw .rd.none{font-style:italic}
+
+/* tables */
+.tm-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
+.tm-table col.c-nm{width:210px}.tm-table col.c-gv{width:300px}.tm-table col.c-th{width:225px}
+.tm-table.sem col.c-nm{width:150px}.tm-table.sem td{padding:9px 12px}.tm-table.sem th{padding:8px 12px}
+.tm-table col.c-cv{width:150px}
+.tm-table th{padding:8px 16px;text-align:left;font-family:var(--font-mono);font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--sunken);border-bottom:1px solid var(--rule-soft)}
+.tm-table td{padding:9px 16px;vertical-align:middle;border-bottom:1px solid var(--rule-soft);overflow-wrap:anywhere}
+.tm-table tr:last-child td{border-bottom:0}
+.tm-table tbody tr:hover td{background:var(--accent-06)}
+.tm-table code{font-size:12px;background:none;padding:0;border:0}
+.tm-table .nm code{color:var(--ink)}
+.tm-table .val code{color:var(--ink-2)}
+.tm-table .ds{font-size:12.5px;line-height:1.5;color:var(--ink-3)}
+.th{display:grid;grid-template-columns:16px minmax(0,1fr);column-gap:8px;align-items:center;line-height:1.4}
+.th .sw{grid-row:span 2}
+.th code{color:var(--ink-2)}
+.th .hx{color:var(--ink-3)}
+.th.kept{opacity:.75}
+.th code{white-space:nowrap;font-size:11.5px}
+.gapnote{display:block;margin-top:2px;font-size:11.5px;color:var(--accent)}
+.ex{color:var(--ink-2)}.ex.own{color:var(--accent)}
+.same{font-size:12.5px;color:var(--ink-3)}
+
+/* geometry previews */
 .pv .bar{display:block;height:10px;border-radius:2px;background:var(--accent-45)}
-.pv .rad{display:block;width:28px;height:28px;border-top:2px solid var(--ink-2);border-left:2px solid var(--ink-2)}
-.pv .spec{color:var(--ink)}
-.tmap-box + .tnote{margin-top:12px}
-@media (max-width:900px){.tm > summary{grid-template-columns:14px 1fr auto}}
-@media (max-width:640px){.tm-table{table-layout:auto}.tm-table colgroup{display:none}.tm > summary{grid-template-columns:14px 1fr auto}.tm-strip,.tm-d{display:none}.tm-table thead{display:none}.tm-table tr{display:grid;grid-template-columns:22px 1fr;padding:6px 0}.tm-table td{border:0;padding:2px 14px}.tm-table td.sw-c{grid-row:span 2}.tm-table .to{display:none}.tm-table td.rl,.tm-table td.ds,.tm-table td.pv{grid-column:1 / -1}.tm-table tr + tr{border-top:1px solid var(--rule-soft)}.tm-table.geo .pv{width:auto}}
+.pv .bar.w{background:var(--fill-strong);opacity:.35}
+.pv .rad{display:block;width:64px;height:40px;border:1.5px solid var(--ink-2);background:var(--sunken)}
+.pv .spec{display:block;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv .spec.caps{font-family:"Geist",system-ui,sans-serif;font-size:12px;font-weight:600;text-transform:uppercase}
+.pv .ln{display:block;width:120px;border-top:0 solid var(--ink)}
+.pv .sq{display:block;border:1px solid var(--ink-3);border-radius:3px;background:var(--sunken)}
+.pv .ic{display:block;width:20px;height:20px;background:var(--ink)}
+.pv .track{position:relative;display:block;width:100%;max-width:280px;height:10px;border-radius:5px;background:var(--sunken);box-shadow:inset 0 0 0 1px var(--rule-soft)}
+.pv .runner{position:absolute;left:0;top:1px;width:8px;height:8px;border-radius:50%;background:var(--accent);animation:run 1400ms cubic-bezier(.2,.7,.2,1) infinite alternate}
+@keyframes run{to{left:calc(100% - 8px)}}
+@media (prefers-reduced-motion:reduce){.pv .runner{animation:none}}
+
+/* contrast */
+.tm-table .pr code{color:var(--ink)}
+.tm-table .pr span{color:var(--ink-3);font-size:12px}
+.tm-table .pr small{display:block;margin-top:2px;font-size:12px;color:var(--ink-3)}
+.cv{white-space:nowrap}
+.cv .aa{display:inline-grid;place-items:center;width:34px;height:24px;margin-right:8px;border-radius:6px;font-family:"Geist",system-ui,sans-serif;font-style:normal;font-size:13px;font-weight:600;vertical-align:middle;box-shadow:inset 0 0 0 1px rgba(127,127,127,.25)}
+.cv .aa.nt{font-size:12px}
+.cv b{font-family:var(--font-mono);font-size:12.5px;font-weight:500;color:var(--ink)}
+.cv .ok,.cv .no,.cv .info{margin-left:6px;font-size:11.5px;color:var(--ink-3)}
+.cv .no{color:#b00020;font-weight:600}
+@media (max-width:640px){.tm > summary{grid-template-columns:14px 1fr auto}.tm-d,.tm-strip{display:none}.tm-table{table-layout:auto}.tm-table colgroup,.tm-table thead{display:none}.tm-table tr{display:block;padding:8px 0;border-bottom:1px solid var(--rule-soft)}.tm-table td{display:block;border:0;padding:2px 16px}}
 </style>
 
 
@@ -159,7 +192,10 @@
     <li><a href="#themes"><b>Look</b>Dark and light</a></li>
     <li><a href="#audit"><b>Step 01</b>The audit</a></li>
     <li><a href="#levels"><b>Step 02</b>Two levels</a></li>
-    <li><a href="#map"><b>Map</b>Every token</a></li>
+    <li><a href="#prim-colour"><b>Layer 1</b>Colour</a></li>
+    <li><a href="#prim-geometry"><b>Layer 1</b>Geometry</a></li>
+    <li><a href="#semantic"><b>Layer 2</b>Semantic</a></li>
+    <li><a href="#contrast"><b>Check</b>Contrast</a></li>
     <li><a href="#components"><b>Step 03&ndash;04</b>Components, screens</a></li>
     <li><a href="#light"><b>Step 05</b>The stress test</a></li>
     <li><a href="#check"><b>Step 06</b>The check</a></li>
@@ -259,28 +295,43 @@
   <p><strong>And the refactor proves itself.</strong> <code>tools/concept_tokens.py</code> writes both token files from one source &mdash; phase 06&rsquo;s flat one, unchanged to the byte, and this one &mdash; and refuses to finish unless <strong>every role resolves to the value phase 07 used</strong>, no hex appears that was not already signed, and every named geometry equals the <code>calc()</code> it replaced.</p>
 </section>
 
-<!-- ============ MAP ============ -->
-<section id="map" class="col">
-  <div class="stagehead"><span class="stagenum">MAP</span><h2>Every token, and what points at what</h2></div>
-  <p class="qline">On the left, a primitive &mdash; what a value <strong>is</strong>. On the right, every role that reads it &mdash; what it is <strong>for</strong>. Switch the theme and <strong>only the right side moves</strong>.</p>
-  <div class="tmap-box wide" data-tmapbox>
-    <div class="tmap-bar">
-      <span data-tmapcount>{{N_DIRECT}} roles on {{N_USED_DARK}} colour primitives</span>
-      <button type="button" class="all" data-all="open">Expand all</button>
-      <button type="button" class="all" data-all="close">Collapse all</button>
-      <div class="mode" role="group" aria-label="Theme">
-        <button type="button" data-tmap-pick="dark" data-count="{{N_DIRECT}} roles on {{N_USED_DARK}} colour primitives" aria-pressed="true">Dark</button>
-        <button type="button" data-tmap-pick="light" data-count="{{N_DIRECT}} roles on {{N_USED_LIGHT}} colour primitives" aria-pressed="false">Light</button>
-      </div>
-    </div>
-    <p class="tmap-h">Colour &mdash; primitive &rarr; role</p>
-    {{MAP_DARK}}
-    {{MAP_LIGHT}}
-    {{RECIPES}}
-    <p class="tmap-h">Geometry &mdash; {{N_GEO}} primitives, no semantic level, read by components directly</p>
-    {{GEOMETRY}}
-  </div>
-  <p class="tnote">Every block folds. Hover a role for the uses it grew from. In light, a <code>dashed</code> role has no light value of its own and keeps the dark one &mdash; the gaps phase 09 signs; an outlined recipe is one light signed apart. Read from <code>tokens.css</code> at build time, so the map cannot drift from the file.</p>
+<!-- ============ PRIMITIVE: COLOUR ============ -->
+<section id="prim-colour" class="col">
+  <div class="stagehead"><span class="stagenum">LAYER 1</span><h2>Primitive: colour</h2></div>
+  <p class="qline">What a colour <strong>is</strong>, and nothing about what it is for: <code>--color-</code>, a hue and a grade.</p>
+  <p><strong>Each hue is a ladder, lightest first.</strong> <code>--color-neutral-50</code> is the brightest text and <code>--color-neutral-600</code> the dark ground. The greys are <strong>neutral</strong> &mdash; Mica is the style&rsquo;s name for them, not a hue. <strong>There are two ladders</strong>, because the quiet layers &mdash; values 1&ndash;2&nbsp;% of lightness apart &mdash; do not fit one 50&ndash;950 grid: {{N_PRIM_DARK}} values the dark theme draws with, and {{N_PRIM_LIGHTONLY}} that only light reads, named <code>--color-neutral-light-*</code>. <strong>An alpha is a primitive too</strong> when it has no role of its own: the shadow&rsquo;s black, the glass&rsquo;s grey, the veil.</p>
+  <p>Each card says which roles read it, in which theme. <strong>A primitive no role reads would be dead weight</strong>, and the generator refuses one.</p>
+  <div class="layer-bar" data-layer-bar><button type="button" data-all="open">Expand all</button><button type="button" data-all="close">Collapse all</button></div>
+  <div class="wide" data-layer>{{PRIM_COLOUR}}</div>
+</section>
+
+<!-- ============ PRIMITIVE: GEOMETRY ============ -->
+<section id="prim-geometry" class="col">
+  <div class="stagehead"><span class="stagenum">LAYER 1</span><h2>Primitive: geometry</h2></div>
+  <p class="qline">Space, radius, type, size, icons and motion &mdash; {{N_GEO}} primitives, and <strong>no semantic level above them</strong>.</p>
+  <p><strong>A component reads geometry straight from here.</strong> A role says what a colour is for because a theme has to change it; nothing in a theme changes a radius, so a second name would only be a second place to drift. <strong>The names are the ones every system uses</strong> &mdash; Tailwind v4 and Primer: <code>--space-4</code> is 16&nbsp;px, <code>--radius-md</code> 10&nbsp;px, <code>--font-weight-semibold</code> 600. The type styles are <code>--typescale-*</code>, Material&rsquo;s word, because <code>--text-*</code> is already a colour role here.</p>
+  <p><strong>Geometry is never a count of a primitive.</strong> <code>calc(var(--space-12) * 3)</code> was a dialog&rsquo;s top; it is <code>--offset-modal</code> now, and guard 10 refuses the count coming back. The skeleton widths are the one kept exception: they are the length of the line they stand for.</p>
+  <div class="layer-bar" data-layer-bar><button type="button" data-all="open">Expand all</button><button type="button" data-all="close">Collapse all</button></div>
+  <div class="wide" data-layer>{{PRIM_GEO}}</div>
+</section>
+
+<!-- ============ SEMANTIC ============ -->
+<section id="semantic" class="col">
+  <div class="stagehead"><span class="stagenum">LAYER 2</span><h2>Semantic: colour</h2></div>
+  <p class="qline">What a colour is <strong>for</strong> &mdash; {{N_DIRECT}} roles and {{N_RECIPES}} recipes, each a <code>var()</code> to a primitive or a mix of roles.</p>
+  <p><strong>Every role grew from real uses</strong>, and its comment names them: the classes, and how many pages and flow steps they stand on. <strong>A role with no address was thrown out</strong> in the audit. <strong>Two roles are two tokens even at one value</strong> &mdash; <code>--focus</code> and <code>--mark</code> are the same lime in dark and already part in light.</p>
+  <p><strong>A theme overrides this level and nothing else.</strong> The two columns are the whole of the light theme&rsquo;s work. Where light has no value of its own the role keeps the dark one and says so &mdash; {{N_GAPS}} such gaps, signed in phase 09 or by the owner, never by a refactor.</p>
+  <div class="layer-bar" data-layer-bar><button type="button" data-all="open">Expand all</button><button type="button" data-all="close">Collapse all</button></div>
+  <div class="wide" data-layer>{{SEMANTIC}}</div>
+</section>
+
+<!-- ============ CONTRAST ============ -->
+<section id="contrast" class="col">
+  <div class="stagehead"><span class="stagenum">CHECK</span><h2>Contrast, in both themes</h2></div>
+  <p class="qline">WCAG AA &mdash; <strong>4.5:1 for text, 3:1 for a control&rsquo;s edge or a mark</strong>. Measured on <code>tokens.css</code> as written, and the build fails below the bar.</p>
+  <p>{{N_TEXT_PAIRS}} text pairs and {{N_NT_PAIRS}} non-text ones, each drawn in the colours it resolves to. A wash is measured where it really sits &mdash; <code>--problem-wash</code> over the cut-out, not over nothing.</p>
+  <div class="layer-bar" data-layer-bar><button type="button" data-all="open">Expand all</button><button type="button" data-all="close">Collapse all</button></div>
+  <div class="wide" data-layer>{{CONTRAST}}</div>
 </section>
 
 <!-- ============ COMPONENTS ============ -->
@@ -429,19 +480,11 @@
   if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else window.addEventListener('resize', fit);
 })();
 (function(){
-  var box = document.querySelector('[data-tmapbox]');
-  if (!box) return;
-  var group = box.querySelector('.mode'), count = box.querySelector('[data-tmapcount]');
-  group.addEventListener('click', function(e){
-    var b = e.target.closest('button'); if (!b) return;
-    group.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-    box.querySelectorAll('[data-tmap]').forEach(function(l){ l.hidden = l.dataset.tmap !== b.dataset.tmapPick; });
-    count.textContent = b.dataset.count;
-  });
-  box.querySelectorAll('[data-all]').forEach(function(b){
-    b.addEventListener('click', function(){
-      var open = b.dataset.all === 'open';
-      box.querySelectorAll('details.tm').forEach(function(d){ d.open = open; });
+  document.querySelectorAll('[data-layer-bar]').forEach(function(bar){
+    var layer = bar.nextElementSibling;
+    bar.addEventListener('click', function(e){
+      var b = e.target.closest('[data-all]'); if (!b) return;
+      layer.querySelectorAll('details.tm').forEach(function(d){ d.open = b.dataset.all === 'open'; });
     });
   });
 })();
