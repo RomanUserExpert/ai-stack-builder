@@ -3,8 +3,8 @@
    Colour through a role in tokens.css; geometry straight from a primitive. */
 
 /* the door: the signed-out page, one column */
-.door{width:var(--door-w);margin:var(--door-top) auto 0;display:flex;flex-direction:column;gap:var(--s6)}
-.door h1{font:var(--t-display);letter-spacing:var(--track-display)}
-.door .head-meta{display:block;font:var(--t-body);color:var(--text-2)}
-.door-alt{padding-top:var(--s4);border-top:var(--hairline) solid var(--line);font:var(--t-small);color:var(--text-2);text-align:center}
+.door{width:var(--width-door);margin:var(--offset-door) auto 0;display:flex;flex-direction:column;gap:var(--space-6)}
+.door h1{font:var(--typescale-display);letter-spacing:var(--tracking-display)}
+.door .head-meta{display:block;font:var(--typescale-body);color:var(--text-2)}
+.door-alt{padding-top:var(--space-4);border-top:var(--border-width-thin) solid var(--line);font:var(--typescale-small);color:var(--text-2);text-align:center}
 .door-alt a{color:var(--text)}

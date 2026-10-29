@@ -11,7 +11,7 @@ M-15), the selector decides which role it is here. Geometry is not renamed: it r
 
 Checks, and the build fails on any of them:
 - a class holds a value of its own (hex, rgb(), px, a font name) — concept_ui.literals;
-- a component reads a colour primitive (--mica-*, --lime-*, --rose-*, --amber-*, --red-*, --white, --black-a*);
+- a component reads a colour primitive (--color-*);
 - a var() that tokens.css does not declare;
 - a rule that no file claims;
 - two rules whose order between files flipped, that set the same property at the same specificity.
@@ -25,6 +25,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import build_mockups as bm  # noqa: E402
 import build_kit  # noqa: E402
 import concept_ui  # noqa: E402
+import concept_tokens  # noqa: E402
 
 TOKENS = ROOT / "08-design-tokens" / "tokens.css"
 OUT = ROOT / "08-design-tokens" / "components"
@@ -116,7 +117,7 @@ ROLES = {
     "tray": [(r"^\.state-block$", "state-ground"), (r".", "tray")],
     "cutout": [(r"^\.callout-reminder,\.callout-failure$", "neutral-box"), (r".", "cutout")],
 }
-COLOUR_PRIMITIVE = re.compile(r"var\(--(mica|lime|rose|amber|red)-(light-)?(\d+|a\d+)|var\(--white\)|var\(--(black|white)-a\d+")
+COLOUR_PRIMITIVE = re.compile(r"var\(--color-[\w-]+\)")
 
 
 def units(css):
@@ -208,7 +209,7 @@ def rename(unit):
         if old not in body:
             raise SystemExit(f"{sel}: the rewrite no longer matches its source — {old}")
         body = body.replace(old, new)
-    return body
+    return concept_tokens.rename08(body)   # phase 08's primitive names (Q47)
 
 
 # three rules that change form, not look (tokens-audit.md): the build fails if a source drifts from what they expect

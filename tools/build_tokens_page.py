@@ -70,7 +70,7 @@ prim_colour = [(n, v, c) for n, v, c in decls(prim) if re.match(r"#|rgba?\(", v)
 prim_value = {n: v for n, v, _ in prim_colour}
 sem_dark = decls(sem)
 sem_light = {n: (v, c) for n, v, c in decls(light)}
-HUES = [("mica", "Mica"), ("lime", "Lime"), ("rose", "Rose"), ("amber", "Amber"), ("red", "Red"),
+HUES = [("neutral", "Neutral"), ("lime", "Lime"), ("rose", "Rose"), ("amber", "Amber"), ("red", "Red"),
         ("white", "White and black"), ("black", "White and black")]
 
 
@@ -90,7 +90,7 @@ def tree(theme):
         roles.setdefault(t, []).append((n, ("No light value of its own: keeps the dark one. " if kept else "") + c, kept))
     out, last = [], None
     order = [label for _, label in HUES]
-    hue_of = lambda name: next(label for key, label in HUES if name[2:].startswith(key))
+    hue_of = lambda name: next(label for key, label in HUES if name[len("--color-"):].startswith(key))
     for name, value, _ in sorted(prim_colour, key=lambda p: order.index(hue_of(p[0]))):  # stable: file order in a hue
         if name not in roles:
             continue
@@ -126,17 +126,19 @@ def recipes_of(theme):
 
 rec_html = recipes_of("dark") + recipes_of("light")
 geo_groups = [
-    ["type", lambda n: n.startswith(("--font", "--mono", "--weight", "--t-", "--track")), []],
-    ["space", lambda n: re.fullmatch(r"--s\d+|--s-half", n), []],
-    ["radius", lambda n: n.startswith("--r-"), []],
-    ["size, column, layer", None, []],
-    ["icons", lambda n: n in ("--icon-add", "--icon-added", "--icon-chevron") or n.startswith("--glyph"), []],
-    ["motion", lambda n: n in ("--ease", "--dur", "--dur-spin", "--dur-shimmer"), []],
+    ["type", lambda n: n.startswith(("--font-", "--typescale-", "--tracking-")), []],
+    ["space", lambda n: n.startswith("--space-"), []],
+    ["radius", lambda n: n.startswith("--radius-"), []],
+    ["size, width, offset", None, []],
+    ["icons", lambda n: n.startswith("--icon-"), []],
+    ["motion", lambda n: n.startswith(("--ease-", "--duration-")), []],
 ]
-for n, v, _ in decls(prim):
-    if n in prim_value:
-        continue
-    g = next((g for g in geo_groups if g[1] and g[1](n)), geo_groups[3])
+geo = [(n, v, c) for n, v, c in decls(prim) if n not in prim_value]
+px = lambda v: float(v[:-2]) if v.endswith("px") else 0.0
+geo.sort(key=lambda d: (0, px(d[1])) if d[0].startswith("--space-") else
+         (1, d[0].split("-")[2], px(d[1])) if not d[0].startswith(("--font", "--typescale", "--tracking", "--icon", "--ease", "--duration", "--radius")) else (2,))
+for n, v, _ in geo:
+    g = next((g for g in geo_groups if g[1] and g[1]("--" + n.lstrip("-"))), geo_groups[3])
     if g[0] in ("icons", "type"):
         g[2].append('<code title="%s">%s</code>' % (_html.escape(v, quote=True), n))
     else:

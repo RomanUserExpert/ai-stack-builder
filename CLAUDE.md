@@ -1511,8 +1511,11 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-10-29, by lesson 08 — Q47.** **Primitive names follow Tailwind v4 and Primer** (owner): `--color-neutral-*` for
+Mica's greys, and `--space-*`, `--radius-*`, `--font-*`, `--typescale-*`, `--size-*`, `--duration-*` for the rest (§17).
+
 **Added 2026-10-29, by lesson 08 — Q46.** **Primitives are named by a 50-step grade, one scale per theme** (owner):
-`--mica-50 … --mica-700` for dark, `--mica-light-50 …` for light-only values. Replaces D4's OKLab number (§17).
+`--…-50 … --…-700` for dark, `--…-light-50 …` for light-only values (names since Q47). Replaces D4's OKLab number (§17).
 
 **Added 2026-10-29, by lesson 08 — Q45.** **No styling engine** (owner): plain CSS by hand, `tokens.css` plus `components/`;
 Q6 is closed (§10).
@@ -1871,10 +1874,17 @@ The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md)
 
 **The two levels:**
 - **PRIMITIVE** says what a value is: colour, type, space, radius, size, motion, icons, with no roles.
-  - A colour is named by its hue, taken from DESIGN.md (Mica, Lime, Rose, Amber, Red), and its **grade**: 50,
-    100, 150 … from the lightest value of that hue, in OKLab order. `--mica-600` is the dark ground.
-  - **One scale per theme** (owner, 2026-10-29, Q46): a value only light reads is `--mica-light-50 …`. The tight Mica
-    layers do not fit one 50–950 grid — 26 values against 19 steps. An alpha is `--mica-a45`, `--black-a35`.
+  - **Names take the namespaces of Tailwind v4 and Primer** (owner, 2026-10-29, Q47): `--color-*`, `--font-sans`,
+    `--font-mono`, `--font-weight-*`, `--typescale-*`, `--tracking-*`, `--space-*` (`--space-1` is 4 px, `--space-0-5`
+    2 px), `--radius-xs … --radius-full`, `--border-width-thin/thick`, `--size-*`, `--width-*`, `--measure*`,
+    `--offset-*`, `--inset-*`, `--z-*`, `--icon-*`, `--ease-out`, `--duration-*`.
+  - A colour is `--color-<hue>-<grade>`: **neutral** (Mica's greys — Mica is the style, not a hue), lime, rose, amber,
+    red. The grade is 50, 100, 150 … from the lightest of that hue, in OKLab order. `--color-neutral-600` is the dark
+    ground.
+  - **One scale per theme** (Q46): a value only light reads is `--color-neutral-light-50 …`. The tight layers do not
+    fit one 50–950 grid — 26 values against 19 steps. An alpha is `--color-neutral-a45`, `--color-black-a35`.
+  - `06-concept/tokens.css`, the stand's flat file, keeps phase 06's names; `RENAME08` in `tools/concept_tokens.py`
+    maps them, and `check08` reads the new file back through it, so every value is still checked against phase 07.
     ~~The step was OKLab lightness × 1000, `--mica-776`~~ (D4, until Q46).
 - **SEMANTIC** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`.
   - Every role is a `var()` to a primitive, and its comment names the uses in the audit it grew from.
@@ -1885,7 +1895,7 @@ The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md)
 **The rules that hold from now on:**
 - **A component reads colour only through a role, and geometry straight from a primitive.** Geometry has no
   semantic level.
-- **No geometry is written as a count of a primitive** (`--s12 * 3`). It gets a name, as `--modal-top` did. The 34
+- **No geometry is written as a count of a primitive** (`--space-12 * 3`). It gets a name, as `--offset-modal` did. The 34
   skeleton sizes are kept on purpose: they are content, measured in the scale's unit.
 - **A theme overrides semantic roles and nothing else.** `:root` is dark, the product (§3).
   `[data-theme="light"]` is the stress test of this lesson. It is phase 06's signed slice, role by role, plus four

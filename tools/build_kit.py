@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import build_mockups as bm  # noqa: E402
 import concept_ui  # noqa: E402
+import concept_tokens  # noqa: E402
 
 PAGES = ROOT / "04-wireframes" / "pages"
 OUT = ROOT / "07-ui-assembly" / "ui"
@@ -507,7 +508,7 @@ def page(title, desc, body, nav):
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   <link rel="stylesheet" href="wireframe.css">
-  <style>{PAGE_CSS.strip()}</style>
+  <style>{concept_tokens.rename08(PAGE_CSS.strip())}</style>
 </head>
 <body class="product-page kit-page">
 <header class="kit-top"><strong>{title}</strong><nav>{nav}</nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme'">Light theme</button><span class="kit-meta">{desc}</span></header>

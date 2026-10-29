@@ -3,5 +3,5 @@
    Colour through a role in tokens.css; geometry straight from a primitive. */
 
 /* icons — Lucide, inlined by the build */
-svg.icon{display:inline-block;width:var(--icon);height:var(--icon);flex:none;vertical-align:calc(var(--s1) * -1 + var(--hairline))}
-.icon.logo{display:inline-block;width:var(--icon-s);height:var(--icon-s);border-radius:var(--r-xs);background:var(--brand);flex:none}
+svg.icon{display:inline-block;width:var(--size-icon);height:var(--size-icon);flex:none;vertical-align:calc(var(--space-1) * -1 + var(--border-width-thin))}
+.icon.logo{display:inline-block;width:var(--size-icon-sm);height:var(--size-icon-sm);border-radius:var(--radius-xs);background:var(--brand);flex:none}

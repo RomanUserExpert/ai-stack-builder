@@ -4,11 +4,11 @@
 
 /* Add / In this project: an icon button, not a bare checkbox. The checkbox stays for the keyboard and
    the screen reader, out of sight; the label is what you see and press. */
-.check{position:relative;display:inline-flex;gap:var(--s1);align-items:center;height:var(--control-h-s);padding:0 var(--s3) 0 var(--s2);
-  font:var(--t-button);color:var(--text);white-space:nowrap;text-decoration:none;cursor:pointer;
-  background:var(--control);border:var(--hairline) solid var(--line-strong);border-radius:var(--r-sm);transition:background var(--dur) var(--ease)}
+.check{position:relative;display:inline-flex;gap:var(--space-1);align-items:center;height:var(--size-control-sm);padding:0 var(--space-3) 0 var(--space-2);
+  font:var(--typescale-button);color:var(--text);white-space:nowrap;text-decoration:none;cursor:pointer;
+  background:var(--control);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-sm);transition:background var(--duration-fast) var(--ease-out)}
 .check:hover{background:var(--control-hover)}
-.check::before{content:"";width:var(--icon);height:var(--icon);flex:none;background:var(--text-2);
+.check::before{content:"";width:var(--size-icon);height:var(--size-icon);flex:none;background:var(--text-2);
   -webkit-mask:var(--icon-add) center / contain no-repeat;mask:var(--icon-add) center / contain no-repeat}
 .check input[type="checkbox"]{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
 .check:has(input:focus-visible){box-shadow:var(--shadow-focus)}

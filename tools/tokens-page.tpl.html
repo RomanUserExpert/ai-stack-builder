@@ -63,8 +63,8 @@
 .tmap-box{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;background:var(--surface);overflow:hidden}
 .tmap-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
 .tmap-bar .mode{margin-left:auto}
-.tmap{list-style:none;margin:0;padding:6px 0 10px;columns:2 400px;column-gap:0;column-rule:1px solid var(--rule-soft)}
-.tmap li{break-inside:avoid;display:grid;grid-template-columns:minmax(0,196px) minmax(0,1fr);align-items:start;margin:0;padding:3px 14px}
+.tmap{list-style:none;margin:0;padding:6px 0 10px;columns:2 430px;column-gap:0;column-rule:1px solid var(--rule-soft)}
+.tmap li{break-inside:avoid;display:grid;grid-template-columns:minmax(0,262px) minmax(0,1fr);align-items:start;margin:0;padding:3px 14px}
 .tmap li.hue{display:block;padding:10px 14px 3px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);break-after:avoid}
 .tmap .prim{display:flex;align-items:center;gap:8px;min-width:0;position:relative;min-height:20px;padding-right:22px}
 .tmap .prim::after{content:"";position:absolute;right:4px;top:50%;width:14px;border-top:1px solid var(--rule)}
@@ -144,7 +144,7 @@
     <li><a href="#light"><b>Step 05</b>The stress test</a></li>
     <li><a href="#check"><b>Step 06</b>The check</a></li>
     <li><a href="#engine"><b>Step 07</b>No engine</a></li>
-    <li><a href="#register"><b>Register</b>Q44&ndash;Q46</a></li>
+    <li><a href="#register"><b>Register</b>Q44&ndash;Q47</a></li>
     <li><a href="#open"><b>Close</b>What is open</a></li>
   </ol>
 </nav>
@@ -231,11 +231,11 @@
   <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Two levels: what a value is, and what it is for</h2></div>
   <p class="qline">One real chain, from the hex to the button that shows it.</p>
   <div class="pipe wide">
-    <div><span class="k">Primitive</span><b>--lime-100: #C6EF5A</b><p>What the value <strong>is</strong>: a hue from DESIGN.md and its grade &mdash; 50, 100, 150&hellip; from the lightest of that hue.</p></div>
-    <div><span class="k">Semantic</span><b>--action: var(--lime-100)</b><p>What the colour is <strong>for</strong>: the primary action. Its comment names the uses it grew from &mdash; 64 pages, 168 steps.</p></div>
+    <div><span class="k">Primitive</span><b>--color-lime-100: #C6EF5A</b><p>What the value <strong>is</strong>: <code>--color-</code>, a hue and a grade &mdash; 50, 100, 150&hellip; from the lightest of that hue.</p></div>
+    <div><span class="k">Semantic</span><b>--action: var(--color-lime-100)</b><p>What the colour is <strong>for</strong>: the primary action. Its comment names the uses it grew from &mdash; 64 pages, 168 steps.</p></div>
     <div class="out"><span class="k">Component</span><b>.button-primary{background: var(--action)}</b><p>The component knows the role and <strong>never the primitive</strong>. A theme changes the role; the button does not move.</p></div>
   </div>
-  <p><strong>One scale per theme.</strong> <code>--mica-50</code> is the brightest text and <code>--mica-600</code> the dark ground, ordered by OKLab lightness; a value only light reads is <code>--mica-light-50</code>&hellip;, because Mica&rsquo;s quiet layers &mdash; 26 values, 1&ndash;2&nbsp;% of lightness apart &mdash; do not fit one 50&ndash;950 grid of 19 steps. The washes, hovers and shadows are <strong>recipes over a role</strong> &mdash; <code>color-mix()</code> on <code>--problem</code>, <code>--raised</code>, <code>--brand</code> &mdash; so they follow the role into any theme.</p>
+  <p><strong>Names in the namespaces everybody reads.</strong> As in Tailwind v4 and Primer: <code>--color-*</code>, <code>--space-*</code>, <code>--radius-*</code>, <code>--font-*</code>, <code>--typescale-*</code>, <code>--size-*</code>, <code>--duration-*</code>. The greys are <strong>neutral</strong> &mdash; Mica is the style&rsquo;s name for them, not a hue. <strong>One scale per theme</strong>: <code>--color-neutral-50</code> is the brightest text and <code>--color-neutral-600</code> the dark ground; a value only light reads is <code>--color-neutral-light-50</code>&hellip;, because the quiet layers &mdash; 26 values, 1&ndash;2&nbsp;% of lightness apart &mdash; do not fit one 50&ndash;950 grid of 19 steps. The washes, hovers and shadows are <strong>recipes over a role</strong> &mdash; <code>color-mix()</code> on <code>--problem</code>, <code>--raised</code>, <code>--brand</code> &mdash; so they follow the role into any theme.</p>
   <p><strong>And the refactor proves itself.</strong> <code>tools/concept_tokens.py</code> writes both token files from one source &mdash; phase 06&rsquo;s flat one, unchanged to the byte, and this one &mdash; and refuses to finish unless <strong>every role resolves to the value phase 07 used</strong>, no hex appears that was not already signed, and every named geometry equals the <code>calc()</code> it replaced.</p>
 </section>
 
@@ -305,7 +305,7 @@
       <tbody>
         <tr><td class="name">Two names for one role</td><td>A field&rsquo;s edge under the pointer had two tokens; now one, <code>--edge-hover</code>. The four hover recipes were <strong>kept apart</strong> by the owner: each sits on a different ground, and merging them would be a redesign</td></tr>
         <tr><td class="name">Light lines with no source</td><td>Every override now names the variable it takes its value from, or the reason it differs</td></tr>
-        <tr><td class="name">Geometry written as a count</td><td><code>--s12 * 3</code> and its kind became named primitives &mdash; <code>--modal-top</code>, <code>--search-w</code>, <code>--s-half</code> and seven more, each checked to equal its old <code>calc()</code>. The 34 skeleton widths were kept: they are content, measured in the scale&rsquo;s unit</td></tr>
+        <tr><td class="name">Geometry written as a count</td><td><code>--s12 * 3</code> and its kind became named primitives &mdash; <code>--offset-modal</code>, <code>--width-search</code>, <code>--space-0-5</code> and seven more (named <code>--modal-top</code>, <code>--search-w</code>, <code>--s-half</code> on the day), each checked to equal its old <code>calc()</code>. The 34 skeleton widths were kept: they are content, measured in the scale&rsquo;s unit</td></tr>
         <tr><td class="name">Contrast below AA</td><td>Only the light checked control; fixed with Deep Lime. In the browser, every run of text on {{N_PAGES}} pages: <strong>0 failures dark, 0 light</strong></td></tr>
         <tr><td class="name">DESIGN.md silent on light</td><td>It now names the light palette, the two levels and the veil</td></tr>
       </tbody>
@@ -341,11 +341,12 @@
 
 <!-- ============ REGISTER ============ -->
 <section id="register" class="col">
-  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Three entries</h2></div>
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Four entries</h2></div>
   <p class="qline">What the owner decided on the tokens, and what is still the owner&rsquo;s.</p>
   <div class="qs wide">
     <div class="q"><span class="qid">Q44</span><h3>The tokens, as recommended</h3><p>Splits where two roles may part; signed single-use colours stay roles; hover recipes kept apart; one generator; a primitive named by its hue. And the light glass, the light shadow, Deep Lime.</p><span class="said">Owner: everything as recommended</span></div>
-    <div class="q"><span class="qid">Q46</span><h3>Primitives by grade</h3><p>50, 100, 150&hellip; one scale per theme, light-only values as <code>--mica-light-*</code>. Replaces the OKLab number; nothing moved.</p><span class="said">Owner: a scale per theme</span></div>
+    <div class="q"><span class="qid">Q46</span><h3>Primitives by grade</h3><p>50, 100, 150&hellip; one scale per theme, light-only values as <code>--color-neutral-light-*</code>. Replaces the OKLab number; nothing moved.</p><span class="said">Owner: a scale per theme</span></div>
+    <div class="q"><span class="qid">Q47</span><h3>Names by the common namespaces</h3><p>Mica&rsquo;s greys are <code>neutral</code>; every primitive takes the namespace Tailwind v4 and Primer use &mdash; <code>--color-</code>, <code>--space-</code>, <code>--radius-</code>, <code>--font-</code>&hellip; No pixel moved.</p><span class="said">Owner: by the rules of the popular systems</span></div>
     <div class="q"><span class="qid">Q45</span><h3>No styling engine</h3><p>Plain CSS by hand: <code>tokens.css</code> and <code>components/</code>. Closes Q6, open since 2 September.</p><span class="said">Owner: we build it ourselves, to understand it</span></div>
   </div>
 </section>

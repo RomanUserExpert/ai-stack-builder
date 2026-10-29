@@ -3,8 +3,8 @@
    Colour through a role in tokens.css; geometry straight from a primitive. */
 
 /* the receiver's aside: what their machine still needs, and the way to take it */
-.with-aside{display:grid;grid-template-columns:minmax(0,1fr) var(--col-xl);gap:var(--s8);align-items:start}
-.aside-box{position:sticky;top:var(--s4);display:flex;flex-direction:column;gap:var(--s3);padding:var(--s5);background:var(--raised);border:var(--hairline) solid var(--line);border-radius:var(--r-lg)}
-.aside-box h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
-.aside-box .meta{font:var(--t-small);color:var(--text-2)}
+.with-aside{display:grid;grid-template-columns:minmax(0,1fr) var(--width-col-xl);gap:var(--space-8);align-items:start}
+.aside-box{position:sticky;top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.aside-box h2{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.aside-box .meta{font:var(--typescale-small);color:var(--text-2)}
 .aside-box .button{align-self:flex-start}

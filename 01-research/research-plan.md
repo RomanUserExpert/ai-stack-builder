@@ -2043,6 +2043,26 @@ order, not the name. **The cost, stated:** a grade now says *which in order*, no
 byte, and no file in `components/` changed: components read roles, never primitives (guard 5, its pattern widened to
 the new names).
 
+### Q47 — primitive names by the common namespaces; Mica's greys are neutral — raised and answered 2026-10-29
+
+**Raised by the owner** (*почему у нас грей обычный — это мика, давай он будет нютрал; пройдись по именам
+примитивных токенов и сделай по всем правилам самых популярных дизайн-систем*).
+
+**Answered as asked.** Mica is the style's name for its greys, not a hue, so the scale is **neutral**. Every
+primitive takes the namespace Tailwind v4 and Primer use: `--color-<hue>-<grade>` (the grade of Q46 kept),
+`--font-sans`, `--font-mono`, `--font-weight-regular/medium/semibold` (600 is *semibold* in every system, not
+*strong*), `--typescale-*` (Material's word for a type style, because `--text-*` is already a colour role here),
+`--tracking-*`, `--space-1 … --space-12` and `--space-0-5`, `--radius-xs … --radius-full`,
+`--border-width-thin/thick`, `--size-*` (controls, tags, icons), `--width-*` (columns, sheets, dialogs),
+`--measure`, `--measure-wide`, `--measure-callout`, `--offset-*`, `--inset-*`, `--z-*`, `--icon-*` (the masks;
+`--glyph-check` is `--icon-check`), `--ease-out`, `--duration-fast/spin/shimmer`. The full map is `RENAME08` in
+`tools/concept_tokens.py`. **Semantic roles are not renamed**: the request was the primitives.
+
+**Nothing moved.** `06-concept/tokens.css` keeps phase 06's names, unchanged to the byte; the map is applied to
+`tokens.css`, `components/` and `kit.html`'s own styles, and `check08` reads the new file back through it, so every
+value is still checked against phase 07. **83 of 83 pages identical** to the post-Q43 goldens, and `kit.html` and
+`shell.html` identical to the last commit. Guard 5 is now one pattern: a component reads no `--color-*`.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

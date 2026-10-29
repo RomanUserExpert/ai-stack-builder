@@ -31,7 +31,7 @@ UI = ROOT / "07-ui-assembly" / "ui"
 WF = ROOT / "04-wireframes"
 ALLOWED = {"visually-hidden", "product-page", "image"}  # utilities the markup carries for meaning
 LINKS = ("08-design-tokens/tokens.css", "08-design-tokens/components/index.css")
-COLOUR_PRIMITIVE = re.compile(r"var\(--((?:mica|lime|rose|amber|red)-(?:light-)?(?:\d+|a\d+)|white|(?:black|white)-a\d+)\)")
+COLOUR_PRIMITIVE = re.compile(r"var\(--(color-[\w-]+)\)")  # every colour primitive lives in --color- (Q47)
 
 
 def main():

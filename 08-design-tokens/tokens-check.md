@@ -4,7 +4,8 @@
 against the course's seven defects, and adds the findings of `/impeccable audit`. Each row has a disposition: **fixed**,
 or **kept** with the reason.
 
-*The primitive names below (`--mica-57`, `--lime-494`) are the OKLab steps of 2026-10-28. On 2026-10-29 the owner renamed them to a 50-step grade, one scale per theme (Q46): `--lime-494` is now `--lime-light-100`. No value changed.*
+*The primitive names below (`--mica-57`, `--lime-494`) are the OKLab steps of 2026-10-28. On 2026-10-29 the owner renamed them to a 50-step grade, one scale per theme (Q46): `--lime-494` is now `--color-lime-light-100`, and geometry took the common namespaces (Q47): `--s-half` is
+`--space-0-5`, `--modal-top` is `--offset-modal`. No value changed.*
 
 ## How it was checked
 

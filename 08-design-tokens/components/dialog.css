@@ -3,31 +3,31 @@
    Colour through a role in tokens.css; geometry straight from a primitive. */
 
 .scrim{position:absolute;inset:0;background:var(--veil)}
-dialog.modal{position:absolute;top:var(--modal-top);left:0;right:0;width:var(--modal-w);margin:0 auto;padding:var(--s6);color:var(--text);
-  background:var(--raised);border:var(--hairline) solid var(--sheet-edge);border-radius:var(--r-lg);box-shadow:0 0 0 var(--s2) var(--acrylic-dialog),var(--shadow-sheet)}
-dialog.modal h2,.sheet-head h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
-dialog.modal p{margin-top:var(--s2);font:var(--t-small);color:var(--text-2)}
-dialog.modal ul{margin-top:var(--s2);display:flex;flex-direction:column;gap:var(--s1);font:var(--t-small);color:var(--text-2)}
-dialog.modal .callout{margin-top:var(--s4)}
-.sheet-head{display:flex;gap:var(--s4);align-items:flex-start}
-dialog.popover{position:absolute;top:calc(var(--control-h) + var(--s2));right:0;left:auto;z-index:var(--z-popover);width:var(--col-xl);margin:0;padding:0;color:var(--text);
-  background:var(--raised);border:var(--hairline) solid var(--sheet-edge);border-radius:var(--r-lg);box-shadow:0 0 0 var(--s2) var(--acrylic-dialog),var(--shadow-sheet)}
+dialog.modal{position:absolute;top:var(--offset-modal);left:0;right:0;width:var(--width-modal);margin:0 auto;padding:var(--space-6);color:var(--text);
+  background:var(--raised);border:var(--border-width-thin) solid var(--sheet-edge);border-radius:var(--radius-lg);box-shadow:0 0 0 var(--space-2) var(--acrylic-dialog),var(--shadow-sheet)}
+dialog.modal h2,.sheet-head h2{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+dialog.modal p{margin-top:var(--space-2);font:var(--typescale-small);color:var(--text-2)}
+dialog.modal ul{margin-top:var(--space-2);display:flex;flex-direction:column;gap:var(--space-1);font:var(--typescale-small);color:var(--text-2)}
+dialog.modal .callout{margin-top:var(--space-4)}
+.sheet-head{display:flex;gap:var(--space-4);align-items:flex-start}
+dialog.popover{position:absolute;top:calc(var(--size-control) + var(--space-2));right:0;left:auto;z-index:var(--z-popover);width:var(--width-col-xl);margin:0;padding:0;color:var(--text);
+  background:var(--raised);border:var(--border-width-thin) solid var(--sheet-edge);border-radius:var(--radius-lg);box-shadow:0 0 0 var(--space-2) var(--acrylic-dialog),var(--shadow-sheet)}
 .popover-form{display:flex;flex-direction:column}
-.popover-head{display:flex;align-items:center;justify-content:space-between;padding:var(--s4) var(--s5);border-bottom:var(--hairline) solid var(--line)}
-.popover-head h2{font:var(--t-heading);letter-spacing:var(--track-heading)}
-.popover-body{display:flex;flex-direction:column;gap:var(--s5);padding:var(--s4) var(--s5)}
+.popover-head{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) var(--space-5);border-bottom:var(--border-width-thin) solid var(--line)}
+.popover-head h2{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.popover-body{display:flex;flex-direction:column;gap:var(--space-5);padding:var(--space-4) var(--space-5)}
 fieldset{border:0;margin:0;padding:0;min-width:0}
-legend{padding:0;margin-bottom:var(--s2);font:var(--t-label);letter-spacing:var(--track-label);text-transform:uppercase;color:var(--text-3)}
-.popover-group{display:flex;flex-direction:column;gap:var(--s2)}
-.popover-group label{display:flex;gap:var(--s2);align-items:center;font:var(--t-small);color:var(--text)}
-.popover-group .hint{font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
-.popover-foot{display:flex;justify-content:flex-end;gap:var(--s2);padding:var(--s3) var(--s5);border-top:var(--hairline) solid var(--line)}
+legend{padding:0;margin-bottom:var(--space-2);font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3)}
+.popover-group{display:flex;flex-direction:column;gap:var(--space-2)}
+.popover-group label{display:flex;gap:var(--space-2);align-items:center;font:var(--typescale-small);color:var(--text)}
+.popover-group .hint{font:var(--typescale-micro);font-weight:var(--font-weight-regular);color:var(--text-3)}
+.popover-foot{display:flex;justify-content:flex-end;gap:var(--space-2);padding:var(--space-3) var(--space-5);border-top:var(--border-width-thin) solid var(--line)}
 /* the Item sheet: the add/edit overlay over the Library — a side sheet, the item's whole form (group 1, phase 07) */
-dialog.sheet{position:fixed;top:0;right:0;bottom:0;left:auto;width:var(--sheet-w);max-width:none;max-height:none;height:auto;margin:0;padding:var(--s8);
-  overflow:auto;display:flex;flex-direction:column;gap:var(--s6);color:var(--text);background:var(--raised);border:0;border-left:var(--hairline) solid var(--sheet-edge);box-shadow:var(--shadow-sheet)}
+dialog.sheet{position:fixed;top:0;right:0;bottom:0;left:auto;width:var(--width-sheet);max-width:none;max-height:none;height:auto;margin:0;padding:var(--space-8);
+  overflow:auto;display:flex;flex-direction:column;gap:var(--space-6);color:var(--text);background:var(--raised);border:0;border-left:var(--border-width-thin) solid var(--sheet-edge);box-shadow:var(--shadow-sheet)}
 .popover-group label{cursor:pointer}
 .popover-group label:hover{color:var(--text)}
 /* a long popover scrolls inside itself; its head and foot stay (review G01-12) */
-.popover-body{max-height:calc(100vh - var(--popover-reserve));overflow:auto}
+.popover-body{max-height:calc(100vh - var(--offset-popover));overflow:auto}
 /* a dialog's field sits below its title (critique #46) */
-dialog.modal .field{margin-top:var(--s4)}
+dialog.modal .field{margin-top:var(--space-4)}

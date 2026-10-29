@@ -136,8 +136,9 @@ and **Design**. You can open one directly with `?mode=design#run-default`.
 
 **Since lesson 08 the values live on two levels, and nothing on screen moved to get there.**
 [`08-design-tokens/tokens.css`](08-design-tokens/tokens.css) holds them:
-- **primitive** says what a value is: `--mica-600`, `--lime-100`, `--s4`, `--r-md` (a colour is its hue and a 50-step grade,
-  one scale per theme: light-only values are `--mica-light-*`);
+- **primitive** says what a value is: `--color-neutral-600`, `--color-lime-100`, `--space-4`, `--radius-md` — the namespaces of
+  Tailwind v4 and Primer; a colour is its hue and a 50-step grade, one scale per theme, light-only values
+  `--color-neutral-light-*`;
 - **semantic** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`. Each role names, in a
   comment, the uses it grew from.
 

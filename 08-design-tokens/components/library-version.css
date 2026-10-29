@@ -4,13 +4,13 @@
 
 /* the original of a detached field — one-off (Detached row), styled here because a screen holds no style:
    a quiet disclosure, the library's version in a file block under it */
-.library-version summary{display:flex;align-items:center;gap:var(--s1);cursor:pointer;list-style:none;font:var(--t-small);color:var(--text-3)}
+.library-version summary{display:flex;align-items:center;gap:var(--space-1);cursor:pointer;list-style:none;font:var(--typescale-small);color:var(--text-3)}
 .library-version summary::-webkit-details-marker{display:none}
-.library-version summary::before{content:"";width:var(--icon-s);height:var(--icon-s);flex:none;background:var(--text-3);
-  -webkit-mask:var(--icon-chevron) center / contain no-repeat;mask:var(--icon-chevron) center / contain no-repeat;transition:transform var(--dur) var(--ease)}
+.library-version summary::before{content:"";width:var(--size-icon-sm);height:var(--size-icon-sm);flex:none;background:var(--text-3);
+  -webkit-mask:var(--icon-chevron) center / contain no-repeat;mask:var(--icon-chevron) center / contain no-repeat;transition:transform var(--duration-fast) var(--ease-out)}
 .library-version[open] summary::before{transform:rotate(90deg)}
-.library-version summary .link-button{margin:0;padding:0 var(--s1)}
-.library-version summary:focus-visible{outline:0;box-shadow:var(--shadow-focus);border-radius:var(--r-xs)}
-.library-version pre.file{margin-top:var(--s2)}
+.library-version summary .link-button{margin:0;padding:0 var(--space-1)}
+.library-version summary:focus-visible{outline:0;box-shadow:var(--shadow-focus);border-radius:var(--radius-xs)}
+.library-version pre.file{margin-top:var(--space-2)}
 .library-version summary:hover{color:var(--text-2)}
 .library-version summary:hover::before{background:var(--text-2)}

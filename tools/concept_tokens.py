@@ -202,32 +202,34 @@ HUE = {"#C6EF5A": "lime", "#D3F57A": "lime", "#141A08": "lime", "#FF8F98": "rose
        # the light slice (phase 06, stage 4), which joins in phase 08, step 5
        "#BCE84A": "lime", "#55700F": "lime", "#B4232E": "rose", "#7A5600": "amber", "#9C5800": "amber", "#8A4E00": "amber"}
 # the rgba() the tokens wrote inline (audit V-8 … V-11), now named: colour + alpha
-ALPHA = [("black-a35", "rgba(0,0,0,.35)", "the shadow’s black — written three times in phase 07 (audit D-4), once here"),
-         ("black-a12", "rgba(0,0,0,.12)", "the sheet’s shadow in light — owner, 2026-10-28: .35 read too heavy on light"),
-         ("white-a04", "rgba(255,255,255,.04)", "the tile’s top highlight"),
-         ("white-a05", "rgba(255,255,255,.05)", "an opaque sheet’s edge"),
-         ("mica-a58", "rgba(10,11,9,.58)", "the veil: a near-black Mica at 58 %"),
-         ("mica-a45", "rgba(70,72,66,.45)", "the acrylic’s grey: a mid Mica at 45 %"),
-         ("mica-light-a45", "rgba(195,198,186,.45)", "the acrylic’s grey in light: light’s --line-strong at the same 45 % — owner, 2026-10-28: the dark glass read too heavy on light")]
+ALPHA = [("color-black-a35", "rgba(0,0,0,.35)", "the shadow’s black — written three times in phase 07 (audit D-4), once here"),
+         ("color-black-a12", "rgba(0,0,0,.12)", "the sheet’s shadow in light — owner, 2026-10-28: .35 read too heavy on light"),
+         ("color-white-a04", "rgba(255,255,255,.04)", "the tile’s top highlight"),
+         ("color-white-a05", "rgba(255,255,255,.05)", "an opaque sheet’s edge"),
+         ("color-neutral-a58", "rgba(10,11,9,.58)", "the veil: a near-black neutral at 58 %"),
+         ("color-neutral-a45", "rgba(70,72,66,.45)", "the acrylic’s grey: a mid neutral at 45 %"),
+         ("color-neutral-light-a45", "rgba(195,198,186,.45)", "the acrylic’s grey in light: light’s --line-strong at the same 45 % — owner, 2026-10-28: the dark glass read too heavy on light")]
 
 
 def _scale(values, hue):
     """One hue's values in one theme, lightest first: the order its grades are given in."""
-    return sorted({v.upper() for v in values if v.upper() != "#FFFFFF" and HUE.get(v.upper(), "mica") == hue}, key=step)
+    return sorted({v.upper() for v in values if v.upper() != "#FFFFFF" and HUE.get(v.upper(), "neutral") == hue}, key=step)
 
 
 def prim_name(hexv):
     """A primitive's name: its hue and its grade, 50, 100, 150 … from the lightest value of that hue (owner, Q46).
-    There is one scale per theme: the dark kit's values are --mica-50 …, a value only the light slice has is
-    --mica-light-50 … . The tight Mica layers do not fit one 50–950 grid: 26 values against 19 steps."""
+    There is one scale per theme: the dark kit's values are --color-neutral-50 …, a value only the light slice has
+    is --color-neutral-light-50 … . The tight Mica layers do not fit one 50–950 grid: 26 values against 19 steps.
+    Colours live in the --color- namespace, and Mica's greys are neutral (owner, Q47): Mica is the style's name for
+    them, not a hue."""
     hexv = hexv.upper()
     if hexv == "#FFFFFF":
-        return "white"
-    hue = HUE.get(hexv, "mica")
+        return "color-white"
+    hue = HUE.get(hexv, "neutral")
     dark = [v for _, v, *_ in COLORS]
     if hexv in {v.upper() for v in dark}:
-        return f"{hue}-{(_scale(dark, hue).index(hexv) + 1) * 50}"
-    return f"{hue}-light-{(_scale(light_prims(), hue).index(hexv) + 1) * 50}"
+        return f"color-{hue}-{(_scale(dark, hue).index(hexv) + 1) * 50}"
+    return f"color-{hue}-light-{(_scale(light_prims(), hue).index(hexv) + 1) * 50}"
 
 
 def p(name):
@@ -261,7 +263,7 @@ SEMANTIC = [
         ("line-strong", p("line-strong"), "a control’s edge, a tag’s outline, a dashed rule — button, .check, .tag, .sub-rows, .export-stage, pre.file, .card:hover, the selected row’s and the lifted segment’s edge, the neutral box’s edge, the spinner’s track, the scrollbar (83 / 241). Ten jobs, M-9, not split"),
         ("control-edge", p("control-edge"), "the 3:1 edge of a field or a checkbox — .search, .field input and textarea, select, .dropzone, checkbox, radio; a waiting stage’s ring; a Skipped stage’s dashed outline (83 / 241)"),
         ("edge-hover", p("text-3"), "a field’s or a checkbox’s edge under the pointer — .search, .field input, .field textarea, .dropzone, checkbox and radio :hover. Split from --text-3, M-4; the checkbox read Ink 2 until step 6 (T3-1: one role, one name)"),
-        ("sheet-edge", "var(--white-a05)", "the edge of an opaque sheet — dialog.modal, dialog.popover, dialog.sheet (20 / 22)"),
+        ("sheet-edge", "var(--color-white-a05)", "the edge of an opaque sheet — dialog.modal, dialog.popover, dialog.sheet (20 / 22)"),
     ]),
     ("text", [
         ("text", p("text"), "Ink: primary text — body, dialogs, .callout, .verdict dd, fields, code, pre.file, buttons; emphasis inside secondary text; a place under the pointer or current (83 / 241)"),
@@ -307,11 +309,11 @@ DERIVED = [
     ("segment-hover", "color-mix(in srgb, var(--raised) 55%, var(--well-deep))", "a segment under the pointer, on its track — .scope a:hover (13 / 42). D-1"),
     ("selection", "color-mix(in srgb, var(--brand) 35%, transparent)", "selected text — ::selection (83 / 241). Was --lime-selection"),
     ("on-action-track", "color-mix(in srgb, var(--on-action) 25%, transparent)", "a spinner’s track on the action — .button-primary span.glyph-running (3 / 8). Was --on-lime-track"),
-    ("acrylic-dialog", "color-mix(in srgb, var(--brand) 7%, var(--mica-a45))", "glass round a dialog and the Filters popover — dialog.modal, dialog.popover (16 / 16)"),
-    ("veil", "var(--mica-a58)", "the place behind a mode or a dialog, dimmed — .scrim (17 / 22)"),
-    ("shadow-tile", "0 1px 2px var(--black-a35), inset 0 1px 0 var(--white-a04)", "lifted one step: the current place, the current segment (49 / 136)"),
-    ("shadow-cutout", "inset 0 0 0 1px var(--line), inset 0 1px 2px var(--black-a35)", "pressed in: a row’s cut-out — .row-list>li (37 / 115)"),
-    ("shadow-sheet", "0 18px 40px var(--black-a35)", "over the place: dialog.modal, dialog.popover, dialog.sheet (20 / 22)"),
+    ("acrylic-dialog", "color-mix(in srgb, var(--brand) 7%, var(--color-neutral-a45))", "glass round a dialog and the Filters popover — dialog.modal, dialog.popover (16 / 16)"),
+    ("veil", "var(--color-neutral-a58)", "the place behind a mode or a dialog, dimmed — .scrim (17 / 22)"),
+    ("shadow-tile", "0 1px 2px var(--color-black-a35), inset 0 1px 0 var(--color-white-a04)", "lifted one step: the current place, the current segment (49 / 136)"),
+    ("shadow-cutout", "inset 0 0 0 1px var(--line), inset 0 1px 2px var(--color-black-a35)", "pressed in: a row’s cut-out — .row-list>li (37 / 115)"),
+    ("shadow-sheet", "0 18px 40px var(--color-black-a35)", "over the place: dialog.modal, dialog.popover, dialog.sheet (20 / 22)"),
     ("shadow-focus", "0 0 0 2px var(--ground), 0 0 0 4px var(--focus)", "keyboard focus on every focusable thing (14 rules)"),
     ("scheme", "dark", "the native controls’ scheme, for html’s color-scheme — a literal in a class until now (V-5)"),
 ]
@@ -343,21 +345,58 @@ FLAGGED = [  # for step 6's critique: the course's rule — a colour on one scre
 ]
 
 
+# Phase 08's primitive names (owner, Q47): the namespaces of Tailwind v4 and Primer. 06-concept/tokens.css, the
+# stand's flat file, keeps phase 06's names; the map is applied to what phase 08 writes — tokens.css, components/
+# and kit.html's own styles — and check08 reads it backwards, so every value is still compared with phase 07's.
+RENAME08 = {
+    "font": "font-sans", "mono": "font-mono",
+    "weight-regular": "font-weight-regular", "weight-medium": "font-weight-medium", "weight-strong": "font-weight-semibold",
+    **{f"t-{n}": f"typescale-{n}" for n in ("display", "title", "heading", "body", "button", "small", "micro", "label", "code")},
+    **{f"track-{n}": f"tracking-{n}" for n in ("display", "title", "heading", "label")},
+    **{f"s{n}": f"space-{n}" for n in (1, 2, 3, 4, 5, 6, 8, 10, 12)}, "s-half": "space-0-5",
+    "r-xs": "radius-xs", "r-sm": "radius-sm", "r-md": "radius-md", "r-lg": "radius-lg", "r-pill": "radius-full",
+    "hairline": "border-width-thin", "hairline-2": "border-width-thick",
+    "control-h": "size-control", "control-h-s": "size-control-sm", "tag-h": "size-tag", "mark-h": "size-mark",
+    "bar-h": "size-bar", "icon": "size-icon", "icon-s": "size-icon-sm", "icon-l": "size-icon-lg", "pill-w": "size-pill",
+    "dot": "size-dot", "textarea-min-h": "size-textarea-min",
+    "dt-w": "width-dt", "stage-name-w": "width-stage-name", "canvas": "width-canvas", "col-m": "width-col-md",
+    "col-l": "width-col-lg", "col-xl": "width-col-xl", "side-w": "width-side", "sheet-w": "width-sheet",
+    "modal-w": "width-modal", "door-w": "width-door", "search-w": "width-search",
+    "callout-measure": "measure-callout",
+    "door-top": "offset-door", "modal-top": "offset-modal", "popover-reserve": "offset-popover",
+    "state-icon-inset": "inset-state-icon",
+    "glyph-check": "icon-check",
+    "ease": "ease-out", "dur": "duration-fast", "dur-spin": "duration-spin", "dur-shimmer": "duration-shimmer",
+}
+KEEP08 = {"measure", "measure-wide", "z-sticky", "z-popover", "icon-add", "icon-added", "icon-chevron"}  # already right
+_UNRENAME08 = {v: k for k, v in RENAME08.items()}
+assert len(_UNRENAME08) == len(RENAME08) and not set(_UNRENAME08) & set(RENAME08), "the map must be one-to-one"
+
+
+def rename08(text, back=False):
+    """Every --name in `text` through the map, whole names only (--icon is not --icon-s)."""
+    m = _UNRENAME08 if back else RENAME08
+    return re.sub(r"(?<![\w-])--([a-z][\w-]*)", lambda g: "--" + m.get(g.group(1), g.group(1)), text)
+
+
 def css08():
     colors = dict((n, v) for n, v, *_ in COLORS)
     prims = {}
     for n, v in colors.items():
         prims.setdefault(prim_name(v), (v.upper(), []))[1].append(n)
-    fam = ["mica", "white", "lime", "rose", "amber", "red"]
-    order = sorted(prims.items(), key=lambda kv: (fam.index(kv[0].split("-")[0]), step(kv[1][0])))
+    fam = ["neutral", "white", "lime", "rose", "amber", "red"]
+    order = sorted(prims.items(), key=lambda kv: (fam.index(kv[0].split("-")[1]), step(kv[1][0])))
     pad = lambda s: " " * max(1, 26 - len(s))
     out = ["/* tokens.css — AI Stack Builder, Mica · Lime, on two levels. Phase 08, step 2.",
            "   Generated by tools/concept_tokens.py, the same source as 06-concept/tokens.css; do not edit by hand.",
            "",
            "   PRIMITIVE  what a value is: colour, type, space, radius, size, motion, icons. No roles.",
-           "              A colour is named by its hue (DESIGN.md: Mica, Lime, Rose, Amber, Red) and its grade: 50, 100,",
-           "              150 … from the lightest value of that hue, ordered by OKLab lightness. One scale per theme: a",
-           "              value only the light theme reads is --<hue>-light-<grade>. An alpha is --<hue>-a<percent>.",
+           "              Names follow the namespaces of Tailwind v4 and Primer: --color-, --font-, --font-weight-,",
+           "              --typescale-, --tracking-, --space-, --radius-, --border-width-, --size-, --width-, --measure,",
+           "              --offset-, --inset-, --z-, --icon-, --ease-, --duration-. A colour is --color-<hue>-<grade>:",
+           "              neutral (the style's Mica greys), lime, rose, amber, red; the grade is 50, 100, 150 … from the",
+           "              lightest of that hue, in OKLab order. One scale per theme: a value only light reads is",
+           "              --color-<hue>-light-<grade>. An alpha is --color-<hue>-a<percent>.",
            "   SEMANTIC   what a colour is for. Every token is a var() to a primitive, and its comment names the uses in",
            "              08-design-tokens/tokens-audit.md it grew from (pages / flow steps). The recipes at the end",
            "              (washes, hovers, shadows) are shades of one role, and follow it into any theme.",
@@ -373,7 +412,7 @@ def css08():
     for name, (v, was) in order:
         out.append(f"  --{name}: {v};{pad(name + v)}/* was --{', --'.join(was)} */")
     out.append("  /* colour — light: phase 06's signed slice, read by the light theme only */")
-    for v in sorted(light_prims(), key=lambda v: (fam.index(HUE.get(v, "mica")), step(v))):
+    for v in sorted(light_prims(), key=lambda v: (fam.index(HUE.get(v, "neutral")), step(v))):
         name = prim_name(v)
         was = [k for k, lv in LIGHT.items() if lv.upper() == v]
         out.append(f"  --{name}: {v};{pad(name + v)}/* light --{', --'.join(was)} */")
@@ -410,7 +449,12 @@ def css08():
     out += [f"   - {what}: {why}" for what, why in FLAGGED]
     out[-1] += " */"
     out.append("")
-    return "\n".join(out)
+    text = rename08("\n".join(out))
+    left = set(re.findall(r"^\s*--([\w-]+):", text.split("===== SEMANTIC")[0], re.M)) - set(RENAME08.values()) - KEEP08
+    left = {n for n in left if not n.startswith("color-")}
+    if left:
+        raise SystemExit("primitives with no name in RENAME08 or KEEP08: " + ", ".join(sorted(left)))
+    return text
 
 
 # ===== phase 08, step 5: the stress test — the light theme overrides SEMANTIC only =====
@@ -420,8 +464,8 @@ def css08():
 LIGHT_RECIPES = [("shadow-cutout", "inset 0 0 0 1px var(--line)", "light: the hairline only, no inner shade"),
                  ("problem-box", "color-mix(in srgb, var(--problem) 7%, var(--cutout))", "light: 7 %, not 10 %"),
                  ("note-box", "color-mix(in srgb, var(--note) 8%, var(--cutout))", "light: 8 %, not 9 %"),
-                 ("acrylic-dialog", "color-mix(in srgb, var(--brand) 7%, var(--mica-light-a45))", "light: a light grey under the same 7 % lime — owner, 2026-10-28"),
-                 ("shadow-sheet", "0 18px 40px var(--black-a12)", "light: the same lift at a third of the black — owner, 2026-10-28")]
+                 ("acrylic-dialog", "color-mix(in srgb, var(--brand) 7%, var(--color-neutral-light-a45))", "light: a light grey under the same 7 % lime — owner, 2026-10-28"),
+                 ("shadow-sheet", "0 18px 40px var(--color-black-a12)", "light: the same lift at a third of the black — owner, 2026-10-28")]
 
 
 # a role whose light value is not the slice's, and why (tokens-check.md)
@@ -583,6 +627,7 @@ def check08(text):
     was 06-concept/tokens.css's dark values, character for character (phase 07's guard 5), so that is the
     baseline now that kit.css is gone (phase 08, step 4)."""
     import re as _re
+    text = rename08(text, back=True)   # the comparison is in phase 07's names; colour primitives are not in the map
     kit_css = css()
     kit = {}
     for blk in _re.findall(r"^:root(?:, \.theme-light)? \{\n(.*?)\n\}", kit_css, _re.S | _re.M):

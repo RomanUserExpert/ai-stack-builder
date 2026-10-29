@@ -4,18 +4,18 @@
 
 *{box-sizing:border-box}
 html{background:var(--ground);color-scheme:var(--scheme)} /* native controls (a select's list) drawn dark — review G01-3 */
-body{margin:0;background:var(--ground);color:var(--text);font:var(--t-body);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ground);color:var(--text);font:var(--typescale-body);-webkit-font-smoothing:antialiased}
 body.product-page{overflow-x:hidden}
 a{color:inherit}
 h1,h2,h3,p,ul,ol,dl,dd{margin:0}
 ul,ol{padding:0;list-style:none}
 ::selection{background:var(--selection)}
-.visually-hidden{position:absolute;width:var(--hairline);height:var(--hairline);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.visually-hidden{position:absolute;width:var(--border-width-thin);height:var(--border-width-thin);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .canvas{position:relative;width:100%;min-height:100vh;margin:0;display:flex;flex-direction:column;background:var(--ground)}
 /* scrollbars, drawn: a thin pill on a clear track, never the system's grey slab (owner, phase 07) */
-::-webkit-scrollbar{width:var(--s3);height:var(--s3);background:transparent}
+::-webkit-scrollbar{width:var(--space-3);height:var(--space-3);background:transparent}
 ::-webkit-scrollbar-track,::-webkit-scrollbar-corner{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--line-strong);border:calc(var(--s1) - var(--hairline)) solid transparent;background-clip:padding-box;border-radius:var(--r-pill)}
+::-webkit-scrollbar-thumb{background:var(--line-strong);border:calc(var(--space-1) - var(--border-width-thin)) solid transparent;background-clip:padding-box;border-radius:var(--radius-full)}
 ::-webkit-scrollbar-thumb:hover{background-color:var(--control-edge)}
 @supports not selector(::-webkit-scrollbar){*{scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}}
 a.check,a.search,a.pick{cursor:pointer}

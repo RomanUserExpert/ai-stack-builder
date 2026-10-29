@@ -3,4 +3,4 @@
    Colour through a role in tokens.css; geometry straight from a primitive. */
 
 /* a small heading: the shared item's content title (group 4) */
-h2.heading-small{font:var(--t-body);font-weight:var(--weight-strong)}
+h2.heading-small{font:var(--typescale-body);font-weight:var(--font-weight-semibold)}
