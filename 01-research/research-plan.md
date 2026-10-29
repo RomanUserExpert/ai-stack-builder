@@ -393,7 +393,7 @@ deferred, exactly as this section warned it would.
 | **Q3** | Can a project contain another project? | **Deferred — not refused.** Out of the MVP. Two reasons, and the second is the owner's: no variant needed composition to work, **and composition risks unbounded recursion**. Worth revisiting post-MVP, with a depth rule decided before the feature. | CLAUDE.md §9 |
 | **Q4** | Can a detached item be promoted back into the library? | **Answered — as a new item**, with the project's row re-linking to it. *Push my changes to the original* is a different action with a different confirmation and is not built. **And the consequence is now explicit:** promotion only has value if a detached item can be **edited inside the project** — otherwise detach is merely unlink. In-project editing is therefore in the MVP. | CLAUDE.md §5, §7, §8 |
 | **Q5** | Loss or reassembly cost — which drives adoption? | **Deferred — accepted risk, with the trigger written down.** Nothing in this repository can answer it; trackers are blind to both candidates by construction. Ask five practitioners **before the first feature that only pays off under one answer** — a *reassemble from a previous project* flow versus serious investment in library-wide search. The MVP is the same product under either answer. **Instrument named 2026-09-06: [`6-personas/interviews.md (the guide)`](../02-personas-jtbd/6-personas/interviews.md#part-1-the-guide). The same event also lifts the provisional label on stages 6 and 7.** | Positioning, and the provisional label on stages 6–7. Nothing in the build |
-| **Q6** | Styling engine | **Deferred to lesson 08, design tokens**, with the criterion recorded now: tokens and two real themes first-class, and the engine must not push utility classes into components that are themselves the product's value. Decide on two built components. | CLAUDE.md §10, §12 |
+| **Q6** | Styling engine | **Deferred to lesson 08, design tokens**, with the criterion recorded now: tokens and two real themes first-class, and the engine must not push utility classes into components that are themselves the product's value. Decide on two built components. **Answered 2026-10-29, Q45: no engine — plain CSS, written by hand, the files lesson 08 built.** | CLAUDE.md §10, §12 |
 
 **What the sitting did not change.** No answer added a surface. Q2 lands as two more stages inside
 Run, which is already a stage list; Q1 lands as a scope switch inside Library, which is already a
@@ -2000,6 +2000,28 @@ with a white tick in light, because lime on white is 1.32:1.
 
 **And one finding was recorded rather than fixed:** a skeleton's width is written as a count of `--s1`, and the 34
 skeleton classes keep it (`tokens-check.md`, T5-4).
+
+### Q45 — the styling engine: none — raised 2026-09-02 as Q6, answered 2026-10-29
+
+**Q6 was deferred to lesson 08** with a criterion: tokens and two real themes first-class, and no utility classes
+pushed into components that are the product's value. Tailwind, CSS Modules and vanilla-extract were live.
+
+**The owner answered before the comparison was made** (*движка не будет, мы все для учебы и понимая как это все
+работает будем делать кастомно, просто CSS компоненты*): **there is no styling engine.** The product is styled
+with **plain CSS, written by hand** — the two things lesson 08 already built, `08-design-tokens/tokens.css` (custom
+properties on two levels, themes as `[data-theme]` overrides) and `08-design-tokens/components/` (one file per
+component). No Tailwind, no CSS Modules, no vanilla-extract, no CSS-in-JS.
+
+**Its basis is stated plainly, because it is not a comparison.** Step 7 of the lesson's plan was to read two built
+components against the three candidates; that reading was not done. **The reason is the course's own purpose**:
+this work is homework, and the point is to understand how tokens, components and themes work, which an engine
+would do on our behalf. **The criterion of Q6 is met without one** — the tokens and both themes are custom
+properties, and a component is a CSS file with no utility class in it — and the guards in `tools/kit_check.py`
+already enforce it.
+
+**What it does not decide.** How the CSS is loaded once there is an app (global files or one file per component
+imported where it is used) is an implementation question for the build, after lesson 12 (§1). Nothing is
+scaffolded (§13).
 
 ### Earlier decisions
 

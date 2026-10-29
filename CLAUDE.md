@@ -211,7 +211,7 @@ product *is* before anything decides what it looks like.
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
-| **08** | **Design tokens** | ← **current**, from 2026-10-28 · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). Where **Q6, the styling engine**, is finally decided, on two built components |
+| **08** | **Design tokens** | ← **current**, from 2026-10-28 · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). What remains is the phase page |
 | **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
@@ -266,8 +266,8 @@ one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The current lesson is 08, design tokens**: where Q6, the styling engine, is decided on two built
-components (§10). If a request jumps past it — to components as a system, the full light theme, responsive, motion —
+Do not skip ahead. **The current lesson is 08, design tokens**: ~~where Q6, the styling engine, is decided on two built
+components~~ Q6 is answered — no engine, plain CSS (§10, Q45); what remains is the lesson's page. If a request jumps past it — to components as a system, the full light theme, responsive, motion —
 confirm before acting.
 **Every line of copy from now on is written against §14, *Voice*.**
 Product logic described in this file is **specification, not a build order** — it is
@@ -1393,10 +1393,14 @@ and it needs a report surface nobody has designed.*
   build. The 2026-09-15 half of its old justification is gone and is not missed: informal sharing is
   what a share link does now (§5, Q13). What remains is durability.~~
   ~~this covers both backup and informal sharing before any server exists.~~
-- **Styling engine — deferred to lesson 08, design tokens** (2026-09-02), decided on two built
-  components rather than in the abstract. The criterion is fixed now: **tokens and two real themes
-  must be first-class**, and the engine must not push utility classes into components that are
-  themselves the product's value. Tailwind, CSS Modules and vanilla-extract are all still live.
+- **Styling: no engine — plain CSS, written by hand** (owner, 2026-10-29, Q45). ~~Deferred to lesson 08,
+  decided on two built components; Tailwind, CSS Modules and vanilla-extract all still live.~~ The product is
+  styled by the two things lesson 08 built: `08-design-tokens/tokens.css` (custom properties on two levels,
+  themes as `[data-theme]` overrides) and `08-design-tokens/components/` (one CSS file per component). **No
+  Tailwind, no CSS Modules, no vanilla-extract, no CSS-in-JS.** The basis is the course's purpose, not a
+  comparison: the work is homework, and the point is to understand how tokens, components and themes work.
+  Q6's criterion — **tokens and two real themes first-class, no utility classes in components** — is met
+  without an engine and enforced by `tools/kit_check.py`. How the CSS is loaded in the app is left to the build.
 
 ---
 
@@ -1505,6 +1509,9 @@ picked by the owner, and the register says so.*
 
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
+
+**Added 2026-10-29, by lesson 08 — Q45.** **No styling engine** (owner): plain CSS by hand, `tokens.css` plus `components/`;
+Q6 is closed (§10).
 
 **Added 2026-10-28, by lesson 08 — Q44.** The owner's decisions on the tokens: A (splits), B (signed single-use colours stay
 roles), C (hover recipes kept), D3 (one generator), D4 (hue + OKLab step); the light glass and shadow; Deep Lime for a checked
@@ -1647,9 +1654,9 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   feature that only pays off under one answer. Blocks positioning, not the build. **The instrument
   became unavailable on 2026-09-09** — the disposition stands, and
   [`01-research/research-plan.md`](01-research/research-plan.md) records what can be reached without it.
-- ~~Styling engine (Q6)~~ — **deferred to lesson 08, design tokens**, decided on two built components.
-  The criterion is recorded: tokens and two real themes first-class, and the engine must not push
-  utility classes into components that are themselves the product's value. Section 10.
+- ~~Styling engine (Q6)~~ — ~~**deferred to lesson 08, design tokens**, decided on two built components.~~
+  **Answered 2026-10-29, Q45: no engine — plain CSS, by hand**, the files lesson 08 built. The criterion
+  (tokens and two real themes first-class, no utility classes in components) is met without one. Section 10.
 
 ---
 

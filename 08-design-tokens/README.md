@@ -98,14 +98,17 @@ needs a change in `components/`, that change is a hole in the architecture, and 
 | **4** | **The screens onto the new files.** `build_mockups.py` links `tokens.css` + `components/index.css`. **Pixel test** on all 83 pages, `kit.html`, `shell.html` and a flow sample, against the goldens. A difference is a defect in the tokens or a component, never in a screen. Then `kit.css` is deleted, and the guards that named it are rewritten. | the same mockups | |
 | **5** | **The stress test: light.** `[data-theme="light"]` overrides **only semantic tokens**, with the signed light values. The switch goes where D2 decides. Contrast for every light pair, written as a comment and measured by `contrast.py`. Anything that needed `components/` is a hole: find it and route it through a role. **Whether light stays in the product is the owner's decision, taken after looking.** The *оставляем* rule in `CLAUDE.md` now routes a value into the token of its level. | `tokens.css`, the switch, `CLAUDE.md` §15/§16 | |
 | **6** | **The check and the close.** A table of defects: a hex colour outside primitive · a component reading a colour primitive · two names for one role · a semantic token with no source comment · geometry written as a number · a page still on `kit.css` · contrast below AA in either theme. **Every class of defect becomes a rule in `kit_check.py`**, so it cannot come back. Plus the `/impeccable audit` findings. **The table first; the owner sets priorities; then everything is fixed together.** | `tokens-check.md`, `kit_check.py` | |
-| **7** | **Ours: Q6, the styling engine.** Two built components, the button and the project row, are read against §10's criterion: **tokens and two themes first-class, and no utility classes pushed into components that are the product's value.** The candidates are Tailwind, CSS Modules and vanilla-extract. The finding is put to the owner and the answer goes into the register. **No app is scaffolded** (§13). | a register entry, `CLAUDE.md` §10 | |
+| **7** | **Ours: Q6, the styling engine.** Two built components, the button and the project row, are read against §10's criterion: **tokens and two themes first-class, and no utility classes pushed into components that are the product's value.** The candidates are Tailwind, CSS Modules and vanilla-extract. The finding is put to the owner and the answer goes into the register. **No app is scaffolded** (§13). | a register entry, `CLAUDE.md` §10 | **done 2026-10-29: no engine (Q45)** |
 
 **And the lesson's page**, `08-design-tokens/tokens.html`, built from a template in `tools/` like every phase page, with
 phase 08 linked in every rail and the page listed in `.vercelignore`.
 
 ## State, 2026-10-28
 
-**Steps 1–6 are done.** Step 7 (Q6, the styling engine) is owed, and so is the lesson's page.
+**Steps 1–7 are done.** The lesson's page is owed.
+- **7. Q6, answered by the owner on 2026-10-29 (Q45): no styling engine.** Plain CSS by hand, the files this
+  lesson built. The comparison of two components against three engines was not made; the basis is the course's
+  purpose — to understand how it works.
 - **1. The audit**, [`tokens-audit.md`](tokens-audit.md). Two of its counts were corrected later: `--canvas` and
   `--measure-wide` are read by the showcase, and the light slice has 28 entries.
 - **2. [`tokens.css`](tokens.css)** on two levels.
