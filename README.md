@@ -211,7 +211,7 @@ that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
 | [`05-tone-of-voice/`](05-tone-of-voice/README.md) | 05 · Tone of voice and microcopy — `voice.md`, `microcopy.md` | [`voice.html`](05-tone-of-voice/voice.html) |
 | [`06-concept/`](06-concept/README.md) | 06 · Concept — Mica · Lime, `tokens.css`, the stand | [`style.html`](06-concept/style.html) |
 | [`07-ui-assembly/`](07-ui-assembly/README.md) | 07 · UI assembly — the kit in `ui/`, every screen dressed, critique, review, audit | [`ui.html`](07-ui-assembly/ui.html) |
-| [`08-design-tokens/`](08-design-tokens/README.md) | 08 · Design tokens — current: `tokens.css` on two levels, `components/`, the audit and the check | — |
+| [`08-design-tokens/`](08-design-tokens/README.md) | 08 · Design tokens — current: `tokens.css` on two levels, `components/`, the audit and the check | [`tokens.html`](08-design-tokens/tokens.html) |
 
 **Everything that is not a lesson:**
 

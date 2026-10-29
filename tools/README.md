@@ -112,6 +112,18 @@ as of step 1 (2026-10-05)**; the findings above the table are hand-written. From
 edited by hand and the script is not re-run over it — it stays as a way to re-inventory the pages and
 diff against the table in step 7.
 
+## `build_tokens_page.py` — phase 08, the design tokens page
+
+```
+python tools/build_tokens_page.py   # -> 08-design-tokens/tokens.html
+```
+
+Built like `build_ui_page.py`: the shared `<style>` and scroll-spy come from `research-page.tpl.html`, and its own
+head and body are `tokens-page.tpl.html`. The counts (primitives, roles, light overrides, contrast pairs per theme,
+component files, pages, flow steps) are read from `08-design-tokens/tokens.css`, `components/` and
+`04-wireframes/mockups/`; it fails if the light block holds a literal or the two themes measure different pairs.
+The kit and seven screens, in either theme, are embedded live, so rebuild the tokens and the mockups first.
+
 ## `build_ui_page.py` — phase 07, the UI assembly page
 
 ```

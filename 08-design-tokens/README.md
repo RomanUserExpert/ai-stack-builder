@@ -105,7 +105,8 @@ phase 08 linked in every rail and the page listed in `.vercelignore`.
 
 ## State, 2026-10-28
 
-**Steps 1–7 are done.** The lesson's page is owed.
+**Steps 1–7 are done, and so is the lesson's page**, [`tokens.html`](tokens.html) (2026-10-29), built by
+`tools/build_tokens_page.py` from `tools/tokens-page.tpl.html`, linked in every phase rail and in the viewer.
 - **7. Q6, answered by the owner on 2026-10-29 (Q45): no styling engine.** Plain CSS by hand, the files this
   lesson built. The comparison of two components against three engines was not made; the basis is the course's
   purpose — to understand how it works.

@@ -1,0 +1,354 @@
+<title>Phase 8 &mdash; Design tokens &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- the chain: a value, its role, the component that reads it --- */
+.pipe{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:22px 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.pipe > div{position:relative;padding:16px 18px 18px;border-right:1px solid var(--rule-soft)}
+.pipe > div:last-child{border-right:0}
+.pipe > div:not(:last-child)::after{content:"";position:absolute;right:-7px;top:22px;width:12px;height:12px;background:var(--surface);border-top:1px solid var(--rule);border-right:1px solid var(--rule);transform:rotate(45deg);z-index:1}
+.pipe .k{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.pipe b{display:block;margin:6px 0 4px;font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.pipe p{margin:0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.pipe > div.out{background:var(--accent-06)}
+.pipe > div.out .k{color:var(--accent)}
+@media (max-width:760px){.pipe{grid-template-columns:1fr}.pipe > div{border-right:0;border-bottom:1px solid var(--rule-soft)}.pipe > div:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-7px;transform:rotate(135deg)}}
+
+/* --- the guards --- */
+.guards{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:18px 0 8px;padding:0}
+.guards li{counter-increment:g;position:relative;margin:0;padding:12px 14px 12px 44px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.guards li::before{content:counter(g);position:absolute;left:12px;top:11px;width:22px;height:22px;border:1px solid var(--accent-45);border-radius:4px;font-family:var(--font-mono);font-size:11.5px;line-height:20px;text-align:center;color:var(--accent)}
+.guards li b{color:var(--ink)}
+.guards li.new{border-color:var(--accent-45)}
+.guards li.new em{font-style:normal;font-family:var(--font-mono);font-size:11px;color:var(--accent)}
+
+/* --- one screen, dark or light, live --- */
+.twins{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--sunken)}
+.twins-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.screens{display:flex;flex-wrap:wrap;gap:4px}
+.screens button,.mode button{font:inherit;font-size:13px;font-weight:500;padding:6px 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.screens button:hover,.mode button:hover{background:var(--surface-hover);color:var(--ink)}
+.screens button[aria-pressed="true"]{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.mode{display:inline-flex;margin-left:auto;padding:2px;border:1px solid var(--rule);border-radius:8px;background:var(--sunken)}
+.mode button{padding:5px 12px}
+.mode button[aria-pressed="true"]{background:var(--fill-strong);color:var(--on-fill)}
+.twins-stage{position:relative;overflow:hidden;height:560px}
+.twins-stage iframe{position:absolute;left:0;top:0;width:1440px;height:960px;border:0;transform-origin:0 0;background:#1B1C19}
+.twins-cap{display:flex;flex-wrap:wrap;gap:6px 16px;padding:9px 14px;border-top:1px solid var(--rule);background:var(--surface);font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
+.twins-cap a{margin-left:auto;font-family:var(--font);font-size:13px}
+.twins + .tnote{margin-top:12px}
+
+/* --- a live page in a frame: the showcase --- */
+.stand{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:#1B1C19}
+.stand-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.stand-bar strong{color:var(--ink)}
+.stand-bar a{margin-left:auto}
+.stand iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#1B1C19}
+
+/* --- the register: owner's answers, one card each --- */
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0 8px}
+.q{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.q .qid{font-family:var(--font-mono);font-size:11.5px;color:var(--accent)}
+.q h3{margin:0;font-size:15px;line-height:1.35}
+.q p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.q .said{margin-top:auto;padding-top:6px;font-size:12.5px;color:var(--ink-3)}
+
+/* --- links out, as a short list of buttons --- */
+.outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
+.outs a:hover{border-color:var(--accent)}
+</style>
+
+
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><a href="../06-concept/style.html" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></a></li>
+      <li><a href="../07-ui-assembly/ui.html" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span></a></li>
+      <li><span class="now" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 08 &middot; Design tokens</p>
+  <h1>The same look, a new architecture</h1>
+  <p class="phasemeta">Phase <strong>8 of 12</strong> &middot; the course&rsquo;s six steps and one of ours &middot; <strong>28&ndash;29 Oct 2026</strong> &middot; source of truth: <strong>tokens.css</strong> for the values, <strong>components/</strong> for the look</p>
+  <p class="standfirst">Phase 07 dressed every screen from one flat file, and each of its variables knew its value but not whether that value was <strong>a colour or a role</strong>. <strong>This phase puts a layer of roles between the value and the component</strong>, splits the kit into tokens on two levels and one file per component, and moves every screen onto them &mdash; <strong>without a pixel moving</strong>. Then one theme proves it: light, made of semantic overrides alone, <strong>and not one component touched to get there.</strong></p>
+  <dl class="facts">
+    <div><dt>Primitives</dt><dd>{{N_PRIM}}<small>{{N_PRIM_COLOUR}} of them colours</small></dd></div>
+    <div><dt>Roles</dt><dd>{{N_SEM}}<small>every one a var() with its uses</small></dd></div>
+    <div><dt>Components</dt><dd>{{N_FILES}}<small>files, plus index.css</small></dd></div>
+    <div><dt>Screens moved</dt><dd>{{N_PAGES}}<small>+ {{N_STEPS}} flow steps, no pixel changed</small></dd></div>
+    <div><dt>Light theme</dt><dd>{{N_LIGHT}}<small>overrides, 0 component edits</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>{{N_PAIRS}}<small>per theme; all AA, {{N_INFO}} for information</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#themes"><b>Look</b>Dark and light</a></li>
+    <li><a href="#audit"><b>Step 01</b>The audit</a></li>
+    <li><a href="#levels"><b>Step 02</b>Two levels</a></li>
+    <li><a href="#components"><b>Step 03&ndash;04</b>Components, screens</a></li>
+    <li><a href="#light"><b>Step 05</b>The stress test</a></li>
+    <li><a href="#check"><b>Step 06</b>The check</a></li>
+    <li><a href="#engine"><b>Step 07</b>No engine</a></li>
+    <li><a href="#register"><b>Register</b>Q44&ndash;Q45</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">A refactoring, not a redesign &mdash; and its test is that no screen moves.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>Our names were already roles.</strong> <code>--ground</code>, <code>--problem</code>, <code>--on-lime</code> said what a colour is <em>for</em>. What was missing was the level below &mdash; a palette of what a value <em>is</em> &mdash; so the phase added <strong>a floor under the names, not a ceiling over them.</strong></li>
+    <li><strong>Several variables carried more than one job.</strong> The lime was both the primary action and the current place&rsquo;s mark; one grey was both secondary text and the Checked verdict. Same value today, different reasons &mdash; and the light slice already pulled two of them apart.</li>
+    <li><strong>The literals hid inside the tokens, not the classes.</strong> Phase 07&rsquo;s guard had kept every class clean, so the seven <code>rgba()</code> values sat in the shadows, the glass and the veil.</li>
+    <li><strong>The second theme found what reading did not.</strong> Lime on white is 1.32:1, so a checked radio in light barely showed &mdash; a pair no measurement had covered.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>Two levels.</strong> A primitive says what a value is &mdash; hue plus a measured step; a semantic token says what a colour is for, and names the uses it grew from.</li>
+    <li><strong>A component reads colour only through a role, and geometry straight from a primitive.</strong> Geometry has no semantic level.</li>
+    <li><strong>Two roles are two tokens</strong>, even when their value is the same today.</li>
+    <li><strong>A theme overrides roles and nothing else.</strong> Dark is the product; light is the stress test, and whether it ships is the owner&rsquo;s call.</li>
+    <li><strong>No styling engine.</strong> Plain CSS, by hand &mdash; the two things this phase built.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="tokens.css">tokens.css &nearr;</a>
+    <a href="components/index.css">components/ &nearr;</a>
+    <a href="../07-ui-assembly/ui/kit.html">The kit showcase &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">Every screen, in the viewer &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ THEMES ============ -->
+<section id="themes" class="col">
+  <div class="stagehead"><span class="stagenum">LOOK</span><h2>One screen, two themes</h2></div>
+  <p class="qline">The same page, the same markup, the same components &mdash; <strong>only the semantic tokens change.</strong></p>
+  <div class="twins wide" data-twins>
+    <div class="twins-bar">
+      <div class="screens" role="group" aria-label="Screen">
+        <button type="button" data-page="run-default" aria-pressed="true">Run</button>
+        <button type="button" data-page="project-default" aria-pressed="false">Project</button>
+        <button type="button" data-page="project-configuring-default" aria-pressed="false">Configuring</button>
+        <button type="button" data-page="library-my-default" aria-pressed="false">My library</button>
+        <button type="button" data-page="item-default" aria-pressed="false">Item</button>
+        <button type="button" data-page="projects-filters" aria-pressed="false">Filters</button>
+        <button type="button" data-page="shared-project-default" aria-pressed="false">Shared project</button>
+      </div>
+      <div class="mode" role="group" aria-label="Theme">
+        <button type="button" data-theme-pick="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-pick="light" aria-pressed="false">Light</button>
+      </div>
+    </div>
+    <div class="twins-stage"><iframe src="../04-wireframes/mockups/run-default.html?theme=dark" title="Run, dark" tabindex="-1"></iframe></div>
+    <div class="twins-cap"><span data-cap>04-wireframes/mockups/run-default.html?theme=dark</span><a data-open href="../04-wireframes/mockups/run-default.html?theme=dark" target="_blank" rel="noopener">Open it full size &nearr;</a></div>
+  </div>
+  <p class="tnote">Drawn at 1440 and scaled to fit. Every one of the {{N_PAGES}} pages and every flow step takes the theme from <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">the viewer</a>&rsquo;s <strong>Dark &middot; Light</strong> switch &mdash; not from the product&rsquo;s own top bar, which would be a product decision (Q44).</p>
+</section>
+
+<!-- ============ AUDIT ============ -->
+<section id="audit" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 01</span><h2>The audit: every variable, and every job it does</h2></div>
+  <p class="qline">Facts, not decisions &mdash; <strong>nothing was renamed, merged or fixed</strong> in this step.</p>
+  <p><code>tools/audit_tokens.py</code> read every rule of the flat kit and every class on every dressed page, and for each of the kit&rsquo;s <strong>110 variables</strong> wrote down where it stands and the role it plays in each place. A role read off real uses is the only kind that may become a token: <strong>a semantic token with no addresses is thrown out.</strong></p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Finding</th><th>What it is</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="name">One variable, several roles</td><td>The same value doing two jobs that may come apart</td><td><code>--lime</code>: the primary action and the selection; <code>--text-2</code> and <code>--checked</code>, one grey</td></tr>
+        <tr><td class="name">Drift</td><td>The same intent written two ways</td><td>Four hover recipes, <em>half a step up</em>, each on a different ground</td></tr>
+        <tr><td class="name">A value bypassing a variable</td><td>A literal inside a composite token</td><td>7 <code>rgba()</code> in five tokens: the shadows, the glass, the veil</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>At the bottom of the audit stand the <strong>candidate roles, each with its addresses</strong> &mdash; which is what step 02 was allowed to build from, and nothing else.</p>
+  <div class="outs"><a href="tokens-audit.md">tokens-audit.md &nearr;</a></div>
+</section>
+
+<!-- ============ LEVELS ============ -->
+<section id="levels" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Two levels: what a value is, and what it is for</h2></div>
+  <p class="qline">One real chain, from the hex to the button that shows it.</p>
+  <div class="pipe wide">
+    <div><span class="k">Primitive</span><b>--lime-105: #C6EF5A</b><p>What the value <strong>is</strong>: a hue from DESIGN.md and its step &mdash; OKLab lightness, inverted, &times;&nbsp;1000. Nobody chose the number.</p></div>
+    <div><span class="k">Semantic</span><b>--action: var(--lime-105)</b><p>What the colour is <strong>for</strong>: the primary action. Its comment names the uses it grew from &mdash; 64 pages, 168 steps.</p></div>
+    <div class="out"><span class="k">Component</span><b>.button-primary{background: var(--action)}</b><p>The component knows the role and <strong>never the primitive</strong>. A theme changes the role; the button does not move.</p></div>
+  </div>
+  <p><strong>The step is measured, not picked.</strong> <code>--mica-776</code> is the dark ground and <code>--mica-35</code> the brightest text; every value of both themes gets its own number, so a new one can never collide with an old name. The washes, hovers and shadows are <strong>recipes over a role</strong> &mdash; <code>color-mix()</code> on <code>--problem</code>, <code>--raised</code>, <code>--brand</code> &mdash; so they follow the role into any theme.</p>
+  <p><strong>And the refactor proves itself.</strong> <code>tools/concept_tokens.py</code> writes both token files from one source &mdash; phase 06&rsquo;s flat one, unchanged to the byte, and this one &mdash; and refuses to finish unless <strong>every role resolves to the value phase 07 used</strong>, no hex appears that was not already signed, and every named geometry equals the <code>calc()</code> it replaced.</p>
+</section>
+
+<!-- ============ COMPONENTS ============ -->
+<section id="components" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03&ndash;04</span><h2>Components, and every screen moved onto them</h2></div>
+  <p class="qline">The flat kit split in two, and the old file deleted only once nothing differed.</p>
+  <p><code>tools/build_components.py</code> sends every rule of the kit to its component&rsquo;s file, in order &mdash; <strong>{{N_FILES}} files</strong>, imported by <code>index.css</code> in the kit&rsquo;s order &mdash; and turns every phase-07 colour into the role its selector names. Because order between files can change which rule wins, <strong>it checks in a browser, on every page, that no reordering lets one rule override another.</strong></p>
+  <p>Then the screens. Every page, the showcase and the shell now link <strong>two files</strong>, <code>tokens.css</code> and <code>components/index.css</code>. The pixel test against the goldens: <strong>{{N_PAGES}} of {{N_PAGES}} pages and {{N_STEPS}} of {{N_STEPS}} flow steps identical</strong>, the only differences two spots that were already flaky before the change, at 2/255. <strong>Only then was <code>kit.css</code> deleted</strong>; git keeps it.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>kit.html</strong> &middot; the showcase, on the new files &middot; its own <em>Light theme</em> button<a href="../07-ui-assembly/ui/kit.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="../07-ui-assembly/ui/kit.html" title="The UI kit, on tokens.css and components/" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ LIGHT ============ -->
+<section id="light" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>The stress test: light</h2></div>
+  <p class="qline">The course proves a light product with dark. <strong>Ours is dark, so light is the test</strong> &mdash; and the test was whether the architecture held.</p>
+  <p><code>[data-theme="light"]</code> overrides <strong>{{N_LIGHT}} semantic tokens and nothing else</strong> &mdash; no primitive, no hex, no component. The values are not invented: they are phase 06&rsquo;s signed light slice, role by role, each taking the light value of the variable it was split from. <strong>It needed zero component edits</strong>, which is the whole result: a theme that had needed one would have found a hole.</p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Beyond the slice</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="name">A lighter glass</td><td>The owner, on the preview: <em>the glass is too dark</em>. Light gets its own acrylic</td></tr>
+        <tr><td class="name">A lighter sheet shadow</td><td>The owner: <em>the shadow is too strong in light</em>. The same offsets at 12&nbsp;%</td></tr>
+        <tr><td class="name">Deep Lime for a checked control</td><td>Lime on white is 1.32:1, and a checked control needs 3:1. Deep Lime with a white tick reads 5.66:1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Four roles still draw dark in light</strong> &mdash; <code>--sheet-edge</code> and the Remove Red family &mdash; and they are listed in the theme block as gaps. <strong>Filling them is the owner&rsquo;s word or phase 09&rsquo;s, never a refactor&rsquo;s.</strong> The contrast of {{N_PAIRS}} pairs is written into each theme block and measured on the file as written; every claim passes AA, and {{N_INFO}} &mdash; a tag&rsquo;s outline &mdash; is recorded for information rather than claimed.</p>
+</section>
+
+<!-- ============ CHECK ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>The check, and the rules it left behind</h2></div>
+  <p class="qline">The course&rsquo;s seven defects, plus <code>/impeccable audit</code> &mdash; <strong>the table first, the owner&rsquo;s priorities, then every fix together.</strong></p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Found</th><th>Disposition</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Two names for one role</td><td>A field&rsquo;s edge under the pointer had two tokens; now one, <code>--edge-hover</code>. The four hover recipes were <strong>kept apart</strong> by the owner: each sits on a different ground, and merging them would be a redesign</td></tr>
+        <tr><td class="name">Light lines with no source</td><td>Every override now names the variable it takes its value from, or the reason it differs</td></tr>
+        <tr><td class="name">Geometry written as a count</td><td><code>--s12 * 3</code> and its kind became named primitives &mdash; <code>--modal-top</code>, <code>--search-w</code>, <code>--s-half</code> and seven more, each checked to equal its old <code>calc()</code>. The 34 skeleton widths were kept: they are content, measured in the scale&rsquo;s unit</td></tr>
+        <tr><td class="name">Contrast below AA</td><td>Only the light checked control; fixed with Deep Lime. In the browser, every run of text on {{N_PAGES}} pages: <strong>0 failures dark, 0 light</strong></td></tr>
+        <tr><td class="name">DESIGN.md silent on light</td><td>It now names the light palette, the two levels and the veil</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Ten guards, and they stop the build</h3>
+  <ol class="guards wide">
+    <li><b>No literal</b> in a component</li>
+    <li><b>No style on a screen</b> &mdash; no <code>style=</code>, no <code>&lt;style&gt;</code></li>
+    <li><b>Every class is a component&rsquo;s</b>, save a short named list</li>
+    <li><b>Every variable is declared</b> in <code>tokens.css</code></li>
+    <li class="new"><b>No colour primitive in a component</b> <em>new</em></li>
+    <li class="new"><b>Two links</b>, <code>index.css</code> imports every file, and <code>kit.css</code> never returns <em>new</em></li>
+    <li><b>One primary</b> on any screen</li>
+    <li><b>The words are the product&rsquo;s</b>: the showcase against <code>microcopy.md</code></li>
+    <li><b>Coverage</b>: every page and flow step has a twin</li>
+    <li class="new"><b>No geometry written as a count</b> of a primitive <em>new</em></li>
+  </ol>
+  <div class="verdict">
+    <p class="vh">Step 06 &mdash; conclusion</p>
+    <p>Every class of defect became a rule in <code>kit_check.py</code>, so none of them can come back unseen. <strong>A rule checked by a script is the only kind that survives the next change</strong> &mdash; judgement is what found them, and it is not what keeps them out.</p>
+  </div>
+  <div class="outs"><a href="tokens-check.md">tokens-check.md &nearr;</a></div>
+</section>
+
+<!-- ============ ENGINE ============ -->
+<section id="engine" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 07</span><h2>The styling engine: none</h2></div>
+  <p class="qline">The one question the course does not ask, and the specification had deferred to this phase since September.</p>
+  <p>Q6 was waiting for two built components, read against one criterion: <strong>tokens and two real themes first-class, and no utility classes pushed into components that are themselves the product&rsquo;s value.</strong> Tailwind, CSS Modules and vanilla-extract were all live.</p>
+  <p><strong>The owner answered before the comparison was made: there is no engine.</strong> The product is styled by plain CSS written by hand &mdash; the two things this phase built. The basis is stated plainly, because it is not a comparison: <strong>this work is homework, and its point is to understand how tokens, components and themes work</strong>, which an engine would do on our behalf. The criterion is met without one &mdash; custom properties carry both themes, a component is a CSS file with no utility class in it &mdash; and the guards already enforce it.</p>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register" class="col">
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Two entries</h2></div>
+  <p class="qline">What the owner decided on the tokens, and what is still the owner&rsquo;s.</p>
+  <div class="qs wide">
+    <div class="q"><span class="qid">Q44</span><h3>The tokens, as recommended</h3><p>Splits where two roles may part; signed single-use colours stay roles; hover recipes kept apart; one generator; hue plus OKLab step for a primitive&rsquo;s name. And the light glass, the light shadow, Deep Lime.</p><span class="said">Owner: everything as recommended</span></div>
+    <div class="q"><span class="qid">Q45</span><h3>No styling engine</h3><p>Plain CSS by hand: <code>tokens.css</code> and <code>components/</code>. Closes Q6, open since 2 September.</p><span class="said">Owner: we build it ourselves, to understand it</span></div>
+  </div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to whom.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Does light ship</td><td>The owner&rsquo;s call (Q44). If it does, a product switch goes through the register, not through a test</td></tr>
+        <tr><td class="name">Four light gaps</td><td>Phase 09: the light values of <code>--sheet-edge</code> and the Remove Red family</td></tr>
+        <tr><td class="name">States as a system</td><td>Phase 09: hover, focus and disabled kept their values here and moved as they were</td></tr>
+        <tr><td class="name">How the CSS is loaded</td><td>The build, after phase 12: global files or one per component, imported where it is used (Q45)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 08 of twelve.</strong> Built by <code>tools/build_tokens_page.py</code>; the tokens by <code>tools/concept_tokens.py</code>; the components by <code>tools/build_components.py</code>; the screens by <code>tools/build_mockups.py</code>, guarded by <code>tools/kit_check.py</code>. The specification is <code>CLAUDE.md</code>, &sect;17 <em>Tokens</em>.</p>
+  <p>Phase 07 &mdash; <a href="../07-ui-assembly/ui.html">UI assembly</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var box = document.querySelector('[data-twins]');
+  if (!box) return;
+  var stage = box.querySelector('.twins-stage'), frame = stage.querySelector('iframe');
+  var cap = box.querySelector('[data-cap]'), open = box.querySelector('[data-open]');
+  var page = 'run-default', theme = 'dark';
+  function fit(){
+    var k = stage.clientWidth / 1440;
+    frame.style.transform = 'scale(' + k + ')';
+    stage.style.height = Math.round(900 * k) + 'px';
+  }
+  function show(){
+    var src = '../04-wireframes/mockups/' + page + '.html?theme=' + theme;
+    frame.src = src; open.href = src;
+    cap.textContent = '04-wireframes/mockups/' + page + '.html?theme=' + theme;
+    frame.title = page + ', ' + theme;
+    frame.style.background = theme === 'light' ? '#FFFFFF' : '#1B1C19';
+  }
+  function press(group, btn){
+    group.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+  }
+  box.querySelector('.screens').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    page = b.dataset.page; press(this, b); show();
+  });
+  box.querySelector('.mode').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    theme = b.dataset.themePick; press(this, b); show();
+  });
+  fit();
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else window.addEventListener('resize', fit);
+})();
+</script>

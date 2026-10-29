@@ -1,0 +1,1132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AI Stack Builder's flat kit split into tokens on two levels and one CSS file per component, every screen moved without a pixel changing, and a light theme made of semantic overrides alone.">
+<style>
+/* Baseline the artifact host normally supplies. */
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Phase 8 &mdash; Design tokens &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- the chain: a value, its role, the component that reads it --- */
+.pipe{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:22px 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.pipe > div{position:relative;padding:16px 18px 18px;border-right:1px solid var(--rule-soft)}
+.pipe > div:last-child{border-right:0}
+.pipe > div:not(:last-child)::after{content:"";position:absolute;right:-7px;top:22px;width:12px;height:12px;background:var(--surface);border-top:1px solid var(--rule);border-right:1px solid var(--rule);transform:rotate(45deg);z-index:1}
+.pipe .k{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.pipe b{display:block;margin:6px 0 4px;font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.pipe p{margin:0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.pipe > div.out{background:var(--accent-06)}
+.pipe > div.out .k{color:var(--accent)}
+@media (max-width:760px){.pipe{grid-template-columns:1fr}.pipe > div{border-right:0;border-bottom:1px solid var(--rule-soft)}.pipe > div:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-7px;transform:rotate(135deg)}}
+
+/* --- the guards --- */
+.guards{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:18px 0 8px;padding:0}
+.guards li{counter-increment:g;position:relative;margin:0;padding:12px 14px 12px 44px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.guards li::before{content:counter(g);position:absolute;left:12px;top:11px;width:22px;height:22px;border:1px solid var(--accent-45);border-radius:4px;font-family:var(--font-mono);font-size:11.5px;line-height:20px;text-align:center;color:var(--accent)}
+.guards li b{color:var(--ink)}
+.guards li.new{border-color:var(--accent-45)}
+.guards li.new em{font-style:normal;font-family:var(--font-mono);font-size:11px;color:var(--accent)}
+
+/* --- one screen, dark or light, live --- */
+.twins{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--sunken)}
+.twins-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.screens{display:flex;flex-wrap:wrap;gap:4px}
+.screens button,.mode button{font:inherit;font-size:13px;font-weight:500;padding:6px 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.screens button:hover,.mode button:hover{background:var(--surface-hover);color:var(--ink)}
+.screens button[aria-pressed="true"]{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.mode{display:inline-flex;margin-left:auto;padding:2px;border:1px solid var(--rule);border-radius:8px;background:var(--sunken)}
+.mode button{padding:5px 12px}
+.mode button[aria-pressed="true"]{background:var(--fill-strong);color:var(--on-fill)}
+.twins-stage{position:relative;overflow:hidden;height:560px}
+.twins-stage iframe{position:absolute;left:0;top:0;width:1440px;height:960px;border:0;transform-origin:0 0;background:#1B1C19}
+.twins-cap{display:flex;flex-wrap:wrap;gap:6px 16px;padding:9px 14px;border-top:1px solid var(--rule);background:var(--surface);font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
+.twins-cap a{margin-left:auto;font-family:var(--font);font-size:13px}
+.twins + .tnote{margin-top:12px}
+
+/* --- a live page in a frame: the showcase --- */
+.stand{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:#1B1C19}
+.stand-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.stand-bar strong{color:var(--ink)}
+.stand-bar a{margin-left:auto}
+.stand iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#1B1C19}
+
+/* --- the register: owner's answers, one card each --- */
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0 8px}
+.q{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.q .qid{font-family:var(--font-mono);font-size:11.5px;color:var(--accent)}
+.q h3{margin:0;font-size:15px;line-height:1.35}
+.q p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.q .said{margin-top:auto;padding-top:6px;font-size:12.5px;color:var(--ink-3)}
+
+/* --- links out, as a short list of buttons --- */
+.outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
+.outs a:hover{border-color:var(--accent)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&display=swap">
+
+<style>
+/* ------------------------------------------------------------------
+   Design language carried over from r-o-design.tech — the same tokens,
+   the same type pairing, the same border-led component grammar.
+------------------------------------------------------------------ */
+:root{
+  --bg:#f9f9f7;
+  --paper:#f9f9f7;
+  --surface:#fdfdfb;
+  --sunken:#f0f0ee;
+  --surface-hover:#ebebea;
+  --ink:#0d0d0d;
+  --ink-2:#3f3f3d;
+  --ink-3:#5a5a56;
+  --rule:#d4d4cf;
+  --rule-soft:#e2e2dd;
+  --accent:#e05f03;
+  --accent-hover:#c45200;
+  --accent-06:#e05f0312;
+  --accent-18:#e05f0330;
+  --accent-45:#e05f0378;
+  --bad:#a3342a;
+  --bad-soft:#f4e3e0;
+  --fill-strong:#c45200;   /* white on the brand orange is only 3.6:1 — this is 5.2 */
+  --fill-bad:#a3342a;
+  --on-fill:#ffffff;
+  --shadow:0 2px 12px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur:.18s;
+  --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Symbol",sans-serif;
+  --font-display:"Special Gothic Expanded One",Inter,-apple-system,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614;
+    --paper:#161614;
+    --surface:#1e1e1c;
+    --sunken:#121210;
+    --surface-hover:#232321;
+    --ink:#f0efe9;
+    --ink-2:#ababab;
+    --ink-3:#909090;
+    --rule:#52524f;
+    --rule-soft:#3a3a37;
+    --accent:#f57722;
+    --accent-hover:#ff8c3d;
+    --accent-06:#e05f0326;
+    --accent-18:#e05f0347;
+    --accent-45:#e05f0385;
+    --bad:#e88b80;
+    --bad-soft:#3a201d;
+    --fill-strong:#f57722;
+    --fill-bad:#e0655a;
+    --on-fill:#161614;     /* on a bright fill, dark text is the legible one */
+    --shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614;
+  --paper:#161614;
+  --surface:#1e1e1c;
+  --sunken:#121210;
+  --surface-hover:#232321;
+  --ink:#f0efe9;
+  --ink-2:#ababab;
+  --ink-3:#909090;
+  --rule:#52524f;
+  --rule-soft:#3a3a37;
+  --accent:#f57722;
+  --accent-hover:#ff8c3d;
+  --accent-06:#e05f0326;
+  --accent-18:#e05f0347;
+  --accent-45:#e05f0385;
+  --bad:#e88b80;
+  --bad-soft:#3a201d;
+  --fill-strong:#f57722;
+  --fill-bad:#e0655a;
+  --on-fill:#161614;
+  --shadow:0 2px 12px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--font-display);font-weight:400}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:3px
+}
+
+/* ---------- shell ---------- */
+.shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
+/* On wide screens the phase list is a rail fixed to the window's left edge (below), and the
+   content column is centred in what is left. Same rail, same width, on every phase page and on
+   the wireframes. */
+:root{--phases-w:240px}
+html.phases-collapsed{--phases-w:64px}
+@media (min-width:1080px){
+  body{padding-left:var(--phases-w)}
+  .shell{max-width:980px;padding:0 40px 120px}
+}
+.col{max-width:100%}
+.col>*{max-width:74ch}
+.col>.wide{max-width:100%}
+
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 44px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px
+}
+.mast h1{
+  font-size:clamp(30px,4.4vw,54px);line-height:1.02;letter-spacing:-.005em;
+  margin:0 0 26px;text-wrap:balance;max-width:17ch
+}
+.standfirst{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:62ch;margin:0 0 36px}
+.standfirst strong{color:var(--ink);font-weight:500}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));
+  gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)
+}
+.facts div{padding:14px 16px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts dt{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 6px;font-weight:600
+}
+.facts dd{
+  margin:0;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;
+  color:var(--ink);line-height:1;letter-spacing:-.01em
+}
+.facts dd small{font-size:11.5px;color:var(--ink-3);display:block;margin-top:6px;font-weight:400;letter-spacing:0}
+
+.rail{
+  position:sticky;top:0;z-index:20;margin:0;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+}
+.rail::after{
+  content:"";position:absolute;right:0;top:0;bottom:1px;width:40px;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--paper) 72%);
+}
+.rail ol{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail ol::-webkit-scrollbar{display:none}
+.rail li{flex:0 0 auto;margin:0}
+.rail a{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap;
+  padding:9px 14px 8px;border:0;border-bottom:2px solid transparent;border-radius:0;
+  font-size:13px;line-height:1.3;font-weight:500;color:var(--ink-3);background:none;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.rail a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.rail a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.rail a b{
+  display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:600;
+}
+.rail a.on b{color:var(--accent)}
+.railhead{display:none}
+
+/* --- both horizontal bars are dragged with the mouse, not only wheeled --- */
+.rail ol.grabbable,.phases ol.grabbable{cursor:grab}
+.rail ol.dragging,.phases ol.dragging,
+.rail ol.dragging *,.phases ol.dragging *{cursor:grabbing;user-select:none}
+
+/* ---------- sections ---------- */
+section{padding:64px 0 8px;scroll-margin-top:80px}
+@media (min-width:1080px){section{scroll-margin-top:70px}}
+section+section{border-top:1px solid var(--rule-soft)}
+.stagehead{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.stagenum{
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:4px;padding:3px 8px;white-space:nowrap;background:var(--accent-06)
+}
+h2{font-size:clamp(24px,2.9vw,34px);line-height:1.06;letter-spacing:-.004em;margin:0;text-wrap:balance}
+.qline{color:var(--ink-2);font-size:16px;margin:14px 0 32px;max-width:64ch}
+h3{
+  font-family:var(--font);font-size:18px;line-height:1.3;font-weight:600;
+  letter-spacing:-.005em;margin:48px 0 14px;text-wrap:balance
+}
+h4{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);font-weight:600;margin:38px 0 14px
+}
+p{margin:0 0 18px}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:10px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+
+/* ---------- per-stage conclusion ---------- */
+.verdict{
+  margin:44px 0 8px;padding:24px 26px 22px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:10px
+}
+.verdict .vh{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--accent);margin:0 0 14px
+}
+.verdict p{margin:0 0 12px;font-size:15.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict ul{margin:0;font-size:15.5px}
+.verdict li:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
+.band td{
+  background:var(--sunken);font-size:10.5px;letter-spacing:.13em;font-weight:600;
+  text-transform:uppercase;color:var(--ink-3);padding:8px 14px
+}
+.tnote{font-size:13px;color:var(--ink-2);margin:-14px 0 28px;line-height:1.6}
+
+/* the score scale is one hue — the accent — because it measures magnitude.
+   Only the single 1 is a different colour, because it means something else. */
+td.s,th.s{
+  text-align:center;font-variant-numeric:tabular-nums;font-weight:600;
+  width:10%;min-width:58px;font-size:14px;color:var(--ink)
+}
+td.s5{background:var(--fill-strong);color:var(--on-fill)}
+td.s4{background:var(--accent-45);color:var(--ink)}
+td.s3{background:var(--accent-18)}
+td.s2{background:var(--accent-06)}
+td.s1{background:var(--fill-bad);color:var(--on-fill)}
+td.sx{color:var(--ink-3);font-weight:400}
+
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 26px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.chip{width:24px;height:15px;border-radius:3px;border:1px solid var(--rule);display:inline-block}
+
+/* ---------- flows: the site's numbered process list ---------- */
+.flows{margin:28px 0 0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)}
+details{border-bottom:1px solid var(--rule-soft)}
+details:last-child{border-bottom:none}
+summary{
+  list-style:none;cursor:pointer;padding:16px 46px 16px 20px;display:grid;
+  grid-template-columns:40px 1fr auto;gap:16px;align-items:center;position:relative;
+  transition:background var(--dur) var(--ease)
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--surface-hover)}
+summary:hover .chev::before{border-color:var(--accent)}
+.chev{position:absolute;right:19px;top:50%;width:16px;height:16px;transform:translateY(-50%);pointer-events:none}
+.chev::before{
+  content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;
+  margin:-5px 0 0 -4px;border-right:1.7px solid var(--ink-3);border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease)
+}
+details[open] .chev::before{transform:rotate(-135deg);margin:-2px 0 0 -4px;border-color:var(--accent)}
+details[open] summary{background:var(--sunken)}
+.fnum{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
+.ftitle{font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+.ftitle span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+.fstat{
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid var(--rule);
+  background:var(--sunken);color:var(--ink-3)
+}
+.st-closed{border-color:var(--accent);color:var(--accent);background:var(--accent-06)}
+.fbody{padding:2px 20px 24px 76px}
+@media (max-width:640px){
+  summary{grid-template-columns:32px 1fr;grid-template-rows:auto auto;gap:8px 12px;padding-right:44px}
+  .fstat{grid-column:2;justify-self:start}
+  .fbody{padding:2px 18px 22px 18px}
+}
+.fbody p{font-size:15.5px;margin:0 0 15px}
+.fbody .src{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+.fbody .src a{color:var(--ink-2)}
+
+/* ---------- captures ---------- */
+.shots{
+  max-height:480px;overflow-y:auto;background:var(--sunken);border:1px solid var(--rule);
+  border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:16px;margin:0 0 18px
+}
+.shots figure{margin:0}
+.shots img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;
+  background:#fff;cursor:zoom-in;transition:border-color var(--dur) var(--ease)
+}
+.shots img:hover,.shots img:focus-visible{border-color:var(--accent)}
+.shots figcaption{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+.scrollhint{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);margin:0 0 9px;display:flex;align-items:center;gap:9px
+}
+.scrollhint::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+.scrollhint em{font-style:normal;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--ink-3)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(13,13,13,.94);overflow:auto;padding:60px 24px 48px;display:flex}
+.lb[hidden]{display:none}
+.lb-inner{width:min(1360px,94vw);margin:auto}
+.lb-inner img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:#fff}
+.lb-cap{font-family:var(--font-mono);font-size:12px;line-height:1.65;color:#cfcdc6;margin:16px 0 0;max-width:96ch}
+.lb-close{
+  position:fixed;top:16px;right:20px;width:38px;height:38px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.45);color:#f0efe9;
+  font:600 15px/1 var(--font);cursor:pointer
+}
+.lb-close:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ---------- pain bars ---------- */
+.bars{margin:10px 0 26px;display:flex;flex-direction:column;gap:10px;max-width:66ch}
+.bar{display:grid;grid-template-columns:1fr 52px;gap:14px;align-items:center}
+.bar .lbl{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.bar .lbl b{color:var(--ink);font-weight:600}
+.bar .track{grid-column:1/-1;height:10px;background:var(--sunken);border:1px solid var(--rule-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink-3);border-radius:2px}
+.bar .fill.loud{background:var(--bad)}
+.bar .fill.ours{background:var(--accent)}
+.bar .n{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.barlegend{font-size:12.5px;color:var(--ink-3);margin:-16px 0 28px}
+
+/* ---------- pull quote ---------- */
+blockquote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid var(--accent);font-size:18px;line-height:1.5;color:var(--ink)}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+
+/* ---------- chosen shape ---------- */
+.shape{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0;background:var(--surface)
+}
+.shape div{padding:18px 18px 20px;border-right:1px solid var(--rule)}
+.shape div:last-child{border-right:0}
+.shape h5{font-size:14px;font-weight:600;margin:0 0 5px;color:var(--ink)}
+.shape .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-weight:600}
+.shape p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+
+/* ---------- decisions ---------- */
+.decisions{border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0 8px;background:var(--surface)}
+.dec{padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;border-bottom:1px solid var(--rule-soft)}
+.dec:last-child{border-bottom:0}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:10px}}
+.dec .what{font-size:14.5px;font-weight:600;line-height:1.45;color:var(--ink)}
+.dec .what b{
+  display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:6px
+}
+.dec .why{font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.dec .why em{color:var(--ink);font-style:italic}
+
+/* ---------- gaps ---------- */
+.gaps{display:flex;flex-direction:column;gap:14px;margin:26px 0 8px}
+.gap{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;border-top:2px solid var(--accent)}
+.gap.unverified{border-top-color:var(--bad)}
+.gaphead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.gid{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em}
+.gaphead h5{font-size:15.5px;font-weight:600;margin:0;line-height:1.35;color:var(--ink)}
+.gap p{font-size:15px;margin:0 0 12px;color:var(--ink-2)}
+.gap p:last-child{margin:0}
+.gap .hyp{color:var(--ink);padding:13px 16px;background:var(--sunken);border-radius:6px;font-size:14.5px;line-height:1.6}
+.gap .hyp b{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:6px;font-weight:600
+}
+.gap .from{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);margin-top:12px}
+.nd{
+  font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+  color:var(--bad);background:var(--bad-soft);border:1px solid var(--bad);
+  padding:2px 7px;border-radius:4px;white-space:nowrap
+}
+
+/* ---------- footer ---------- */
+.foot{
+  grid-column:1/-1;margin-top:72px;padding-top:28px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==================================================================
+   Personas & jobs-to-be-done components — shared with personas.html.
+   Both pages are built from this block; edit it once.
+================================================================== */
+
+/* ------------------------------------------------------------------
+   Personas & JTBD — components this page adds on top of the shared
+   design language pulled from research-page.tpl.html at build time.
+------------------------------------------------------------------ */
+
+/* --- evidence marks, the spine of both documents --- */
+.m{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.35em;height:1.35em;padding:0 .3em;margin:0 .12em;
+  border:1px solid var(--rule);border-radius:3px;
+  font-family:var(--font-mono);font-size:.72em;line-height:1;
+  vertical-align:.08em;font-weight:600;
+}
+.m-y{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.m-s{border-color:var(--rule);background:var(--sunken);color:var(--ink-2)}
+.m-q{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+
+.legend{
+  display:grid;gap:10px;margin:22px 0 0;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--surface);
+}
+.legend .lrow{display:grid;grid-template-columns:2.4em 1fr;gap:12px;align-items:start}
+.legend b{color:var(--ink)}
+.legend p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+/* --- persona cards --- */
+.people{display:grid;gap:20px;margin-top:26px;max-width:100%}
+@media (min-width:1180px){ .people{grid-template-columns:1fr 1fr} .people .pc.primary{grid-column:1 / -1} }
+
+.pc{border:1px solid var(--rule);background:var(--surface);display:flex;flex-direction:column}
+.pc.primary{border-color:var(--accent-45);box-shadow:var(--shadow)}
+.pc > header{padding:20px 22px 16px;border-bottom:1px solid var(--rule-soft)}
+.pc.primary > header{background:var(--accent-06)}
+.pc .tag{
+  display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+}
+.pc.primary .tag{color:var(--accent);font-weight:700}
+.pc h3{font-family:var(--font-display);font-weight:400;font-size:23px;line-height:1.2;margin:0 0 8px}
+.pc .axes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.pc .axes span{
+  font-family:var(--font-mono);font-size:11px;padding:3px 7px;
+  border:1px solid var(--rule-soft);background:var(--sunken);color:var(--ink-2);
+}
+.pc .standing{margin:12px 0 0;font-size:14px;color:var(--ink-2)}
+
+.pblock{padding:16px 22px;border-bottom:1px solid var(--rule-soft)}
+.pblock:last-child{border-bottom:0}
+.pblock h4{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 10px;font-weight:600;
+}
+.pblock p{margin:0 0 10px;font-size:15px}
+.pblock p:last-child{margin-bottom:0}
+.pblock ul{margin:0;padding-left:1.15em;font-size:15px}
+.pblock li{margin:0 0 8px}
+.pblock li:last-child{margin-bottom:0}
+.pblock .src{color:var(--ink-3);font-size:13.5px}
+
+.pq{
+  margin:0;padding:14px 16px;border-left:3px solid var(--accent);
+  background:var(--sunken);font-size:15.5px;line-height:1.55;
+}
+.pq cite{display:block;margin-top:10px;font-style:normal;font-size:13px;color:var(--ink-3)}
+.pq.empty{border-left-color:var(--bad)}
+
+.warn{
+  margin:0 0 14px;padding:12px 14px;border:1px solid var(--bad);
+  background:var(--bad-soft);font-size:14.5px;
+}
+
+/* --- a .warn that folds away: <details class="warn"> --- */
+details.warn{padding:0}
+details.warn>summary{
+  cursor:pointer;padding:11px 14px;font-weight:600;
+  list-style:none;display:flex;gap:9px;align-items:baseline;
+}
+details.warn>summary::-webkit-details-marker{display:none}
+details.warn>summary::before{
+  content:"▸";font-size:11px;opacity:.7;flex:none;
+  transition:transform .12s ease;
+}
+details.warn[open]>summary::before{transform:rotate(90deg)}
+details.warn>summary:hover{background:rgba(128,128,128,.09)}
+details.warn>summary:focus-visible{outline:2px solid var(--bad);outline-offset:-2px}
+details.warn>summary .sub{font-weight:400;opacity:.72;font-size:13.5px}
+details.warn[open]>summary{border-bottom:1px solid var(--bad)}
+details.warn>.inner{padding:11px 14px 12px}
+@media (prefers-reduced-motion:reduce){details.warn>summary::before{transition:none}}
+
+/* --- jobs hierarchy --- */
+.mainjob{
+  margin:26px 0 0;padding:26px 28px;border:1px solid var(--accent-45);background:var(--accent-06);
+}
+.mainjob .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mainjob p.j{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.34;margin:12px 0 0}
+@media (max-width:700px){ .mainjob p.j{font-size:18px} }
+.mainjob .note{margin:16px 0 0;font-size:14.5px;color:var(--ink-2)}
+
+.jobs{display:grid;gap:14px;margin-top:22px}
+.job{border:1px solid var(--rule);background:var(--surface);padding:18px 20px}
+.job .jid{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);
+  display:block;margin-bottom:8px;
+}
+.job p.j{margin:0;font-size:16px;line-height:1.5}
+.job .ev{margin:12px 0 0;font-size:13.5px;color:var(--ink-2)}
+.job.hyp{background:var(--sunken);border-style:dashed}
+
+.grouphead{
+  display:flex;align-items:baseline;gap:12px;margin:34px 0 0;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.grouphead h3{font-family:var(--font-display);font-weight:400;font-size:20px;margin:0}
+.grouphead span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.05em}
+
+/* --- the matrix --- */
+.mwrap{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);max-width:100%}
+table.matrix{border-collapse:collapse;width:100%;min-width:880px;font-size:13.5px;background:var(--surface)}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--rule-soft);padding:11px 12px;text-align:left;vertical-align:top}
+table.matrix thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+table.matrix tbody tr:last-child td{border-bottom:0}
+table.matrix td.job{width:22%;font-weight:500}
+table.matrix td.p{width:10%;text-align:center;white-space:nowrap}
+table.matrix td.f,table.matrix td.c{width:19%;font-size:13px;color:var(--ink-2)}
+table.matrix tr.hypo td{background:var(--sunken)}
+table.matrix tr.hypo td.job{color:var(--ink-2)}
+.score{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:1px solid var(--rule);
+  font-family:var(--font-mono);font-weight:700;font-size:13px;
+}
+.score.s3{border-color:var(--accent-45);background:var(--accent-18);color:var(--accent)}
+.score.s2{border-color:var(--rule);background:var(--sunken);color:var(--ink)}
+.score.s1{border-color:var(--rule-soft);background:transparent;color:var(--ink-3)}
+.score.sq{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);white-space:normal;text-align:left}
+.none{color:var(--bad);font-weight:600}
+
+/* --- conclusions --- */
+.picks{display:grid;gap:14px;margin-top:22px}
+@media (min-width:900px){ .picks{grid-template-columns:repeat(3,1fr)} }
+.pick{border:1px solid var(--accent-45);background:var(--surface);padding:18px 20px}
+.pick .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em;font-weight:700}
+.pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
+.pick p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* --- the course phases: a fixed, collapsible rail on wide screens, a strip below --- */
+.phases{
+  border-bottom:1px solid var(--rule);background:var(--sunken);
+  margin:0 -32px 0;padding:0 32px;
+}
+.phases ol{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+  list-style:none;margin:0;padding:0;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+}
+.phases ol::-webkit-scrollbar{display:none}
+.phases li{margin:0;flex:0 0 auto}
+.phases li>a,.phases li>span{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
+  border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
+  white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.phases li>a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases b{font-weight:700;color:var(--ink-2)}
+.phases li>a:hover b{color:var(--ink)}
+.phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.phases .now b{color:var(--accent)}
+.phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
+.phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.phaseshead,.phasestoggle{display:none}
+
+@media (min-width:1080px){
+  /* the rail sits one tone below the page, and every phase is its own bubble — no rules, no bars */
+  .phases{
+    position:fixed;top:0;left:0;bottom:0;z-index:15;width:var(--phases-w);
+    overflow-y:auto;scrollbar-width:none;
+    margin:0;padding:16px 12px 32px;background:var(--sunken);border:0;
+  }
+  .phases::-webkit-scrollbar{display:none}
+  .phaseshead{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 12px;padding-left:12px;
+  }
+  .phasestoggle{
+    display:inline-block;padding:4px 10px;border:0;border-radius:8px;
+    background:var(--surface);color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
+  }
+  .phasestoggle:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases ol{display:flex;flex-direction:column;gap:6px;overflow:visible;font-size:12.5px}
+  .phases li>a,.phases li>span{
+    display:block;padding:8px 12px 9px;white-space:normal;line-height:1.32;
+    border:0;border-radius:10px;background:var(--surface);
+  }
+  .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
+  .phases li>a:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases li>a:hover b{color:var(--ink)}
+  .phases .now{background:var(--accent-06);box-shadow:inset 0 0 0 1px var(--accent-45)}
+  .phases .soon{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);opacity:.5}
+  .phases .soon em{display:none}
+
+  /* collapsed: the numbers stay, each still its own bubble, and still links */
+  html.phases-collapsed .phases{padding:16px 8px 32px}
+  html.phases-collapsed .phaseshead{padding-left:0;justify-content:center}
+  html.phases-collapsed .phaseshead span,
+  html.phases-collapsed .phases .lbl{display:none}
+  html.phases-collapsed .phases li>a,
+  html.phases-collapsed .phases li>span{padding:10px 0;text-align:center}
+  html.phases-collapsed .phases b{margin:0}
+}
+
+/* --- skip link and the phase meta line --- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:20;padding:12px 18px;
+  background:var(--accent);color:var(--on-fill);font-weight:600;
+}
+.skip:focus{left:0}
+.phasemeta{
+  font-family:var(--font-mono);font-size:12px;color:var(--ink-3);
+  margin:0 0 18px;letter-spacing:.02em;
+}
+.phasemeta strong{color:var(--ink-2);font-weight:600}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><a href="../06-concept/style.html" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></a></li>
+      <li><a href="../07-ui-assembly/ui.html" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span></a></li>
+      <li><span class="now" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span></span></li>
+      <li><span class="soon" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 08 &middot; Design tokens</p>
+  <h1>The same look, a new architecture</h1>
+  <p class="phasemeta">Phase <strong>8 of 12</strong> &middot; the course&rsquo;s six steps and one of ours &middot; <strong>28&ndash;29 Oct 2026</strong> &middot; source of truth: <strong>tokens.css</strong> for the values, <strong>components/</strong> for the look</p>
+  <p class="standfirst">Phase 07 dressed every screen from one flat file, and each of its variables knew its value but not whether that value was <strong>a colour or a role</strong>. <strong>This phase puts a layer of roles between the value and the component</strong>, splits the kit into tokens on two levels and one file per component, and moves every screen onto them &mdash; <strong>without a pixel moving</strong>. Then one theme proves it: light, made of semantic overrides alone, <strong>and not one component touched to get there.</strong></p>
+  <dl class="facts">
+    <div><dt>Primitives</dt><dd>124<small>50 of them colours</small></dd></div>
+    <div><dt>Roles</dt><dd>62<small>every one a var() with its uses</small></dd></div>
+    <div><dt>Components</dt><dd>27<small>files, plus index.css</small></dd></div>
+    <div><dt>Screens moved</dt><dd>83<small>+ 241 flow steps, no pixel changed</small></dd></div>
+    <div><dt>Light theme</dt><dd>46<small>overrides, 0 component edits</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>62<small>per theme; all AA, 1 for information</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#themes"><b>Look</b>Dark and light</a></li>
+    <li><a href="#audit"><b>Step 01</b>The audit</a></li>
+    <li><a href="#levels"><b>Step 02</b>Two levels</a></li>
+    <li><a href="#components"><b>Step 03&ndash;04</b>Components, screens</a></li>
+    <li><a href="#light"><b>Step 05</b>The stress test</a></li>
+    <li><a href="#check"><b>Step 06</b>The check</a></li>
+    <li><a href="#engine"><b>Step 07</b>No engine</a></li>
+    <li><a href="#register"><b>Register</b>Q44&ndash;Q45</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">A refactoring, not a redesign &mdash; and its test is that no screen moves.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>Our names were already roles.</strong> <code>--ground</code>, <code>--problem</code>, <code>--on-lime</code> said what a colour is <em>for</em>. What was missing was the level below &mdash; a palette of what a value <em>is</em> &mdash; so the phase added <strong>a floor under the names, not a ceiling over them.</strong></li>
+    <li><strong>Several variables carried more than one job.</strong> The lime was both the primary action and the current place&rsquo;s mark; one grey was both secondary text and the Checked verdict. Same value today, different reasons &mdash; and the light slice already pulled two of them apart.</li>
+    <li><strong>The literals hid inside the tokens, not the classes.</strong> Phase 07&rsquo;s guard had kept every class clean, so the seven <code>rgba()</code> values sat in the shadows, the glass and the veil.</li>
+    <li><strong>The second theme found what reading did not.</strong> Lime on white is 1.32:1, so a checked radio in light barely showed &mdash; a pair no measurement had covered.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>Two levels.</strong> A primitive says what a value is &mdash; hue plus a measured step; a semantic token says what a colour is for, and names the uses it grew from.</li>
+    <li><strong>A component reads colour only through a role, and geometry straight from a primitive.</strong> Geometry has no semantic level.</li>
+    <li><strong>Two roles are two tokens</strong>, even when their value is the same today.</li>
+    <li><strong>A theme overrides roles and nothing else.</strong> Dark is the product; light is the stress test, and whether it ships is the owner&rsquo;s call.</li>
+    <li><strong>No styling engine.</strong> Plain CSS, by hand &mdash; the two things this phase built.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="tokens.css">tokens.css &nearr;</a>
+    <a href="components/index.css">components/ &nearr;</a>
+    <a href="../07-ui-assembly/ui/kit.html">The kit showcase &nearr;</a>
+    <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">Every screen, in the viewer &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ THEMES ============ -->
+<section id="themes" class="col">
+  <div class="stagehead"><span class="stagenum">LOOK</span><h2>One screen, two themes</h2></div>
+  <p class="qline">The same page, the same markup, the same components &mdash; <strong>only the semantic tokens change.</strong></p>
+  <div class="twins wide" data-twins>
+    <div class="twins-bar">
+      <div class="screens" role="group" aria-label="Screen">
+        <button type="button" data-page="run-default" aria-pressed="true">Run</button>
+        <button type="button" data-page="project-default" aria-pressed="false">Project</button>
+        <button type="button" data-page="project-configuring-default" aria-pressed="false">Configuring</button>
+        <button type="button" data-page="library-my-default" aria-pressed="false">My library</button>
+        <button type="button" data-page="item-default" aria-pressed="false">Item</button>
+        <button type="button" data-page="projects-filters" aria-pressed="false">Filters</button>
+        <button type="button" data-page="shared-project-default" aria-pressed="false">Shared project</button>
+      </div>
+      <div class="mode" role="group" aria-label="Theme">
+        <button type="button" data-theme-pick="dark" aria-pressed="true">Dark</button>
+        <button type="button" data-theme-pick="light" aria-pressed="false">Light</button>
+      </div>
+    </div>
+    <div class="twins-stage"><iframe src="../04-wireframes/mockups/run-default.html?theme=dark" title="Run, dark" tabindex="-1"></iframe></div>
+    <div class="twins-cap"><span data-cap>04-wireframes/mockups/run-default.html?theme=dark</span><a data-open href="../04-wireframes/mockups/run-default.html?theme=dark" target="_blank" rel="noopener">Open it full size &nearr;</a></div>
+  </div>
+  <p class="tnote">Drawn at 1440 and scaled to fit. Every one of the 83 pages and every flow step takes the theme from <a href="../04-wireframes/pages/wireframes.html?mode=design#run-default">the viewer</a>&rsquo;s <strong>Dark &middot; Light</strong> switch &mdash; not from the product&rsquo;s own top bar, which would be a product decision (Q44).</p>
+</section>
+
+<!-- ============ AUDIT ============ -->
+<section id="audit" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 01</span><h2>The audit: every variable, and every job it does</h2></div>
+  <p class="qline">Facts, not decisions &mdash; <strong>nothing was renamed, merged or fixed</strong> in this step.</p>
+  <p><code>tools/audit_tokens.py</code> read every rule of the flat kit and every class on every dressed page, and for each of the kit&rsquo;s <strong>110 variables</strong> wrote down where it stands and the role it plays in each place. A role read off real uses is the only kind that may become a token: <strong>a semantic token with no addresses is thrown out.</strong></p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Finding</th><th>What it is</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="name">One variable, several roles</td><td>The same value doing two jobs that may come apart</td><td><code>--lime</code>: the primary action and the selection; <code>--text-2</code> and <code>--checked</code>, one grey</td></tr>
+        <tr><td class="name">Drift</td><td>The same intent written two ways</td><td>Four hover recipes, <em>half a step up</em>, each on a different ground</td></tr>
+        <tr><td class="name">A value bypassing a variable</td><td>A literal inside a composite token</td><td>7 <code>rgba()</code> in five tokens: the shadows, the glass, the veil</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>At the bottom of the audit stand the <strong>candidate roles, each with its addresses</strong> &mdash; which is what step 02 was allowed to build from, and nothing else.</p>
+  <div class="outs"><a href="tokens-audit.md">tokens-audit.md &nearr;</a></div>
+</section>
+
+<!-- ============ LEVELS ============ -->
+<section id="levels" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Two levels: what a value is, and what it is for</h2></div>
+  <p class="qline">One real chain, from the hex to the button that shows it.</p>
+  <div class="pipe wide">
+    <div><span class="k">Primitive</span><b>--lime-105: #C6EF5A</b><p>What the value <strong>is</strong>: a hue from DESIGN.md and its step &mdash; OKLab lightness, inverted, &times;&nbsp;1000. Nobody chose the number.</p></div>
+    <div><span class="k">Semantic</span><b>--action: var(--lime-105)</b><p>What the colour is <strong>for</strong>: the primary action. Its comment names the uses it grew from &mdash; 64 pages, 168 steps.</p></div>
+    <div class="out"><span class="k">Component</span><b>.button-primary{background: var(--action)}</b><p>The component knows the role and <strong>never the primitive</strong>. A theme changes the role; the button does not move.</p></div>
+  </div>
+  <p><strong>The step is measured, not picked.</strong> <code>--mica-776</code> is the dark ground and <code>--mica-35</code> the brightest text; every value of both themes gets its own number, so a new one can never collide with an old name. The washes, hovers and shadows are <strong>recipes over a role</strong> &mdash; <code>color-mix()</code> on <code>--problem</code>, <code>--raised</code>, <code>--brand</code> &mdash; so they follow the role into any theme.</p>
+  <p><strong>And the refactor proves itself.</strong> <code>tools/concept_tokens.py</code> writes both token files from one source &mdash; phase 06&rsquo;s flat one, unchanged to the byte, and this one &mdash; and refuses to finish unless <strong>every role resolves to the value phase 07 used</strong>, no hex appears that was not already signed, and every named geometry equals the <code>calc()</code> it replaced.</p>
+</section>
+
+<!-- ============ COMPONENTS ============ -->
+<section id="components" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03&ndash;04</span><h2>Components, and every screen moved onto them</h2></div>
+  <p class="qline">The flat kit split in two, and the old file deleted only once nothing differed.</p>
+  <p><code>tools/build_components.py</code> sends every rule of the kit to its component&rsquo;s file, in order &mdash; <strong>27 files</strong>, imported by <code>index.css</code> in the kit&rsquo;s order &mdash; and turns every phase-07 colour into the role its selector names. Because order between files can change which rule wins, <strong>it checks in a browser, on every page, that no reordering lets one rule override another.</strong></p>
+  <p>Then the screens. Every page, the showcase and the shell now link <strong>two files</strong>, <code>tokens.css</code> and <code>components/index.css</code>. The pixel test against the goldens: <strong>83 of 83 pages and 241 of 241 flow steps identical</strong>, the only differences two spots that were already flaky before the change, at 2/255. <strong>Only then was <code>kit.css</code> deleted</strong>; git keeps it.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>kit.html</strong> &middot; the showcase, on the new files &middot; its own <em>Light theme</em> button<a href="../07-ui-assembly/ui/kit.html" target="_blank" rel="noopener">Open it full screen &nearr;</a></div>
+    <iframe src="../07-ui-assembly/ui/kit.html" title="The UI kit, on tokens.css and components/" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ LIGHT ============ -->
+<section id="light" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>The stress test: light</h2></div>
+  <p class="qline">The course proves a light product with dark. <strong>Ours is dark, so light is the test</strong> &mdash; and the test was whether the architecture held.</p>
+  <p><code>[data-theme="light"]</code> overrides <strong>46 semantic tokens and nothing else</strong> &mdash; no primitive, no hex, no component. The values are not invented: they are phase 06&rsquo;s signed light slice, role by role, each taking the light value of the variable it was split from. <strong>It needed zero component edits</strong>, which is the whole result: a theme that had needed one would have found a hole.</p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Beyond the slice</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="name">A lighter glass</td><td>The owner, on the preview: <em>the glass is too dark</em>. Light gets its own acrylic</td></tr>
+        <tr><td class="name">A lighter sheet shadow</td><td>The owner: <em>the shadow is too strong in light</em>. The same offsets at 12&nbsp;%</td></tr>
+        <tr><td class="name">Deep Lime for a checked control</td><td>Lime on white is 1.32:1, and a checked control needs 3:1. Deep Lime with a white tick reads 5.66:1</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Four roles still draw dark in light</strong> &mdash; <code>--sheet-edge</code> and the Remove Red family &mdash; and they are listed in the theme block as gaps. <strong>Filling them is the owner&rsquo;s word or phase 09&rsquo;s, never a refactor&rsquo;s.</strong> The contrast of 62 pairs is written into each theme block and measured on the file as written; every claim passes AA, and 1 &mdash; a tag&rsquo;s outline &mdash; is recorded for information rather than claimed.</p>
+</section>
+
+<!-- ============ CHECK ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>The check, and the rules it left behind</h2></div>
+  <p class="qline">The course&rsquo;s seven defects, plus <code>/impeccable audit</code> &mdash; <strong>the table first, the owner&rsquo;s priorities, then every fix together.</strong></p>
+  <div class="tw wide">
+    <table>
+      <thead><tr><th class="name">Found</th><th>Disposition</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Two names for one role</td><td>A field&rsquo;s edge under the pointer had two tokens; now one, <code>--edge-hover</code>. The four hover recipes were <strong>kept apart</strong> by the owner: each sits on a different ground, and merging them would be a redesign</td></tr>
+        <tr><td class="name">Light lines with no source</td><td>Every override now names the variable it takes its value from, or the reason it differs</td></tr>
+        <tr><td class="name">Geometry written as a count</td><td><code>--s12 * 3</code> and its kind became named primitives &mdash; <code>--modal-top</code>, <code>--search-w</code>, <code>--s-half</code> and seven more, each checked to equal its old <code>calc()</code>. The 34 skeleton widths were kept: they are content, measured in the scale&rsquo;s unit</td></tr>
+        <tr><td class="name">Contrast below AA</td><td>Only the light checked control; fixed with Deep Lime. In the browser, every run of text on 83 pages: <strong>0 failures dark, 0 light</strong></td></tr>
+        <tr><td class="name">DESIGN.md silent on light</td><td>It now names the light palette, the two levels and the veil</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>Ten guards, and they stop the build</h3>
+  <ol class="guards wide">
+    <li><b>No literal</b> in a component</li>
+    <li><b>No style on a screen</b> &mdash; no <code>style=</code>, no <code>&lt;style&gt;</code></li>
+    <li><b>Every class is a component&rsquo;s</b>, save a short named list</li>
+    <li><b>Every variable is declared</b> in <code>tokens.css</code></li>
+    <li class="new"><b>No colour primitive in a component</b> <em>new</em></li>
+    <li class="new"><b>Two links</b>, <code>index.css</code> imports every file, and <code>kit.css</code> never returns <em>new</em></li>
+    <li><b>One primary</b> on any screen</li>
+    <li><b>The words are the product&rsquo;s</b>: the showcase against <code>microcopy.md</code></li>
+    <li><b>Coverage</b>: every page and flow step has a twin</li>
+    <li class="new"><b>No geometry written as a count</b> of a primitive <em>new</em></li>
+  </ol>
+  <div class="verdict">
+    <p class="vh">Step 06 &mdash; conclusion</p>
+    <p>Every class of defect became a rule in <code>kit_check.py</code>, so none of them can come back unseen. <strong>A rule checked by a script is the only kind that survives the next change</strong> &mdash; judgement is what found them, and it is not what keeps them out.</p>
+  </div>
+  <div class="outs"><a href="tokens-check.md">tokens-check.md &nearr;</a></div>
+</section>
+
+<!-- ============ ENGINE ============ -->
+<section id="engine" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 07</span><h2>The styling engine: none</h2></div>
+  <p class="qline">The one question the course does not ask, and the specification had deferred to this phase since September.</p>
+  <p>Q6 was waiting for two built components, read against one criterion: <strong>tokens and two real themes first-class, and no utility classes pushed into components that are themselves the product&rsquo;s value.</strong> Tailwind, CSS Modules and vanilla-extract were all live.</p>
+  <p><strong>The owner answered before the comparison was made: there is no engine.</strong> The product is styled by plain CSS written by hand &mdash; the two things this phase built. The basis is stated plainly, because it is not a comparison: <strong>this work is homework, and its point is to understand how tokens, components and themes work</strong>, which an engine would do on our behalf. The criterion is met without one &mdash; custom properties carry both themes, a component is a CSS file with no utility class in it &mdash; and the guards already enforce it.</p>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register" class="col">
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Two entries</h2></div>
+  <p class="qline">What the owner decided on the tokens, and what is still the owner&rsquo;s.</p>
+  <div class="qs wide">
+    <div class="q"><span class="qid">Q44</span><h3>The tokens, as recommended</h3><p>Splits where two roles may part; signed single-use colours stay roles; hover recipes kept apart; one generator; hue plus OKLab step for a primitive&rsquo;s name. And the light glass, the light shadow, Deep Lime.</p><span class="said">Owner: everything as recommended</span></div>
+    <div class="q"><span class="qid">Q45</span><h3>No styling engine</h3><p>Plain CSS by hand: <code>tokens.css</code> and <code>components/</code>. Closes Q6, open since 2 September.</p><span class="said">Owner: we build it ourselves, to understand it</span></div>
+  </div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to whom.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Does light ship</td><td>The owner&rsquo;s call (Q44). If it does, a product switch goes through the register, not through a test</td></tr>
+        <tr><td class="name">Four light gaps</td><td>Phase 09: the light values of <code>--sheet-edge</code> and the Remove Red family</td></tr>
+        <tr><td class="name">States as a system</td><td>Phase 09: hover, focus and disabled kept their values here and moved as they were</td></tr>
+        <tr><td class="name">How the CSS is loaded</td><td>The build, after phase 12: global files or one per component, imported where it is used (Q45)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 08 of twelve.</strong> Built by <code>tools/build_tokens_page.py</code>; the tokens by <code>tools/concept_tokens.py</code>; the components by <code>tools/build_components.py</code>; the screens by <code>tools/build_mockups.py</code>, guarded by <code>tools/kit_check.py</code>. The specification is <code>CLAUDE.md</code>, &sect;17 <em>Tokens</em>.</p>
+  <p>Phase 07 &mdash; <a href="../07-ui-assembly/ui.html">UI assembly</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var box = document.querySelector('[data-twins]');
+  if (!box) return;
+  var stage = box.querySelector('.twins-stage'), frame = stage.querySelector('iframe');
+  var cap = box.querySelector('[data-cap]'), open = box.querySelector('[data-open]');
+  var page = 'run-default', theme = 'dark';
+  function fit(){
+    var k = stage.clientWidth / 1440;
+    frame.style.transform = 'scale(' + k + ')';
+    stage.style.height = Math.round(900 * k) + 'px';
+  }
+  function show(){
+    var src = '../04-wireframes/mockups/' + page + '.html?theme=' + theme;
+    frame.src = src; open.href = src;
+    cap.textContent = '04-wireframes/mockups/' + page + '.html?theme=' + theme;
+    frame.title = page + ', ' + theme;
+    frame.style.background = theme === 'light' ? '#FFFFFF' : '#1B1C19';
+  }
+  function press(group, btn){
+    group.querySelectorAll('button').forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+  }
+  box.querySelector('.screens').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    page = b.dataset.page; press(this, b); show();
+  });
+  box.querySelector('.mode').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    theme = b.dataset.themePick; press(this, b); show();
+  });
+  fit();
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else window.addEventListener('resize', fit);
+})();
+</script>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  /* the phase rail's collapse toggle — the same key on every phase page and on the wireframes.
+     Deliberately not its own IIFE: the builders lift this script up to its first closing one. */
+  var phRoot = document.documentElement, phBtn = document.querySelector('.phasestoggle');
+  function phSync(){
+    var c = phRoot.classList.contains('phases-collapsed');
+    phBtn.setAttribute('aria-expanded', String(!c));
+    phBtn.innerHTML = c ? '&raquo;' : '&laquo;';
+    phBtn.title = c ? 'Expand phases' : 'Collapse phases';
+  }
+  if(phBtn){
+    phBtn.addEventListener('click', function(){
+      phRoot.classList.toggle('phases-collapsed');
+      try{ localStorage.setItem('phases', phRoot.classList.contains('phases-collapsed') ? 'collapsed' : 'open'); }catch(e){}
+      phSync();
+    });
+    phSync();
+  }
+  if(!links.length) return;
+  var rail = document.querySelector('.rail');
+  var ol   = rail ? rail.querySelector('ol') : null;
+
+  var map = links.map(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    return el ? { a:a, el:el } : null;
+  }).filter(Boolean);
+  if(!map.length) return;
+
+  var current = null;
+  var smoothly = !window.matchMedia
+              || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* One tab is always active: the last section whose top has passed the bar.
+     An IntersectionObserver band leaves the indicator blank between sections,
+     which is wrong for something shaped like tabs. */
+  function sync(){
+    /* a section becomes current once its top reaches the upper third of the
+       viewport, not when it touches the bar - otherwise the heading is already
+       well in view while the tabs still point at the section above it. */
+    var line = Math.max(110, window.innerHeight * 0.32), best = map[0], i;
+    for(i = 0; i < map.length; i++){
+      if(map[i].el.getBoundingClientRect().top <= line) best = map[i];
+    }
+    if(best === current) return;
+    current = best;
+    for(i = 0; i < links.length; i++) links[i].classList.remove('on');
+    best.a.classList.add('on');
+
+    /* keep the active tab inside the horizontal scroller */
+    if(ol && ol.scrollWidth > ol.clientWidth + 4){
+      var t = best.a.getBoundingClientRect(), o = ol.getBoundingClientRect(), to = null;
+      if(t.left < o.left + 12)        to = ol.scrollLeft + t.left  - o.left  - 28;
+      else if(t.right > o.right - 48) to = ol.scrollLeft + t.right - o.right + 56;
+      if(to !== null){
+        /* the bar is dragged by hand at 1:1, so smoothness is asked for here
+           rather than set on the element */
+        if(ol.scrollTo) ol.scrollTo({ left:to, behavior:smoothly ? 'smooth' : 'auto' });
+        else ol.scrollLeft = to;
+      }
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ sync(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  /* a click on a tab jumps without always producing a scroll event the throttle
+     can see, so the bar would keep pointing at the section we just left */
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(sync); });
+
+  /* Drag the horizontal bars with the mouse. They overflow at most widths and a
+     wheel alone only moves them with shift held, which nobody discovers. Touch
+     already scrolls them natively, so this is mouse-only; a drag of more than a
+     few pixels swallows the click it would otherwise end in. */
+  function dragScroll(box){
+    if(!box) return;
+    var SLOP = 5;                         /* a press only becomes a drag past this */
+    var down = false, dragging = false, swallow = false, startX = 0, startLeft = 0;
+    function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
+    function mark(){ box.classList.toggle('grabbable', !fits()); }
+
+    /* No setPointerCapture: a captured pointer retargets the click at the
+       scroller, and the tab under the cursor never receives it. The move and up
+       handlers go on the window instead, so a drag still survives leaving the
+       bar, and a plain click stays a plain click on the link. */
+    function move(e){
+      var dx = e.clientX - startX;
+      if(!dragging){
+        if(Math.abs(dx) < SLOP) return;
+        dragging = true; swallow = true;
+        box.classList.add('dragging');
+      }
+      box.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    }
+    function up(){
+      down = false; dragging = false;
+      box.classList.remove('dragging');
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    }
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; dragging = false; swallow = false;
+      startX = e.clientX; startLeft = box.scrollLeft;
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+    });
+    /* only a press that actually moved eats its click */
+    box.addEventListener('click', function(e){
+      if(!swallow) return;
+      swallow = false;
+      e.preventDefault(); e.stopPropagation();
+    }, true);
+    box.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    mark();
+    window.addEventListener('resize', mark);
+  }
+  dragScroll(ol);
+  dragScroll(document.querySelector('.phases ol'));
+
+  sync();
+})();
+</script>
+</body>
+</html>

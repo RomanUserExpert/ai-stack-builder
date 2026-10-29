@@ -67,3 +67,7 @@
 08-design-tokens/*
 !08-design-tokens/tokens.css
 !08-design-tokens/components
+!08-design-tokens/tokens.html
+!08-design-tokens/tokens-audit.md
+!08-design-tokens/tokens-check.md
+!08-design-tokens/README.md

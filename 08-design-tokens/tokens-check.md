@@ -12,7 +12,7 @@ All of it can be run again:
   - 5: no colour primitive in a component;
   - 2 and 6: no style on a screen, and only the two files linked.
 - **The tokens' own check**, `check08()` in `tools/concept_tokens.py`. Every role resolves to the value phase 07 used.
-  The light block holds no primitive and no hex. The contrast of 60 pairs is written into each theme block.
+  The light block holds no primitive and no hex. The contrast of 60 pairs (62 after the fixes) is written into each theme block.
 - **Contrast in the browser**: `audit07.CONTRAST_JS` on all 83 pages, once dark and once with `?theme=light`. It takes
   each run of text, composites the background it really sits on, and compares the two.
 - **Geometry**: every `calc()` in `components/` that multiplies or divides a primitive by a count.
