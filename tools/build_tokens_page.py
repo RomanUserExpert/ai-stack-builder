@@ -57,6 +57,97 @@ assert dark_p.count("info") == light_p.count("info"), "information pairs differ 
 assert not re.search(r"^\s+[\d.]+ fail", tokens, re.M | re.I), "a pair below AA"
 n_pairs, n_info = len(dark_p), dark_p.count("info")
 
+# ---- the token map: every colour primitive, the roles that point at it, per theme ----
+import html as _html
+LINE = r"^\s*(--[\w-]+)\s*:\s*([^;]+);\s*(?:/\*\s*(.*?)\s*\*/)?\s*$"
+
+
+def decls(text):
+    return [(n, v.strip(), (c or "").strip()) for n, v, c in re.findall(LINE, text, re.M)]
+
+
+prim_colour = [(n, v, c) for n, v, c in decls(prim) if re.match(r"#|rgba?\(", v)]
+prim_value = {n: v for n, v, _ in prim_colour}
+sem_dark = decls(sem)
+sem_light = {n: (v, c) for n, v, c in decls(light)}
+HUES = [("mica", "Mica"), ("lime", "Lime"), ("rose", "Rose"), ("amber", "Amber"), ("red", "Red"),
+        ("white", "White and black"), ("black", "White and black")]
+
+
+def target(v):
+    m = re.fullmatch(r"var\((--[\w-]+)\)", v)
+    return m.group(1) if m else None
+
+
+def tree(theme):
+    roles = {}
+    for n, v, c in sem_dark:
+        if theme == "light" and n in sem_light:
+            v, c = sem_light[n]
+        t = target(v)
+        assert t in prim_value, "a role that does not point at a colour primitive: %s -> %s" % (n, v)
+        kept = theme == "light" and n not in sem_light  # a gap: no light value of its own, so it draws dark
+        roles.setdefault(t, []).append((n, ("No light value of its own: keeps the dark one. " if kept else "") + c, kept))
+    out, last = [], None
+    order = [label for _, label in HUES]
+    hue_of = lambda name: next(label for key, label in HUES if name[2:].startswith(key))
+    for name, value, _ in sorted(prim_colour, key=lambda p: order.index(hue_of(p[0]))):  # stable: file order in a hue
+        if name not in roles:
+            continue
+        hue = hue_of(name)
+        if hue != last:
+            out.append('<li class="hue">%s</li>' % hue)
+            last = hue
+        chips = "".join('<code%s title="%s">%s</code>' % (' class="kept"' if k else "", _html.escape(c, quote=True), r)
+                        for r, c, k in roles[name])
+        alpha = " a" if value.startswith("rgba") else ""
+        out.append('<li><span class="prim"><i class="sw%s" style="--sw:%s"></i><code>%s</code><small>%s</small></span>'
+                   '<span class="roles">%s</span></li>' % (alpha, value, name, value, chips))
+    used = sum(1 for n, _, _ in prim_colour if n in roles)
+    return '<ol class="tmap" data-tmap="%s"%s>%s</ol>' % (theme, "" if theme == "dark" else " hidden", "".join(out)), used
+
+
+map_dark, used_dark = tree("dark")
+map_light, used_light = tree("light")
+rec = decls(recipes)
+
+
+def recipes_of(theme):
+    chips = []
+    for n, v, c in rec:
+        own = theme == "light" and n in sem_light  # a recipe the light theme signed apart
+        if own:
+            v, c = sem_light[n]
+        refs = sorted(set(re.findall(r"var\((--[\w-]+)\)", v)))
+        chips.append('<code%s title="%s">%s <b>&larr;</b> %s</code>' % (
+            ' class="own"' if own else "", _html.escape(c, quote=True), n, ", ".join(refs) if refs else _html.escape(v)))
+    return '<div class="chips" data-tmap="%s"%s>%s</div>' % (theme, "" if theme == "dark" else " hidden", "".join(chips))
+
+
+rec_html = recipes_of("dark") + recipes_of("light")
+geo_groups = [
+    ["type", lambda n: n.startswith(("--font", "--mono", "--weight", "--t-", "--track")), []],
+    ["space", lambda n: re.fullmatch(r"--s\d+|--s-half", n), []],
+    ["radius", lambda n: n.startswith("--r-"), []],
+    ["size, column, layer", None, []],
+    ["icons", lambda n: n in ("--icon-add", "--icon-added", "--icon-chevron") or n.startswith("--glyph"), []],
+    ["motion", lambda n: n in ("--ease", "--dur", "--dur-spin", "--dur-shimmer"), []],
+]
+for n, v, _ in decls(prim):
+    if n in prim_value:
+        continue
+    g = next((g for g in geo_groups if g[1] and g[1](n)), geo_groups[3])
+    if g[0] in ("icons", "type"):
+        g[2].append('<code title="%s">%s</code>' % (_html.escape(v, quote=True), n))
+    else:
+        g[2].append('<code>%s <small>%s</small></code>' % (n, _html.escape(v)))
+n_geo = sum(len(g[2]) for g in geo_groups)
+assert n_geo + len(prim_colour) == n_prim, "a primitive the map does not show"
+geo_html = "".join('<div><span class="k">%s</span>%s</div>' % (g[0], "".join(g[2])) for g in geo_groups if g[2])
+TOKEN_MAP = {"{{MAP_DARK}}": map_dark, "{{MAP_LIGHT}}": map_light, "{{RECIPES}}": rec_html, "{{GEOMETRY}}": geo_html,
+             "{{N_USED_DARK}}": used_dark, "{{N_USED_LIGHT}}": used_light, "{{N_RECIPES}}": len(rec),
+             "{{N_DIRECT}}": len(sem_dark), "{{N_GEO}}": n_geo}
+
 comp = os.path.join(SRC, "components")
 n_files = len([f for f in os.listdir(comp) if f.endswith(".css") and f != "index.css"])
 mock = os.path.join(ROOT, "04-wireframes", "mockups")
@@ -66,7 +157,7 @@ n_steps = sum(len([f for f in os.listdir(os.path.join(flows, d)) if f.endswith("
               if os.path.isdir(os.path.join(flows, d)))
 
 for k, v in {"{{N_PRIM}}": n_prim, "{{N_PRIM_COLOUR}}": n_prim_colour, "{{N_SEM}}": n_sem, "{{N_LIGHT}}": n_light,
-             "{{N_FILES}}": n_files, "{{N_PAIRS}}": n_pairs, "{{N_INFO}}": n_info, "{{N_PAGES}}": n_pages, "{{N_STEPS}}": n_steps}.items():
+             "{{N_FILES}}": n_files, "{{N_PAIRS}}": n_pairs, "{{N_INFO}}": n_info, "{{N_PAGES}}": n_pages, "{{N_STEPS}}": n_steps, **TOKEN_MAP}.items():
     page_body = page_body.replace(k, str(v))
 for left in re.findall(r"\{\{[^}]+\}\}", page_body):
     raise SystemExit("unsubstituted placeholder: " + left)

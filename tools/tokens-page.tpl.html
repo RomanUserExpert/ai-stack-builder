@@ -59,6 +59,36 @@
 .outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
 .outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
 .outs a:hover{border-color:var(--accent)}
+/* --- the token map: a colour primitive on the left, the roles that point at it on the right --- */
+.tmap-box{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;background:var(--surface);overflow:hidden}
+.tmap-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.tmap-bar .mode{margin-left:auto}
+.tmap{list-style:none;margin:0;padding:6px 0 10px;columns:2 400px;column-gap:0;column-rule:1px solid var(--rule-soft)}
+.tmap li{break-inside:avoid;display:grid;grid-template-columns:minmax(0,196px) minmax(0,1fr);align-items:start;margin:0;padding:3px 14px}
+.tmap li.hue{display:block;padding:10px 14px 3px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);break-after:avoid}
+.tmap .prim{display:flex;align-items:center;gap:8px;min-width:0;position:relative;min-height:20px;padding-right:22px}
+.tmap .prim::after{content:"";position:absolute;right:4px;top:50%;width:14px;border-top:1px solid var(--rule)}
+.tmap .prim code{font-size:12px;color:var(--ink);background:none;padding:0;border:0;white-space:nowrap}
+.tmap .prim small{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tmap .sw{flex:none;width:16px;height:16px;border-radius:4px;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
+.tmap .sw.a{background:linear-gradient(var(--sw),var(--sw)),repeating-conic-gradient(#ccc 0 25%,#fff 0 50%) 0 0/8px 8px}
+.tmap .roles{display:flex;flex-wrap:wrap;gap:4px;min-height:20px;padding-left:8px;border-left:1px solid var(--rule)}
+.tmap .roles code,.tmap-more code{font-size:11.5px;line-height:18px;padding:0 6px;border:1px solid var(--rule);border-radius:4px;background:var(--sunken);color:var(--ink-2);cursor:help}
+.tmap-more{border-top:1px solid var(--rule)}
+.tmap-more summary{display:list-item;padding:10px 14px;font-size:13px;line-height:1.45;color:var(--ink-2);cursor:pointer}
+.tmap-more summary b{display:inline;color:var(--ink)}
+.tmap .roles code.kept{border-style:dashed;color:var(--ink-3)}
+.tmap-key{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--ink-3)}
+.tmap-key code{font-size:11.5px;padding:0 6px;border:1px dashed var(--rule);border-radius:4px;background:var(--sunken);color:var(--ink-3)}
+.tmap-box + .tnote{margin-top:12px}
+.tmap-more code.own{border-color:var(--accent-45);color:var(--ink)}
+.tmap-more .chips{display:flex;flex-wrap:wrap;gap:4px;padding:0 14px 14px}
+.tmap-more .chips b{font-weight:400;color:var(--accent)}
+.tmap-more .geo{display:grid;gap:8px;padding:0 14px 14px}
+.tmap-more .geo div{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.tmap-more .geo .k{width:150px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.tmap-more .geo small{color:var(--ink-3);font-size:11px}
+@media (max-width:640px){.tmap li{grid-template-columns:1fr}.tmap .prim{padding-right:0}.tmap .prim::after{display:none}.tmap .roles{border-left:0;padding:4px 0 4px 24px}}
 </style>
 
 
@@ -109,6 +139,7 @@
     <li><a href="#themes"><b>Look</b>Dark and light</a></li>
     <li><a href="#audit"><b>Step 01</b>The audit</a></li>
     <li><a href="#levels"><b>Step 02</b>Two levels</a></li>
+    <li><a href="#map"><b>Map</b>Every token</a></li>
     <li><a href="#components"><b>Step 03&ndash;04</b>Components, screens</a></li>
     <li><a href="#light"><b>Step 05</b>The stress test</a></li>
     <li><a href="#check"><b>Step 06</b>The check</a></li>
@@ -206,6 +237,32 @@
   </div>
   <p><strong>The step is measured, not picked.</strong> <code>--mica-776</code> is the dark ground and <code>--mica-35</code> the brightest text; every value of both themes gets its own number, so a new one can never collide with an old name. The washes, hovers and shadows are <strong>recipes over a role</strong> &mdash; <code>color-mix()</code> on <code>--problem</code>, <code>--raised</code>, <code>--brand</code> &mdash; so they follow the role into any theme.</p>
   <p><strong>And the refactor proves itself.</strong> <code>tools/concept_tokens.py</code> writes both token files from one source &mdash; phase 06&rsquo;s flat one, unchanged to the byte, and this one &mdash; and refuses to finish unless <strong>every role resolves to the value phase 07 used</strong>, no hex appears that was not already signed, and every named geometry equals the <code>calc()</code> it replaced.</p>
+</section>
+
+<!-- ============ MAP ============ -->
+<section id="map" class="col">
+  <div class="stagehead"><span class="stagenum">MAP</span><h2>Every token, and what points at what</h2></div>
+  <p class="qline">On the left, a primitive &mdash; what a value <strong>is</strong>. On the right, every role that reads it &mdash; what it is <strong>for</strong>. Switch the theme and <strong>only the right side moves</strong>.</p>
+  <div class="tmap-box wide" data-tmapbox>
+    <div class="tmap-bar">
+      <span data-tmapcount>{{N_DIRECT}} roles on {{N_USED_DARK}} primitives</span>
+      <div class="mode" role="group" aria-label="Theme">
+        <button type="button" data-tmap-pick="dark" data-count="{{N_DIRECT}} roles on {{N_USED_DARK}} primitives" aria-pressed="true">Dark</button>
+        <button type="button" data-tmap-pick="light" data-count="{{N_DIRECT}} roles on {{N_USED_LIGHT}} primitives" aria-pressed="false">Light</button>
+      </div>
+    </div>
+    {{MAP_DARK}}
+    {{MAP_LIGHT}}
+    <details class="tmap-more">
+      <summary><b>{{N_RECIPES}} recipes over a role</b> &mdash; washes, hovers, shadows, glass: built from roles, so they follow them into any theme</summary>
+      {{RECIPES}}
+    </details>
+    <details class="tmap-more">
+      <summary><b>{{N_GEO}} geometry primitives</b> &mdash; type, space, radius, size, icons, motion: no semantic level, read by components directly</summary>
+      <div class="geo">{{GEOMETRY}}</div>
+    </details>
+  </div>
+  <p class="tnote">Hover a role for the uses it grew from. In light, a <code>dashed</code> role has no light value of its own and keeps the dark one &mdash; the gaps phase 09 signs; an outlined recipe is one light signed apart. Read from <code>tokens.css</code> at build time, so the map cannot drift from the file.</p>
 </section>
 
 <!-- ============ COMPONENTS ============ -->
@@ -350,5 +407,16 @@
   });
   fit();
   if (window.ResizeObserver) new ResizeObserver(fit).observe(stage); else window.addEventListener('resize', fit);
+})();
+(function(){
+  var box = document.querySelector('[data-tmapbox]');
+  if (!box) return;
+  var group = box.querySelector('.mode'), count = box.querySelector('[data-tmapcount]');
+  group.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    group.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    box.querySelectorAll('[data-tmap]').forEach(function(l){ l.hidden = l.dataset.tmap !== b.dataset.tmapPick; });
+    count.textContent = b.dataset.count;
+  });
 })();
 </script>
