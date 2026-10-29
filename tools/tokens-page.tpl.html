@@ -59,36 +59,56 @@
 .outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
 .outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
 .outs a:hover{border-color:var(--accent)}
-/* --- the token map: a colour primitive on the left, the roles that point at it on the right --- */
-.tmap-box{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;background:var(--surface);overflow:hidden}
-.tmap-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+/* --- the token map: one collapsible block per hue and per geometry group, each an aligned table --- */
+.tmap-box{margin:22px 0 8px}
+.tmap-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:10px;padding:10px 12px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:13px;color:var(--ink-2)}
 .tmap-bar .mode{margin-left:auto}
-.tmap{list-style:none;margin:0;padding:6px 0 10px;columns:2 430px;column-gap:0;column-rule:1px solid var(--rule-soft)}
-.tmap li{break-inside:avoid;display:grid;grid-template-columns:minmax(0,262px) minmax(0,1fr);align-items:start;margin:0;padding:3px 14px}
-.tmap li.hue{display:block;padding:10px 14px 3px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);break-after:avoid}
-.tmap .prim{display:flex;align-items:center;gap:8px;min-width:0;position:relative;min-height:20px;padding-right:22px}
-.tmap .prim::after{content:"";position:absolute;right:4px;top:50%;width:14px;border-top:1px solid var(--rule)}
-.tmap .prim code{font-size:12px;color:var(--ink);background:none;padding:0;border:0;white-space:nowrap}
-.tmap .prim small{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tmap .sw{flex:none;width:16px;height:16px;border-radius:4px;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.14)}
-.tmap .sw.a{background:linear-gradient(var(--sw),var(--sw)),repeating-conic-gradient(#ccc 0 25%,#fff 0 50%) 0 0/8px 8px}
-.tmap .roles{display:flex;flex-wrap:wrap;gap:4px;min-height:20px;padding-left:8px;border-left:1px solid var(--rule)}
-.tmap .roles code,.tmap-more code{font-size:11.5px;line-height:18px;padding:0 6px;border:1px solid var(--rule);border-radius:4px;background:var(--sunken);color:var(--ink-2);cursor:help}
-.tmap-more{border-top:1px solid var(--rule)}
-.tmap-more summary{display:list-item;padding:10px 14px;font-size:13px;line-height:1.45;color:var(--ink-2);cursor:pointer}
-.tmap-more summary b{display:inline;color:var(--ink)}
-.tmap .roles code.kept{border-style:dashed;color:var(--ink-3)}
-.tmap-key{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--ink-3)}
-.tmap-key code{font-size:11.5px;padding:0 6px;border:1px dashed var(--rule);border-radius:4px;background:var(--sunken);color:var(--ink-3)}
+.tmap-bar .all{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--rule);border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer}
+.tmap-bar .all:hover{background:var(--surface-hover);color:var(--ink)}
+.tmap-h{margin:22px 0 8px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.tm{margin:0 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.tm > summary{display:grid;grid-template-columns:14px 180px 230px 170px 1fr;align-items:center;gap:6px 14px;padding:11px 14px;cursor:pointer;list-style:none}
+.tm > summary::-webkit-details-marker{display:none}
+.tm > summary::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:rotate(-45deg);transition:transform var(--dur) var(--ease)}
+.tm[open] > summary::before{transform:rotate(45deg) translate(-2px,-1px)}
+.tm > summary:hover{background:var(--surface-hover)}
+.tm-t{font-size:14.5px;font-weight:600;color:var(--ink)}
+.tm-strip{display:inline-flex}
+.tm-strip .sw{width:18px;height:18px;border-radius:0;margin-right:-1px}
+.tm-strip .sw:first-child{border-radius:4px 0 0 4px}.tm-strip .sw:last-child{border-radius:0 4px 4px 0}
+.tm-n{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.tm-d{font-size:13px;color:var(--ink-3)}
+.tm[open] > summary{border-bottom:1px solid var(--rule)}
+.tm-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
+.tm-table col.c-sw{width:38px}.tm-table col.c-nm{width:250px}.tm-table col.c-val{width:200px}.tm-table col.c-to{width:30px}
+.tm-table col.c-from{width:330px}.tm-table col.c-gv{width:440px}
+.tm-table td{overflow-wrap:anywhere}
+.tm-table th{padding:7px 14px;text-align:left;font-family:var(--font-mono);font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--sunken);border-bottom:1px solid var(--rule-soft)}
+.tm-table td{padding:7px 14px;vertical-align:middle;border-bottom:1px solid var(--rule-soft)}
+.tm-table tr:last-child td{border-bottom:0}
+.tm-table tbody tr:hover td{background:var(--accent-06)}
+.tm-table code{font-size:12px;background:none;padding:0;border:0}
+.tm-table .sw-c{width:22px;padding-right:0}
+.tm-table .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm-table .nm code{color:var(--ink)}
+.tm-table .val{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm-table .val code{color:var(--ink-3)}
+.tm-table .to{padding:7px 4px;color:var(--ink-3);text-align:center}
+.tm-table .rl{line-height:1.9}
+.tm-table .rl code{display:inline-block;margin:0 4px 0 0;padding:0 7px;border:1px solid var(--rule);border-radius:4px;background:var(--sunken);font-size:12px;line-height:20px;color:var(--ink-2);cursor:help}
+.tm-table .rl code.kept{border-style:dashed;color:var(--ink-3)}
+.tm-table tr.own .nm code{color:var(--accent)}
+.tm-table .ds{font-size:12.5px;color:var(--ink-3)}
+.tm-table .ds em{font-style:normal;color:var(--accent)}
+
+.sw{display:inline-block;flex:none;width:16px;height:16px;border-radius:4px;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);vertical-align:middle}
+.sw.a{background:linear-gradient(var(--sw),var(--sw)),repeating-conic-gradient(#ccc 0 25%,#fff 0 50%) 0 0/8px 8px}
+.pv .bar{display:block;height:10px;border-radius:2px;background:var(--accent-45)}
+.pv .rad{display:block;width:28px;height:28px;border-top:2px solid var(--ink-2);border-left:2px solid var(--ink-2)}
+.pv .spec{color:var(--ink)}
 .tmap-box + .tnote{margin-top:12px}
-.tmap-more code.own{border-color:var(--accent-45);color:var(--ink)}
-.tmap-more .chips{display:flex;flex-wrap:wrap;gap:4px;padding:0 14px 14px}
-.tmap-more .chips b{font-weight:400;color:var(--accent)}
-.tmap-more .geo{display:grid;gap:8px;padding:0 14px 14px}
-.tmap-more .geo div{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-.tmap-more .geo .k{width:150px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-.tmap-more .geo small{color:var(--ink-3);font-size:11px}
-@media (max-width:640px){.tmap li{grid-template-columns:1fr}.tmap .prim{padding-right:0}.tmap .prim::after{display:none}.tmap .roles{border-left:0;padding:4px 0 4px 24px}}
+@media (max-width:900px){.tm > summary{grid-template-columns:14px 1fr auto}}
+@media (max-width:640px){.tm-table{table-layout:auto}.tm-table colgroup{display:none}.tm > summary{grid-template-columns:14px 1fr auto}.tm-strip,.tm-d{display:none}.tm-table thead{display:none}.tm-table tr{display:grid;grid-template-columns:22px 1fr;padding:6px 0}.tm-table td{border:0;padding:2px 14px}.tm-table td.sw-c{grid-row:span 2}.tm-table .to{display:none}.tm-table td.rl,.tm-table td.ds,.tm-table td.pv{grid-column:1 / -1}.tm-table tr + tr{border-top:1px solid var(--rule-soft)}.tm-table.geo .pv{width:auto}}
 </style>
 
 
@@ -245,24 +265,22 @@
   <p class="qline">On the left, a primitive &mdash; what a value <strong>is</strong>. On the right, every role that reads it &mdash; what it is <strong>for</strong>. Switch the theme and <strong>only the right side moves</strong>.</p>
   <div class="tmap-box wide" data-tmapbox>
     <div class="tmap-bar">
-      <span data-tmapcount>{{N_DIRECT}} roles on {{N_USED_DARK}} primitives</span>
+      <span data-tmapcount>{{N_DIRECT}} roles on {{N_USED_DARK}} colour primitives</span>
+      <button type="button" class="all" data-all="open">Expand all</button>
+      <button type="button" class="all" data-all="close">Collapse all</button>
       <div class="mode" role="group" aria-label="Theme">
-        <button type="button" data-tmap-pick="dark" data-count="{{N_DIRECT}} roles on {{N_USED_DARK}} primitives" aria-pressed="true">Dark</button>
-        <button type="button" data-tmap-pick="light" data-count="{{N_DIRECT}} roles on {{N_USED_LIGHT}} primitives" aria-pressed="false">Light</button>
+        <button type="button" data-tmap-pick="dark" data-count="{{N_DIRECT}} roles on {{N_USED_DARK}} colour primitives" aria-pressed="true">Dark</button>
+        <button type="button" data-tmap-pick="light" data-count="{{N_DIRECT}} roles on {{N_USED_LIGHT}} colour primitives" aria-pressed="false">Light</button>
       </div>
     </div>
+    <p class="tmap-h">Colour &mdash; primitive &rarr; role</p>
     {{MAP_DARK}}
     {{MAP_LIGHT}}
-    <details class="tmap-more">
-      <summary><b>{{N_RECIPES}} recipes over a role</b> &mdash; washes, hovers, shadows, glass: built from roles, so they follow them into any theme</summary>
-      {{RECIPES}}
-    </details>
-    <details class="tmap-more">
-      <summary><b>{{N_GEO}} geometry primitives</b> &mdash; type, space, radius, size, icons, motion: no semantic level, read by components directly</summary>
-      <div class="geo">{{GEOMETRY}}</div>
-    </details>
+    {{RECIPES}}
+    <p class="tmap-h">Geometry &mdash; {{N_GEO}} primitives, no semantic level, read by components directly</p>
+    {{GEOMETRY}}
   </div>
-  <p class="tnote">Hover a role for the uses it grew from. In light, a <code>dashed</code> role has no light value of its own and keeps the dark one &mdash; the gaps phase 09 signs; an outlined recipe is one light signed apart. Read from <code>tokens.css</code> at build time, so the map cannot drift from the file.</p>
+  <p class="tnote">Every block folds. Hover a role for the uses it grew from. In light, a <code>dashed</code> role has no light value of its own and keeps the dark one &mdash; the gaps phase 09 signs; an outlined recipe is one light signed apart. Read from <code>tokens.css</code> at build time, so the map cannot drift from the file.</p>
 </section>
 
 <!-- ============ COMPONENTS ============ -->
@@ -419,6 +437,12 @@
     group.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
     box.querySelectorAll('[data-tmap]').forEach(function(l){ l.hidden = l.dataset.tmap !== b.dataset.tmapPick; });
     count.textContent = b.dataset.count;
+  });
+  box.querySelectorAll('[data-all]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var open = b.dataset.all === 'open';
+      box.querySelectorAll('details.tm').forEach(function(d){ d.open = open; });
+    });
   });
 })();
 </script>

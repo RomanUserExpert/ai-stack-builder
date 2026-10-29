@@ -57,9 +57,10 @@ assert dark_p.count("info") == light_p.count("info"), "information pairs differ 
 assert not re.search(r"^\s+[\d.]+ fail", tokens, re.M | re.I), "a pair below AA"
 n_pairs, n_info = len(dark_p), dark_p.count("info")
 
-# ---- the token map: every colour primitive, the roles that point at it, per theme ----
+# ---- the token map: one collapsible block per hue and per geometry group, each a table ----
 import html as _html
 LINE = r"^\s*(--[\w-]+)\s*:\s*([^;]+);\s*(?:/\*\s*(.*?)\s*\*/)?\s*$"
+esc = lambda s: _html.escape(s, quote=True)
 
 
 def decls(text):
@@ -70,8 +71,14 @@ prim_colour = [(n, v, c) for n, v, c in decls(prim) if re.match(r"#|rgba?\(", v)
 prim_value = {n: v for n, v, _ in prim_colour}
 sem_dark = decls(sem)
 sem_light = {n: (v, c) for n, v, c in decls(light)}
-HUES = [("neutral", "Neutral"), ("lime", "Lime"), ("rose", "Rose"), ("amber", "Amber"), ("red", "Red"),
-        ("white", "White and black"), ("black", "White and black")]
+HUES = [("neutral", "Neutral", "the style's Mica greys"),
+        ("lime", "Lime", "the act and the mark"), ("rose", "Rose", "a Problem"),
+        ("amber", "Amber", "a Note, and going ahead despite a Problem"), ("red", "Red", "removing"),
+        ("white", "White and black", "ink on a fill, highlights, shadows"),
+        ("black", "White and black", "")]
+hue_of = lambda name: next(k for k, *_ in HUES if name[len("--color-"):].startswith(k))
+HUE_KEYS = ["neutral", "lime", "rose", "amber", "red", "white"]
+LABEL = {k: (l, d) for k, l, d in HUES if d}
 
 
 def target(v):
@@ -79,73 +86,117 @@ def target(v):
     return m.group(1) if m else None
 
 
-def tree(theme):
+def many(n, word):
+    return "%d %s%s" % (n, word, "" if n == 1 else "s")
+
+
+def swatch(value):
+    return '<i class="sw%s" style="--sw:%s"></i>' % (" a" if value.startswith("rgba") else "", value)
+
+
+def colours(theme):
     roles = {}
     for n, v, c in sem_dark:
+        kept = theme == "light" and n not in sem_light   # a gap: no light value of its own, so it draws dark
         if theme == "light" and n in sem_light:
             v, c = sem_light[n]
         t = target(v)
         assert t in prim_value, "a role that does not point at a colour primitive: %s -> %s" % (n, v)
-        kept = theme == "light" and n not in sem_light  # a gap: no light value of its own, so it draws dark
         roles.setdefault(t, []).append((n, ("No light value of its own: keeps the dark one. " if kept else "") + c, kept))
-    out, last = [], None
-    order = [label for _, label in HUES]
-    hue_of = lambda name: next(label for key, label in HUES if name[len("--color-"):].startswith(key))
-    for name, value, _ in sorted(prim_colour, key=lambda p: order.index(hue_of(p[0]))):  # stable: file order in a hue
-        if name not in roles:
+    blocks, used = [], 0
+    for key in HUE_KEYS:
+        rows = [(n, v) for n, v, _ in prim_colour if n in roles and hue_of(n) in (key, "black" if key == "white" else key)]
+        if not rows:
             continue
-        hue = hue_of(name)
-        if hue != last:
-            out.append('<li class="hue">%s</li>' % hue)
-            last = hue
-        chips = "".join('<code%s title="%s">%s</code>' % (' class="kept"' if k else "", _html.escape(c, quote=True), r)
-                        for r, c, k in roles[name])
-        alpha = " a" if value.startswith("rgba") else ""
-        out.append('<li><span class="prim"><i class="sw%s" style="--sw:%s"></i><code>%s</code><small>%s</small></span>'
-                   '<span class="roles">%s</span></li>' % (alpha, value, name, value, chips))
-    used = sum(1 for n, _, _ in prim_colour if n in roles)
-    return '<ol class="tmap" data-tmap="%s"%s>%s</ol>' % (theme, "" if theme == "dark" else " hidden", "".join(out)), used
+        used += len(rows)
+        n_roles = sum(len(roles[n]) for n, _ in rows)
+        strip = "".join(swatch(v) for _, v in rows)
+        body = "".join(
+            '<tr><td class="sw-c">%s</td><td class="nm"><code>%s</code></td><td class="val"><code>%s</code></td>'
+            '<td class="to">&rarr;</td><td class="rl">%s</td></tr>' % (
+                swatch(v), n, v, "".join('<code%s title="%s">%s</code>' % (' class="kept"' if k else "", esc(c), r)
+                                          for r, c, k in roles[n]))
+            for n, v in rows)
+        label, desc = LABEL[key]
+        blocks.append(
+            '<details class="tm" open><summary><span class="tm-t">%s</span><span class="tm-strip">%s</span>'
+            '<span class="tm-n">%s &middot; %s</span><span class="tm-d">%s</span></summary>'
+            '<table class="tm-table col"><colgroup><col class="c-sw"><col class="c-nm"><col class="c-val"><col class="c-to"><col></colgroup>'
+            '<thead><tr><th></th><th>Primitive</th><th>Value</th><th></th><th>Semantic roles that read it</th></tr></thead>'
+            '<tbody>%s</tbody></table></details>' % (label, strip, many(len(rows), "primitive"), many(n_roles, "role"), desc, body))
+    return '<div data-tmap="%s"%s>%s</div>' % (theme, "" if theme == "dark" else " hidden", "".join(blocks)), used
 
 
-map_dark, used_dark = tree("dark")
-map_light, used_light = tree("light")
+map_dark, used_dark = colours("dark")
+map_light, used_light = colours("light")
+
 rec = decls(recipes)
 
 
 def recipes_of(theme):
-    chips = []
+    rows = []
     for n, v, c in rec:
-        own = theme == "light" and n in sem_light  # a recipe the light theme signed apart
+        own = theme == "light" and n in sem_light   # a recipe the light theme signed apart
         if own:
             v, c = sem_light[n]
         refs = sorted(set(re.findall(r"var\((--[\w-]+)\)", v)))
-        chips.append('<code%s title="%s">%s <b>&larr;</b> %s</code>' % (
-            ' class="own"' if own else "", _html.escape(c, quote=True), n, ", ".join(refs) if refs else _html.escape(v)))
-    return '<div class="chips" data-tmap="%s"%s>%s</div>' % (theme, "" if theme == "dark" else " hidden", "".join(chips))
+        rows.append('<tr%s><td class="nm"><code>%s</code></td><td class="to">&larr;</td><td class="rl">%s</td>'
+                    '<td class="ds">%s</td></tr>' % (
+                        ' class="own"' if own else "", n,
+                        "".join("<code>%s</code>" % r for r in refs) if refs else "<code>%s</code>" % esc(v),
+                        esc(c.split(" — ")[0].split(" (")[0]) + (" <em>light&rsquo;s own</em>" if own else "")))
+    return ('<table class="tm-table rec" data-tmap="%s"%s><colgroup><col class="c-nm"><col class="c-to"><col class="c-from"><col></colgroup>'
+            '<thead><tr><th>Recipe</th><th></th><th>Built from</th><th>What it is</th>'
+            '</tr></thead><tbody>%s</tbody></table>' % (theme, "" if theme == "dark" else " hidden", "".join(rows)))
 
 
-rec_html = recipes_of("dark") + recipes_of("light")
-geo_groups = [
-    ["type", lambda n: n.startswith(("--font-", "--typescale-", "--tracking-")), []],
-    ["space", lambda n: n.startswith("--space-"), []],
-    ["radius", lambda n: n.startswith("--radius-"), []],
-    ["size, width, offset", None, []],
-    ["icons", lambda n: n.startswith("--icon-"), []],
-    ["motion", lambda n: n.startswith(("--ease-", "--duration-")), []],
-]
-geo = [(n, v, c) for n, v, c in decls(prim) if n not in prim_value]
-px = lambda v: float(v[:-2]) if v.endswith("px") else 0.0
-geo.sort(key=lambda d: (0, px(d[1])) if d[0].startswith("--space-") else
-         (1, d[0].split("-")[2], px(d[1])) if not d[0].startswith(("--font", "--typescale", "--tracking", "--icon", "--ease", "--duration", "--radius")) else (2,))
-for n, v, _ in geo:
-    g = next((g for g in geo_groups if g[1] and g[1]("--" + n.lstrip("-"))), geo_groups[3])
-    if g[0] in ("icons", "type"):
-        g[2].append('<code title="%s">%s</code>' % (_html.escape(v, quote=True), n))
-    else:
-        g[2].append('<code>%s <small>%s</small></code>' % (n, _html.escape(v)))
-n_geo = sum(len(g[2]) for g in geo_groups)
-assert n_geo + len(prim_colour) == n_prim, "a primitive the map does not show"
-geo_html = "".join('<div><span class="k">%s</span>%s</div>' % (g[0], "".join(g[2])) for g in geo_groups if g[2])
+rec_html = ('<details class="tm"><summary><span class="tm-t">Recipes over a role</span><span class="tm-strip"></span>'
+            '<span class="tm-n">%d recipes</span><span class="tm-d">washes, hovers, shadows, glass &mdash; they follow their roles into any theme</span>'
+            '</summary>%s%s</details>' % (len(rec), recipes_of("dark"), recipes_of("light")))
+
+GEO = [("Type", "families, weights, the type scale, tracking", lambda n: n.startswith(("--font-", "--typescale-", "--tracking-"))),
+       ("Space", "the 4 px scale", lambda n: n.startswith("--space-")),
+       ("Radius", "corners", lambda n: n.startswith("--radius-")),
+       ("Border width", "lines", lambda n: n.startswith("--border-width-")),
+       ("Size", "controls, tags, marks, icons, dots", lambda n: n.startswith("--size-")),
+       ("Width and measure", "columns, sheets, dialogs, lines of text", lambda n: n.startswith(("--width-", "--measure"))),
+       ("Offset and inset", "where a dialog or a door sits", lambda n: n.startswith(("--offset-", "--inset-"))),
+       ("Layer", "stacking", lambda n: n.startswith("--z-")),
+       ("Icons", "drawn by CSS as a mask", lambda n: n.startswith("--icon-")),
+       ("Motion", "easing and durations", lambda n: n.startswith(("--ease-", "--duration-")))]
+geo = [(n, v) for n, v, _ in decls(prim) if n not in prim_value]
+px = lambda v: float(v[:-2]) if re.fullmatch(r"[\d.]+px", v) else None
+groups = [(t, d, [(n, v) for n, v in geo if test(n)]) for t, d, test in GEO]
+assert sum(len(g) for *_, g in groups) == len(geo), "a geometry primitive in no group: " + ", ".join(
+    n for n, _ in geo if not any(test(n) for *_, test in GEO))
+n_geo = len(geo)
+
+
+def preview(title, n, v):
+    p = px(v)
+    if title == "Space" and p is not None:
+        return '<i class="bar" style="width:%gpx"></i>' % p
+    if title == "Radius" and p is not None:
+        return '<i class="rad" style="border-top-left-radius:%gpx"></i>' % min(p, 24)
+    if title == "Type" and n.startswith("--typescale-"):
+        return '<span class="spec" style="font:%s">Aa</span>' % esc(v.replace("var(--font-weight-regular)", "400")
+            .replace("var(--font-weight-medium)", "500").replace("var(--font-weight-semibold)", "600")
+            .replace("var(--font-sans)", "system-ui, sans-serif").replace("var(--font-mono)", "ui-monospace, monospace"))
+    return ""
+
+
+geo_html = ""
+for title, desc, rows in groups:
+    if title == "Space":
+        rows = sorted(rows, key=lambda r: px(r[1]))
+    shown = lambda v: "<code>%s</code>" % esc(v) if not v.startswith("url(") else "<em>an SVG mask</em>"
+    body = "".join('<tr><td class="nm"><code>%s</code></td><td class="val">%s</td><td class="pv">%s</td></tr>'
+                   % (n, shown(v), preview(title, n, v)) for n, v in rows)
+    geo_html += ('<details class="tm"><summary><span class="tm-t">%s</span><span class="tm-strip"></span><span class="tm-n">%s</span>'
+                 '<span class="tm-d">%s</span></summary><table class="tm-table geo"><colgroup><col class="c-nm"><col class="c-gv"><col></colgroup>'
+                 '<thead><tr><th>Primitive</th><th>Value</th><th></th></tr></thead><tbody>%s</tbody></table></details>'
+                 % (title, many(len(rows), "primitive"), desc, body))
+
 TOKEN_MAP = {"{{MAP_DARK}}": map_dark, "{{MAP_LIGHT}}": map_light, "{{RECIPES}}": rec_html, "{{GEOMETRY}}": geo_html,
              "{{N_USED_DARK}}": used_dark, "{{N_USED_LIGHT}}": used_light, "{{N_RECIPES}}": len(rec),
              "{{N_DIRECT}}": len(sem_dark), "{{N_GEO}}": n_geo}
