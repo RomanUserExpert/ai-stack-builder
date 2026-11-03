@@ -2094,6 +2094,41 @@ decisions its plan owed before step 1 ([`09-design-system/README.md`](../09-desi
 `06-concept/references.md`) keep their recommendations as the default and are taken in steps 7 and 2; **Q44** —
 whether light ships in the product — is still the owner's.
 
+### Q49 — states: pressed, and the four light gaps, signed — raised and answered 2026-11-03
+
+**Raised by lesson 09, step 3**, which drew hover, active, focus-visible and disabled on every control in both themes and
+put the values D4 and D5 (Q48) left to the owner on the docs' *States* blocks. **Answered by the owner, as proposed**
+(*давай*).
+
+**Pressed (D5)** — one recipe per ground, half a step past its hover in the direction the hover went, so it lightens where
+hover lightens and darkens where it darkens, theme by theme. Each is a recipe over a role, so it has its value in both
+themes by construction. Nothing moves and nothing changes size.
+
+| Token | Dark | Light | Where |
+|---|---|---|---|
+| `--action-active` | `#D9F591` | `#9BBF3F` | the primary |
+| `--control-active` | `#41433C` | `#DADCD2` | a secondary button, select, Add, the ✕ |
+| `--row-active` | `#272824` | `#FEFEFD` | a row's name pressed, a stage |
+| `--segment-active` | `#262723` | `#FCFCFB` | a segment |
+| `--wash-active` | `#282925` | `#FDFDFC` | a place, a tab, a quiet button |
+| `--danger-active` | `#A52B32` | `#A52B32` | the remove, in its confirmation |
+| `--warning-active` | `#C2832A` | `#794603` | Export with 1 problem |
+| `--problem-active` | edge `#FF8F98` | edge `#B4232E` | the quiet remove inside a Problem: its edge, not its fill |
+| `--edge-active` | `#C5C7BE` | `#464A40` | a field's, a checkbox's, a drop zone's edge |
+
+The quiet remove inside a Problem changes its **edge**, not its fill: in light the rose word on the hover wash is
+already 4.51:1, and a denser fill took it under AA (4.36 at 16 %).
+
+**The four light gaps (D4)**: `--sheet-edge` is the light hairline `#DCDED4` (white at 5 % vanishes on a white sheet);
+`--danger`, `--danger-hover` and `--on-danger` keep the dark values (white on the red is 4.77:1). **No role is without a
+light value now.**
+
+**Unchanged and stated:** focus is `--focus` and `--shadow-focus`, now measured 3:1 on every ground in both themes (lowest
+4.67, light, on the tray); disabled is the three roles of D3, with `cursor: not-allowed`, and no opacity token — the
+course's prompt asks for one, and D3 (Q48) answered it. **Still open:** whether light ships (Q44); and, found by this step,
+**a disabled field is white in light** — `--disabled` takes the slice's light control — so it reads brighter than a field
+at rest. Not changed here.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

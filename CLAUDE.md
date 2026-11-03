@@ -212,7 +212,7 @@ product *is* before anything decides what it looks like.
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
 | **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css` |
+| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49) |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
 | **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
@@ -1512,6 +1512,9 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-11-03 — Q49. States signed** (owner): pressed, one recipe per ground; the four light gaps filled; 83 contrast
+pairs per theme pass. Open: a disabled field reads white in light (§17).
+
 **Added 2026-11-03 — Q48. Lesson 08 is closed and lesson 09 is open**, with D1–D6 of its plan answered as
 recommended (owner): the system's package at `design-system/` in the root; the docs replace `kit.html`; disabled keeps
 its roles; the light gaps and the pressed state signed value by value; the test screen picked from lesson 03's matrix.
@@ -1528,7 +1531,7 @@ Q6 is closed (§10).
 
 **Added 2026-10-28, by lesson 08 — Q44.** The owner's decisions on the tokens: A (splits), B (signed single-use colours stay
 roles), C (hover recipes kept), D3 (one generator), D4 (hue + OKLab step, renamed to a 50-step grade per theme by Q46); the light glass and shadow; Deep Lime for a checked
-control in light. **Open:** whether light ships in the product, and the light values of `--sheet-edge` and Remove Red (§17).
+control in light. **Open:** whether light ships in the product (§17). ~~the light values of `--sheet-edge` and Remove Red~~ — signed, Q49.
 
 **Added 2026-10-23 — Q43, the owner's choice of three.** **The link of a shared project or item can be had again.** A shared
 thing keeps its `Shared` tag and its button reads **`Share…`** again; on a shared thing it opens **the link** — `Copy link`,
@@ -1918,8 +1921,12 @@ The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md)
   values with their reasons:
   - the light glass and the lighter sheet shadow, on the owner's word;
   - Deep Lime with a white tick for a checked control, because lime on white is 1.32:1.
-- **Four roles still have no light value of their own**: `--sheet-edge` and the Remove Red family. They are listed
-  in the block. Signing them is lesson 09's, never a refactor's.
+- ~~**Four roles still have no light value of their own**~~ **Signed 2026-11-03 (Q49)**: `--sheet-edge` is the light
+  hairline, and the Remove Red family keeps its dark values. No role is without a light value.
+- **States** (lesson 09, Q49): pressed is one recipe per ground (`--*-active`, in the recipes block, so in both themes);
+  focus is `--focus`/`--shadow-focus`, 3:1 on every ground in both themes; disabled is the three roles, never an
+  opacity. **No state moves or resizes anything.** `[data-theme="dark"]` repeats the dark roles so a dark subtree can
+  stand inside a light page.
 - **Whether light ships in the product is the owner's call** (Q44). Until then its switch lives in the viewer's
   toolbar (*Dark · Light*, beside *Wireframe · Design*) and on `kit.html`. It is not in the product's top bar.
 

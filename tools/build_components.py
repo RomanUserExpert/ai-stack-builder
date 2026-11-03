@@ -342,7 +342,7 @@ def in_dom(pairs):
 
 def source():
     body = re.sub(r"^\s*/\* mockup\.css.*?\*/\s*", "", bm.MOCK_CSS, flags=re.S)
-    return body.strip() + "\n" + build_kit.KIT_CSS + build_kit.skeleton_css()
+    return body.strip() + "\n" + build_kit.KIT_CSS + build_kit.skeleton_css() + build_kit.STATES_CSS  # states last (phase 09)
 
 
 def build(write=True):

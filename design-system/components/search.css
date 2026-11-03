@@ -12,3 +12,6 @@
 .filters-button{margin-left:auto}
 /* the Filters popover: it hangs from its button, on the same acrylic edge as a dialog */
 .find-zone{position:relative}
+.search:active{border-color:var(--edge-active)}
+.search:has(input:disabled),.search:has(input:disabled):hover{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}
+.search:has(input:disabled) input{cursor:not-allowed}

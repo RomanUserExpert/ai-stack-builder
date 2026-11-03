@@ -111,7 +111,63 @@ DOC_CSS = r"""
 .doc-ref h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
 .doc-ref .doc-prose{max-width:var(--measure-wide)}
 .doc-ref .kit-demo{grid-column:auto;grid-row:auto}
+.doc-states-wrap{display:flex;flex-direction:column;gap:var(--space-2);overflow-x:auto}
+.doc-states{display:grid;grid-template-columns:var(--width-col-md) repeat(5,minmax(max-content,1fr));gap:var(--space-2);align-items:stretch}
+.doc-states>.kit-label{align-self:center}
+.doc-cell{display:flex;align-items:center;justify-content:flex-start;gap:var(--space-2);padding:var(--space-6) var(--space-5);background:var(--ground);color:var(--text);font:var(--typescale-body);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.doc-cell.is-bar{background:var(--bar)}
+.doc-cell>*{min-width:0}
+.doc-cell .kit-demo{grid-column:auto;grid-row:auto}
+.doc-cell .kit-demo>:is(.field,.search,.field-row,.dropzone,.file-list,.callout,.aside-box){width:var(--width-col-md)}
+.doc-na{align-items:flex-start;font:var(--typescale-small);color:var(--text-3);border-style:dashed;white-space:normal;max-width:var(--width-col-lg)}
+.doc-static{display:flex;flex-direction:column;gap:var(--space-2);max-width:var(--measure);color:var(--text-2)}
+.doc-states-note{font:var(--typescale-micro);color:var(--text-3)}
+.doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 """
+
+STATES_JS = r"""<script>
+(function(){
+  /* the States block: the product's own :hover, :active, :focus-visible and :focus-within rules, copied once with the
+     pseudo-class turned into an attribute, so a state can be put on a specimen and held there. Nothing of the product's
+     CSS is changed; disabled is the real attribute. */
+  var MAP = [[':focus-visible', '[data-ds-focus]'], [':focus-within', '[data-ds-focus-within]'],
+             [':hover', '[data-ds-hover]'], [':active', '[data-ds-active]']];
+  var out = [], ok = true;
+  function walk(sheet){
+    var rules; try { rules = sheet.cssRules; } catch (e) { if (!sheet.href || new URL(sheet.href).origin === location.origin) ok = false; return; }  /* a font's sheet on another host is not ours to read */
+    for (var i = 0; i < rules.length; i++){
+      var r = rules[i];
+      if (r.styleSheet) { walk(r.styleSheet); continue; }
+      if (r.cssRules && !r.selectorText) { walk(r); continue; }
+      if (!r.selectorText || !/:(hover|active|focus-visible|focus-within)/.test(r.selectorText)) continue;
+      var sel = r.selectorText;
+      MAP.forEach(function(m){ sel = sel.split(m[0]).join(m[1]); });
+      out.push(sel + '{' + r.style.cssText + '}');
+    }
+  }
+  for (var i = 0; i < document.styleSheets.length; i++) walk(document.styleSheets[i]);
+  var st = document.createElement('style'); st.id = 'ds-forced'; st.textContent = out.join(' '); document.head.appendChild(st);
+  if (!ok) document.documentElement.classList.add('doc-states-off');
+  var FOCUSABLE = 'a[href],button,input:not([type=hidden]),select,textarea,summary';
+  var FIELD = 'button,input,select,textarea';
+  function up(el, cell, attr){ while (el && el !== cell){ el.setAttribute(attr, ''); el = el.parentElement; } }
+  document.querySelectorAll('.doc-cell[data-ds-state]').forEach(function(cell){
+    var sel = cell.closest('[data-ds-target]').getAttribute('data-ds-target');
+    var root = cell.querySelector('.kit-demo');
+    var t = sel ? root.querySelector(sel) : root.firstElementChild;
+    if (!t) return;
+    var s = cell.getAttribute('data-ds-state');
+    var f = t.matches(FOCUSABLE) ? t : t.querySelector(FOCUSABLE);
+    if (s === 'hover') up(t, cell, 'data-ds-hover');
+    if (s === 'active') { up(t, cell, 'data-ds-hover'); up(t, cell, 'data-ds-active'); if (f) up(f, cell, 'data-ds-active'); }
+    if (s === 'focus' && f) { f.setAttribute('data-ds-focus', ''); up(f, cell, 'data-ds-focus-within'); }
+    if (s === 'disabled') {
+      var d = t.matches(FIELD) ? t : t.querySelector(FIELD);
+      if (d) d.disabled = true; else t.setAttribute('aria-disabled', 'true');
+    }
+  });
+})();
+</script>"""
 
 PIN_JS = r"""<script>
 (function(){
@@ -183,6 +239,7 @@ def page(title, body, nav, name):
 <body class="product-page kit-page doc-page">
 <header class="kit-top"><strong><a href="index.html" class="doc-home">Design system</a></strong><nav>{nav}</nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 {body}
+{STATES_JS if 'data-ds-target' in body else ''}
 {PIN_JS}
 </body>
 </html>
@@ -203,6 +260,39 @@ def demo(frag):
 def nav_links():
     return ('<a href="index.html">Components</a><a href="why.html">Why it looks like this</a>'
             '<a href="../../07-ui-assembly/ui/kit.html">UI kit</a>')
+
+
+STATE_COLS = [("rest", "Rest"), ("hover", "Hover"), ("active", "Active"), ("focus", "Focus-visible"), ("disabled", "Disabled")]
+
+
+def states_block(c):
+    """Phase 09, step 3: the four states, beside rest, in dark and in light."""
+    if c.name in docs_content.STATIC:
+        why, to = docs_content.STATIC[c.name]
+        more = f' → <a href="{slug(to)}.html">{E(to)}</a>' if to else ""
+        return f'<div class="doc-static"><p>No state of its own. {E(why)}{more}</p></div>'
+    tables = []
+    for k, spec in enumerate(docs_content.STATES[c.name]):
+        cut = spec["cut"]
+        frag = bk.outer(demo(c.states[spec["of"]].demo), cut[0], cut[1], cut[2] if len(cut) > 2 else None,
+                        cut[3] if len(cut) > 3 else 0, page=c.name)
+        frag = spec.get("wrap", "{}").format(frag)
+        na = spec.get("na", {})
+        cells = ['<span></span>'] + [f'<p class="kit-label">{lab}</p>' for _, lab in STATE_COLS]
+        for theme in ("dark", "light"):
+            cells.append(f'<p class="kit-label">{theme.capitalize()}</p>')
+            for st, _lab in STATE_COLS:
+                bar = " is-bar" if spec.get("bar") else ""
+                if st in na:
+                    cells.append(f'<div class="doc-cell doc-na{bar}" data-theme="{theme}">{E(na[st])}</div>')
+                    continue
+                f = reprefix(frag, f"s{k}{theme[0]}{st}-")
+                cells.append(f'<div class="doc-cell{bar}" data-theme="{theme}" data-ds-state="{st}"><div class="kit-demo">{f}</div></div>')
+        cap = f'<p class="kit-label">{E(spec["label"])}</p>' if spec.get("label") else ""
+        tables.append(f'<div class="doc-states-wrap" data-ds-target="{E(spec["target"])}">{cap}<div class="doc-states">{"".join(cells)}</div></div>')
+    return ("".join(tables) + '<p class="doc-states-note">Each state is held on the live component by copying the '
+            "product's own :hover, :active and :focus-visible rules onto an attribute; disabled is the real attribute. "
+            "Pressed was signed by the owner on 2026-11-03 (Q49).</p>")
 
 
 # ------------------------------------------------------------------ one page per component
@@ -231,6 +321,10 @@ def comp_page(group, c, prev, nxt):
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
   {"".join(reprefix(demo(s), f"v{i}-") for i, s in enumerate(c.states))}
   {size}
+</section>
+<section class="doc-sec" id="states"><h2>States</h2>
+  <p class="doc-lead">Hover, active, focus-visible and disabled, beside rest, in both themes. No state moves the component or changes its size.</p>
+  {states_block(c)}
 </section>
 <section class="doc-sec" id="when"><h2>When to use</h2>
   <div class="doc-prose"><p>{E(d["when"])}</p></div>
@@ -418,6 +512,73 @@ def check_browser(pages):
     return bad
 
 
+STATE_JS_CHECK = """() => {
+  const PROPS = ['background-color', 'color', 'border-top-color', 'border-bottom-color', 'box-shadow', 'text-decoration-line',
+                 'text-decoration-color'];
+  const FOCUSABLE = 'a[href],button,input:not([type=hidden]),select,textarea,summary';
+  const bad = [], seen = [];
+  if (document.documentElement.classList.contains('doc-states-off')) return ['the product CSS could not be read'];
+  document.querySelectorAll('[data-ds-target]').forEach((wrap, w) => {
+    const sel = wrap.getAttribute('data-ds-target');
+    const cells = [...wrap.querySelectorAll('.doc-cell')];
+    for (const theme of ['dark', 'light']) {
+      const row = cells.filter(c => c.getAttribute('data-theme') === theme);
+      const look = cell => {
+        const root = cell.querySelector('.kit-demo');
+        const t = sel ? root.querySelector(sel) : root.firstElementChild;
+        if (!t) return null;
+        const f = t.matches(FOCUSABLE) ? t : t.querySelector(FOCUSABLE);
+        const els = [t, f].filter(Boolean);
+        for (let e = t.parentElement; e && e !== cell; e = e.parentElement) els.push(e);
+        const sig = els.map(e => { const cs = getComputedStyle(e), bf = getComputedStyle(e, '::before');
+          return PROPS.map(p => cs.getPropertyValue(p)).join('|') + '|' + bf.getPropertyValue('background-color'); }).join('#');
+        const r = t.getBoundingClientRect();
+        return {sig, w: r.width, h: r.height};
+      };
+      const rest = look(row[0]);
+      if (!rest) { bad.push(`${w} ${theme}: target ${sel} not found`); continue; }
+      row.slice(1).forEach(cell => {
+        const st = cell.getAttribute('data-ds-state');
+        if (!st) return;
+        const now = look(cell);
+        if (!now) { bad.push(`${w} ${theme} ${st}: target ${sel} not found`); return; }
+        if (now.sig === rest.sig) bad.push(`${w} ${theme} ${st}: looks the same as rest`);
+        if (Math.abs(now.w - rest.w) > 0.5 || Math.abs(now.h - rest.h) > 0.5) bad.push(`${w} ${theme} ${st}: changes size`);
+      });
+    }
+  });
+  return bad;
+}"""
+
+
+def check_states(pages):
+    """Over http (a file:// page may not read its own stylesheets' rules): every state the docs draw differs from rest
+    on the live component, in both themes, and changes nothing's size."""
+    import functools, http.server, threading
+    from playwright.sync_api import sync_playwright
+    class Quiet(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, *a):
+            pass
+    handler = functools.partial(Quiet, directory=str(ROOT))
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    bad = {}
+    try:
+        with sync_playwright() as p:
+            br = p.chromium.launch()
+            pg = br.new_page(viewport={"width": 1440, "height": 900})
+            for f in pages:
+                url = f"http://127.0.0.1:{srv.server_port}/" + f.relative_to(ROOT).as_posix()
+                pg.goto(url, wait_until="load")
+                miss = pg.evaluate(STATE_JS_CHECK)
+                if miss:
+                    bad[f.name] = miss
+            br.close()
+    finally:
+        srv.shutdown()
+    return bad
+
+
 def build(browser=True):
     groups = bk.components()
     check_content(groups)
@@ -448,6 +609,11 @@ def build(browser=True):
             raise SystemExit("docs: anatomy parts not found in their specimen:\n  " +
                              "\n  ".join(f"{k}: {v}" for k, v in bad.items()))
         print(f"docs: every anatomy part found in its live specimen ({len(written)} pages)")
+        bad = check_states(written)
+        if bad:
+            raise SystemExit("docs: States block — a state that is not one:\n  " +
+                             "\n  ".join(f"{k}: {v}" for k, v in bad.items()))
+        print("docs: every state drawn differs from rest and moves nothing, in both themes")
 
 
 if __name__ == "__main__":

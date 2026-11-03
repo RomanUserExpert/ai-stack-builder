@@ -19,3 +19,5 @@ img.avatar{width:var(--size-mark);height:var(--size-mark);border-radius:var(--ra
 .run-bar .back:hover{color:var(--text)}
 .run-bar .title{font:var(--typescale-body);font-weight:var(--font-weight-semibold)}
 .run-bar .pick{margin-left:auto;display:flex;gap:var(--space-2);align-items:center;font:var(--typescale-small);color:var(--text-2);text-decoration:none}
+.app-nav a:active{color:var(--text);background:var(--wash-active)}
+.app-nav a[aria-disabled="true"],.app-nav a[aria-disabled="true"]:hover,.tabs a[aria-disabled="true"],.tabs a[aria-disabled="true"]:hover,.scope a[aria-disabled="true"],.scope a[aria-disabled="true"]:hover{color:var(--disabled-text);background:none;cursor:not-allowed}

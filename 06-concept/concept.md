@@ -546,3 +546,25 @@ from, except three, which are signed here:
 | `--control-on`, `--control-on-ink` | **Deep Lime `#55700F`** with a **white** tick, not lime with Lime Ink | lime on white is 1.32:1, and a checked checkbox or radio needs 3:1 (WCAG 1.4.11). Deep Lime is 5.66:1 on a panel, and white on it is 5.66:1 | phase 08 check, T7-1 (*исправь всё*) |
 
 **Still unsigned, and drawn dark in light:** `--sheet-edge`, and Remove Red with its hover and its ink. Lesson 09.
+
+## Phase 09 — states, signed (2026-11-03)
+
+**Signed by the owner on 2026-11-03 (register Q49).** Pressed, one recipe per ground, half a step past its hover in the
+direction the hover went; each a recipe over a role, so it holds in both themes. Nothing moves or resizes.
+
+| Token | Dark | Light | Where |
+|---|---|---|---|
+| `--action-active` | `#D9F591` | `#9BBF3F` | the primary |
+| `--control-active` | `#41433C` | `#DADCD2` | a secondary button, select, Add, the ✕ |
+| `--row-active` | `#272824` | `#FEFEFD` | a row's name pressed, a stage |
+| `--segment-active` | `#262723` | `#FCFCFB` | a segment |
+| `--wash-active` | `#282925` | `#FDFDFC` | a place, a tab, a quiet button |
+| `--danger-active` | `#A52B32` | `#A52B32` | the remove, in its confirmation |
+| `--warning-active` | `#C2832A` | `#794603` | Export with 1 problem |
+| `--problem-active` | edge `#FF8F98` | edge `#B4232E` | the quiet remove inside a Problem: its edge, not its fill |
+| `--edge-active` | `#C5C7BE` | `#464A40` | a field's, a checkbox's, a drop zone's edge |
+
+**The four light gaps:** `--sheet-edge` `#DCDED4` (the light hairline); `--danger` `#D4363F`, `--danger-hover` `#BE2E37`,
+`--on-danger` white — the dark values, white on red at 4.77:1. Contrast: 83 pairs per theme, all pass, written into
+`design-system/tokens.css`.
+

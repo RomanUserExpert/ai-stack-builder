@@ -4,3 +4,5 @@
 
 select{height:var(--size-control);padding:0 var(--space-3);font:var(--typescale-button);color:var(--text);background:var(--control);border:var(--border-width-thin) solid var(--control-edge);border-radius:var(--radius-sm);cursor:pointer;transition:background var(--duration-fast) var(--ease-out)}
 select:hover{background:var(--control-hover)}
+select:active{background:var(--control-active)}
+select:disabled,select:disabled:hover{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}

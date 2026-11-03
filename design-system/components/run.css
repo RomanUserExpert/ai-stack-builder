@@ -52,3 +52,4 @@
 .export-stage .meta code{background:none;padding:0;color:inherit}
 /* a file's name inside a stage's name: mono, but no chip in a heading-like line */
 .stages summary .name code{font:inherit;font-family:var(--font-mono);background:none;padding:0}
+.stages details:not(.stage-empty)>summary:active{background:var(--row-active)}

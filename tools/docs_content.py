@@ -499,3 +499,75 @@ C["Small heading"] = dict(
     rule="Inside a page's content only.",
     anti=("A place's own title is the Page head's Display title.", "Page head"),
 )
+
+
+# ------------------------------------------------------------------ phase 09, step 3: the States block
+# For each component: what its States block draws. A list of specimens, each cut from one of the component's states
+# (`of`, an index; `cut` = (tag, attribute text, text it contains, nth) as build_kit.outer takes it), with the element the
+# state is put on (`target`, a selector inside the cut; "" is the cut itself). A state the component does not have is
+# not drawn: `na` says why, in its place. A component with no state of its own says so (STATIC), and where its states
+# live instead. build_docs checks in a browser that every state drawn differs from rest, and moves nothing.
+LINK_NA = {"active": "A link answers the press as it answers the pointer: nothing to add.",
+           "disabled": "A link is never disabled: where there is nowhere to go, there is no link."}
+STATIC = {
+    "Shared header": ("It holds no control: the mark and the sharer are read, not operated.", None),
+    "Item text block": ("Text inside a row: the row carries the states.", "Row list"),
+    "Kind tag": ("A word on a pill: read, never pressed.", None),
+    "Usage facts": ("A line of facts: read, never pressed.", None),
+    "Run summary": ("A verdict line: read, never pressed.", None),
+    "File block": ("A file's contents: read, and scrolled sideways.", None),
+    "Plain list": ("A list of facts: read, never pressed.", None),
+    "Finding capsule": ("A mark on a row: read, never pressed. The row carries the states.", "Row list"),
+    "Severity glyph": ("A mark beside a word: read, never pressed.", None),
+    "Skeleton": ("A placeholder while a place loads: nothing to press yet.", None),
+    "Busy indicator": ("A status line: it reports an act, it is not one.", None),
+    "Small heading": ("A heading: read, never pressed.", None),
+}
+STATES = {
+    "App header": [dict(of=0, cut=("nav", 'class="app-nav"'), target='a:not([aria-current])', bar=True)],
+    "Run bar": [dict(of=0, cut=("a", 'class="back"'), wrap='<header class="run-bar">{}</header>', target="a.back", bar=True, na=LINK_NA),
+                dict(of=0, cut=("label", 'class="pick"'), target="select", bar=True, label="Agent target")],
+    "Breadcrumb": [dict(of=0, cut=("p", 'class="meta"'), target="a", na=LINK_NA)],
+    "Page head": [dict(of=0, cut=("div", 'class="head-actions"'), target=".button-primary", label="Its primary")],
+    "Tabs": [dict(of=0, cut=("nav", 'class="tabs tabs-page"'), target='a:not([aria-current])')],
+    "Scope switch": [dict(of=0, cut=("nav", 'class="scope"'), target='a:not([aria-current])')],
+    "Library panel": [dict(of=0, cut=("label", 'class="check"', "Add"), target="", label="A row's Add")],
+    "Row list": [dict(of=0, cut=("li", "", 'class="usage'), wrap='<ol class="row-list">{}</ol>', target="h2 a, h3 a",
+                      na={"disabled": "An item is never unselectable (§7): a row has no disabled state."})],
+    "Set row states (§7)": [dict(of=0, cut=("li", "", "migration-reviewer</a><span"), wrap='<ol class="row-list">{}</ol>',
+                                 target="h3 a", na={"disabled": "An item is never unselectable (§7). An auto-added row "
+                                                    "refuses its remove instead — see Add to set."})],
+    "Item side panel": [dict(of=0, cut=("a", 'class="button close"'), target="", label="Its Close")],
+    "Check stages": [dict(of=0, cut=("li", "", "Declared conflicts"), wrap='<ol class="stages">{}</ol>', target="summary",
+                          na={"disabled": "A stage with nothing inside is not a disclosure: it takes no focus and shows "
+                                          "no chevron — not a disabled stage, a different element."})],
+    "Export stage": [dict(of=0, cut=("div", 'class="export-actions"'), target=".button-primary", label="Export")],
+    "Aside box": [dict(of=0, cut=("aside", 'class="aside-box"'), target=".button-primary", label="Its Export")],
+    "Button": [dict(of=0, cut=("a", 'class="button button-primary"'), target="", label="Primary"),
+               dict(of=0, cut=("a", 'class="button"', "Configure"), target="", label="Secondary"),
+               dict(of=0, cut=("a", 'class="button button-quiet"'), target="", label="Quiet"),
+               dict(of=1, cut=("button", "", "Delete"), target="", label="Danger"),
+               dict(of=2, cut=("button", "", "Export with 1 problem"), target="", label="Warning"),
+               dict(of=3, cut=("div", 'class="callout"', "Remove eslint-autofix"), target=".row-actions a, .row-actions button", label="Quiet danger — inside its Problem, where its tone comes from")],
+    "Link button": [dict(of=0, cut=("button", 'class="link-button"'), target="")],
+    "Search field": [dict(of=0, cut=("label", 'class="search"'), target="input")],
+    "Filters button and popover": [dict(of=0, cut=("button", 'class="filters-button"'), target="", label="Filters")],
+    "Text field": [dict(of=0, cut=("label", 'class="field"'), target="input")],
+    "Select": [dict(of=0, cut=("label", 'class="pick"'), target="select")],
+    "Textarea": [dict(of=0, cut=("label", 'class="field"'), target="textarea")],
+    "Add to set": [dict(of=1, cut=("label", 'class="check"', "Add"), target="")],
+    "Checkbox": [dict(of=0, cut=("label", "", 'type="checkbox"'), target='input[type="checkbox"]')],
+    "Radio": [dict(of=0, cut=("label", "", 'type="radio"'), target='input[type="radio"]')],
+    "Remove from set": [dict(of=0, cut=("button", 'class="remove"'), target="")],
+    "Close": [dict(of=0, cut=("a", 'class="button close"'), target="")],
+    "Form actions": [dict(of=0, cut=("div", 'class="form-actions"'), target=".button-primary", label="Its primary")],
+    "Door form": [dict(of=0, cut=("button", 'type="submit"'), target="", label="Its primary")],
+    "Finding box": [dict(of=0, cut=("div", 'class="callout"'), target=".row-actions a, .row-actions button", label="Its way out")],
+    "Empty and error state": [dict(of=0, cut=("div", 'class="state-actions"'), target=".button-primary, a.button, button",
+                                   label="Its action")],
+    "Dialog": [dict(of=0, cut=("div", 'class="form-actions"'), target=".button-primary", label="Its act")],
+    "Item sheet": [dict(of=0, cut=("div", 'class="form-actions"'), target=".button-primary", label="Its Save")],
+    "Two fields in a row": [dict(of=0, cut=("div", 'class="field-row"'), target="input")],
+    "File list": [dict(of=0, cut=("ul", 'class="file-list"'), target=".link-button", label="Its Remove")],
+    "Drop zone": [dict(of=0, cut=("label", 'class="dropzone'), target="input")],
+}

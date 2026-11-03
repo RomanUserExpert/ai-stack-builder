@@ -37,3 +37,4 @@
 .usage code,.state-line code{background:none;padding:0}
 /* hover where it was missing (critique #11, #40; review G01-18, B-21) */
 .row h2 a:hover,.row h3 a:hover,.card h2 a:hover,.callout a:hover{text-decoration:underline}
+.row-list>li:has(h2 a:active,h3 a:active){background:var(--row-active)}

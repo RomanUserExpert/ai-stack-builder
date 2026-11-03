@@ -117,7 +117,19 @@
 .doc-ref{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5) 0;border-top:var(--border-width-thin) solid var(--line)}
 .doc-ref h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
 .doc-ref .doc-prose{max-width:var(--measure-wide)}
-.doc-ref .kit-demo{grid-column:auto;grid-row:auto}</style>
+.doc-ref .kit-demo{grid-column:auto;grid-row:auto}
+.doc-states-wrap{display:flex;flex-direction:column;gap:var(--space-2);overflow-x:auto}
+.doc-states{display:grid;grid-template-columns:var(--width-col-md) repeat(5,minmax(max-content,1fr));gap:var(--space-2);align-items:stretch}
+.doc-states>.kit-label{align-self:center}
+.doc-cell{display:flex;align-items:center;justify-content:flex-start;gap:var(--space-2);padding:var(--space-6) var(--space-5);background:var(--ground);color:var(--text);font:var(--typescale-body);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.doc-cell.is-bar{background:var(--bar)}
+.doc-cell>*{min-width:0}
+.doc-cell .kit-demo{grid-column:auto;grid-row:auto}
+.doc-cell .kit-demo>:is(.field,.search,.field-row,.dropzone,.file-list,.callout,.aside-box){width:var(--width-col-md)}
+.doc-na{align-items:flex-start;font:var(--typescale-small);color:var(--text-3);border-style:dashed;white-space:normal;max-width:var(--width-col-lg)}
+.doc-static{display:flex;flex-direction:column;gap:var(--space-2);max-width:var(--measure);color:var(--text-2)}
+.doc-states-note{font:var(--typescale-micro);color:var(--text-3)}
+.doc-states-off .doc-cell[data-ds-state]{opacity:.4}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
@@ -146,6 +158,10 @@
     </header></div></div>
   
 </section>
+<section class="doc-sec" id="states"><h2>States</h2>
+  <p class="doc-lead">Hover, active, focus-visible and disabled, beside rest, in both themes. No state moves the component or changes its size.</p>
+  <div class="doc-static"><p>No state of its own. It holds no control: the mark and the sharer are read, not operated.</p></div>
+</section>
 <section class="doc-sec" id="when"><h2>When to use</h2>
   <div class="doc-prose"><p>The frame of every surface somebody reaches without owning anything here. At the door (Sign in, Create account, Reset password) it is the mark alone. On Shared project, Shared item and their Run it says who shared it. It has no account, because the receiver has none (Q13, Q25).</p></div>
 </section>
@@ -157,6 +173,7 @@
 </section>
 <nav class="doc-pager" aria-label="Components"><a href="../pages/app-header.html">← App header</a><a href="../pages/run-bar.html">Run bar →</a></nav>
 </main>
+
 <script>
 (function(){
   function place(){

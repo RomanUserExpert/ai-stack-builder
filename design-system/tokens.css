@@ -205,7 +205,7 @@
   --on-danger: var(--color-white); /* text and icon on danger — .button-danger */
 
   /* CONTRAST, dark — WCAG AA, measured on this file as written by tools/concept_tokens.py:
-     4.5:1 for text, 3:1 for a control's edge or a mark (non-text). 62 of 62 pass.
+     4.5:1 for text, 3:1 for a control's edge or a mark (non-text). 83 of 83 pass.
      14.13 AA    --text on --tray — a row’s name
      14.99 AA    --text on --cutout — a row’s name in its cut-out
      12.89 AA    --text on --raised — panel and dialog text
@@ -268,6 +268,27 @@
      12.96 AA    --focus on --ground — kit: the focus ring (non-text, 3:1)
      10.79 AA    --control-on on --raised — phase 08: a checked checkbox or radio on a panel (non-text, 3:1) — T7-1
      13.62 AA    --control-on on --well-deep — phase 08: a checked radio's dot against its well (non-text, 3:1) — T7-1
+     13.36 AA    --focus on --bar — phase 09: the focus ring on --bar (non-text, 3:1)
+     13.36 AA    --focus on --side — phase 09: the focus ring on --side (non-text, 3:1)
+     11.82 AA    --focus on --tray — phase 09: the focus ring on --tray (non-text, 3:1)
+     12.55 AA    --focus on --cutout — phase 09: the focus ring on --cutout (non-text, 3:1)
+     10.79 AA    --focus on --raised — phase 09: the focus ring on --raised (non-text, 3:1)
+     13.62 AA    --focus on --well-deep — phase 09: the focus ring on --well-deep (non-text, 3:1)
+     10.11 AA    --focus on --control — phase 09: the focus ring on --control (non-text, 3:1)
+     11.82 AA    --focus on --state-ground — phase 09: the focus ring on --state-ground (non-text, 3:1)
+     10.54 AA    --focus on --problem-box — phase 09: the focus ring on --problem-box (non-text, 3:1)
+     10.30 AA    --focus on --note-box — phase 09: the focus ring on --note-box (non-text, 3:1)
+     14.75 AA    --on-action on --action-active — phase 09: the primary, pressed
+      9.08 AA    --text on --control-active — phase 09: a secondary control, pressed
+     13.42 AA    --text on --row-active — phase 09: a row's name, pressed
+      8.68 AA    --text-2 on --row-active — phase 09: a row's description, pressed
+     13.60 AA    --text on --segment-active — phase 09: a segment, pressed
+     13.25 AA    --text on --wash-active@bar — phase 09: a place, pressed
+      7.02 AA    --on-danger on --danger-active — phase 09: the remove, pressed
+      5.82 AA    --on-warning on --warning-active — phase 09: the warning button, pressed
+      6.39 AA    --problem-active on --problem-box — phase 09: the quiet remove inside a Problem, pressed — its solid edge (non-text, 3:1)
+     10.53 AA    --edge-active on --well-deep — phase 09: a field's edge, pressed (non-text, 3:1)
+      1.16 info  --disabled-edge on --raised — phase 09: a disabled control's edge — information, D3
   */
 }
 
@@ -292,6 +313,17 @@
   --shadow-sheet: 0 18px 40px var(--color-black-a35);  /* over the place: dialog.modal, dialog.popover, dialog.sheet (20 / 22) */
   --shadow-focus: 0 0 0 2px var(--ground), 0 0 0 4px var(--focus);  /* keyboard focus on every focusable thing (14 rules) */
   --scheme: dark;  /* the native controls’ scheme, for html’s color-scheme — a literal in a class until now (V-5) */
+  /* states — phase 09, step 3: pressed, one recipe per ground (D5). Focus is --focus and --shadow-focus;
+     disabled is --disabled, --disabled-text, --disabled-edge (D3: roles, no opacity token) */
+  --action-active: color-mix(in srgb, var(--action-hover) 80%, var(--text));  /* the primary pressed — .button-primary:active. Past its hover: lighter in dark, darker in light. Signed by the owner, 2026-11-03 (Q49) */
+  --control-active: color-mix(in srgb, var(--control-hover) 50%, var(--line-strong));  /* a secondary control pressed — button, .button, select, .check, .remove, .close :active. Signed by the owner, 2026-11-03 (Q49) */
+  --row-active: color-mix(in srgb, var(--raised) 75%, var(--cutout));  /* a row or a stage pressed — .row-list>li:active, .stages summary:active. Signed by the owner, 2026-11-03 (Q49) */
+  --segment-active: color-mix(in srgb, var(--raised) 80%, var(--well-deep));  /* a segment pressed, on its track — .scope a:active. Signed by the owner, 2026-11-03 (Q49) */
+  --wash-active: color-mix(in srgb, var(--raised) 90%, transparent);  /* a place, a tab or a quiet button pressed — .app-nav a, .tabs a, .button-quiet :active. Signed by the owner, 2026-11-03 (Q49) */
+  --danger-active: color-mix(in srgb, var(--danger-hover) 85%, var(--color-neutral-700));  /* the remove pressed, in its confirmation — .button-danger:active. Hover darkens, so this darkens further. Signed by the owner, 2026-11-03 (Q49) */
+  --warning-active: color-mix(in srgb, var(--warning-hover) 85%, var(--color-neutral-700));  /* going ahead despite a Problem, pressed — .button-warning:active. Signed by the owner, 2026-11-03 (Q49) */
+  --problem-active: var(--problem);  /* the muted remove inside a Problem, pressed: its EDGE goes solid rose, its fill stays the hover wash — a denser fill takes the rose word under 4.5:1 in light (4.36 at 16 %). Signed by the owner, 2026-11-03 (Q49) */
+  --edge-active: var(--text-2);  /* a field's, a checkbox's or a drop zone's edge pressed — one step past --edge-hover. Signed by the owner, 2026-11-03 (Q49) */
 }
 
 /* ===== THEME: light — the stress test of the semantic level (phase 08, step 5) =====
@@ -299,8 +331,8 @@
    the architecture would have a hole. The values are phase 06's signed light slice (concept.md), each role
    taking the value of the variable it was split from. Whether light stays in the product is the owner's call.
    GAPS (D1): these roles have no light value of their own, so they keep the dark one —
-     --sheet-edge, --danger, --danger-hover, --on-danger.
-   Filling them is the owner's word or lesson 09, never the refactor's. */
+     .
+   Filling them is the owner's word or lesson 09, never the refactor's. Since Q49 (2026-11-03) there are none. */
 [data-theme="light"] {
   /* surfaces */
   --ground: var(--color-neutral-light-100); /* the slice's light --ground */
@@ -325,6 +357,7 @@
   --line-strong: var(--color-neutral-light-400); /* the slice's light --line-strong */
   --control-edge: var(--color-neutral-light-450); /* the slice's light --control-edge */
   --edge-hover: var(--color-neutral-light-500); /* the slice's light --text-3 (this role was split from it) */
+  --sheet-edge: var(--color-neutral-light-350); /* Signed (Q49, D4): the light hairline, --line's light value — white at 5 % vanishes on a white sheet */
   /* text */
   --text: var(--color-neutral-light-600); /* the slice's light --text */
   --text-2: var(--color-neutral-light-550); /* the slice's light --text-2 */
@@ -348,6 +381,9 @@
   --warning: var(--color-amber-light-50); /* the slice's light --warning */
   --warning-hover: var(--color-amber-light-100); /* the slice's light --warning-hover */
   --on-warning: var(--color-white);  /* the slice's light --on-warning */
+  --danger: var(--color-red-50);     /* Signed (Q49, D4): the same Remove Red — white on it is 4.77:1, and it is 4.6:1 against the light ground */
+  --danger-hover: var(--color-red-100); /* Signed (Q49, D4): the same darker red — hover darkens in both themes */
+  --on-danger: var(--color-white);   /* Signed (Q49, D4): white, as in dark */
   /* recipes the slice signed apart */
   --shadow-cutout: inset 0 0 0 1px var(--line);  /* light: the hairline only, no inner shade */
   --problem-box: color-mix(in srgb, var(--problem) 7%, var(--cutout));  /* light: 7 %, not 10 % */
@@ -357,7 +393,7 @@
   --scheme: light;  /* native controls drawn light */
 
   /* CONTRAST, light — WCAG AA, measured on this file as written by tools/concept_tokens.py:
-     4.5:1 for text, 3:1 for a control's edge or a mark (non-text). 62 of 62 pass.
+     4.5:1 for text, 3:1 for a control's edge or a mark (non-text). 83 of 83 pass.
      14.48 AA    --text on --tray — a row’s name
      16.93 AA    --text on --cutout — a row’s name in its cut-out
      17.55 AA    --text on --raised — panel and dialog text
@@ -420,7 +456,78 @@
       5.16 AA    --focus on --ground — kit: the focus ring (non-text, 3:1)
       5.66 AA    --control-on on --raised — phase 08: a checked checkbox or radio on a panel (non-text, 3:1) — T7-1
       4.98 AA    --control-on on --well-deep — phase 08: a checked radio's dot against its well (non-text, 3:1) — T7-1
+      4.80 AA    --focus on --bar — phase 09: the focus ring on --bar (non-text, 3:1)
+      4.80 AA    --focus on --side — phase 09: the focus ring on --side (non-text, 3:1)
+      4.67 AA    --focus on --tray — phase 09: the focus ring on --tray (non-text, 3:1)
+      5.46 AA    --focus on --cutout — phase 09: the focus ring on --cutout (non-text, 3:1)
+      5.66 AA    --focus on --raised — phase 09: the focus ring on --raised (non-text, 3:1)
+      4.98 AA    --focus on --well-deep — phase 09: the focus ring on --well-deep (non-text, 3:1)
+      5.66 AA    --focus on --control — phase 09: the focus ring on --control (non-text, 3:1)
+      4.67 AA    --focus on --state-ground — phase 09: the focus ring on --state-ground (non-text, 3:1)
+      4.88 AA    --focus on --problem-box — phase 09: the focus ring on --problem-box (non-text, 3:1)
+      4.87 AA    --focus on --note-box — phase 09: the focus ring on --note-box (non-text, 3:1)
+      8.40 AA    --on-action on --action-active — phase 09: the primary, pressed
+     12.66 AA    --text on --control-active — phase 09: a secondary control, pressed
+     17.39 AA    --text on --row-active — phase 09: a row's name, pressed
+      8.99 AA    --text-2 on --row-active — phase 09: a row's description, pressed
+     17.09 AA    --text on --segment-active — phase 09: a segment, pressed
+     17.24 AA    --text on --wash-active@bar — phase 09: a place, pressed
+      7.02 AA    --on-danger on --danger-active — phase 09: the remove, pressed
+      7.81 AA    --on-warning on --warning-active — phase 09: the warning button, pressed
+      5.62 AA    --problem-active on --problem-box — phase 09: the quiet remove inside a Problem, pressed — its solid edge (non-text, 3:1)
+      7.98 AA    --edge-active on --well-deep — phase 09: a field's edge, pressed (non-text, 3:1)
+      1.36 info  --disabled-edge on --raised — phase 09: a disabled control's edge — information, D3
   */
+}
+
+/* ===== THEME: dark, as an attribute (phase 09, step 3) =====
+   :root is dark already; this block lets a subtree be dark inside a light page. The same SEMANTIC roles as
+   :root, value for value — the generator writes both from one list, so they cannot drift. */
+[data-theme="dark"] {
+  --ground: var(--color-neutral-600);
+  --bar: var(--color-neutral-650);
+  --side: var(--color-neutral-650);
+  --tray: var(--color-neutral-500);
+  --state-ground: var(--color-neutral-500);
+  --cutout: var(--color-neutral-550);
+  --neutral-box: var(--color-neutral-550);
+  --well-deep: var(--color-neutral-700);
+  --raised: var(--color-neutral-450);
+  --selected: var(--color-neutral-450);
+  --current: var(--color-neutral-450);
+  --control: var(--color-neutral-400);
+  --control-hover: var(--color-neutral-300);
+  --disabled: var(--color-neutral-400);
+  --code-chip: var(--color-neutral-400);
+  --tile: var(--color-neutral-400);
+  --line: var(--color-neutral-350);
+  --disabled-edge: var(--color-neutral-350);
+  --line-strong: var(--color-neutral-250);
+  --control-edge: var(--color-neutral-200);
+  --edge-hover: var(--color-neutral-150);
+  --sheet-edge: var(--color-white-a05);
+  --text: var(--color-neutral-50);
+  --text-2: var(--color-neutral-100);
+  --text-3: var(--color-neutral-150);
+  --disabled-text: var(--color-neutral-150);
+  --action: var(--color-lime-100);
+  --action-hover: var(--color-lime-50);
+  --on-action: var(--color-lime-150);
+  --control-on: var(--color-lime-100);
+  --control-on-ink: var(--color-lime-150);
+  --brand: var(--color-lime-100);
+  --mark: var(--color-lime-100);
+  --focus: var(--color-lime-100);
+  --problem: var(--color-rose-50);
+  --note: var(--color-amber-50);
+  --checked: var(--color-neutral-100);
+  --skipped: var(--color-neutral-150);
+  --warning: var(--color-amber-100);
+  --warning-hover: var(--color-amber-150);
+  --on-warning: var(--color-amber-200);
+  --danger: var(--color-red-50);
+  --danger-hover: var(--color-red-100);
+  --on-danger: var(--color-white);
 }
 
 /* FLAGGED for step 6's critique:

@@ -317,6 +317,22 @@ DERIVED = [
     ("shadow-focus", "0 0 0 2px var(--ground), 0 0 0 4px var(--focus)", "keyboard focus on every focusable thing (14 rules)"),
     ("scheme", "dark", "the native controls’ scheme, for html’s color-scheme — a literal in a class until now (V-5)"),
 ]
+# ===== phase 09, step 3: states as a system. Each is a recipe over a role, so it has a value in every theme the moment
+# the role has one (a state token in one theme only is a defect). Pressed (active) is D5: one recipe per ground, half a
+# step past its hover, in the direction the hover went — so it lightens where hover lightens and darkens where it
+# darkens, theme by theme. Signed by the owner on 2026-11-03 (Q49). Focus and disabled already had roles.
+STATES09 = [
+    ("action-active", "color-mix(in srgb, var(--action-hover) 80%, var(--text))", "the primary pressed — .button-primary:active. Past its hover: lighter in dark, darker in light. Signed by the owner, 2026-11-03 (Q49)"),
+    ("control-active", "color-mix(in srgb, var(--control-hover) 50%, var(--line-strong))", "a secondary control pressed — button, .button, select, .check, .remove, .close :active. Signed by the owner, 2026-11-03 (Q49)"),
+    ("row-active", "color-mix(in srgb, var(--raised) 75%, var(--cutout))", "a row or a stage pressed — .row-list>li:active, .stages summary:active. Signed by the owner, 2026-11-03 (Q49)"),
+    ("segment-active", "color-mix(in srgb, var(--raised) 80%, var(--well-deep))", "a segment pressed, on its track — .scope a:active. Signed by the owner, 2026-11-03 (Q49)"),
+    ("wash-active", "color-mix(in srgb, var(--raised) 90%, transparent)", "a place, a tab or a quiet button pressed — .app-nav a, .tabs a, .button-quiet :active. Signed by the owner, 2026-11-03 (Q49)"),
+    ("danger-active", "color-mix(in srgb, var(--danger-hover) 85%, var(--color-neutral-700))", "the remove pressed, in its confirmation — .button-danger:active. Hover darkens, so this darkens further. Signed by the owner, 2026-11-03 (Q49)"),
+    ("warning-active", "color-mix(in srgb, var(--warning-hover) 85%, var(--color-neutral-700))", "going ahead despite a Problem, pressed — .button-warning:active. Signed by the owner, 2026-11-03 (Q49)"),
+    ("problem-active", "var(--problem)", "the muted remove inside a Problem, pressed: its EDGE goes solid rose, its fill stays the hover wash — a denser fill takes the rose word under 4.5:1 in light (4.36 at 16 %). Signed by the owner, 2026-11-03 (Q49)"),
+    ("edge-active", "var(--text-2)", "a field's, a checkbox's or a drop zone's edge pressed — one step past --edge-hover. Signed by the owner, 2026-11-03 (Q49)"),
+]
+
 # phase 07's names, for the proof that nothing moved: new semantic token -> the kit variable whose value it took
 WAS = {"side": "bar", "state-ground": "tray", "neutral-box": "cutout", "selected": "raised", "current": "raised",
        "disabled": "control", "code-chip": "control", "tile": "control", "disabled-edge": "line", "edge-hover": "text-3",
@@ -445,7 +461,10 @@ def css08():
             "   (a var() inside a custom property resolves where it is declared, not where it is used) ===== */",
             ':root, [data-theme] {']
     out += [f"  --{n}: {v};  /* {src} */" for n, v, src in DERIVED]
-    out += ["}", ""] + light_block() + ["", "/* FLAGGED for step 6's critique:"]
+    out.append("  /* states — phase 09, step 3: pressed, one recipe per ground (D5). Focus is --focus and --shadow-focus;")
+    out.append("     disabled is --disabled, --disabled-text, --disabled-edge (D3: roles, no opacity token) */")
+    out += [f"  --{n}: {v};  /* {src} */" for n, v, src in STATES09]
+    out += ["}", ""] + light_block() + [""] + dark_block() + ["", "/* FLAGGED for step 6's critique:"]
     out += [f"   - {what}: {why}" for what, why in FLAGGED]
     out[-1] += " */"
     out.append("")
@@ -470,7 +489,12 @@ LIGHT_RECIPES = [("shadow-cutout", "inset 0 0 0 1px var(--line)", "light: the ha
 
 # a role whose light value is not the slice's, and why (tokens-check.md)
 LIGHT_FIXED = {"control-on": ("#55700F", "the light mark, not the slice's lime: lime on white is 1.32:1, and a checked control needs 3:1 (T7-1)"),
-               "control-on-ink": ("#FFFFFF", "white, the tick on the light mark: 5.66:1 (T7-1)")}
+               "control-on-ink": ("#FFFFFF", "white, the tick on the light mark: 5.66:1 (T7-1)"),
+               # phase 09, step 3 (D4): the four gaps, signed by the owner on 2026-11-03 (Q49)
+               "sheet-edge": ("#DCDED4", "Signed (Q49, D4): the light hairline, --line's light value — white at 5 % vanishes on a white sheet"),
+               "danger": ("#D4363F", "Signed (Q49, D4): the same Remove Red — white on it is 4.77:1, and it is 4.6:1 against the light ground"),
+               "danger-hover": ("#BE2E37", "Signed (Q49, D4): the same darker red — hover darkens in both themes"),
+               "on-danger": ("#FFFFFF", "Signed (Q49, D4): white, as in dark")}
 
 
 def light_values():
@@ -505,7 +529,7 @@ def light_block():
            "   taking the value of the variable it was split from. Whether light stays in the product is the owner's call.",
            "   GAPS (D1): these roles have no light value of their own, so they keep the dark one —",
            "     " + ", ".join("--" + g for g in light_gaps()) + ".",
-           "   Filling them is the owner's word or lesson 09, never the refactor's. */",
+           "   Filling them is the owner's word or lesson 09, never the refactor's. Since Q49 (2026-11-03) there are none. */",
            '[data-theme="light"] {']
     for grp, rows in SEMANTIC:
         names = [n for n, _v, _s in rows if n in vals]
@@ -516,6 +540,19 @@ def light_block():
     out += [f"  --{n}: {v};  /* {why} */" for n, v, why in LIGHT_RECIPES]
     out.append("  --scheme: light;  /* native controls drawn light */")
     out += [""] + contrast_comment("light") + ["}"]
+    return out
+
+
+def dark_block():
+    """Phase 09, step 3: dark as an attribute too, so a dark specimen can stand inside a light page (the docs' States
+    block draws every state in both themes side by side). The same roles as :root, nothing else."""
+    out = ['/* ===== THEME: dark, as an attribute (phase 09, step 3) =====',
+           "   :root is dark already; this block lets a subtree be dark inside a light page. The same SEMANTIC roles as",
+           "   :root, value for value — the generator writes both from one list, so they cannot drift. */",
+           '[data-theme="dark"] {']
+    for _grp, rows in SEMANTIC:
+        out += [f"  --{n}: {v};" for n, v, _src in rows]
+    out.append("}")
     return out
 
 
@@ -539,6 +576,20 @@ PAIR_ROLE = {"kit: the focus ring (non-text, 3:1)": ("focus", "ground"),
 # pairs phase 08 measures that contrast.py never did (tokens-check.md)
 EXTRA_PAIRS = [("control-on", "raised", "phase 08: a checked checkbox or radio on a panel (non-text, 3:1) — T7-1", 3.0),
                ("control-on", "well-deep", "phase 08: a checked radio's dot against its well (non-text, 3:1) — T7-1", 3.0)]
+# phase 09, step 3: focus on every ground a focusable thing stands on, and text on every pressed fill
+EXTRA_PAIRS += [("focus", g, f"phase 09: the focus ring on --{g} (non-text, 3:1)", 3.0)
+                for g in ("bar", "side", "tray", "cutout", "raised", "well-deep", "control", "state-ground", "problem-box", "note-box")]
+EXTRA_PAIRS += [("on-action", "action-active", "phase 09: the primary, pressed", 4.5),
+                ("text", "control-active", "phase 09: a secondary control, pressed", 4.5),
+                ("text", "row-active", "phase 09: a row's name, pressed", 4.5),
+                ("text-2", "row-active", "phase 09: a row's description, pressed", 4.5),
+                ("text", "segment-active", "phase 09: a segment, pressed", 4.5),
+                ("text", "wash-active@bar", "phase 09: a place, pressed", 4.5),
+                ("on-danger", "danger-active", "phase 09: the remove, pressed", 4.5),
+                ("on-warning", "warning-active", "phase 09: the warning button, pressed", 4.5),
+                ("problem-active", "problem-box", "phase 09: the quiet remove inside a Problem, pressed — its solid edge (non-text, 3:1)", 3.0),
+                ("edge-active", "well-deep", "phase 09: a field's edge, pressed (non-text, 3:1)", 3.0),
+                ("disabled-edge", "raised", "phase 09: a disabled control's edge — information, D3", 1.0)]
 
 
 def _theme_values(text, theme):
@@ -649,6 +700,8 @@ def check08(text):
             want = eval(expr, {"__builtins__": {}})  # arithmetic on the kit's own px values, nothing else
             if new[n] != f"{want:g}px":   # the value as written in the file, not as this module meant it
                 bad.append(f"--{n} = {new[n]} but {geo[n][1]} is {want:g}px")
+            continue
+        if n in {s for s, _v, _w in STATES09}:   # phase 09's states: new on purpose, proposed for the owner (D5)
             continue
         old = WAS.get(n, n)
         if old not in kit:

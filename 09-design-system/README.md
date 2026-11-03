@@ -89,7 +89,7 @@ lie** — because it is the same code as the product.
 |---|---|---|---|
 | **1** | **One package.** Create the system's folder (D1) with `patterns/`, `docs/`, `examples/`. Move `tokens.css` and `components/` into it — **move, not copy**: the generators write the new path and git keeps the old one. Add `index.css`, which imports both. Every page links **only** `index.css`. Guards re-pointed (6: one link; 4 and 5: the new paths). Pixel test identical on every page, `kit.html`, `shell.html`. | the folder, `index.css`, the generators, `kit_check.py` | **done 2026-11-03** |
 | **2** | **Living documentation.** A page per component in `docs/`, plus `index.html` that gathers them, plus `why.html`. Each component page has four parts: **anatomy** (the live component with its parts named), **variants and sizes** (every one `inventory.md` lists, side by side), **when to use** (from `DESIGN.md` and `microcopy.md`: the role it plays), **rule and anti-rule** (a right use, and a case for another component). **Built on `index.css`, never a picture.** Words checked against `microcopy.md`. | `docs/*.html`, a generator in `tools/` | **done 2026-11-03** |
-| **3** | **States, in both themes.** Every component gets **hover, active, focus-visible, disabled**, through semantic roles, each with a dark and a light value. **Focus** passes 3:1 against every ground it sits on, in both themes. **Hover and active** change ground, colour or edge, never position or size. **Disabled** per D3. The four light gaps are signed (D4). Each docs page gets a *States* block: all four, dark and light side by side. New pairs join `contrast_pairs()`. | `tokens.css`, `components/`, `docs/`, `concept.md` | |
+| **3** | **States, in both themes.** Every component gets **hover, active, focus-visible, disabled**, through semantic roles, each with a dark and a light value. **Focus** passes 3:1 against every ground it sits on, in both themes. **Hover and active** change ground, colour or edge, never position or size. **Disabled** per D3. The four light gaps are signed (D4). Each docs page gets a *States* block: all four, dark and light side by side. New pairs join `contrast_pairs()`. | `tokens.css`, `components/`, `docs/`, `concept.md` | **done 2026-11-03** (Q49) |
 | **4** | **Patterns from the screens.** Read every wireframe page and find the compositions on **three or more** screens. Each becomes one file in `patterns/`, **made of existing components with no style of its own**. Candidates to test, not to assume: the page head with its actions; an empty or error state with its one action; a row list with the item side panel; the Run stage list ending in Export; a confirmation that names the consequence. A docs page: when to take a pattern, when separate components. | `patterns/`, `docs/patterns.html` | |
 | **5** | **Rules of contribution.** `DESIGN.md` and `CLAUDE.md` gain *Contributing to the system*: **new appears in the system first, on a screen second.** A new component goes to `components/` with its docs page and its states in both themes; a new composition to `patterns/`; a new value to `tokens.css` at its level. §15's *оставляем* rule re-routed into the system. Written so the next session reads it from the repo, not from the chat. | `DESIGN.md`, `CLAUDE.md` §15/§16/§17 and a new §18 | |
 | **6** | **The test of a new screen.** Build a screen the product does not have yet, but a job asks for (D6), **from the system alone**: existing components and patterns, tokens only, no style on the screen. **What is missing is written down, not drawn**: `backlog.md`, honest. The screen stays in `examples/` as a demonstration. **It is not a product decision**: if it is ever wanted in the product, it goes to the register. | `examples/`, `backlog.md` | |
@@ -119,7 +119,19 @@ five one-offs on `kit.html` had no specimens** — their first state landed in t
 and state of `kit.html`; its retirement, with a redirect and guard 8 moved, waits for step 7's check. D1–D6 were answered by the owner in one word, *as recommended* (Q48).
 D4 and D5 answered the **procedure**: the four light values and the pressed recipes are still proposed by the model
 and signed by the owner one by one. D7 and D8 stand as recommended defaults. **Q44 — whether light ships — is still
-the owner's.** Next: step 3, states in both themes.
+the owner's.** **Step 3 is done** (2026-11-03); its values were **signed by the owner the same day (Q49)**. Pressed on every
+control through nine new recipes in `tokens.css` (`--action-active`, `--control-active`, `--row-active`,
+`--segment-active`, `--wash-active`, `--danger-active`, `--warning-active`, `--problem-active`, `--edge-active`), each over a
+role and so in both themes; disabled through the three roles on every control (D3: no opacity token), with
+`cursor: not-allowed`; focus measured 3:1 on every ground in both themes (10 new pairs, lowest 4.67 in light); the four
+light gaps filled as proposals (D4). Contrast: **83 pairs per theme, all pass**. A `[data-theme="dark"]` block lets a dark
+specimen stand on a light page. Every docs page has a *States* block — rest, hover, active, focus-visible, disabled, dark
+and light — and the build checks in a browser that every state drawn differs from rest and changes nothing's size.
+Pixel test: 83/83 pages, kit and shell identical; flows 235/241, the known spinner spot. **Found:** in light, a disabled
+field is white (`--disabled` takes the slice's light control), brighter than a field at rest — a question for the light
+theme, not changed here.
+
+Next: step 4, patterns from the screens.
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

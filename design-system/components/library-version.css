@@ -14,3 +14,5 @@
 .library-version pre.file{margin-top:var(--space-2)}
 .library-version summary:hover{color:var(--text-2)}
 .library-version summary:hover::before{background:var(--text-2)}
+.library-version summary:active{color:var(--text)}
+.library-version summary:active::before{background:var(--text)}

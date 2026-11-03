@@ -41,3 +41,7 @@ progress.progress::-moz-progress-bar{background:var(--mark);border-radius:var(--
 .field-mono input:not([type="checkbox"]):not([type="radio"]){font:var(--typescale-code)}
 /* the file list's remove sits inside its row (review F10) */
 .file-list .link-button{margin:0;padding:0 0 0 var(--space-2)}
+.field input:not([type="checkbox"]):not([type="radio"]):active,.field textarea:active{border-color:var(--edge-active)}
+.dropzone:active{border-color:var(--edge-active)}
+.field input:not([type="checkbox"]):not([type="radio"]):disabled,.field textarea:disabled,.field input:not([type="checkbox"]):not([type="radio"]):disabled:hover,.field textarea:disabled:hover{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}
+.dropzone:has(input:disabled),.dropzone:has(input:disabled):hover{border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}

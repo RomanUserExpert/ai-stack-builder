@@ -117,7 +117,19 @@
 .doc-ref{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5) 0;border-top:var(--border-width-thin) solid var(--line)}
 .doc-ref h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
 .doc-ref .doc-prose{max-width:var(--measure-wide)}
-.doc-ref .kit-demo{grid-column:auto;grid-row:auto}</style>
+.doc-ref .kit-demo{grid-column:auto;grid-row:auto}
+.doc-states-wrap{display:flex;flex-direction:column;gap:var(--space-2);overflow-x:auto}
+.doc-states{display:grid;grid-template-columns:var(--width-col-md) repeat(5,minmax(max-content,1fr));gap:var(--space-2);align-items:stretch}
+.doc-states>.kit-label{align-self:center}
+.doc-cell{display:flex;align-items:center;justify-content:flex-start;gap:var(--space-2);padding:var(--space-6) var(--space-5);background:var(--ground);color:var(--text);font:var(--typescale-body);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.doc-cell.is-bar{background:var(--bar)}
+.doc-cell>*{min-width:0}
+.doc-cell .kit-demo{grid-column:auto;grid-row:auto}
+.doc-cell .kit-demo>:is(.field,.search,.field-row,.dropzone,.file-list,.callout,.aside-box){width:var(--width-col-md)}
+.doc-na{align-items:flex-start;font:var(--typescale-small);color:var(--text-3);border-style:dashed;white-space:normal;max-width:var(--width-col-lg)}
+.doc-static{display:flex;flex-direction:column;gap:var(--space-2);max-width:var(--measure);color:var(--text-2)}
+.doc-states-note{font:var(--typescale-micro);color:var(--text-3)}
+.doc-states-off .doc-cell[data-ds-state]{opacity:.4}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
@@ -160,6 +172,100 @@
         </aside></div></div></div>
   
 </section>
+<section class="doc-sec" id="states"><h2>States</h2>
+  <p class="doc-lead">Hover, active, focus-visible and disabled, beside rest, in both themes. No state moves the component or changes its size.</p>
+  <div class="doc-states-wrap" data-ds-target=".button-primary"><p class="kit-label">Its Export</p><div class="doc-states"><span></span><p class="kit-label">Rest</p><p class="kit-label">Hover</p><p class="kit-label">Active</p><p class="kit-label">Focus-visible</p><p class="kit-label">Disabled</p><p class="kit-label">Dark</p><div class="doc-cell" data-theme="dark" data-ds-state="rest"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0drest-k171-needs-title">
+          <h2 id="s0drest-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="hover"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dhover-k171-needs-title">
+          <h2 id="s0dhover-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="active"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dactive-k171-needs-title">
+          <h2 id="s0dactive-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="focus"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dfocus-k171-needs-title">
+          <h2 id="s0dfocus-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="disabled"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0ddisabled-k171-needs-title">
+          <h2 id="s0ddisabled-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><p class="kit-label">Light</p><div class="doc-cell" data-theme="light" data-ds-state="rest"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lrest-k171-needs-title">
+          <h2 id="s0lrest-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="hover"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lhover-k171-needs-title">
+          <h2 id="s0lhover-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="active"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lactive-k171-needs-title">
+          <h2 id="s0lactive-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="focus"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lfocus-k171-needs-title">
+          <h2 id="s0lfocus-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="disabled"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0ldisabled-k171-needs-title">
+          <h2 id="s0ldisabled-k171-needs-title">What your machine still needs</h2>
+          <ul class="plain-list">
+            <li>A value for <code>GITHUB_TOKEN</code></li>
+            <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
+            <li>An agent that reads <code>SETUP.md</code> first</li>
+          </ul>
+          <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
+          <a class="button button-primary" href="#">Export</a>
+        </aside></div></div></div></div><p class="doc-states-note">Each state is held on the live component by copying the product's own :hover, :active and :focus-visible rules onto an attribute; disabled is the real attribute. Pressed was signed by the owner on 2026-11-03 (Q49).</p>
+</section>
 <section class="doc-sec" id="when"><h2>When to use</h2>
   <div class="doc-prose"><p>The receiver&#x27;s column beside a shared project or item: what their machine still needs, and the way to take the archive.</p></div>
 </section>
@@ -171,6 +277,49 @@
 </section>
 <nav class="doc-pager" aria-label="Components"><a href="../pages/plain-list.html">← Plain list</a><a href="../pages/button.html">Button →</a></nav>
 </main>
+<script>
+(function(){
+  /* the States block: the product's own :hover, :active, :focus-visible and :focus-within rules, copied once with the
+     pseudo-class turned into an attribute, so a state can be put on a specimen and held there. Nothing of the product's
+     CSS is changed; disabled is the real attribute. */
+  var MAP = [[':focus-visible', '[data-ds-focus]'], [':focus-within', '[data-ds-focus-within]'],
+             [':hover', '[data-ds-hover]'], [':active', '[data-ds-active]']];
+  var out = [], ok = true;
+  function walk(sheet){
+    var rules; try { rules = sheet.cssRules; } catch (e) { if (!sheet.href || new URL(sheet.href).origin === location.origin) ok = false; return; }  /* a font's sheet on another host is not ours to read */
+    for (var i = 0; i < rules.length; i++){
+      var r = rules[i];
+      if (r.styleSheet) { walk(r.styleSheet); continue; }
+      if (r.cssRules && !r.selectorText) { walk(r); continue; }
+      if (!r.selectorText || !/:(hover|active|focus-visible|focus-within)/.test(r.selectorText)) continue;
+      var sel = r.selectorText;
+      MAP.forEach(function(m){ sel = sel.split(m[0]).join(m[1]); });
+      out.push(sel + '{' + r.style.cssText + '}');
+    }
+  }
+  for (var i = 0; i < document.styleSheets.length; i++) walk(document.styleSheets[i]);
+  var st = document.createElement('style'); st.id = 'ds-forced'; st.textContent = out.join(' '); document.head.appendChild(st);
+  if (!ok) document.documentElement.classList.add('doc-states-off');
+  var FOCUSABLE = 'a[href],button,input:not([type=hidden]),select,textarea,summary';
+  var FIELD = 'button,input,select,textarea';
+  function up(el, cell, attr){ while (el && el !== cell){ el.setAttribute(attr, ''); el = el.parentElement; } }
+  document.querySelectorAll('.doc-cell[data-ds-state]').forEach(function(cell){
+    var sel = cell.closest('[data-ds-target]').getAttribute('data-ds-target');
+    var root = cell.querySelector('.kit-demo');
+    var t = sel ? root.querySelector(sel) : root.firstElementChild;
+    if (!t) return;
+    var s = cell.getAttribute('data-ds-state');
+    var f = t.matches(FOCUSABLE) ? t : t.querySelector(FOCUSABLE);
+    if (s === 'hover') up(t, cell, 'data-ds-hover');
+    if (s === 'active') { up(t, cell, 'data-ds-hover'); up(t, cell, 'data-ds-active'); if (f) up(f, cell, 'data-ds-active'); }
+    if (s === 'focus' && f) { f.setAttribute('data-ds-focus', ''); up(f, cell, 'data-ds-focus-within'); }
+    if (s === 'disabled') {
+      var d = t.matches(FIELD) ? t : t.querySelector(FIELD);
+      if (d) d.disabled = true; else t.setAttribute('aria-disabled', 'true');
+    }
+  });
+})();
+</script>
 <script>
 (function(){
   function place(){

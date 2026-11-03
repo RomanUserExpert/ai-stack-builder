@@ -171,6 +171,50 @@ dialog.modal .field{margin-top:var(--s4)}
 """
 
 
+# phase 09, step 3: states as a system — pressed (active) and disabled on every control, after everything else so they
+# win where they should. No state moves a thing or changes its size: only its ground, its colour or its edge.
+# Pressed is one recipe per ground (D5, proposed). Disabled is the three roles (D3), never an opacity; the control keeps
+# its focus and points at its reason (§16), and the pointer shows it cannot act.
+STATES_CSS = r"""
+/* ===== states (phase 09, step 3): pressed ===== */
+button:active,.button:active{background:var(--control-active)}
+.button-primary:active{background:var(--action-active);border-color:var(--action-active)}
+.button-danger:active{background:var(--danger-active);border-color:var(--danger-active)}
+.button-warning:active{background:var(--warning-active);border-color:var(--warning-active)}
+.button-quiet:active{background:var(--wash-active)}
+.button-danger-quiet:active{background:var(--problem-wash);border-color:var(--problem-active)}
+button.link-button:active{background:none;color:var(--text);text-decoration-color:var(--text)}
+.remove:active{background:var(--control-active)}
+.button-primary[aria-busy="true"]:active{background:var(--action);border-color:var(--action)}
+button[disabled]:active,button[aria-disabled="true"]:not([aria-busy]):active,.button[aria-disabled="true"]:active{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text)}
+select:active{background:var(--control-active)}
+.check:active{background:var(--control-active)}
+.check:has(input:checked):active{background:var(--wash-active)}
+.check:has(input:disabled):active{background:transparent}
+.app-nav a:active{color:var(--text);background:var(--wash-active)}
+.tabs a:active{color:var(--text);background:var(--wash-active)}
+.scope a:active{color:var(--text);background:var(--segment-active)}
+.row-list>li:has(h2 a:active,h3 a:active){background:var(--row-active)}
+.stages details:not(.stage-empty)>summary:active{background:var(--row-active)}
+input[type="checkbox"]:active,input[type="radio"]:active{border-color:var(--edge-active)}
+.field input:not([type="checkbox"]):not([type="radio"]):active,.field textarea:active{border-color:var(--edge-active)}
+.search:active{border-color:var(--edge-active)}
+.dropzone:active{border-color:var(--edge-active)}
+.library-version summary:active{color:var(--text)}
+.library-version summary:active::before{background:var(--text)}
+/* ===== states (phase 09, step 3): disabled — the three roles, and the pointer says no ===== */
+button.link-button[disabled],button.link-button[aria-disabled="true"],button.link-button[disabled]:hover,button.link-button[aria-disabled="true"]:hover{background:none;border-color:transparent;color:var(--disabled-text);cursor:not-allowed}
+select:disabled,select:disabled:hover{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}
+.field input:not([type="checkbox"]):not([type="radio"]):disabled,.field textarea:disabled,.field input:not([type="checkbox"]):not([type="radio"]):disabled:hover,.field textarea:disabled:hover{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}
+.search:has(input:disabled),.search:has(input:disabled):hover{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}
+.search:has(input:disabled) input{cursor:not-allowed}
+input[type="checkbox"]:disabled:not(.check input),input[type="radio"]:disabled,input[type="checkbox"]:disabled:not(.check input):hover,input[type="radio"]:disabled:hover{background:var(--disabled);border-color:var(--disabled-edge);cursor:not-allowed}
+input[type="checkbox"]:checked:disabled:not(.check input),input[type="radio"]:checked:disabled{background:var(--disabled-text);border-color:var(--disabled-text)}
+.app-nav a[aria-disabled="true"],.app-nav a[aria-disabled="true"]:hover,.tabs a[aria-disabled="true"],.tabs a[aria-disabled="true"]:hover,.scope a[aria-disabled="true"],.scope a[aria-disabled="true"]:hover{color:var(--disabled-text);background:none;cursor:not-allowed}
+.dropzone:has(input:disabled),.dropzone:has(input:disabled):hover{border-color:var(--disabled-edge);color:var(--disabled-text);cursor:not-allowed}
+"""
+
+
 def skeleton_css():
     """The skeletons' sizes, which the wireframes give inline, as kit classes — every size any page uses."""
     seen = set()

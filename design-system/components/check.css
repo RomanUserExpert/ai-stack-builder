@@ -20,3 +20,6 @@
 .check:has(input:disabled) input{cursor:default}
 .check:has(input:disabled):hover{background:transparent}
 .check:has(input:checked:disabled)::before{background:var(--disabled-text)}
+.check:active{background:var(--control-active)}
+.check:has(input:checked):active{background:var(--wash-active)}
+.check:has(input:disabled):active{background:transparent}

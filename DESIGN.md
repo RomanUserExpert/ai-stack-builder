@@ -444,7 +444,19 @@ was split from. A few roles differ, each on the owner's word or a measurement, a
   needs 3:1 (phase 08, tokens-check T7-1).
 - **The glass is a light grey** under the same 7 % lime: `rgba(195,198,186,.45)`. **The sheet's shadow is a third
   as dark**: `0 18px 40px rgba(0,0,0,.12)`. Owner, 2026-10-28: the dark ones read too heavy on light.
-- **Not signed yet, so still dark**: the sheet's edge (white at 5 %) and Remove Red with its hover and its ink.
+- **Signed in phase 09 (Q49)**: the sheet's edge is the light hairline `#DCDED4`; Remove Red, its hover and its white ink
+  keep their dark values (4.77:1).
+
+### States (phase 09)
+- **Pressed** is one recipe per ground, half a step past its hover in the hover's direction: `--action-active`,
+  `--control-active`, `--row-active`, `--segment-active`, `--wash-active`, `--danger-active`, `--warning-active`,
+  `--edge-active`; the quiet remove inside a Problem changes its edge to solid rose (`--problem-active`). Values in
+  `06-concept/concept.md`, *Phase 09*.
+- **Focus** is the lime ring on every focusable thing, 3:1 or better on every ground in both themes.
+- **Disabled** is the three roles, never an opacity, and the pointer reads `not-allowed`. The control keeps its focus and
+  points at its reason.
+- **No state moves a thing or changes its size**: only its ground, its colour or its edge. Every docs page shows the four
+  beside rest, in both themes.
 
 ### Tokens: two levels
 The values live in [`design-system/tokens.css`](design-system/tokens.css) (in `08-design-tokens/` until lesson 09 moved

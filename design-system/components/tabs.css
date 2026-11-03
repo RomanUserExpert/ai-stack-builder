@@ -10,3 +10,4 @@
 .tabs .count{margin-left:var(--space-1);color:var(--text-3);font-weight:var(--font-weight-regular)}
 /* page tabs: the panel's tabs at page size */
 .tabs-page a{font:var(--typescale-button)}
+.tabs a:active{color:var(--text);background:var(--wash-active)}

@@ -37,3 +37,14 @@ button.link-button:hover{background:none;color:var(--text)}
 /* busy: cannot be sent twice, keeps its lime; the spinner's track shows on lime (critique #12) */
 .button-primary[aria-busy="true"]{cursor:progress}
 .button-primary[aria-busy="true"]:hover{background:var(--action);border-color:var(--action)}
+button:active,.button:active{background:var(--control-active)}
+.button-primary:active{background:var(--action-active);border-color:var(--action-active)}
+.button-danger:active{background:var(--danger-active);border-color:var(--danger-active)}
+.button-warning:active{background:var(--warning-active);border-color:var(--warning-active)}
+.button-quiet:active{background:var(--wash-active)}
+.button-danger-quiet:active{background:var(--problem-wash);border-color:var(--problem-active)}
+button.link-button:active{background:none;color:var(--text);text-decoration-color:var(--text)}
+.remove:active{background:var(--control-active)}
+.button-primary[aria-busy="true"]:active{background:var(--action);border-color:var(--action)}
+button[disabled]:active,button[aria-disabled="true"]:not([aria-busy]):active,.button[aria-disabled="true"]:active{background:var(--disabled);border-color:var(--disabled-edge);color:var(--disabled-text)}
+button.link-button[disabled],button.link-button[aria-disabled="true"],button.link-button[disabled]:hover,button.link-button[aria-disabled="true"]:hover{background:none;border-color:transparent;color:var(--disabled-text);cursor:not-allowed}

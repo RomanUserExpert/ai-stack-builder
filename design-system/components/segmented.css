@@ -10,3 +10,4 @@
 .scope a:hover{color:var(--text);background:var(--segment-hover)}
 .scope a[aria-current="page"]{color:var(--text);background:var(--control);box-shadow:var(--shadow-tile),inset 0 0 0 var(--border-width-thin) var(--line-strong)}
 .scope a:focus-visible{outline:0;box-shadow:var(--shadow-focus)}
+.scope a:active{color:var(--text);background:var(--segment-active)}
