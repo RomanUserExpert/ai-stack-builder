@@ -1,0 +1,1164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="AI Stack Builder's design system as one package: living documentation on the product's own stylesheet, four states in both themes, patterns found on three screens, a rule of growth, two new screens built from the system alone, and the system and the product checked together.">
+<style>
+/* Baseline the artifact host normally supplies. */
+html{color-scheme:light dark}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Phase 9 &mdash; Design system &middot; AI Stack Builder</title>
+
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap");
+/* Tokens, shell and scroll-spy come from research-page.tpl.html at build time.
+   Only what this page has and the others do not lives here. */
+
+/* --- the chain: a value, its role, the component that reads it --- */
+.pipe{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:22px 0 8px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.pipe > div{position:relative;padding:16px 18px 18px;border-right:1px solid var(--rule-soft)}
+.pipe > div:last-child{border-right:0}
+.pipe > div:not(:last-child)::after{content:"";position:absolute;right:-7px;top:22px;width:12px;height:12px;background:var(--surface);border-top:1px solid var(--rule);border-right:1px solid var(--rule);transform:rotate(45deg);z-index:1}
+.pipe .k{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.pipe b{display:block;margin:6px 0 4px;font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.pipe p{margin:0;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.pipe > div.out{background:var(--accent-06)}
+.pipe > div.out .k{color:var(--accent)}
+@media (max-width:760px){.pipe{grid-template-columns:1fr}.pipe > div{border-right:0;border-bottom:1px solid var(--rule-soft)}.pipe > div:not(:last-child)::after{right:auto;left:24px;top:auto;bottom:-7px;transform:rotate(135deg)}}
+
+/* --- the guards --- */
+.guards{list-style:none;counter-reset:g;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px;margin:18px 0 8px;padding:0}
+.guards li{counter-increment:g;position:relative;margin:0;padding:12px 14px 12px 44px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+.guards li::before{content:counter(g);position:absolute;left:12px;top:11px;width:22px;height:22px;border:1px solid var(--accent-45);border-radius:4px;font-family:var(--font-mono);font-size:11.5px;line-height:20px;text-align:center;color:var(--accent)}
+.guards li b{color:var(--ink)}
+.guards li.new{border-color:var(--accent-45)}
+.guards li.new em{font-style:normal;font-family:var(--font-mono);font-size:11px;color:var(--accent)}
+
+/* --- one screen, dark or light, live --- */
+.twins{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--sunken)}
+.twins-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;padding:10px 12px;border-bottom:1px solid var(--rule);background:var(--surface)}
+.screens{display:flex;flex-wrap:wrap;gap:4px}
+.screens button,.mode button{font:inherit;font-size:13px;font-weight:500;padding:6px 10px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--ink-2);cursor:pointer;transition:background var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+.screens button:hover,.mode button:hover{background:var(--surface-hover);color:var(--ink)}
+.screens button[aria-pressed="true"]{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.mode{display:inline-flex;margin-left:auto;padding:2px;border:1px solid var(--rule);border-radius:8px;background:var(--sunken)}
+.mode button{padding:5px 12px}
+.mode button[aria-pressed="true"]{background:var(--fill-strong);color:var(--on-fill)}
+.twins-stage{position:relative;overflow:hidden;height:560px}
+.twins-stage iframe{position:absolute;left:0;top:0;width:1440px;height:960px;border:0;transform-origin:0 0;background:#1B1C19}
+.twins-cap{display:flex;flex-wrap:wrap;gap:6px 16px;padding:9px 14px;border-top:1px solid var(--rule);background:var(--surface);font-family:var(--font-mono);font-size:12px;color:var(--ink-3)}
+.twins-cap a{margin-left:auto;font-family:var(--font);font-size:13px}
+.twins + .tnote{margin-top:12px}
+
+/* --- a live page in a frame: the showcase --- */
+.stand{margin:22px 0 8px;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:#1B1C19}
+.stand-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--rule);background:var(--sunken);font-size:13px;color:var(--ink-2)}
+.stand-bar strong{color:var(--ink)}
+.stand-bar a{margin-left:auto}
+.stand iframe{display:block;width:100%;height:min(86vh,1100px);border:0;background:#1B1C19}
+
+/* --- the register: owner's answers, one card each --- */
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:18px 0 8px}
+.q{border:1px solid var(--rule);border-radius:10px;background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.q .qid{font-family:var(--font-mono);font-size:11.5px;color:var(--accent)}
+.q h3{margin:0;font-size:15px;line-height:1.35}
+.q p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.q .said{margin-top:auto;padding-top:6px;font-size:12.5px;color:var(--ink-3)}
+
+/* --- links out, as a short list of buttons --- */
+.outs{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 6px}
+.outs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--rule);border-radius:8px;background:var(--surface);font-size:14px;font-weight:600}
+.outs a:hover{border-color:var(--accent)}
+/* --- the layers: every block folds; tables and cards are built from tokens.css --- */
+.tm{margin:0 0 10px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);overflow:hidden}
+.tm > summary{display:grid;grid-template-columns:14px minmax(0,auto) auto 1fr;align-items:center;gap:6px 14px;padding:12px 16px;cursor:pointer;list-style:none}
+.tm > summary::-webkit-details-marker{display:none}
+.tm > summary::before{content:"";width:7px;height:7px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:rotate(-45deg);transition:transform var(--dur) var(--ease)}
+.tm[open] > summary::before{transform:rotate(45deg) translate(-2px,-1px)}
+.tm > summary:hover{background:var(--surface-hover)}
+.tm[open] > summary{border-bottom:1px solid var(--rule)}
+.tm-t{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:600;color:var(--ink)}
+.tm-strip{display:inline-flex}
+.tm-strip .sw{width:16px;height:16px;border-radius:0;margin-right:-1px}
+.tm-strip .sw:first-child{border-radius:4px 0 0 4px}.tm-strip .sw:last-child{border-radius:0 4px 4px 0}
+.tm-n{font-family:var(--font-mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.tm-d{font-size:13px;color:var(--ink-3)}
+.tm-body{padding:0}
+.tm-body > .sub{margin:0;padding:14px 16px 0;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+.layer-bar{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 14px}
+.layer-bar button{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--rule);border-radius:6px;background:var(--surface);color:var(--ink-2);cursor:pointer}
+.layer-bar button:hover{background:var(--surface-hover);color:var(--ink)}
+
+.sw{display:inline-block;flex:none;width:16px;height:16px;border-radius:4px;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);vertical-align:middle}
+.sw.a{background:linear-gradient(var(--sw),var(--sw)),repeating-conic-gradient(#ccc 0 25%,#fff 0 50%) 0 0/8px 8px}
+.sw.big{display:block;width:100%;height:52px;border-radius:7px}
+
+/* primitive colour: cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;padding:12px 16px 16px}
+.card-sw{display:flex;flex-direction:column;gap:3px;padding:8px 8px 10px;border:1px solid var(--rule-soft);border-radius:10px;background:var(--sunken)}
+.card-sw .nm{margin-top:7px;font-size:12.5px;color:var(--ink);background:none;padding:0;border:0}
+.card-sw .hx{font-size:11.5px;color:var(--ink-3);background:none;padding:0;border:0}
+.card-sw .rd{margin-top:4px;font-size:11.5px;line-height:1.6;color:var(--ink-3)}
+.card-sw .rd b{display:inline-block;width:34px;font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.card-sw .rd code{margin-right:4px;font-size:11.5px;color:var(--ink-2);background:none;padding:0;border:0}
+.card-sw .rd.none{font-style:italic}
+
+/* tables */
+.tm-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}
+.tm-table col.c-nm{width:210px}.tm-table col.c-gv{width:300px}.tm-table col.c-th{width:225px}
+.tm-table.sem col.c-nm{width:150px}.tm-table.sem td{padding:9px 12px}.tm-table.sem th{padding:8px 12px}
+.tm-table col.c-cv{width:150px}
+.tm-table th{padding:8px 16px;text-align:left;font-family:var(--font-mono);font-size:10.5px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--sunken);border-bottom:1px solid var(--rule-soft)}
+.tm-table td{padding:9px 16px;vertical-align:middle;border-bottom:1px solid var(--rule-soft);overflow-wrap:anywhere}
+.tm-table tr:last-child td{border-bottom:0}
+.tm-table tbody tr:hover td{background:var(--accent-06)}
+.tm-table code{font-size:12px;background:none;padding:0;border:0}
+.tm-table .nm code{color:var(--ink)}
+.tm-table .val code{color:var(--ink-2)}
+.tm-table .ds{font-size:12.5px;line-height:1.5;color:var(--ink-3)}
+.th{display:grid;grid-template-columns:16px minmax(0,1fr);column-gap:8px;align-items:center;line-height:1.4}
+.th .sw{grid-row:span 2}
+.th code{color:var(--ink-2)}
+.th .hx{color:var(--ink-3)}
+.th.kept{opacity:.75}
+.th code{white-space:nowrap;font-size:11.5px}
+.gapnote{display:block;margin-top:2px;font-size:11.5px;color:var(--accent)}
+.ex{color:var(--ink-2)}.ex.own{color:var(--accent)}
+.same{font-size:12.5px;color:var(--ink-3)}
+
+/* geometry previews */
+.pv .bar{display:block;height:10px;border-radius:2px;background:var(--accent-45)}
+.pv .bar.w{background:var(--fill-strong);opacity:.35}
+.pv .rad{display:block;width:64px;height:40px;border:1.5px solid var(--ink-2);background:var(--sunken)}
+.pv .spec{display:block;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pv .spec.caps{font-family:"Geist",system-ui,sans-serif;font-size:12px;font-weight:600;text-transform:uppercase}
+.pv .ln{display:block;width:120px;border-top:0 solid var(--ink)}
+.pv .sq{display:block;border:1px solid var(--ink-3);border-radius:3px;background:var(--sunken)}
+.pv .ic{display:block;width:20px;height:20px;background:var(--ink)}
+.pv .track{position:relative;display:block;width:100%;max-width:280px;height:10px;border-radius:5px;background:var(--sunken);box-shadow:inset 0 0 0 1px var(--rule-soft)}
+.pv .runner{position:absolute;left:0;top:1px;width:8px;height:8px;border-radius:50%;background:var(--accent);animation:run 1400ms cubic-bezier(.2,.7,.2,1) infinite alternate}
+@keyframes run{to{left:calc(100% - 8px)}}
+@media (prefers-reduced-motion:reduce){.pv .runner{animation:none}}
+
+/* contrast */
+.tm-table .pr code{color:var(--ink)}
+.tm-table .pr span{color:var(--ink-3);font-size:12px}
+.tm-table .pr small{display:block;margin-top:2px;font-size:12px;color:var(--ink-3)}
+.cv{white-space:nowrap}
+.cv .aa{display:inline-grid;place-items:center;width:34px;height:24px;margin-right:8px;border-radius:6px;font-family:"Geist",system-ui,sans-serif;font-style:normal;font-size:13px;font-weight:600;vertical-align:middle;box-shadow:inset 0 0 0 1px rgba(127,127,127,.25)}
+.cv .aa.nt{font-size:12px}
+.cv b{font-family:var(--font-mono);font-size:12.5px;font-weight:500;color:var(--ink)}
+.cv .ok,.cv .no,.cv .info{margin-left:6px;font-size:11.5px;color:var(--ink-3)}
+.cv .no{color:#b00020;font-weight:600}
+@media (max-width:640px){.tm > summary{grid-template-columns:14px 1fr auto}.tm-d,.tm-strip{display:none}.tm-table{table-layout:auto}.tm-table colgroup,.tm-table thead{display:none}.tm-table tr{display:block;padding:8px 0;border-bottom:1px solid var(--rule-soft)}.tm-table td{display:block;border:0;padding:2px 16px}}
+
+
+/* Tokens, shell and scroll-spy come from research-page.tpl.html, and the page parts (.stand, .guards, .qs, .outs)
+   from tokens-page.tpl.html, at build time. Only what this page has and the others do not lives here. */
+.steps9{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:18px 0 8px;padding:0}
+.steps9 li{counter-increment:s;position:relative;margin:0;padding:12px 14px 12px 44px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:14px;line-height:1.45;color:var(--ink-2)}
+.steps9 li::before{content:counter(s,decimal-leading-zero);position:absolute;left:12px;top:11px;font-family:var(--font-mono);font-size:12px;color:var(--accent)}
+.steps9 li b{display:block;color:var(--ink)}
+.stand.short iframe{height:min(70vh,760px)}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&display=swap">
+
+<style>
+/* ------------------------------------------------------------------
+   Design language carried over from r-o-design.tech — the same tokens,
+   the same type pairing, the same border-led component grammar.
+------------------------------------------------------------------ */
+:root{
+  --bg:#f9f9f7;
+  --paper:#f9f9f7;
+  --surface:#fdfdfb;
+  --sunken:#f0f0ee;
+  --surface-hover:#ebebea;
+  --ink:#0d0d0d;
+  --ink-2:#3f3f3d;
+  --ink-3:#5a5a56;
+  --rule:#d4d4cf;
+  --rule-soft:#e2e2dd;
+  --accent:#e05f03;
+  --accent-hover:#c45200;
+  --accent-06:#e05f0312;
+  --accent-18:#e05f0330;
+  --accent-45:#e05f0378;
+  --bad:#a3342a;
+  --bad-soft:#f4e3e0;
+  --fill-strong:#c45200;   /* white on the brand orange is only 3.6:1 — this is 5.2 */
+  --fill-bad:#a3342a;
+  --on-fill:#ffffff;
+  --shadow:0 2px 12px rgba(0,0,0,.07);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur:.18s;
+  --font:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","Segoe UI Symbol",sans-serif;
+  --font-display:"Special Gothic Expanded One",Inter,-apple-system,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161614;
+    --paper:#161614;
+    --surface:#1e1e1c;
+    --sunken:#121210;
+    --surface-hover:#232321;
+    --ink:#f0efe9;
+    --ink-2:#ababab;
+    --ink-3:#909090;
+    --rule:#52524f;
+    --rule-soft:#3a3a37;
+    --accent:#f57722;
+    --accent-hover:#ff8c3d;
+    --accent-06:#e05f0326;
+    --accent-18:#e05f0347;
+    --accent-45:#e05f0385;
+    --bad:#e88b80;
+    --bad-soft:#3a201d;
+    --fill-strong:#f57722;
+    --fill-bad:#e0655a;
+    --on-fill:#161614;     /* on a bright fill, dark text is the legible one */
+    --shadow:0 2px 12px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161614;
+  --paper:#161614;
+  --surface:#1e1e1c;
+  --sunken:#121210;
+  --surface-hover:#232321;
+  --ink:#f0efe9;
+  --ink-2:#ababab;
+  --ink-3:#909090;
+  --rule:#52524f;
+  --rule-soft:#3a3a37;
+  --accent:#f57722;
+  --accent-hover:#ff8c3d;
+  --accent-06:#e05f0326;
+  --accent-18:#e05f0347;
+  --accent-45:#e05f0385;
+  --bad:#e88b80;
+  --bad-soft:#3a201d;
+  --fill-strong:#f57722;
+  --fill-bad:#e0655a;
+  --on-fill:#161614;
+  --shadow:0 2px 12px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:var(--font-display);font-weight:400}
+code,.mono{font-family:var(--font-mono)}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+a:hover{border-bottom-color:var(--accent)}
+a:focus-visible,summary:focus-visible,button:focus-visible,img:focus-visible{
+  outline:2px solid var(--accent);outline-offset:3px;border-radius:3px
+}
+
+/* ---------- shell ---------- */
+.shell{max-width:1216px;margin:0 auto;padding:0 32px 100px}
+/* On wide screens the phase list is a rail fixed to the window's left edge (below), and the
+   content column is centred in what is left. Same rail, same width, on every phase page and on
+   the wireframes. */
+:root{--phases-w:240px}
+html.phases-collapsed{--phases-w:64px}
+@media (min-width:1080px){
+  body{padding-left:var(--phases-w)}
+  .shell{max-width:980px;padding:0 40px 120px}
+}
+.col{max-width:100%}
+.col>*{max-width:74ch}
+.col>.wide{max-width:100%}
+
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 44px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 20px
+}
+.mast h1{
+  font-size:clamp(30px,4.4vw,54px);line-height:1.02;letter-spacing:-.005em;
+  margin:0 0 26px;text-wrap:balance;max-width:17ch
+}
+.standfirst{font-size:17px;line-height:1.65;color:var(--ink-2);max-width:62ch;margin:0 0 36px}
+.standfirst strong{color:var(--ink);font-weight:500}
+
+.facts{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));
+  gap:0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)
+}
+.facts div{padding:14px 16px;border-right:1px solid var(--rule)}
+.facts div:last-child{border-right:0}
+.facts dt{
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 6px;font-weight:600
+}
+.facts dd{
+  margin:0;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;
+  color:var(--ink);line-height:1;letter-spacing:-.01em
+}
+.facts dd small{font-size:11.5px;color:var(--ink-3);display:block;margin-top:6px;font-weight:400;letter-spacing:0}
+
+.rail{
+  position:sticky;top:0;z-index:20;margin:0;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+}
+.rail::after{
+  content:"";position:absolute;right:0;top:0;bottom:1px;width:40px;pointer-events:none;
+  background:linear-gradient(to right,transparent,var(--paper) 72%);
+}
+.rail ol{display:flex;gap:0;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.rail ol::-webkit-scrollbar{display:none}
+.rail li{flex:0 0 auto;margin:0}
+.rail a{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;white-space:nowrap;
+  padding:9px 14px 8px;border:0;border-bottom:2px solid transparent;border-radius:0;
+  font-size:13px;line-height:1.3;font-weight:500;color:var(--ink-3);background:none;
+  transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.rail a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.rail a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.rail a b{
+  display:block;font-family:var(--font-mono);font-size:9.5px;line-height:1;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:600;
+}
+.rail a.on b{color:var(--accent)}
+.railhead{display:none}
+
+/* --- both horizontal bars are dragged with the mouse, not only wheeled --- */
+.rail ol.grabbable,.phases ol.grabbable{cursor:grab}
+.rail ol.dragging,.phases ol.dragging,
+.rail ol.dragging *,.phases ol.dragging *{cursor:grabbing;user-select:none}
+
+/* ---------- sections ---------- */
+section{padding:64px 0 8px;scroll-margin-top:80px}
+@media (min-width:1080px){section{scroll-margin-top:70px}}
+section+section{border-top:1px solid var(--rule-soft)}
+.stagehead{display:flex;align-items:center;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.stagenum{
+  font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:4px;padding:3px 8px;white-space:nowrap;background:var(--accent-06)
+}
+h2{font-size:clamp(24px,2.9vw,34px);line-height:1.06;letter-spacing:-.004em;margin:0;text-wrap:balance}
+.qline{color:var(--ink-2);font-size:16px;margin:14px 0 32px;max-width:64ch}
+h3{
+  font-family:var(--font);font-size:18px;line-height:1.3;font-weight:600;
+  letter-spacing:-.005em;margin:48px 0 14px;text-wrap:balance
+}
+h4{
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);font-weight:600;margin:38px 0 14px
+}
+p{margin:0 0 18px}
+ul,ol{margin:0 0 18px;padding-left:22px}
+li{margin-bottom:10px}
+li::marker{color:var(--ink-3)}
+strong{font-weight:600}
+
+/* ---------- per-stage conclusion ---------- */
+.verdict{
+  margin:44px 0 8px;padding:24px 26px 22px;background:var(--surface);
+  border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:10px
+}
+.verdict .vh{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--accent);margin:0 0 14px
+}
+.verdict p{margin:0 0 12px;font-size:15.5px}
+.verdict p:last-child{margin-bottom:0}
+.verdict ul{margin:0;font-size:15.5px}
+.verdict li:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;line-height:1.5}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;
+  background:var(--sunken);border-bottom:1px solid var(--rule);white-space:nowrap
+}
+tbody tr:last-child td{border-bottom:none}
+td.name,th.name{font-weight:600;color:var(--ink);white-space:nowrap}
+.band td{
+  background:var(--sunken);font-size:10.5px;letter-spacing:.13em;font-weight:600;
+  text-transform:uppercase;color:var(--ink-3);padding:8px 14px
+}
+.tnote{font-size:13px;color:var(--ink-2);margin:-14px 0 28px;line-height:1.6}
+
+/* the score scale is one hue — the accent — because it measures magnitude.
+   Only the single 1 is a different colour, because it means something else. */
+td.s,th.s{
+  text-align:center;font-variant-numeric:tabular-nums;font-weight:600;
+  width:10%;min-width:58px;font-size:14px;color:var(--ink)
+}
+td.s5{background:var(--fill-strong);color:var(--on-fill)}
+td.s4{background:var(--accent-45);color:var(--ink)}
+td.s3{background:var(--accent-18)}
+td.s2{background:var(--accent-06)}
+td.s1{background:var(--fill-bad);color:var(--on-fill)}
+td.sx{color:var(--ink-3);font-weight:400}
+
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:0 0 26px;font-size:12.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.chip{width:24px;height:15px;border-radius:3px;border:1px solid var(--rule);display:inline-block}
+
+/* ---------- flows: the site's numbered process list ---------- */
+.flows{margin:28px 0 0;border:1px solid var(--rule);border-radius:10px;overflow:hidden;background:var(--surface)}
+details{border-bottom:1px solid var(--rule-soft)}
+details:last-child{border-bottom:none}
+summary{
+  list-style:none;cursor:pointer;padding:16px 46px 16px 20px;display:grid;
+  grid-template-columns:40px 1fr auto;gap:16px;align-items:center;position:relative;
+  transition:background var(--dur) var(--ease)
+}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--surface-hover)}
+summary:hover .chev::before{border-color:var(--accent)}
+.chev{position:absolute;right:19px;top:50%;width:16px;height:16px;transform:translateY(-50%);pointer-events:none}
+.chev::before{
+  content:"";position:absolute;top:50%;left:50%;width:7px;height:7px;
+  margin:-5px 0 0 -4px;border-right:1.7px solid var(--ink-3);border-bottom:1.7px solid var(--ink-3);
+  transform:rotate(45deg);transition:transform var(--dur) var(--ease),border-color var(--dur) var(--ease)
+}
+details[open] .chev::before{transform:rotate(-135deg);margin:-2px 0 0 -4px;border-color:var(--accent)}
+details[open] summary{background:var(--sunken)}
+.fnum{font-size:12.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;font-weight:500}
+.ftitle{font-weight:600;font-size:15.5px;color:var(--ink);line-height:1.35}
+.ftitle span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-2);margin-top:4px;line-height:1.5}
+.fstat{
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;font-weight:600;
+  padding:3px 8px;border-radius:4px;white-space:nowrap;border:1px solid var(--rule);
+  background:var(--sunken);color:var(--ink-3)
+}
+.st-closed{border-color:var(--accent);color:var(--accent);background:var(--accent-06)}
+.fbody{padding:2px 20px 24px 76px}
+@media (max-width:640px){
+  summary{grid-template-columns:32px 1fr;grid-template-rows:auto auto;gap:8px 12px;padding-right:44px}
+  .fstat{grid-column:2;justify-self:start}
+  .fbody{padding:2px 18px 22px 18px}
+}
+.fbody p{font-size:15.5px;margin:0 0 15px}
+.fbody .src{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+.fbody .src a{color:var(--ink-2)}
+
+/* ---------- captures ---------- */
+.shots{
+  max-height:480px;overflow-y:auto;background:var(--sunken);border:1px solid var(--rule);
+  border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:16px;margin:0 0 18px
+}
+.shots figure{margin:0}
+.shots img{
+  display:block;width:100%;height:auto;border:1px solid var(--rule);border-radius:6px;
+  background:#fff;cursor:zoom-in;transition:border-color var(--dur) var(--ease)
+}
+.shots img:hover,.shots img:focus-visible{border-color:var(--accent)}
+.shots figcaption{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2);margin-top:8px;line-height:1.6}
+.scrollhint{
+  font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);margin:0 0 9px;display:flex;align-items:center;gap:9px
+}
+.scrollhint::after{content:"";flex:1;height:1px;background:var(--rule-soft)}
+.scrollhint em{font-style:normal;font-weight:400;letter-spacing:.02em;text-transform:none;color:var(--ink-3)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(13,13,13,.94);overflow:auto;padding:60px 24px 48px;display:flex}
+.lb[hidden]{display:none}
+.lb-inner{width:min(1360px,94vw);margin:auto}
+.lb-inner img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:#fff}
+.lb-cap{font-family:var(--font-mono);font-size:12px;line-height:1.65;color:#cfcdc6;margin:16px 0 0;max-width:96ch}
+.lb-close{
+  position:fixed;top:16px;right:20px;width:38px;height:38px;border-radius:4px;
+  border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.45);color:#f0efe9;
+  font:600 15px/1 var(--font);cursor:pointer
+}
+.lb-close:hover{background:var(--accent);border-color:var(--accent)}
+
+/* ---------- pain bars ---------- */
+.bars{margin:10px 0 26px;display:flex;flex-direction:column;gap:10px;max-width:66ch}
+.bar{display:grid;grid-template-columns:1fr 52px;gap:14px;align-items:center}
+.bar .lbl{font-size:13.5px;line-height:1.4;color:var(--ink-2)}
+.bar .lbl b{color:var(--ink);font-weight:600}
+.bar .track{grid-column:1/-1;height:10px;background:var(--sunken);border:1px solid var(--rule-soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink-3);border-radius:2px}
+.bar .fill.loud{background:var(--bad)}
+.bar .fill.ours{background:var(--accent)}
+.bar .n{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;text-align:right;color:var(--ink)}
+.barlegend{font-size:12.5px;color:var(--ink-3);margin:-16px 0 28px}
+
+/* ---------- pull quote ---------- */
+blockquote{margin:28px 0;padding:0 0 0 22px;border-left:2px solid var(--accent);font-size:18px;line-height:1.5;color:var(--ink)}
+blockquote p{margin:0 0 10px}
+blockquote p:last-child{margin:0}
+blockquote cite{display:block;font-style:normal;font-size:12.5px;color:var(--ink-3);margin-top:12px;line-height:1.6}
+
+/* ---------- chosen shape ---------- */
+.shape{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;
+  border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0;background:var(--surface)
+}
+.shape div{padding:18px 18px 20px;border-right:1px solid var(--rule)}
+.shape div:last-child{border-right:0}
+.shape h5{font-size:14px;font-weight:600;margin:0 0 5px;color:var(--ink)}
+.shape .k{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 9px;font-weight:600}
+.shape p{font-size:13.5px;line-height:1.55;color:var(--ink-2);margin:0}
+
+/* ---------- decisions ---------- */
+.decisions{border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin:26px 0 8px;background:var(--surface)}
+.dec{padding:18px 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;border-bottom:1px solid var(--rule-soft)}
+.dec:last-child{border-bottom:0}
+@media (max-width:760px){.dec{grid-template-columns:1fr;gap:10px}}
+.dec .what{font-size:14.5px;font-weight:600;line-height:1.45;color:var(--ink)}
+.dec .what b{
+  display:block;font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:6px
+}
+.dec .why{font-size:14.5px;line-height:1.6;color:var(--ink-2)}
+.dec .why em{color:var(--ink);font-style:italic}
+
+/* ---------- gaps ---------- */
+.gaps{display:flex;flex-direction:column;gap:14px;margin:26px 0 8px}
+.gap{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;border-top:2px solid var(--accent)}
+.gap.unverified{border-top-color:var(--bad)}
+.gaphead{display:flex;align-items:baseline;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.gid{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:.06em}
+.gaphead h5{font-size:15.5px;font-weight:600;margin:0;line-height:1.35;color:var(--ink)}
+.gap p{font-size:15px;margin:0 0 12px;color:var(--ink-2)}
+.gap p:last-child{margin:0}
+.gap .hyp{color:var(--ink);padding:13px 16px;background:var(--sunken);border-radius:6px;font-size:14.5px;line-height:1.6}
+.gap .hyp b{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  display:block;margin-bottom:6px;font-weight:600
+}
+.gap .from{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);margin-top:12px}
+.nd{
+  font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:600;
+  color:var(--bad);background:var(--bad-soft);border:1px solid var(--bad);
+  padding:2px 7px;border-radius:4px;white-space:nowrap
+}
+
+/* ---------- footer ---------- */
+.foot{
+  grid-column:1/-1;margin-top:72px;padding-top:28px;border-top:1px solid var(--rule);
+  font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap
+}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ==================================================================
+   Personas & jobs-to-be-done components — shared with personas.html.
+   Both pages are built from this block; edit it once.
+================================================================== */
+
+/* ------------------------------------------------------------------
+   Personas & JTBD — components this page adds on top of the shared
+   design language pulled from research-page.tpl.html at build time.
+------------------------------------------------------------------ */
+
+/* --- evidence marks, the spine of both documents --- */
+.m{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:1.35em;height:1.35em;padding:0 .3em;margin:0 .12em;
+  border:1px solid var(--rule);border-radius:3px;
+  font-family:var(--font-mono);font-size:.72em;line-height:1;
+  vertical-align:.08em;font-weight:600;
+}
+.m-y{border-color:var(--accent-45);background:var(--accent-06);color:var(--accent)}
+.m-s{border-color:var(--rule);background:var(--sunken);color:var(--ink-2)}
+.m-q{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+
+.legend{
+  display:grid;gap:10px;margin:22px 0 0;padding:16px 18px;
+  border:1px solid var(--rule);background:var(--surface);
+}
+.legend .lrow{display:grid;grid-template-columns:2.4em 1fr;gap:12px;align-items:start}
+.legend b{color:var(--ink)}
+.legend p{margin:0;color:var(--ink-2);font-size:14.5px}
+
+/* --- persona cards --- */
+.people{display:grid;gap:20px;margin-top:26px;max-width:100%}
+@media (min-width:1180px){ .people{grid-template-columns:1fr 1fr} .people .pc.primary{grid-column:1 / -1} }
+
+.pc{border:1px solid var(--rule);background:var(--surface);display:flex;flex-direction:column}
+.pc.primary{border-color:var(--accent-45);box-shadow:var(--shadow)}
+.pc > header{padding:20px 22px 16px;border-bottom:1px solid var(--rule-soft)}
+.pc.primary > header{background:var(--accent-06)}
+.pc .tag{
+  display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;
+}
+.pc.primary .tag{color:var(--accent);font-weight:700}
+.pc h3{font-family:var(--font-display);font-weight:400;font-size:23px;line-height:1.2;margin:0 0 8px}
+.pc .axes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.pc .axes span{
+  font-family:var(--font-mono);font-size:11px;padding:3px 7px;
+  border:1px solid var(--rule-soft);background:var(--sunken);color:var(--ink-2);
+}
+.pc .standing{margin:12px 0 0;font-size:14px;color:var(--ink-2)}
+
+.pblock{padding:16px 22px;border-bottom:1px solid var(--rule-soft)}
+.pblock:last-child{border-bottom:0}
+.pblock h4{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 10px;font-weight:600;
+}
+.pblock p{margin:0 0 10px;font-size:15px}
+.pblock p:last-child{margin-bottom:0}
+.pblock ul{margin:0;padding-left:1.15em;font-size:15px}
+.pblock li{margin:0 0 8px}
+.pblock li:last-child{margin-bottom:0}
+.pblock .src{color:var(--ink-3);font-size:13.5px}
+
+.pq{
+  margin:0;padding:14px 16px;border-left:3px solid var(--accent);
+  background:var(--sunken);font-size:15.5px;line-height:1.55;
+}
+.pq cite{display:block;margin-top:10px;font-style:normal;font-size:13px;color:var(--ink-3)}
+.pq.empty{border-left-color:var(--bad)}
+
+.warn{
+  margin:0 0 14px;padding:12px 14px;border:1px solid var(--bad);
+  background:var(--bad-soft);font-size:14.5px;
+}
+
+/* --- a .warn that folds away: <details class="warn"> --- */
+details.warn{padding:0}
+details.warn>summary{
+  cursor:pointer;padding:11px 14px;font-weight:600;
+  list-style:none;display:flex;gap:9px;align-items:baseline;
+}
+details.warn>summary::-webkit-details-marker{display:none}
+details.warn>summary::before{
+  content:"▸";font-size:11px;opacity:.7;flex:none;
+  transition:transform .12s ease;
+}
+details.warn[open]>summary::before{transform:rotate(90deg)}
+details.warn>summary:hover{background:rgba(128,128,128,.09)}
+details.warn>summary:focus-visible{outline:2px solid var(--bad);outline-offset:-2px}
+details.warn>summary .sub{font-weight:400;opacity:.72;font-size:13.5px}
+details.warn[open]>summary{border-bottom:1px solid var(--bad)}
+details.warn>.inner{padding:11px 14px 12px}
+@media (prefers-reduced-motion:reduce){details.warn>summary::before{transition:none}}
+
+/* --- jobs hierarchy --- */
+.mainjob{
+  margin:26px 0 0;padding:26px 28px;border:1px solid var(--accent-45);background:var(--accent-06);
+}
+.mainjob .tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.mainjob p.j{font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1.34;margin:12px 0 0}
+@media (max-width:700px){ .mainjob p.j{font-size:18px} }
+.mainjob .note{margin:16px 0 0;font-size:14.5px;color:var(--ink-2)}
+
+.jobs{display:grid;gap:14px;margin-top:22px}
+.job{border:1px solid var(--rule);background:var(--surface);padding:18px 20px}
+.job .jid{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3);
+  display:block;margin-bottom:8px;
+}
+.job p.j{margin:0;font-size:16px;line-height:1.5}
+.job .ev{margin:12px 0 0;font-size:13.5px;color:var(--ink-2)}
+.job.hyp{background:var(--sunken);border-style:dashed}
+
+.grouphead{
+  display:flex;align-items:baseline;gap:12px;margin:34px 0 0;
+  padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.grouphead h3{font-family:var(--font-display);font-weight:400;font-size:20px;margin:0}
+.grouphead span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.05em}
+
+/* --- the matrix --- */
+.mwrap{overflow-x:auto;margin-top:22px;border:1px solid var(--rule);max-width:100%}
+table.matrix{border-collapse:collapse;width:100%;min-width:880px;font-size:13.5px;background:var(--surface)}
+table.matrix th,table.matrix td{border-bottom:1px solid var(--rule-soft);padding:11px 12px;text-align:left;vertical-align:top}
+table.matrix thead th{
+  position:sticky;top:0;background:var(--sunken);border-bottom:1px solid var(--rule);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;
+}
+table.matrix tbody tr:last-child td{border-bottom:0}
+table.matrix td.job{width:22%;font-weight:500}
+table.matrix td.p{width:10%;text-align:center;white-space:nowrap}
+table.matrix td.f,table.matrix td.c{width:19%;font-size:13px;color:var(--ink-2)}
+table.matrix tr.hypo td{background:var(--sunken)}
+table.matrix tr.hypo td.job{color:var(--ink-2)}
+.score{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border:1px solid var(--rule);
+  font-family:var(--font-mono);font-weight:700;font-size:13px;
+}
+.score.s3{border-color:var(--accent-45);background:var(--accent-18);color:var(--accent)}
+.score.s2{border-color:var(--rule);background:var(--sunken);color:var(--ink)}
+.score.s1{border-color:var(--rule-soft);background:transparent;color:var(--ink-3)}
+.score.sq{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+td.p small{display:block;margin-top:6px;font-size:11.5px;color:var(--ink-3);white-space:normal;text-align:left}
+.none{color:var(--bad);font-weight:600}
+
+/* --- conclusions --- */
+.picks{display:grid;gap:14px;margin-top:22px}
+@media (min-width:900px){ .picks{grid-template-columns:repeat(3,1fr)} }
+.pick{border:1px solid var(--accent-45);background:var(--surface);padding:18px 20px}
+.pick .n{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:.08em;font-weight:700}
+.pick h4{font-family:var(--font-display);font-weight:400;font-size:17px;margin:8px 0 10px;line-height:1.25}
+.pick p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* --- the course phases: a fixed, collapsible rail on wide screens, a strip below --- */
+.phases{
+  border-bottom:1px solid var(--rule);background:var(--sunken);
+  margin:0 -32px 0;padding:0 32px;
+}
+.phases ol{
+  display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+  list-style:none;margin:0;padding:0;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.03em;
+}
+.phases ol::-webkit-scrollbar{display:none}
+.phases li{margin:0;flex:0 0 auto}
+.phases li>a,.phases li>span{
+  display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:8px 12px 7px;
+  border-bottom:2px solid transparent;color:var(--ink-3);text-decoration:none;
+  white-space:nowrap;transition:color var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.phases li>a:hover{color:var(--ink);border-bottom-color:var(--rule)}
+.phases b{font-weight:700;color:var(--ink-2)}
+.phases li>a:hover b{color:var(--ink)}
+.phases .now{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.phases .now b{color:var(--accent)}
+.phases .soon{color:var(--ink-3);opacity:.55;cursor:default}
+.phases .soon em{font-style:normal;font-size:9px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.phaseshead,.phasestoggle{display:none}
+
+@media (min-width:1080px){
+  /* the rail sits one tone below the page, and every phase is its own bubble — no rules, no bars */
+  .phases{
+    position:fixed;top:0;left:0;bottom:0;z-index:15;width:var(--phases-w);
+    overflow-y:auto;scrollbar-width:none;
+    margin:0;padding:16px 12px 32px;background:var(--sunken);border:0;
+  }
+  .phases::-webkit-scrollbar{display:none}
+  .phaseshead{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    font-family:var(--font);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 12px;padding-left:12px;
+  }
+  .phasestoggle{
+    display:inline-block;padding:4px 10px;border:0;border-radius:8px;
+    background:var(--surface);color:var(--ink-2);font:12px/16px var(--font-mono);cursor:pointer;
+  }
+  .phasestoggle:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases ol{display:flex;flex-direction:column;gap:6px;overflow:visible;font-size:12.5px}
+  .phases li>a,.phases li>span{
+    display:block;padding:8px 12px 9px;white-space:normal;line-height:1.32;
+    border:0;border-radius:10px;background:var(--surface);
+  }
+  .phases b{display:block;font-size:10.5px;line-height:1;letter-spacing:.09em;margin-bottom:4px}
+  .phases li>a:hover{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .phases li>a:hover b{color:var(--ink)}
+  .phases .now{background:var(--accent-06);box-shadow:inset 0 0 0 1px var(--accent-45)}
+  .phases .soon{background:transparent;box-shadow:inset 0 0 0 1px var(--rule);opacity:.5}
+  .phases .soon em{display:none}
+
+  /* collapsed: the numbers stay, each still its own bubble, and still links */
+  html.phases-collapsed .phases{padding:16px 8px 32px}
+  html.phases-collapsed .phaseshead{padding-left:0;justify-content:center}
+  html.phases-collapsed .phaseshead span,
+  html.phases-collapsed .phases .lbl{display:none}
+  html.phases-collapsed .phases li>a,
+  html.phases-collapsed .phases li>span{padding:10px 0;text-align:center}
+  html.phases-collapsed .phases b{margin:0}
+}
+
+/* --- skip link and the phase meta line --- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:20;padding:12px 18px;
+  background:var(--accent);color:var(--on-fill);font-weight:600;
+}
+.skip:focus{left:0}
+.phasemeta{
+  font-family:var(--font-mono);font-size:12px;color:var(--ink-3);
+  margin:0 0 18px;letter-spacing:.02em;
+}
+.phasemeta strong{color:var(--ink-2);font-weight:600}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><a href="../06-concept/style.html" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></a></li>
+      <li><a href="../07-ui-assembly/ui.html" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span></a></li>
+      <li><a href="../08-design-tokens/tokens.html" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span></a></li>
+      <li><span class="now" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 09 &middot; Design system</p>
+  <h1>A system with a rule of growth</h1>
+  <p class="phasemeta">Phase <strong>9 of 12</strong> &middot; the course&rsquo;s seven steps &middot; <strong>3 Nov 2026</strong> &middot; source of truth: <strong>design-system/</strong>, one package, one <strong>index.css</strong></p>
+  <p class="standfirst">Phase 08 left the product with tokens and one file per component, and nothing that said <strong>how the system grows</strong>. This phase makes it a package with one entry point and gives it living documentation on that same stylesheet. It adds the four states in both themes, the compositions found on three screens or more, and <strong>one rule: new appears in the system first, on a screen second.</strong> Then it tests the rule twice, by building new screens from the system alone, and checks the system and the product against each other.</p>
+  <dl class="facts">
+    <div><dt>Components</dt><dd>46<small>each with a page in the docs</small></dd></div>
+    <div><dt>Specimens</dt><dd>119<small>variants and states, cut from the screens</small></dd></div>
+    <div><dt>Tokens</dt><dd>195<small>every one on the Tokens page</small></dd></div>
+    <div><dt>Patterns</dt><dd>6<small>each on three screens or more</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>83<small>per theme, all pass</small></dd></div>
+    <div><dt>Guards</dt><dd>17<small>run at every build</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#showcase"><b>Look</b>The showcase</a></li>
+    <li><a href="#package"><b>Step 01</b>One package</a></li>
+    <li><a href="#docs"><b>Step 02</b>Living docs</a></li>
+    <li><a href="#states"><b>Step 03</b>States</a></li>
+    <li><a href="#patterns"><b>Step 04</b>Patterns</a></li>
+    <li><a href="#contribute"><b>Step 05</b>Contributing</a></li>
+    <li><a href="#examples"><b>Step 06</b>New screens</a></li>
+    <li><a href="#check"><b>Step 07</b>The check</a></li>
+    <li><a href="#register"><b>Register</b>Q48&ndash;Q50</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">A folder with a new name is not a system. A system is a folder with a rule of growth, and a check that the rule holds.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>The showcase already existed and said nothing about <em>when</em>.</strong> The kit showed every component in every state, and never said when to take it or what to take instead.</li>
+    <li><strong>No pressed state was drawn anywhere</strong>, and four roles had no light value of their own.</li>
+    <li><strong>Building a new screen from the system alone found what reading had not.</strong> The tone of a neutral box was guessed from its first words, so a new sentence came out Problem rose.</li>
+    <li><strong>The showcase online was unstyled.</strong> The folder&rsquo;s address is served without its slash, so the page looked for its stylesheet one folder too high.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>One package at the root</strong>, <code>design-system/</code>, behind one <code>index.css</code>. It is the one named exception to one folder per phase.</li>
+    <li><strong>The docs are the showcase</strong>, live on the product&rsquo;s own stylesheet. <code>kit.html</code> is retired to a redirect.</li>
+    <li><strong>States through roles, in both themes</strong>: pressed is one recipe per ground. Disabled is three roles and never an opacity. No state moves anything.</li>
+    <li><strong>A pattern exists only if it can name three screens.</strong> The build counts them.</li>
+    <li><strong>New appears in the system first, on a screen second.</strong> What the system lacks is written down as an order, never drawn on a screen.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="../design-system/docs/components.html">The showcase &nearr;</a>
+    <a href="../design-system/docs/tokens.html">Every token &nearr;</a>
+    <a href="../design-system/docs/patterns.html">Patterns &nearr;</a>
+    <a href="system-check.md">The check &nearr;</a>
+    <a href="README.md">The plan &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ SHOWCASE ============ -->
+<section id="showcase" class="col">
+  <div class="stagehead"><span class="stagenum">LOOK</span><h2>The showcase, live</h2></div>
+  <p class="qline">Not a picture of the product: the product&rsquo;s own markup, on the product&rsquo;s own stylesheet. Switch its theme at its top right.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>design-system/docs/components.html</strong><span>46 components &middot; 119 specimens</span><a href="../design-system/docs/components.html">Open &nearr;</a></div>
+    <iframe src="../design-system/docs/components.html" title="The design system's showcase" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ STEP 01 ============ -->
+<section id="package" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 01</span><h2>One package, one entry point</h2></div>
+  <p class="qline">Moved, not copied: <code>tokens.css</code> and <code>components/</code> went into <code>design-system/</code> unchanged to the byte.</p>
+  <p>Every screen, every flow step, the shell and the docs link one file, <code>design-system/index.css</code>. It imports the tokens, then the 27 component files. <strong>The pixel test came back identical on every page.</strong> The package sits at the root because phases 10&ndash;12 grow it and the app will consume it, so no phase number goes into its import paths (Q48, D1).</p>
+  <div class="outs"><a href="../design-system/README.md">design-system/README.md &nearr;</a></div>
+</section>
+
+<!-- ============ STEP 02 ============ -->
+<section id="docs" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Living documentation</h2></div>
+  <p class="qline">A page per component: anatomy, variants and states, when to use it, a rule and an anti-rule.</p>
+  <p><strong>The specimens are the screens&rsquo; own markup</strong>, cut from the real pages by the same function that built the kit, so the docs cannot disagree with the product. Each anatomy part is a selector, and the build finds it in its live specimen. The words come from <code>tools/docs_content.py</code>, and every specimen&rsquo;s words are checked against <code>microcopy.md</code>. <a href="../design-system/docs/why.html">Why it looks like this</a> is its own page, drawn from the concept and its references. <strong>Since the check</strong> the docs also hold <a href="../design-system/docs/tokens.html">every token</a> and <a href="../design-system/docs/layouts.html">the five layouts</a>.</p>
+</section>
+
+<!-- ============ STEP 03 ============ -->
+<section id="states" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03</span><h2>Four states, two themes</h2></div>
+  <p class="qline">Hover, active, focus-visible and disabled on every control, each beside rest, dark and light.</p>
+  <ul>
+    <li><strong>Pressed</strong> is nine recipes over a role, so it holds in both themes by construction. Each goes half a step past hover, in the direction hover went. Signed by the owner value by value (Q49).</li>
+    <li><strong>Focus</strong> is the lime ring, measured at 3:1 or better on every ground in both themes.</li>
+    <li><strong>Disabled</strong> is three roles and <code>not-allowed</code>. There is no opacity token, because opacity would dim the reason a disabled control points at (D3). In light its ground is <code>#ECEDE6</code> (Q50).</li>
+    <li><strong>Nothing moves.</strong> In both themes, the build checks in a browser that every state drawn differs from rest and changes nothing&rsquo;s size.</li>
+  </ul>
+</section>
+
+<!-- ============ STEP 04 ============ -->
+<section id="patterns" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 04</span><h2>Patterns found, not designed</h2></div>
+  <p class="qline">Each pattern has a signature, and the build runs it over all 80 wireframe pages. It fails below three screens.</p>
+  <p><strong>6 patterns</strong>: Browse head, Set with an item side panel, Configuring layout, Run report, Confirmation, and Dialog with a field. A screen counts once, and an overlay never counts. Seven compositions were looked at and refused, each with its count. Every pattern is a file with no style of its own.</p>
+  <div class="outs"><a href="../design-system/docs/patterns.html">Patterns, live &nearr;</a></div>
+</section>
+
+<!-- ============ STEP 05 ============ -->
+<section id="contribute" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>The rule of growth</h2></div>
+  <p class="qline">New appears in the system first, on a screen second, never the other way round.</p>
+  <ol class="steps9 wide">
+    <li><b>A value</b> goes to <code>tokens.css</code> at its level, with a value in both themes, signed.</li>
+    <li><b>A component</b> goes to <code>components/</code>, with its docs page and its four states.</li>
+    <li><b>A composition</b> about to stand on its third screen goes to <code>patterns/</code>.</li>
+    <li><b>What cannot enter yet</b> goes to <code>backlog.md</code>. It is written down, not drawn.</li>
+  </ol>
+  <p>The rule is written where the next session reads it: <code>CLAUDE.md</code> &sect;18 and <code>DESIGN.md</code>. <strong>It is also in the code.</strong> Every guard that refuses a change names the section, and the token generator fails on a role with a value in one theme only.</p>
+</section>
+
+<!-- ============ STEP 06 ============ -->
+<section id="examples" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>New screens, from the system alone</h2></div>
+  <p class="qline">Each screen answers a job no screen answered. Each has no style and no class of its own, and what it lacked became an order.</p>
+  <p><strong>Usage of My library</strong>, for EJ-3, came first. The owner found it too familiar. <strong>Copies of code-style</strong>, for RJ-3 and H-J3, puts an item&rsquo;s original beside its copy in each project, with the fields that differ. It found the defect the first one missed, and four more orders. <strong>Both are labelled as examples</strong>: whether the product has them is a register question.</p>
+  <div class="stand short wide">
+    <div class="stand-bar"><strong>design-system/examples/copies.html</strong><span>RJ-3 &middot; an example, not in the product</span><a href="../design-system/examples/copies.html">Open &nearr;</a></div>
+    <iframe src="../design-system/examples/copies.html" title="Copies of code-style, an example" loading="lazy"></iframe>
+  </div>
+  <div class="outs"><a href="../design-system/examples/usage.html">Usage of My library &nearr;</a><a href="../design-system/backlog.md">backlog.md &mdash; 6 orders &nearr;</a></div>
+</section>
+
+<!-- ============ STEP 07 ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 07</span><h2>The system and the product, checked together</h2></div>
+  <p class="qline">The defect table first, then every row fixed, and every class of defect turned into a guard.</p>
+  <p>A new instrument, <code>tools/system_check.py</code>, compares in a browser every element of a docs specimen with the same element on every screen. <code>/impeccable audit</code> added its findings, and each was verified before it counted. <strong>The worst row was found while fixing</strong>: the showcase online loaded no stylesheet. <strong>Two classes came back clean</strong>: no state lives in one theme only, and no pattern has a style of its own.</p>
+  <h3>Seventeen guards, and they stop the build</h3>
+  <ol class="guards wide">
+    <li><b>No literal</b> in a component</li>
+    <li><b>No style on a screen</b></li>
+    <li><b>Every class is a component&rsquo;s</b></li>
+    <li><b>Every variable is declared</b></li>
+    <li><b>No colour primitive</b> in a component</li>
+    <li><b>One link</b>, <code>index.css</code></li>
+    <li><b>One primary</b> on any screen</li>
+    <li><b>The words are the product&rsquo;s</b></li>
+    <li><b>Coverage</b>: every page has a twin</li>
+    <li><b>No geometry as a count</b></li>
+    <li class="new"><b>A docs page</b> per component <em>new</em></li>
+    <li class="new"><b>Patterns on three screens</b>, no style <em>new</em></li>
+    <li class="new"><b>Examples</b>: no style, labelled <em>new</em></li>
+    <li class="new"><b>A bare box is a Problem</b>: tone is a class <em>new</em></li>
+    <li class="new"><b>Every class shown</b> in the docs <em>new</em></li>
+    <li class="new"><b>Every token</b> on the Tokens page <em>new</em></li>
+    <li class="new"><b>Docs and screens alike</b>, in a browser <em>new</em></li>
+  </ol>
+  <div class="verdict">
+    <p class="vh">Step 07 &mdash; conclusion</p>
+    <p>The drift was at the edges: variants the docs missed, layouts and tokens with no page, one tone guessed from words. <strong>None of it was a screen carrying a value of its own</strong>, because the earlier guards had held. The new ones close the edges.</p>
+  </div>
+  <div class="outs"><a href="system-check.md">system-check.md &nearr;</a></div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register" class="col">
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Three entries</h2></div>
+  <p class="qline">What the owner decided on the system.</p>
+  <div class="qs wide">
+    <div class="q"><span class="qid">Q48</span><h3>The plan, as recommended</h3><p>The package at the root; the docs replace the kit; disabled keeps its roles; the light gaps and pressed signed one by one; the test screen picked from the matrix.</p><span class="said">Owner: as recommended</span></div>
+    <div class="q"><span class="qid">Q49</span><h3>States signed</h3><p>Nine pressed recipes, one per ground; the four light gaps filled; 83 contrast pairs per theme pass.</p><span class="said">Owner: давай</span></div>
+    <div class="q"><span class="qid">Q50</span><h3>The check&rsquo;s two answers</h3><p>Disabled in light is <code>#ECEDE6</code>, recessed under the page; the showcase stays on one host.</p><span class="said">Owner: as recommended</span></div>
+  </div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to whom.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Does light ship</td><td>The owner&rsquo;s call (Q44). The theme is complete and signed; a switch in the product goes through the register</td></tr>
+        <tr><td class="name">Six orders in the backlog</td><td>A disclosure, a count beside a heading, bulk selection (register first), a comparison across copies, changed lines and wrapping in a file block &mdash; each enters by &sect;18</td></tr>
+        <tr><td class="name">The two example screens</td><td>Demonstrations, not product. Their entry points and their actions outside the configuring mode are register questions</td></tr>
+        <tr><td class="name">Every screen at other widths</td><td>Phase 10, responsive: the system is desktop-first, by plan</td></tr>
+        <tr><td class="name">The validation pass as a moment</td><td>Phase 11, animation</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 09 of twelve.</strong> Built by <code>tools/build_system_page.py</code>; the docs by <code>tools/build_docs.py</code>; the patterns by <code>tools/build_patterns.py</code>; the examples by <code>tools/build_examples.py</code>; the check by <code>tools/system_check.py</code>.</p>
+  <p>Phase 08 &mdash; <a href="../08-design-tokens/tokens.html">Design tokens</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.rail a'));
+  /* the phase rail's collapse toggle — the same key on every phase page and on the wireframes.
+     Deliberately not its own IIFE: the builders lift this script up to its first closing one. */
+  var phRoot = document.documentElement, phBtn = document.querySelector('.phasestoggle');
+  function phSync(){
+    var c = phRoot.classList.contains('phases-collapsed');
+    phBtn.setAttribute('aria-expanded', String(!c));
+    phBtn.innerHTML = c ? '&raquo;' : '&laquo;';
+    phBtn.title = c ? 'Expand phases' : 'Collapse phases';
+  }
+  if(phBtn){
+    phBtn.addEventListener('click', function(){
+      phRoot.classList.toggle('phases-collapsed');
+      try{ localStorage.setItem('phases', phRoot.classList.contains('phases-collapsed') ? 'collapsed' : 'open'); }catch(e){}
+      phSync();
+    });
+    phSync();
+  }
+  if(!links.length) return;
+  var rail = document.querySelector('.rail');
+  var ol   = rail ? rail.querySelector('ol') : null;
+
+  var map = links.map(function(a){
+    var el = document.querySelector(a.getAttribute('href'));
+    return el ? { a:a, el:el } : null;
+  }).filter(Boolean);
+  if(!map.length) return;
+
+  var current = null;
+  var smoothly = !window.matchMedia
+              || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* One tab is always active: the last section whose top has passed the bar.
+     An IntersectionObserver band leaves the indicator blank between sections,
+     which is wrong for something shaped like tabs. */
+  function sync(){
+    /* a section becomes current once its top reaches the upper third of the
+       viewport, not when it touches the bar - otherwise the heading is already
+       well in view while the tabs still point at the section above it. */
+    var line = Math.max(110, window.innerHeight * 0.32), best = map[0], i;
+    for(i = 0; i < map.length; i++){
+      if(map[i].el.getBoundingClientRect().top <= line) best = map[i];
+    }
+    if(best === current) return;
+    current = best;
+    for(i = 0; i < links.length; i++) links[i].classList.remove('on');
+    best.a.classList.add('on');
+
+    /* keep the active tab inside the horizontal scroller */
+    if(ol && ol.scrollWidth > ol.clientWidth + 4){
+      var t = best.a.getBoundingClientRect(), o = ol.getBoundingClientRect(), to = null;
+      if(t.left < o.left + 12)        to = ol.scrollLeft + t.left  - o.left  - 28;
+      else if(t.right > o.right - 48) to = ol.scrollLeft + t.right - o.right + 56;
+      if(to !== null){
+        /* the bar is dragged by hand at 1:1, so smoothness is asked for here
+           rather than set on the element */
+        if(ol.scrollTo) ol.scrollTo({ left:to, behavior:smoothly ? 'smooth' : 'auto' });
+        else ol.scrollLeft = to;
+      }
+    }
+  }
+
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){ sync(); ticking = false; });
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  /* a click on a tab jumps without always producing a scroll event the throttle
+     can see, so the bar would keep pointing at the section we just left */
+  window.addEventListener('hashchange', function(){ requestAnimationFrame(sync); });
+
+  /* Drag the horizontal bars with the mouse. They overflow at most widths and a
+     wheel alone only moves them with shift held, which nobody discovers. Touch
+     already scrolls them natively, so this is mouse-only; a drag of more than a
+     few pixels swallows the click it would otherwise end in. */
+  function dragScroll(box){
+    if(!box) return;
+    var SLOP = 5;                         /* a press only becomes a drag past this */
+    var down = false, dragging = false, swallow = false, startX = 0, startLeft = 0;
+    function fits(){ return box.scrollWidth <= box.clientWidth + 4; }
+    function mark(){ box.classList.toggle('grabbable', !fits()); }
+
+    /* No setPointerCapture: a captured pointer retargets the click at the
+       scroller, and the tab under the cursor never receives it. The move and up
+       handlers go on the window instead, so a drag still survives leaving the
+       bar, and a plain click stays a plain click on the link. */
+    function move(e){
+      var dx = e.clientX - startX;
+      if(!dragging){
+        if(Math.abs(dx) < SLOP) return;
+        dragging = true; swallow = true;
+        box.classList.add('dragging');
+      }
+      box.scrollLeft = startLeft - dx;
+      e.preventDefault();
+    }
+    function up(){
+      down = false; dragging = false;
+      box.classList.remove('dragging');
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+      window.removeEventListener('pointercancel', up);
+    }
+    box.addEventListener('pointerdown', function(e){
+      if(e.pointerType !== 'mouse' || e.button !== 0 || fits()) return;
+      down = true; dragging = false; swallow = false;
+      startX = e.clientX; startLeft = box.scrollLeft;
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up);
+      window.addEventListener('pointercancel', up);
+    });
+    /* only a press that actually moved eats its click */
+    box.addEventListener('click', function(e){
+      if(!swallow) return;
+      swallow = false;
+      e.preventDefault(); e.stopPropagation();
+    }, true);
+    box.addEventListener('dragstart', function(e){ e.preventDefault(); });
+
+    mark();
+    window.addEventListener('resize', mark);
+  }
+  dragScroll(ol);
+  dragScroll(document.querySelector('.phases ol'));
+
+  sync();
+})();
+</script>
+</body>
+</html>

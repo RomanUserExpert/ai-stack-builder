@@ -126,6 +126,14 @@ component with no entry, an anti-rule to nothing, a value in the docs' own style
 `microcopy.md`, and — in a browser — an anatomy part whose selector finds nothing in its live specimen. Guard 11 in
 `kit_check.py` checks the pages exist and link the one entry point.
 
+## `build_system_page.py` — phase 09's page
+
+```
+python tools/build_system_page.py   # -> 09-design-system/system.html
+```
+
+The content is `system-page.tpl.html`. The shared head and the scroll-spy come from `research-page.tpl.html`, and the page parts from `tokens-page.tpl.html`. The counts are read out of `design-system/` as built, and every link out is checked to exist.
+
 ## `system_check.py` — phase 09, the system and the product checked together
 
 ```

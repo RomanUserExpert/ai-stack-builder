@@ -199,7 +199,9 @@ The owner answered both open rows as recommended (Q50), and the host stays Verce
 - **D2 is done:** `kit.html` is a redirect to the docs.
 - **The showcase:** https://ai-stack-builder-research.vercel.app/design-system/docs, and `README.md` has *Design system*.
 
-Next: the lesson's page, `09-design-system/system.html`, and the close.
+**The phase page is built** (2026-11-03): [`system.html`](system.html), by `tools/build_system_page.py` from `tools/system-page.tpl.html`. Phase 09 is linked in every phase page's rail and in the viewer, and the page is listed in `.vercelignore`.
+
+Next: the close of the lesson, when the owner says so.
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

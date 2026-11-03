@@ -86,3 +86,11 @@ design-system/patterns/*
 !design-system/examples
 design-system/examples/*
 !design-system/examples/*.html
+!design-system/backlog.md
+
+# Lesson 09's page and its record
+!09-design-system
+09-design-system/*
+!09-design-system/system.html
+!09-design-system/system-check.md
+!09-design-system/README.md

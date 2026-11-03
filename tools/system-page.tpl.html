@@ -1,0 +1,242 @@
+<title>Phase 9 &mdash; Design system &middot; AI Stack Builder</title>
+
+<style>
+/* Tokens, shell and scroll-spy come from research-page.tpl.html, and the page parts (.stand, .guards, .qs, .outs)
+   from tokens-page.tpl.html, at build time. Only what this page has and the others do not lives here. */
+.steps9{list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin:18px 0 8px;padding:0}
+.steps9 li{counter-increment:s;position:relative;margin:0;padding:12px 14px 12px 44px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);font-size:14px;line-height:1.45;color:var(--ink-2)}
+.steps9 li::before{content:counter(s,decimal-leading-zero);position:absolute;left:12px;top:11px;font-family:var(--font-mono);font-size:12px;color:var(--accent)}
+.steps9 li b{display:block;color:var(--ink)}
+.stand.short iframe{height:min(70vh,760px)}
+</style>
+
+
+<a class="skip" href="#content">Skip to the material</a>
+
+<div class="shell">
+
+<script>try{if(localStorage.getItem('phases')==='collapsed')document.documentElement.classList.add('phases-collapsed')}catch(e){}</script>
+<nav class="phases" aria-label="Course phases">
+  <div class="inner">
+    <div class="phaseshead"><span>Phases</span><button type="button" class="phasestoggle" aria-expanded="true" title="Collapse phases">&laquo;</button></div>
+    <ol>
+      <li><a href="../01-research/research.html" title="01 &middot; Research and benchmark"><b>01</b><span class="lbl">Research and benchmark</span></a></li>
+      <li><a href="../02-personas-jtbd/personas.html" title="02 &middot; Personas and JTBD"><b>02</b><span class="lbl">Personas and JTBD</span></a></li>
+      <li><a href="../03-information-architecture/ia.html" title="03 &middot; Information architecture"><b>03</b><span class="lbl">Information architecture</span></a></li>
+      <li><a href="../04-wireframes/pages/wireframes.html" title="04 &middot; Prototyping and wireframing"><b>04</b><span class="lbl">Prototyping and wireframing</span></a></li>
+      <li><a href="../05-tone-of-voice/voice.html" title="05 &middot; Tone of voice and microcopy"><b>05</b><span class="lbl">Tone of voice and microcopy</span></a></li>
+      <li><a href="../06-concept/style.html" title="06 &middot; Concept"><b>06</b><span class="lbl">Concept</span></a></li>
+      <li><a href="../07-ui-assembly/ui.html" title="07 &middot; UI assembly"><b>07</b><span class="lbl">UI assembly</span></a></li>
+      <li><a href="../08-design-tokens/tokens.html" title="08 &middot; Design tokens"><b>08</b><span class="lbl">Design tokens</span></a></li>
+      <li><span class="now" title="09 &middot; Design system"><b>09</b><span class="lbl">Design system</span></span></li>
+      <li><span class="soon" title="10 &middot; Responsive"><b>10</b><span class="lbl">Responsive</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="11 &middot; Animation and micro-interactions"><b>11</b><span class="lbl">Animation and micro-interactions</span> <em>&middot; soon</em></span></li>
+      <li><span class="soon" title="12 &middot; Handoff and documentation"><b>12</b><span class="lbl">Handoff and documentation</span> <em>&middot; soon</em></span></li>
+    </ol>
+  </div>
+</nav>
+
+<header class="mast">
+  <p class="eyebrow">Phase 09 &middot; Design system</p>
+  <h1>A system with a rule of growth</h1>
+  <p class="phasemeta">Phase <strong>9 of 12</strong> &middot; the course&rsquo;s seven steps &middot; <strong>3 Nov 2026</strong> &middot; source of truth: <strong>design-system/</strong>, one package, one <strong>index.css</strong></p>
+  <p class="standfirst">Phase 08 left the product with tokens and one file per component, and nothing that said <strong>how the system grows</strong>. This phase makes it a package with one entry point and gives it living documentation on that same stylesheet. It adds the four states in both themes, the compositions found on three screens or more, and <strong>one rule: new appears in the system first, on a screen second.</strong> Then it tests the rule twice, by building new screens from the system alone, and checks the system and the product against each other.</p>
+  <dl class="facts">
+    <div><dt>Components</dt><dd>{{N_COMPS}}<small>each with a page in the docs</small></dd></div>
+    <div><dt>Specimens</dt><dd>{{N_SPEC}}<small>variants and states, cut from the screens</small></dd></div>
+    <div><dt>Tokens</dt><dd>{{N_TOKENS}}<small>every one on the Tokens page</small></dd></div>
+    <div><dt>Patterns</dt><dd>{{N_PATTERNS}}<small>each on three screens or more</small></dd></div>
+    <div><dt>Contrast pairs</dt><dd>{{N_PAIRS}}<small>per theme, all pass</small></dd></div>
+    <div><dt>Guards</dt><dd>17<small>run at every build</small></dd></div>
+  </dl>
+</header>
+
+<nav class="rail" aria-label="In this phase">
+  <p class="railhead">In this phase</p>
+  <ol>
+    <li><a href="#overview"><b>Start</b>Overview</a></li>
+    <li><a href="#showcase"><b>Look</b>The showcase</a></li>
+    <li><a href="#package"><b>Step 01</b>One package</a></li>
+    <li><a href="#docs"><b>Step 02</b>Living docs</a></li>
+    <li><a href="#states"><b>Step 03</b>States</a></li>
+    <li><a href="#patterns"><b>Step 04</b>Patterns</a></li>
+    <li><a href="#contribute"><b>Step 05</b>Contributing</a></li>
+    <li><a href="#examples"><b>Step 06</b>New screens</a></li>
+    <li><a href="#check"><b>Step 07</b>The check</a></li>
+    <li><a href="#register"><b>Register</b>Q48&ndash;Q50</a></li>
+    <li><a href="#open"><b>Close</b>What is open</a></li>
+  </ol>
+</nav>
+
+<main id="content">
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview" class="col">
+  <div class="stagehead"><span class="stagenum">START</span><h2>Overview</h2></div>
+  <p class="qline">A folder with a new name is not a system. A system is a folder with a rule of growth, and a check that the rule holds.</p>
+
+  <h3>What we saw</h3>
+  <ul>
+    <li><strong>The showcase already existed and said nothing about <em>when</em>.</strong> The kit showed every component in every state, and never said when to take it or what to take instead.</li>
+    <li><strong>No pressed state was drawn anywhere</strong>, and four roles had no light value of their own.</li>
+    <li><strong>Building a new screen from the system alone found what reading had not.</strong> The tone of a neutral box was guessed from its first words, so a new sentence came out Problem rose.</li>
+    <li><strong>The showcase online was unstyled.</strong> The folder&rsquo;s address is served without its slash, so the page looked for its stylesheet one folder too high.</li>
+  </ul>
+
+  <h3>What we decided</h3>
+  <ul>
+    <li><strong>One package at the root</strong>, <code>design-system/</code>, behind one <code>index.css</code>. It is the one named exception to one folder per phase.</li>
+    <li><strong>The docs are the showcase</strong>, live on the product&rsquo;s own stylesheet. <code>kit.html</code> is retired to a redirect.</li>
+    <li><strong>States through roles, in both themes</strong>: pressed is one recipe per ground. Disabled is three roles and never an opacity. No state moves anything.</li>
+    <li><strong>A pattern exists only if it can name three screens.</strong> The build counts them.</li>
+    <li><strong>New appears in the system first, on a screen second.</strong> What the system lacks is written down as an order, never drawn on a screen.</li>
+  </ul>
+
+  <div class="outs">
+    <a href="../design-system/docs/components.html">The showcase &nearr;</a>
+    <a href="../design-system/docs/tokens.html">Every token &nearr;</a>
+    <a href="../design-system/docs/patterns.html">Patterns &nearr;</a>
+    <a href="system-check.md">The check &nearr;</a>
+    <a href="README.md">The plan &nearr;</a>
+  </div>
+</section>
+
+<!-- ============ SHOWCASE ============ -->
+<section id="showcase" class="col">
+  <div class="stagehead"><span class="stagenum">LOOK</span><h2>The showcase, live</h2></div>
+  <p class="qline">Not a picture of the product: the product&rsquo;s own markup, on the product&rsquo;s own stylesheet. Switch its theme at its top right.</p>
+  <div class="stand wide">
+    <div class="stand-bar"><strong>design-system/docs/components.html</strong><span>{{N_COMPS}} components &middot; {{N_SPEC}} specimens</span><a href="../design-system/docs/components.html">Open &nearr;</a></div>
+    <iframe src="../design-system/docs/components.html" title="The design system's showcase" loading="lazy"></iframe>
+  </div>
+</section>
+
+<!-- ============ STEP 01 ============ -->
+<section id="package" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 01</span><h2>One package, one entry point</h2></div>
+  <p class="qline">Moved, not copied: <code>tokens.css</code> and <code>components/</code> went into <code>design-system/</code> unchanged to the byte.</p>
+  <p>Every screen, every flow step, the shell and the docs link one file, <code>design-system/index.css</code>. It imports the tokens, then the {{N_FILES}} component files. <strong>The pixel test came back identical on every page.</strong> The package sits at the root because phases 10&ndash;12 grow it and the app will consume it, so no phase number goes into its import paths (Q48, D1).</p>
+  <div class="outs"><a href="../design-system/README.md">design-system/README.md &nearr;</a></div>
+</section>
+
+<!-- ============ STEP 02 ============ -->
+<section id="docs" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 02</span><h2>Living documentation</h2></div>
+  <p class="qline">A page per component: anatomy, variants and states, when to use it, a rule and an anti-rule.</p>
+  <p><strong>The specimens are the screens&rsquo; own markup</strong>, cut from the real pages by the same function that built the kit, so the docs cannot disagree with the product. Each anatomy part is a selector, and the build finds it in its live specimen. The words come from <code>tools/docs_content.py</code>, and every specimen&rsquo;s words are checked against <code>microcopy.md</code>. <a href="../design-system/docs/why.html">Why it looks like this</a> is its own page, drawn from the concept and its references. <strong>Since the check</strong> the docs also hold <a href="../design-system/docs/tokens.html">every token</a> and <a href="../design-system/docs/layouts.html">the five layouts</a>.</p>
+</section>
+
+<!-- ============ STEP 03 ============ -->
+<section id="states" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 03</span><h2>Four states, two themes</h2></div>
+  <p class="qline">Hover, active, focus-visible and disabled on every control, each beside rest, dark and light.</p>
+  <ul>
+    <li><strong>Pressed</strong> is nine recipes over a role, so it holds in both themes by construction. Each goes half a step past hover, in the direction hover went. Signed by the owner value by value (Q49).</li>
+    <li><strong>Focus</strong> is the lime ring, measured at 3:1 or better on every ground in both themes.</li>
+    <li><strong>Disabled</strong> is three roles and <code>not-allowed</code>. There is no opacity token, because opacity would dim the reason a disabled control points at (D3). In light its ground is <code>#ECEDE6</code> (Q50).</li>
+    <li><strong>Nothing moves.</strong> In both themes, the build checks in a browser that every state drawn differs from rest and changes nothing&rsquo;s size.</li>
+  </ul>
+</section>
+
+<!-- ============ STEP 04 ============ -->
+<section id="patterns" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 04</span><h2>Patterns found, not designed</h2></div>
+  <p class="qline">Each pattern has a signature, and the build runs it over all 80 wireframe pages. It fails below three screens.</p>
+  <p><strong>{{N_PATTERNS}} patterns</strong>: Browse head, Set with an item side panel, Configuring layout, Run report, Confirmation, and Dialog with a field. A screen counts once, and an overlay never counts. Seven compositions were looked at and refused, each with its count. Every pattern is a file with no style of its own.</p>
+  <div class="outs"><a href="../design-system/docs/patterns.html">Patterns, live &nearr;</a></div>
+</section>
+
+<!-- ============ STEP 05 ============ -->
+<section id="contribute" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 05</span><h2>The rule of growth</h2></div>
+  <p class="qline">New appears in the system first, on a screen second, never the other way round.</p>
+  <ol class="steps9 wide">
+    <li><b>A value</b> goes to <code>tokens.css</code> at its level, with a value in both themes, signed.</li>
+    <li><b>A component</b> goes to <code>components/</code>, with its docs page and its four states.</li>
+    <li><b>A composition</b> about to stand on its third screen goes to <code>patterns/</code>.</li>
+    <li><b>What cannot enter yet</b> goes to <code>backlog.md</code>. It is written down, not drawn.</li>
+  </ol>
+  <p>The rule is written where the next session reads it: <code>CLAUDE.md</code> &sect;18 and <code>DESIGN.md</code>. <strong>It is also in the code.</strong> Every guard that refuses a change names the section, and the token generator fails on a role with a value in one theme only.</p>
+</section>
+
+<!-- ============ STEP 06 ============ -->
+<section id="examples" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 06</span><h2>New screens, from the system alone</h2></div>
+  <p class="qline">Each screen answers a job no screen answered. Each has no style and no class of its own, and what it lacked became an order.</p>
+  <p><strong>Usage of My library</strong>, for EJ-3, came first. The owner found it too familiar. <strong>Copies of code-style</strong>, for RJ-3 and H-J3, puts an item&rsquo;s original beside its copy in each project, with the fields that differ. It found the defect the first one missed, and four more orders. <strong>Both are labelled as examples</strong>: whether the product has them is a register question.</p>
+  <div class="stand short wide">
+    <div class="stand-bar"><strong>design-system/examples/copies.html</strong><span>RJ-3 &middot; an example, not in the product</span><a href="../design-system/examples/copies.html">Open &nearr;</a></div>
+    <iframe src="../design-system/examples/copies.html" title="Copies of code-style, an example" loading="lazy"></iframe>
+  </div>
+  <div class="outs"><a href="../design-system/examples/usage.html">Usage of My library &nearr;</a><a href="../design-system/backlog.md">backlog.md &mdash; {{N_BACKLOG}} orders &nearr;</a></div>
+</section>
+
+<!-- ============ STEP 07 ============ -->
+<section id="check" class="col">
+  <div class="stagehead"><span class="stagenum">STEP 07</span><h2>The system and the product, checked together</h2></div>
+  <p class="qline">The defect table first, then every row fixed, and every class of defect turned into a guard.</p>
+  <p>A new instrument, <code>tools/system_check.py</code>, compares in a browser every element of a docs specimen with the same element on every screen. <code>/impeccable audit</code> added its findings, and each was verified before it counted. <strong>The worst row was found while fixing</strong>: the showcase online loaded no stylesheet. <strong>Two classes came back clean</strong>: no state lives in one theme only, and no pattern has a style of its own.</p>
+  <h3>Seventeen guards, and they stop the build</h3>
+  <ol class="guards wide">
+    <li><b>No literal</b> in a component</li>
+    <li><b>No style on a screen</b></li>
+    <li><b>Every class is a component&rsquo;s</b></li>
+    <li><b>Every variable is declared</b></li>
+    <li><b>No colour primitive</b> in a component</li>
+    <li><b>One link</b>, <code>index.css</code></li>
+    <li><b>One primary</b> on any screen</li>
+    <li><b>The words are the product&rsquo;s</b></li>
+    <li><b>Coverage</b>: every page has a twin</li>
+    <li><b>No geometry as a count</b></li>
+    <li class="new"><b>A docs page</b> per component <em>new</em></li>
+    <li class="new"><b>Patterns on three screens</b>, no style <em>new</em></li>
+    <li class="new"><b>Examples</b>: no style, labelled <em>new</em></li>
+    <li class="new"><b>A bare box is a Problem</b>: tone is a class <em>new</em></li>
+    <li class="new"><b>Every class shown</b> in the docs <em>new</em></li>
+    <li class="new"><b>Every token</b> on the Tokens page <em>new</em></li>
+    <li class="new"><b>Docs and screens alike</b>, in a browser <em>new</em></li>
+  </ol>
+  <div class="verdict">
+    <p class="vh">Step 07 &mdash; conclusion</p>
+    <p>The drift was at the edges: variants the docs missed, layouts and tokens with no page, one tone guessed from words. <strong>None of it was a screen carrying a value of its own</strong>, because the earlier guards had held. The new ones close the edges.</p>
+  </div>
+  <div class="outs"><a href="system-check.md">system-check.md &nearr;</a></div>
+</section>
+
+<!-- ============ REGISTER ============ -->
+<section id="register" class="col">
+  <div class="stagehead"><span class="stagenum">REGISTER</span><h2>Three entries</h2></div>
+  <p class="qline">What the owner decided on the system.</p>
+  <div class="qs wide">
+    <div class="q"><span class="qid">Q48</span><h3>The plan, as recommended</h3><p>The package at the root; the docs replace the kit; disabled keeps its roles; the light gaps and pressed signed one by one; the test screen picked from the matrix.</p><span class="said">Owner: as recommended</span></div>
+    <div class="q"><span class="qid">Q49</span><h3>States signed</h3><p>Nine pressed recipes, one per ground; the four light gaps filled; 83 contrast pairs per theme pass.</p><span class="said">Owner: давай</span></div>
+    <div class="q"><span class="qid">Q50</span><h3>The check&rsquo;s two answers</h3><p>Disabled in light is <code>#ECEDE6</code>, recessed under the page; the showcase stays on one host.</p><span class="said">Owner: as recommended</span></div>
+  </div>
+</section>
+
+<!-- ============ OPEN ============ -->
+<section id="open" class="col">
+  <div class="stagehead"><span class="stagenum">CLOSE</span><h2>What is open</h2></div>
+  <p class="qline">What this phase hands on, and to whom.</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th class="name">Open</th><th>Where it goes</th></tr></thead>
+      <tbody>
+        <tr><td class="name">Does light ship</td><td>The owner&rsquo;s call (Q44). The theme is complete and signed; a switch in the product goes through the register</td></tr>
+        <tr><td class="name">Six orders in the backlog</td><td>A disclosure, a count beside a heading, bulk selection (register first), a comparison across copies, changed lines and wrapping in a file block &mdash; each enters by &sect;18</td></tr>
+        <tr><td class="name">The two example screens</td><td>Demonstrations, not product. Their entry points and their actions outside the configuring mode are register questions</td></tr>
+        <tr><td class="name">Every screen at other widths</td><td>Phase 10, responsive: the system is desktop-first, by plan</td></tr>
+        <tr><td class="name">The validation pass as a moment</td><td>Phase 11, animation</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p><strong>Phase 09 of twelve.</strong> Built by <code>tools/build_system_page.py</code>; the docs by <code>tools/build_docs.py</code>; the patterns by <code>tools/build_patterns.py</code>; the examples by <code>tools/build_examples.py</code>; the check by <code>tools/system_check.py</code>.</p>
+  <p>Phase 08 &mdash; <a href="../08-design-tokens/tokens.html">Design tokens</a> &middot; Phase 04 &mdash; <a href="../04-wireframes/pages/wireframes.html">wireframes and mockups</a></p>
+</footer>
+
+</div>
