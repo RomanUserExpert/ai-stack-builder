@@ -132,15 +132,23 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
-<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-circle-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Cards and lists</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Cards and lists</p>
   <h1>Row list</h1>
   <p>Every list of items: Library rows with usage facts, set rows in a project, compact rows in the library panel.</p>
   <p class="doc-meta"><span><code>row-list &gt; row · row-tight · set-item · row-compact</code></span><span>8 screens</span><span><code>components/row.css</code></span></p>
@@ -177,7 +185,7 @@
             </article>
           </li></ol></div><div class="doc-pins"></div><div class="doc-hl"></div></div><ol class="doc-parts"><li data-sel="ol.row-list"><span><b>Tray</b> — 14 px radius, 8 px padding, 8 px between rows</span><code>ol.row-list</code></li><li data-sel="article.row"><span><b>Cut-out</b> — each row&#x27;s own pressed-in field, with the inward cut-out shadow</span><code>article.row</code></li><li data-sel="article.row span.tag"><span><b>Kind tag</b> — beside the name</span><code>article.row span.tag</code></li><li data-sel="article.row p.description"><span><b>Description</b> — Small Ink 2</span><code>article.row p.description</code></li><li data-sel="article.row p.facts"><span><b>Facts</b> — Micro Ink 3, mono for paths and refs</span><code>article.row p.facts</code></li><li data-sel="article.row div.row-actions"><span><b>Actions</b> — at the right of the row</span><code>article.row div.row-actions</code></li></ol>
 </section>
-<section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">4</span></h2>
+<section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">7</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
   <div class="kit-state"><p class="kit-label">Library rows, with usage facts</p><div class="kit-demo"><ol class="row-list"><li>
             <article class="row row-tight">
@@ -236,6 +244,36 @@
               </div>
               <p class="marks"></p>
               <div class="row-actions"><button type="button" class="remove" aria-label="Remove pr-reviewer from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div>
+            </article>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">Active, viewing — no actions: an empty row-actions is not drawn</p><div class="kit-demo"><ol class="row-list"><li>
+              <article class="row row-tight set-item is-selected">
+                <div>
+                  <h3><a href="#">eslint-autofix</a><span class="tag">script</span><span class="tag tag-state tag-problem">Conflict</span></h3>
+                  <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+                  <p class="facts meta"><span><code>scripts/eslint-autofix.sh</code> · conflicts with <code>code-style</code></span></p>
+                </div>
+                <p class="marks"><span class="mark mark-problem"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem</span></p>
+                <div class="row-actions"></div>
+              </article>
+            </li></ol></div></div><div class="kit-state"><p class="kit-label">Two columns, no actions — row-2: the Public library</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight row-2">
+              <div>
+                <h2>filesystem<span class="tag">mcp</span></h2>
+                <p class="description">Read and write files inside the directories you allow, and nowhere else.</p>
+                <p class="facts meta"><span><code>modelcontextprotocol/servers</code> @ <code>2025.9.25</code> · MIT</span></p>
+              </div>
+              <div class="row-actions">
+                <button type="button">Copy to My library</button>
+                <a class="button" href="#">Export</a>
+              </div>
+            </article>
+          </li></ol></div></div><div class="kit-state"><p class="kit-label">One column — row-1: a shared project's set</p><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight row-1">
+              <div>
+                <h3>commit-conventions<span class="tag">prompt</span></h3>
+                <p class="description">Conventional commits, imperative mood, and a body that says why rather than what.</p>
+                <p class="facts meta"><span>Maya’s own</span></p>
+              </div>
             </article>
           </li></ol></div></div><div class="kit-state"><p class="kit-label">Loading</p><div class="kit-demo"><ol class="row-list">
           <li>

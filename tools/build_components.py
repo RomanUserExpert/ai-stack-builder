@@ -323,7 +323,7 @@ def in_dom(pairs):
     def static(s):
         s = re.sub(r"::?(hover|focus-visible|focus-within|focus|active)\b", "", s)
         return re.sub(r"::[\w-]+(\([^)]*\))?$", "", s).strip() or "*"
-    pages = [ROOT / "07-ui-assembly" / "ui" / "kit.html", *sorted((ROOT / "04-wireframes" / "mockups").glob("*.html")),
+    pages = [*sorted((ROOT / "design-system" / "docs").glob("*.html")), *sorted((ROOT / "04-wireframes" / "mockups").glob("*.html")),
              *sorted((ROOT / "04-wireframes" / "mockups" / "flows").rglob("*.html"))]
     js = "pairs => pairs.map(([a, b]) => { const B = new Set(document.querySelectorAll(b)); return [...document.querySelectorAll(a)].some(e => B.has(e)); })"
     real = {}

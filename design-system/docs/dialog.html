@@ -132,24 +132,30 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Feedback</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Feedback</p>
   <h1>Dialog</h1>
   <p>Before a step that cannot be walked back, or one that publishes: delete, remove, stop sharing (destructive), share (a disclosure), promote (neutral), import with its progress, failure and result.</p>
   <p class="doc-meta"><span><code>modal · sheet-head · scrim</code></span><span>6 screens</span><span><code>components/dialog.css</code> · <code>components/drawer.css</code></span></p>
 </div>
 <section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
   <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
-  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="a-k213-modal-title">
+  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="a-k107-modal-title">
       <div class="sheet-head">
-        <h2 id="a-k213-modal-title">Delete repo-triage-kit?</h2>
+        <h2 id="a-k107-modal-title">Delete repo-triage-kit?</h2>
       </div>
       <p><code>repo-triage-kit</code> leaves Projects. Its 7 items stay in the Public library, where it came from.</p>
       <p class="meta">This can’t be undone.</p>
@@ -161,9 +167,9 @@
 </section>
 <section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">7</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
-  <div class="kit-state"><p class="kit-label">Destructive confirm</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v0-k213-modal-title">
+  <div class="kit-state"><p class="kit-label">Destructive confirm</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v0-k107-modal-title">
       <div class="sheet-head">
-        <h2 id="v0-k213-modal-title">Delete repo-triage-kit?</h2>
+        <h2 id="v0-k107-modal-title">Delete repo-triage-kit?</h2>
       </div>
       <p><code>repo-triage-kit</code> leaves Projects. Its 7 items stay in the Public library, where it came from.</p>
       <p class="meta">This can’t be undone.</p>
@@ -171,9 +177,9 @@
         <a class="button push" href="#">Cancel</a>
         <a class="button button-primary button-danger" href="#">Delete example</a>
       </div>
-    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Disclosure confirm — Share</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v1-k214-modal-title">
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Disclosure confirm — Share</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v1-k108-modal-title">
       <div class="sheet-head">
-        <h2 id="v1-k214-modal-title">Share acme-billing-api by link?</h2>
+        <h2 id="v1-k108-modal-title">Share acme-billing-api by link?</h2>
       </div>
       <p>Anyone with the link can open this project and see it as it is now — and every edit you make later.</p>
       <div>
@@ -193,9 +199,9 @@
         <a class="button push" href="#">Cancel</a>
         <a class="button button-primary" href="#">Create link</a>
       </div>
-    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Neutral confirm — Promote</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v2-k215-modal-title">
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Neutral confirm — Promote</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v2-k109-modal-title">
       <div class="sheet-head">
-        <h2 id="v2-k215-modal-title">Promote pr-reviewer to My library?</h2>
+        <h2 id="v2-k109-modal-title">Promote pr-reviewer to My library?</h2>
       </div>
       <form class="form">
         <label class="field field-mono"><span>Name of the new item</span><input name="name" value="acme-pr-reviewer"></label>
@@ -205,9 +211,9 @@
         <a class="button push" href="#">Cancel</a>
         <a class="button button-primary" href="#">Promote</a>
       </div>
-    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — the keys reminder</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v3-k216-modal-title">
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — the keys reminder</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v3-k110-modal-title">
       <div class="sheet-head">
-        <h2 id="v3-k216-modal-title">Import a library</h2>
+        <h2 id="v3-k110-modal-title">Import a library</h2>
         <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
       </div>
       <p><strong><code>maya-library-2026-09.json</code></strong> · 47 items · 212 KB</p>
@@ -222,9 +228,9 @@
         <a class="button button-primary" href="#">Import 47 items</a>
       </div>
 
-    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — in progress</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v4-k217-modal-title">
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — in progress</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v4-k111-modal-title">
       <div class="sheet-head">
-        <h2 id="v4-k217-modal-title">Importing 47 items</h2>
+        <h2 id="v4-k111-modal-title">Importing 47 items</h2>
         <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
       </div>
       <div aria-busy="true">
@@ -236,9 +242,9 @@
         <a class="button push" href="#">Cancel import</a>
       </div>
 
-    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — failed</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v5-k218-modal-title">
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — failed</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v5-k112-modal-title">
       <div class="sheet-head">
-        <h2 id="v5-k218-modal-title">The import didn’t finish</h2>
+        <h2 id="v5-k112-modal-title">The import didn’t finish</h2>
         <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
       </div>
       <div class="callout callout-failure" role="alert">
@@ -251,9 +257,9 @@
         <a class="button button-primary" href="#">Import again</a>
       </div>
 
-    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — done</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v6-k219-modal-title">
+    </dialog></div></div></div><div class="kit-state"><p class="kit-label">Import — done</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="v6-k113-modal-title">
       <div class="sheet-head">
-        <h2 id="v6-k219-modal-title">47 items imported</h2>
+        <h2 id="v6-k113-modal-title">47 items imported</h2>
         <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
       </div>
       <p>All 47 items from <strong><code>maya-library-2026-09.json</code></strong> are in My library, beside the 11 you had.</p>

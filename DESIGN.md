@@ -454,7 +454,10 @@ was split from. A few roles differ, each on the owner's word or a measurement, a
   `06-concept/concept.md`, *Phase 09*.
 - **Focus** is the lime ring on every focusable thing, 3:1 or better on every ground in both themes.
 - **Disabled** is the three roles, never an opacity, and the pointer reads `not-allowed`. The control keeps its focus and
-  points at its reason.
+  points at its reason. In light its ground is `#ECEDE6`, one step under the page, so it reads recessed rather than
+  brighter than a field at rest (Q50).
+- **A link inside a meta line is underlined at rest**, in Ink 3, and brightens on hover: the Breadcrumb's link up, a
+  project named on a usage line. Colour alone does not tell it from its line (WCAG 1.4.1; check I1).
 - **No state moves a thing or changes its size**: only its ground, its colour or its edge. Every docs page shows the four
   beside rest, in both themes.
 
@@ -761,7 +764,8 @@ is a desync, and the next build overwrites a hand edit to a generated file.
 - **Do** take every value from `design-system/tokens.css` through `var()`, and take a component or a pattern from the
   system before drawing anything new. The build refuses a literal colour, a px size or a font name.
 - **Do** keep lime to what you can press and where you are, and keep one primary per screen.
-- **Do** pair a severity's colour with its icon and its word, as a tinted capsule or box.
+- **Do** pair a severity's colour with its icon and its word, as a tinted capsule or box. A box that is not a finding
+  names its tone in the markup (`callout-reminder`); a bare box is a Problem.
 - **Do** draw *Checked* as the quiet neutral dot, and *Skipped* as `ban` with a dashed stage outline.
 - **Do** set paths, refs, timings, codes and file contents in Geist Mono.
 - **Do** put every item in its own cut-out, and nest auto-added items under their parent behind a

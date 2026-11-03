@@ -36,7 +36,7 @@ than they can keep straight. Desktop-first, dark theme.
 
 ## Status
 
-**Research is done, the information architecture is done, the screens are drawn and clickable, the product has one voice and one look. There is still no code.** Lesson 06, concept, closed on 2026-10-11 — the working style *Mica · Lime*, its tokens, a stand and the main job drawn as mockups ([the phase page](06-concept/style.html)). Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. ~~Lesson 06, concept, is current.~~ Lesson 07, UI assembly, closed on 2026-10-28: **every screen is dressed** from one kit (see *UI* below, and [the phase page](07-ui-assembly/ui.html)). Lesson 08, design tokens, closed on 2026-11-03: the values on two levels and one file per component ([the phase page](08-design-tokens/tokens.html)). **Lesson 09, design system, is current** (since 2026-11-03, [the plan](09-design-system/README.md)); its package will live at `design-system/` in the root.
+**Research is done, the information architecture is done, the screens are drawn and clickable, the product has one voice and one look. There is still no code.** Lesson 06, concept, closed on 2026-10-11 — the working style *Mica · Lime*, its tokens, a stand and the main job drawn as mockups ([the phase page](06-concept/style.html)). Lessons 01–05 are closed: research (stages 1–5, signed off 2026-09-02), personas and jobs to be done (stages 6–7, 2026-09-09), information architecture (15–20 September), wireframes and prototypes (26–27 September) — 80 wireframe pages and 37 clickable flows — and tone of voice and microcopy (1–5 October), which rewrote every line on them. ~~Lesson 06, concept, is current.~~ Lesson 07, UI assembly, closed on 2026-10-28: **every screen is dressed** from one kit (see *UI* below, and [the phase page](07-ui-assembly/ui.html)). Lesson 08, design tokens, closed on 2026-11-03: the values on two levels and one file per component ([the phase page](08-design-tokens/tokens.html)). **Lesson 09, design system, is current** (since 2026-11-03, [the plan](09-design-system/README.md)): its package is `design-system/` in the root, and its showcase is online — see *Design system* below.
 
 **One decision from 20 September changes the shape of everything after it: the product is online**, a
 backend with accounts, so a person's library follows them between machines. **What the backend is
@@ -118,7 +118,7 @@ and **Design**. You can open one directly with `?mode=design#run-default`.
   `design-system/tokens.css` and one file per component in `design-system/components/` (see *Tokens*), both behind
   one entry point, `design-system/index.css`, since lesson 09. No screen
   holds a style of its own.
-- **[`kit.html`](07-ui-assembly/ui/kit.html)** shows every component with its states, cut from the real pages, so its
+- **[`kit.html`](07-ui-assembly/ui/kit.html)** — *retired in lesson 09 (D2): it now sends to [the design system's docs](https://ai-stack-builder-research.vercel.app/design-system/docs), which carry every component and state it showed.* It showed every component with its states, cut from the real pages, so its
   words are the product's. **[`shell.html`](07-ui-assembly/ui/shell.html)** holds the three frames every screen sits in.
 - **[`DESIGN.md`](DESIGN.md)** documents the system: tokens in the frontmatter, rules and components in prose, each
   phase-07 change signed with its reason.
@@ -164,6 +164,28 @@ The generators prove the refactor rather than claim it:
 - `tools/build_components.py` checks, in a browser, that splitting the kit into files reordered nothing that
   matters;
 - `tools/kit_check.py` fails the build on a colour primitive in a component, or on geometry written as a count.
+
+## Design system
+
+**The showcase: [ai-stack-builder-research.vercel.app/design-system/docs](https://ai-stack-builder-research.vercel.app/design-system/docs)** — every component on its own page, live on the
+product's own stylesheet, in both themes.
+
+The product's look is one package, [`design-system/`](design-system/README.md), and every screen links one file of it,
+[`design-system/index.css`](design-system/index.css). It holds:
+- [`tokens.css`](design-system/tokens.css): 195 values on two levels, dark and light. Each one is listed on
+  [the Tokens page](https://ai-stack-builder-research.vercel.app/design-system/docs/tokens).
+- [`components/`](design-system/components/): 27 files. **46 components** each have a docs page with anatomy, variants
+  and states, the four states (hover, active, focus-visible, disabled) in both themes, when to use it, a rule and an
+  anti-rule.
+- [`patterns/`](design-system/patterns/README.md): **six compositions**, each found on three screens or more.
+- The [layouts](https://ai-stack-builder-research.vercel.app/design-system/docs/layouts): the five frames a screen is set in.
+- [`examples/`](design-system/examples/README.md): two screens built from the system alone. What they lacked is
+  [`backlog.md`](design-system/backlog.md).
+- [`why`](https://ai-stack-builder-research.vercel.app/design-system/docs/why): why it looks like this, from the concept.
+
+**New appears in the system first, and on a screen second** (`CLAUDE.md` §18). Seventeen guards run at every build. The
+last check of the system against the product, its defect table and `/impeccable audit`, is
+[`09-design-system/system-check.md`](09-design-system/system-check.md).
 
 ## Structure
 
@@ -216,14 +238,14 @@ that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
 | [`06-concept/`](06-concept/README.md) | 06 · Concept — Mica · Lime, `tokens.css`, the stand | [`style.html`](06-concept/style.html) |
 | [`07-ui-assembly/`](07-ui-assembly/README.md) | 07 · UI assembly — the kit in `ui/`, every screen dressed, critique, review, audit | [`ui.html`](07-ui-assembly/ui.html) |
 | [`08-design-tokens/`](08-design-tokens/README.md) | 08 · Design tokens — `tokens.css` on two levels, `components/`, the audit and the check | [`tokens.html`](08-design-tokens/tokens.html) |
-| [`09-design-system/`](09-design-system/README.md) | 09 · Design system — **current**: the plan, mapped from the course's seven steps; D1–D6 answered (Q48) | — |
+| [`09-design-system/`](09-design-system/README.md) | 09 · Design system — **current**: the plan, the seven steps done, [the check](09-design-system/system-check.md) | [the showcase](https://ai-stack-builder-research.vercel.app/design-system/docs) |
 
 **Everything that is not a lesson:**
 
 - `CLAUDE.md` — full working context: data model, product logic, scope boundaries, conventions. **The
   source of truth. Start here.**
 - [`design-system/`](design-system/README.md) — **the design system**: `index.css`, the one file every screen links;
-  `tokens.css`, `components/`, [the living docs](design-system/docs/index.html), a page per component, and
+  `tokens.css`, `components/`, [the living docs](https://ai-stack-builder-research.vercel.app/design-system/docs), a page per component, and
   [`patterns/`](design-system/patterns/README.md) (lesson 09). **New appears there first, on a screen second**:
   `CLAUDE.md` §18, *Contributing to the system*.
 - [`tools/`](tools/README.md) — the generators: the three lesson pages, and the prototypes.

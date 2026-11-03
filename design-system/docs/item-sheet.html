@@ -132,25 +132,31 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / One-off, styled in the kit</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / One-off, styled in the kit</p>
   <h1>Item sheet</h1>
   <p>Add or edit a library item.</p>
   <p class="doc-meta"><span><code>dialog.sheet · sheet-head · form-section</code></span><span>Item overlay</span><span><code>components/dialog.css</code> · <code>components/drawer.css</code> · <code>components/form.css</code></span></p>
 </div>
 <section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
   <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
-  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="sheet" open aria-labelledby="a-k220-sheet-title">
+  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="sheet" open aria-labelledby="a-k114-sheet-title">
       <div class="sheet-head">
-        <h2 id="a-k220-sheet-title">Edit db-migrate</h2>
+        <h2 id="a-k114-sheet-title">Edit db-migrate</h2>
         <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
       </div>
         <div class="callout callout-reminder">
@@ -217,9 +223,9 @@ psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.s
 </section>
 <section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">1</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
-  <div class="kit-state"><p class="kit-label">Edit db-migrate — the whole form, over My library</p><p class="kit-note">A side sheet the viewport's height; its body scrolls.</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="sheet" open aria-labelledby="v0-k220-sheet-title">
+  <div class="kit-state"><p class="kit-label">Edit db-migrate — the whole form, over My library</p><p class="kit-note">A side sheet the viewport's height; its body scrolls.</p><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="sheet" open aria-labelledby="v0-k114-sheet-title">
       <div class="sheet-head">
-        <h2 id="v0-k220-sheet-title">Edit db-migrate</h2>
+        <h2 id="v0-k114-sheet-title">Edit db-migrate</h2>
         <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
       </div>
         <div class="callout callout-reminder">

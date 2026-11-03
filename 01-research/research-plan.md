@@ -2133,3 +2133,17 @@ at rest. Not changed here.
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions
 already taken* above with their reasoning in [`1-landscape/comparison.md`](1-landscape/comparison.md).
+
+### Q50 — the check's two answers: the light disabled ground, and the host — raised and answered 2026-11-03
+
+**Raised by lesson 09, step 7**, whose defect table
+([`09-design-system/system-check.md`](../09-design-system/system-check.md)) left two rows to the owner. **Answered by
+the owner, as recommended** (*делай по рекомендациям*).
+
+- **`--disabled` in light is `#ECEDE6`** (`--color-neutral-light-250`, already the light bar). A disabled field had been
+  white, brighter than one at rest, since the role was split from the light control. The new ground is 1.07:1 under the
+  ground, and Ink 3 on it is 5.22:1. No new hex.
+- **The showcase is served by Vercel, not GitHub Pages** (D7 of Q48, taken as its default). The course asks for Pages;
+  one host keeps one address.
+
+The rest of the table was fixed without a decision: none of it needed a value or a product choice.

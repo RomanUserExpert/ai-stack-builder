@@ -132,22 +132,28 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Cards and lists</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Cards and lists</p>
   <h1>Aside box</h1>
   <p>The receiver&#x27;s column beside a shared project or item: what their machine still needs, and the way to take the archive.</p>
   <p class="doc-meta"><span><code>with-aside · aside-box</code></span><span>2 screens</span><span><code>components/aside.css</code></span></p>
 </div>
 <section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
   <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
-  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-labelledby="a-k171-needs-title">
-          <h2 id="a-k171-needs-title">What your machine still needs</h2>
+  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-labelledby="a-k64-needs-title">
+          <h2 id="a-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -159,8 +165,8 @@
 </section>
 <section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">2</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
-  <div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-labelledby="v0-k171-needs-title">
-          <h2 id="v0-k171-needs-title">What your machine still needs</h2>
+  <div class="kit-state"><p class="kit-label">Default</p><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-labelledby="v0-k64-needs-title">
+          <h2 id="v0-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -177,8 +183,8 @@
 </section>
 <section class="doc-sec" id="states"><h2>States</h2>
   <p class="doc-lead">Hover, active, focus-visible and disabled, beside rest, in both themes. No state moves the component or changes its size.</p>
-  <div class="doc-states-wrap" data-ds-target=".button-primary"><p class="kit-label">Its Export</p><div class="doc-states"><span></span><p class="kit-label">Rest</p><p class="kit-label">Hover</p><p class="kit-label">Active</p><p class="kit-label">Focus-visible</p><p class="kit-label">Disabled</p><p class="kit-label">Dark</p><div class="doc-cell" data-theme="dark" data-ds-state="rest"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0drest-k171-needs-title">
-          <h2 id="s0drest-k171-needs-title">What your machine still needs</h2>
+  <div class="doc-states-wrap" data-ds-target=".button-primary"><p class="kit-label">Its Export</p><div class="doc-states"><span></span><p class="kit-label">Rest</p><p class="kit-label">Hover</p><p class="kit-label">Active</p><p class="kit-label">Focus-visible</p><p class="kit-label">Disabled</p><p class="kit-label">Dark</p><div class="doc-cell" data-theme="dark" data-ds-state="rest"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0drest-k64-needs-title">
+          <h2 id="s0drest-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -186,8 +192,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="hover"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dhover-k171-needs-title">
-          <h2 id="s0dhover-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="hover"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dhover-k64-needs-title">
+          <h2 id="s0dhover-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -195,8 +201,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="active"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dactive-k171-needs-title">
-          <h2 id="s0dactive-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="active"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dactive-k64-needs-title">
+          <h2 id="s0dactive-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -204,8 +210,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="focus"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dfocus-k171-needs-title">
-          <h2 id="s0dfocus-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="focus"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0dfocus-k64-needs-title">
+          <h2 id="s0dfocus-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -213,8 +219,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="disabled"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0ddisabled-k171-needs-title">
-          <h2 id="s0ddisabled-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="dark" data-ds-state="disabled"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0ddisabled-k64-needs-title">
+          <h2 id="s0ddisabled-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -222,8 +228,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><p class="kit-label">Light</p><div class="doc-cell" data-theme="light" data-ds-state="rest"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lrest-k171-needs-title">
-          <h2 id="s0lrest-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><p class="kit-label">Light</p><div class="doc-cell" data-theme="light" data-ds-state="rest"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lrest-k64-needs-title">
+          <h2 id="s0lrest-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -231,8 +237,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="hover"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lhover-k171-needs-title">
-          <h2 id="s0lhover-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="hover"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lhover-k64-needs-title">
+          <h2 id="s0lhover-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -240,8 +246,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="active"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lactive-k171-needs-title">
-          <h2 id="s0lactive-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="active"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lactive-k64-needs-title">
+          <h2 id="s0lactive-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -249,8 +255,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="focus"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lfocus-k171-needs-title">
-          <h2 id="s0lfocus-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="focus"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0lfocus-k64-needs-title">
+          <h2 id="s0lfocus-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
@@ -258,8 +264,8 @@
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="disabled"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0ldisabled-k171-needs-title">
-          <h2 id="s0ldisabled-k171-needs-title">What your machine still needs</h2>
+        </aside></div></div><div class="doc-cell" data-theme="light" data-ds-state="disabled"><div class="kit-demo"><aside class="aside-box" aria-labelledby="s0ldisabled-k64-needs-title">
+          <h2 id="s0ldisabled-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>

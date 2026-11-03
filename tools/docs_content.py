@@ -571,3 +571,29 @@ STATES = {
     "File list": [dict(of=0, cut=("ul", 'class="file-list"'), target=".link-button", label="Its Remove")],
     "Drop zone": [dict(of=0, cut=("label", 'class="dropzone'), target="input")],
 }
+
+
+# ------------------------------------------------------------------ phase 09, step 7 (S7): the layouts
+# The frames a screen is set in. Each had a class and no docs page; layouts.html is written from this list.
+LAYOUTS = [
+    dict(name="Canvas", cls="canvas", file="base.css", example="projects-default",
+         what="The product's page: 1440 wide, desktop-first (§3), the ground under everything. Every screen sits in one.",
+         when="Every screen of the product, once, as the outermost frame.",
+         instead="A dialog or a popover is not a canvas: it hangs over one, on the Dialog's scrim."),
+    dict(name="Main column", cls="app-main", file="frame.css", example="library-my-default",
+         what="The column under the App header that holds a place's content: the Page head, then what the place holds.",
+         when="Every place with the App header: My library, Public library, Projects, Project.",
+         instead="Run has its own bar and no App header; a door has its form. Neither takes the main column."),
+    dict(name="Set with a side panel", cls="with-drawer", file="drawer.css", example="project-item",
+         what="The set on the left, the item side panel on the right; the row open in the panel carries the pill.",
+         when="A project with one of its items opened beside the set: viewing, configuring, a detached row.",
+         instead="Editing the library original is the Item sheet over My library, not a side panel."),
+    dict(name="Content with an aside", cls="with-aside", file="aside.css", example="shared-project-default",
+         what="The receiver's page: what was shared on the left, and on the right what their machine will need and a way to take it.",
+         when="The two receiver surfaces, Shared project and Shared item, and nowhere else (§8, Q20).",
+         instead="The owner's own places keep the main column; nothing of the owner's is laid out for a receiver."),
+    dict(name="Configuring layout", cls="config-layout", file="sidebar.css", example="project-configuring-default",
+         what="The library panel as a full left sidebar, the set beside it: the configuring mode's frame (Q33).",
+         when="The configuring mode of a project, and only there: the panel reads and adds, the set removes.",
+         instead="Viewing a project is the main column with no panel; keeping items is My library."),
+]

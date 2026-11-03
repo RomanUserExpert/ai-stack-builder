@@ -42,7 +42,8 @@ SIGN_JS = """([root, props, attrs]) => {
     const cls = [...el.classList].filter(c => !/^(kit-|doc-)/.test(c)).sort();
     if (!cls.length) continue;
     const at = attrs.filter(a => el.hasAttribute(a)).map(a => a + '=' + el.getAttribute(a));
-    const parent = el.parentElement ? [...el.parentElement.classList].filter(c => !/^(kit-|doc-)/.test(c)).sort().join('.') : '';
+    const pe = el.parentElement;
+    const parent = pe ? pe.tagName.toLowerCase() + '.' + [...pe.classList].filter(c => !/^(kit-|doc-)/.test(c)).sort().join('.') : '';
     const sig = el.tagName.toLowerCase() + '.' + cls.join('.') + (at.length ? '[' + at.join(',') + ']' : '') + ' < ' + parent;
     const cs = getComputedStyle(el);
     const st = props.map(p => p === 'fontFamily' ? cs[p].split(',')[0].replace(/"/g, '') : cs[p]).join('|');
@@ -102,10 +103,11 @@ def drift():
     groups = bk.components()
     shown = set()  # what the docs show, as built — transform adds tone classes (button-danger, callout-reminder) when dressing
     for f in DOCS.glob("*.html"):
-        if f.stem in ("index", "why", "patterns", "tokens"):
+        if f.stem in ("index", "components", "why", "patterns", "tokens", "layouts"):
             continue
         for m in re.findall(r'class="([^"]*)"', f.read_text(encoding="utf-8")):
             shown |= set(m.split())
+    shown |= {lay["cls"] for lay in docs_content.LAYOUTS}  # a frame is documented on layouts.html (S7)
     classes, css = component_classes()
     out = []
     for c in sorted(classes - shown):
@@ -145,18 +147,47 @@ def pattern():
 def orphan():
     out = []
     tokens = re.findall(r"^\s*--([\w-]+)\s*:", (SYSTEM / "tokens.css").read_text(encoding="utf-8"), flags=re.M)
-    docs_text = "".join(p.read_text(encoding="utf-8") for p in DOCS.glob("*.html"))
-    missing = sorted({t for t in tokens if f"--{t}" not in docs_text})
+    page = DOCS / "tokens.html"
+    rows = set(re.findall(r'<tr id="([\w-]+)">', page.read_text(encoding="utf-8"))) if page.exists() else set()
+    missing = sorted({t for t in tokens if t not in rows})
     if missing:
         out.append(dict(kind="orphan", sig=f"{len(missing)} of {len(set(tokens))} tokens", where="design-system/docs/",
                         diff="named on no docs page: " + ", ".join("--" + t for t in missing[:8]) + " …"))
     return out
 
 
-def run():
-    docs_pages = [p for p in sorted(DOCS.glob("*.html")) if p.stem not in ("index", "why", "patterns", "tokens")]
+LINK_JS = """() => [...document.querySelectorAll('.meta a')].filter(a => !a.closest('.visually-hidden, [inert]'))
+  .filter(a => !getComputedStyle(a).textDecorationLine.includes('underline'))
+  .map(a => a.textContent.trim().slice(0, 30))"""
+
+
+def links(files):
+    """I1: a link in a meta line carries a non-colour cue at rest (WCAG 1.4.1)."""
+    from playwright.sync_api import sync_playwright
+    out = []
+    with sync_playwright() as p:
+        br = p.chromium.launch()
+        pg = br.new_page(viewport={"width": 1440, "height": 900})
+        for f in files:
+            pg.goto(f.as_uri(), wait_until="load")
+            bad = pg.evaluate(LINK_JS)
+            if bad:
+                out.append(dict(kind="link", sig=".meta a", where=f.stem, diff=f"told from its line by colour only: {bad[:3]}"))
+        br.close()
+    return out
+
+
+def docs_component_pages():
+    return [p for p in sorted(DOCS.glob("*.html")) if p.stem not in ("index", "components", "why", "patterns", "tokens", "layouts")]
+
+
+def look_and_links():
     mock_pages = sorted(MOCK.glob("*.html"))
-    return look(docs_pages, mock_pages) + drift() + theme() + pattern() + orphan()
+    return look(docs_component_pages(), mock_pages) + links(mock_pages + sorted((SYSTEM / "examples").glob("*.html")))
+
+
+def run():
+    return look_and_links() + drift() + theme() + pattern() + orphan()
 
 
 if __name__ == "__main__":

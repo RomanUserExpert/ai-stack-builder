@@ -212,7 +212,7 @@ product *is* before anything decides what it looks like.
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
 | **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49). **Step 4 done 2026-11-03**: six [patterns](design-system/docs/patterns.html), each found on three screens or more. **Step 5 done 2026-11-03**: the rule of contribution, §18 — new appears in the system first, on a screen second. **Step 6 done 2026-11-03**: [a new screen](design-system/examples/usage.html) for EJ-3, built from the system alone, and [a second](design-system/examples/copies.html) for RJ-3; eight entries in [`backlog.md`](design-system/backlog.md), one a defect, none drawn |
+| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49). **Step 4 done 2026-11-03**: six [patterns](design-system/docs/patterns.html), each found on three screens or more. **Step 5 done 2026-11-03**: the rule of contribution, §18 — new appears in the system first, on a screen second. **Step 6 done 2026-11-03**: [a new screen](design-system/examples/usage.html) for EJ-3, built from the system alone, and [a second](design-system/examples/copies.html) for RJ-3; eight entries in [`backlog.md`](design-system/backlog.md), one a defect, none drawn. **Step 7 done 2026-11-03**: [the check](09-design-system/system-check.md), 15 rows (S1–S10, I1–I6), every one fixed or disposed, each class a guard (14–17); `kit.html` retired to a redirect (D2); the light disabled ground and the host signed (Q50); [the showcase online](https://ai-stack-builder-research.vercel.app/design-system/docs) |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
 | **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
@@ -1512,6 +1512,8 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-11-03 — Q50. The check's two answers** (owner): `--disabled` in light is `#ECEDE6`; the showcase stays on Vercel (D7), not GitHub Pages (§17).
+
 **Added 2026-11-03 — Q49. States signed** (owner): pressed, one recipe per ground; the four light gaps filled; 83 contrast
 pairs per theme pass. Open: a disabled field reads white in light (§17).
 
@@ -1827,7 +1829,8 @@ between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/R
   level, signed in `concept.md` (§17). *Until lesson 08: `06-concept/tokens.css`, which is still written, flat, for the stand.*
 - **How a component looks** goes into `tools/build_kit.py` (KIT_CSS) or `tools/build_mockups.py` (MOCK_CSS)
   → `tools/build_components.py` → [`design-system/components/`](design-system/components/), shown on
-  [`kit.html`](07-ui-assembly/ui/kit.html) and signed in [`DESIGN.md`](DESIGN.md). *Until lesson 08: one flat `kit.css`.*
+  [the docs](design-system/docs/components.html) and signed in [`DESIGN.md`](DESIGN.md). *Until lesson 08: one flat
+  `kit.css`; until lesson 09, step 7, shown on `kit.html`, which is now a redirect to the docs (D2).*
 - **What a component's docs page says** — its anatomy, when to use it, its rule and anti-rule — goes into
   `tools/docs_content.py`; `tools/build_docs.py` writes [`design-system/docs/`](design-system/docs/index.html) from it
   and from the kit's own specimens (since lesson 09, step 2).
@@ -1848,17 +1851,22 @@ lesson 08 from `kit.css` to the two files that replaced it, §17):
 - a literal value in a component;
 - a `style=` or `<style>` on a screen;
 - a class no component defines;
-- a variable `tokens.css` does not declare, including in `kit.html`'s own styles;
+- a variable `tokens.css` does not declare, including in the shell's and the docs' own styles;
 - a colour primitive read by a component (lesson 08);
 - a page linking anything but `design-system/index.css` (since lesson 09; two files in lesson 08), `kit.css` coming back,
   or `tokens.css` and `components/` back in `08-design-tokens/`;
 - two primaries on one screen;
-- a word on `kit.html` that is not in `microcopy.md`;
+- a word in a docs specimen that is not in `microcopy.md` (on `kit.html` until it retired);
 - geometry written as a count of a primitive (lesson 08);
 - a component of the kit with no docs page, or a docs page linking anything but `design-system/index.css` or reading a
   colour primitive (lesson 09, guard 11);
 - a pattern on fewer than three screens, or with a style or a class of its own (lesson 09, guard 12);
-- an example screen with a style or a class of its own, or not labelled *Example* (lesson 09, guard 13).
+- an example screen with a style or a class of its own, or not labelled *Example* (lesson 09, guard 13);
+- a bare `.callout` that is not a Problem: a tone is a class, never a guess from the words (guard 14);
+- a class in `components/` that no docs page shows, a token with no row on `docs/tokens.html` (guards 15, 16);
+- in a browser, a component that looks different on its docs page and on a screen, or a link in a meta line told by
+  colour alone (guard 17). The instrument behind 15–17 is `tools/system_check.py`, and the table it produced is
+  [`09-design-system/system-check.md`](09-design-system/system-check.md).
 
 **Three checks are re-runnable, beyond the build:**
 - `tools/kit_pixel_test.py`: goldens before a change, the same pages after;
@@ -1937,10 +1945,10 @@ The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md)
   hairline, and the Remove Red family keeps its dark values. No role is without a light value.
 - **States** (lesson 09, Q49): pressed is one recipe per ground (`--*-active`, in the recipes block, so in both themes);
   focus is `--focus`/`--shadow-focus`, 3:1 on every ground in both themes; disabled is the three roles, never an
-  opacity. **No state moves or resizes anything.** `[data-theme="dark"]` repeats the dark roles so a dark subtree can
+  opacity, and in light its ground is `#ECEDE6`, recessed under the ground (Q50). **No state moves or resizes anything.** `[data-theme="dark"]` repeats the dark roles so a dark subtree can
   stand inside a light page.
 - **Whether light ships in the product is the owner's call** (Q44). Until then its switch lives in the viewer's
-  toolbar (*Dark · Light*, beside *Wireframe · Design*) and on `kit.html`. It is not in the product's top bar.
+  toolbar (*Dark · Light*, beside *Wireframe · Design*) and on the docs. It is not in the product's top bar.
 
 **One generator per level, and each refuses what this section forbids:**
 - `tools/concept_tokens.py` writes both `tokens.css` files: phase 06's flat one for the stand, unchanged to the byte,

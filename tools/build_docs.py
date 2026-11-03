@@ -5,7 +5,9 @@
 
 Writes, into design-system/docs/:
 
-- index.html   the showcase: every component, grouped as the kit groups them, each with a live preview
+- components.html  the showcase: every component, grouped as the kit groups them, each with a live preview.
+                 index.html sends to it: served as /design-system/docs with no slash (Vercel, trailingSlash:
+                 false), a page there resolves ../index.css against /design-system/ and loads unstyled (I6)
 - <slug>.html  one page per component, in four parts: anatomy (the live component with its parts numbered),
                variants and states (every one the kit shows, which is every one inventory.md lists), when to use,
                rule and anti-rule
@@ -126,6 +128,12 @@ DOC_CSS = r"""
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
 .doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}
 """
 
 STATES_JS = r"""<script>
@@ -240,7 +248,7 @@ def page(title, body, nav, name):
   <style>{bk.concept_tokens.rename08(bk.PAGE_CSS.strip())}{DOC_CSS.strip()}</style>
 </head>
 <body class="product-page kit-page doc-page">
-<header class="kit-top"><strong><a href="index.html" class="doc-home">Design system</a></strong><nav>{nav}</nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav>{nav}</nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 {body}
 {STATES_JS if 'data-ds-target' in body else ''}
 {PIN_JS}
@@ -261,8 +269,108 @@ def demo(frag):
 
 
 def nav_links():
-    return ('<a href="index.html">Components</a><a href="patterns.html">Patterns</a><a href="why.html">Why it looks like this</a>'
-            '<a href="../../07-ui-assembly/ui/kit.html">UI kit</a>')
+    # kit.html retired in phase 09, step 7 (D2): the docs are the showcase
+    return ('<a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a>'
+            '<a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a>')
+
+
+DOCS_REDIRECT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Design system · AI Stack Builder</title>
+  <meta http-equiv="refresh" content="0; url=components.html">
+  <link rel="canonical" href="components.html">
+</head>
+<body><p>The showcase is <a href="components.html">components.html</a>.</p></body>
+</html>
+"""
+
+
+# ------------------------------------------------------------------ tokens (phase 09, step 7, S8)
+def token_rows():
+    """Every custom property in tokens.css: its level, its dark value, its light value where light overrides it, its
+    comment, and the component files that read it. Read from the file as written, so the page cannot disagree with it."""
+    text = (SYSTEM / "tokens.css").read_text(encoding="utf-8")
+    root = text.split(":root {", 1)[1].split("\n}", 1)[0]
+    prim, sem = root.split("SEMANTIC =====", 1)
+    recipes = text.split(":root, [data-theme] {", 1)[1].split("\n}", 1)[0]
+    light = text.split('[data-theme="light"] {', 1)[1].split("\n}", 1)[0]
+    decl = re.compile(r"^\s*--([\w-]+)\s*:\s*(.*?);\s*(?:/\*\s*(.*?)\s*\*/)?\s*$", re.M)
+    lightv = {m.group(1): m.group(2) for m in decl.finditer(light)}
+    comps = {f.name: f.read_text(encoding="utf-8") for f in sorted((SYSTEM / "components").glob("*.css")) if f.name != "index.css"}
+    rows = []
+    for level, block in (("Primitive", prim), ("Semantic", sem), ("Recipe", recipes)):
+        for m in decl.finditer(block):
+            n = m.group(1)
+            readers = [f.removesuffix(".css") for f, t in comps.items() if f"var(--{n})" in t]
+            rows.append(dict(name=n, level=level, dark=m.group(2), light=lightv.get(n), why=m.group(3) or "", readers=readers))
+    return rows
+
+
+def is_colour(name, value):
+    return name.startswith("color-") or bool(re.match(r"(#|rgba?\(|color-mix|var\(--color-|var\(--[a-z-]+\)$)", value)) and \
+        not re.match(r"var\(--(space|radius|size|width|font|typescale|duration|ease|z|border)", value)
+
+
+def tokens_page():
+    rows = token_rows()
+    sections = []
+    for level, lead in (("Primitive", "What a value is, with no role: colour, type, space, radius, size, motion. A component reads geometry straight from here and colour never."),
+                        ("Semantic", "What a colour is for. A theme overrides these and nothing else; the light column is the light block's own value, blank where light keeps the dark one."),
+                        ("Recipe", "A wash, a hover, a pressed state or a shadow mixed over a role, declared wherever a theme is set, so it follows the role into either theme.")):
+        trs = []
+        for r in (r for r in rows if r["level"] == level):
+            colour = is_colour(r["name"], r["dark"])
+            sw = (f'<span class="doc-swatch" data-theme="dark" style="background:var(--{r["name"]})"></span>'
+                  f'<span class="doc-swatch" data-theme="light" style="background:var(--{r["name"]})"></span>') if colour else ""
+            light = f"<code>{E(r['light'])}</code>" if r["light"] else ""
+            used = ", ".join(r["readers"]) if r["readers"] else "—"
+            trs.append(f'<tr id="{E(r["name"])}"><td><code>--{E(r["name"])}</code></td><td class="doc-sw">{sw}</td>'
+                       f'<td><code>{E(r["dark"])}</code></td><td>{light}</td><td>{E(r["why"])}</td><td>{E(used)}</td></tr>')
+        sections.append(f"""<section class="doc-sec" id="{level.lower()}"><h2>{level} <span class="kit-meta">{len(trs)}</span></h2>
+  <p class="doc-lead">{E(lead)}</p>
+  <div class="doc-scroll"><table class="doc-table doc-tokens"><thead><tr><th>Token</th><th>Dark · light</th><th>Value</th><th>Light</th><th>What it is</th><th>Read by</th></tr></thead>
+  <tbody>{"".join(trs)}</tbody></table></div>
+</section>""")
+    body = f"""<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Tokens</p>
+  <h1>Tokens</h1>
+  <p>Every value in <code>design-system/tokens.css</code>, {len(rows)} of them, read from the file at every build. The swatches are the token itself, drawn once in each theme. A value changes only in <code>tools/concept_tokens.py</code>, signed in <code>concept.md</code> (CLAUDE.md §18).</p>
+</div>
+{"".join(sections)}
+</main>"""
+    return page("Tokens · Design system", body, nav_links(), "tokens"), rows
+
+
+# ------------------------------------------------------------------ layouts (phase 09, step 7, S7)
+def layouts_page():
+    mock = ROOT / "04-wireframes" / "mockups"
+    blocks = []
+    for lay in docs_content.LAYOUTS:
+        on = sorted(p.stem for p in mock.glob("*.html") if f'class="{lay["cls"]}"' in p.read_text(encoding="utf-8")
+                    or f'class="{lay["cls"]} ' in p.read_text(encoding="utf-8"))
+        blocks.append(f"""<section class="doc-pattern" id="{lay['cls']}">
+  <h2>{E(lay['name'])}</h2>
+  <p class="doc-meta"><span><code>.{E(lay['cls'])}</code></span><span><code>components/{E(lay['file'])}</code></span><span>{len(on)} dressed pages</span></p>
+  <div class="doc-prose"><p>{E(lay['what'])}</p></div>
+  <iframe class="doc-frame" title="{E(lay['name'])}" data-src="../../04-wireframes/mockups/{lay['example']}.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take it</p><p>{E(lay['when'])}</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>{E(lay['instead'])}</p></div>
+  </div>
+</section>""")
+        lay["pages"] = on
+    body = f"""<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Layouts</p>
+  <h1>Layouts</h1>
+  <p>The frames a screen is set in. A layout holds components and places them; it has no colour of its own beyond the ground. Each frame below is a dressed screen that uses it.</p>
+</div>
+{"".join(blocks)}
+</main>"""
+    return page("Layouts · Design system", body, nav_links(), "layouts").replace("</body>", FRAME_JS + "</body>")
 
 
 STATE_COLS = [("rest", "Rest"), ("hover", "Hover"), ("active", "Active"), ("focus", "Focus-visible"), ("disabled", "Disabled")]
@@ -311,7 +419,7 @@ def comp_page(group, c, prev, nxt):
     anti_text, anti_to = d["anti"]
     body = f"""<main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="index.html">Design system</a> / {E(group)}</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / {E(group)}</p>
   <h1>{E(c.name)}</h1>
   <p>{E(d["when"].split(". ")[0].rstrip("."))}.</p>
   <p class="doc-meta"><span><code>{E(c.cls)}</code></span><span>{E(c.screens)}</span><span>{" · ".join(f"<code>components/{f}</code>" for f in files)}</span></p>
@@ -353,7 +461,8 @@ def index_page(groups, counts):
             n += 1
             d = docs_content.C[c.name]
             first = reprefix(demo(c.states[d.get("anat", 0)].demo), f"i{n}-")
-            items.append(f'<article class="doc-card"><div class="doc-preview" inert><div class="kit-demo">{first}</div></div>'
+            # I2: a preview is a picture of the page it links to; its headings stay out of the showcase's outline
+            items.append(f'<article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo">{first}</div></div>'
                          f'<h3><a href="{slug(c.name)}.html">{E(c.name)}</a></h3><p>{len(c.states)} '
                          f'{"state" if len(c.states) == 1 else "states"} · {E(c.screens)}</p></article>')
         cards.append(f'<section class="doc-group" id="{slug(gname)}"><h2>{E(gname)} <span class="kit-meta">{len(comps)}</span></h2>'
@@ -376,7 +485,7 @@ def index_page(groups, counts):
 </div>
 {"".join(cards)}
 </main>"""
-    return page("Design system · AI Stack Builder", body, nav_links(), "index")
+    return page("Design system · AI Stack Builder", body, nav_links(), "components")
 
 
 # ------------------------------------------------------------------ patterns (phase 09, step 4)
@@ -409,7 +518,7 @@ def patterns_page(pats, rejected):
     rej = "".join(f"<tr><td>{E(n)}</td><td>{E(w)}</td></tr>" for n, w in rejected)
     body = f"""<main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="index.html">Design system</a> / Patterns</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Patterns</p>
   <h1>Patterns</h1>
   <p>A pattern is a composition of components that already stands on three screens or more. Each one here was found on the screens, not designed for them: its signature is run over all 80 wireframe pages at every build, and the build fails if it stands on fewer than three. A screen counts once, and an overlay never counts. Every pattern is a file in <code>design-system/patterns/</code> with no style of its own — the frames below are those files.</p>
 </div>
@@ -484,7 +593,7 @@ def why_page(groups):
              ("Red", "Only on the step that removes, in its confirmation. Amber only for going ahead despite a Problem.", "Owner, 2026-10-11")]
     body = f"""<main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="index.html">Design system</a> / Why</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Why</p>
   <h1>Why it looks like this</h1>
   <p>The product reads like an inspection, not a sales sheet: it says what was examined, counts what it found and names the cost before the step. Every value in the system traces to a line of the owner's taste or to one of five attributes, written before anything was drawn. This page is read from <code>06-concept/concept.md</code> and <code>06-concept/references.md</code>; the specimens on it are live.</p>
 </div>
@@ -648,15 +757,20 @@ def build(browser=True):
     counts = {"comps": len(flat), "states": sum(len(c.states) for _, c in flat),
               "files": len([f for f in (SYSTEM / "components").glob("*.css") if f.name != "index.css"]),
               "roles": len(set(re.findall(r"^\s*--([\w-]+):\s*var\(--color-", sem, re.M)))}
-    (OUT / "index.html").write_text(index_page(groups, counts), encoding="utf-8")
+    (OUT / "components.html").write_text(index_page(groups, counts), encoding="utf-8")
+    (OUT / "index.html").write_text(DOCS_REDIRECT, encoding="utf-8")  # I6: the folder's address lands on the showcase
     (OUT / "why.html").write_text(why_page(groups), encoding="utf-8")
     import build_patterns
     pats = build_patterns.build()
     (OUT / "patterns.html").write_text(patterns_page(pats, build_patterns.REJECTED), encoding="utf-8")
+    tok, rows = tokens_page()
+    (OUT / "tokens.html").write_text(tok, encoding="utf-8")
+    (OUT / "layouts.html").write_text(layouts_page(), encoding="utf-8")
+    print(f"docs: tokens.html ({len(rows)} tokens) · layouts.html ({len(docs_content.LAYOUTS)} layouts)")
     words = check_words(groups)
     if words:
         raise SystemExit(f"docs: words in specimens not in microcopy.md: {words}")
-    print(f"docs: {len(flat)} component pages · index.html · why.html · {counts['states']} specimens · "
+    print(f"docs: {len(flat)} component pages · components.html · why.html · {counts['states']} specimens · "
           f"{counts['roles']} roles · words not in microcopy.md: 0")
     if browser:
         bad = check_browser(written)

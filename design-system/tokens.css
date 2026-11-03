@@ -348,7 +348,7 @@
   --current: var(--color-white);     /* the slice's light --raised (this role was split from it) */
   --control: var(--color-white);     /* the slice's light --control */
   --control-hover: var(--color-neutral-light-150); /* the slice's light --control-hover */
-  --disabled: var(--color-white);    /* the slice's light --control (this role was split from it) */
+  --disabled: var(--color-neutral-light-250); /* Signed (I3, 2026-11-03): the light bar's grey, one step under the ground (1.07:1), so a disabled field reads recessed, not more available; Ink 3 on it 5.22:1 */
   --code-chip: var(--color-white);   /* the slice's light --control (this role was split from it) */
   --tile: var(--color-white);        /* the slice's light --control (this role was split from it) */
   /* lines and edges */
@@ -409,7 +409,7 @@
       8.28 AA    --text-2 on --ground — the project description
       5.94 AA    --text-3 on --cutout — a row’s path, metadata
       6.15 AA    --text-3 on --raised — a section label in the panel
-      6.15 AA    --disabled-text on --disabled — a disabled button’s label
+      5.22 AA    --disabled-text on --disabled — a disabled button’s label
       5.61 AA    --text-3 on --ground — the breadcrumb
      13.46 AA    --on-action on --action — the primary button
      12.51 AA    --on-action on --action-hover — the primary button, hovered

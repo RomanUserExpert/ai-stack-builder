@@ -132,17 +132,23 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" />
   <path d="M12 5v14" /></symbol><symbol id="l-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12" />
   <path d="m17 8-5-5-5 5" />
   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Navigation</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Navigation</p>
   <h1>Page head</h1>
   <p>The top of every place and of both shared surfaces: the name, the facts about it, and what you can do to it.</p>
   <p class="doc-meta"><span><code>page-head · head-meta · head-actions</code></span><span>10 screens</span><span><code>components/page-head.css</code></span></p>
@@ -151,7 +157,7 @@
   <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
   <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="page-head">
           <div>
-            <h1 id="a-k123-page-title">acme-billing-api</h1>
+            <h1 id="a-k12-page-title">acme-billing-api</h1>
             <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
           </div>
           <div class="head-actions">
@@ -162,11 +168,11 @@
           </div>
         </div></div><div class="doc-pins"></div><div class="doc-hl"></div></div><ol class="doc-parts"><li data-sel="div.page-head"><span><b>Head</b> — the title block, then the actions, on one line</span><code>div.page-head</code></li><li data-sel="div.page-head h1"><span><b>Title</b> — Display, the one per screen</span><code>div.page-head h1</code></li><li data-sel="p.head-meta"><span><b>Head meta</b> — Small Ink 2, facts split by dots</span><code>p.head-meta</code></li><li data-sel="div.head-actions"><span><b>Actions</b> — at the right, the primary last</span><code>div.head-actions</code></li><li data-sel="div.head-actions .button-primary"><span><b>Primary</b> — lime; one per screen, and an empty or error state&#x27;s own outranks it</span><code>div.head-actions .button-primary</code></li></ol>
 </section>
-<section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">4</span></h2>
+<section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">5</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
   <div class="kit-state"><p class="kit-label">Project: head actions, the primary last</p><div class="kit-demo"><div class="page-head">
           <div>
-            <h1 id="v0-k123-page-title">acme-billing-api</h1>
+            <h1 id="v0-k12-page-title">acme-billing-api</h1>
             <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
           </div>
           <div class="head-actions">
@@ -176,13 +182,13 @@
             <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
           </div>
         </div></div></div><div class="kit-state"><p class="kit-label">Projects: one action</p><div class="kit-demo"><div class="page-head">
-          <div><h1 id="v1-k124-projects-title">Projects</h1></div>
+          <div><h1 id="v1-k13-projects-title">Projects</h1></div>
           <div class="head-actions"><a class="button button-primary" href="#">
             <svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project
           </a></div>
-        </div></div></div><div class="kit-state"><p class="kit-label">Shared project: the Shared tag after the title</p><div class="kit-demo"><div class="page-head">
+        </div></div></div><div class="kit-state"><p class="kit-label">A wide description — description-wide, under a project's name</p><div class="kit-demo"><p class="description description-wide">Client repo for Acme’s billing service. Code style, migration and review agents, the Postgres and GitHub MCP servers.</p></div></div><div class="kit-state"><p class="kit-label">Shared project: the Shared tag after the title</p><div class="kit-demo"><div class="page-head">
           <div>
-            <h1 id="v2-k125-page-title">agent-dotfiles</h1>
+            <h1 id="v3-k15-page-title">agent-dotfiles</h1>
             <p class="meta head-meta"><span>9 items</span><span>Changed 1 day ago</span><span>Maya checked it 5 days ago · for Claude Code — the project has changed since</span></p>
           </div>
           <div class="head-actions">
@@ -191,7 +197,7 @@
           </div>
         </div></div></div><div class="kit-state"><p class="kit-label">Loading: skeleton meta</p><div class="kit-demo"><div class="page-head">
           <div>
-            <h1 id="v3-k126-page-title">acme-billing-api</h1>
+            <h1 id="v4-k16-page-title">acme-billing-api</h1>
             <p class="meta head-meta"><span class="skeleton sk-w480 sk-h12"></span></p>
           </div>
           <div class="head-actions">

@@ -568,3 +568,9 @@ direction the hover went; each a recipe over a role, so it holds in both themes.
 `--on-danger` white — the dark values, white on red at 4.77:1. Contrast: 83 pairs per theme, all pass, written into
 `design-system/tokens.css`.
 
+
+### Phase 09, step 7 — the light disabled ground, signed (2026-11-03)
+
+| Role | Light value | Why |
+|---|---|---|
+| `--disabled` | `#ECEDE6` (`--color-neutral-light-250`, already the light bar) | It was `#FFFFFF`, the light control's white, so a disabled field read brighter than a field at rest, as if it were more available. The bar's grey sits one step under the ground (1.07:1), so the field reads recessed. Ink 3 on it is 5.22:1. No new hex. Found in step 3; I3 in `09-design-system/system-check.md`. |

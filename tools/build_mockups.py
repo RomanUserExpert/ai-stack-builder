@@ -60,8 +60,8 @@ h1,h2,h3,p,ul,ol,dl,dd{margin:0}
 ul,ol{padding:0;list-style:none}
 ::selection{background:var(--lime-selection)}
 code{font:var(--t-code);line-height:inherit;color:var(--text);background:var(--control);padding:0 calc(var(--s1) / 2);border-radius:var(--r-xs)}
-.meta a{color:var(--text-2);text-decoration:none}
-.meta a:hover{color:var(--text);text-decoration:underline}
+.meta a{color:var(--text-2);text-decoration:underline;text-decoration-color:var(--text-3);text-decoration-thickness:var(--hairline);text-underline-offset:var(--s-half)}
+.meta a:hover{color:var(--text);text-decoration-color:currentColor}
 .meta{font:var(--t-micro);font-weight:var(--weight-regular);color:var(--text-3)}
 .visually-hidden{position:absolute;width:var(--hairline);height:var(--hairline);overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .canvas{position:relative;width:100%;min-height:100vh;margin:0;display:flex;flex-direction:column;background:var(--ground)}
@@ -476,8 +476,9 @@ def transform(html, root, page_name, unknown, kit_href=None, frame=True):
                             f'<svg class="glyph glyph-{g}" aria-hidden="true"><use href="#l-{n}"/></svg>')
     # tones the structure cannot carry: a Conflict tag; a primary button that removes something
     html = html.replace('<span class="tag tag-state">Conflict</span>', '<span class="tag tag-state tag-problem">Conflict</span>')
-    # the keys reminder (§11) and the blast radius before a save (§5) are disclosures, not findings: neutral (phase 07)
-    html = re.sub(r'<div class="callout">(\s*<span class="severity">(?:Before you|Used in \d+ project))', r'<div class="callout callout-reminder">\1', html)
+    # the keys reminder (§11) and the blast radius before a save (§5) are disclosures, not findings: neutral (phase 07).
+    # Since phase 09, step 7 (S1) the wireframe page names callout-reminder itself; guessing it from the first words
+    # drew any new disclosure Problem rose. Guard 14 holds a bare .callout to a Problem.
     html = re.sub(r'class="button button-primary"((?:(?!</a>|</button>).)*?>(?:<svg[^>]*>(?:(?!</svg>).)*</svg>)?\s*(?:Remove|Delete|Stop sharing))',
                   r'class="button button-primary button-danger"\1', html, flags=re.S)
     html = re.sub(r'(<div class="callout"(?: [^>]*)?>(?:(?!</div>\s*</div>).)*?<div class="row-actions">\s*<a class="button)"'

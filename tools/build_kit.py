@@ -334,6 +334,8 @@ def components():
         comp("Page head", "page-head · head-meta · head-actions", "10 screens", "painted",
              state("Project: head actions, the primary last", cut("project-default", "div", 'class="page-head"')),
              state("Projects: one action", cut("projects-default", "div", 'class="page-head"')),
+             state("A wide description — description-wide, under a project's name",
+                   cut("project-default", "p", 'class="description description-wide"')),
              state("Shared project: the Shared tag after the title", cut("shared-project-default", "div", 'class="page-head"')),
              state("Loading: skeleton meta", cut("project-loading", "div", 'class="page-head"'))),
         comp("Tabs", "tabs · tabs-page · count", "7 screens", "painted (panel tabs) · grey (page tabs)",
@@ -358,6 +360,9 @@ def components():
              state("Library rows, with usage facts", cut("library-my-default", "li", contains='class="usage', n=0, wrap=RL), cut("library-my-default", "li", contains='class="usage', n=1, wrap=RL)),
              state("Set rows", cut("project-default", "li", contains="test-runner", wrap=RL), cut("project-default", "li", contains="changelog-writer", n=0, wrap=RL)),
              state("Active — the item open beside the set", cut("project-detached-default", "li", contains="is-selected", wrap=RL)),
+             state("Active, viewing — no actions: an empty row-actions is not drawn", cut("project-item", "li", contains="is-selected", wrap=RL)),
+             state("Two columns, no actions — row-2: the Public library", cut("library-public-default", "li", contains='class="row row-tight row-2"', wrap=RL)),
+             state("One column — row-1: a shared project's set", cut("shared-project-default", "li", contains='class="row row-tight row-1"', wrap=RL)),
              state("Loading", cut("project-loading", "ol", 'class="row-list"'))),
         comp("Item text block", "description · facts", "9 screens", "painted",
              state("Defers to", cut("project-default", "li", contains="code-style</a>", wrap=RL)),
@@ -407,7 +412,7 @@ def components():
     g["Forms"] = [
         comp("Button", "button · button-primary · button-quiet · button-danger · button-warning · button-danger-quiet", "17 screens", "painted · busy: grey",
              state("Primary · secondary · quiet", f'<div class="kit-row"><a class="button button-primary" href="#">{ICON}Export</a>'
-                   f'<a class="button" href="#">Configure</a><button type="button">{ICON}Duplicate</button><a class="button button-quiet" href="#">Cancel</a></div>',
+                   f'<a class="button" href="#">Configure</a><button type="button">Duplicate</button><a class="button button-quiet" href="#">Cancel</a></div>',
                    note="One primary per screen. Hover and Tab are live."),
              state("Danger — only a removal's confirmation", '<div class="kit-row"><button type="button" class="button button-primary">Delete</button>'
                    '<button type="button" class="button button-primary">Stop sharing</button></div>'),
@@ -416,7 +421,9 @@ def components():
              state("Disabled — only Export on an empty project", f'<div class="kit-row"><button type="button" disabled title="Add an item first">{ICON}Export</button></div>'),
              state("Busy", cut("sign-in-loading", "button", 'type="submit"'))),
         comp("Link button", "link-button", "5 screens", "painted",
-             state("Clear filters, in the popover's head", cut("projects-filters", "button", 'class="link-button"'))),
+             state("Clear filters, in the popover's head", cut("projects-filters", "button", 'class="link-button"')),
+             state("Inside Library version's summary — no padding of its own",
+                   cut("project-detached-default", "details", 'class="library-version"'))),
         comp("Search field", "find · search", "8 screens", "painted",
              state("Empty, with a placeholder", cut("projects-default", "label", 'class="search"')),
              state("Filled — the no-match state", cut("projects-error-filtered", "label", 'class="search"')),
@@ -460,7 +467,7 @@ def components():
              state("Problem", cut("run-default", "div", 'class="callout"', contains="declares a conflict")),
              state("Note", cut("run-default", "div", 'class="callout callout-quiet"')),
              state("Our failure — not a finding, so neutral", cut("run-error-setup", "div", 'role="alert"')),
-             state("The keys reminder — not a finding", cut("library-json-default", "div", 'class="callout"', contains="carry no keys"))),
+             state("The keys reminder — not a finding", cut("library-json-default", "div", 'class="callout callout-reminder"', contains="carry no keys"))),
         comp("Finding capsule", "marks · mark", "3 screens", "painted",
              state("Problem · Note", '<div class="kit-row">', cut("project-default", "p", 'class="marks"', contains="glyph-problem"), cut("project-default", "p", 'class="marks"', contains="glyph-note"), '</div>')),
         comp("Severity glyph", "glyph-*", "9 screens", "painted",
@@ -608,7 +615,7 @@ def shell_html():
         body.append(f'<section id="{sid}"><p class="kit-label">{name}</p><p class="kit-note">{note}</p>'
                     f'<div class="canvas">\n{hdr}\n<main class="app-main"><p class="kit-meta">the screen</p></main>\n</div></section>')
     body.append("</div></main>")
-    nav = "".join(f'<a href="#{re.sub(r"[^a-z]+", "-", n.lower()).strip("-")}">{n}</a>' for n, _, _ in canvases) + '<a href="kit.html">Kit</a>'
+    nav = "".join(f'<a href="#{re.sub(r"[^a-z]+", "-", n.lower()).strip("-")}">{n}</a>' for n, _, _ in canvases) + '<a href="../../design-system/docs/components.html">Design system</a>'
     return finish(page("Shell", "07 · UI assembly", "".join(body), nav), "shell")
 
 
@@ -650,15 +657,30 @@ def words_check(out):
     return sorted(missing)
 
 
+# Phase 09, step 7 (D2): kit.html is retired. The docs are the showcase — every component and state it showed has a
+# page there, cut from the same components(). Its address stays, as a redirect, so the closed lessons' pages that frame
+# it (07's ui.html, 08's tokens.html) and every old link land on the docs.
+KIT_REDIRECT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI kit · moved to the design system's docs</title>
+  <meta http-equiv="refresh" content="0; url=../../design-system/docs/components.html">
+  <link rel="canonical" href="../../design-system/docs/components.html">
+</head>
+<body>
+  <p>The UI kit is now the design system's docs: <a href="../../design-system/docs/components.html">design-system/docs/</a>.</p>
+</body>
+</html>
+"""
+
+
 def build():
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "shell.html").write_text(shell_html(), encoding="utf-8")
-    kit, n = kit_html()
-    (OUT / "kit.html").write_text(kit, encoding="utf-8")
-    missing = words_check(kit)
-    print(f"kit: shell.html · kit.html ({n} components) · literals: none · words not in microcopy.md: {len(missing)}")
-    for t in missing:
-        print("  ", t)
+    (OUT / "kit.html").write_text(KIT_REDIRECT, encoding="utf-8")
+    print(f"kit: shell.html · kit.html, a redirect to design-system/docs/ (retired in phase 09, D2)")
 
 
 if __name__ == "__main__":

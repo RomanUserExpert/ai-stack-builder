@@ -132,23 +132,29 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Forms</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Forms</p>
   <h1>Door form</h1>
   <p>Sign in, Create account, Reset password: the way in, built to the minimum the decision forces (Q25).</p>
   <p class="doc-meta"><span><code>door · form · door-alt</code></span><span>3 screens</span><span><code>components/door.css</code> · <code>components/form.css</code> · <code>components/page-head.css</code></span></p>
 </div>
 <section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
   <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
-  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><section class="door" aria-labelledby="a-k196-door-title">
+  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><section class="door" aria-labelledby="a-k90-door-title">
         <div>
-          <h1 id="a-k196-door-title">Sign in</h1>
+          <h1 id="a-k90-door-title">Sign in</h1>
           <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
         </div>
         <form class="form">
@@ -165,9 +171,9 @@
 </section>
 <section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">4</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
-  <div class="kit-state"><p class="kit-label">Sign in</p><div class="kit-demo"><section class="door" aria-labelledby="v0-k196-door-title">
+  <div class="kit-state"><p class="kit-label">Sign in</p><div class="kit-demo"><section class="door" aria-labelledby="v0-k90-door-title">
         <div>
-          <h1 id="v0-k196-door-title">Sign in</h1>
+          <h1 id="v0-k90-door-title">Sign in</h1>
           <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
         </div>
         <form class="form">
@@ -180,9 +186,9 @@
           <button type="submit" class="button-primary">Sign in</button>
         </form>
         <p class="door-alt">No account yet? <a href="#">Create account</a></p>
-      </section></div></div><div class="kit-state"><p class="kit-label">Error</p><div class="kit-demo"><section class="door" aria-labelledby="v1-k197-door-title">
+      </section></div></div><div class="kit-state"><p class="kit-label">Error</p><div class="kit-demo"><section class="door" aria-labelledby="v1-k91-door-title">
         <div>
-          <h1 id="v1-k197-door-title">Sign in</h1>
+          <h1 id="v1-k91-door-title">Sign in</h1>
           <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
         </div>
         <div class="callout callout-failure" role="alert">
@@ -200,9 +206,9 @@
           <button type="submit" class="button-primary">Sign in</button>
         </form>
         <p class="door-alt">No account yet? <a href="#">Create account</a></p>
-      </section></div></div><div class="kit-state"><p class="kit-label">Signing in</p><div class="kit-demo"><section class="door" aria-labelledby="v2-k198-door-title">
+      </section></div></div><div class="kit-state"><p class="kit-label">Signing in</p><div class="kit-demo"><section class="door" aria-labelledby="v2-k92-door-title">
         <div>
-          <h1 id="v2-k198-door-title">Sign in</h1>
+          <h1 id="v2-k92-door-title">Sign in</h1>
           <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
         </div>
         <form class="form" aria-busy="true">
@@ -216,9 +222,9 @@
           <p class="visually-hidden" role="status">Signing in as maya@chen.dev</p>
         </form>
         <p class="door-alt">No account yet? <a href="#">Create account</a></p>
-      </section></div></div><div class="kit-state"><p class="kit-label">Reset password — sent</p><div class="kit-demo"><section class="door" aria-labelledby="v3-k199-door-title">
+      </section></div></div><div class="kit-state"><p class="kit-label">Reset password — sent</p><div class="kit-demo"><section class="door" aria-labelledby="v3-k93-door-title">
         <div>
-          <h1 id="v3-k199-door-title">Reset link requested</h1>
+          <h1 id="v3-k93-door-title">Reset link requested</h1>
           <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
         </div>
         <div class="form">

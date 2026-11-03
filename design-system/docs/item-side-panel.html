@@ -132,7 +132,13 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-circle-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
@@ -141,19 +147,19 @@
   <path d="M12 16v-4" />
   <path d="M12 8h.01" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Cards and lists</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Cards and lists</p>
   <h1>Item side panel</h1>
   <p>An item opened from a set row, beside the set rather than over it.</p>
   <p class="doc-meta"><span><code>with-drawer · drawer · drawer-head · drawer-section · drawer-facts · drawer-actions</code></span><span>3 screens</span><span><code>components/drawer.css</code></span></p>
 </div>
 <section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
   <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
-  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="a-k152-drawer-title">
+  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="a-k45-drawer-title">
           <div class="drawer-head">
-            <h2 id="a-k152-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
+            <h2 id="a-k45-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
             <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
           </div>
           <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
@@ -163,13 +169,13 @@
             <span>Declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
           </div>
 
-          <section class="drawer-section" aria-labelledby="a-k152-d-in">
-            <h3 id="a-k152-d-in">In this project</h3>
+          <section class="drawer-section" aria-labelledby="a-k45-d-in">
+            <h3 id="a-k45-d-in">In this project</h3>
             <p>Added by you · linked to the original in My library</p>
           </section>
 
-          <section class="drawer-section" aria-labelledby="a-k152-d-contents">
-            <h3 id="a-k152-d-contents">Contents</h3>
+          <section class="drawer-section" aria-labelledby="a-k45-d-contents">
+            <h3 id="a-k45-d-contents">Contents</h3>
             <pre class="file">#!/usr/bin/env bash
 # Fix what ESLint can fix, on staged files only.
 files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx)$')
@@ -178,8 +184,8 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             <p class="meta">No files attached · no repo</p>
           </section>
 
-          <section class="drawer-section" aria-labelledby="a-k152-d-deps">
-            <h3 id="a-k152-d-deps">Dependencies</h3>
+          <section class="drawer-section" aria-labelledby="a-k45-d-deps">
+            <h3 id="a-k45-d-deps">Dependencies</h3>
             <dl class="drawer-facts">
               <dt>Requires</dt><dd>None</dd>
               <dt>Conflicts with</dt><dd><code>code-style</code></dd>
@@ -188,8 +194,8 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             </dl>
           </section>
 
-          <section class="drawer-section" aria-labelledby="a-k152-d-use">
-            <h3 id="a-k152-d-use">Use</h3>
+          <section class="drawer-section" aria-labelledby="a-k45-d-use">
+            <h3 id="a-k45-d-use">Use</h3>
             <p>Used in 2 projects · last exported 2 days ago</p>
           </section>
 
@@ -201,9 +207,9 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
 </section>
 <section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">6</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
-  <div class="kit-state"><p class="kit-label">A linked item</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v0-k152-drawer-title">
+  <div class="kit-state"><p class="kit-label">A linked item</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v0-k45-drawer-title">
           <div class="drawer-head">
-            <h2 id="v0-k152-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
+            <h2 id="v0-k45-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
             <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
           </div>
           <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
@@ -213,13 +219,13 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             <span>Declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
           </div>
 
-          <section class="drawer-section" aria-labelledby="v0-k152-d-in">
-            <h3 id="v0-k152-d-in">In this project</h3>
+          <section class="drawer-section" aria-labelledby="v0-k45-d-in">
+            <h3 id="v0-k45-d-in">In this project</h3>
             <p>Added by you · linked to the original in My library</p>
           </section>
 
-          <section class="drawer-section" aria-labelledby="v0-k152-d-contents">
-            <h3 id="v0-k152-d-contents">Contents</h3>
+          <section class="drawer-section" aria-labelledby="v0-k45-d-contents">
+            <h3 id="v0-k45-d-contents">Contents</h3>
             <pre class="file">#!/usr/bin/env bash
 # Fix what ESLint can fix, on staged files only.
 files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx)$')
@@ -228,8 +234,8 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             <p class="meta">No files attached · no repo</p>
           </section>
 
-          <section class="drawer-section" aria-labelledby="v0-k152-d-deps">
-            <h3 id="v0-k152-d-deps">Dependencies</h3>
+          <section class="drawer-section" aria-labelledby="v0-k45-d-deps">
+            <h3 id="v0-k45-d-deps">Dependencies</h3>
             <dl class="drawer-facts">
               <dt>Requires</dt><dd>None</dd>
               <dt>Conflicts with</dt><dd><code>code-style</code></dd>
@@ -238,8 +244,8 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             </dl>
           </section>
 
-          <section class="drawer-section" aria-labelledby="v0-k152-d-use">
-            <h3 id="v0-k152-d-use">Use</h3>
+          <section class="drawer-section" aria-labelledby="v0-k45-d-use">
+            <h3 id="v0-k45-d-use">Use</h3>
             <p>Used in 2 projects · last exported 2 days ago</p>
           </section>
 
@@ -247,9 +253,9 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             <a class="button" href="#">Open in My library</a>
             <a class="button" href="#">Configure to remove</a>
           </div>
-        </aside></div></div></div><div class="kit-state"><p class="kit-label">A linked item with a Note</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v1-k153-drawer-title">
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">A linked item with a Note</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v1-k46-drawer-title">
           <div class="drawer-head">
-            <h2 id="v1-k153-drawer-title">code-style <span class="tag">skill</span><span class="tag tag-state tag-problem">Conflict</span></h2>
+            <h2 id="v1-k46-drawer-title">code-style <span class="tag">skill</span><span class="tag tag-state tag-problem">Conflict</span></h2>
             <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
           </div>
           <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
@@ -260,8 +266,8 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             <span>Where <code>code-style</code> and the client’s ESLint config disagree, the ESLint config wins.</span>
           </div>
 
-          <section class="drawer-section" aria-labelledby="v1-k153-d-contents">
-            <h3 id="v1-k153-d-contents">Contents</h3>
+          <section class="drawer-section" aria-labelledby="v1-k46-d-contents">
+            <h3 id="v1-k46-d-contents">Contents</h3>
             <pre class="file">---
 name: code-style
 description: How TypeScript is written in my projects.
@@ -271,8 +277,8 @@ description: How TypeScript is written in my projects.
 - Throw typed errors from lib code; catch only at the edge.</pre>
           </section>
 
-          <section class="drawer-section" aria-labelledby="v1-k153-d-deps">
-            <h3 id="v1-k153-d-deps">Dependencies</h3>
+          <section class="drawer-section" aria-labelledby="v1-k46-d-deps">
+            <h3 id="v1-k46-d-deps">Dependencies</h3>
             <dl class="drawer-facts">
               <dt>Requires</dt><dd>None</dd>
               <dt>Defers to</dt><dd>the client’s ESLint config</dd>
@@ -286,15 +292,15 @@ description: How TypeScript is written in my projects.
             <button type="button" class="button-quiet">Remove from project</button>
           </div>
           <p class="meta">Detach makes a copy for this project only. My library and the other projects keep the original.</p>
-        </aside></div></div></div><div class="kit-state"><p class="kit-label">A detached item: Reset, Promote</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v2-k154-drawer-title">
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">A detached item: Reset, Promote</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v2-k47-drawer-title">
           <div class="drawer-head">
-            <h2 id="v2-k154-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <h2 id="v2-k47-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
             <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
           </div>
           <p class="meta">Edited for this project only. The original in My library, and the other project that uses <code>pr-reviewer</code>, don’t get these changes.</p>
 
-          <section class="drawer-section" aria-labelledby="v2-k154-d-diff">
-            <h3 id="v2-k154-d-diff">2 fields differ from the original</h3>
+          <section class="drawer-section" aria-labelledby="v2-k47-d-diff">
+            <h3 id="v2-k47-d-diff">2 fields differ from the original</h3>
             <label class="field field-mono"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
             <p class="meta">Original: <code>.claude/agents/pr-reviewer.md</code> · <button type="button" class="link-button">Reset this field</button></p>
             <label class="field"><span>Content</span><textarea>---
@@ -321,9 +327,9 @@ specific, one suggestion per comment.</pre>
             <button type="button" class="button-quiet">Remove from project</button>
           </div>
           <p class="meta">Changes here are kept when you save the project.</p>
-        </aside></div></div></div><div class="kit-state"><p class="kit-label">Loading</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v3-k155-drawer-title" aria-busy="true">
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">Loading</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v3-k48-drawer-title" aria-busy="true">
           <div class="drawer-head">
-            <h2 id="v3-k155-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <h2 id="v3-k48-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
             <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
           </div>
           <p class="visually-hidden" role="status">Loading pr-reviewer and the original in My library</p>
@@ -333,9 +339,9 @@ specific, one suggestion per comment.</pre>
             <div class="field"><span>Lands at</span><span class="skeleton sk-h40"></span></div>
             <div class="field"><span>Content</span><span class="skeleton sk-h160"></span></div>
           </section>
-        </aside></div></div></div><div class="kit-state"><p class="kit-label">Our failure — Promote didn’t land</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v4-k156-drawer-title">
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">Our failure — Promote didn’t land</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v4-k49-drawer-title">
           <div class="drawer-head">
-            <h2 id="v4-k156-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <h2 id="v4-k49-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
             <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
           </div>
           <p class="meta">Edited for this project only. The original in My library, and the other project that uses <code>pr-reviewer</code>, don’t get these changes.</p>
@@ -346,8 +352,8 @@ specific, one suggestion per comment.</pre>
             <div class="row-actions"><button type="button" class="button-primary">Promote again</button><button type="button">Close</button></div>
           </div>
 
-          <section class="drawer-section" aria-labelledby="v4-k156-d-diff">
-            <h3 id="v4-k156-d-diff">2 fields differ from the original</h3>
+          <section class="drawer-section" aria-labelledby="v4-k49-d-diff">
+            <h3 id="v4-k49-d-diff">2 fields differ from the original</h3>
             <label class="field field-mono"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
             <p class="meta">Original: <code>.claude/agents/pr-reviewer.md</code> · <button type="button" class="link-button">Reset this field</button></p>
             <label class="field"><span>Content</span><textarea>---

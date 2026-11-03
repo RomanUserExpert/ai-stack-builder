@@ -7,7 +7,8 @@
     { "source": "/research/research", "destination": "/01-research/research", "permanent": true },
     { "source": "/research/research.html", "destination": "/01-research/research", "permanent": true },
     { "source": "/research/6-personas/personas", "destination": "/02-personas-jtbd/personas", "permanent": true },
-    { "source": "/research/6-personas/personas.html", "destination": "/02-personas-jtbd/personas", "permanent": true }
+    { "source": "/research/6-personas/personas.html", "destination": "/02-personas-jtbd/personas", "permanent": true },
+    { "source": "/design-system/docs", "destination": "/design-system/docs/components", "permanent": false }
   ],
   "headers": [
     {

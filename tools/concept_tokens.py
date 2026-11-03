@@ -494,7 +494,9 @@ LIGHT_FIXED = {"control-on": ("#55700F", "the light mark, not the slice's lime: 
                "sheet-edge": ("#DCDED4", "Signed (Q49, D4): the light hairline, --line's light value — white at 5 % vanishes on a white sheet"),
                "danger": ("#D4363F", "Signed (Q49, D4): the same Remove Red — white on it is 4.77:1, and it is 4.6:1 against the light ground"),
                "danger-hover": ("#BE2E37", "Signed (Q49, D4): the same darker red — hover darkens in both themes"),
-               "on-danger": ("#FFFFFF", "Signed (Q49, D4): white, as in dark")}
+               "on-danger": ("#FFFFFF", "Signed (Q49, D4): white, as in dark"),
+               # phase 09, step 7 (I3): signed by the owner on 2026-11-03 — a disabled field was white, brighter than one at rest
+               "disabled": ("#ECEDE6", "Signed (I3, 2026-11-03): the light bar's grey, one step under the ground (1.07:1), so a disabled field reads recessed, not more available; Ink 3 on it 5.22:1")}
 
 
 def light_values():

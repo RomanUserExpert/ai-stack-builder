@@ -115,16 +115,28 @@ diff against the table in step 7.
 ## `build_docs.py`, `docs_content.py` — phase 09, the design system's docs
 
 ```
-python -X utf8 tools/build_docs.py          # -> design-system/docs/: index.html, why.html, a page per component
+python -X utf8 tools/build_docs.py          # -> design-system/docs/: components.html, tokens.html, layouts.html, why.html, a page per component
 python -X utf8 tools/build_docs.py --fast   # the same, without the browser check
 ```
 
 Run by `build_mockups.py` after `build_kit.py`. The specimens are `build_kit.components()`'s own — the pieces
-`kit.html` shows — so the docs and the kit cannot disagree; every page links `design-system/index.css` alone. What a
+`kit.html` showed until it retired to a redirect (D2) — so nothing can disagree with them; every page links `design-system/index.css` alone. What a
 page *says* (anatomy parts as selectors, size, when to use, rule, anti-rule) is `docs_content.py`. The build fails on a
 component with no entry, an anti-rule to nothing, a value in the docs' own styles, a specimen word not in
 `microcopy.md`, and — in a browser — an anatomy part whose selector finds nothing in its live specimen. Guard 11 in
 `kit_check.py` checks the pages exist and link the one entry point.
+
+## `system_check.py` — phase 09, the system and the product checked together
+
+```
+python -X utf8 tools/system_check.py            # the course's five classes of defect, printed
+python -X utf8 tools/system_check.py --json F   # and written to F
+```
+
+It compares, in a browser, every element of a docs specimen with the same element on every dressed screen. It also
+finds a class in `components/` that no docs page shows, a component the docs call stateless that has states, a role in
+one theme, a pattern with a style, a token with no row on `docs/tokens.html`, and a link in a meta line with no
+non-colour cue. It produced `09-design-system/system-check.md`. `kit_check.py` runs it as guards 15–17.
 
 ## `build_patterns.py` — phase 09, the patterns
 

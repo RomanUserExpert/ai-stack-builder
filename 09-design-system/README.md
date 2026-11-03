@@ -93,7 +93,7 @@ lie** — because it is the same code as the product.
 | **4** | **Patterns from the screens.** Read every wireframe page and find the compositions on **three or more** screens. Each becomes one file in `patterns/`, **made of existing components with no style of its own**. Candidates to test, not to assume: the page head with its actions; an empty or error state with its one action; a row list with the item side panel; the Run stage list ending in Export; a confirmation that names the consequence. A docs page: when to take a pattern, when separate components. | `patterns/`, `docs/patterns.html` | **done 2026-11-03** |
 | **5** | **Rules of contribution.** `DESIGN.md` and `CLAUDE.md` gain *Contributing to the system*: **new appears in the system first, on a screen second.** A new component goes to `components/` with its docs page and its states in both themes; a new composition to `patterns/`; a new value to `tokens.css` at its level. §15's *оставляем* rule re-routed into the system. Written so the next session reads it from the repo, not from the chat. | `DESIGN.md`, `CLAUDE.md` §15/§16/§17 and a new §18 | **done 2026-11-03** |
 | **6** | **The test of a new screen.** Build a screen the product does not have yet, but a job asks for (D6), **from the system alone**: existing components and patterns, tokens only, no style on the screen. **What is missing is written down, not drawn**: `backlog.md`, honest. The screen stays in `examples/` as a demonstration. **It is not a product decision**: if it is ever wanted in the product, it goes to the register. | `examples/`, `backlog.md` | **done 2026-11-03** |
-| **7** | **The check, and the showcase online.** A table of defects — file, element, what is wrong, how to fix: a component that looks different on a screen and on its docs page · a docs page describing a variant or state the code does not have, or the reverse · a state with a value in one theme only · a pattern with styles of its own · a component or token with no docs page. Plus `/impeccable audit`. **The table first; the owner sets priorities; then everything is fixed together.** Every class of defect becomes a guard. The showcase deployed on Vercel; `README.md`, *Design system*, with its address. | `system-check.md`, `kit_check.py`, the deploy | |
+| **7** | **The check, and the showcase online.** A table of defects — file, element, what is wrong, how to fix: a component that looks different on a screen and on its docs page · a docs page describing a variant or state the code does not have, or the reverse · a state with a value in one theme only · a pattern with styles of its own · a component or token with no docs page. Plus `/impeccable audit`. **The table first; the owner sets priorities; then everything is fixed together.** Every class of defect becomes a guard. The showcase deployed on Vercel; `README.md`, *Design system*, with its address. | `system-check.md`, `kit_check.py`, the deploy | **done 2026-11-03** |
 
 **And the lesson's page**, `09-design-system/system.html`, built from a template in `tools/` like every phase
 page, with phase 09 linked in every rail and in the viewer, and listed in `.vercelignore`.
@@ -180,7 +180,26 @@ for the promote. Four more entries:
 
 B2 was corrected: the system has two single-purpose expansions, neither a group fold.
 
-Next: step 7, the check and the showcase online. B5 enters its defect table.
+**Step 7 is done** (2026-11-03). [`system-check.md`](system-check.md), checked with two instruments:
+- `tools/system_check.py`, a new instrument for the course's five classes, compares docs and screens in a browser;
+- `/impeccable audit`, whose detector findings were verified in a browser.
+
+**15 rows: 3 P1, 6 P2, 2 P3, one P0 found while fixing (I6), two classes clean, two detector rows not defects.**
+- **I6, the worst:** the showcase online was unstyled. Vercel serves `/design-system/docs` without its slash, so
+  `../index.css` resolved to a 404. The showcase moved to `components.html`, with a redirect.
+- **S1** is backlog B5. The neutral callout's tone is now a class in the source.
+- **S7 and S8** are new pages: [Layouts](https://ai-stack-builder-research.vercel.app/design-system/docs/layouts) and [Tokens](https://ai-stack-builder-research.vercel.app/design-system/docs/tokens), 195 tokens.
+- **I1:** a link in a meta line is underlined at rest.
+- **I3** was signed by the owner (Q50): `--disabled` in light is `#ECEDE6`.
+
+The owner answered both open rows as recommended (Q50), and the host stays Vercel (D7).
+- **Every class of defect is a guard:** 14 (a bare callout is a Problem), 15 (every class shown), 16 (every token on the
+  Tokens page) and 17 (docs and screens alike in a browser, and meta links with a cue). 14 and 16 were negative-tested.
+- **The pixel test:** 63 of 83 pages are identical. The other 20 differ only in the Breadcrumb's new underline.
+- **D2 is done:** `kit.html` is a redirect to the docs.
+- **The showcase:** https://ai-stack-builder-research.vercel.app/design-system/docs, and `README.md` has *Design system*.
+
+Next: the lesson's page, `09-design-system/system.html`, and the close.
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

@@ -132,7 +132,13 @@
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
 .doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
 .doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
-.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
+.doc-scroll{overflow-x:auto}
+.doc-tokens td{font:var(--typescale-small)}
+.doc-tokens td code{background:none;padding:0;color:var(--text-2);white-space:nowrap}
+.doc-tokens td:first-child code{color:var(--text)}
+.doc-sw{white-space:nowrap}
+.doc-swatch{display:inline-block;width:var(--size-mark);height:var(--size-mark);margin-right:var(--space-1);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-xs);vertical-align:middle}</style>
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-cloud-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057" />
@@ -152,19 +158,19 @@
   <line x1="2" x2="5" y1="8" y2="8" />
   <line x1="16" x2="16" y1="19" y2="22" />
   <line x1="19" x2="22" y1="16" y2="16" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Feedback</p>
+  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Feedback</p>
   <h1>Empty and error state</h1>
   <p>A place with nothing in it, a search that matched nothing, a place our server did not load, a link that opens nothing any more.</p>
   <p class="doc-meta"><span><code>state-block · state-image · state-icon · state-actions</code></span><span>7 screens</span><span><code>components/state.css</code></span></p>
 </div>
 <section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
   <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
-  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><section class="state-block" aria-labelledby="a-k206-empty-title">
+  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><section class="state-block" aria-labelledby="a-k100-empty-title">
         <svg class="icon state-icon" aria-hidden="true"><use href="#l-folder-plus"/></svg>
-        <h2 id="a-k206-empty-title">No projects yet</h2>
+        <h2 id="a-k100-empty-title">No projects yet</h2>
         <p>A project holds items from My library. It is checked as a whole and exported as one archive.</p>
         <div class="state-actions">
           <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project</a>
@@ -174,25 +180,25 @@
 </section>
 <section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">4</span></h2>
   <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
-  <div class="kit-state"><p class="kit-label">Empty</p><div class="kit-demo"><section class="state-block" aria-labelledby="v0-k206-empty-title">
+  <div class="kit-state"><p class="kit-label">Empty</p><div class="kit-demo"><section class="state-block" aria-labelledby="v0-k100-empty-title">
         <svg class="icon state-icon" aria-hidden="true"><use href="#l-folder-plus"/></svg>
-        <h2 id="v0-k206-empty-title">No projects yet</h2>
+        <h2 id="v0-k100-empty-title">No projects yet</h2>
         <p>A project holds items from My library. It is checked as a whole and exported as one archive.</p>
         <div class="state-actions">
           <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project</a>
           <a class="button" href="#">Open Public library</a>
         </div>
-      </section></div></div><div class="kit-state"><p class="kit-label">No match</p><div class="kit-demo"><section class="state-block" aria-labelledby="v1-k207-none-title">
+      </section></div></div><div class="kit-state"><p class="kit-label">No match</p><div class="kit-demo"><section class="state-block" aria-labelledby="v1-k101-none-title">
         <svg class="icon state-icon" aria-hidden="true"><use href="#l-search-x"/></svg>
-        <h2 id="v1-k207-none-title">Nothing matches “stripe”</h2>
+        <h2 id="v1-k101-none-title">Nothing matches “stripe”</h2>
         <p>The filter shows only projects that are <strong>Not checked yet</strong>.
           You have 5 projects — the search and the filter hide all of them.</p>
         <div class="state-actions">
           <a class="button button-primary" href="#">Clear filters</a>
         </div>
-      </section></div></div><div class="kit-state"><p class="kit-label">Server error</p><div class="kit-demo"><section class="state-block" aria-labelledby="v2-k208-error-title" role="alert">
+      </section></div></div><div class="kit-state"><p class="kit-label">Server error</p><div class="kit-demo"><section class="state-block" aria-labelledby="v2-k102-error-title" role="alert">
         <svg class="icon state-icon" aria-hidden="true"><use href="#l-cloud-off"/></svg>
-        <h2 id="v2-k208-error-title">Projects didn’t load</h2>
+        <h2 id="v2-k102-error-title">Projects didn’t load</h2>
         <p>Our server didn’t answer, so your projects can’t be shown right now. Nothing in them changed.</p>
         <p class="meta error-code">503 · Service unavailable · 14:02</p>
         <div class="state-actions">

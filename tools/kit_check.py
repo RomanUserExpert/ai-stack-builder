@@ -15,7 +15,7 @@ with one entry point, index.css. The numbers are kept:
 6. every mockup links Geist and design-system/index.css, nothing else; index.css imports tokens.css then
    components/index.css, which imports every file; the files never return to 08-design-tokens/
 7. no dressed page has more than one button-primary
-8. kit.html's words are in microcopy.md (build_kit checks it; repeated here as a count)
+8. the docs' specimens' words are in microcopy.md (kit.html's, until it was retired in phase 09, D2)
 9. coverage: wireframe pages and flow steps with a twin
 11. the docs (phase 09): a page per component of the kit, each linking design-system/index.css alone, their own
     styles reading only declared variables and no colour primitive
@@ -24,6 +24,11 @@ with one entry point, index.css. The numbers are kept:
 13. the examples (phase 09): every page of build_examples, labelled *Example*, linking design-system/index.css
     alone, with no style and no class of its own — what the system lacks goes to design-system/backlog.md
 10. no geometry written as a count of a primitive (calc(var(--s12) * 3)) outside the skeleton sizes (tokens-check.md, T5)
+14. a bare .callout — no tone class — is a Problem: its severity says so (phase 09, system-check S1)
+15. every class in components/ is shown on a docs page, or is a layout on layouts.html (S5–S7)
+16. every token in tokens.css has a row on docs/tokens.html (S8)
+17. in a browser: a component looks the same on its docs page and on the screens (S2–S4), and a link in a meta line
+    carries a non-colour cue at rest (I1). Skipped with --fast
 
 The rule these guards enforce is one — new appears in design-system/ first, on a screen second — and it is written
 out, with where each kind of change goes, in CLAUDE.md §18 and DESIGN.md, *Contributing to the system*.
@@ -114,7 +119,9 @@ def main():
     if primaries:
         fails.append(f"7 more than one primary: {primaries[:8]}")
     # 4b, 6c — the showcase and the shell: the same entry point, and their own styles read only declared variables
-    for f in (UI / "kit.html", UI / "shell.html"):
+    if "http-equiv=\"refresh\"" not in (UI / "kit.html").read_text(encoding="utf-8"):
+        fails.append("6 kit.html is back as a showcase: retired in phase 09 (D2), it redirects to design-system/docs/")
+    for f in (UI / "shell.html",):
         h = f.read_text(encoding="utf-8")
         links = re.findall(r'<link rel="stylesheet" href="([^"]+)"', h)
         if len(links) != len(LINKS) or not all(l.endswith(want) for l, want in zip(links, LINKS)):
@@ -130,11 +137,13 @@ def main():
     docs = SYSTEM / "docs"
     import build_kit as _bk
     names = [c.name for comps in _bk.components().values() for c in comps]
-    want = {re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-") + ".html" for n in names} | {"index.html", "why.html", "patterns.html"}
+    want = {re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-") + ".html" for n in names} | {"index.html", "components.html", "why.html", "patterns.html", "tokens.html", "layouts.html"}
     have = {p.name for p in docs.glob("*.html")}
     if want - have or have - want:
         fails.append(f"11 docs/: no page for {sorted(want - have)}; a page for nothing {sorted(have - want)}")
     for f in sorted(docs.glob("*.html")):
+        if f.name == "index.html":  # I6: a redirect to components.html, which the next lines check
+            continue
         h = f.read_text(encoding="utf-8")
         links = re.findall(r'<link rel="stylesheet" href="([^"]+)"', h)
         if links != ["../index.css"]:
@@ -189,12 +198,30 @@ def main():
             fails.append(f"13 examples/{f.name} is not labelled as an example")
     if (UI / "kit.css").exists():
         fails.append("6 07-ui-assembly/ui/kit.css is back: phase 08 retired it")
-    # 8 — the showcase's words are the product's (a stage's duration is a value, not a line: microcopy.md leaves it out)
-    import build_kit
-    words = [w for w in build_kit.words_check((UI / "kit.html").read_text(encoding="utf-8"))
-             if not re.fullmatch(r"\d+(\.\d+)? s", w)]
+    # 8 — the specimens' words are the product's (since D2 on the docs; build_docs refuses them too)
+    import build_docs as _bd
+    words = _bd.check_words(_bk.components())
     if words:
-        fails.append(f"8 words on kit.html not in microcopy.md: {words[:6]}")
+        fails.append(f"8 words in the docs' specimens not in microcopy.md: {words[:6]}")
+    # 14 — a bare callout is a Problem: a neutral or a Note tone is a class, never a guess from the words (S1)
+    bare = []
+    for f in [*sorted((WF / "mockups").glob("*.html")), *sorted((SYSTEM / "examples").glob("*.html"))]:
+        for m in re.finditer(r'<div class="callout"[^>]*>\s*<span class="severity">(.*?)</span>\s', f.read_text(encoding="utf-8"), re.S):
+            sev = re.sub(r"<[^>]+>", "", m.group(1)).strip()
+            if not sev.startswith("Problem"):
+                bare.append(f"{f.stem}: {sev[:40]}")
+    if bare:
+        fails.append(f"14 a bare .callout that is not a Problem — name its tone (callout-reminder, callout-quiet): {bare[:4]}")
+    # 15, 16 — the docs cover the code: every class shown or a layout; every token on tokens.html
+    import system_check as _sc
+    for d in _sc.drift():
+        fails.append(f"15 {d['sig']} ({d['where']}): {d['diff']}")
+    for d in _sc.orphan():
+        fails.append(f"16 {d['sig']}: {d['diff']}")
+    # 17 — in a browser: docs and screens look alike; a link in a meta line is not told by colour alone
+    if "--fast" not in sys.argv:
+        for d in _sc.look_and_links():
+            fails.append(f"17 {d['sig']} ({d['where']}): {d['diff']}")
     # 9 — coverage
     wf = sorted(p.stem for p in (WF / "pages").glob("*.html") if p.stem != "wireframes")
     dressed = {p.stem for p in (WF / "mockups").glob("*.html")}
