@@ -502,6 +502,11 @@ FRAME_JS = r"""<script>
 (function(){
   function theme(){ return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
   function load(){ document.querySelectorAll('iframe[data-src]').forEach(function(f){ f.src = f.getAttribute('data-src') + '?theme=' + theme(); }); }
+  /* a pattern's frame takes the height of what it holds: Browse head is a head and a search, not a screen (owner) */
+  function fit(f){ try { var d = f.contentDocument, h = 0;
+    d.querySelectorAll('body > *').forEach(function(e){ h = Math.max(h, e.getBoundingClientRect().bottom); });
+    if (h) f.style.height = Math.ceil(h + 2) + 'px'; } catch (e) {} }
+  document.querySelectorAll('iframe[data-fit]').forEach(function(f){ f.addEventListener('load', function(){ fit(f); }); });
   load(); document.addEventListener('ds-theme', load);
 })();
 </script>"""
@@ -518,7 +523,7 @@ def patterns_page(pats, rejected):
   <h2>{E(p['name'])}</h2>
   <p class="doc-meta"><span>Made of: {parts}</span><span><code>patterns/{p['slug']}.html</code></span></p>
   <div class="doc-prose"><p>Stands on {len(p['screens'])} screens: {where}.{under}</p></div>
-  <iframe class="doc-frame" title="{E(p['name'])}" data-src="../patterns/{p['slug']}.html" loading="lazy"></iframe>
+  <iframe class="doc-frame" title="{E(p['name'])}" data-src="../patterns/{p['slug']}.html" data-fit loading="lazy"></iframe>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>{E(p['when'])}</p></div>
     <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>{E(p['instead'])}</p></div>
