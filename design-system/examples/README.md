@@ -9,6 +9,8 @@ comes out of `design-system/` with no style of its own. What a screen lacked is 
 |---|---|
 | [`usage.html`](usage.html) | **Usage of My library**, for EJ-3, *stop suspecting that half of what I keep is dead weight*. It is importance 3 for the primary persona, and lesson 03's matrix gave it only partial ticks. Every item grouped by how many projects use it, the projects named, what requires it, and when it was last exported. It stops at §5's ceiling: *is it used*, never *is it any good*. Picked by the owner, 2026-11-03 (D6) |
 | [`usage-delete.html`](usage-delete.html) | The same screen with the Confirmation pattern open: deleting an item used nowhere names that nothing changes |
+| [`copies.html`](copies.html) | **Copies of code-style**, for RJ-3 and H-J3, a second and less familiar test (owner, 2026-11-03). The original in My library beside its copy in each project: linked or detached, which fields differ, the original one fold away, Reset and Promote. For this example `code-style` is detached in two of its three projects |
+| [`copies-promote.html`](copies-promote.html) | The same screen with the Dialog with a field pattern open: promoting a detached copy to a new item |
 
 Three of its items (`old-review-prompt`, `sql-formatter`, `notes-to-issues`) exist only here, so the screen has
 something used in no project; the other eleven are My library's. **Whether the product ever has this screen is a

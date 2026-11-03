@@ -168,7 +168,19 @@ style and 0 classes of its own, in both themes. It stops at §5's ceiling: *is i
 Three findings are not system gaps and go elsewhere: the entry point, Delete on a row, and the words. Guard 13 refuses a
 style, a class of its own or a missing *Example* label in `examples/`. It was negative-tested.
 
-Next: step 7, the check and the showcase online.
+**A second test, the same day, on the owner's word that the first was too familiar**:
+[*Copies of code-style*](../design-system/examples/copies.html), for RJ-3 and H-J3. It shows the original beside its copy in
+each project, which fields differ, the original folded under Library version, Reset and Promote, and Dialog with a field
+for the promote. Four more entries:
+- **B5, a defect.** The neutral Callout's tone is guessed by `transform` from its first words, so a new blast-radius
+  sentence came out rose. It goes to step 7's table.
+- B6, a comparison across copies.
+- B7, changed lines marked in a File block.
+- B8, a File block that wraps.
+
+B2 was corrected: the system has two single-purpose expansions, neither a group fold.
+
+Next: step 7, the check and the showcase online. B5 enters its defect table.
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

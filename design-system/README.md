@@ -10,7 +10,7 @@
 | [`components/`](components/) | One file per component (27), and `index.css` importing them in the kit's order | `tools/build_components.py` |
 | [`docs/`](docs/index.html) | **The living documentation**: [`index.html`](docs/index.html), the showcase; a page per component (46) — anatomy, variants and states, when to use, rule and anti-rule; [`why.html`](docs/why.html). All on this same `index.css` | `tools/build_docs.py`, the words in `tools/docs_content.py` |
 | [`patterns/`](patterns/README.md) | **Six compositions found on three screens or more**, each cut from a real page, with no style of its own; shown on [`docs/patterns.html`](docs/patterns.html) | `tools/build_patterns.py` |
-| [`examples/`](examples/README.md) | **A new screen built from the system alone**, labelled *an example, not in the product*: *Usage of My library*, for EJ-3. What it lacked is [`backlog.md`](backlog.md), four entries | `tools/build_examples.py` |
+| [`examples/`](examples/README.md) | **A new screen built from the system alone**, labelled *an example, not in the product*: *Usage of My library*, for EJ-3. and *Copies of code-style*, for RJ-3. What they lacked is [`backlog.md`](backlog.md), eight entries | `tools/build_examples.py` |
 
 **Every file here is generated.** A hand edit lasts until the next `python tools/build_mockups.py`, which rebuilds
 the tokens, the components, this entry point and every screen, then runs the guards in `tools/kit_check.py`.
