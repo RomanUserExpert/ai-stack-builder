@@ -534,7 +534,7 @@ def patterns_page(pats, rejected):
 <div class="kit-intro">
   <p class="doc-crumb"><a href="components.html">Design system</a> / Patterns</p>
   <h1>Patterns</h1>
-  <p>A pattern is a composition of components that already stands on three screens or more. Each one here was found on the screens, not designed for them: its signature is run over all 80 wireframe pages at every build, and the build fails if it stands on fewer than three. A screen counts once, and an overlay never counts. Every pattern is a file in <code>design-system/patterns/</code> with no style of its own — the frames below are those files.</p>
+  <p>A pattern is a composition of components that already stands on three screens or more. Each one here was found on the screens, not designed for them: its signature is run over all 80 wireframe pages at every build, and the build fails if it stands on fewer than three. A screen counts once, and an overlay never counts. Every pattern is a file in <code>design-system/patterns/</code> with no style of its own — the frames below are those files. <strong>Grey placeholders around a pattern are its context, not part of it</strong>: what a head stands over, or the place a dialog opens on, drawn with the Skeleton of that place's loading screen.</p>
 </div>
 <section class="doc-sec"><h2>Pattern or components</h2>
   <div class="doc-prose"><p><strong>Take a pattern</strong> when the screen does the job the pattern already does somewhere else: the same parts, in the same order, for the same reason. Then the screen inherits a layout that has been reviewed three times, and a person who has seen one of those screens already knows how this one works.</p>

@@ -72,6 +72,8 @@ PATTERNS = [
     dict(slug="browse-head", name="Browse head",
          sig=lambda h: ordered(h, "page-head", "find", span=4000),
          source="projects-default", cut=[("div", 'class="page-head"'), ("form", 'class="find"')],
+         context=("after", "projects-loading", "section", 'aria-label="Projects" aria-busy="true"',
+                  "the collection it heads, as its loading screen draws it"),
          wrap='<main class="app-main">{}</main>',
          parts=["Page head", "Search field", "Filters button and popover"],
          when="The top of a place that holds a collection a person searches and narrows: the name and the one act, then a "
@@ -109,6 +111,7 @@ PATTERNS = [
     dict(slug="confirmation", name="Confirmation",
          sig=lambda h: any('class="form-actions"' in d and 'class="field' not in d for d in dialogs(h)),
          source="projects-delete", cut=[("div", 'class="scrim"'), ("dialog", 'class="modal"')],
+         context=("before", "projects-loading", "main", 'class="app-main"', "the place it opens over, as its loading screen draws it"),
          wrap="{}",
          parts=["Dialog", "Form actions", "Button"],
          when="Before a step that cannot be walked back or that publishes: the veil, the sheet, a head that names the "
@@ -118,6 +121,7 @@ PATTERNS = [
     dict(slug="dialog-with-field", name="Dialog with a field",
          sig=lambda h: any('class="form-actions"' in d and 'class="field' in d for d in dialogs(h)),
          source="project-detached-promote", cut=[("div", 'class="scrim"'), ("dialog", 'class="modal"')],
+         context=("before", "project-loading", "main", 'class="app-main"', "the place it opens over, as its loading screen draws it"),
          wrap="{}",
          parts=["Dialog", "Text field", "Form actions", "Button"],
          when="A dialog that asks for one value before it acts, or hands one over: the name of a promoted item, a link to "
@@ -146,9 +150,31 @@ def count(pat, all_pages):
     return {s: v for s, v in found.items() if s not in OVERLAYS}, {s: v for s, v in found.items() if s in OVERLAYS}
 
 
+def context(pat, all_pages):
+    """What the pattern stands on or over, drawn as placeholders: the Skeleton of a real loading screen, marked as
+    context and hidden from assistive tech. It is not part of the pattern and the pattern's signature never sees it
+    (owner, 2026-11-03: a head over an empty screen read as broken)."""
+    if not pat.get("context"):
+        return "", ""
+    where, page, tag, attr, what = pat["context"]
+    cut = bk.outer(all_pages[page], tag, attr, page=page)
+    cut = cut.replace(' aria-busy="true"', "")
+    if tag == "main":  # the place behind a dialog: its content, without a second main
+        cut = re.sub(r"^<main[^>]*>|</main>$", "", cut.strip())
+    note = f"<!-- context, not the pattern: {what} ({page}) -->"
+    if where == "before":  # the place itself is hidden, so its sections keep the main column's gaps
+        return f'{note}\n<main class="app-main" aria-hidden="true" inert>{cut}</main>\n<!-- end of context -->', ""
+    return "", f'{note}\n<div aria-hidden="true" inert>{cut}</div>\n<!-- end of context -->'
+
+
 def fragment(pat, all_pages):
     src = all_pages[pat["source"]]
-    frag = pat["wrap"].format("\n".join(bk.outer(src, tag, attr, page=pat["source"]) for tag, attr in pat["cut"]))
+    body = "\n".join(bk.outer(src, tag, attr, page=pat["source"]) for tag, attr in pat["cut"])
+    before, after = context(pat, all_pages)
+    if before:  # behind a dialog: the place first, then the veil and the sheet
+        frag = before + "\n" + pat["wrap"].format(body)
+    else:
+        frag = pat["wrap"].format(body + ("\n" + after if after else ""))
     return re.sub(r'href="([a-z0-9-]+\.html)', r'href="../../04-wireframes/mockups/\1', frag)  # to the screens (step 7)
 
 
@@ -159,6 +185,8 @@ def page(pat, frag, screens, overlays):
              f"Cut from: 04-wireframes/pages/{pat['source']}.html."]
     if overlays:
         lines.append("Also drawn under: " + ", ".join(overlays) + " (overlays, not counted).")
+    if pat.get("context"):
+        lines.append(f"Context, as placeholders: {pat['context'][4]}, from {pat['context'][1]}. Not part of the pattern.")
     head = "\n".join("  " + l for l in lines)
     src = f"""<!DOCTYPE html>
 <!--

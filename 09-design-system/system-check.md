@@ -90,3 +90,9 @@ so lessons 07 and 08's pages, which frame it, show the docs. Guard 8 checks the 
 
 **What the check missed, and why:** `system_check.py` compared how things look, not where they lead. Guard 18 is the
 class it lacked.
+
+**And on the owner's word, the same day:** a pattern that stands over or on top of a place shows that place as
+placeholders — Browse head over the Projects grid, Confirmation over Projects, Dialog with a field over a Project — cut
+from those screens' loading states (the Skeleton). It is marked in each file as *context, not the pattern*, hidden from
+assistive tech and inert, and the pattern's signature never reads it. A pattern's frame on `docs/patterns.html` fits
+its content.

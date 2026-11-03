@@ -5,6 +5,7 @@
   Stands on 3 screens: My library (library-my-default, library-my-error-filtered, library-my-filters, library-my-link, library-my-loading, library-my-revoke); Public library (library-public-default, library-public-error-filtered, library-public-filters, library-public-loading); Projects (projects-default, projects-delete, projects-error-filtered, projects-filters, projects-loading).
   Cut from: 04-wireframes/pages/projects-default.html.
   Also drawn under: Item overlay, Import/export (overlays, not counted).
+  Context, as placeholders: the collection it heads, as its loading screen draws it, from projects-loading. Not part of the pattern.
 -->
 <html lang="en">
 <head>
@@ -39,6 +40,121 @@
             <input type="search" name="q" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
           </label>
           <button type="button" class="filters-button"><svg class="icon" aria-hidden="true"><use href="#l-sliders-horizontal"/></svg>Filters</button>
-        </form></main>
+        </form>
+<!-- context, not the pattern: the collection it heads, as its loading screen draws it (projects-loading) -->
+<div aria-hidden="true" inert><section aria-label="Projects">
+        <p class="visually-hidden" role="status">Loading projects</p>
+        <ol class="card-grid">
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article class="card" aria-hidden="true">
+              <div>
+                <span class="skeleton sk-w200 sk-h24"></span>
+                <span class="skeleton sk-w100p sk-mt12"></span>
+                <span class="skeleton sk-w70p sk-mt8"></span>
+                <span class="skeleton sk-w160 sk-h12 sk-mt12"></span>
+              </div>
+              <div class="verdict">
+                <span class="skeleton sk-w80 sk-h12"></span>
+                <span class="skeleton sk-w220 sk-mt8"></span>
+              </div>
+              <div class="row-actions">
+                <span class="skeleton sk-w72 sk-h24"></span>
+                <span class="skeleton sk-w56 sk-h24"></span>
+              </div>
+            </article>
+          </li>
+        </ol>
+      </section></div>
+<!-- end of context --></main>
 </body>
 </html>
