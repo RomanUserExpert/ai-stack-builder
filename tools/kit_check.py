@@ -22,6 +22,9 @@ with one entry point, index.css. The numbers are kept:
 12. the patterns (phase 09): one file per pattern of build_patterns, each on three screens or more, linking
     design-system/index.css alone, with no style of its own and no class the components do not define
 10. no geometry written as a count of a primitive (calc(var(--s12) * 3)) outside the skeleton sizes (tokens-check.md, T5)
+
+The rule these guards enforce is one — new appears in design-system/ first, on a screen second — and it is written
+out, with where each kind of change goes, in CLAUDE.md §18 and DESIGN.md, *Contributing to the system*.
 """
 import re
 import sys
@@ -179,6 +182,8 @@ def main():
           f"{len(classes)} classes · coverage {len(dressed & set(wf))}/{len(wf)} pages, {dsteps}/{steps} flow steps")
     for f in fails:
         print("  FAIL", f)
+    if fails:
+        print("  Where each change goes: CLAUDE.md §18, Contributing to the system. Fix the system, then the screen.")
     return 1 if fails else 0
 
 

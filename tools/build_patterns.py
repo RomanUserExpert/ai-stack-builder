@@ -11,6 +11,9 @@ and the build runs it over all 80 pages and fails if it finds fewer than three s
 of its pages carry it, and an overlay (Item overlay, Import/export) never counts: it draws My library under itself, so it
 would count one screen twice. What was looked at and fell short is REJECTED, with its count, so it is not proposed again
 from scratch. The docs page, design-system/docs/patterns.html, is built by build_docs from PATTERNS and REJECTED.
+
+Contributing (CLAUDE.md §18): a composition that is about to stand on its third screen enters here first, as an
+entry in PATTERNS, and the third screen is drawn from it — never collected afterwards from screens that grew it by hand.
 """
 from pathlib import Path
 import re
@@ -192,7 +195,8 @@ def build():
         pat["screens"], pat["overlays"], pat["fragment"] = screens, overlays, frag
         report.append(f"{pat['name']} ({len(screens)})")
     if short:
-        raise SystemExit("patterns that are not patterns — fewer than three screens:\n  " + "\n  ".join(short))
+        raise SystemExit("patterns that are not patterns — fewer than three screens:\n  " + "\n  ".join(short)
+                         + "\nA composition on fewer screens stays on its screens — CLAUDE.md §18, Contributing to the system.")
     stale = {p.name for p in OUT.glob("*.html")} - {f"{p['slug']}.html" for p in PATTERNS}
     for f in stale:
         (OUT / f).unlink()

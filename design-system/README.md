@@ -21,4 +21,12 @@ into its import paths. The record of how it was made stays in the lessons:
 [`08-design-tokens/`](../08-design-tokens/README.md) (the two levels) and
 [`09-design-system/`](../09-design-system/README.md) (the system).
 
-The rules — what a component may read, what a theme may override, where a change goes — are `CLAUDE.md` §15–§17.
+## Contributing
+
+**New appears here first, and on a screen second, never the other way round.** A new value goes into `tokens.css` at
+its level, with a value in both themes. A new component goes into `components/` with its docs page and its four states
+in both themes. A composition about to stand on its third screen goes into `patterns/`. What cannot enter yet goes to
+[`backlog.md`](backlog.md). The rule, with the generator and the guard for each case, is **`CLAUDE.md` §18**. The
+same rule is in `DESIGN.md`, *Contributing to the system*. A guard that refuses a change names the section.
+
+The rules on what a component may read and what a theme may override are `CLAUDE.md` §15–§17.

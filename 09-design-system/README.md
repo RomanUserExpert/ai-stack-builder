@@ -91,7 +91,7 @@ lie** — because it is the same code as the product.
 | **2** | **Living documentation.** A page per component in `docs/`, plus `index.html` that gathers them, plus `why.html`. Each component page has four parts: **anatomy** (the live component with its parts named), **variants and sizes** (every one `inventory.md` lists, side by side), **when to use** (from `DESIGN.md` and `microcopy.md`: the role it plays), **rule and anti-rule** (a right use, and a case for another component). **Built on `index.css`, never a picture.** Words checked against `microcopy.md`. | `docs/*.html`, a generator in `tools/` | **done 2026-11-03** |
 | **3** | **States, in both themes.** Every component gets **hover, active, focus-visible, disabled**, through semantic roles, each with a dark and a light value. **Focus** passes 3:1 against every ground it sits on, in both themes. **Hover and active** change ground, colour or edge, never position or size. **Disabled** per D3. The four light gaps are signed (D4). Each docs page gets a *States* block: all four, dark and light side by side. New pairs join `contrast_pairs()`. | `tokens.css`, `components/`, `docs/`, `concept.md` | **done 2026-11-03** (Q49) |
 | **4** | **Patterns from the screens.** Read every wireframe page and find the compositions on **three or more** screens. Each becomes one file in `patterns/`, **made of existing components with no style of its own**. Candidates to test, not to assume: the page head with its actions; an empty or error state with its one action; a row list with the item side panel; the Run stage list ending in Export; a confirmation that names the consequence. A docs page: when to take a pattern, when separate components. | `patterns/`, `docs/patterns.html` | **done 2026-11-03** |
-| **5** | **Rules of contribution.** `DESIGN.md` and `CLAUDE.md` gain *Contributing to the system*: **new appears in the system first, on a screen second.** A new component goes to `components/` with its docs page and its states in both themes; a new composition to `patterns/`; a new value to `tokens.css` at its level. §15's *оставляем* rule re-routed into the system. Written so the next session reads it from the repo, not from the chat. | `DESIGN.md`, `CLAUDE.md` §15/§16/§17 and a new §18 | |
+| **5** | **Rules of contribution.** `DESIGN.md` and `CLAUDE.md` gain *Contributing to the system*: **new appears in the system first, on a screen second.** A new component goes to `components/` with its docs page and its states in both themes; a new composition to `patterns/`; a new value to `tokens.css` at its level. §15's *оставляем* rule re-routed into the system. Written so the next session reads it from the repo, not from the chat. | `DESIGN.md`, `CLAUDE.md` §15/§16/§17 and a new §18 | **done 2026-11-03** |
 | **6** | **The test of a new screen.** Build a screen the product does not have yet, but a job asks for (D6), **from the system alone**: existing components and patterns, tokens only, no style on the screen. **What is missing is written down, not drawn**: `backlog.md`, honest. The screen stays in `examples/` as a demonstration. **It is not a product decision**: if it is ever wanted in the product, it goes to the register. | `examples/`, `backlog.md` | |
 | **7** | **The check, and the showcase online.** A table of defects — file, element, what is wrong, how to fix: a component that looks different on a screen and on its docs page · a docs page describing a variant or state the code does not have, or the reverse · a state with a value in one theme only · a pattern with styles of its own · a component or token with no docs page. Plus `/impeccable audit`. **The table first; the owner sets priorities; then everything is fixed together.** Every class of defect becomes a guard. The showcase deployed on Vercel; `README.md`, *Design system*, with its address. | `system-check.md`, `kit_check.py`, the deploy | |
 
@@ -141,7 +141,17 @@ the count: kind tabs over a row list (two places — the overlays draw My librar
 (one), and four that repeat often but are one component each. [`docs/patterns.html`](../design-system/docs/patterns.html):
 when the pattern, when the components; the patterns shown in frames of their own files. Guard 12.
 
-Next: step 5, the rules of contribution.
+**Step 5 is done** (2026-11-03): the rule of contribution, **new appears in the system first, on a screen second**,
+is `CLAUDE.md` §18 and `DESIGN.md`, *Contributing to the system*. It holds a table of where each new thing enters (a
+value, a component, a composition, a screen), the generator that writes it, what it must bring with it, and the guard
+that refuses it. §15's *оставляем* rule is re-routed into the system: a value goes to its token, a component to
+`components/` **and its docs page**, a composition to `patterns/`. The rule is also in the code, so a session reads it
+from the repo. `concept_tokens.py` now **fails** on a role with no light value or a pair under its bar; until now it
+only printed them. `build_docs` fails on a component with neither a States spec nor a reason in `STATIC`. Every
+refusal of `kit_check.py`, `build_docs` and `build_patterns` names §18. `design-system/README.md` and `backlog.md` say
+the same.
+
+Next: step 6, the test of a new screen. The owner picks it from lesson 03's matrix (D6).
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

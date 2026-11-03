@@ -212,7 +212,7 @@ product *is* before anything decides what it looks like.
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
 | **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49). **Step 4 done 2026-11-03**: six [patterns](design-system/docs/patterns.html), each found on three screens or more |
+| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49). **Step 4 done 2026-11-03**: six [patterns](design-system/docs/patterns.html), each found on three screens or more. **Step 5 done 2026-11-03**: the rule of contribution, §18 — new appears in the system first, on a screen second |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
 | **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
@@ -1789,17 +1789,22 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
   `components/` (§17) — guarded by `tools/kit_check.py`. The rule for where a change goes is §16 and the *оставляем* rule below.
 - **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
   the prototypes, `microcopy.md` and `voice.md` together (Q38).
-- **"Оставляем" on a visual change means the tokens and the kit, not the screen** (owner, 2026-10-19, lesson 07;
-  re-routed 2026-10-28, lesson 08, when `kit.css` split in two). When the owner says *оставляем* (*we keep it*) about a
-  visual edit, it goes to one of three places, by what changed:
-  - **a value** goes into the token of its level in
+- **"Оставляем" on a visual change means the system, not the screen** (owner, 2026-10-19, lesson 07; re-routed
+  2026-10-28, lesson 08, when `kit.css` split in two; **re-routed into `design-system/` on 2026-11-03, lesson 09, step
+  5**). When the owner says *оставляем* (*we keep it*) about a visual edit, it is §18 said in one word, and it goes
+  where §18's table sends it, by what changed:
+  - **a value** goes into its token, at its level, in
     [`design-system/tokens.css`](design-system/tokens.css), through `tools/concept_tokens.py`, signed in
-    `concept.md`. A raw value goes in **PRIMITIVE**. What a colour is for goes in **SEMANTIC**, and in every theme block
-    that overrides it. It never goes into a component, and a component never reads a colour primitive;
-  - **how a component looks** goes into its file in `design-system/components/`, through `MOCK_CSS` or `KIT_CSS` and
-    `tools/build_components.py`, signed in [`DESIGN.md`](DESIGN.md);
-  - **markup** goes into `07-ui-assembly/ui/kit.html` and onto **every screen where the component stands**, through
-    the wireframe page and the generators.
+    `concept.md`. A raw value goes in **PRIMITIVE**. What a colour is for goes in **SEMANTIC**, with a value in every
+    theme. It never goes into a component, and a component never reads a colour primitive;
+  - **a change to a component** goes into its file in `design-system/components/` (through `MOCK_CSS` or `KIT_CSS` and
+    `tools/build_components.py`, signed in [`DESIGN.md`](DESIGN.md)) **and its docs page together**: its specimen and
+    states in `tools/build_kit.py`, its words in `tools/docs_content.py`. A component changed and its page not is a
+    desync;
+  - **a new composition** goes into `design-system/patterns/`, through `tools/build_patterns.py`, once it stands on
+    three screens; on fewer it stays a composition of components on its screens;
+  - **markup** goes into the component's specimen and onto **every screen where the component stands**, through the
+    wireframe page and the generators.
 
   **A fix on one screen is a desync**, and so is a theme fixed in a component. Everything is generated by
   `tools/build_mockups.py`, so the change goes into the generators, never by hand into a generated file.
@@ -1835,6 +1840,8 @@ between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/R
   primary, state classes, the shell, mono for machine text, the state tile, and hidden section headings.
 - **A mockup is never edited by hand**, because the next build overwrites it. The *оставляем* rule in §15 is this
   table's second row.
+- **Since lesson 09 the order is fixed too**: the system first, the screen second. §18 holds the rule and where each
+  new thing enters.
 
 **The guards** are `tools/kit_check.py`. They run at the end of every build and fail it on any of these (re-pointed in
 lesson 08 from `kit.css` to the two files that replaced it, §17):
@@ -1952,3 +1959,50 @@ The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md)
   - 6: one link (two in lesson 08), `design-system/index.css` imports `tokens.css` then `components/index.css`,
     which imports every file, and neither `kit.css` nor the old home in `08-design-tokens/` returns;
   - 10: no geometry written as a count.
+
+---
+
+## 18. Contributing to the system
+
+**Added 2026-11-03, lesson 09, step 5.** Read this before adding anything a screen will show. **It is written here so
+the next person or session reads the rule from the repo, not from a chat.** The same rule is in
+[`DESIGN.md`](DESIGN.md), *Contributing to the system*, and every guard that refuses a change points back here.
+
+**The rule is one: new appears in [`design-system/`](design-system/README.md) first, and on a screen second, never
+the other way round.** A screen takes only what the system already has: its components' classes, its patterns, its
+tokens. When a screen needs something the system lacks, **the work stops on the screen and moves to the system**. The
+screen is drawn after, from what the system now holds. A thing first grown on a screen and then collected into the
+system is the order this section forbids, even when the result looks the same: by then two screens disagree.
+
+**Where each new thing enters:**
+
+| New | Goes into | Written through | Enters together with | Refused by |
+|---|---|---|---|---|
+| **a value** | [`design-system/tokens.css`](design-system/tokens.css), at its level. A raw value goes in **PRIMITIVE** (`--color-<hue>-<grade>`, `--space-*`, … §17). What a colour is for goes in **SEMANTIC**, as a role with **a value in every theme** | `tools/concept_tokens.py` | the owner's signature in [`concept.md`](06-concept/concept.md); each new colour pair in `contrast_pairs()` | `concept_tokens.py`: a role resolving to the wrong value, **a role with no light value**, a pair under its bar (AA for text, 3:1 for an edge or a mark). Guards 1, 4, 5, 10 |
+| **a component** | one file in [`design-system/components/`](design-system/components/) | `KIT_CSS` in `tools/build_kit.py` or `MOCK_CSS` in `tools/build_mockups.py` → `tools/build_components.py` | **its docs page**: its specimen and variants in `build_kit.components()`, its anatomy, *when to use*, rule and anti-rule in `tools/docs_content.py` (`C`). **Its states**: hover, active, focus-visible and disabled, through roles, so they hold **in both themes**, as a `STATES` spec, or the reason it has none in `STATIC`. Its look signed in `DESIGN.md` | guard 3, a class on a screen no component defines; guard 11, a component with no page; `build_docs`, a component with no entry or no states, and a state that changes nothing, or moves or resizes anything |
+| **a composition** | [`design-system/patterns/`](design-system/patterns/README.md), **when it is about to stand on its third screen**. The third screen is drawn from the pattern | `tools/build_patterns.py`: an entry in `PATTERNS` with its signature, its source page, its components, *when* and *instead* | its three screens, counted by the build over every wireframe page | `build_patterns`, fewer than three screens; guard 12, a style or a class of its own |
+| **a screen** | `04-wireframes/pages/`, then rebuilt into its dressed twin | `tools/build_mockups.py` | only classes, patterns and tokens the system already has; its words in `microcopy.md` (§14) | guards 2, 3, 6, 7, 8 |
+
+**Never, anywhere:** a `style=` or a `<style>` on a screen (guard 2); a class of a screen's own (guard 3); a value
+written inside a component (guard 1); a component reading a colour primitive (guard 5); a role with a value in one theme
+only; a state that moves a thing or changes its size; **a generated file edited by hand**. Every file in
+`design-system/` and every dressed screen is generated, and the next build overwrites the edit.
+
+**What the system lacks is written down, not drawn.** If a screen needs something the system does not have and it
+cannot enter now — a value nobody has signed, a component nobody has decided — it goes to
+[`design-system/backlog.md`](design-system/backlog.md), and the screen does without it or waits.
+
+**The order of one change:**
+1. **Look first.** The showcase, [`design-system/docs/`](design-system/docs/index.html), and
+   [the patterns](design-system/docs/patterns.html). If it is there, use it as it is.
+2. **If it is not, add it to the system**, by the table above.
+3. **Build:** `python -X utf8 tools/build_mockups.py`. That one command rebuilds the tokens, the components, the
+   entry point, the docs, the patterns and every screen, then runs the guards. A failure names its guard and this
+   section.
+4. **Only then the screen.**
+5. **Sign:** a value in `concept.md`, a look in `DESIGN.md`, a product decision in the register (§12). **The model
+   proposes and the owner signs.** No colour value is written before its signature (§15, Q48), and that covers a
+   light value and a pressed value too.
+
+**The *оставляем* rule (§15) is this section in one word**: a value goes to its token; a component goes to
+`components/` and its docs page together; a new composition goes to `patterns/`.

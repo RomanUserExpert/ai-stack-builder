@@ -729,11 +729,37 @@ items, and a Skipped stage's outline.
 - **Popover:** the same sheet and edge, 360 wide, hanging from its button. It has a header, groups
   under Label legends, and a footer with *Clear* and the primary.
 
+## Contributing to the system
+
+*Lesson 09, step 5 (2026-11-03). The same rule, with the generator and the guard for each case, is `CLAUDE.md` §18.*
+
+**One rule: new appears in `design-system/` first, and on a screen second, never the other way round.** A screen is
+made only of what the system holds: its components, its patterns, its tokens. When a screen needs something the system
+does not have, the screen waits, the thing enters the system, and the screen is drawn from it.
+
+- **A new value** goes into [`design-system/tokens.css`](design-system/tokens.css) at its level. A raw value is a
+  **primitive**. What a colour is for is a **semantic role**, with a value in **both themes**. Every colour is signed in
+  `06-concept/concept.md`, and its pairs are measured. A role with a value in one theme only is a defect, and the build
+  refuses it.
+- **A new component** goes into [`design-system/components/`](design-system/components/), one file. It enters
+  **with its docs page**: the live specimen and its variants, anatomy, when to use it, a rule and an anti-rule. It also
+  enters **with its four states**, hover, active, focus-visible and disabled, through roles, so they hold in dark and in
+  light. Its look is written in this file, under *Components*.
+- **A new composition** goes into [`design-system/patterns/`](design-system/patterns/README.md) when it is about to
+  stand on its third screen, and the third screen is drawn from it. On fewer screens it is not a pattern, only
+  components placed side by side.
+- **Anything the system lacks and cannot take yet** — an unsigned value, an undecided component — goes to
+  [`design-system/backlog.md`](design-system/backlog.md). It is written down, not drawn on a screen.
+
+**"Оставляем"** (*we keep it*), said about a visual edit, follows the same table. A value goes to its token. A change to
+a component goes to `components/` and its docs page together. A new composition goes to `patterns/`. A fix on one screen
+is a desync, and the next build overwrites a hand edit to a generated file.
+
 ## Do's and Don'ts
 
 ### Do:
-- **Do** take every value from `06-concept/tokens.css` through `var()`. `tools/concept_ui.py
-  --check` and the mockup build refuse a literal colour, px size or font name.
+- **Do** take every value from `design-system/tokens.css` through `var()`, and take a component or a pattern from the
+  system before drawing anything new. The build refuses a literal colour, a px size or a font name.
 - **Do** keep lime to what you can press and where you are, and keep one primary per screen.
 - **Do** pair a severity's colour with its icon and its word, as a tinted capsule or box.
 - **Do** draw *Checked* as the quiet neutral dot, and *Skipped* as `ban` with a dashed stage outline.
@@ -742,7 +768,8 @@ items, and a Skipped stage's outline.
   dashed rule.
 - **Do** give every boxed object a visible edge; use hairlines before shadows.
 - **Do** measure every new colour pair with `tools/contrast.py`. AA applies to text, and 3:1 to a
-  control's edge or a state mark. Today that is 88 pairs, all passing.
+  control's edge or a state mark. `tools/concept_tokens.py` writes the measurement into `design-system/tokens.css`:
+  today that is 83 pairs per theme, all passing.
 
 ### Don't:
 - **Don't** use a green tick, or any success colour. We examined the set; we ran nothing.

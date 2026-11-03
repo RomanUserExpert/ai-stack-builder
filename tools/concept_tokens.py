@@ -754,6 +754,10 @@ def build():
           f"contrast {len(contrast_pairs())} pairs × 2 themes, failing: {len(fails)}; light gaps: {len(light_gaps())}")
     for t, r in fails:
         print(f"  FAIL {t}: --{r[0]} on --{r[1]} {r[4]:.2f} — {r[2]}")
+    if fails or light_gaps():   # phase 09, step 5: a role with a value in one theme only is a defect (CLAUDE.md §18)
+        raise SystemExit(f"tokens refused: {len(fails)} pairs below their bar; roles with no light value of their own: "
+                         f"{', '.join('--' + g for g in light_gaps()) or 'none'}. A new role takes a value in every theme, "
+                         "signed in concept.md, and its pairs in contrast_pairs() — CLAUDE.md §18, Contributing to the system.")
 
 
 if __name__ == "__main__":

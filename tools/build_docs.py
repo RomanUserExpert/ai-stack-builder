@@ -526,9 +526,12 @@ def check_content(groups):
     dangling = [f"{n} → {d['anti'][1]}" for n, d in docs_content.C.items() if d["anti"][1] not in names]
     bad_anat = [n for n in names if n in docs_content.C and docs_content.C[n].get("anat", 0) >= len(
         next(c for comps in groups.values() for c in comps if c.name == n).states)]
-    if missing or extra or dangling or bad_anat:
+    no_states = [n for n in names if n not in docs_content.STATES and n not in docs_content.STATIC]
+    if missing or extra or dangling or bad_anat or no_states:
         raise SystemExit(f"docs_content: no entry for {missing}; no component for {extra}; anti-rule to nothing: {dangling}; "
-                         f"anatomy on a state that does not exist: {bad_anat}")
+                         f"anatomy on a state that does not exist: {bad_anat}; no States spec and no reason in STATIC: "
+                         f"{no_states}. A component enters the system with its page and its states in both themes — "
+                         "CLAUDE.md §18, Contributing to the system.")
 
 
 def check_words(groups):
