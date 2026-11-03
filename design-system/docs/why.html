@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -149,10 +150,10 @@
   <path d="m2 2 20 20" /></symbol><symbol id="l-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
   <path d="M12 16v-4" />
   <path d="M12 8h.01" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Why</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Why</p>
   <h1>Why it looks like this</h1>
   <p>The product reads like an inspection, not a sales sheet: it says what was examined, counts what it found and names the cost before the step. Every value in the system traces to a line of the owner's taste or to one of five attributes, written before anything was drawn. This page is read from <code>06-concept/concept.md</code> and <code>06-concept/references.md</code>; the specimens on it are live.</p>
 </div>
@@ -170,7 +171,7 @@
 </section>
 <section class="doc-sec"><h2>Where each device came from</h2>
   <p class="doc-lead">None is copied whole. Each reference gives a named device and the worry it removes; what was refused is named too, because each refused thing claims more than this product knows.</p>
-  <div class="doc-ref"><div class="doc-prose"><h3>Linear — the base</h3><p>Its system, not its surface: three surfaces, edges by hairline rather than shadow, three text tones, colour only for meaning, dimmed counts beside a group&#x27;s label. No violet, nothing of its brand.</p><p><strong>Here:</strong> Every item in its own cut-out in a tray, held by hairlines and three inks. → <a href="../pages/row-list.html">Row list</a></p></div><div class="kit-demo"><ol class="row-list"><li>
+  <div class="doc-ref"><div class="doc-prose"><h3>Linear — the base</h3><p>Its system, not its surface: three surfaces, edges by hairline rather than shadow, three text tones, colour only for meaning, dimmed counts beside a group&#x27;s label. No violet, nothing of its brand.</p><p><strong>Here:</strong> Every item in its own cut-out in a tray, held by hairlines and three inks. → <a href="row-list.html">Row list</a></p></div><div class="kit-demo"><ol class="row-list"><li>
             <article class="row row-tight">
               <div>
                 <h2><a href="#">code-style</a><span class="tag">skill</span></h2>
@@ -198,7 +199,7 @@
                 <button type="button">Share…</button>
               </div>
             </article>
-          </li></ol></div></div><div class="doc-ref"><div class="doc-prose"><h3>Vercel — two devices</h3><p>B1: a stage is name, duration and a verdict glyph at the right, expanding in place. B2: status is a dot and a word, never a filled pill. A duration beside a verdict is evidence it looked.</p><p><strong>Here:</strong> Run&#x27;s stages, and Checked as a quiet dot. → <a href="../pages/check-stages.html">Check stages</a></p></div><div class="kit-demo"><section class="stage-group" aria-labelledby="wcheck-stages0-k51-g-find">
+          </li></ol></div></div><div class="doc-ref"><div class="doc-prose"><h3>Vercel — two devices</h3><p>B1: a stage is name, duration and a verdict glyph at the right, expanding in place. B2: status is a dot and a word, never a filled pill. A duration beside a verdict is evidence it looked.</p><p><strong>Here:</strong> Run&#x27;s stages, and Checked as a quiet dot. → <a href="check-stages.html">Check stages</a></p></div><div class="kit-demo"><section class="stage-group" aria-labelledby="wcheck-stages0-k51-g-find">
         <h2 id="wcheck-stages0-k51-g-find">Findings</h2>
         <ol class="stages">
           <li>
@@ -259,7 +260,7 @@
             </details>
           </li>
         </ol>
-      </section></div></div><div class="doc-ref"><div class="doc-prose"><h3>GitHub Actions — two devices</h3><p>C1: Skipped is its own neutral glyph, a slashed circle. C2: a count sits in a small grey capsule after a tab&#x27;s label. Not taken: the filled green disc on a passed job.</p><p><strong>Here:</strong> The kind tabs with their counts. → <a href="../pages/tabs.html">Tabs</a></p></div><div class="kit-demo"><nav class="tabs tabs-page" aria-label="Kind"><a href="#" aria-current="page">All <span class="count">11</span></a><a href="#">skill <span class="count">1</span></a><a href="#">agent <span class="count">2</span></a><a href="#">prompt <span class="count">2</span></a><a href="#">mcp <span class="count">2</span></a><a href="#">script <span class="count">3</span></a><a href="#">app <span class="count">1</span></a></nav></div></div><div class="doc-ref"><div class="doc-prose"><h3>Raycast Store — one device</h3><p>D1: a dimmed metadata line under the description, quiet enough not to compete with the name. Not taken: its red ribbons, store-sized icons and centred marketing layout.</p><p><strong>Here:</strong> The usage facts on a Library row. → <a href="../pages/usage-facts.html">Usage facts</a></p></div><div class="kit-demo"><ol class="row-list"><li>
+      </section></div></div><div class="doc-ref"><div class="doc-prose"><h3>GitHub Actions — two devices</h3><p>C1: Skipped is its own neutral glyph, a slashed circle. C2: a count sits in a small grey capsule after a tab&#x27;s label. Not taken: the filled green disc on a passed job.</p><p><strong>Here:</strong> The kind tabs with their counts. → <a href="tabs.html">Tabs</a></p></div><div class="kit-demo"><nav class="tabs tabs-page" aria-label="Kind"><a href="#" aria-current="page">All <span class="count">11</span></a><a href="#">skill <span class="count">1</span></a><a href="#">agent <span class="count">2</span></a><a href="#">prompt <span class="count">2</span></a><a href="#">mcp <span class="count">2</span></a><a href="#">script <span class="count">3</span></a><a href="#">app <span class="count">1</span></a></nav></div></div><div class="doc-ref"><div class="doc-prose"><h3>Raycast Store — one device</h3><p>D1: a dimmed metadata line under the description, quiet enough not to compete with the name. Not taken: its red ribbons, store-sized icons and centred marketing layout.</p><p><strong>Here:</strong> The usage facts on a Library row. → <a href="usage-facts.html">Usage facts</a></p></div><div class="kit-demo"><ol class="row-list"><li>
             <article class="row row-tight">
               <div>
                 <h2><a href="#">db-migrate</a><span class="tag">script</span></h2>

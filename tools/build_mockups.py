@@ -414,6 +414,7 @@ def icon_for(before, after):
 def transform(html, root, page_name, unknown, kit_href=None, frame=True):
     """A wireframe page, dressed in the kit. `root` is the path from the page to the repo root."""
     used = set()
+    a_screen = kit_href is None  # docs, patterns and examples pass their own; only a screen of the product is relinked
     kit_href = kit_href or [root + f for f in KIT_FILES]
     # head: Inter and the wireframe sheet out; Geist and design-system/index.css in (phase 08, step 4; phase 09, step 1)
     html = re.sub(r'\s*<link href="https://fonts\.googleapis\.com/css2\?family=Inter[^>]*>', "", html)
@@ -495,7 +496,8 @@ def transform(html, root, page_name, unknown, kit_href=None, frame=True):
         html = one_primary(html)
     html = re.sub(r'<span class="skeleton"([^>]*?) style="([^"]*)"', lambda m: f'<span class="skeleton {skeleton_classes(m.group(2))}"{m.group(1)}', html)
     html = inert_behind(html)
-    html = relink(html, page_name)
+    if a_screen:  # a docs page linking components.html is not a screen with no mockup (phase 09, step 7)
+        html = relink(html, page_name)
     html = re.sub(r"(<body[^>]*>)", lambda m: m.group(1) + "\n" + sprite(used), html, count=1)
     return html
 

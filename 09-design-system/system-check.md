@@ -80,3 +80,13 @@ so lessons 07 and 08's pages, which frame it, show the docs. Guard 8 checks the 
 
 **`tools/system_check.py` stays as the instrument.** `kit_check.py` runs its checks at every build as guards 15–17, and
 17 runs in a browser (`--fast` skips it).
+
+## Found after the close of the table (2026-11-03, the owner)
+
+| # | File | Element | What was wrong | Fixed by | Guard |
+|---|---|---|---|---|---|
+| **I7** | `build_mockups.transform` → every docs page | the docs' navigation, crumbs and pager | **Dead since step 2.** `transform` rewrites a link to a page with no mockup into `../pages/…`, which is right for a screen and wrong for the docs, whose `patterns.html` and `components.html` are no screens. Every link in the docs' head led nowhere. | `transform` relinks only a screen of the product. A specimen's own links now lead to the screen it was cut from (`04-wireframes/mockups/`), from the docs and the patterns alike | **18**: every local link on the docs, the patterns and the examples leads to a file; negative-tested |
+| **I8** | `build_docs.py` → `components.html` | the previews of Row list and Usage facts | A library row drawn at a sheet's 640 px leaves its name 35 px: the usage line and the actions take the rest. | Those two previews are drawn at a screen's width (`--width-canvas`) and scaled to fit | — |
+
+**What the check missed, and why:** `system_check.py` compared how things look, not where they lead. Guard 18 is the
+class it lacked.

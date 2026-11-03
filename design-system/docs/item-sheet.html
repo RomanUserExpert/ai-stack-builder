@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -144,10 +145,10 @@
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / One-off, styled in the kit</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / One-off, styled in the kit</p>
   <h1>Item sheet</h1>
   <p>Add or edit a library item.</p>
   <p class="doc-meta"><span><code>dialog.sheet · sheet-head · form-section</code></span><span>Item overlay</span><span><code>components/dialog.css</code> · <code>components/drawer.css</code> · <code>components/form.css</code></span></p>
@@ -341,10 +342,10 @@ psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.s
 <section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Use it</p><p>One screen only (the Item overlay); its body scrolls, and a dialog over it brings its own veil.</p></div>
-    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>A detached copy inside a project is edited in the Item side panel, never here. → <a href="../pages/item-side-panel.html">Item side panel</a></p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>A detached copy inside a project is edited in the Item side panel, never here. → <a href="item-side-panel.html">Item side panel</a></p></div>
   </div>
 </section>
-<nav class="doc-pager" aria-label="Components"><a href="../pages/dialog.html">← Dialog</a><a href="../pages/two-fields-in-a-row.html">Two fields in a row →</a></nav>
+<nav class="doc-pager" aria-label="Components"><a href="dialog.html">← Dialog</a><a href="two-fields-in-a-row.html">Two fields in a row →</a></nav>
 </main>
 <script>
 (function(){

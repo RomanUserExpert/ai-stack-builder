@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -142,10 +143,10 @@
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Cards and lists</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Cards and lists</p>
   <h1>Plain list</h1>
   <p>A short list of facts in prose: what is inside an export, what the receiving machine still needs.</p>
   <p class="doc-meta"><span><code>plain-list</code></span><span>7 screens</span><span><code>components/run.css</code></span></p>
@@ -177,10 +178,10 @@
 <section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Use it</p><p>Facts, not actions; nothing in it has a state.</p></div>
-    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Anything with a state, a kind or an action is a row in a Row list. → <a href="../pages/row-list.html">Row list</a></p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Anything with a state, a kind or an action is a row in a Row list. → <a href="row-list.html">Row list</a></p></div>
   </div>
 </section>
-<nav class="doc-pager" aria-label="Components"><a href="../pages/file-block.html">← File block</a><a href="../pages/aside-box.html">Aside box →</a></nav>
+<nav class="doc-pager" aria-label="Components"><a href="file-block.html">← File block</a><a href="aside-box.html">Aside box →</a></nav>
 </main>
 
 <script>

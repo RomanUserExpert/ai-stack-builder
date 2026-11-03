@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -166,7 +167,7 @@
   <path d="m17 8-5-5-5 5" />
   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
   <h1>AI Stack Builder · Mica · Lime</h1>
@@ -181,7 +182,7 @@
 <div class="doc-entry">
   <p class="kit-label">One entry point</p>
   <pre>&lt;link rel="stylesheet" href="design-system/index.css"&gt;</pre>
-  <p class="doc-lead"><code>index.css</code> imports <code>tokens.css</code> (the values: primitive, then semantic) and <code>components/index.css</code> (one file per component). A component reads colour only through a role. Why it looks like this is <a href="../pages/why.html">its own page</a>.</p>
+  <p class="doc-lead"><code>index.css</code> imports <code>tokens.css</code> (the values: primitive, then semantic) and <code>components/index.css</code> (one file per component). A component reads colour only through a role. Why it looks like this is <a href="why.html">its own page</a>.</p>
 </div>
 <section class="doc-group" id="navigation"><h2>Navigation <span class="kit-meta">8</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><header class="app-header" inert>
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
@@ -196,16 +197,16 @@
         <img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24">
         <span>Maya Chen</span>
       </p>
-    </header></div></div><h3><a href="../pages/app-header.html">App header</a></h3><p>3 states · 8 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><header class="shared-header" inert>
+    </header></div></div><h3><a href="app-header.html">App header</a></h3><p>3 states · 8 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><header class="shared-header" inert>
       <span class="product"><span class="icon logo" aria-hidden="true"></span>AI Stack Builder</span>
       <p class="owner"><img class="image avatar" src="../../06-concept/img/portrait-96.jpg" alt="" width="24" height="24"><span>Shared by Maya Chen</span></p>
-    </header></div></div><h3><a href="../pages/shared-header.html">Shared header</a></h3><p>2 states · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><header class="run-bar" inert>
+    </header></div></div><h3><a href="shared-header.html">Shared header</a></h3><p>2 states · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><header class="run-bar" inert>
       <a class="back" href="#"><svg class="icon" aria-hidden="true"><use href="#l-arrow-left"/></svg>acme-billing-api</a>
       <span class="title">Export</span>
       <label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
       </label>
-    </header></div></div><h3><a href="../pages/run-bar.html">Run bar</a></h3><p>1 state · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><p class="meta"><a href="#">Projects</a> /</p></div></div><h3><a href="../pages/breadcrumb.html">Breadcrumb</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="page-head">
+    </header></div></div><h3><a href="run-bar.html">Run bar</a></h3><p>1 state · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><p class="meta"><a href="#">Projects</a> /</p></div></div><h3><a href="breadcrumb.html">Breadcrumb</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="page-head">
           <div>
             <h1 id="i5-k12-page-title">acme-billing-api</h1>
             <p class="meta head-meta"><span>14 items · 3 auto-added · 1 detached</span><span>Checked 2 days ago · for Claude Code · 1 problem · 2 notes · 1 skipped</span></p>
@@ -216,7 +217,7 @@
             <button type="button">Duplicate</button>
             <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a>
           </div>
-        </div></div></div><h3><a href="../pages/page-head.html">Page head</a></h3><p>5 states · 10 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><nav class="tabs tabs-page" aria-label="Kind"><a href="#" aria-current="page">All <span class="count">11</span></a><a href="#">skill <span class="count">1</span></a><a href="#">agent <span class="count">2</span></a><a href="#">prompt <span class="count">2</span></a><a href="#">mcp <span class="count">2</span></a><a href="#">script <span class="count">3</span></a><a href="#">app <span class="count">1</span></a></nav></div></div><h3><a href="../pages/tabs.html">Tabs</a></h3><p>4 states · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><nav class="scope" aria-label="Scope"><a href="#" aria-current="page">My library</a><a href="#">Public library</a></nav></div></div></div><h3><a href="../pages/scope-switch.html">Scope switch</a></h3><p>2 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-panel"><aside class="panel library-sidebar" aria-label="Add items">
+        </div></div></div><h3><a href="page-head.html">Page head</a></h3><p>5 states · 10 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><nav class="tabs tabs-page" aria-label="Kind"><a href="#" aria-current="page">All <span class="count">11</span></a><a href="#">skill <span class="count">1</span></a><a href="#">agent <span class="count">2</span></a><a href="#">prompt <span class="count">2</span></a><a href="#">mcp <span class="count">2</span></a><a href="#">script <span class="count">3</span></a><a href="#">app <span class="count">1</span></a></nav></div></div><h3><a href="tabs.html">Tabs</a></h3><p>4 states · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><nav class="scope" aria-label="Scope"><a href="#" aria-current="page">My library</a><a href="#">Public library</a></nav></div></div></div><h3><a href="scope-switch.html">Scope switch</a></h3><p>2 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-panel"><aside class="panel library-sidebar" aria-label="Add items">
       <div class="panel-head">
         <h2>Add from</h2>
         <nav class="scope" aria-label="Scope"><a href="#" aria-current="page">My library</a><a href="#">Public library</a></nav>
@@ -281,7 +282,7 @@
           </li>
         </ol>
       </div>
-    </aside></div></div></div><h3><a href="../pages/library-panel.html">Library panel</a></h3><p>6 states · 3 screens</p></article></div></section><section class="doc-group" id="cards-and-lists"><h2>Cards and lists <span class="kit-meta">12</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
+    </aside></div></div></div><h3><a href="library-panel.html">Library panel</a></h3><p>6 states · 3 screens</p></article></div></section><section class="doc-group" id="cards-and-lists"><h2>Cards and lists <span class="kit-meta">12</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview doc-preview-wide" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
             <article class="row row-tight">
               <div>
                 <h2><a href="#">code-style</a><span class="tag">skill</span></h2>
@@ -309,7 +310,7 @@
                 <button type="button">Share…</button>
               </div>
             </article>
-          </li></ol></div></div><h3><a href="../pages/row-list.html">Row list</a></h3><p>7 states · 8 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
+          </li></ol></div></div><h3><a href="row-list.html">Row list</a></h3><p>7 states · 8 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
             <article class="row row-tight set-item">
               <div>
                 <h3><a href="#">code-style</a><span class="tag">skill</span><span class="tag tag-state tag-problem">Conflict</span></h3>
@@ -319,7 +320,7 @@
               <p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p>
               <div class="row-actions"></div>
             </article>
-          </li></ol></div></div><h3><a href="../pages/item-text-block.html">Item text block</a></h3><p>3 states · 9 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
+          </li></ol></div></div><h3><a href="item-text-block.html">Item text block</a></h3><p>3 states · 9 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
             <article class="row row-tight set-item">
               <div>
                 <h3><a href="#">migration-reviewer</a><span class="tag">agent</span></h3>
@@ -366,7 +367,7 @@
                 </article>
               </li>
             </ol>
-          </li></ol></div></div><h3><a href="../pages/set-row-states-7.html">Set row states (§7)</a></h3><p>3 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><span class="tag">skill</span><span class="tag">agent</span><span class="tag">prompt</span><span class="tag">mcp</span><span class="tag">script</span><span class="tag">app</span></div></div></div><h3><a href="../pages/kind-tag.html">Kind tag</a></h3><p>2 states · 10 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
+          </li></ol></div></div><h3><a href="set-row-states-7.html">Set row states (§7)</a></h3><p>3 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><span class="tag">skill</span><span class="tag">agent</span><span class="tag">prompt</span><span class="tag">mcp</span><span class="tag">script</span><span class="tag">app</span></div></div></div><h3><a href="kind-tag.html">Kind tag</a></h3><p>2 states · 10 screens</p></article><article class="doc-card"><div class="doc-preview doc-preview-wide" inert aria-hidden="true"><div class="kit-demo"><ol class="row-list"><li>
             <article class="row row-tight">
               <div>
                 <h2><a href="#">db-migrate</a><span class="tag">script</span></h2>
@@ -380,7 +381,7 @@
                 <button type="button">Share…</button>
               </div>
             </article>
-          </li></ol></div></div><h3><a href="../pages/usage-facts.html">Usage facts</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="i14-k45-drawer-title">
+          </li></ol></div></div><h3><a href="usage-facts.html">Usage facts</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="i14-k45-drawer-title">
           <div class="drawer-head">
             <h2 id="i14-k45-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
             <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
@@ -426,7 +427,7 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             <a class="button" href="#">Open in My library</a>
             <a class="button" href="#">Configure to remove</a>
           </div>
-        </aside></div></div></div><h3><a href="../pages/item-side-panel.html">Item side panel</a></h3><p>6 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="stage-group" aria-labelledby="i15-k51-g-find">
+        </aside></div></div></div><h3><a href="item-side-panel.html">Item side panel</a></h3><p>6 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="stage-group" aria-labelledby="i15-k51-g-find">
         <h2 id="i15-k51-g-find">Findings</h2>
         <ol class="stages">
           <li>
@@ -487,14 +488,14 @@ npx eslint --fix $files &amp;&amp; git add $files</pre>
             </details>
           </li>
         </ol>
-      </section></div></div><h3><a href="../pages/check-stages.html">Check stages</a></h3><p>3 states · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="summary" aria-label="Verdict">
+      </section></div></div><h3><a href="check-stages.html">Check stages</a></h3><p>3 states · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="summary" aria-label="Verdict">
         <h1 role="status">Checking — stage 4 of 10</h1>
         <p class="meta">acme-billing-api · 14 items · for Claude Code</p>
-      </section></div></div><h3><a href="../pages/run-summary.html">Run summary</a></h3><p>3 states · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="export-stage" aria-labelledby="i17-k57-export-title">
+      </section></div></div><h3><a href="run-summary.html">Run summary</a></h3><p>3 states · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="export-stage" aria-labelledby="i17-k57-export-title">
         <h2 id="i17-k57-export-title"><span class="n">11</span> · Export</h2>
         <p>4 items as one archive, for Claude Code.</p>
         <div class="export-actions"><a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a></div>
-      </section></div></div><h3><a href="../pages/export-stage.html">Export stage</a></h3><p>5 states · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><pre class="file"># Setup — acme-billing-api (Claude Code)
+      </section></div></div><h3><a href="export-stage.html">Export stage</a></h3><p>5 states · 4 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><pre class="file"># Setup — acme-billing-api (Claude Code)
 
 Read this first and perform each step.
 
@@ -505,11 +506,11 @@ Read this first and perform each step.
 
 ## code-style
 - Defers to the client’s ESLint config. Where they disagree, the ESLint config wins.
-…</pre></div></div><h3><a href="../pages/file-block.html">File block</a></h3><p>1 state · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ul class="plain-list">
+…</pre></div></div><h3><a href="file-block.html">File block</a></h3><p>1 state · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
             <li>3 external items, cloned from 2 repos at pinned refs — <code>SETUP.md</code> in the archive says which</li>
             <li>An agent that reads <code>SETUP.md</code> first</li>
-          </ul></div></div><h3><a href="../pages/plain-list.html">Plain list</a></h3><p>1 state · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-labelledby="i20-k64-needs-title">
+          </ul></div></div><h3><a href="plain-list.html">Plain list</a></h3><p>1 state · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-aside"><aside class="aside-box" aria-labelledby="i20-k64-needs-title">
           <h2 id="i20-k64-needs-title">What your machine still needs</h2>
           <ul class="plain-list">
             <li>A value for <code>GITHUB_TOKEN</code></li>
@@ -518,36 +519,36 @@ Read this first and perform each step.
           </ul>
           <p class="meta">This page is live — it shows the project as Maya has it now. An archive you export is a snapshot of this moment.</p>
           <a class="button button-primary" href="#">Export</a>
-        </aside></div></div></div><h3><a href="../pages/aside-box.html">Aside box</a></h3><p>2 states · 2 screens</p></article></div></section><section class="doc-group" id="forms"><h2>Forms <span class="kit-meta">14</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a><a class="button" href="#">Configure</a><button type="button">Duplicate</button><a class="button button-quiet" href="#">Cancel</a></div></div></div><h3><a href="../pages/button.html">Button</a></h3><p>6 states · 17 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><button type="reset" class="link-button">Clear filters</button></div></div><h3><a href="../pages/link-button.html">Link button</a></h3><p>2 states · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="search">
+        </aside></div></div></div><h3><a href="aside-box.html">Aside box</a></h3><p>2 states · 2 screens</p></article></div></section><section class="doc-group" id="forms"><h2>Forms <span class="kit-meta">14</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-upload"/></svg>Export</a><a class="button" href="#">Configure</a><button type="button">Duplicate</button><a class="button button-quiet" href="#">Cancel</a></div></div></div><h3><a href="button.html">Button</a></h3><p>6 states · 17 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><button type="reset" class="link-button">Clear filters</button></div></div><h3><a href="link-button.html">Link button</a></h3><p>2 states · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="search">
             <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
             <input type="search" name="q" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
-          </label></div></div><h3><a href="../pages/search-field.html">Search field</a></h3><p>3 states · 8 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><form class="find" role="search">
+          </label></div></div><h3><a href="search-field.html">Search field</a></h3><p>3 states · 8 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><form class="find" role="search">
           <label class="search">
             <svg class="icon" aria-hidden="true"><use href="#l-search"/></svg>
             <input type="search" name="q" value="stripe" placeholder="Search projects and their items — db-migrate, .mcp.json, acme">
           </label>
           <button type="button" class="filters-button"><svg class="icon" aria-hidden="true"><use href="#l-sliders-horizontal"/></svg>Filters · 1</button>
-        </form></div></div><h3><a href="../pages/filters-button-and-popover.html">Filters button and popover</a></h3><p>2 states · 5 · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="field"><span>Email</span>
+        </form></div></div><h3><a href="filters-button-and-popover.html">Filters button and popover</a></h3><p>2 states · 5 · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="field"><span>Email</span>
             <input type="email" name="email" autocomplete="email" placeholder="maya@chen.dev">
-          </label></div></div><h3><a href="../pages/text-field.html">Text field</a></h3><p>3 states · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="pick">Agent target
+          </label></div></div><h3><a href="text-field.html">Text field</a></h3><p>3 states · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="pick">Agent target
         <select name="target"><option selected>Claude Code</option><option>Cursor</option><option>Codex</option><option>Universal</option></select>
-      </label></div></div><h3><a href="../pages/select.html">Select</a></h3><p>2 states · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="field"><span>Content</span><textarea name="content" placeholder="Write or paste it here"></textarea></label></div></div><h3><a href="../pages/textarea.html">Textarea</a></h3><p>2 states · 2 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="check" aria-label="Add to set, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label></div></div><h3><a href="../pages/add-to-set.html">Add to set</a></h3><p>2 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><fieldset class="popover-group">
+      </label></div></div><h3><a href="select.html">Select</a></h3><p>2 states · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="field"><span>Content</span><textarea name="content" placeholder="Write or paste it here"></textarea></label></div></div><h3><a href="textarea.html">Textarea</a></h3><p>2 states · 2 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><label class="check" aria-label="Add to set, in this project, auto-added" title="Auto-added — remove what requires it"><input type="checkbox" checked disabled> In this project</label></div></div><h3><a href="add-to-set.html">Add to set</a></h3><p>2 states · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><fieldset class="popover-group">
               <legend>Checked for</legend>
               <label><input type="checkbox" name="target" checked> Claude Code</label>
               <label><input type="checkbox" name="target"> Cursor</label>
               <label><input type="checkbox" name="target"> Codex</label>
               <label><input type="checkbox" name="target"> Universal</label>
-            </fieldset></div></div><h3><a href="../pages/checkbox.html">Checkbox</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><fieldset class="popover-group">
+            </fieldset></div></div><h3><a href="checkbox.html">Checkbox</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><fieldset class="popover-group">
               <legend>Last check</legend>
               <label><input type="radio" name="check" checked> Any</label>
               <label><input type="radio" name="check"> Problems at last check</label>
               <label><input type="radio" name="check"> Out of date</label>
               <label><input type="radio" name="check"> Not checked yet</label>
-            </fieldset></div></div><h3><a href="../pages/radio.html">Radio</a></h3><p>1 state · 2 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><button type="button" class="remove" aria-label="Remove code-style from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div></div><h3><a href="../pages/remove-from-set.html">Remove from set</a></h3><p>1 state · 2 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a></div></div><h3><a href="../pages/close.html">Close</a></h3><p>1 state · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="form-actions">
+            </fieldset></div></div><h3><a href="radio.html">Radio</a></h3><p>1 state · 2 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><button type="button" class="remove" aria-label="Remove code-style from this project"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></button></div></div><h3><a href="remove-from-set.html">Remove from set</a></h3><p>1 state · 2 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a></div></div><h3><a href="close.html">Close</a></h3><p>1 state · 5 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="form-actions">
         <a class="button" href="#">Choose another file</a>
         <a class="button push" href="#">Cancel</a>
         <a class="button button-primary" href="#">Import 47 items</a>
-      </div></div></div><h3><a href="../pages/form-actions.html">Form actions</a></h3><p>1 state · 6 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="door" aria-labelledby="i34-k90-door-title">
+      </div></div></div><h3><a href="form-actions.html">Form actions</a></h3><p>1 state · 6 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="door" aria-labelledby="i34-k90-door-title">
         <div>
           <h1 id="i34-k90-door-title">Sign in</h1>
           <p class="head-meta">AI Stack Builder is a library for your AI work — skills, agents, prompts, MCP servers, scripts and apps. Keep them in one place, add and edit them, and put them together into projects you can export.</p>
@@ -562,11 +563,11 @@ Read this first and perform each step.
           <button type="submit" class="button-primary">Sign in</button>
         </form>
         <p class="door-alt">No account yet? <a href="#">Create account</a></p>
-      </section></div></div><h3><a href="../pages/door-form.html">Door form</a></h3><p>4 states · 3 screens</p></article></div></section><section class="doc-group" id="feedback"><h2>Feedback <span class="kit-meta">7</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="callout">
+      </section></div></div><h3><a href="door-form.html">Door form</a></h3><p>4 states · 3 screens</p></article></div></section><section class="doc-group" id="feedback"><h2>Feedback <span class="kit-meta">7</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="callout">
                   <span class="severity">Problem</span>
                   <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
                   <div class="row-actions"><a class="button button-danger-quiet" href="#">Remove eslint-autofix…</a></div>
-                </div></div></div><h3><a href="../pages/finding-box.html">Finding box</a></h3><p>4 states · 11 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><p class="marks"><span class="mark mark-problem"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem</span></p><p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p></div></div></div><h3><a href="../pages/finding-capsule.html">Finding capsule</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><span class="kit-glyph"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg><span class="kit-label">problem</span></span><span class="kit-glyph"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg><span class="kit-label">note</span></span><span class="kit-glyph"><span class="glyph glyph-checked" aria-hidden="true"></span><span class="kit-label">checked</span></span><span class="kit-glyph"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg><span class="kit-label">skipped</span></span><span class="kit-glyph"><span class="glyph glyph-waiting" aria-hidden="true"></span><span class="kit-label">waiting</span></span><span class="kit-glyph"><span class="glyph glyph-running" aria-hidden="true"></span><span class="kit-label">running</span></span><span class="kit-glyph"><svg class="glyph glyph-stopped" aria-hidden="true"><use href="#l-cloud-off"/></svg><span class="kit-label">stopped</span></span></div></div></div><h3><a href="../pages/severity-glyph.html">Severity glyph</a></h3><p>1 state · 9 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="state-block" aria-labelledby="i38-k100-empty-title">
+                </div></div></div><h3><a href="finding-box.html">Finding box</a></h3><p>4 states · 11 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><p class="marks"><span class="mark mark-problem"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem</span></p><p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p></div></div></div><h3><a href="finding-capsule.html">Finding capsule</a></h3><p>1 state · 3 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-row"><span class="kit-glyph"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg><span class="kit-label">problem</span></span><span class="kit-glyph"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg><span class="kit-label">note</span></span><span class="kit-glyph"><span class="glyph glyph-checked" aria-hidden="true"></span><span class="kit-label">checked</span></span><span class="kit-glyph"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg><span class="kit-label">skipped</span></span><span class="kit-glyph"><span class="glyph glyph-waiting" aria-hidden="true"></span><span class="kit-label">waiting</span></span><span class="kit-glyph"><span class="glyph glyph-running" aria-hidden="true"></span><span class="kit-label">running</span></span><span class="kit-glyph"><svg class="glyph glyph-stopped" aria-hidden="true"><use href="#l-cloud-off"/></svg><span class="kit-label">stopped</span></span></div></div></div><h3><a href="severity-glyph.html">Severity glyph</a></h3><p>1 state · 9 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><section class="state-block" aria-labelledby="i38-k100-empty-title">
         <svg class="icon state-icon" aria-hidden="true"><use href="#l-folder-plus"/></svg>
         <h2 id="i38-k100-empty-title">No projects yet</h2>
         <p>A project holds items from My library. It is checked as a whole and exported as one archive.</p>
@@ -574,7 +575,7 @@ Read this first and perform each step.
           <a class="button button-primary" href="#"><svg class="icon" aria-hidden="true"><use href="#l-plus"/></svg>New project</a>
           <a class="button" href="#">Open Public library</a>
         </div>
-      </section></div></div><h3><a href="../pages/empty-and-error-state.html">Empty and error state</a></h3><p>4 states · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-clip"><ol class="card-grid">
+      </section></div></div><h3><a href="empty-and-error-state.html">Empty and error state</a></h3><p>4 states · 7 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-clip"><ol class="card-grid">
           <li>
             <article class="card" aria-hidden="true">
               <div>
@@ -683,10 +684,10 @@ Read this first and perform each step.
               </div>
             </article>
           </li>
-        </ol></div></div></div><h3><a href="../pages/skeleton.html">Skeleton</a></h3><p>1 state · 10 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><div aria-busy="true">
+        </ol></div></div></div><h3><a href="skeleton.html">Skeleton</a></h3><p>1 state · 10 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><div aria-busy="true">
         <p role="status"><strong>18 of 47</strong> · <code>release-notes</code></p>
         <progress class="progress" value="18" max="47" aria-label="18 of 47"></progress>
-      </div></div></div></div><h3><a href="../pages/busy-indicator.html">Busy indicator</a></h3><p>2 states · 6 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="i41-k107-modal-title">
+      </div></div></div></div><h3><a href="busy-indicator.html">Busy indicator</a></h3><p>2 states · 6 screens</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="modal" open aria-labelledby="i41-k107-modal-title">
       <div class="sheet-head">
         <h2 id="i41-k107-modal-title">Delete repo-triage-kit?</h2>
       </div>
@@ -696,7 +697,7 @@ Read this first and perform each step.
         <a class="button push" href="#">Cancel</a>
         <a class="button button-primary button-danger" href="#">Delete example</a>
       </div>
-    </dialog></div></div></div><h3><a href="../pages/dialog.html">Dialog</a></h3><p>7 states · 6 screens</p></article></div></section><section class="doc-group" id="one-off-styled-in-the-kit"><h2>One-off, styled in the kit <span class="kit-meta">5</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="sheet" inert open aria-labelledby="i42-k114-sheet-title">
+    </dialog></div></div></div><h3><a href="dialog.html">Dialog</a></h3><p>7 states · 6 screens</p></article></div></section><section class="doc-group" id="one-off-styled-in-the-kit"><h2>One-off, styled in the kit <span class="kit-meta">5</span></h2><div class="doc-grid"><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-stage"><div class="scrim"></div><dialog class="sheet" inert open aria-labelledby="i42-k114-sheet-title">
       <div class="sheet-head">
         <h2 id="i42-k114-sheet-title">Edit db-migrate</h2>
         <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
@@ -761,17 +762,17 @@ psql "$DATABASE_URL" --single-transaction -v ON_ERROR_STOP=1 -f "migrations/$1.s
             <button type="submit" class="button-primary">Save</button>
           </div>
         </form>
-    </dialog></div></div></div><h3><a href="../pages/item-sheet.html">Item sheet</a></h3><p>1 state · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="field-row">
+    </dialog></div></div></div><h3><a href="item-sheet.html">Item sheet</a></h3><p>1 state · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="field-row">
             <label class="field field-mono"><span>Name</span><input name="name" value="db-migrate" placeholder="release-notes"></label>
             <label class="field"><span>Kind</span><select name="kind"><option>skill</option><option>agent</option><option>prompt</option><option>mcp</option><option selected>script</option><option>app</option></select></label>
-          </div></div></div><h3><a href="../pages/two-fields-in-a-row.html">Two fields in a row</a></h3><p>1 state · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><ul class="file-list">
+          </div></div></div><h3><a href="two-fields-in-a-row.html">Two fields in a row</a></h3><p>1 state · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><ul class="file-list">
                 <li><code>templates/create_table.sql</code><span class="meta">1.2 KB</span><button type="button" class="link-button">Remove</button></li>
                 <li><code>templates/add_column.sql</code><span class="meta">0.8 KB</span><button type="button" class="link-button">Remove</button></li>
-              </ul></div></div></div><h3><a href="../pages/file-list.html">File list</a></h3><p>1 state · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><label class="dropzone dropzone-small">
+              </ul></div></div></div><h3><a href="file-list.html">File list</a></h3><p>1 state · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><div class="kit-narrow"><label class="dropzone dropzone-small">
                 <input type="file" name="files" multiple class="visually-hidden">
                 <strong>Drop files or a folder here</strong>
                 <span class="meta">or <u>choose from your computer</u> · a dropped <code>SKILL.md</code> also fills the name and kind</span>
-              </label></div></div></div><h3><a href="../pages/drop-zone.html">Drop zone</a></h3><p>3 states · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><h2 id="i46-k120-content-title" class="heading-small">Content · lands at <code>.claude/skills/code-style/SKILL.md</code></h2></div></div><h3><a href="../pages/small-heading.html">Small heading</a></h3><p>1 state · Shared item</p></article></div></section>
+              </label></div></div></div><h3><a href="drop-zone.html">Drop zone</a></h3><p>3 states · Item overlay</p></article><article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo"><h2 id="i46-k120-content-title" class="heading-small">Content · lands at <code>.claude/skills/code-style/SKILL.md</code></h2></div></div><h3><a href="small-heading.html">Small heading</a></h3><p>1 state · Shared item</p></article></div></section>
 </main>
 
 <script>

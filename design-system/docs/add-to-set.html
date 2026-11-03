@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -142,10 +143,10 @@
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Forms</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Forms</p>
   <h1>Add to set</h1>
   <p>On a panel row: put the item into the project, or see that it is in.</p>
   <p class="doc-meta"><span><code>check</code></span><span>3 screens</span><span><code>components/base.css</code> · <code>components/check.css</code></span></p>
@@ -169,10 +170,10 @@
 <section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Use it</p><p>An auto-added row refuses: its tick in Ink 3, no hover, its checkbox disabled, and Required by … beside it — §8&#x27;s only refusal, shown rather than only stated.</p></div>
-    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Taking an item out is the set row&#x27;s own control, Remove from set: membership is shown in the panel and owned by the row. → <a href="../pages/remove-from-set.html">Remove from set</a></p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Taking an item out is the set row&#x27;s own control, Remove from set: membership is shown in the panel and owned by the row. → <a href="remove-from-set.html">Remove from set</a></p></div>
   </div>
 </section>
-<nav class="doc-pager" aria-label="Components"><a href="../pages/textarea.html">← Textarea</a><a href="../pages/checkbox.html">Checkbox →</a></nav>
+<nav class="doc-pager" aria-label="Components"><a href="textarea.html">← Textarea</a><a href="checkbox.html">Checkbox →</a></nav>
 </main>
 <script>
 (function(){

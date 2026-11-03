@@ -148,7 +148,8 @@ def count(pat, all_pages):
 
 def fragment(pat, all_pages):
     src = all_pages[pat["source"]]
-    return pat["wrap"].format("\n".join(bk.outer(src, tag, attr, page=pat["source"]) for tag, attr in pat["cut"]))
+    frag = pat["wrap"].format("\n".join(bk.outer(src, tag, attr, page=pat["source"]) for tag, attr in pat["cut"]))
+    return re.sub(r'href="([a-z0-9-]+\.html)', r'href="../../04-wireframes/mockups/\1', frag)  # to the screens (step 7)
 
 
 def page(pat, frag, screens, overlays):

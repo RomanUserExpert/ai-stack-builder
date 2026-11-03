@@ -27,6 +27,8 @@ with one entry point, index.css. The numbers are kept:
 14. a bare .callout — no tone class — is a Problem: its severity says so (phase 09, system-check S1)
 15. every class in components/ is shown on a docs page, or is a layout on layouts.html (S5–S7)
 16. every token in tokens.css has a row on docs/tokens.html (S8)
+18. every local link on the docs, the patterns and the examples leads to a file that exists (step 7: the docs'
+    own navigation had been sent to 04-wireframes/pages/ since step 2)
 17. in a browser: a component looks the same on its docs page and on the screens (S2–S4), and a link in a meta line
     carries a non-colour cue at rest (I1). Skipped with --fast
 
@@ -212,6 +214,15 @@ def main():
                 bare.append(f"{f.stem}: {sev[:40]}")
     if bare:
         fails.append(f"14 a bare .callout that is not a Problem — name its tone (callout-reminder, callout-quiet): {bare[:4]}")
+    # 18 — every local link on the system's own pages leads somewhere
+    dead = []
+    for f in [*sorted((SYSTEM / "docs").glob("*.html")), *sorted((SYSTEM / "patterns").glob("*.html")),
+              *sorted((SYSTEM / "examples").glob("*.html"))]:
+        for href in re.findall(r'<[a-z][^<>]*?\s(?:href|src)="([^"#:?]+\.(?:html|css|md))', f.read_text(encoding="utf-8")):
+            if not (f.parent / href).resolve().exists():
+                dead.append(f"{f.parent.name}/{f.name} -> {href}")
+    if dead:
+        fails.append(f"18 {len(dead)} links to nothing: {sorted(set(dead))[:6]}")
     # 15, 16 — the docs cover the code: every class shown or a layout; every token on tokens.html
     import system_check as _sc
     for d in _sc.drift():

@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -142,10 +143,10 @@
 </head>
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Patterns</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Patterns</p>
   <h1>Patterns</h1>
   <p>A pattern is a composition of components that already stands on three screens or more. Each one here was found on the screens, not designed for them: its signature is run over all 80 wireframe pages at every build, and the build fails if it stands on fewer than three. A screen counts once, and an overlay never counts. Every pattern is a file in <code>design-system/patterns/</code> with no style of its own — the frames below are those files.</p>
 </div>
@@ -155,7 +156,7 @@
 </section>
 <section class="doc-pattern" id="browse-head">
   <h2>Browse head</h2>
-  <p class="doc-meta"><span>Made of: <a href="../pages/page-head.html">Page head</a> · <a href="../pages/search-field.html">Search field</a> · <a href="../pages/filters-button-and-popover.html">Filters button and popover</a></span><span><code>patterns/browse-head.html</code></span></p>
+  <p class="doc-meta"><span>Made of: <a href="page-head.html">Page head</a> · <a href="search-field.html">Search field</a> · <a href="filters-button-and-popover.html">Filters button and popover</a></span><span><code>patterns/browse-head.html</code></span></p>
   <div class="doc-prose"><p>Stands on 3 screens: <strong>My library</strong> <code>library-my-default, library-my-error-filtered, library-my-filters, library-my-link, library-my-loading, library-my-revoke</code>; <strong>Public library</strong> <code>library-public-default, library-public-error-filtered, library-public-filters, library-public-loading</code>; <strong>Projects</strong> <code>projects-default, projects-delete, projects-error-filtered, projects-filters, projects-loading</code>. Also drawn under Item overlay, Import/export, which are overlays and not counted.</p></div>
   <iframe class="doc-frame" title="Browse head" data-src="../patterns/browse-head.html" loading="lazy"></iframe>
   <div class="doc-rules">
@@ -164,7 +165,7 @@
   </div>
 </section><section class="doc-pattern" id="set-with-side-panel">
   <h2>Set with an item side panel</h2>
-  <p class="doc-meta"><span>Made of: <a href="../pages/row-list.html">Row list</a> · <a href="../pages/set-row-states-7.html">Set row states (§7)</a> · <a href="../pages/item-side-panel.html">Item side panel</a> · <a href="../pages/close.html">Close</a></span><span><code>patterns/set-with-side-panel.html</code></span></p>
+  <p class="doc-meta"><span>Made of: <a href="row-list.html">Row list</a> · <a href="set-row-states-7.html">Set row states (§7)</a> · <a href="item-side-panel.html">Item side panel</a> · <a href="close.html">Close</a></span><span><code>patterns/set-with-side-panel.html</code></span></p>
   <div class="doc-prose"><p>Stands on 3 screens: <strong>Configuring</strong> <code>project-configuring-item</code>; <strong>Detached row</strong> <code>project-detached-default, project-detached-error, project-detached-loading, project-detached-promote</code>; <strong>Project</strong> <code>project-item</code>.</p></div>
   <iframe class="doc-frame" title="Set with an item side panel" data-src="../patterns/set-with-side-panel.html" loading="lazy"></iframe>
   <div class="doc-rules">
@@ -173,7 +174,7 @@
   </div>
 </section><section class="doc-pattern" id="configuring-layout">
   <h2>Configuring layout</h2>
-  <p class="doc-meta"><span>Made of: <a href="../pages/library-panel.html">Library panel</a> · <a href="../pages/scope-switch.html">Scope switch</a> · <a href="../pages/tabs.html">Tabs</a> · <a href="../pages/search-field.html">Search field</a> · <a href="../pages/add-to-set.html">Add to set</a> · <a href="../pages/page-head.html">Page head</a> · <a href="../pages/row-list.html">Row list</a> · <a href="../pages/remove-from-set.html">Remove from set</a></span><span><code>patterns/configuring-layout.html</code></span></p>
+  <p class="doc-meta"><span>Made of: <a href="library-panel.html">Library panel</a> · <a href="scope-switch.html">Scope switch</a> · <a href="tabs.html">Tabs</a> · <a href="search-field.html">Search field</a> · <a href="add-to-set.html">Add to set</a> · <a href="page-head.html">Page head</a> · <a href="row-list.html">Row list</a> · <a href="remove-from-set.html">Remove from set</a></span><span><code>patterns/configuring-layout.html</code></span></p>
   <div class="doc-prose"><p>Stands on 3 screens: <strong>Configuring</strong> <code>project-configuring-default, project-configuring-empty, project-configuring-error-filtered, project-configuring-error-server, project-configuring-item, project-configuring-loading-add, project-configuring-loading, project-configuring-public</code>; <strong>Detached row</strong> <code>project-detached-default, project-detached-error, project-detached-loading, project-detached-promote</code>; <strong>Project</strong> <code>project-empty</code>.</p></div>
   <iframe class="doc-frame" title="Configuring layout" data-src="../patterns/configuring-layout.html" loading="lazy"></iframe>
   <div class="doc-rules">
@@ -182,7 +183,7 @@
   </div>
 </section><section class="doc-pattern" id="run-report">
   <h2>Run report</h2>
-  <p class="doc-meta"><span>Made of: <a href="../pages/run-summary.html">Run summary</a> · <a href="../pages/check-stages.html">Check stages</a> · <a href="../pages/finding-box.html">Finding box</a> · <a href="../pages/file-block.html">File block</a> · <a href="../pages/export-stage.html">Export stage</a> · <a href="../pages/button.html">Button</a></span><span><code>patterns/run-report.html</code></span></p>
+  <p class="doc-meta"><span>Made of: <a href="run-summary.html">Run summary</a> · <a href="check-stages.html">Check stages</a> · <a href="finding-box.html">Finding box</a> · <a href="file-block.html">File block</a> · <a href="export-stage.html">Export stage</a> · <a href="button.html">Button</a></span><span><code>patterns/run-report.html</code></span></p>
   <div class="doc-prose"><p>Stands on 4 screens: <strong>Run project</strong> <code>run-default, run-error-check, run-error-export, run-error-setup, run-loading-export, run-loading, run-remove, run-success</code>; <strong>Run single item</strong> <code>run-item-default, run-item-loading, run-item-success</code>; <strong>Run shared project</strong> <code>run-shared-default, run-shared-loading, run-shared-success</code>; <strong>Run shared item</strong> <code>run-shared-item-default, run-shared-item-loading, run-shared-item-success</code>.</p></div>
   <iframe class="doc-frame" title="Run report" data-src="../patterns/run-report.html" loading="lazy"></iframe>
   <div class="doc-rules">
@@ -191,7 +192,7 @@
   </div>
 </section><section class="doc-pattern" id="confirmation">
   <h2>Confirmation</h2>
-  <p class="doc-meta"><span>Made of: <a href="../pages/dialog.html">Dialog</a> · <a href="../pages/form-actions.html">Form actions</a> · <a href="../pages/button.html">Button</a></span><span><code>patterns/confirmation.html</code></span></p>
+  <p class="doc-meta"><span>Made of: <a href="dialog.html">Dialog</a> · <a href="form-actions.html">Form actions</a> · <a href="button.html">Button</a></span><span><code>patterns/confirmation.html</code></span></p>
   <div class="doc-prose"><p>Stands on 4 screens: <strong>My library</strong> <code>library-my-revoke</code>; <strong>Project</strong> <code>project-revoke, project-share</code>; <strong>Projects</strong> <code>projects-delete</code>; <strong>Run project</strong> <code>run-remove</code>. Also drawn under Item overlay, Import/export, which are overlays and not counted.</p></div>
   <iframe class="doc-frame" title="Confirmation" data-src="../patterns/confirmation.html" loading="lazy"></iframe>
   <div class="doc-rules">
@@ -200,7 +201,7 @@
   </div>
 </section><section class="doc-pattern" id="dialog-with-field">
   <h2>Dialog with a field</h2>
-  <p class="doc-meta"><span>Made of: <a href="../pages/dialog.html">Dialog</a> · <a href="../pages/text-field.html">Text field</a> · <a href="../pages/form-actions.html">Form actions</a> · <a href="../pages/button.html">Button</a></span><span><code>patterns/dialog-with-field.html</code></span></p>
+  <p class="doc-meta"><span>Made of: <a href="dialog.html">Dialog</a> · <a href="text-field.html">Text field</a> · <a href="form-actions.html">Form actions</a> · <a href="button.html">Button</a></span><span><code>patterns/dialog-with-field.html</code></span></p>
   <div class="doc-prose"><p>Stands on 3 screens: <strong>My library</strong> <code>library-my-link</code>; <strong>Detached row</strong> <code>project-detached-promote</code>; <strong>Project</strong> <code>project-link</code>.</p></div>
   <iframe class="doc-frame" title="Dialog with a field" data-src="../patterns/dialog-with-field.html" loading="lazy"></iframe>
   <div class="doc-rules">

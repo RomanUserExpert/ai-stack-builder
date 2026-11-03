@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -143,10 +144,10 @@
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Forms</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Forms</p>
   <h1>Close</h1>
   <p>Close a panel or a sheet: the item side panel, the Item sheet, the import dialog.</p>
   <p class="doc-meta"><span><code>close</code></span><span>5 screens</span><span><code>components/drawer.css</code></span></p>
@@ -170,10 +171,10 @@
 <section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Use it</p><p>It closes what it sits on, and nothing else is lost by it.</p></div>
-    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Leaving a draft with its changes dropped is Cancel, in Form actions. → <a href="../pages/form-actions.html">Form actions</a></p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Leaving a draft with its changes dropped is Cancel, in Form actions. → <a href="form-actions.html">Form actions</a></p></div>
   </div>
 </section>
-<nav class="doc-pager" aria-label="Components"><a href="../pages/remove-from-set.html">← Remove from set</a><a href="../pages/form-actions.html">Form actions →</a></nav>
+<nav class="doc-pager" aria-label="Components"><a href="remove-from-set.html">← Remove from set</a><a href="form-actions.html">Form actions →</a></nav>
 </main>
 <script>
 (function(){

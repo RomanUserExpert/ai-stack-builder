@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -149,10 +150,10 @@
   <path d="m2 2 20 20" /></symbol><symbol id="l-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
   <path d="M12 16v-4" />
   <path d="M12 8h.01" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Cards and lists</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Cards and lists</p>
   <h1>Check stages</h1>
   <p>Run&#x27;s stack of checks: each stage with its own verdict, duration and expansion, after Vercel&#x27;s deployment page (B1).</p>
   <p class="doc-meta"><span><code>stage-group · stages · stage-body</code></span><span>4 screens</span><span><code>components/frame.css</code> · <code>components/run.css</code></span></p>
@@ -484,10 +485,10 @@
 <section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Use it</p><p>A stage with nothing inside is not a disclosure: no chevron and no focus. Skipped is its own neutral mark, never a green tick it did not earn.</p></div>
-    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>The verdict for the whole run is the Run summary; the archive is made by the Export stage, last. → <a href="../pages/run-summary.html">Run summary</a></p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>The verdict for the whole run is the Run summary; the archive is made by the Export stage, last. → <a href="run-summary.html">Run summary</a></p></div>
   </div>
 </section>
-<nav class="doc-pager" aria-label="Components"><a href="../pages/item-side-panel.html">← Item side panel</a><a href="../pages/run-summary.html">Run summary →</a></nav>
+<nav class="doc-pager" aria-label="Components"><a href="item-side-panel.html">← Item side panel</a><a href="run-summary.html">Run summary →</a></nav>
 </main>
 <script>
 (function(){

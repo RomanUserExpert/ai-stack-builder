@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -158,10 +159,10 @@
   <line x1="2" x2="5" y1="8" y2="8" />
   <line x1="16" x2="16" y1="19" y2="22" />
   <line x1="19" x2="22" y1="16" y2="16" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Feedback</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Feedback</p>
   <h1>Empty and error state</h1>
   <p>A place with nothing in it, a search that matched nothing, a place our server did not load, a link that opens nothing any more.</p>
   <p class="doc-meta"><span><code>state-block · state-image · state-icon · state-actions</code></span><span>7 screens</span><span><code>components/state.css</code></span></p>
@@ -252,10 +253,10 @@
 <section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Use it</p><p>Not lime and not a wash: the sentence carries what happened, and an error code is mono Ink 3.</p></div>
-    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Something still loading is a Skeleton; a failure inside a working screen is the neutral Finding box. → <a href="../pages/skeleton.html">Skeleton</a></p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Something still loading is a Skeleton; a failure inside a working screen is the neutral Finding box. → <a href="skeleton.html">Skeleton</a></p></div>
   </div>
 </section>
-<nav class="doc-pager" aria-label="Components"><a href="../pages/severity-glyph.html">← Severity glyph</a><a href="../pages/skeleton.html">Skeleton →</a></nav>
+<nav class="doc-pager" aria-label="Components"><a href="severity-glyph.html">← Severity glyph</a><a href="skeleton.html">Skeleton →</a></nav>
 </main>
 <script>
 (function(){

@@ -94,6 +94,7 @@
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -143,10 +144,10 @@
 <body class="product-page kit-page doc-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
   <path d="m6 6 12 12" /></symbol></svg>
-<header class="kit-top"><strong><a href="../pages/components.html" class="doc-home">Design system</a></strong><nav><a href="../pages/components.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/layouts.html">Layouts</a><a href="../pages/tokens.html">Tokens</a><a href="../pages/why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<header class="kit-top"><strong><a href="components.html" class="doc-home">Design system</a></strong><nav><a href="components.html">Components</a><a href="patterns.html">Patterns</a><a href="layouts.html">Layouts</a><a href="tokens.html">Tokens</a><a href="why.html">Why it looks like this</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
 <main class="kit-body">
 <div class="kit-intro">
-  <p class="doc-crumb"><a href="../pages/components.html">Design system</a> / Feedback</p>
+  <p class="doc-crumb"><a href="components.html">Design system</a> / Feedback</p>
   <h1>Dialog</h1>
   <p>Before a step that cannot be walked back, or one that publishes: delete, remove, stop sharing (destructive), share (a disclosure), promote (neutral), import with its progress, failure and result.</p>
   <p class="doc-meta"><span><code>modal · sheet-head · scrim</code></span><span>6 screens</span><span><code>components/dialog.css</code> · <code>components/drawer.css</code></span></p>
@@ -312,10 +313,10 @@
 <section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
   <div class="doc-rules">
     <div class="doc-rule"><p class="kit-label">Use it</p><p>It names the consequence — which projects, what becomes visible — and never asks Are you sure?</p></div>
-    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>An unclean export is confirmed in the Export stage, under the finding that caused it, not in a dialog. → <a href="../pages/export-stage.html">Export stage</a></p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>An unclean export is confirmed in the Export stage, under the finding that caused it, not in a dialog. → <a href="export-stage.html">Export stage</a></p></div>
   </div>
 </section>
-<nav class="doc-pager" aria-label="Components"><a href="../pages/busy-indicator.html">← Busy indicator</a><a href="../pages/item-sheet.html">Item sheet →</a></nav>
+<nav class="doc-pager" aria-label="Components"><a href="busy-indicator.html">← Busy indicator</a><a href="item-sheet.html">Item sheet →</a></nav>
 </main>
 <script>
 (function(){

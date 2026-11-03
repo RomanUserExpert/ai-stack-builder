@@ -89,6 +89,7 @@ DOC_CSS = r"""
 .doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
 .doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
 .doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-preview-wide .kit-demo{width:var(--width-canvas);transform:scale(.3)}
 .doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
 .doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
 .doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
@@ -265,7 +266,13 @@ def page(title, body, nav, name):
 
 
 def demo(frag):
-    return frag.replace(" inert", "")  # the wireframes draw dialogs over an inert page; a specimen is live
+    # the wireframes draw dialogs over an inert page; a specimen is live. Its links lead to the screens (step 7)
+    return to_screens(frag.replace(" inert", ""), "../../")
+
+
+def to_screens(frag, up):
+    """A link inside a specimen names a wireframe page; from design-system/docs or patterns it leads to that screen."""
+    return re.sub(r'href="([a-z0-9-]+\.html)', lambda m: f'href="{up}04-wireframes/mockups/{m.group(1)}', frag)
 
 
 def nav_links():
@@ -462,7 +469,9 @@ def index_page(groups, counts):
             d = docs_content.C[c.name]
             first = reprefix(demo(c.states[d.get("anat", 0)].demo), f"i{n}-")
             # I2: a preview is a picture of the page it links to; its headings stay out of the showcase's outline
-            items.append(f'<article class="doc-card"><div class="doc-preview" inert aria-hidden="true"><div class="kit-demo">{first}</div></div>'
+            # a library row needs a screen's width: at a sheet's its usage and actions leave the name 35 px (owner, 2026-11-03)
+            wide = " doc-preview-wide" if 'class="usage' in first else ""
+            items.append(f'<article class="doc-card"><div class="doc-preview{wide}" inert aria-hidden="true"><div class="kit-demo">{first}</div></div>'
                          f'<h3><a href="{slug(c.name)}.html">{E(c.name)}</a></h3><p>{len(c.states)} '
                          f'{"state" if len(c.states) == 1 else "states"} · {E(c.screens)}</p></article>')
         cards.append(f'<section class="doc-group" id="{slug(gname)}"><h2>{E(gname)} <span class="kit-meta">{len(comps)}</span></h2>'
