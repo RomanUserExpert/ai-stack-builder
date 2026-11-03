@@ -1,6 +1,7 @@
 # Phase 09 — Design system
 
-**A plan, not a result.** Written 2026-10-29, the day the phase's materials were read: the prompt pack
+**Opened 2026-11-03** (register Q48), when lesson 08 closed; **D1–D6 are answered as recommended** (see *Decisions*).
+The plan below was written 2026-10-29, the day the phase's materials were read: the prompt pack
 (`01-prompts.md`, seven steps) and the 21 slides of `lesson-09.pdf`. Both are course material and stay out of the
 repo. It is numbered by the course's own seven steps.
 
@@ -69,7 +70,7 @@ lie** — because it is the same code as the product.
 
 | The course says | Here it is |
 |---|---|
-| `design-system/` | **see D1**: `design-system/` at the root (recommended), or inside this folder |
+| `design-system/` | **`design-system/` at the root** (D1, Q48); this folder keeps the lesson's record |
 | `tokens.css`, `components/` *moved* in | `08-design-tokens/tokens.css` and `components/` move, and their generators write the new path. `06-concept/tokens.css` stays: it is the stand's |
 | `design-system/index.css` | the one entry point: `@import` of `tokens.css`, then `components/index.css` |
 | `wireframes/*.html` switch to one import | `04-wireframes/mockups/` (83) and `mockups/flows/` (241), by `build_mockups.py`; `kit.html` and `shell.html` by `build_kit.py`. **Guard 6 changes from two links to one.** The grey `pages/` link no kit and are not touched |
@@ -78,7 +79,7 @@ lie** — because it is the same code as the product.
 | `--bg-hover`, `--color-focus`, `--opacity-disabled` | our names already exist: the hover recipes, `--focus`, the disabled roles. **No rename for the course's sake** (D3) |
 | `patterns/` from `wireframes/*.html` | from the 80 wireframe pages, with `inventory.md` and `sitemap.md` as the index; **a pattern stands on three named screens or it does not exist** |
 | *«залишаємо»* leads into the system | §15's *оставляем* rule, re-routed: a value → `tokens.css` at its level; a component → `components/` **and its docs page**; a composition → `patterns/` |
-| a new screen in `examples/` | **see D6**: a screen a job asks for, built from the system alone; what is missing goes to `backlog.md` |
+| a new screen in `examples/` | **D6, Q48**: a screen a job asks for, built from the system alone; what is missing goes to `backlog.md` |
 | GitHub Pages | **Vercel**, with the docs added to the allow-list (D7) |
 | `README.md`, *Design system* | `README.md`, *Design system*, with the showcase's address |
 
@@ -97,33 +98,41 @@ lie** — because it is the same code as the product.
 **And the lesson's page**, `09-design-system/system.html`, built from a template in `tools/` like every phase
 page, with phase 09 linked in every rail and in the viewer, and listed in `.vercelignore`.
 
-## Decisions owed — the owner's, before or during the steps
+## State, 2026-11-03
 
-- **D1 · Where the system lives.** The repo is one folder per lesson (§13), but the system is not a lesson's
+**Lesson 09 is open; no step is started.** D1–D6 were answered by the owner in one word, *as recommended* (Q48).
+D4 and D5 answered the **procedure**: the four light values and the pressed recipes are still proposed by the model
+and signed by the owner one by one. D7 and D8 stand as recommended defaults. **Q44 — whether light ships — is still
+the owner's.** Next: step 1, the package at `design-system/`.
+
+## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
+
+
+- **D1 · Where the system lives.** *Answered: `design-system/` at the root.* The repo is one folder per lesson (§13), but the system is not a lesson's
   record: lessons 10–12 grow it, and the app will consume it. **Recommended:** the package at the root,
   `design-system/`, as the one named exception to one-folder-per-lesson; **this folder keeps the lesson's record**
   — the plan, the check, the backlog, the page. The alternative is `09-design-system/design-system/`, which keeps
   the rule and puts a lesson number in every import path the product will ever have.
-- **D2 · `kit.html` and the docs.** Both would show every component. **Recommended:** `docs/index.html` becomes
+- **D2 · `kit.html` and the docs.** *Answered: the docs become the showcase, `kit.html` retires.* Both would show every component. **Recommended:** `docs/index.html` becomes
   the showcase and **`kit.html` is retired once the docs cover every component and state**, with a redirect from
   its address; guard 8 moves to the docs. Until then both are built from one source, so they cannot disagree.
-- **D3 · Disabled.** The course dims with `--opacity-disabled`. **We have three signed colour roles**, and a rule
+- **D3 · Disabled.** *Answered: the roles stay, no opacity token.* The course dims with `--opacity-disabled`. **We have three signed colour roles**, and a rule
   that a disabled control keeps focus and points at its reason (§16). Opacity would also dim the reason it points
   at. **Recommended:** keep the roles, add no opacity token, and document the rule on every page that has a
   disabled state.
-- **D4 · The four light gaps.** `--sheet-edge`, `--danger`, `--danger-hover`, `--on-danger`. **Recommended:** the
+- **D4 · The four light gaps.** *Answered: the model proposes, the owner signs each.* `--sheet-edge`, `--danger`, `--danger-hover`, `--on-danger`. **Recommended:** the
   model proposes values with measured contrast and the reasoning; **the owner signs each one** in `concept.md`
   before it is written. white on `--danger` already reads 4.77:1 in light, so that gap may be a signature rather than
   a new value.
-- **D5 · Active (pressed).** No screen draws it, so its values do not exist. **Recommended:** one recipe per ground,
+- **D5 · Active (pressed).** *Answered: one recipe per ground, signed on the showcase.* No screen draws it, so its values do not exist. **Recommended:** one recipe per ground,
   half a step past hover, with no movement and no size change, proposed on the showcase and signed by the owner.
-- **D6 · Which screen the test builds.** The course's example is *my saved listings*. Ours must answer a job in
+- **D6 · Which screen the test builds.** *Answered: the owner picks from the matrix's candidates.* The course's example is *my saved listings*. Ours must answer a job in
   `jtbd.md` that **no screen answers yet**, must not need anything §9 refuses, and must not be a receiver surface
   (Q20). **Recommended:** the owner picks from candidates the model reads off lesson 03's traceability matrix — a
   job with evidence and a blank row — and the screen is labelled *an example, not in the product*.
-- **D7 · Where the showcase is served.** **Recommended:** Vercel, as every phase page is: the system's `docs/`
+- **D7 · Where the showcase is served.** *The recommendation is the default, taken in step 7.* **Recommended:** Vercel, as every phase page is: the system's `docs/`
   added to the allow-list, with a stable address. Not GitHub Pages: two hosts for one site is two places to drift.
-- **D8 · `references.md`.** The course reads it for `why.html`. Ours is `06-concept/references.md` with
+- **D8 · `references.md`.** *The recommendation is the default, taken in step 2.* The course reads it for `why.html`. Ours is `06-concept/references.md` with
   `06-concept/refs/`. **Recommended:** read from there; nothing is copied.
 
 ## Traps, the course's five and ours

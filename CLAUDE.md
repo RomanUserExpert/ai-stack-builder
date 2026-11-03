@@ -11,7 +11,7 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 two more — personas and jobs to be done. Those two are lesson 02; lesson 03, information
 architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; lesson 05, tone of voice and microcopy,
 closed on 2026-10-05 (§14); lesson 06, concept, closed on 2026-10-11 (§15); lesson 07, UI assembly, closed on 2026-10-28
-(§16); and the current lesson is 08, design tokens — not the design system, which is lesson 09.**
+(§16); lesson 08, design tokens, closed on 2026-11-03 (§17); and the current lesson is 09, design system (Q48).**
 
 There is still no application code and no design system. ~~no mockups~~ **— the main job is drawn as mockups since
 2026-10-11** (§15), behind a Wireframe / Design switch in the viewer. ~~no information architecture~~
@@ -211,8 +211,8 @@ product *is* before anything decides what it looks like.
 | **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
-| **08** | **Design tokens** | ← **current**, from 2026-10-28 · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | Design system | Components, states, the two themes. **This is where the old list's item 3 actually belongs** |
+| **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
+| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **No step started** |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
 | **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
@@ -266,9 +266,10 @@ one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The current lesson is 08, design tokens**: ~~where Q6, the styling engine, is decided on two built
-components~~ Q6 is answered — no engine, plain CSS (§10, Q45), and the lesson's page, [`tokens.html`](08-design-tokens/tokens.html), is built;
-what remains is the owner's close. If a request jumps past it — to components as a system, the full light theme, responsive, motion —
+Do not skip ahead. **The current lesson is 09, design system** — [the plan](09-design-system/README.md), seven steps:
+one package at `design-system/`, living docs, states in both themes, patterns, rules of contribution, a test screen,
+the check and the showcase online. **No light value and no pressed value is written before the owner signs it** (Q48,
+D4, D5). If a request jumps past it — to responsive or motion —
 confirm before acting.
 **Every line of copy from now on is written against §14, *Voice*.**
 Product logic described in this file is **specification, not a build order** — it is
@@ -1511,6 +1512,11 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-11-03 — Q48. Lesson 08 is closed and lesson 09 is open**, with D1–D6 of its plan answered as
+recommended (owner): the system's package at `design-system/` in the root; the docs replace `kit.html`; disabled keeps
+its roles; the light gaps and the pressed state signed value by value; the test screen picked from lesson 03's matrix.
+**Q44 stays open** (§17).
+
 **Added 2026-10-29, by lesson 08 — Q47.** **Primitive names follow Tailwind v4 and Primer** (owner): `--color-neutral-*` for
 Mica's greys, and `--space-*`, `--radius-*`, `--font-*`, `--typescale-*`, `--size-*`, `--duration-*` for the rest (§17).
 
@@ -1675,7 +1681,8 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   to 2026-09-20 and is closed; lesson 04, prototyping and wireframing, ran from 2026-09-26 to 2026-09-27
   and is closed; lesson 05, tone of voice and microcopy, ran from 2026-10-01 to 2026-10-05 and is
   closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, ran from 2026-10-11 to
-  2026-10-28 and is closed; lesson 08, design tokens, is current.**
+  2026-10-28 and is closed; lesson 08, design tokens, ran from 2026-10-28 to 2026-11-03 and is closed; lesson 09,
+  design system, is current.**
   Every value comes from `08-design-tokens/tokens.css` (since lesson 08; `06-concept/tokens.css` is the same source,
   written flat for the stand), never from a page (§15, §17), and do not
   scaffold the app before there is something for it to hold.
@@ -1691,7 +1698,9 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   in a specification and all of it was worth being able to read back.*
 - **The repo is one folder per lesson, numbered as the course numbers them** (reorganised 2026-10-01):
   `01-research/` · `02-personas-jtbd/` · `03-information-architecture/` · `04-wireframes/` ·
-  `05-tone-of-voice/` · `06-concept/` · `07-ui-assembly/` · `08-design-tokens/`, each indexed by its own `README.md`. **The register stays in
+  `05-tone-of-voice/` · `06-concept/` · `07-ui-assembly/` · `08-design-tokens/` · `09-design-system/`, each indexed by its own `README.md`.
+  **One named exception (Q48): `design-system/` at the root is the system's package, not a lesson's record** — lessons
+  10–12 grow it and the app consumes it, so no lesson number goes into its paths. It is created in lesson 09, step 1. **The register stays in
   `01-research/research-plan.md`** — it was born there and every lesson writes to it. Generators —
   the lesson pages and the prototypes — live in `tools/`; **nothing that builds something lives only in
   a scratchpad.** The deploy is `vercel.json` plus `.vercelignore`, a whitelist: a new page is not

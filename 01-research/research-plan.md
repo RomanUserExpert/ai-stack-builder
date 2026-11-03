@@ -2063,6 +2063,37 @@ primitive takes the namespace Tailwind v4 and Primer use: `--color-<hue>-<grade>
 value is still checked against phase 07. **83 of 83 pages identical** to the post-Q43 goldens, and `kit.html` and
 `shell.html` identical to the last commit. Guard 5 is now one pattern: a component reads no `--color-*`.
 
+### Q48 — lesson 08 closed; lesson 09 opened with D1–D6 as recommended — raised and answered 2026-11-03
+
+**Raised by the owner** (*закрывай 08. д1-д6 закрывай по рекомендациям и запиши все обнови все доки, потом открой
+9ый стейдж*). **Lesson 08 closes on 2026-11-03** with all seven steps and its page done; what it hands on is the
+close table of [`tokens.html`](../08-design-tokens/tokens.html). **Lesson 09 opens the same day.** The six
+decisions its plan owed before step 1 ([`09-design-system/README.md`](../09-design-system/README.md),
+*Decisions*) are answered **as recommended**, in one word, and each is recorded here as what it now binds:
+
+- **D1 · where the system lives — `design-system/` at the repo's root.** The one named exception to *one folder per
+  lesson* (§13): the system is grown by lessons 10–12 and consumed by the app, so no lesson number goes into its
+  import paths. `09-design-system/` keeps the lesson's record — the plan, the check, the backlog, the page.
+  `08-design-tokens/tokens.css` and `components/` **move** there in step 1; `06-concept/tokens.css` stays, it is
+  the stand's.
+- **D2 · `kit.html` and the docs — the docs become the showcase; `kit.html` is retired** once the docs cover every
+  component and state, with a redirect from its address, and guard 8 moves to the docs. Until then both are built
+  from one source.
+- **D3 · disabled — the three signed colour roles stay; no opacity token.** A disabled control keeps focus and
+  points at its reason (§16), and opacity would dim the reason too. Every docs page with a disabled state says so.
+- **D4 · the four light gaps — the model proposes, the owner signs each value.** `--sheet-edge`, `--danger`,
+  `--danger-hover`, `--on-danger`: a value with its measured contrast and its reason, signed in `concept.md` before
+  it is written. **This answers the procedure, not the values** — none is signed by this entry.
+- **D5 · active (pressed) — one recipe per ground, half a step past hover**, no movement and no size change,
+  proposed on the showcase and signed by the owner. **Procedure again; no value is signed here.**
+- **D6 · the test screen — the owner picks from candidates read off lesson 03's traceability matrix**: a job with
+  evidence and a blank row, nothing §9 refuses, not a receiver surface (Q20), labelled *an example, not in the
+  product*. The candidates are owed by step 6.
+
+**Not answered by this entry**: **D7** (the showcase on Vercel) and **D8** (`why.html` reads
+`06-concept/references.md`) keep their recommendations as the default and are taken in steps 7 and 2; **Q44** —
+whether light ships in the product — is still the owner's.
+
 ### Earlier decisions
 
 Four were taken on 2026-09-01, before this register existed, and are recorded under *Decisions

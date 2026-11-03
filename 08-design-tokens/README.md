@@ -103,6 +103,13 @@ needs a change in `components/`, that change is a hole in the architecture, and 
 **And the lesson's page**, `08-design-tokens/tokens.html`, built from a template in `tools/` like every phase page, with
 phase 08 linked in every rail and the page listed in `.vercelignore`.
 
+## Closed, 2026-11-03
+
+**The lesson is closed** (register Q48): steps 1–7 and the page are done, and every line of *Done means* below
+holds. **Handed on to lesson 09**: whether light ships (Q44, the owner's); the light values of `--sheet-edge` and the
+Remove Red family (D4 there); states as a system; and the move of `tokens.css` and `components/` into the
+system's package at `design-system/` (D1 there), after which this folder keeps the record, not the files.
+
 ## State, 2026-10-28
 
 **Steps 1–7 are done, and so is the lesson's page**, [`tokens.html`](tokens.html) (2026-10-29), built by
