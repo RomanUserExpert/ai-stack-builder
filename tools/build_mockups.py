@@ -811,11 +811,12 @@ def shell(html, flow=False):
 
 
 def build():
-    import build_kit, build_components, concept_tokens, build_docs
+    import build_kit, build_components, concept_tokens, build_docs, build_examples
     concept_tokens.build()     # the values, on two levels: design-system/tokens.css
     build_components.build()   # the classes, one file per component: design-system/components/, and index.css
     build_kit.build()          # the shell and the showcase
     build_docs.build()         # the system's living docs, from the same specimens (phase 09, step 2)
+    build_examples.build()     # a new screen from the system alone (phase 09, step 6)
     OUT.mkdir(exist_ok=True)
     old = OUT / "mockup.css"
     if old.exists():

@@ -83,3 +83,6 @@ design-system/docs/*
 !design-system/patterns
 design-system/patterns/*
 !design-system/patterns/*.html
+!design-system/examples
+design-system/examples/*
+!design-system/examples/*.html

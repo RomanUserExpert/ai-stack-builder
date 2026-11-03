@@ -21,6 +21,8 @@ with one entry point, index.css. The numbers are kept:
     styles reading only declared variables and no colour primitive
 12. the patterns (phase 09): one file per pattern of build_patterns, each on three screens or more, linking
     design-system/index.css alone, with no style of its own and no class the components do not define
+13. the examples (phase 09): every page of build_examples, labelled *Example*, linking design-system/index.css
+    alone, with no style and no class of its own — what the system lacks goes to design-system/backlog.md
 10. no geometry written as a count of a primitive (calc(var(--s12) * 3)) outside the skeleton sizes (tokens-check.md, T5)
 
 The rule these guards enforce is one — new appears in design-system/ first, on a screen second — and it is written
@@ -165,6 +167,26 @@ def main():
                         if c not in classes and c not in ALLOWED and not c.startswith("wf-") and c != "device"})
         if extra:
             fails.append(f"12 patterns/{f.name}: classes no component defines {extra}")
+    # 13 — the examples: a screen built from the system alone, labelled as an example, no style or class of its own
+    import build_examples as _be
+    exs = SYSTEM / "examples"
+    want_e = {s + ".html" for s, _t, _d in _be.PAGES}
+    have_e = {p.name for p in exs.glob("*.html")}
+    if want_e != have_e:
+        fails.append(f"13 examples/: missing {sorted(want_e - have_e)}; not built by build_examples {sorted(have_e - want_e)}")
+    for f in sorted(exs.glob("*.html")):
+        h = f.read_text(encoding="utf-8")
+        links = re.findall(r'<link rel="stylesheet" href="([^"]+)"', h)
+        if links != ["../index.css"]:
+            fails.append(f"13 examples/{f.name} links {links}")
+        if re.search(r'\sstyle="', h) or "<style" in h:
+            fails.append(f"13 examples/{f.name} has a style of its own — what the system lacks goes to backlog.md")
+        extra = sorted({c for m in re.findall(r'class="([^"]*)"', h) for c in m.split()
+                        if c not in classes and c not in ALLOWED and not c.startswith("wf-") and c != "device"})
+        if extra:
+            fails.append(f"13 examples/{f.name}: classes no component defines {extra} — an order for backlog.md")
+        if '<span class="tag tag-state">Example</span>' not in h:
+            fails.append(f"13 examples/{f.name} is not labelled as an example")
     if (UI / "kit.css").exists():
         fails.append("6 07-ui-assembly/ui/kit.css is back: phase 08 retired it")
     # 8 — the showcase's words are the product's (a stage's duration is a value, not a line: microcopy.md leaves it out)

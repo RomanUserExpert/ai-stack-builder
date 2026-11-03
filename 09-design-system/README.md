@@ -92,7 +92,7 @@ lie** — because it is the same code as the product.
 | **3** | **States, in both themes.** Every component gets **hover, active, focus-visible, disabled**, through semantic roles, each with a dark and a light value. **Focus** passes 3:1 against every ground it sits on, in both themes. **Hover and active** change ground, colour or edge, never position or size. **Disabled** per D3. The four light gaps are signed (D4). Each docs page gets a *States* block: all four, dark and light side by side. New pairs join `contrast_pairs()`. | `tokens.css`, `components/`, `docs/`, `concept.md` | **done 2026-11-03** (Q49) |
 | **4** | **Patterns from the screens.** Read every wireframe page and find the compositions on **three or more** screens. Each becomes one file in `patterns/`, **made of existing components with no style of its own**. Candidates to test, not to assume: the page head with its actions; an empty or error state with its one action; a row list with the item side panel; the Run stage list ending in Export; a confirmation that names the consequence. A docs page: when to take a pattern, when separate components. | `patterns/`, `docs/patterns.html` | **done 2026-11-03** |
 | **5** | **Rules of contribution.** `DESIGN.md` and `CLAUDE.md` gain *Contributing to the system*: **new appears in the system first, on a screen second.** A new component goes to `components/` with its docs page and its states in both themes; a new composition to `patterns/`; a new value to `tokens.css` at its level. §15's *оставляем* rule re-routed into the system. Written so the next session reads it from the repo, not from the chat. | `DESIGN.md`, `CLAUDE.md` §15/§16/§17 and a new §18 | **done 2026-11-03** |
-| **6** | **The test of a new screen.** Build a screen the product does not have yet, but a job asks for (D6), **from the system alone**: existing components and patterns, tokens only, no style on the screen. **What is missing is written down, not drawn**: `backlog.md`, honest. The screen stays in `examples/` as a demonstration. **It is not a product decision**: if it is ever wanted in the product, it goes to the register. | `examples/`, `backlog.md` | |
+| **6** | **The test of a new screen.** Build a screen the product does not have yet, but a job asks for (D6), **from the system alone**: existing components and patterns, tokens only, no style on the screen. **What is missing is written down, not drawn**: `backlog.md`, honest. The screen stays in `examples/` as a demonstration. **It is not a product decision**: if it is ever wanted in the product, it goes to the register. | `examples/`, `backlog.md` | **done 2026-11-03** |
 | **7** | **The check, and the showcase online.** A table of defects — file, element, what is wrong, how to fix: a component that looks different on a screen and on its docs page · a docs page describing a variant or state the code does not have, or the reverse · a state with a value in one theme only · a pattern with styles of its own · a component or token with no docs page. Plus `/impeccable audit`. **The table first; the owner sets priorities; then everything is fixed together.** Every class of defect becomes a guard. The showcase deployed on Vercel; `README.md`, *Design system*, with its address. | `system-check.md`, `kit_check.py`, the deploy | |
 
 **And the lesson's page**, `09-design-system/system.html`, built from a template in `tools/` like every phase
@@ -151,7 +151,24 @@ only printed them. `build_docs` fails on a component with neither a States spec 
 refusal of `kit_check.py`, `build_docs` and `build_patterns` names §18. `design-system/README.md` and `backlog.md` say
 the same.
 
-Next: step 6, the test of a new screen. The owner picks it from lesson 03's matrix (D6).
+**Step 6 is done** (2026-11-03). The owner picked **EJ-3** from the candidates (D6): *stop suspecting that half of
+what I keep is dead weight*. It is importance 3 for the primary persona, and lesson 03's matrix gave it only partial ticks.
+Refused as candidates: SJ-2/H-J6 (§9), H-J5 (Q12), H-J4 (it is already drawn, and one of its surfaces is the receiver's),
+H-J2 (Duplicate exists, and the evidence is `[?]`). The screen is
+[*Usage of My library*](../design-system/examples/usage.html): every item grouped by how many projects use it, with the
+projects named, what requires it and when it was last exported. Deleting one item used nowhere goes through the
+Confirmation pattern. It is built by `tools/build_examples.py` from two patterns and ten components, with 0 lines of
+style and 0 classes of its own, in both themes. It stops at §5's ceiling: *is it used*, never *is it any good*.
+**[`backlog.md`](../design-system/backlog.md), four orders, none drawn:**
+- B1, a link inside a meta line with no rest state (measured);
+- B2, a disclosure;
+- B3, a count beside a Small heading;
+- B4, bulk selection, which is a register question first.
+
+Three findings are not system gaps and go elsewhere: the entry point, Delete on a row, and the words. Guard 13 refuses a
+style, a class of its own or a missing *Example* label in `examples/`. It was negative-tested.
+
+Next: step 7, the check and the showcase online.
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

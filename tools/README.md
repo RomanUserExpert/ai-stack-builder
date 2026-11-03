@@ -137,6 +137,17 @@ the docs' *take the pattern / take the components*. The build counts the screens
 screen, overlays never — and fails below three. `REJECTED` keeps what was looked at and fell short. Guard 12 in
 `kit_check.py` checks the files.
 
+## `build_examples.py` — phase 09, the test of a new screen
+
+```
+python -X utf8 tools/build_examples.py   # -> design-system/examples/*.html (run by build_mockups)
+```
+
+A screen the product does not have, which a job asks for, written as wireframe markup and dressed by
+`build_mockups.transform`, linking `design-system/index.css` alone. Today: *Usage of My library*, for EJ-3. What it
+lacked is not drawn; it is `design-system/backlog.md`. Guard 13 in `kit_check.py` refuses a style, a class of its own
+or a missing *Example* label.
+
 ## `build_tokens_page.py` — phase 08, the design tokens page
 
 ```
