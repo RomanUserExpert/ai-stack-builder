@@ -8,7 +8,7 @@ Writes, into 07-ui-assembly/ui/:
               (door · receiver), Run bar.
 - kit.html  — the showcase: every component of ui/inventory.md with its states.
 
-Both link 08-design-tokens/tokens.css and components/index.css, as every mockup does. KIT_CSS below is the
+Both link design-system/index.css alone, as every mockup does (phase 09, step 1). KIT_CSS below is the
 source of the grey components (their look from DESIGN.md), and build_mockups.MOCK_CSS of the painted ones;
 tools/build_components.py turns both into one file per component. Until phase 08 they were written into one
 flat kit.css, which git keeps (last in d6d419a).
@@ -518,8 +518,8 @@ def page(title, desc, body, nav):
 """
 
 
-# phase 08: the showcase and the shell read what every mockup reads
-TOKENS08 = ["../../08-design-tokens/tokens.css", "../../08-design-tokens/components/index.css"]
+# the showcase and the shell read what every mockup reads: the system's one entry point (phase 09, step 1)
+TOKENS08 = ["../../design-system/index.css"]
 
 
 def finish(src, name, hrefs=TOKENS08):

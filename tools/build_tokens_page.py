@@ -12,8 +12,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SHARED = os.path.join(HERE, "research-page.tpl.html")
 TPL = os.path.join(HERE, "tokens-page.tpl.html")
-SRC = os.path.join(ROOT, "08-design-tokens")
-DST = os.path.join(SRC, "tokens.html")
+SRC = os.path.join(ROOT, "design-system")  # the files moved into the package in phase 09, step 1
+DST = os.path.join(ROOT, "08-design-tokens", "tokens.html")
 
 shared = io.open(SHARED, encoding="utf-8").read()
 tpl = io.open(TPL, encoding="utf-8").read()

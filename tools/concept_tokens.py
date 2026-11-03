@@ -173,10 +173,10 @@ def css():
     return "\n".join(out)
 
 
-# ===== phase 08: the same values on two levels -> 08-design-tokens/tokens.css =====
+# ===== phase 08: the same values on two levels -> design-system/tokens.css (08-design-tokens/ until phase 09) =====
 # Nothing below holds a value of its own: every primitive is read off COLORS and the lists above, and check08()
 # proves that every semantic token resolves to exactly the value phase 07's kit used for that role.
-OUT08 = ROOT / "08-design-tokens" / "tokens.css"
+OUT08 = ROOT / "design-system" / "tokens.css"  # phase 09, step 1: the system's package (Q48, D1)
 
 
 def _oklab_l(hexv):
@@ -685,7 +685,7 @@ def check08(text):
     if unused:
         bad.append("primitives no role reads: " + ", ".join(sorted(unused)))
     if bad:
-        raise SystemExit("08-design-tokens/tokens.css does not keep the kit's values:\n  " + "\n  ".join(bad))
+        raise SystemExit("design-system/tokens.css does not keep the kit's values:\n  " + "\n  ".join(bad))
     return len(new)
 
 

@@ -19,7 +19,8 @@ Step 4, the product's own visuals, was skipped by the owner. **This file is the 
 ## 1. The pipeline: one way in, so nothing drifts
 
 *Since lesson 08 (2026-10-28) `kit.css` is gone: the values are in `08-design-tokens/tokens.css`, the classes in
-`08-design-tokens/components/`, and the guards point at them (CLAUDE.md §16–17). This section is the record of lesson 07.*
+`08-design-tokens/components/`, and the guards point at them (CLAUDE.md §16–17); since lesson 09 both live in
+`design-system/`, behind its one `index.css`. This section is the record of lesson 07.*
 
 ```
 06-concept/tokens.css   ← tools/concept_tokens.py      every value, the only place a value is written

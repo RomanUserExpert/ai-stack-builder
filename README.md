@@ -115,7 +115,8 @@ changes. **[The viewer](04-wireframes/pages/wireframes.html)** switches any scre
 and **Design**. You can open one directly with `?mode=design#run-default`.
 
 - ~~`07-ui-assembly/ui/kit.css` is the kit, and it is flat.~~ **Since lesson 08 the kit is two things**: the values in
-  `08-design-tokens/tokens.css` and one file per component in `08-design-tokens/components/` (see *Tokens*). No screen
+  `design-system/tokens.css` and one file per component in `design-system/components/` (see *Tokens*), both behind
+  one entry point, `design-system/index.css`, since lesson 09. No screen
   holds a style of its own.
 - **[`kit.html`](07-ui-assembly/ui/kit.html)** shows every component with its states, cut from the real pages, so its
   words are the product's. **[`shell.html`](07-ui-assembly/ui/shell.html)** holds the three frames every screen sits in.
@@ -135,15 +136,16 @@ and **Design**. You can open one directly with `?mode=design#run-default`.
 ## Tokens
 
 **Since lesson 08 the values live on two levels, and nothing on screen moved to get there.**
-[`08-design-tokens/tokens.css`](08-design-tokens/tokens.css) holds them:
+[`design-system/tokens.css`](design-system/tokens.css) holds them (in `08-design-tokens/` until lesson 09):
 - **primitive** says what a value is: `--color-neutral-600`, `--color-lime-100`, `--space-4`, `--radius-md` — the namespaces of
   Tailwind v4 and Primer; a colour is its hue and a 50-step grade, one scale per theme, light-only values
   `--color-neutral-light-*`;
 - **semantic** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`. Each role names, in a
   comment, the uses it grew from.
 
-[`08-design-tokens/components/`](08-design-tokens/components/) holds one file per component. A component reads
-colour only through a role and geometry straight from a primitive. Every screen links these two, and the flat
+[`design-system/components/`](design-system/components/) holds one file per component. A component reads
+colour only through a role and geometry straight from a primitive. Every screen links one file,
+[`design-system/index.css`](design-system/index.css), which imports these two, and the flat
 `kit.css` of lesson 07 is gone.
 
 **The proof is a theme.** One block, `[data-theme="light"]`, overrides semantic roles and nothing else, and every

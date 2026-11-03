@@ -1,0 +1,24 @@
+# AI Stack Builder — design system
+
+**The product's look as one package.** Every screen, the showcase and the shell link **one file**,
+[`index.css`](index.css), and nothing else of ours. It imports the two things below, in this order.
+
+| | What | Built by |
+|---|---|---|
+| [`index.css`](index.css) | **The one entry point**: `tokens.css`, then `components/index.css` | `tools/build_components.py` |
+| [`tokens.css`](tokens.css) | The values on two levels: **primitive** (what a value is) and **semantic** (what a colour is for), dark in `:root`, light as `[data-theme="light"]` role overrides | `tools/concept_tokens.py` |
+| [`components/`](components/) | One file per component (27), and `index.css` importing them in the kit's order | `tools/build_components.py` |
+| `docs/` | The living documentation, a page per component, on this same `index.css` | lesson 09, step 2 |
+| `patterns/` | Compositions found on three screens or more, with no style of their own | lesson 09, step 4 |
+| `examples/` | A screen built from the system alone, labelled *an example, not in the product* | lesson 09, step 6 |
+
+**Every file here is generated.** A hand edit lasts until the next `python tools/build_mockups.py`, which rebuilds
+the tokens, the components, this entry point and every screen, then runs the guards in `tools/kit_check.py`.
+
+**Why it is at the root and not in a lesson's folder.** The repo is one folder per lesson, and this is the one named
+exception (register Q48, D1): lessons 10–12 grow the system and the app will consume it, so no lesson number goes
+into its import paths. The record of how it was made stays in the lessons:
+[`08-design-tokens/`](../08-design-tokens/README.md) (the two levels) and
+[`09-design-system/`](../09-design-system/README.md) (the system).
+
+The rules — what a component may read, what a theme may override, where a change goes — are `CLAUDE.md` §15–§17.

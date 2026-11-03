@@ -4,14 +4,16 @@
 
 Run at the end of tools/build_mockups.py, and on its own. Exits non-zero on any failure. Phase 07 wrote these
 against one flat kit.css (07-ui-assembly/README.md §2); phase 08, step 4 moved them onto the two files that
-replaced it, 08-design-tokens/tokens.css and components/. The numbers are kept:
+replaced it, tokens.css and components/; phase 09, step 1 moved those into the system's package, design-system/,
+with one entry point, index.css. The numbers are kept:
 
 1. no class in components/ holds a value of its own (hex, rgb(), px, a font name)
 2. no style= and no <style> on any mockup or flow step
 3. every class on a dressed page is defined in components/ (a short named list excepted)
 4. every var(--x) in components/, and in the showcase's own styles, is declared in tokens.css
 5. no component reads a colour primitive: colour only through a role (tokens.css, SEMANTIC)
-6. every mockup links Geist, tokens.css and components/index.css, nothing else; index.css imports every file
+6. every mockup links Geist and design-system/index.css, nothing else; index.css imports tokens.css then
+   components/index.css, which imports every file; the files never return to 08-design-tokens/
 7. no dressed page has more than one button-primary
 8. kit.html's words are in microcopy.md (build_kit checks it; repeated here as a count)
 9. coverage: wireframe pages and flow steps with a twin
@@ -25,12 +27,14 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import concept_ui  # noqa: E402
 
-TOKENS = ROOT / "08-design-tokens" / "tokens.css"
-COMPONENTS = ROOT / "08-design-tokens" / "components"
+SYSTEM = ROOT / "design-system"  # phase 09, step 1 (Q48, D1)
+TOKENS = SYSTEM / "tokens.css"
+COMPONENTS = SYSTEM / "components"
 UI = ROOT / "07-ui-assembly" / "ui"
 WF = ROOT / "04-wireframes"
 ALLOWED = {"visually-hidden", "product-page", "image"}  # utilities the markup carries for meaning
-LINKS = ("08-design-tokens/tokens.css", "08-design-tokens/components/index.css")
+LINKS = ("design-system/index.css",)  # one entry point (phase 09, step 1)
+ENTRY_IMPORTS = ["tokens.css", "components/index.css"]
 COLOUR_PRIMITIVE = re.compile(r"var\(--(color-[\w-]+)\)")  # every colour primitive lives in --color- (Q47)
 
 
@@ -67,6 +71,13 @@ def main():
     imports = re.findall(r'@import url\("([\w-]+\.css)"\)', (COMPONENTS / "index.css").read_text(encoding="utf-8"))
     if sorted(imports) != sorted(p.name for p in files):
         fails.append(f"6 index.css imports {len(imports)} files, components/ holds {len(files)}")
+    # 6d — the entry point imports the tokens, then the components, and nothing else; the old home stays empty
+    entry = re.findall(r'@import url\("([\w/.-]+)"\)', (SYSTEM / "index.css").read_text(encoding="utf-8"))
+    if entry != ENTRY_IMPORTS:
+        fails.append(f"6 design-system/index.css imports {entry}, not {ENTRY_IMPORTS}")
+    old = ROOT / "08-design-tokens"
+    if (old / "tokens.css").exists() or (old / "components").exists():
+        fails.append("6 tokens.css or components/ is back in 08-design-tokens/: phase 09 moved them to design-system/")
     # 2, 3, 6, 7 — every dressed page
     classes = set(re.findall(r"\.([a-zA-Z][\w-]*)", re.sub(r"url\([^)]*\)", "", body)))
     pages = sorted((WF / "mockups").glob("*.html")) + sorted((WF / "mockups" / "flows").glob("*/*.html"))
@@ -77,7 +88,7 @@ def main():
         if re.search(r"\sstyle=\"", h) or "<style" in h:
             styled.append(name)
         links = re.findall(r'<link rel="stylesheet" href="([^"]+)"', h)
-        if len(links) != 2 or not all(l.endswith(want) for l, want in zip(links, LINKS)):
+        if len(links) != len(LINKS) or not all(l.endswith(want) for l, want in zip(links, LINKS)):
             sheets.append(f"{name}: {links}")
         for c in set(c for m in re.findall(r'class="([^"]*)"', h) for c in m.split()):
             if c not in classes and c not in ALLOWED and not c.startswith("wf-") and c != "device":
@@ -90,14 +101,14 @@ def main():
     if unknown:
         fails.append("3 classes not in components/: " + "; ".join(f"{c} ({len(v)}: {v[0]})" for c, v in sorted(unknown.items())))
     if sheets:
-        fails.append(f"6 a page links something other than tokens.css + components/index.css: {sheets[:5]}")
+        fails.append(f"6 a page links something other than design-system/index.css: {sheets[:5]}")
     if primaries:
         fails.append(f"7 more than one primary: {primaries[:8]}")
-    # 4b, 6c — the showcase and the shell: the same two files, and their own styles read only declared variables
+    # 4b, 6c — the showcase and the shell: the same entry point, and their own styles read only declared variables
     for f in (UI / "kit.html", UI / "shell.html"):
         h = f.read_text(encoding="utf-8")
         links = re.findall(r'<link rel="stylesheet" href="([^"]+)"', h)
-        if len(links) != 2 or not all(l.endswith(want) for l, want in zip(links, LINKS)):
+        if len(links) != len(LINKS) or not all(l.endswith(want) for l, want in zip(links, LINKS)):
             fails.append(f"6 {f.name} links {links}")
         styles = "".join(re.findall(r"<style>(.*?)</style>", h, re.S))
         missing = sorted(set(re.findall(r"var\(--([\w-]+)\)", styles)) - declared)

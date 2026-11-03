@@ -212,7 +212,7 @@ product *is* before anything decides what it looks like.
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
 | **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **No step started** |
+| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
 | **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
@@ -1397,8 +1397,8 @@ and it needs a report surface nobody has designed.*
   ~~this covers both backup and informal sharing before any server exists.~~
 - **Styling: no engine — plain CSS, written by hand** (owner, 2026-10-29, Q45). ~~Deferred to lesson 08,
   decided on two built components; Tailwind, CSS Modules and vanilla-extract all still live.~~ The product is
-  styled by the two things lesson 08 built: `08-design-tokens/tokens.css` (custom properties on two levels,
-  themes as `[data-theme]` overrides) and `08-design-tokens/components/` (one CSS file per component). **No
+  styled by the two things lesson 08 built: `design-system/tokens.css` (custom properties on two levels,
+  themes as `[data-theme]` overrides) and `design-system/components/` (one CSS file per component). **No
   Tailwind, no CSS Modules, no vanilla-extract, no CSS-in-JS.** The basis is the course's purpose, not a
   comparison: the work is homework, and the point is to understand how tokens, components and themes work.
   Q6's criterion — **tokens and two real themes first-class, no utility classes in components** — is met
@@ -1683,7 +1683,7 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, ran from 2026-10-11 to
   2026-10-28 and is closed; lesson 08, design tokens, ran from 2026-10-28 to 2026-11-03 and is closed; lesson 09,
   design system, is current.**
-  Every value comes from `08-design-tokens/tokens.css` (since lesson 08; `06-concept/tokens.css` is the same source,
+  Every value comes from `design-system/tokens.css` (since lesson 08, moved there in lesson 09; `06-concept/tokens.css` is the same source,
   written flat for the stand), never from a page (§15, §17), and do not
   scaffold the app before there is something for it to hold.
 - **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
@@ -1700,7 +1700,7 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   `01-research/` · `02-personas-jtbd/` · `03-information-architecture/` · `04-wireframes/` ·
   `05-tone-of-voice/` · `06-concept/` · `07-ui-assembly/` · `08-design-tokens/` · `09-design-system/`, each indexed by its own `README.md`.
   **One named exception (Q48): `design-system/` at the root is the system's package, not a lesson's record** — lessons
-  10–12 grow it and the app consumes it, so no lesson number goes into its paths. It is created in lesson 09, step 1. **The register stays in
+  10–12 grow it and the app consumes it, so no lesson number goes into its paths. It was created on 2026-11-03, lesson 09, step 1. **The register stays in
   `01-research/research-plan.md`** — it was born there and every lesson writes to it. Generators —
   the lesson pages and the prototypes — live in `tools/`; **nothing that builds something lives only in
   a scratchpad.** The deploy is `vercel.json` plus `.vercelignore`, a whitelist: a new page is not
@@ -1782,7 +1782,7 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
 - **A screen is drawn whole**: every state, or none.
 - **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with the same
   markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 83 pages (80, plus `library-my-revoke` from Q42 and the two link dialogs from Q43) and all 241 flow steps are
-  dressed** ~~from one stylesheet, `07-ui-assembly/ui/kit.css`~~ — since lesson 08 from `08-design-tokens/tokens.css` and
+  dressed** ~~from one stylesheet, `07-ui-assembly/ui/kit.css`~~ — since lesson 08 from `design-system/tokens.css` and
   `components/` (§17) — guarded by `tools/kit_check.py`. The rule for where a change goes is §16 and the *оставляем* rule below.
 - **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
   the prototypes, `microcopy.md` and `voice.md` together (Q38).
@@ -1790,10 +1790,10 @@ Comfortable. Every item in its own **cut-out**; no rings round rows.
   re-routed 2026-10-28, lesson 08, when `kit.css` split in two). When the owner says *оставляем* (*we keep it*) about a
   visual edit, it goes to one of three places, by what changed:
   - **a value** goes into the token of its level in
-    [`08-design-tokens/tokens.css`](08-design-tokens/tokens.css), through `tools/concept_tokens.py`, signed in
+    [`design-system/tokens.css`](design-system/tokens.css), through `tools/concept_tokens.py`, signed in
     `concept.md`. A raw value goes in **PRIMITIVE**. What a colour is for goes in **SEMANTIC**, and in every theme block
     that overrides it. It never goes into a component, and a component never reads a colour primitive;
-  - **how a component looks** goes into its file in `08-design-tokens/components/`, through `MOCK_CSS` or `KIT_CSS` and
+  - **how a component looks** goes into its file in `design-system/components/`, through `MOCK_CSS` or `KIT_CSS` and
     `tools/build_components.py`, signed in [`DESIGN.md`](DESIGN.md);
   - **markup** goes into `07-ui-assembly/ui/kit.html` and onto **every screen where the component stands**, through
     the wireframe page and the generators.
@@ -1815,10 +1815,10 @@ clickable cases in `mockups/flows/`. The wireframes stay as they are, and the vi
 between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 
 **One way in, so nothing drifts:**
-- **A value** goes into `tools/concept_tokens.py` → [`08-design-tokens/tokens.css`](08-design-tokens/tokens.css), at its
+- **A value** goes into `tools/concept_tokens.py` → [`design-system/tokens.css`](design-system/tokens.css), at its
   level, signed in `concept.md` (§17). *Until lesson 08: `06-concept/tokens.css`, which is still written, flat, for the stand.*
 - **How a component looks** goes into `tools/build_kit.py` (KIT_CSS) or `tools/build_mockups.py` (MOCK_CSS)
-  → `tools/build_components.py` → [`08-design-tokens/components/`](08-design-tokens/components/), shown on
+  → `tools/build_components.py` → [`design-system/components/`](design-system/components/), shown on
   [`kit.html`](07-ui-assembly/ui/kit.html) and signed in [`DESIGN.md`](DESIGN.md). *Until lesson 08: one flat `kit.css`.*
 - **Structure** goes into the wireframe page, then everything is rebuilt.
 - **A word** goes into `microcopy.md` and the page together (§14).
@@ -1834,7 +1834,8 @@ lesson 08 from `kit.css` to the two files that replaced it, §17):
 - a class no component defines;
 - a variable `tokens.css` does not declare, including in `kit.html`'s own styles;
 - a colour primitive read by a component (lesson 08);
-- a page linking anything but `tokens.css` and `components/index.css`, or `kit.css` coming back;
+- a page linking anything but `design-system/index.css` (since lesson 09; two files in lesson 08), `kit.css` coming back,
+  or `tokens.css` and `components/` back in `08-design-tokens/`;
 - two primaries on one screen;
 - a word on `kit.html` that is not in `microcopy.md`;
 - geometry written as a count of a primitive (lesson 08).
@@ -1871,9 +1872,10 @@ theme (lesson 09), responsive (lesson 10), motion (lesson 11).
 
 **Added 2026-10-28, lesson 08 (Design tokens).** The flat kit of lesson 07 was split in two **without a pixel
 moving**. `07-ui-assembly/ui/kit.css` is gone; git keeps it, last in `d6d419a`. Every screen, the showcase and the
-shell now link two things:
-- **[`08-design-tokens/tokens.css`](08-design-tokens/tokens.css)** holds the values, on two levels.
-- **[`08-design-tokens/components/`](08-design-tokens/components/)** holds one file per component (27), and
+shell now link one file, **`design-system/index.css`** (since lesson 09, step 1, Q48; two files until then), which
+imports two things:
+- **[`design-system/tokens.css`](design-system/tokens.css)** holds the values, on two levels.
+- **[`design-system/components/`](design-system/components/)** holds one file per component (27), and
   `index.css` imports them in the kit's order.
 
 The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md):
@@ -1931,5 +1933,6 @@ The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md)
   - it checks in a browser, on every page, that no reordering between files lets one rule override another.
 - `tools/kit_check.py`, at the end of every build, carries ten guards. **New in this lesson**:
   - 5: no colour primitive in a component;
-  - 6: two links, `index.css` imports every file, and `kit.css` never returns;
+  - 6: one link (two in lesson 08), `design-system/index.css` imports `tokens.css` then `components/index.css`,
+    which imports every file, and neither `kit.css` nor the old home in `08-design-tokens/` returns;
   - 10: no geometry written as a count.

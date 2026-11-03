@@ -31,7 +31,7 @@ PAGES_DIR, PROTO_DIR, OUT = WF / "pages", WF / "prototypes", WF / "mockups"
 LUCIDE = ROOT / "06-concept" / "icons" / "lucide"
 PORTRAIT_FILE = "06-concept/img/portrait-96.jpg"  # stored in the repo (stage 7, #27)
 # what every mockup links (phase 08, step 4): the values on two levels, then one file per component
-KIT_FILES = ["08-design-tokens/tokens.css", "08-design-tokens/components/index.css"]
+KIT_FILES = ["design-system/index.css"]  # phase 09, step 1: one entry point (was tokens.css + components/index.css)
 # the theme of a dressed page (phase 08, step 5): dark is the product (§3); ?theme=light is the stress test of the
 # semantic level, set by the viewer's switch and kept for the tab, so a flow clicked through stays in its theme.
 # It only sets data-theme on <html>: every value comes from tokens.css, and no page holds a style.
@@ -415,7 +415,7 @@ def transform(html, root, page_name, unknown, kit_href=None, frame=True):
     """A wireframe page, dressed in the kit. `root` is the path from the page to the repo root."""
     used = set()
     kit_href = kit_href or [root + f for f in KIT_FILES]
-    # head: Inter and the wireframe sheet out; Geist, tokens.css and components/ in (phase 08, step 4)
+    # head: Inter and the wireframe sheet out; Geist and design-system/index.css in (phase 08, step 4; phase 09, step 1)
     html = re.sub(r'\s*<link href="https://fonts\.googleapis\.com/css2\?family=Inter[^>]*>', "", html)
     html = re.sub(r'<link rel="stylesheet" href="[^"]*wireframe\.css">',
                   '<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">\n'
@@ -812,8 +812,8 @@ def shell(html, flow=False):
 
 def build():
     import build_kit, build_components, concept_tokens
-    concept_tokens.build()     # the values, on two levels: 08-design-tokens/tokens.css
-    build_components.build()   # the classes, one file per component: 08-design-tokens/components/
+    concept_tokens.build()     # the values, on two levels: design-system/tokens.css
+    build_components.build()   # the classes, one file per component: design-system/components/, and index.css
     build_kit.build()          # the shell and the showcase
     OUT.mkdir(exist_ok=True)
     old = OUT / "mockup.css"
@@ -835,7 +835,7 @@ def build():
     import kit_check
     if kit_check.main():
         raise SystemExit("kit check failed — see 07-ui-assembly/README.md §2")
-    print(f"mockups: {len(PAGES)} pages, {nflow} flow steps · on tokens.css + components/ · viewer patched")
+    print(f"mockups: {len(PAGES)} pages, {nflow} flow steps · on design-system/index.css · viewer patched")
     for page, ctx in unknown:
         print("  icon guessed (circle-dashed):", page, "…", ctx[-90:])
 

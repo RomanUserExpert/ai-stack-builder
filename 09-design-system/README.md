@@ -87,7 +87,7 @@ lie** — because it is the same code as the product.
 
 | | Step | Out | State |
 |---|---|---|---|
-| **1** | **One package.** Create the system's folder (D1) with `patterns/`, `docs/`, `examples/`. Move `tokens.css` and `components/` into it — **move, not copy**: the generators write the new path and git keeps the old one. Add `index.css`, which imports both. Every page links **only** `index.css`. Guards re-pointed (6: one link; 4 and 5: the new paths). Pixel test identical on every page, `kit.html`, `shell.html`. | the folder, `index.css`, the generators, `kit_check.py` | |
+| **1** | **One package.** Create the system's folder (D1) with `patterns/`, `docs/`, `examples/`. Move `tokens.css` and `components/` into it — **move, not copy**: the generators write the new path and git keeps the old one. Add `index.css`, which imports both. Every page links **only** `index.css`. Guards re-pointed (6: one link; 4 and 5: the new paths). Pixel test identical on every page, `kit.html`, `shell.html`. | the folder, `index.css`, the generators, `kit_check.py` | **done 2026-11-03** |
 | **2** | **Living documentation.** A page per component in `docs/`, plus `index.html` that gathers them, plus `why.html`. Each component page has four parts: **anatomy** (the live component with its parts named), **variants and sizes** (every one `inventory.md` lists, side by side), **when to use** (from `DESIGN.md` and `microcopy.md`: the role it plays), **rule and anti-rule** (a right use, and a case for another component). **Built on `index.css`, never a picture.** Words checked against `microcopy.md`. | `docs/*.html`, a generator in `tools/` | |
 | **3** | **States, in both themes.** Every component gets **hover, active, focus-visible, disabled**, through semantic roles, each with a dark and a light value. **Focus** passes 3:1 against every ground it sits on, in both themes. **Hover and active** change ground, colour or edge, never position or size. **Disabled** per D3. The four light gaps are signed (D4). Each docs page gets a *States* block: all four, dark and light side by side. New pairs join `contrast_pairs()`. | `tokens.css`, `components/`, `docs/`, `concept.md` | |
 | **4** | **Patterns from the screens.** Read every wireframe page and find the compositions on **three or more** screens. Each becomes one file in `patterns/`, **made of existing components with no style of its own**. Candidates to test, not to assume: the page head with its actions; an empty or error state with its one action; a row list with the item side panel; the Run stage list ending in Export; a confirmation that names the consequence. A docs page: when to take a pattern, when separate components. | `patterns/`, `docs/patterns.html` | |
@@ -100,10 +100,15 @@ page, with phase 09 linked in every rail and in the viewer, and listed in `.verc
 
 ## State, 2026-11-03
 
-**Lesson 09 is open; no step is started.** D1–D6 were answered by the owner in one word, *as recommended* (Q48).
+**Lesson 09 is open. Step 1 is done** (2026-11-03): [`design-system/`](../design-system/README.md) holds `tokens.css`
+and `components/`, moved with `git mv` and unchanged to the byte, behind one `index.css` that imports them; every
+mockup, flow step, `kit.html` and `shell.html` links it alone; the generators write the new path; guards 4, 5 and 6
+are re-pointed, and guard 6 also refuses the files coming back to `08-design-tokens/`. **Pixel test: 83 of 83 pages,
+`kit.html` and `shell.html` identical; 235 of 241 flow steps**, the six others a 3 × 28 px spinner spot at up to
+2/255 that differs at HEAD too. `docs/`, `patterns/`, `examples/` and `backlog.md` stand empty for their steps. D1–D6 were answered by the owner in one word, *as recommended* (Q48).
 D4 and D5 answered the **procedure**: the four light values and the pressed recipes are still proposed by the model
 and signed by the owner one by one. D7 and D8 stand as recommended defaults. **Q44 — whether light ships — is still
-the owner's.** Next: step 1, the package at `design-system/`.
+the owner's.** Next: step 2, the living documentation.
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

@@ -62,13 +62,18 @@
 !07-ui-assembly/ui.html
 !vercel.json
 
-# 08 · Design tokens: every mockup, the showcase and the shell link these two
+# 08 · Design tokens: the record; the files moved to design-system/ in lesson 09
 !08-design-tokens
 08-design-tokens/*
-!08-design-tokens/tokens.css
-!08-design-tokens/components
-!08-design-tokens/components/*
 !08-design-tokens/tokens.html
 !08-design-tokens/tokens-audit.md
 !08-design-tokens/tokens-check.md
 !08-design-tokens/README.md
+
+# The design system: every mockup, the showcase and the shell link design-system/index.css (lesson 09, Q48)
+!design-system
+design-system/*
+!design-system/index.css
+!design-system/tokens.css
+!design-system/components
+!design-system/components/*

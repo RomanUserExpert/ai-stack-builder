@@ -1,11 +1,12 @@
-"""Phase 08, step 3: the kit's classes, one file per component -> 08-design-tokens/components/.
+"""Phase 08, step 3: the kit's classes, one file per component -> design-system/components/ (08-design-tokens/ until
+phase 09, step 1), and design-system/index.css, the system's one entry point: tokens.css, then components/index.css.
 
     python -X utf8 tools/build_components.py          # writes components/*.css and components/index.css
     python -X utf8 tools/build_components.py --list   # which rule went to which file, nothing written
 
 The source is the same as kit.css's: build_mockups.MOCK_CSS (the painted components), build_kit.KIT_CSS (the grey
 ones) and the skeleton sizes. Each rule goes to the file of the component its selector names, keeping its order and
-the comment above it. On the way, every colour variable becomes its role in 08-design-tokens/tokens.css: the same
+the comment above it. On the way, every colour variable becomes its role in design-system/tokens.css: the same
 value, a name that says what it is for. Where one phase-07 variable carried several roles (tokens-audit.md, M-1 …
 M-15), the selector decides which role it is here. Geometry is not renamed: it reads the primitive directly.
 
@@ -27,8 +28,14 @@ import build_kit  # noqa: E402
 import concept_ui  # noqa: E402
 import concept_tokens  # noqa: E402
 
-TOKENS = ROOT / "08-design-tokens" / "tokens.css"
-OUT = ROOT / "08-design-tokens" / "components"
+SYSTEM = ROOT / "design-system"  # phase 09, step 1: the package (Q48, D1)
+TOKENS = SYSTEM / "tokens.css"
+OUT = SYSTEM / "components"
+ENTRY = SYSTEM / "index.css"
+ENTRY_CSS = """/* design-system/index.css: the system's one entry point. Every page links this file and nothing else of ours. */
+@import url("tokens.css");
+@import url("components/index.css");
+"""
 
 # file, what it is (the header line), selectors it claims. First match wins, so the narrow ones come first.
 FILES = [
@@ -382,6 +389,7 @@ def build(write=True):
         for f in ORDER:
             (OUT / f"{f}.css").write_text(out[f], encoding="utf-8")
         (OUT / "index.css").write_text("\n".join(index) + "\n", encoding="utf-8")
+        ENTRY.write_text(ENTRY_CSS, encoding="utf-8")
     return files, fought
 
 
