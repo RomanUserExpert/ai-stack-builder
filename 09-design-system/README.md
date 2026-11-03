@@ -1,6 +1,7 @@
 # Phase 09 — Design system
 
 **Opened 2026-11-03** (register Q48), when lesson 08 closed; **D1–D6 are answered as recommended** (see *Decisions*).
+**Closed 2026-11-03** (register Q51): see *Closed* below.
 The plan below was written 2026-10-29, the day the phase's materials were read: the prompt pack
 (`01-prompts.md`, seven steps) and the 21 slides of `lesson-09.pdf`. Both are course material and stay out of the
 repo. It is numbered by the course's own seven steps.
@@ -97,6 +98,27 @@ lie** — because it is the same code as the product.
 
 **And the lesson's page**, `09-design-system/system.html`, built from a template in `tools/` like every phase
 page, with phase 09 linked in every rail and in the viewer, and listed in `.vercelignore`.
+
+## Closed, 2026-11-03
+
+**The lesson is closed** (register Q51). Steps 1–7 and the phase page, [`system.html`](system.html), are done, and every
+line of *Done means* below holds. The showcase is online: https://ai-stack-builder-research.vercel.app/design-system/docs.
+
+**The final recheck:**
+- the build and all 18 guards pass, and `tools/system_check.py` finds nothing;
+- 63 of 83 screens and 147 of 241 flow steps are identical to the goldens taken before the lesson. Every other
+  difference is the Breadcrumb's underline (I1), or the spinner spot that differs at HEAD too;
+- live, 66 pages and 165 addresses resolve.
+
+**Handed on:**
+- whether light ships (Q44, the owner's);
+- six orders in [`backlog.md`](../design-system/backlog.md);
+- the example screens' entry points and actions outside the configuring mode (register questions);
+- every screen at other widths (lesson 10) and the validation pass as a moment (lesson 11).
+
+**Left open outside the lesson:**
+- the phase pages' orange links at about 3.5:1;
+- lesson 07's page linking the retired `ui/kit.css`.
 
 ## State, 2026-11-03
 
@@ -201,7 +223,7 @@ The owner answered both open rows as recommended (Q50), and the host stays Verce
 
 **The phase page is built** (2026-11-03): [`system.html`](system.html), by `tools/build_system_page.py` from `tools/system-page.tpl.html`. Phase 09 is linked in every phase page's rail and in the viewer, and the page is listed in `.vercelignore`.
 
-Next: the close of the lesson, when the owner says so.
+**Closed the same day** (Q51). Next: lesson 10, responsive, when the owner opens it.
 
 ## Decisions — answered 2026-11-03 (Q48), D1–D6 as recommended
 

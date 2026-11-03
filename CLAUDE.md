@@ -11,7 +11,8 @@ All documentation, code, comments and UI copy in this repo are written in **Engl
 two more — personas and jobs to be done. Those two are lesson 02; lesson 03, information
 architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; lesson 05, tone of voice and microcopy,
 closed on 2026-10-05 (§14); lesson 06, concept, closed on 2026-10-11 (§15); lesson 07, UI assembly, closed on 2026-10-28
-(§16); lesson 08, design tokens, closed on 2026-11-03 (§17); and the current lesson is 09, design system (Q48).**
+(§16); lesson 08, design tokens, closed on 2026-11-03 (§17); lesson 09, design system, closed on 2026-11-03 (§18, Q51);
+and the next lesson is 10, responsive — not opened until the owner says so.**
 
 There is still no application code and no design system. ~~no mockups~~ **— the main job is drawn as mockups since
 2026-10-11** (§15), behind a Wireframe / Design switch in the viewer. ~~no information architecture~~
@@ -212,7 +213,7 @@ product *is* before anything decides what it looks like.
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
 | **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49). **Step 4 done 2026-11-03**: six [patterns](design-system/docs/patterns.html), each found on three screens or more. **Step 5 done 2026-11-03**: the rule of contribution, §18 — new appears in the system first, on a screen second. **Step 6 done 2026-11-03**: [a new screen](design-system/examples/usage.html) for EJ-3, built from the system alone, and [a second](design-system/examples/copies.html) for RJ-3; eight entries in [`backlog.md`](design-system/backlog.md), one a defect, none drawn. **Step 7 done 2026-11-03**: [the check](09-design-system/system-check.md), 15 rows (S1–S10, I1–I6), every one fixed or disposed, each class a guard (14–17); `kit.html` retired to a redirect (D2); the light disabled ground and the host signed (Q50); [the showcase online](https://ai-stack-builder-research.vercel.app/design-system/docs). **The phase page, [`system.html`](09-design-system/system.html), since 2026-11-03**, linked in every rail and in the viewer |
+| **09** | **Design system** | ~~current~~ — **closed 2026-11-03** (Q51) · [the phase page](09-design-system/system.html) · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49). **Step 4 done 2026-11-03**: six [patterns](design-system/docs/patterns.html), each found on three screens or more. **Step 5 done 2026-11-03**: the rule of contribution, §18 — new appears in the system first, on a screen second. **Step 6 done 2026-11-03**: [a new screen](design-system/examples/usage.html) for EJ-3, built from the system alone, and [a second](design-system/examples/copies.html) for RJ-3; eight entries in [`backlog.md`](design-system/backlog.md), one a defect, none drawn. **Step 7 done 2026-11-03**: [the check](09-design-system/system-check.md), 15 rows (S1–S10, I1–I6), every one fixed or disposed, each class a guard (14–17); `kit.html` retired to a redirect (D2); the light disabled ground and the host signed (Q50); [the showcase online](https://ai-stack-builder-research.vercel.app/design-system/docs). **The phase page, [`system.html`](09-design-system/system.html), since 2026-11-03**, linked in every rail and in the viewer |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
 | **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
@@ -266,10 +267,10 @@ one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the
 register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
 **Start at `FINAL.md`.**
 
-Do not skip ahead. **The current lesson is 09, design system** — [the plan](09-design-system/README.md), seven steps:
-one package at `design-system/`, living docs, states in both themes, patterns, rules of contribution, a test screen,
-the check and the showcase online. **No light value and no pressed value is written before the owner signs it** (Q48,
-D4, D5). If a request jumps past it — to responsive or motion —
+Do not skip ahead. ~~**The current lesson is 09, design system**~~ **Lesson 09 closed on 2026-11-03 (Q51); the next is
+10, responsive, and it is not opened yet** — it opens on the owner's word, as every lesson has. Until then the system
+grows only by §18: new appears in [`design-system/`](design-system/README.md) first, on a screen second, and **no colour
+value is written before the owner signs it**. If a request jumps past it — to responsive or motion —
 confirm before acting.
 **Every line of copy from now on is written against §14, *Voice*.**
 Product logic described in this file is **specification, not a build order** — it is
@@ -1512,6 +1513,8 @@ picked by the owner, and the register says so.*
 **And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
 reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
 
+**Added 2026-11-03 — Q51. Lesson 09 is closed** (owner, *закрываем*): all seven steps, the check fixed, the phase page built. Two findings outside the lesson are left open for the owner: the phase pages' orange links at about 3.5:1, and lesson 07's page linking the retired `ui/kit.css`.
+
 **Added 2026-11-03 — Q50. The check's two answers** (owner): `--disabled` in light is `#ECEDE6`; the showcase stays on Vercel (D7), not GitHub Pages (§17).
 
 **Added 2026-11-03 — Q49. States signed** (owner): pressed, one recipe per ground; the four light gaps filled; 83 contrast
@@ -1687,7 +1690,7 @@ each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
   and is closed; lesson 05, tone of voice and microcopy, ran from 2026-10-01 to 2026-10-05 and is
   closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, ran from 2026-10-11 to
   2026-10-28 and is closed; lesson 08, design tokens, ran from 2026-10-28 to 2026-11-03 and is closed; lesson 09,
-  design system, is current.**
+  design system, ran on 2026-11-03 and is closed; lesson 10, responsive, is next and not yet opened.**
   Every value comes from `design-system/tokens.css` (since lesson 08, moved there in lesson 09; `06-concept/tokens.css` is the same source,
   written flat for the stand), never from a page (§15, §17), and do not
   scaffold the app before there is something for it to hold.

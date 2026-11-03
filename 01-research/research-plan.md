@@ -2147,3 +2147,35 @@ the owner, as recommended** (*делай по рекомендациям*).
   one host keeps one address.
 
 The rest of the table was fixed without a decision: none of it needed a value or a product choice.
+
+### Q51 — lesson 09 closed — raised and answered 2026-11-03
+
+**Raised by the final recheck of lesson 09; answered by the owner** (*закрываем*). All seven steps are done:
+- the package;
+- the docs, with tokens and layouts;
+- the states;
+- the patterns, with their context as placeholders;
+- the rule of contribution;
+- two example screens with a backlog of eight entries, two of them closed;
+- the check, 18 rows, every one fixed or disposed, with 18 guards.
+
+The phase page is [`09-design-system/system.html`](../09-design-system/system.html), and the showcase is online.
+
+**The recheck:**
+- the build and all guards pass, and `system_check.py` finds nothing;
+- 63 of 83 screens and 147 of 241 flow steps are identical to the goldens taken before the lesson. Every other
+  difference is the Breadcrumb's new underline (I1), or a spinner spot that differs at HEAD too;
+- live, 66 pages and 165 addresses resolve.
+
+**Left open, not part of the lesson, for the owner:**
+- the phase pages' orange link, `#e05f03` on `#f9f9f7`, is about 3.5:1 against AA's 4.5:1. It is the look of all nine
+  phase pages (`DESIGN-artifacts.md`);
+- lesson 07's page links `ui/kit.css`, retired in lesson 08.
+
+**Handed on:**
+- whether light ships (Q44);
+- six backlog orders, each entering by §18;
+- the two example screens' entry points and actions, which are register questions;
+- responsive (lesson 10) and motion (lesson 11).
+
+**Lesson 10 is not opened by this entry.**
