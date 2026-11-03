@@ -8,7 +8,7 @@
 | [`index.css`](index.css) | **The one entry point**: `tokens.css`, then `components/index.css` | `tools/build_components.py` |
 | [`tokens.css`](tokens.css) | The values on two levels: **primitive** (what a value is) and **semantic** (what a colour is for), dark in `:root`, light as `[data-theme="light"]` role overrides | `tools/concept_tokens.py` |
 | [`components/`](components/) | One file per component (27), and `index.css` importing them in the kit's order | `tools/build_components.py` |
-| `docs/` | The living documentation, a page per component, on this same `index.css` | lesson 09, step 2 |
+| [`docs/`](docs/index.html) | **The living documentation**: [`index.html`](docs/index.html), the showcase; a page per component (46) — anatomy, variants and states, when to use, rule and anti-rule; [`why.html`](docs/why.html). All on this same `index.css` | `tools/build_docs.py`, the words in `tools/docs_content.py` |
 | `patterns/` | Compositions found on three screens or more, with no style of their own | lesson 09, step 4 |
 | `examples/` | A screen built from the system alone, labelled *an example, not in the product* | lesson 09, step 6 |
 

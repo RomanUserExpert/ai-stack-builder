@@ -212,7 +212,7 @@ product *is* before anything decides what it looks like.
 | **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
 | **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
 | **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved |
+| **09** | **Design system** | ← **current**, from 2026-11-03 · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css` |
 | **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
 | **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
@@ -1820,6 +1820,9 @@ between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/R
 - **How a component looks** goes into `tools/build_kit.py` (KIT_CSS) or `tools/build_mockups.py` (MOCK_CSS)
   → `tools/build_components.py` → [`design-system/components/`](design-system/components/), shown on
   [`kit.html`](07-ui-assembly/ui/kit.html) and signed in [`DESIGN.md`](DESIGN.md). *Until lesson 08: one flat `kit.css`.*
+- **What a component's docs page says** — its anatomy, when to use it, its rule and anti-rule — goes into
+  `tools/docs_content.py`; `tools/build_docs.py` writes [`design-system/docs/`](design-system/docs/index.html) from it
+  and from the kit's own specimens (since lesson 09, step 2).
 - **Structure** goes into the wireframe page, then everything is rebuilt.
 - **A word** goes into `microcopy.md` and the page together (§14).
 - **A tone the structure cannot carry** goes into `build_mockups.transform`. That covers danger, warning, the one
@@ -1838,7 +1841,9 @@ lesson 08 from `kit.css` to the two files that replaced it, §17):
   or `tokens.css` and `components/` back in `08-design-tokens/`;
 - two primaries on one screen;
 - a word on `kit.html` that is not in `microcopy.md`;
-- geometry written as a count of a primitive (lesson 08).
+- geometry written as a count of a primitive (lesson 08);
+- a component of the kit with no docs page, or a docs page linking anything but `design-system/index.css` or reading a
+  colour primitive (lesson 09, guard 11).
 
 **Three checks are re-runnable, beyond the build:**
 - `tools/kit_pixel_test.py`: goldens before a change, the same pages after;

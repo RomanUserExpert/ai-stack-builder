@@ -222,6 +222,8 @@ that indexes it and, from lesson 03 on, a gitignored `PROGRESS-NN.local.md`.
 
 - `CLAUDE.md` — full working context: data model, product logic, scope boundaries, conventions. **The
   source of truth. Start here.**
+- [`design-system/`](design-system/README.md) — **the design system**: `index.css`, the one file every screen links;
+  `tokens.css`, `components/`, and [the living docs](design-system/docs/index.html), a page per component (lesson 09).
 - [`tools/`](tools/README.md) — the generators: the three lesson pages, and the prototypes.
 - `vercel.json`, `.vercelignore` — the deploy. `.vercelignore` is a whitelist of the pages above;
   **a new page is not served until it is added there.** Old `/research/...` addresses redirect.

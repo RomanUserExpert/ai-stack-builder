@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why it looks like this · Design system</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css">
+  <script>/* theme: ?theme=light, from the viewer's switch (phase 08) */(function(){var d=document.documentElement;window.dsTheme=function(t){if(t==='light')d.setAttribute('data-theme','light');else d.removeAttribute('data-theme');try{sessionStorage.setItem('ds-theme',t)}catch(e){}};var t=new URLSearchParams(location.search).get('theme');if(!t){try{t=sessionStorage.getItem('ds-theme')}catch(e){}}if(t)dsTheme(t)})();</script>
+  <style>.kit-page{min-height:100vh}
+.kit-top{position:sticky;top:0;z-index:calc(var(--z-popover) + var(--z-sticky));display:flex;align-items:center;gap:var(--space-6);height:var(--size-bar);padding:0 var(--space-6);background:var(--bar);border-bottom:var(--border-width-thin) solid var(--line)}
+.kit-top strong{font:var(--typescale-body);font-weight:var(--font-weight-semibold)}
+.kit-top nav{display:flex;gap:var(--space-4);font:var(--typescale-small)}
+.kit-top nav a{color:var(--text-2);text-decoration:none}
+.kit-top nav a:hover{color:var(--text)}
+.kit-top .kit-theme{margin-left:auto}
+.kit-body{display:flex;flex-direction:column;gap:var(--space-12);padding:var(--space-8);max-width:calc(var(--width-canvas) + var(--space-12) * 3);margin:0 auto}
+.kit-intro{max-width:var(--measure-wide);display:flex;flex-direction:column;gap:var(--space-2);color:var(--text-2)}
+.kit-intro h1{font:var(--typescale-display);letter-spacing:var(--tracking-display);color:var(--text)}
+.kit-group{display:flex;flex-direction:column;gap:var(--space-8)}
+.kit-group>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.kit-comp{display:flex;flex-direction:column;gap:var(--space-4)}
+.kit-comp-head h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.kit-meta{font:var(--typescale-micro);font-weight:var(--font-weight-regular);color:var(--text-3)}
+.kit-meta code{background:none;padding:0;color:var(--text-2)}
+.kit-state{display:grid;grid-template-columns:var(--width-col-md) minmax(0,1fr);gap:var(--space-2) var(--space-6);align-items:start}
+.kit-label{font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3)}
+.kit-note{grid-column:1;font:var(--typescale-micro);font-weight:var(--font-weight-regular);color:var(--text-3)}
+.kit-state>.kit-label{grid-column:1}
+.kit-demo{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-3);min-width:0}
+.kit-demo>:is(ol,header,section,pre,.kit-clip,.kit-stage,.kit-row,.callout,.form-actions,.marks,div:not(.kit-narrow,.kit-panel,.kit-drawer,.kit-aside)){align-self:stretch}
+.kit-demo>.search{width:calc(var(--measure) - var(--space-12) * 3)}
+.kit-demo>.field{width:calc(var(--width-side) - var(--space-10))}
+.kit-row{display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center}
+.kit-glyph{display:inline-flex;align-items:center;gap:var(--space-1);margin-right:var(--space-4)}
+.kit-glyph .kit-label{text-transform:none;letter-spacing:normal}
+.kit-demo>header{border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.kit-panel{width:var(--width-side);max-height:calc(var(--space-12) * 12);overflow:auto;border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.kit-drawer,.kit-aside,.kit-narrow{width:var(--width-side)}
+.kit-drawer .drawer,.kit-aside .aside-box{position:static}
+.kit-clip{max-height:calc(var(--space-12) * 8);overflow:hidden;border-radius:var(--radius-lg)}
+.kit-stage{position:relative;overflow:hidden;border-radius:var(--radius-lg);background:var(--ground);border:var(--border-width-thin) solid var(--line)}
+.kit-stage dialog.modal{position:relative;top:auto;margin:var(--space-8) auto}
+.kit-stage dialog.sheet{position:relative;inset:auto;margin:0 0 0 auto;max-height:calc(var(--space-12) * 14)}
+.kit-stage:has(.popover){min-height:calc(var(--space-12) * 15);max-width:calc(var(--width-col-xl) + var(--space-12) * 4)}
+.kit-find{position:absolute;top:var(--space-6);right:var(--space-6);display:flex;justify-content:flex-end}
+.kit-find dialog.popover{position:absolute}
+.kit-demo .door{margin:0;width:calc(var(--width-side) - var(--space-10))}
+.kit-demo>.export-stage{max-width:var(--measure)}
+.kit-shell{display:flex;flex-direction:column;gap:var(--space-8)}
+.kit-shell .canvas{min-height:0;border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.kit-shell .app-main{min-height:calc(var(--space-12) * 3);color:var(--text-3)}.doc-page .kit-body{gap:var(--space-12)}
+.doc-crumb{font:var(--typescale-small);color:var(--text-3)}
+.doc-crumb a{color:var(--text-2)}
+.doc-crumb a:hover{color:var(--text)}
+.doc-lead{max-width:var(--measure-wide);color:var(--text-2)}
+.doc-meta{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4);font:var(--typescale-micro);color:var(--text-3)}
+.doc-meta code{background:none;padding:0;color:var(--text-2)}
+.doc-sec{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-sec>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-sec>h2 .kit-meta{margin-left:var(--space-2)}
+.doc-anatomy{position:relative;padding:var(--space-10) var(--space-8);background:var(--tray);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-anatomy>.kit-demo{grid-column:auto;grid-row:auto}
+.doc-pins{position:absolute;inset:0;pointer-events:none}
+.doc-pin,.doc-parts li::before{display:inline-flex;align-items:center;justify-content:center;min-width:var(--size-tag);height:var(--size-tag);padding:0 var(--space-1);border-radius:var(--radius-full);background:var(--mark);color:var(--ground);font:var(--typescale-micro);font-weight:var(--font-weight-semibold);font-variant-numeric:tabular-nums}
+.doc-pin{position:absolute;box-shadow:0 0 0 var(--border-width-thick) var(--tray)}
+.doc-hl{position:absolute;display:none;border:var(--border-width-thick) solid var(--mark);border-radius:var(--radius-sm);pointer-events:none}
+.doc-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-3) var(--space-8);list-style:none;counter-reset:part}
+.doc-parts li{display:grid;grid-template-columns:var(--size-tag) minmax(0,1fr);gap:0 var(--space-3);align-items:start;font:var(--typescale-small);color:var(--text-2);cursor:default}
+.doc-parts li::before{counter-increment:part;content:counter(part)}
+.doc-parts li:hover b{color:var(--text)}
+.doc-parts b{font-weight:var(--font-weight-semibold);color:var(--text)}
+.doc-parts code{grid-column:2;font:var(--typescale-code);color:var(--text-3);background:none;padding:0}
+.doc-prose{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure)}
+.doc-prose p{color:var(--text-2)}
+.doc-prose strong{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-size{font:var(--typescale-small);color:var(--text-3)}
+.doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.doc-rule{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg);color:var(--text-2)}
+.doc-rule.doc-anti{background:var(--cutout)}
+.doc-rule a{color:var(--text)}
+.doc-pager{display:flex;justify-content:space-between;gap:var(--space-4);padding-top:var(--space-5);border-top:var(--border-width-thin) solid var(--line);font:var(--typescale-small)}
+.doc-pager a{color:var(--text-2)}
+.doc-pager a:hover{color:var(--text)}
+.doc-group{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-group>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-xl),1fr));gap:var(--space-5)}
+.doc-card{position:relative;display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-3);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-card:hover{border-color:var(--line-strong)}
+.doc-card h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading);padding:0 var(--space-2)}
+.doc-card h3 a{color:var(--text);text-decoration:none}
+.doc-card h3 a::after{content:"";position:absolute;inset:0}
+.doc-card p{padding:0 var(--space-2) var(--space-2);font:var(--typescale-small);color:var(--text-2)}
+.doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
+.doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
+.doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
+.doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
+.doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
+.doc-facts div{display:flex;flex-direction:column;gap:var(--space-1)}
+.doc-facts b{font:var(--typescale-display);letter-spacing:var(--tracking-display);color:var(--text)}
+.doc-facts span{font:var(--typescale-small);color:var(--text-3)}
+.doc-links{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.doc-table{width:100%;border-collapse:collapse;font:var(--typescale-small)}
+.doc-table th{text-align:left;font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3);padding:var(--space-2) var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-table td{vertical-align:top;padding:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line);color:var(--text-2)}
+.doc-table td:first-child{color:var(--text);font-weight:var(--font-weight-semibold);white-space:nowrap}
+.doc-pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-4)}
+.doc-pair{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-pair h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-pair p{font:var(--typescale-small);color:var(--text-2)}
+.doc-pair .kit-label{color:var(--text-3)}
+.doc-rounds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-4);list-style:none;counter-reset:round}
+.doc-rounds li{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);background:var(--cutout);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md);font:var(--typescale-small);color:var(--text-2)}
+.doc-rounds li.is-kept{background:var(--raised);border-color:var(--line-strong)}
+.doc-rounds b{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-ref{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5) 0;border-top:var(--border-width-thin) solid var(--line)}
+.doc-ref h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-ref .doc-prose{max-width:var(--measure-wide)}
+.doc-ref .kit-demo{grid-column:auto;grid-row:auto}</style>
+</head>
+<body class="product-page kit-page doc-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M4.929 4.929 19.07 19.071" /></symbol><symbol id="l-circle-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" /></symbol><symbol id="l-cloud-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10.94 5.274A7 7 0 0 1 15.71 10h1.79a4.5 4.5 0 0 1 4.222 6.057" />
+  <path d="M18.796 18.81A4.5 4.5 0 0 1 17.5 19H9A7 7 0 0 1 5.79 5.78" />
+  <path d="m2 2 20 20" /></symbol><symbol id="l-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></symbol></svg>
+<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Why</p>
+  <h1>Why it looks like this</h1>
+  <p>The product reads like an inspection, not a sales sheet: it says what was examined, counts what it found and names the cost before the step. Every value in the system traces to a line of the owner's taste or to one of five attributes, written before anything was drawn. This page is read from <code>06-concept/concept.md</code> and <code>06-concept/references.md</code>; the specimens on it are live.</p>
+</div>
+<section class="doc-sec"><h2>The owner's taste</h2>
+  <div class="doc-pairs"><div class="doc-pair"><p class="kit-label">Likes</p><h3>Vercel</h3><p>A clean interface without decoration: the status, the fact and the consequence stand side by side. Monochrome; colour only where it means something.</p></div><div class="doc-pair"><p class="kit-label">Likes</p><h3>Figma</h3><p>A dense working surface. A lot on screen, and it does not look overloaded, because the hierarchy is held by the grid and the type, not by colour.</p></div><div class="doc-pair"><p class="kit-label">Likes</p><h3>Teams and Slack</h3><p>Glass: translucent layers. The product&#x27;s signature touch — noticeable, used sparingly.</p></div></div>
+  <div class="doc-prose"><p><strong>Does not want.</strong></p><p>— The palette an AI produces for the words “AI tool”: a dark ground, violet-blue neon gradients, glow.</p><p>— A marketplace showcase: Verified and Popular badges, stars, ratings, cover cards.</p><p>— Glass everywhere: translucent content, text on a blur, glass that eats contrast.</p><p>— A green tick as the main signal. It promises works, and we run nothing.</p></div>
+</section>
+<section class="doc-sec"><h2>Five attributes <span class="kit-meta">this, not that</span></h2>
+  <p class="doc-lead">Each pair names the line of data it stands on, or says it is taste. A direction that broke a pair was not drawn.</p>
+  <div class="doc-pairs"><div class="doc-pair"><p class="kit-label">1</p><h3>An inspector&#x27;s report, not a seller&#x27;s badge</h3><p>A verdict is facts side by side: what was examined, how long it took, the counts. Never a seal — no score, no rating, no green badge standing in for a sentence.</p><p class="kit-meta">Data: EJ-2, believe that a clean result was earned</p></div><div class="doc-pair"><p class="kit-label">2</p><h3>Dense and counted, not spacious and showcased</h3><p>A row carries many small facts at once. Hierarchy comes from the grid and the type weight, not from colour or cards; a count sits by what it counts.</p><p class="kit-meta">Data for the counts; taste for Figma</p></div><div class="doc-pair"><p class="kit-label">3</p><h3>The consequence is visible before the step, not after it</h3><p>The sentence that names a cost sits inside the control it applies to, above the button — never a toast afterwards, never Are you sure?</p><p class="kit-meta">Data: EJ-1</p></div><div class="doc-pair"><p class="kit-label">4</p><h3>Glass is a layer over the work, not the work itself</h3><p>Glass only on a temporary surface — a dialog, the Filters popover. What a person reads to decide something is opaque, and text always sits on a sheet.</p><p class="kit-meta">Taste; data only for where</p></div><div class="doc-pair"><p class="kit-label">5</p><h3>Colour is a claim, held back</h3><p>The interface is greyscale. Colour appears only where it states something the product knows: a Problem, a Note, what you can press, where you are.</p><p class="kit-meta">Data: §5&#x27;s refusal of badges; taste: Vercel</p></div></div>
+</section>
+<section class="doc-sec"><h2>Four rounds to Mica · Lime</h2>
+  <p class="doc-lead">Three directions a round, each drawn on the same sample; the owner chose in the browser. <a href="../../06-concept/directions.html">Round 1</a> · <a href="../../06-concept/directions-2.html">2</a> · <a href="../../06-concept/directions-3.html">3</a> · <a href="../../06-concept/directions-4.html">4</a> · <a href="../../06-concept/style.html">the phase page</a></p>
+  <ol class="doc-rounds"><li class=""><p class="kit-label">Round 1</p><b>Acrylic · Manifest · Catalogue</b><span>Turned down.</span></li><li class=""><p class="kit-label">Round 2</p><b>Glasshouse · Kit · Warm</b><span>Turned down — but Kit&#x27;s cut-out row came back in round 4.</span></li><li class=""><p class="kit-label">Round 3</p><b>Mica · Cut-out · Canon</b><span>Mica kept, and a density between Default and Comfortable.</span></li><li class="is-kept"><p class="kit-label">Round 4</p><b>Mica · Cobalt · Jade · Lime</b><span>Lime, in Kit&#x27;s cut-out form. Fixed on 2026-10-11.</span></li></ol>
+</section>
+<section class="doc-sec"><h2>Where each device came from</h2>
+  <p class="doc-lead">None is copied whole. Each reference gives a named device and the worry it removes; what was refused is named too, because each refused thing claims more than this product knows.</p>
+  <div class="doc-ref"><div class="doc-prose"><h3>Linear — the base</h3><p>Its system, not its surface: three surfaces, edges by hairline rather than shadow, three text tones, colour only for meaning, dimmed counts beside a group&#x27;s label. No violet, nothing of its brand.</p><p><strong>Here:</strong> Every item in its own cut-out in a tray, held by hairlines and three inks. → <a href="../pages/row-list.html">Row list</a></p></div><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">code-style</a><span class="tag">skill</span></h2>
+                <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
+                <p class="facts meta"><span><code>.claude/skills/code-style/SKILL.md</code></span><span>Defers to <em>the client’s ESLint config</em></span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · last exported 2 days ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li></ol><ol class="row-list"><li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">db-migrate</a><span class="tag">script</span></h2>
+                <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files</span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · 1 item requires this · requires <code>seed-data</code> · last exported 12 days ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li></ol></div></div><div class="doc-ref"><div class="doc-prose"><h3>Vercel — two devices</h3><p>B1: a stage is name, duration and a verdict glyph at the right, expanding in place. B2: status is a dot and a word, never a filled pill. A duration beside a verdict is evidence it looked.</p><p><strong>Here:</strong> Run&#x27;s stages, and Checked as a quiet dot. → <a href="../pages/check-stages.html">Check stages</a></p></div><div class="kit-demo"><section class="stage-group" aria-labelledby="wcheck-stages0-k158-g-find">
+        <h2 id="wcheck-stages0-k158-g-find">Findings</h2>
+        <ol class="stages">
+          <li>
+            <details>
+              <summary><span class="n">01</span><span class="name">Requirements</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>14 items · 3 auto-added · no cycles</span><span class="time">0.3 s</span></summary>
+              <div class="stage-body">
+                <p>You added 11. 3 more were auto-added because another item <code>requires</code> them: <code>db-migrate</code> and <code>postgres-mcp</code> for <code>migration-reviewer</code>, and <code>seed-data</code> for <code>db-migrate</code>.</p>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details open>
+              <summary><span class="n">02</span><span class="name">Declared conflicts</span><span class="result result-problem"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>1 problem</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout">
+                  <span class="severity">Problem</span>
+                  <span><code>eslint-autofix</code> declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+                  <div class="row-actions"><a class="button button-danger-quiet" href="#">Remove eslint-autofix…</a></div>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li class="is-skipped">
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">03</span><span class="name">Command names</span><span class="result"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg>Skipped — no item declares a command</span><span class="time">—</span></summary>
+            </details>
+          </li>
+          <li>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">04</span><span class="name">Target paths</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — no two items write to the same path</span><span class="time">0.2 s</span></summary>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">05</span><span class="name">Env keys</span><span class="result result-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>1 note · 3 keys named</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet">
+                  <span class="severity">Note</span>
+                  <span><code>DATABASE_URL</code> (postgres-mcp), <code>GITHUB_TOKEN</code> (github-mcp) and <code>SENTRY_AUTH_TOKEN</code> (sentry-mcp) are needed. They go into <code>.env.example</code> as names; the receiving machine supplies the values.</span>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details>
+              <summary><span class="n">06</span><span class="name">Defers to</span><span class="result result-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>1 note</span><span class="time">0.1 s</span></summary>
+              <div class="stage-body">
+                <div class="callout callout-quiet">
+                  <span class="severity">Note</span>
+                  <span><code>code-style</code> defers to the client’s ESLint config. Where they disagree, that wins.</span>
+                </div>
+              </div>
+            </details>
+          </li>
+          <li>
+            <details class="stage-empty">
+              <summary tabindex="-1"><span class="n">07</span><span class="name">Pinned refs</span><span class="result"><span class="glyph glyph-checked" aria-hidden="true"></span>Checked — 3 external items, all pinned</span><span class="time">0.4 s</span></summary>
+            </details>
+          </li>
+        </ol>
+      </section></div></div><div class="doc-ref"><div class="doc-prose"><h3>GitHub Actions — two devices</h3><p>C1: Skipped is its own neutral glyph, a slashed circle. C2: a count sits in a small grey capsule after a tab&#x27;s label. Not taken: the filled green disc on a passed job.</p><p><strong>Here:</strong> The kind tabs with their counts. → <a href="../pages/tabs.html">Tabs</a></p></div><div class="kit-demo"><nav class="tabs tabs-page" aria-label="Kind"><a href="#" aria-current="page">All <span class="count">11</span></a><a href="#">skill <span class="count">1</span></a><a href="#">agent <span class="count">2</span></a><a href="#">prompt <span class="count">2</span></a><a href="#">mcp <span class="count">2</span></a><a href="#">script <span class="count">3</span></a><a href="#">app <span class="count">1</span></a></nav></div></div><div class="doc-ref"><div class="doc-prose"><h3>Raycast Store — one device</h3><p>D1: a dimmed metadata line under the description, quiet enough not to compete with the name. Not taken: its red ribbons, store-sized icons and centred marketing layout.</p><p><strong>Here:</strong> The usage facts on a Library row. → <a href="../pages/usage-facts.html">Usage facts</a></p></div><div class="kit-demo"><ol class="row-list"><li>
+            <article class="row row-tight">
+              <div>
+                <h2><a href="#">db-migrate</a><span class="tag">script</span></h2>
+                <p class="description">Generates a Postgres migration from a schema diff and runs it — dry run first, then for real.</p>
+                <p class="facts meta"><span><code>scripts/db-migrate.sh</code> + 2 files</span></p>
+              </div>
+              <p class="usage meta">Used in 3 projects · 1 item requires this · requires <code>seed-data</code> · last exported 12 days ago</p>
+              <div class="row-actions">
+                <a class="button" href="#">Edit</a>
+                <a class="button" href="#">Export</a>
+                <button type="button">Share…</button>
+              </div>
+            </article>
+          </li></ol></div></div>
+</section>
+<section class="doc-sec"><h2>The working style</h2>
+  <table class="doc-table"><thead><tr><th>Decision</th><th>What it is</th><th>Stands on</th></tr></thead><tbody>
+  <tr><td>Material</td><td>Mica: a neutral ground with a faint lime tint, quiet layers — tray, cut-out, raised.</td><td>The owner&#x27;s taste for glass, held to pair 4</td></tr><tr><td>Brand</td><td>Lime, only on what you can press and where you are. Never a verdict.</td><td>Pair 5</td></tr><tr><td>Severities</td><td>Problem in rose, Note in amber, as tinted tags with an icon and a word. Checked is a quiet dot; Skipped is ban.</td><td>§6; pair 1; D1-B</td></tr><tr><td>Glass</td><td>Acrylic only round a dialog and the Filters popover: an 8 px translucent edge, the sheet inside opaque.</td><td>Pair 4; owner, 2026-10-19</td></tr><tr><td>Type</td><td>Geist for what a person reads, Geist Mono for what a machine reads.</td><td>The owner&#x27;s word</td></tr><tr><td>Icons</td><td>Lucide, 1.75 px stroke, one style.</td><td>Owner, round 4</td></tr><tr><td>Shape</td><td>Soft, not round: 6 on a control, 10 on a cut-out, 14 on a panel, a pill on a tag. The radius grows with the thing, so nesting reads.</td><td>Owner, round 4</td></tr><tr><td>Depth</td><td>Hairlines first. A shadow only where something is lifted: the current place, a segment, a dialog.</td><td>Linear; pair 4</td></tr><tr><td>Density</td><td>Between Default and Comfortable: 32 px controls, 12 px row padding, body at 14.5.</td><td>Owner, round 3</td></tr><tr><td>Red</td><td>Only on the step that removes, in its confirmation. Amber only for going ahead despite a Problem.</td><td>Owner, 2026-10-11</td></tr>
+  </tbody></table>
+</section>
+<section class="doc-sec"><h2>Colour is a claim, on screen</h2>
+  <p class="doc-lead">The severity marks, live: colour only where the product knows something. There is no success colour; the best a check can say is Checked.</p>
+  <div class="kit-demo"><div class="kit-row"><span class="kit-glyph"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg><span class="kit-label">problem</span></span><span class="kit-glyph"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg><span class="kit-label">note</span></span><span class="kit-glyph"><span class="glyph glyph-checked" aria-hidden="true"></span><span class="kit-label">checked</span></span><span class="kit-glyph"><svg class="glyph glyph-skipped" aria-hidden="true"><use href="#l-ban"/></svg><span class="kit-label">skipped</span></span><span class="kit-glyph"><span class="glyph glyph-waiting" aria-hidden="true"></span><span class="kit-label">waiting</span></span><span class="kit-glyph"><span class="glyph glyph-running" aria-hidden="true"></span><span class="kit-label">running</span></span><span class="kit-glyph"><svg class="glyph glyph-stopped" aria-hidden="true"><use href="#l-cloud-off"/></svg><span class="kit-label">stopped</span></span></div></div>
+  <div class="kit-demo"><div class="kit-row"><p class="marks"><span class="mark mark-problem"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem</span></p><p class="marks"><span class="mark mark-note"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note</span></p></div></div>
+</section>
+</main>
+<script>
+(function(){
+  function place(){
+    document.querySelectorAll('[data-anatomy]').forEach(function(box){
+      var spec = box.querySelector('.kit-demo'), layer = box.querySelector('.doc-pins'), hl = box.querySelector('.doc-hl');
+      var b = box.getBoundingClientRect(), taken = [];
+      layer.innerHTML = '';
+      box.parentNode.querySelectorAll('.doc-parts li').forEach(function(li, i){
+        var el = spec.querySelector(li.getAttribute('data-sel'));
+        if (!el) return;
+        var r = el.getBoundingClientRect(), x = r.left - b.left, y = r.top - b.top;
+        var pin = document.createElement('span');
+        pin.className = 'doc-pin'; pin.textContent = i + 1; layer.appendChild(pin);
+        var w = pin.offsetWidth, h = pin.offsetHeight;
+        x = Math.max(0, x - w * 0.7); y = Math.max(0, y - h * 0.7);
+        taken.forEach(function(t){ if (Math.abs(t[0] - x) < w && Math.abs(t[1] - y) < h) x = t[0] + w + 2; });
+        taken.push([x, y]);
+        pin.style.left = x + 'px'; pin.style.top = y + 'px';
+        function show(){ hl.style.display = 'block'; hl.style.left = (r.left - b.left) + 'px'; hl.style.top = (r.top - b.top) + 'px';
+                         hl.style.width = r.width + 'px'; hl.style.height = r.height + 'px'; }
+        li.onmouseenter = show; li.onmouseleave = function(){ hl.style.display = 'none'; };
+      });
+    });
+  }
+  window.addEventListener('load', place); window.addEventListener('resize', place);
+  if (document.fonts) document.fonts.ready.then(place);
+  document.addEventListener('ds-theme', place);
+  var t = document.querySelector('.kit-theme');
+  if (t && document.documentElement.getAttribute('data-theme') === 'light') t.textContent = 'Dark theme';
+})();
+</script>
+</body>
+</html>

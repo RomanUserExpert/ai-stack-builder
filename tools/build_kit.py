@@ -241,9 +241,15 @@ def cut(page, tag, attr="", contains=None, n=0, wrap="{}"):
     return wrap.format(frag)
 
 
+class Piece(str):
+    """The showcase's HTML, carrying what it was made of, so the docs (tools/build_docs.py) take the same specimens."""
+
+
 def state(label, *frags, note=""):
     n = f'<p class="kit-note">{note}</p>' if note else ""
-    return f'<div class="kit-state"><p class="kit-label">{label}</p>{n}<div class="kit-demo">{"".join(frags)}</div></div>'
+    out = Piece(f'<div class="kit-state"><p class="kit-label">{label}</p>{n}<div class="kit-demo">{"".join(frags)}</div></div>')
+    out.label, out.note, out.demo = label, note, "".join(frags)
+    return out
 
 
 def stage(*frags):
@@ -252,8 +258,12 @@ def stage(*frags):
 
 
 def comp(name, cls, screens, painted, *states):
-    return (f'<section class="kit-comp" id="c-{re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")}">'
+    if isinstance(painted, Piece):  # the one-offs pass no "painted": their first state landed there and was dropped (phase 09)
+        states = (painted, *states)
+    out = Piece(f'<section class="kit-comp" id="c-{re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")}">'
             f'<header class="kit-comp-head"><h3>{name}</h3><p class="kit-meta"><code>{cls}</code> · {screens}</p></header>{"".join(states)}</section>')
+    out.name, out.cls, out.screens, out.states = name, cls, screens, list(states)
+    return out
     # every screen is dressed since phase 07 step 7, so "painted / grey" no longer tells anything (review B-24)
 
 

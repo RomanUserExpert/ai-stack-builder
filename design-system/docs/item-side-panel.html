@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Item side panel · Design system</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css">
+  <script>/* theme: ?theme=light, from the viewer's switch (phase 08) */(function(){var d=document.documentElement;window.dsTheme=function(t){if(t==='light')d.setAttribute('data-theme','light');else d.removeAttribute('data-theme');try{sessionStorage.setItem('ds-theme',t)}catch(e){}};var t=new URLSearchParams(location.search).get('theme');if(!t){try{t=sessionStorage.getItem('ds-theme')}catch(e){}}if(t)dsTheme(t)})();</script>
+  <style>.kit-page{min-height:100vh}
+.kit-top{position:sticky;top:0;z-index:calc(var(--z-popover) + var(--z-sticky));display:flex;align-items:center;gap:var(--space-6);height:var(--size-bar);padding:0 var(--space-6);background:var(--bar);border-bottom:var(--border-width-thin) solid var(--line)}
+.kit-top strong{font:var(--typescale-body);font-weight:var(--font-weight-semibold)}
+.kit-top nav{display:flex;gap:var(--space-4);font:var(--typescale-small)}
+.kit-top nav a{color:var(--text-2);text-decoration:none}
+.kit-top nav a:hover{color:var(--text)}
+.kit-top .kit-theme{margin-left:auto}
+.kit-body{display:flex;flex-direction:column;gap:var(--space-12);padding:var(--space-8);max-width:calc(var(--width-canvas) + var(--space-12) * 3);margin:0 auto}
+.kit-intro{max-width:var(--measure-wide);display:flex;flex-direction:column;gap:var(--space-2);color:var(--text-2)}
+.kit-intro h1{font:var(--typescale-display);letter-spacing:var(--tracking-display);color:var(--text)}
+.kit-group{display:flex;flex-direction:column;gap:var(--space-8)}
+.kit-group>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.kit-comp{display:flex;flex-direction:column;gap:var(--space-4)}
+.kit-comp-head h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.kit-meta{font:var(--typescale-micro);font-weight:var(--font-weight-regular);color:var(--text-3)}
+.kit-meta code{background:none;padding:0;color:var(--text-2)}
+.kit-state{display:grid;grid-template-columns:var(--width-col-md) minmax(0,1fr);gap:var(--space-2) var(--space-6);align-items:start}
+.kit-label{font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3)}
+.kit-note{grid-column:1;font:var(--typescale-micro);font-weight:var(--font-weight-regular);color:var(--text-3)}
+.kit-state>.kit-label{grid-column:1}
+.kit-demo{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-3);min-width:0}
+.kit-demo>:is(ol,header,section,pre,.kit-clip,.kit-stage,.kit-row,.callout,.form-actions,.marks,div:not(.kit-narrow,.kit-panel,.kit-drawer,.kit-aside)){align-self:stretch}
+.kit-demo>.search{width:calc(var(--measure) - var(--space-12) * 3)}
+.kit-demo>.field{width:calc(var(--width-side) - var(--space-10))}
+.kit-row{display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center}
+.kit-glyph{display:inline-flex;align-items:center;gap:var(--space-1);margin-right:var(--space-4)}
+.kit-glyph .kit-label{text-transform:none;letter-spacing:normal}
+.kit-demo>header{border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.kit-panel{width:var(--width-side);max-height:calc(var(--space-12) * 12);overflow:auto;border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.kit-drawer,.kit-aside,.kit-narrow{width:var(--width-side)}
+.kit-drawer .drawer,.kit-aside .aside-box{position:static}
+.kit-clip{max-height:calc(var(--space-12) * 8);overflow:hidden;border-radius:var(--radius-lg)}
+.kit-stage{position:relative;overflow:hidden;border-radius:var(--radius-lg);background:var(--ground);border:var(--border-width-thin) solid var(--line)}
+.kit-stage dialog.modal{position:relative;top:auto;margin:var(--space-8) auto}
+.kit-stage dialog.sheet{position:relative;inset:auto;margin:0 0 0 auto;max-height:calc(var(--space-12) * 14)}
+.kit-stage:has(.popover){min-height:calc(var(--space-12) * 15);max-width:calc(var(--width-col-xl) + var(--space-12) * 4)}
+.kit-find{position:absolute;top:var(--space-6);right:var(--space-6);display:flex;justify-content:flex-end}
+.kit-find dialog.popover{position:absolute}
+.kit-demo .door{margin:0;width:calc(var(--width-side) - var(--space-10))}
+.kit-demo>.export-stage{max-width:var(--measure)}
+.kit-shell{display:flex;flex-direction:column;gap:var(--space-8)}
+.kit-shell .canvas{min-height:0;border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.kit-shell .app-main{min-height:calc(var(--space-12) * 3);color:var(--text-3)}.doc-page .kit-body{gap:var(--space-12)}
+.doc-crumb{font:var(--typescale-small);color:var(--text-3)}
+.doc-crumb a{color:var(--text-2)}
+.doc-crumb a:hover{color:var(--text)}
+.doc-lead{max-width:var(--measure-wide);color:var(--text-2)}
+.doc-meta{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4);font:var(--typescale-micro);color:var(--text-3)}
+.doc-meta code{background:none;padding:0;color:var(--text-2)}
+.doc-sec{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-sec>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-sec>h2 .kit-meta{margin-left:var(--space-2)}
+.doc-anatomy{position:relative;padding:var(--space-10) var(--space-8);background:var(--tray);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-anatomy>.kit-demo{grid-column:auto;grid-row:auto}
+.doc-pins{position:absolute;inset:0;pointer-events:none}
+.doc-pin,.doc-parts li::before{display:inline-flex;align-items:center;justify-content:center;min-width:var(--size-tag);height:var(--size-tag);padding:0 var(--space-1);border-radius:var(--radius-full);background:var(--mark);color:var(--ground);font:var(--typescale-micro);font-weight:var(--font-weight-semibold);font-variant-numeric:tabular-nums}
+.doc-pin{position:absolute;box-shadow:0 0 0 var(--border-width-thick) var(--tray)}
+.doc-hl{position:absolute;display:none;border:var(--border-width-thick) solid var(--mark);border-radius:var(--radius-sm);pointer-events:none}
+.doc-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-3) var(--space-8);list-style:none;counter-reset:part}
+.doc-parts li{display:grid;grid-template-columns:var(--size-tag) minmax(0,1fr);gap:0 var(--space-3);align-items:start;font:var(--typescale-small);color:var(--text-2);cursor:default}
+.doc-parts li::before{counter-increment:part;content:counter(part)}
+.doc-parts li:hover b{color:var(--text)}
+.doc-parts b{font-weight:var(--font-weight-semibold);color:var(--text)}
+.doc-parts code{grid-column:2;font:var(--typescale-code);color:var(--text-3);background:none;padding:0}
+.doc-prose{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure)}
+.doc-prose p{color:var(--text-2)}
+.doc-prose strong{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-size{font:var(--typescale-small);color:var(--text-3)}
+.doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.doc-rule{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg);color:var(--text-2)}
+.doc-rule.doc-anti{background:var(--cutout)}
+.doc-rule a{color:var(--text)}
+.doc-pager{display:flex;justify-content:space-between;gap:var(--space-4);padding-top:var(--space-5);border-top:var(--border-width-thin) solid var(--line);font:var(--typescale-small)}
+.doc-pager a{color:var(--text-2)}
+.doc-pager a:hover{color:var(--text)}
+.doc-group{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-group>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-xl),1fr));gap:var(--space-5)}
+.doc-card{position:relative;display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-3);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-card:hover{border-color:var(--line-strong)}
+.doc-card h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading);padding:0 var(--space-2)}
+.doc-card h3 a{color:var(--text);text-decoration:none}
+.doc-card h3 a::after{content:"";position:absolute;inset:0}
+.doc-card p{padding:0 var(--space-2) var(--space-2);font:var(--typescale-small);color:var(--text-2)}
+.doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
+.doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
+.doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
+.doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
+.doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
+.doc-facts div{display:flex;flex-direction:column;gap:var(--space-1)}
+.doc-facts b{font:var(--typescale-display);letter-spacing:var(--tracking-display);color:var(--text)}
+.doc-facts span{font:var(--typescale-small);color:var(--text-3)}
+.doc-links{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.doc-table{width:100%;border-collapse:collapse;font:var(--typescale-small)}
+.doc-table th{text-align:left;font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3);padding:var(--space-2) var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-table td{vertical-align:top;padding:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line);color:var(--text-2)}
+.doc-table td:first-child{color:var(--text);font-weight:var(--font-weight-semibold);white-space:nowrap}
+.doc-pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-4)}
+.doc-pair{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-pair h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-pair p{font:var(--typescale-small);color:var(--text-2)}
+.doc-pair .kit-label{color:var(--text-3)}
+.doc-rounds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-4);list-style:none;counter-reset:round}
+.doc-rounds li{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);background:var(--cutout);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md);font:var(--typescale-small);color:var(--text-2)}
+.doc-rounds li.is-kept{background:var(--raised);border-color:var(--line-strong)}
+.doc-rounds b{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-ref{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5) 0;border-top:var(--border-width-thin) solid var(--line)}
+.doc-ref h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-ref .doc-prose{max-width:var(--measure-wide)}
+.doc-ref .kit-demo{grid-column:auto;grid-row:auto}</style>
+</head>
+<body class="product-page kit-page doc-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"><symbol id="l-circle-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <line x1="12" x2="12" y1="8" y2="12" />
+  <line x1="12" x2="12.01" y1="16" y2="16" /></symbol><symbol id="l-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
+  <path d="M12 16v-4" />
+  <path d="M12 8h.01" /></symbol><symbol id="l-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" />
+  <path d="m6 6 12 12" /></symbol></svg>
+<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Cards and lists</p>
+  <h1>Item side panel</h1>
+  <p>An item opened from a set row, beside the set rather than over it.</p>
+  <p class="doc-meta"><span><code>with-drawer · drawer · drawer-head · drawer-section · drawer-facts · drawer-actions</code></span><span>3 screens</span><span><code>components/drawer.css</code></span></p>
+</div>
+<section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
+  <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
+  <div class="doc-anatomy" data-anatomy><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="a-k152-drawer-title">
+          <div class="drawer-head">
+            <h2 id="a-k152-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+
+          <div class="callout">
+            <span class="severity"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem at last check</span>
+            <span>Declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+          </div>
+
+          <section class="drawer-section" aria-labelledby="a-k152-d-in">
+            <h3 id="a-k152-d-in">In this project</h3>
+            <p>Added by you · linked to the original in My library</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="a-k152-d-contents">
+            <h3 id="a-k152-d-contents">Contents</h3>
+            <pre class="file">#!/usr/bin/env bash
+# Fix what ESLint can fix, on staged files only.
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx)$')
+[ -z "$files" ] &amp;&amp; exit 0
+npx eslint --fix $files &amp;&amp; git add $files</pre>
+            <p class="meta">No files attached · no repo</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="a-k152-d-deps">
+            <h3 id="a-k152-d-deps">Dependencies</h3>
+            <dl class="drawer-facts">
+              <dt>Requires</dt><dd>None</dd>
+              <dt>Conflicts with</dt><dd><code>code-style</code></dd>
+              <dt>Env keys</dt><dd>None</dd>
+              <dt>Lands at</dt><dd><code>scripts/eslint-autofix.sh</code></dd>
+            </dl>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="a-k152-d-use">
+            <h3 id="a-k152-d-use">Use</h3>
+            <p>Used in 2 projects · last exported 2 days ago</p>
+          </section>
+
+          <div class="drawer-actions">
+            <a class="button" href="#">Open in My library</a>
+            <a class="button" href="#">Configure to remove</a>
+          </div>
+        </aside></div></div><div class="doc-pins"></div><div class="doc-hl"></div></div><ol class="doc-parts"><li data-sel="aside.drawer"><span><b>Panel</b> — 440 px beside the set, sticky</span><code>aside.drawer</code></li><li data-sel="div.drawer-head"><span><b>Head</b> — the name, its tags and Close</span><code>div.drawer-head</code></li><li data-sel="div.drawer-head .close"><span><b>Close</b> — back to the set alone</span><code>div.drawer-head .close</code></li><li data-sel="div.callout"><span><b>Finding</b> — a Problem or Note about this item</span><code>div.callout</code></li><li data-sel="section.drawer-section"><span><b>Section</b> — contents, then facts</span><code>section.drawer-section</code></li><li data-sel="dl.drawer-facts"><span><b>Facts</b> — a definition list</span><code>dl.drawer-facts</code></li><li data-sel="div.drawer-actions"><span><b>Actions</b> — Detach; on a detached item Reset and Promote</span><code>div.drawer-actions</code></li></ol>
+</section>
+<section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">6</span></h2>
+  <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
+  <div class="kit-state"><p class="kit-label">A linked item</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v0-k152-drawer-title">
+          <div class="drawer-head">
+            <h2 id="v0-k152-drawer-title">eslint-autofix <span class="tag">script</span> <span class="tag tag-state tag-problem">Conflict</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="description">Runs ESLint with --fix on staged files before each commit.</p>
+
+          <div class="callout">
+            <span class="severity"><svg class="glyph glyph-problem" aria-hidden="true"><use href="#l-circle-alert"/></svg>Problem at last check</span>
+            <span>Declares a conflict with <code>code-style</code>: it rewrites the imports that <code>code-style</code> tells the agent to keep. The archive will contain both, and the agent will get two rules that disagree.</span>
+          </div>
+
+          <section class="drawer-section" aria-labelledby="v0-k152-d-in">
+            <h3 id="v0-k152-d-in">In this project</h3>
+            <p>Added by you · linked to the original in My library</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="v0-k152-d-contents">
+            <h3 id="v0-k152-d-contents">Contents</h3>
+            <pre class="file">#!/usr/bin/env bash
+# Fix what ESLint can fix, on staged files only.
+files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(ts|tsx)$')
+[ -z "$files" ] &amp;&amp; exit 0
+npx eslint --fix $files &amp;&amp; git add $files</pre>
+            <p class="meta">No files attached · no repo</p>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="v0-k152-d-deps">
+            <h3 id="v0-k152-d-deps">Dependencies</h3>
+            <dl class="drawer-facts">
+              <dt>Requires</dt><dd>None</dd>
+              <dt>Conflicts with</dt><dd><code>code-style</code></dd>
+              <dt>Env keys</dt><dd>None</dd>
+              <dt>Lands at</dt><dd><code>scripts/eslint-autofix.sh</code></dd>
+            </dl>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="v0-k152-d-use">
+            <h3 id="v0-k152-d-use">Use</h3>
+            <p>Used in 2 projects · last exported 2 days ago</p>
+          </section>
+
+          <div class="drawer-actions">
+            <a class="button" href="#">Open in My library</a>
+            <a class="button" href="#">Configure to remove</a>
+          </div>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">A linked item with a Note</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v1-k153-drawer-title">
+          <div class="drawer-head">
+            <h2 id="v1-k153-drawer-title">code-style <span class="tag">skill</span><span class="tag tag-state tag-problem">Conflict</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="description">How I want TypeScript written: naming, imports, error handling, no default exports.</p>
+          <p class="meta">Linked to the original in My library — an edit there reaches this project and the 2 others that use it.</p>
+
+          <div class="callout callout-quiet">
+            <span class="severity"><svg class="glyph glyph-note" aria-hidden="true"><use href="#l-info"/></svg>Note at last check</span>
+            <span>Where <code>code-style</code> and the client’s ESLint config disagree, the ESLint config wins.</span>
+          </div>
+
+          <section class="drawer-section" aria-labelledby="v1-k153-d-contents">
+            <h3 id="v1-k153-d-contents">Contents</h3>
+            <pre class="file">---
+name: code-style
+description: How TypeScript is written in my projects.
+---
+- Named exports only. No default exports.
+- Imports: built-ins, then packages, then local.
+- Throw typed errors from lib code; catch only at the edge.</pre>
+          </section>
+
+          <section class="drawer-section" aria-labelledby="v1-k153-d-deps">
+            <h3 id="v1-k153-d-deps">Dependencies</h3>
+            <dl class="drawer-facts">
+              <dt>Requires</dt><dd>None</dd>
+              <dt>Defers to</dt><dd>the client’s ESLint config</dd>
+              <dt>Lands at</dt><dd><code>.claude/skills/code-style/SKILL.md</code></dd>
+            </dl>
+          </section>
+
+          <div class="drawer-actions">
+            <a class="button button-primary" href="#">Detach to edit here</a>
+            <a class="button" href="#">Open in My library</a>
+            <button type="button" class="button-quiet">Remove from project</button>
+          </div>
+          <p class="meta">Detach makes a copy for this project only. My library and the other projects keep the original.</p>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">A detached item: Reset, Promote</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v2-k154-drawer-title">
+          <div class="drawer-head">
+            <h2 id="v2-k154-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="meta">Edited for this project only. The original in My library, and the other project that uses <code>pr-reviewer</code>, don’t get these changes.</p>
+
+          <section class="drawer-section" aria-labelledby="v2-k154-d-diff">
+            <h3 id="v2-k154-d-diff">2 fields differ from the original</h3>
+            <label class="field field-mono"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
+            <p class="meta">Original: <code>.claude/agents/pr-reviewer.md</code> · <button type="button" class="link-button">Reset this field</button></p>
+            <label class="field"><span>Content</span><textarea>---
+name: pr-reviewer
+description: Review Acme pull requests against their billing rules.
+---
+Read the diff. Flag any change to invoice rounding, currency handling or
+the retry policy of the Stripe webhook consumer — Acme treats those as
+release-blocking. Otherwise comment the way Maya would.</textarea></label>
+            <details class="library-version">
+              <summary class="meta">Original · <span class="link-button">Reset this field</span></summary>
+              <pre class="file">---
+name: pr-reviewer
+description: Review a pull request the way I would.
+---
+Read the diff. Comment the way Maya would: short,
+specific, one suggestion per comment.</pre>
+            </details>
+          </section>
+
+          <div class="drawer-actions">
+            <button type="button">Reset to the original</button>
+            <a class="button" href="#">Promote to My library…</a>
+            <button type="button" class="button-quiet">Remove from project</button>
+          </div>
+          <p class="meta">Changes here are kept when you save the project.</p>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">Loading</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v3-k155-drawer-title" aria-busy="true">
+          <div class="drawer-head">
+            <h2 id="v3-k155-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="visually-hidden" role="status">Loading pr-reviewer and the original in My library</p>
+          <span class="skeleton sk-w90p sk-h12"></span>
+          <section class="drawer-section" aria-hidden="true">
+            <span class="skeleton sk-w200 sk-h12"></span>
+            <div class="field"><span>Lands at</span><span class="skeleton sk-h40"></span></div>
+            <div class="field"><span>Content</span><span class="skeleton sk-h160"></span></div>
+          </section>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">Our failure — Promote didn’t land</p><div class="kit-demo"><div class="kit-drawer"><aside class="drawer" aria-labelledby="v4-k156-drawer-title">
+          <div class="drawer-head">
+            <h2 id="v4-k156-drawer-title">pr-reviewer <span class="tag">agent</span> <span class="tag tag-state">Detached</span></h2>
+            <a class="button close" href="#" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#l-x"/></svg></a>
+          </div>
+          <p class="meta">Edited for this project only. The original in My library, and the other project that uses <code>pr-reviewer</code>, don’t get these changes.</p>
+          <div class="callout callout-failure" role="alert">
+            <span class="severity">Promote didn’t land</span>
+            <span>Our server didn’t confirm it, so there is no new item in My library and this row is still detached. Your edits below are untouched.</span>
+            <span class="meta error-code">503 · Service unavailable · 14:02</span>
+            <div class="row-actions"><button type="button" class="button-primary">Promote again</button><button type="button">Close</button></div>
+          </div>
+
+          <section class="drawer-section" aria-labelledby="v4-k156-d-diff">
+            <h3 id="v4-k156-d-diff">2 fields differ from the original</h3>
+            <label class="field field-mono"><span>Lands at</span><input value=".claude/agents/acme-pr-reviewer.md"></label>
+            <p class="meta">Original: <code>.claude/agents/pr-reviewer.md</code> · <button type="button" class="link-button">Reset this field</button></p>
+            <label class="field"><span>Content</span><textarea>---
+name: pr-reviewer
+description: Review Acme pull requests against their billing rules.
+---
+Read the diff. Flag any change to invoice rounding, currency handling or
+the retry policy of the Stripe webhook consumer — Acme treats those as
+release-blocking. Otherwise comment the way Maya would.</textarea></label>
+            <details class="library-version">
+              <summary class="meta">Original · <span class="link-button">Reset this field</span></summary>
+              <pre class="file">---
+name: pr-reviewer
+description: Review a pull request the way I would.
+---
+Read the diff. Comment the way Maya would: short,
+specific, one suggestion per comment.</pre>
+            </details>
+          </section>
+
+          <div class="drawer-actions">
+            <button type="button">Reset to the original</button>
+            <button type="button">Promote to My library…</button>
+            <button type="button" class="button-quiet">Remove from project</button>
+          </div>
+          <p class="meta">Changes here are kept when you save the project.</p>
+        </aside></div></div></div><div class="kit-state"><p class="kit-label">One-off: the original of a detached field</p><p class="kit-note">Detached row only; in the kit because a screen holds no style.</p><div class="kit-demo"><div class="kit-drawer"><details class="library-version">
+              <summary class="meta">Original · <span class="link-button">Reset this field</span></summary>
+              <pre class="file">---
+name: pr-reviewer
+description: Review a pull request the way I would.
+---
+Read the diff. Comment the way Maya would: short,
+specific, one suggestion per comment.</pre>
+            </details></div></div></div>
+  <p class="doc-size">Size: 440 px wide.</p>
+</section>
+<section class="doc-sec" id="when"><h2>When to use</h2>
+  <div class="doc-prose"><p>An item opened from a set row, beside the set rather than over it. It is the only place Detach, Reset and Promote live (Q33), and on a detached item it names the fields that differ from the original.</p></div>
+</section>
+<section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Use it</p><p>One item at a time; its row carries the lime pill while it is open. Promote is immediate, because it creates a library item.</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>Editing the library original is the Item sheet, over My library: the side panel only edits a detached copy, and only in the configuring mode (Q21). → <a href="../pages/item-sheet.html">Item sheet</a></p></div>
+  </div>
+</section>
+<nav class="doc-pager" aria-label="Components"><a href="../pages/usage-facts.html">← Usage facts</a><a href="../pages/check-stages.html">Check stages →</a></nav>
+</main>
+<script>
+(function(){
+  function place(){
+    document.querySelectorAll('[data-anatomy]').forEach(function(box){
+      var spec = box.querySelector('.kit-demo'), layer = box.querySelector('.doc-pins'), hl = box.querySelector('.doc-hl');
+      var b = box.getBoundingClientRect(), taken = [];
+      layer.innerHTML = '';
+      box.parentNode.querySelectorAll('.doc-parts li').forEach(function(li, i){
+        var el = spec.querySelector(li.getAttribute('data-sel'));
+        if (!el) return;
+        var r = el.getBoundingClientRect(), x = r.left - b.left, y = r.top - b.top;
+        var pin = document.createElement('span');
+        pin.className = 'doc-pin'; pin.textContent = i + 1; layer.appendChild(pin);
+        var w = pin.offsetWidth, h = pin.offsetHeight;
+        x = Math.max(0, x - w * 0.7); y = Math.max(0, y - h * 0.7);
+        taken.forEach(function(t){ if (Math.abs(t[0] - x) < w && Math.abs(t[1] - y) < h) x = t[0] + w + 2; });
+        taken.push([x, y]);
+        pin.style.left = x + 'px'; pin.style.top = y + 'px';
+        function show(){ hl.style.display = 'block'; hl.style.left = (r.left - b.left) + 'px'; hl.style.top = (r.top - b.top) + 'px';
+                         hl.style.width = r.width + 'px'; hl.style.height = r.height + 'px'; }
+        li.onmouseenter = show; li.onmouseleave = function(){ hl.style.display = 'none'; };
+      });
+    });
+  }
+  window.addEventListener('load', place); window.addEventListener('resize', place);
+  if (document.fonts) document.fonts.ready.then(place);
+  document.addEventListener('ds-theme', place);
+  var t = document.querySelector('.kit-theme');
+  if (t && document.documentElement.getAttribute('data-theme') === 'light') t.textContent = 'Dark theme';
+})();
+</script>
+</body>
+</html>

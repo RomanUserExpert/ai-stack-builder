@@ -1,0 +1,454 @@
+"""Phase 09, step 2: the living documentation — design-system/docs/.
+
+    python -X utf8 tools/build_docs.py          # writes every page, then checks them in a browser
+    python -X utf8 tools/build_docs.py --fast   # writes, skips the browser check
+
+Writes, into design-system/docs/:
+
+- index.html   the showcase: every component, grouped as the kit groups them, each with a live preview
+- <slug>.html  one page per component, in four parts: anatomy (the live component with its parts numbered),
+               variants and states (every one the kit shows, which is every one inventory.md lists), when to use,
+               rule and anti-rule
+- why.html     why the system looks as it does: the owner's taste, the five attributes, the four rounds of
+               directions, the references and what was taken from each — from 06-concept/concept.md and
+               references.md (D8: read from there, nothing copied)
+
+**Nothing here is a picture or a copy of CSS.** Every specimen is build_kit.components()'s — the same pieces kit.html
+shows, cut from the wireframe pages and dressed by build_mockups.transform — and every page links
+design-system/index.css alone, as every screen does. What the docs *say* is tools/docs_content.py.
+
+Checks, and the build fails on any:
+- a component of the kit with no entry in docs_content, or the reverse;
+- an anti-rule pointing at a component that does not exist;
+- the docs' own styles holding a value (concept_ui.literals);
+- a word in a specimen that is not in microcopy.md (the kit's own check, on the docs' specimens);
+- in a browser: an anatomy part whose selector finds nothing in its live specimen.
+"""
+from pathlib import Path
+import html as htmllib
+import re
+import sys
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import build_kit as bk  # noqa: E402
+import build_mockups as bm  # noqa: E402
+import concept_ui  # noqa: E402
+import docs_content  # noqa: E402
+
+SYSTEM = ROOT / "design-system"
+OUT = SYSTEM / "docs"
+HREF = ["../index.css"]
+E = htmllib.escape
+
+DOC_CSS = r"""
+.doc-page .kit-body{gap:var(--space-12)}
+.doc-crumb{font:var(--typescale-small);color:var(--text-3)}
+.doc-crumb a{color:var(--text-2)}
+.doc-crumb a:hover{color:var(--text)}
+.doc-lead{max-width:var(--measure-wide);color:var(--text-2)}
+.doc-meta{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4);font:var(--typescale-micro);color:var(--text-3)}
+.doc-meta code{background:none;padding:0;color:var(--text-2)}
+.doc-sec{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-sec>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-sec>h2 .kit-meta{margin-left:var(--space-2)}
+.doc-anatomy{position:relative;padding:var(--space-10) var(--space-8);background:var(--tray);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-anatomy>.kit-demo{grid-column:auto;grid-row:auto}
+.doc-pins{position:absolute;inset:0;pointer-events:none}
+.doc-pin,.doc-parts li::before{display:inline-flex;align-items:center;justify-content:center;min-width:var(--size-tag);height:var(--size-tag);padding:0 var(--space-1);border-radius:var(--radius-full);background:var(--mark);color:var(--ground);font:var(--typescale-micro);font-weight:var(--font-weight-semibold);font-variant-numeric:tabular-nums}
+.doc-pin{position:absolute;box-shadow:0 0 0 var(--border-width-thick) var(--tray)}
+.doc-hl{position:absolute;display:none;border:var(--border-width-thick) solid var(--mark);border-radius:var(--radius-sm);pointer-events:none}
+.doc-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-3) var(--space-8);list-style:none;counter-reset:part}
+.doc-parts li{display:grid;grid-template-columns:var(--size-tag) minmax(0,1fr);gap:0 var(--space-3);align-items:start;font:var(--typescale-small);color:var(--text-2);cursor:default}
+.doc-parts li::before{counter-increment:part;content:counter(part)}
+.doc-parts li:hover b{color:var(--text)}
+.doc-parts b{font-weight:var(--font-weight-semibold);color:var(--text)}
+.doc-parts code{grid-column:2;font:var(--typescale-code);color:var(--text-3);background:none;padding:0}
+.doc-prose{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure)}
+.doc-prose p{color:var(--text-2)}
+.doc-prose strong{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-size{font:var(--typescale-small);color:var(--text-3)}
+.doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.doc-rule{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg);color:var(--text-2)}
+.doc-rule.doc-anti{background:var(--cutout)}
+.doc-rule a{color:var(--text)}
+.doc-pager{display:flex;justify-content:space-between;gap:var(--space-4);padding-top:var(--space-5);border-top:var(--border-width-thin) solid var(--line);font:var(--typescale-small)}
+.doc-pager a{color:var(--text-2)}
+.doc-pager a:hover{color:var(--text)}
+.doc-group{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-group>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-xl),1fr));gap:var(--space-5)}
+.doc-card{position:relative;display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-3);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-card:hover{border-color:var(--line-strong)}
+.doc-card h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading);padding:0 var(--space-2)}
+.doc-card h3 a{color:var(--text);text-decoration:none}
+.doc-card h3 a::after{content:"";position:absolute;inset:0}
+.doc-card p{padding:0 var(--space-2) var(--space-2);font:var(--typescale-small);color:var(--text-2)}
+.doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
+.doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
+.doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
+.doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
+.doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
+.doc-facts div{display:flex;flex-direction:column;gap:var(--space-1)}
+.doc-facts b{font:var(--typescale-display);letter-spacing:var(--tracking-display);color:var(--text)}
+.doc-facts span{font:var(--typescale-small);color:var(--text-3)}
+.doc-links{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.doc-table{width:100%;border-collapse:collapse;font:var(--typescale-small)}
+.doc-table th{text-align:left;font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3);padding:var(--space-2) var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-table td{vertical-align:top;padding:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line);color:var(--text-2)}
+.doc-table td:first-child{color:var(--text);font-weight:var(--font-weight-semibold);white-space:nowrap}
+.doc-pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-4)}
+.doc-pair{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-pair h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-pair p{font:var(--typescale-small);color:var(--text-2)}
+.doc-pair .kit-label{color:var(--text-3)}
+.doc-rounds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-4);list-style:none;counter-reset:round}
+.doc-rounds li{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);background:var(--cutout);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md);font:var(--typescale-small);color:var(--text-2)}
+.doc-rounds li.is-kept{background:var(--raised);border-color:var(--line-strong)}
+.doc-rounds b{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-ref{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5) 0;border-top:var(--border-width-thin) solid var(--line)}
+.doc-ref h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-ref .doc-prose{max-width:var(--measure-wide)}
+.doc-ref .kit-demo{grid-column:auto;grid-row:auto}
+"""
+
+PIN_JS = r"""<script>
+(function(){
+  function place(){
+    document.querySelectorAll('[data-anatomy]').forEach(function(box){
+      var spec = box.querySelector('.kit-demo'), layer = box.querySelector('.doc-pins'), hl = box.querySelector('.doc-hl');
+      var b = box.getBoundingClientRect(), taken = [];
+      layer.innerHTML = '';
+      box.parentNode.querySelectorAll('.doc-parts li').forEach(function(li, i){
+        var el = spec.querySelector(li.getAttribute('data-sel'));
+        if (!el) return;
+        var r = el.getBoundingClientRect(), x = r.left - b.left, y = r.top - b.top;
+        var pin = document.createElement('span');
+        pin.className = 'doc-pin'; pin.textContent = i + 1; layer.appendChild(pin);
+        var w = pin.offsetWidth, h = pin.offsetHeight;
+        x = Math.max(0, x - w * 0.7); y = Math.max(0, y - h * 0.7);
+        taken.forEach(function(t){ if (Math.abs(t[0] - x) < w && Math.abs(t[1] - y) < h) x = t[0] + w + 2; });
+        taken.push([x, y]);
+        pin.style.left = x + 'px'; pin.style.top = y + 'px';
+        function show(){ hl.style.display = 'block'; hl.style.left = (r.left - b.left) + 'px'; hl.style.top = (r.top - b.top) + 'px';
+                         hl.style.width = r.width + 'px'; hl.style.height = r.height + 'px'; }
+        li.onmouseenter = show; li.onmouseleave = function(){ hl.style.display = 'none'; };
+      });
+    });
+  }
+  window.addEventListener('load', place); window.addEventListener('resize', place);
+  if (document.fonts) document.fonts.ready.then(place);
+  document.addEventListener('ds-theme', place);
+  var t = document.querySelector('.kit-theme');
+  if (t && document.documentElement.getAttribute('data-theme') === 'light') t.textContent = 'Dark theme';
+})();
+</script>"""
+
+
+def slug(name):
+    return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+
+
+def reprefix(frag, p):
+    """A specimen shown twice on one page must not repeat its ids."""
+    return re.sub(r'\b(id|for|aria-labelledby|aria-describedby|aria-controls)="([^"]+)"',
+                  lambda m: f'{m.group(1)}="' + " ".join(p + v for v in m.group(2).split()) + '"', frag)
+
+
+def files_for(cls):
+    """Which files in components/ hold the classes a component is named by: a rule that starts with one of them
+    (an element before it allowed). Failing that — input[type=checkbox], glyph-* — the one file that names it most."""
+    files = [f for f in sorted((SYSTEM / "components").glob("*.css")) if f.name != "index.css"]
+    texts = {f.name: f.read_text(encoding="utf-8") for f in files}
+    tokens = [t.rstrip("-*") for t in re.findall(r"[a-z][a-z0-9*-]+", cls) if t not in ("type", "role")]
+    found = [n for n, t in texts.items()
+             if any(re.search(rf"(^|[,}}]\s*)[a-z]*\.{re.escape(c)}(?![\w])", t, re.M) for c in tokens)]
+    if found:
+        return found
+    best = max(texts, key=lambda n: sum(len(re.findall(rf"{re.escape(c)}", texts[n])) for c in tokens))
+    return [best]
+
+
+def page(title, body, nav, name):
+    src = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <link rel="stylesheet" href="wireframe.css">
+  <style>{bk.concept_tokens.rename08(bk.PAGE_CSS.strip())}{DOC_CSS.strip()}</style>
+</head>
+<body class="product-page kit-page doc-page">
+<header class="kit-top"><strong><a href="index.html" class="doc-home">Design system</a></strong><nav>{nav}</nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+{body}
+{PIN_JS}
+</body>
+</html>
+"""
+    unknown = []
+    out = bm.transform(src, "../../", name, unknown, kit_href=HREF, frame=False)
+    out = re.sub(r"<title>(.*?) — design</title>", r"<title>\1</title>", out)
+    bad = concept_ui.literals(re.search(r"<style>(.*?)</style>", out, re.S).group(1))
+    if bad:
+        raise SystemExit(f"docs/{name}: the docs' own styles hold values: {bad}")
+    return out
+
+
+def demo(frag):
+    return frag.replace(" inert", "")  # the wireframes draw dialogs over an inert page; a specimen is live
+
+
+def nav_links():
+    return ('<a href="index.html">Components</a><a href="why.html">Why it looks like this</a>'
+            '<a href="../../07-ui-assembly/ui/kit.html">UI kit</a>')
+
+
+# ------------------------------------------------------------------ one page per component
+def comp_page(group, c, prev, nxt):
+    d = docs_content.C[c.name]
+    st = c.states[d.get("anat", 0)]
+    parts = "".join(f'<li data-sel="{E(sel)}"><span><b>{E(part)}</b> — {E(what)}</span><code>{E(sel)}</code></li>'
+                    for sel, part, what in d["parts"])
+    anatomy = (f'<div class="doc-anatomy" data-anatomy><div class="kit-demo">{reprefix(demo(st.demo), "a-")}</div>'
+               f'<div class="doc-pins"></div><div class="doc-hl"></div></div><ol class="doc-parts">{parts}</ol>')
+    files = d.get("files") or files_for(c.cls)
+    size = f'<p class="doc-size">Size: {E(d["size"])}</p>' if d.get("size") else ""
+    anti_text, anti_to = d["anti"]
+    body = f"""<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="index.html">Design system</a> / {E(group)}</p>
+  <h1>{E(c.name)}</h1>
+  <p>{E(d["when"].split(". ")[0].rstrip("."))}.</p>
+  <p class="doc-meta"><span><code>{E(c.cls)}</code></span><span>{E(c.screens)}</span><span>{" · ".join(f"<code>components/{f}</code>" for f in files)}</span></p>
+</div>
+<section class="doc-sec" id="anatomy"><h2>Anatomy</h2>
+  <p class="doc-lead">The live component, drawn on <code>design-system/index.css</code> as every screen is. Point at a part to see it.</p>
+  {anatomy}
+</section>
+<section class="doc-sec" id="variants"><h2>Variants and states <span class="kit-meta">{len(c.states)}</span></h2>
+  <p class="doc-lead">Every variant and state <code>inventory.md</code> lists, each cut from a screen that has it.</p>
+  {"".join(reprefix(demo(s), f"v{i}-") for i, s in enumerate(c.states))}
+  {size}
+</section>
+<section class="doc-sec" id="when"><h2>When to use</h2>
+  <div class="doc-prose"><p>{E(d["when"])}</p></div>
+</section>
+<section class="doc-sec" id="rule"><h2>Rule and anti-rule</h2>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Use it</p><p>{E(d["rule"])}</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take another</p><p>{E(anti_text)} → <a href="{slug(anti_to)}.html">{E(anti_to)}</a></p></div>
+  </div>
+</section>
+<nav class="doc-pager" aria-label="Components">{f'<a href="{slug(prev.name)}.html">← {E(prev.name)}</a>' if prev else '<span></span>'}{f'<a href="{slug(nxt.name)}.html">{E(nxt.name)} →</a>' if nxt else '<span></span>'}</nav>
+</main>"""
+    return page(f"{c.name} · Design system", body, nav_links(), slug(c.name))
+
+
+# ------------------------------------------------------------------ the showcase
+def index_page(groups, counts):
+    cards = []
+    n = 0
+    for gname, comps in groups.items():
+        items = []
+        for c in comps:
+            n += 1
+            d = docs_content.C[c.name]
+            first = reprefix(demo(c.states[d.get("anat", 0)].demo), f"i{n}-")
+            items.append(f'<article class="doc-card"><div class="doc-preview" inert><div class="kit-demo">{first}</div></div>'
+                         f'<h3><a href="{slug(c.name)}.html">{E(c.name)}</a></h3><p>{len(c.states)} '
+                         f'{"state" if len(c.states) == 1 else "states"} · {E(c.screens)}</p></article>')
+        cards.append(f'<section class="doc-group" id="{slug(gname)}"><h2>{E(gname)} <span class="kit-meta">{len(comps)}</span></h2>'
+                     f'<div class="doc-grid">{"".join(items)}</div></section>')
+    body = f"""<main class="kit-body">
+<div class="kit-intro">
+  <h1>AI Stack Builder · Mica · Lime</h1>
+  <p>The product's look as one package. Every screen links one file, and so does this page: the components below are not pictures of the product, they are the product's own markup on the product's own stylesheet. Switch the theme at the top right and every one of them changes, because a theme overrides roles and nothing else.</p>
+</div>
+<div class="doc-facts">
+  <div><b>{counts["comps"]}</b><span>components, each with a page</span></div>
+  <div><b>{counts["states"]}</b><span>variants and states, cut from the screens</span></div>
+  <div><b>{counts["files"]}</b><span>files in components/</span></div>
+  <div><b>{counts["roles"]}</b><span>semantic roles, dark and light</span></div>
+</div>
+<div class="doc-entry">
+  <p class="kit-label">One entry point</p>
+  <pre>&lt;link rel="stylesheet" href="design-system/index.css"&gt;</pre>
+  <p class="doc-lead"><code>index.css</code> imports <code>tokens.css</code> (the values: primitive, then semantic) and <code>components/index.css</code> (one file per component). A component reads colour only through a role. Why it looks like this is <a href="why.html">its own page</a>.</p>
+</div>
+{"".join(cards)}
+</main>"""
+    return page("Design system · AI Stack Builder", body, nav_links(), "index")
+
+
+# ------------------------------------------------------------------ why it looks like this
+def why_page(groups):
+    by = {c.name: c for comps in groups.values() for c in comps}
+
+    def live(name, i=0):
+        return f'<div class="kit-demo">{reprefix(demo(by[name].states[i].demo), f"w{slug(name)}{i}-")}</div>'
+
+    taste = [("Vercel", "A clean interface without decoration: the status, the fact and the consequence stand side by side. "
+                        "Monochrome; colour only where it means something."),
+             ("Figma", "A dense working surface. A lot on screen, and it does not look overloaded, because the hierarchy is "
+                       "held by the grid and the type, not by colour."),
+             ("Teams and Slack", "Glass: translucent layers. The product's signature touch — noticeable, used sparingly.")]
+    refused = ["The palette an AI produces for the words “AI tool”: a dark ground, violet-blue neon gradients, glow.",
+               "A marketplace showcase: Verified and Popular badges, stars, ratings, cover cards.",
+               "Glass everywhere: translucent content, text on a blur, glass that eats contrast.",
+               "A green tick as the main signal. It promises works, and we run nothing."]
+    pairs = [("An inspector's report, not a seller's badge",
+              "A verdict is facts side by side: what was examined, how long it took, the counts. Never a seal — no score, no "
+              "rating, no green badge standing in for a sentence.", "Data: EJ-2, believe that a clean result was earned"),
+             ("Dense and counted, not spacious and showcased",
+              "A row carries many small facts at once. Hierarchy comes from the grid and the type weight, not from colour or "
+              "cards; a count sits by what it counts.", "Data for the counts; taste for Figma"),
+             ("The consequence is visible before the step, not after it",
+              "The sentence that names a cost sits inside the control it applies to, above the button — never a toast "
+              "afterwards, never Are you sure?", "Data: EJ-1"),
+             ("Glass is a layer over the work, not the work itself",
+              "Glass only on a temporary surface — a dialog, the Filters popover. What a person reads to decide something is "
+              "opaque, and text always sits on a sheet.", "Taste; data only for where"),
+             ("Colour is a claim, held back",
+              "The interface is greyscale. Colour appears only where it states something the product knows: a Problem, a "
+              "Note, what you can press, where you are.", "Data: §5's refusal of badges; taste: Vercel")]
+    rounds = [("Round 1", "Acrylic · Manifest · Catalogue", "Turned down.", False),
+              ("Round 2", "Glasshouse · Kit · Warm", "Turned down — but Kit's cut-out row came back in round 4.", False),
+              ("Round 3", "Mica · Cut-out · Canon", "Mica kept, and a density between Default and Comfortable.", False),
+              ("Round 4", "Mica · Cobalt · Jade · Lime", "Lime, in Kit's cut-out form. Fixed on 2026-10-11.", True)]
+    refs = [("Linear — the base", "Its system, not its surface: three surfaces, edges by hairline rather than shadow, three "
+             "text tones, colour only for meaning, dimmed counts beside a group's label. No violet, nothing of its brand.",
+             "Every item in its own cut-out in a tray, held by hairlines and three inks.", "Row list", 0),
+            ("Vercel — two devices", "B1: a stage is name, duration and a verdict glyph at the right, expanding in place. "
+             "B2: status is a dot and a word, never a filled pill. A duration beside a verdict is evidence it looked.",
+             "Run's stages, and Checked as a quiet dot.", "Check stages", 0),
+            ("GitHub Actions — two devices", "C1: Skipped is its own neutral glyph, a slashed circle. C2: a count sits in a "
+             "small grey capsule after a tab's label. Not taken: the filled green disc on a passed job.",
+             "The kind tabs with their counts.", "Tabs", 0),
+            ("Raycast Store — one device", "D1: a dimmed metadata line under the description, quiet enough not to compete "
+             "with the name. Not taken: its red ribbons, store-sized icons and centred marketing layout.",
+             "The usage facts on a Library row.", "Usage facts", 0)]
+    style = [("Material", "Mica: a neutral ground with a faint lime tint, quiet layers — tray, cut-out, raised.", "The owner's taste for glass, held to pair 4"),
+             ("Brand", "Lime, only on what you can press and where you are. Never a verdict.", "Pair 5"),
+             ("Severities", "Problem in rose, Note in amber, as tinted tags with an icon and a word. Checked is a quiet dot; Skipped is ban.", "§6; pair 1; D1-B"),
+             ("Glass", "Acrylic only round a dialog and the Filters popover: an 8 px translucent edge, the sheet inside opaque.", "Pair 4; owner, 2026-10-19"),
+             ("Type", "Geist for what a person reads, Geist Mono for what a machine reads.", "The owner's word"),
+             ("Icons", "Lucide, 1.75 px stroke, one style.", "Owner, round 4"),
+             ("Shape", "Soft, not round: 6 on a control, 10 on a cut-out, 14 on a panel, a pill on a tag. The radius grows with the thing, so nesting reads.", "Owner, round 4"),
+             ("Depth", "Hairlines first. A shadow only where something is lifted: the current place, a segment, a dialog.", "Linear; pair 4"),
+             ("Density", "Between Default and Comfortable: 32 px controls, 12 px row padding, body at 14.5.", "Owner, round 3"),
+             ("Red", "Only on the step that removes, in its confirmation. Amber only for going ahead despite a Problem.", "Owner, 2026-10-11")]
+    body = f"""<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="index.html">Design system</a> / Why</p>
+  <h1>Why it looks like this</h1>
+  <p>The product reads like an inspection, not a sales sheet: it says what was examined, counts what it found and names the cost before the step. Every value in the system traces to a line of the owner's taste or to one of five attributes, written before anything was drawn. This page is read from <code>06-concept/concept.md</code> and <code>06-concept/references.md</code>; the specimens on it are live.</p>
+</div>
+<section class="doc-sec"><h2>The owner's taste</h2>
+  <div class="doc-pairs">{"".join(f'<div class="doc-pair"><p class="kit-label">Likes</p><h3>{E(n)}</h3><p>{E(t)}</p></div>' for n, t in taste)}</div>
+  <div class="doc-prose"><p><strong>Does not want.</strong></p>{"".join(f"<p>— {E(r)}</p>" for r in refused)}</div>
+</section>
+<section class="doc-sec"><h2>Five attributes <span class="kit-meta">this, not that</span></h2>
+  <p class="doc-lead">Each pair names the line of data it stands on, or says it is taste. A direction that broke a pair was not drawn.</p>
+  <div class="doc-pairs">{"".join(f'<div class="doc-pair"><p class="kit-label">{i}</p><h3>{E(t)}</h3><p>{E(m)}</p><p class="kit-meta">{E(s)}</p></div>' for i, (t, m, s) in enumerate(pairs, 1))}</div>
+</section>
+<section class="doc-sec"><h2>Four rounds to Mica · Lime</h2>
+  <p class="doc-lead">Three directions a round, each drawn on the same sample; the owner chose in the browser. <a href="../../06-concept/directions.html">Round 1</a> · <a href="../../06-concept/directions-2.html">2</a> · <a href="../../06-concept/directions-3.html">3</a> · <a href="../../06-concept/directions-4.html">4</a> · <a href="../../06-concept/style.html">the phase page</a></p>
+  <ol class="doc-rounds">{"".join(f'<li class="{"is-kept" if k else ""}"><p class="kit-label">{E(r)}</p><b>{E(n)}</b><span>{E(o)}</span></li>' for r, n, o, k in rounds)}</ol>
+</section>
+<section class="doc-sec"><h2>Where each device came from</h2>
+  <p class="doc-lead">None is copied whole. Each reference gives a named device and the worry it removes; what was refused is named too, because each refused thing claims more than this product knows.</p>
+  {"".join(f'<div class="doc-ref"><div class="doc-prose"><h3>{E(h)}</h3><p>{E(t)}</p><p><strong>Here:</strong> {E(w)} → <a href="{slug(c)}.html">{E(c)}</a></p></div>{live(c, i)}</div>' for h, t, w, c, i in refs)}
+</section>
+<section class="doc-sec"><h2>The working style</h2>
+  <table class="doc-table"><thead><tr><th>Decision</th><th>What it is</th><th>Stands on</th></tr></thead><tbody>
+  {"".join(f"<tr><td>{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td></tr>" for a, b, c in style)}
+  </tbody></table>
+</section>
+<section class="doc-sec"><h2>Colour is a claim, on screen</h2>
+  <p class="doc-lead">The severity marks, live: colour only where the product knows something. There is no success colour; the best a check can say is Checked.</p>
+  {live("Severity glyph")}
+  {live("Finding capsule")}
+</section>
+</main>"""
+    return page("Why it looks like this · Design system", body, nav_links(), "why")
+
+
+# ------------------------------------------------------------------ checks
+def check_content(groups):
+    names = [c.name for comps in groups.values() for c in comps]
+    missing = [n for n in names if n not in docs_content.C]
+    extra = [n for n in docs_content.C if n not in names]
+    dangling = [f"{n} → {d['anti'][1]}" for n, d in docs_content.C.items() if d["anti"][1] not in names]
+    bad_anat = [n for n in names if n in docs_content.C and docs_content.C[n].get("anat", 0) >= len(
+        next(c for comps in groups.values() for c in comps if c.name == n).states)]
+    if missing or extra or dangling or bad_anat:
+        raise SystemExit(f"docs_content: no entry for {missing}; no component for {extra}; anti-rule to nothing: {dangling}; "
+                         f"anatomy on a state that does not exist: {bad_anat}")
+
+
+def check_words(groups):
+    """The specimens' words are the product's: the kit's own check, run on every specimen the docs show."""
+    demos = "".join(demo(s.demo) for comps in groups.values() for c in comps for s in c.states)
+    out = bk.finish(bk.page("words", "", f'<main class="kit-body">{demos}</main>', ""), "words")
+    return [w for w in bk.words_check(out) if not re.fullmatch(r"\d+(\.\d+)? s", w)]
+
+
+def check_browser(pages):
+    """Every anatomy part is found in its live specimen, with a size."""
+    from playwright.sync_api import sync_playwright
+    js = """() => [...document.querySelectorAll('.doc-parts li')].map(li => {
+        const box = li.closest('section').querySelector('[data-anatomy] .kit-demo');
+        const el = box.querySelector(li.dataset.sel);
+        if (!el) return li.dataset.sel + ' (nothing)';
+        const r = el.getBoundingClientRect();
+        return r.width && r.height ? '' : li.dataset.sel + ' (no size)';
+      }).filter(Boolean)"""
+    bad = {}
+    with sync_playwright() as p:
+        br = p.chromium.launch()
+        pg = br.new_page(viewport={"width": 1440, "height": 900})
+        for f in pages:
+            pg.goto(f.as_uri(), wait_until="load")
+            miss = pg.evaluate(js)
+            if miss:
+                bad[f.name] = miss
+        br.close()
+    return bad
+
+
+def build(browser=True):
+    groups = bk.components()
+    check_content(groups)
+    OUT.mkdir(parents=True, exist_ok=True)
+    flat = [(g, c) for g, comps in groups.items() for c in comps]
+    written = []
+    for i, (g, c) in enumerate(flat):
+        prev = flat[i - 1][1] if i else None
+        nxt = flat[i + 1][1] if i + 1 < len(flat) else None
+        f = OUT / f"{slug(c.name)}.html"
+        f.write_text(comp_page(g, c, prev, nxt), encoding="utf-8")
+        written.append(f)
+    tokens = (SYSTEM / "tokens.css").read_text(encoding="utf-8")
+    sem = tokens.split("SEMANTIC =====", 1)[1].split("[data-theme", 1)[0]
+    counts = {"comps": len(flat), "states": sum(len(c.states) for _, c in flat),
+              "files": len([f for f in (SYSTEM / "components").glob("*.css") if f.name != "index.css"]),
+              "roles": len(set(re.findall(r"^\s*--([\w-]+):\s*var\(--color-", sem, re.M)))}
+    (OUT / "index.html").write_text(index_page(groups, counts), encoding="utf-8")
+    (OUT / "why.html").write_text(why_page(groups), encoding="utf-8")
+    words = check_words(groups)
+    if words:
+        raise SystemExit(f"docs: words in specimens not in microcopy.md: {words}")
+    print(f"docs: {len(flat)} component pages · index.html · why.html · {counts['states']} specimens · "
+          f"{counts['roles']} roles · words not in microcopy.md: 0")
+    if browser:
+        bad = check_browser(written)
+        if bad:
+            raise SystemExit("docs: anatomy parts not found in their specimen:\n  " +
+                             "\n  ".join(f"{k}: {v}" for k, v in bad.items()))
+        print(f"docs: every anatomy part found in its live specimen ({len(written)} pages)")
+
+
+if __name__ == "__main__":
+    build(browser="--fast" not in sys.argv)

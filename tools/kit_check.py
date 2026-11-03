@@ -17,6 +17,8 @@ with one entry point, index.css. The numbers are kept:
 7. no dressed page has more than one button-primary
 8. kit.html's words are in microcopy.md (build_kit checks it; repeated here as a count)
 9. coverage: wireframe pages and flow steps with a twin
+11. the docs (phase 09): a page per component of the kit, each linking design-system/index.css alone, their own
+    styles reading only declared variables and no colour primitive
 10. no geometry written as a count of a primitive (calc(var(--s12) * 3)) outside the skeleton sizes (tokens-check.md, T5)
 """
 import re
@@ -117,6 +119,24 @@ def main():
         direct = sorted(set(COLOUR_PRIMITIVE.findall(styles)))
         if direct:
             fails.append(f"5 {f.name}'s own styles read a colour primitive: {direct}")
+    # 11 — the docs: a page per component, on the one entry point, their own styles through roles
+    docs = SYSTEM / "docs"
+    import build_kit as _bk
+    names = [c.name for comps in _bk.components().values() for c in comps]
+    want = {re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-") + ".html" for n in names} | {"index.html", "why.html"}
+    have = {p.name for p in docs.glob("*.html")}
+    if want - have or have - want:
+        fails.append(f"11 docs/: no page for {sorted(want - have)}; a page for nothing {sorted(have - want)}")
+    for f in sorted(docs.glob("*.html")):
+        h = f.read_text(encoding="utf-8")
+        links = re.findall(r'<link rel="stylesheet" href="([^"]+)"', h)
+        if links != ["../index.css"]:
+            fails.append(f"11 docs/{f.name} links {links}")
+        styles = "".join(re.findall(r"<style>(.*?)</style>", h, re.S))
+        missing = sorted(set(re.findall(r"var\(--([\w-]+)\)", styles)) - declared)
+        direct = sorted(set(COLOUR_PRIMITIVE.findall(styles)))
+        if missing or direct:
+            fails.append(f"11 docs/{f.name}: undeclared {missing}, colour primitives {direct}")
     if (UI / "kit.css").exists():
         fails.append("6 07-ui-assembly/ui/kit.css is back: phase 08 retired it")
     # 8 — the showcase's words are the product's (a stage's duration is a value, not a line: microcopy.md leaves it out)

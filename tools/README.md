@@ -112,6 +112,20 @@ as of step 1 (2026-10-05)**; the findings above the table are hand-written. From
 edited by hand and the script is not re-run over it — it stays as a way to re-inventory the pages and
 diff against the table in step 7.
 
+## `build_docs.py`, `docs_content.py` — phase 09, the design system's docs
+
+```
+python -X utf8 tools/build_docs.py          # -> design-system/docs/: index.html, why.html, a page per component
+python -X utf8 tools/build_docs.py --fast   # the same, without the browser check
+```
+
+Run by `build_mockups.py` after `build_kit.py`. The specimens are `build_kit.components()`'s own — the pieces
+`kit.html` shows — so the docs and the kit cannot disagree; every page links `design-system/index.css` alone. What a
+page *says* (anatomy parts as selectors, size, when to use, rule, anti-rule) is `docs_content.py`. The build fails on a
+component with no entry, an anti-rule to nothing, a value in the docs' own styles, a specimen word not in
+`microcopy.md`, and — in a browser — an anatomy part whose selector finds nothing in its live specimen. Guard 11 in
+`kit_check.py` checks the pages exist and link the one entry point.
+
 ## `build_tokens_page.py` — phase 08, the design tokens page
 
 ```

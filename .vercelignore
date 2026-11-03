@@ -77,3 +77,6 @@ design-system/*
 !design-system/tokens.css
 !design-system/components
 !design-system/components/*
+!design-system/docs
+design-system/docs/*
+!design-system/docs/*.html
