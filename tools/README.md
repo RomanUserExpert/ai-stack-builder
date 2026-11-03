@@ -126,6 +126,17 @@ component with no entry, an anti-rule to nothing, a value in the docs' own style
 `microcopy.md`, and — in a browser — an anatomy part whose selector finds nothing in its live specimen. Guard 11 in
 `kit_check.py` checks the pages exist and link the one entry point.
 
+## `build_patterns.py` — phase 09, the patterns
+
+```
+python -X utf8 tools/build_patterns.py   # -> design-system/patterns/*.html (run by build_docs)
+```
+
+`PATTERNS` holds each pattern's signature (a test on a wireframe page), the page it is cut from, its components and
+the docs' *take the pattern / take the components*. The build counts the screens each signature stands on — once per
+screen, overlays never — and fails below three. `REJECTED` keeps what was looked at and fell short. Guard 12 in
+`kit_check.py` checks the files.
+
 ## `build_tokens_page.py` — phase 08, the design tokens page
 
 ```

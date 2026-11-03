@@ -123,6 +123,9 @@ DOC_CSS = r"""
 .doc-static{display:flex;flex-direction:column;gap:var(--space-2);max-width:var(--measure);color:var(--text-2)}
 .doc-states-note{font:var(--typescale-micro);color:var(--text-3)}
 .doc-states-off .doc-cell[data-ds-state]{opacity:.4}
+.doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
+.doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}
 """
 
 STATES_JS = r"""<script>
@@ -258,7 +261,7 @@ def demo(frag):
 
 
 def nav_links():
-    return ('<a href="index.html">Components</a><a href="why.html">Why it looks like this</a>'
+    return ('<a href="index.html">Components</a><a href="patterns.html">Patterns</a><a href="why.html">Why it looks like this</a>'
             '<a href="../../07-ui-assembly/ui/kit.html">UI kit</a>')
 
 
@@ -374,6 +377,52 @@ def index_page(groups, counts):
 {"".join(cards)}
 </main>"""
     return page("Design system · AI Stack Builder", body, nav_links(), "index")
+
+
+# ------------------------------------------------------------------ patterns (phase 09, step 4)
+FRAME_JS = r"""<script>
+(function(){
+  function theme(){ return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+  function load(){ document.querySelectorAll('iframe[data-src]').forEach(function(f){ f.src = f.getAttribute('data-src') + '?theme=' + theme(); }); }
+  load(); document.addEventListener('ds-theme', load);
+})();
+</script>"""
+
+
+def patterns_page(pats, rejected):
+    blocks = []
+    for p in pats:
+        parts = " · ".join(f'<a href="{slug(n)}.html">{E(n)}</a>' for n in p["parts"])
+        where = "; ".join(f"<strong>{E(sc)}</strong> <code>{E(', '.join(v))}</code>" for sc, v in p["screens"].items())
+        under = (f' Also drawn under {", ".join(E(o) for o in p["overlays"])}, which are overlays and not counted.'
+                 if p["overlays"] else "")
+        blocks.append(f"""<section class="doc-pattern" id="{p['slug']}">
+  <h2>{E(p['name'])}</h2>
+  <p class="doc-meta"><span>Made of: {parts}</span><span><code>patterns/{p['slug']}.html</code></span></p>
+  <div class="doc-prose"><p>Stands on {len(p['screens'])} screens: {where}.{under}</p></div>
+  <iframe class="doc-frame" title="{E(p['name'])}" data-src="../patterns/{p['slug']}.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>{E(p['when'])}</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>{E(p['instead'])}</p></div>
+  </div>
+</section>""")
+    rej = "".join(f"<tr><td>{E(n)}</td><td>{E(w)}</td></tr>" for n, w in rejected)
+    body = f"""<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="index.html">Design system</a> / Patterns</p>
+  <h1>Patterns</h1>
+  <p>A pattern is a composition of components that already stands on three screens or more. Each one here was found on the screens, not designed for them: its signature is run over all 80 wireframe pages at every build, and the build fails if it stands on fewer than three. A screen counts once, and an overlay never counts. Every pattern is a file in <code>design-system/patterns/</code> with no style of its own — the frames below are those files.</p>
+</div>
+<section class="doc-sec"><h2>Pattern or components</h2>
+  <div class="doc-prose"><p><strong>Take a pattern</strong> when the screen does the job the pattern already does somewhere else: the same parts, in the same order, for the same reason. Then the screen inherits a layout that has been reviewed three times, and a person who has seen one of those screens already knows how this one works.</p>
+  <p><strong>Take the components</strong> when the job differs even if the parts are the same — a place with one thing in it needs no search; a step that can be undone needs no confirmation. And when a composition is on one or two screens only: it is not a pattern yet. If it reaches a third, it is added here, with the three screens named.</p></div>
+</section>
+{"".join(blocks)}
+<section class="doc-sec"><h2>Looked at, and not a pattern</h2>
+  <table class="doc-table"><thead><tr><th>Composition</th><th>Why not</th></tr></thead><tbody>{rej}</tbody></table>
+</section>
+</main>"""
+    return page("Patterns · Design system", body, nav_links(), "patterns").replace("</body>", FRAME_JS + "</body>")
 
 
 # ------------------------------------------------------------------ why it looks like this
@@ -598,6 +647,9 @@ def build(browser=True):
               "roles": len(set(re.findall(r"^\s*--([\w-]+):\s*var\(--color-", sem, re.M)))}
     (OUT / "index.html").write_text(index_page(groups, counts), encoding="utf-8")
     (OUT / "why.html").write_text(why_page(groups), encoding="utf-8")
+    import build_patterns
+    pats = build_patterns.build()
+    (OUT / "patterns.html").write_text(patterns_page(pats, build_patterns.REJECTED), encoding="utf-8")
     words = check_words(groups)
     if words:
         raise SystemExit(f"docs: words in specimens not in microcopy.md: {words}")

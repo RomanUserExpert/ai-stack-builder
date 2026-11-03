@@ -9,7 +9,7 @@
 | [`tokens.css`](tokens.css) | The values on two levels: **primitive** (what a value is) and **semantic** (what a colour is for), dark in `:root`, light as `[data-theme="light"]` role overrides | `tools/concept_tokens.py` |
 | [`components/`](components/) | One file per component (27), and `index.css` importing them in the kit's order | `tools/build_components.py` |
 | [`docs/`](docs/index.html) | **The living documentation**: [`index.html`](docs/index.html), the showcase; a page per component (46) — anatomy, variants and states, when to use, rule and anti-rule; [`why.html`](docs/why.html). All on this same `index.css` | `tools/build_docs.py`, the words in `tools/docs_content.py` |
-| `patterns/` | Compositions found on three screens or more, with no style of their own | lesson 09, step 4 |
+| [`patterns/`](patterns/README.md) | **Six compositions found on three screens or more**, each cut from a real page, with no style of its own; shown on [`docs/patterns.html`](docs/patterns.html) | `tools/build_patterns.py` |
 | `examples/` | A screen built from the system alone, labelled *an example, not in the product* | lesson 09, step 6 |
 
 **Every file here is generated.** A hand edit lasts until the next `python tools/build_mockups.py`, which rebuilds

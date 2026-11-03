@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patterns · Design system</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../index.css">
+  <script>/* theme: ?theme=light, from the viewer's switch (phase 08) */(function(){var d=document.documentElement;window.dsTheme=function(t){if(t==='light')d.setAttribute('data-theme','light');else d.removeAttribute('data-theme');try{sessionStorage.setItem('ds-theme',t)}catch(e){}};var t=new URLSearchParams(location.search).get('theme');if(!t){try{t=sessionStorage.getItem('ds-theme')}catch(e){}}if(t)dsTheme(t)})();</script>
+  <style>.kit-page{min-height:100vh}
+.kit-top{position:sticky;top:0;z-index:calc(var(--z-popover) + var(--z-sticky));display:flex;align-items:center;gap:var(--space-6);height:var(--size-bar);padding:0 var(--space-6);background:var(--bar);border-bottom:var(--border-width-thin) solid var(--line)}
+.kit-top strong{font:var(--typescale-body);font-weight:var(--font-weight-semibold)}
+.kit-top nav{display:flex;gap:var(--space-4);font:var(--typescale-small)}
+.kit-top nav a{color:var(--text-2);text-decoration:none}
+.kit-top nav a:hover{color:var(--text)}
+.kit-top .kit-theme{margin-left:auto}
+.kit-body{display:flex;flex-direction:column;gap:var(--space-12);padding:var(--space-8);max-width:calc(var(--width-canvas) + var(--space-12) * 3);margin:0 auto}
+.kit-intro{max-width:var(--measure-wide);display:flex;flex-direction:column;gap:var(--space-2);color:var(--text-2)}
+.kit-intro h1{font:var(--typescale-display);letter-spacing:var(--tracking-display);color:var(--text)}
+.kit-group{display:flex;flex-direction:column;gap:var(--space-8)}
+.kit-group>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.kit-comp{display:flex;flex-direction:column;gap:var(--space-4)}
+.kit-comp-head h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.kit-meta{font:var(--typescale-micro);font-weight:var(--font-weight-regular);color:var(--text-3)}
+.kit-meta code{background:none;padding:0;color:var(--text-2)}
+.kit-state{display:grid;grid-template-columns:var(--width-col-md) minmax(0,1fr);gap:var(--space-2) var(--space-6);align-items:start}
+.kit-label{font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3)}
+.kit-note{grid-column:1;font:var(--typescale-micro);font-weight:var(--font-weight-regular);color:var(--text-3)}
+.kit-state>.kit-label{grid-column:1}
+.kit-demo{grid-column:2;grid-row:1 / span 2;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-3);min-width:0}
+.kit-demo>:is(ol,header,section,pre,.kit-clip,.kit-stage,.kit-row,.callout,.form-actions,.marks,div:not(.kit-narrow,.kit-panel,.kit-drawer,.kit-aside)){align-self:stretch}
+.kit-demo>.search{width:calc(var(--measure) - var(--space-12) * 3)}
+.kit-demo>.field{width:calc(var(--width-side) - var(--space-10))}
+.kit-row{display:flex;gap:var(--space-2);flex-wrap:wrap;align-items:center}
+.kit-glyph{display:inline-flex;align-items:center;gap:var(--space-1);margin-right:var(--space-4)}
+.kit-glyph .kit-label{text-transform:none;letter-spacing:normal}
+.kit-demo>header{border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.kit-panel{width:var(--width-side);max-height:calc(var(--space-12) * 12);overflow:auto;border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.kit-drawer,.kit-aside,.kit-narrow{width:var(--width-side)}
+.kit-drawer .drawer,.kit-aside .aside-box{position:static}
+.kit-clip{max-height:calc(var(--space-12) * 8);overflow:hidden;border-radius:var(--radius-lg)}
+.kit-stage{position:relative;overflow:hidden;border-radius:var(--radius-lg);background:var(--ground);border:var(--border-width-thin) solid var(--line)}
+.kit-stage dialog.modal{position:relative;top:auto;margin:var(--space-8) auto}
+.kit-stage dialog.sheet{position:relative;inset:auto;margin:0 0 0 auto;max-height:calc(var(--space-12) * 14)}
+.kit-stage:has(.popover){min-height:calc(var(--space-12) * 15);max-width:calc(var(--width-col-xl) + var(--space-12) * 4)}
+.kit-find{position:absolute;top:var(--space-6);right:var(--space-6);display:flex;justify-content:flex-end}
+.kit-find dialog.popover{position:absolute}
+.kit-demo .door{margin:0;width:calc(var(--width-side) - var(--space-10))}
+.kit-demo>.export-stage{max-width:var(--measure)}
+.kit-shell{display:flex;flex-direction:column;gap:var(--space-8)}
+.kit-shell .canvas{min-height:0;border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg);overflow:hidden}
+.kit-shell .app-main{min-height:calc(var(--space-12) * 3);color:var(--text-3)}.doc-page .kit-body{gap:var(--space-12)}
+.doc-crumb{font:var(--typescale-small);color:var(--text-3)}
+.doc-crumb a{color:var(--text-2)}
+.doc-crumb a:hover{color:var(--text)}
+.doc-lead{max-width:var(--measure-wide);color:var(--text-2)}
+.doc-meta{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4);font:var(--typescale-micro);color:var(--text-3)}
+.doc-meta code{background:none;padding:0;color:var(--text-2)}
+.doc-sec{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-sec>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-sec>h2 .kit-meta{margin-left:var(--space-2)}
+.doc-anatomy{position:relative;padding:var(--space-10) var(--space-8);background:var(--tray);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-anatomy>.kit-demo{grid-column:auto;grid-row:auto}
+.doc-pins{position:absolute;inset:0;pointer-events:none}
+.doc-pin,.doc-parts li::before{display:inline-flex;align-items:center;justify-content:center;min-width:var(--size-tag);height:var(--size-tag);padding:0 var(--space-1);border-radius:var(--radius-full);background:var(--mark);color:var(--ground);font:var(--typescale-micro);font-weight:var(--font-weight-semibold);font-variant-numeric:tabular-nums}
+.doc-pin{position:absolute;box-shadow:0 0 0 var(--border-width-thick) var(--tray)}
+.doc-hl{position:absolute;display:none;border:var(--border-width-thick) solid var(--mark);border-radius:var(--radius-sm);pointer-events:none}
+.doc-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-3) var(--space-8);list-style:none;counter-reset:part}
+.doc-parts li{display:grid;grid-template-columns:var(--size-tag) minmax(0,1fr);gap:0 var(--space-3);align-items:start;font:var(--typescale-small);color:var(--text-2);cursor:default}
+.doc-parts li::before{counter-increment:part;content:counter(part)}
+.doc-parts li:hover b{color:var(--text)}
+.doc-parts b{font-weight:var(--font-weight-semibold);color:var(--text)}
+.doc-parts code{grid-column:2;font:var(--typescale-code);color:var(--text-3);background:none;padding:0}
+.doc-prose{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure)}
+.doc-prose p{color:var(--text-2)}
+.doc-prose strong{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-size{font:var(--typescale-small);color:var(--text-3)}
+.doc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.doc-rule{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg);color:var(--text-2)}
+.doc-rule.doc-anti{background:var(--cutout)}
+.doc-rule a{color:var(--text)}
+.doc-pager{display:flex;justify-content:space-between;gap:var(--space-4);padding-top:var(--space-5);border-top:var(--border-width-thin) solid var(--line);font:var(--typescale-small)}
+.doc-pager a{color:var(--text-2)}
+.doc-pager a:hover{color:var(--text)}
+.doc-group{display:flex;flex-direction:column;gap:var(--space-5)}
+.doc-group>h2{font:var(--typescale-title);letter-spacing:var(--tracking-title);padding-bottom:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-xl),1fr));gap:var(--space-5)}
+.doc-card{position:relative;display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-3);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-card:hover{border-color:var(--line-strong)}
+.doc-card h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading);padding:0 var(--space-2)}
+.doc-card h3 a{color:var(--text);text-decoration:none}
+.doc-card h3 a::after{content:"";position:absolute;inset:0}
+.doc-card p{padding:0 var(--space-2) var(--space-2);font:var(--typescale-small);color:var(--text-2)}
+.doc-preview{height:var(--width-col-md);overflow:hidden;padding:var(--space-4);background:var(--tray);border-radius:var(--radius-md);pointer-events:none}
+.doc-preview .kit-demo{grid-column:auto;grid-row:auto;width:var(--width-sheet);transform:scale(.5);transform-origin:0 0}
+.doc-preview .kit-stage dialog.modal{margin:0 auto}
+.doc-entry{display:flex;flex-direction:column;gap:var(--space-3);max-width:var(--measure-wide)}
+.doc-entry pre{padding:var(--space-4);background:var(--well-deep);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-md);font:var(--typescale-code);color:var(--text);overflow-x:auto}
+.doc-facts{display:flex;flex-wrap:wrap;gap:var(--space-8)}
+.doc-facts div{display:flex;flex-direction:column;gap:var(--space-1)}
+.doc-facts b{font:var(--typescale-display);letter-spacing:var(--tracking-display);color:var(--text)}
+.doc-facts span{font:var(--typescale-small);color:var(--text-3)}
+.doc-links{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.doc-table{width:100%;border-collapse:collapse;font:var(--typescale-small)}
+.doc-table th{text-align:left;font:var(--typescale-label);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--text-3);padding:var(--space-2) var(--space-3);border-bottom:var(--border-width-thin) solid var(--line-strong)}
+.doc-table td{vertical-align:top;padding:var(--space-3);border-bottom:var(--border-width-thin) solid var(--line);color:var(--text-2)}
+.doc-table td:first-child{color:var(--text);font-weight:var(--font-weight-semibold);white-space:nowrap}
+.doc-pairs{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--width-col-lg),1fr));gap:var(--space-4)}
+.doc-pair{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-5);background:var(--raised);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-lg)}
+.doc-pair h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-pair p{font:var(--typescale-small);color:var(--text-2)}
+.doc-pair .kit-label{color:var(--text-3)}
+.doc-rounds{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-4);list-style:none;counter-reset:round}
+.doc-rounds li{display:flex;flex-direction:column;gap:var(--space-2);padding:var(--space-4);background:var(--cutout);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md);font:var(--typescale-small);color:var(--text-2)}
+.doc-rounds li.is-kept{background:var(--raised);border-color:var(--line-strong)}
+.doc-rounds b{color:var(--text);font-weight:var(--font-weight-semibold)}
+.doc-ref{display:flex;flex-direction:column;gap:var(--space-4);padding:var(--space-5) 0;border-top:var(--border-width-thin) solid var(--line)}
+.doc-ref h3{font:var(--typescale-heading);letter-spacing:var(--tracking-heading)}
+.doc-ref .doc-prose{max-width:var(--measure-wide)}
+.doc-ref .kit-demo{grid-column:auto;grid-row:auto}
+.doc-states-wrap{display:flex;flex-direction:column;gap:var(--space-2);overflow-x:auto}
+.doc-states{display:grid;grid-template-columns:var(--width-col-md) repeat(5,minmax(max-content,1fr));gap:var(--space-2);align-items:stretch}
+.doc-states>.kit-label{align-self:center}
+.doc-cell{display:flex;align-items:center;justify-content:flex-start;gap:var(--space-2);padding:var(--space-6) var(--space-5);background:var(--ground);color:var(--text);font:var(--typescale-body);border:var(--border-width-thin) solid var(--line);border-radius:var(--radius-md)}
+.doc-cell.is-bar{background:var(--bar)}
+.doc-cell>*{min-width:0}
+.doc-cell .kit-demo{grid-column:auto;grid-row:auto}
+.doc-cell .kit-demo>:is(.field,.search,.field-row,.dropzone,.file-list,.callout,.aside-box){width:var(--width-col-md)}
+.doc-na{align-items:flex-start;font:var(--typescale-small);color:var(--text-3);border-style:dashed;white-space:normal;max-width:var(--width-col-lg)}
+.doc-static{display:flex;flex-direction:column;gap:var(--space-2);max-width:var(--measure);color:var(--text-2)}
+.doc-states-note{font:var(--typescale-micro);color:var(--text-3)}
+.doc-states-off .doc-cell[data-ds-state]{opacity:.4}
+.doc-pattern{display:flex;flex-direction:column;gap:var(--space-4);padding-top:var(--space-6);border-top:var(--border-width-thin) solid var(--line)}
+.doc-pattern h2{font:var(--typescale-title);letter-spacing:var(--tracking-title)}
+.doc-frame{width:100%;height:var(--width-sheet);border:var(--border-width-thin) solid var(--line-strong);border-radius:var(--radius-lg);background:var(--ground)}</style>
+</head>
+<body class="product-page kit-page doc-page">
+<svg class="sprite" width="0" height="0" aria-hidden="true"></svg>
+<header class="kit-top"><strong><a href="../pages/index.html" class="doc-home">Design system</a></strong><nav><a href="../pages/index.html">Components</a><a href="../pages/patterns.html">Patterns</a><a href="../pages/why.html">Why it looks like this</a><a href="../../07-ui-assembly/ui/kit.html">UI kit</a></nav><button type="button" class="button-quiet kit-theme" onclick="var l=document.documentElement.getAttribute('data-theme')==='light';dsTheme(l?'dark':'light');this.textContent=l?'Light theme':'Dark theme';document.dispatchEvent(new Event('ds-theme'))">Light theme</button><span class="kit-meta">09 · Design system</span></header>
+<main class="kit-body">
+<div class="kit-intro">
+  <p class="doc-crumb"><a href="../pages/index.html">Design system</a> / Patterns</p>
+  <h1>Patterns</h1>
+  <p>A pattern is a composition of components that already stands on three screens or more. Each one here was found on the screens, not designed for them: its signature is run over all 80 wireframe pages at every build, and the build fails if it stands on fewer than three. A screen counts once, and an overlay never counts. Every pattern is a file in <code>design-system/patterns/</code> with no style of its own — the frames below are those files.</p>
+</div>
+<section class="doc-sec"><h2>Pattern or components</h2>
+  <div class="doc-prose"><p><strong>Take a pattern</strong> when the screen does the job the pattern already does somewhere else: the same parts, in the same order, for the same reason. Then the screen inherits a layout that has been reviewed three times, and a person who has seen one of those screens already knows how this one works.</p>
+  <p><strong>Take the components</strong> when the job differs even if the parts are the same — a place with one thing in it needs no search; a step that can be undone needs no confirmation. And when a composition is on one or two screens only: it is not a pattern yet. If it reaches a third, it is added here, with the three screens named.</p></div>
+</section>
+<section class="doc-pattern" id="browse-head">
+  <h2>Browse head</h2>
+  <p class="doc-meta"><span>Made of: <a href="../pages/page-head.html">Page head</a> · <a href="../pages/search-field.html">Search field</a> · <a href="../pages/filters-button-and-popover.html">Filters button and popover</a></span><span><code>patterns/browse-head.html</code></span></p>
+  <div class="doc-prose"><p>Stands on 3 screens: <strong>My library</strong> <code>library-my-default, library-my-error-filtered, library-my-filters, library-my-link, library-my-loading, library-my-revoke</code>; <strong>Public library</strong> <code>library-public-default, library-public-error-filtered, library-public-filters, library-public-loading</code>; <strong>Projects</strong> <code>projects-default, projects-delete, projects-error-filtered, projects-filters, projects-loading</code>. Also drawn under Item overlay, Import/export, which are overlays and not counted.</p></div>
+  <iframe class="doc-frame" title="Browse head" data-src="../patterns/browse-head.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>The top of a place that holds a collection a person searches and narrows: the name and the one act, then a search and one Filters button, right above the list or the grid.</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>A place that holds one thing — a project, a shared item — takes the Page head alone: there is nothing to search. A filter by kind is Tabs, under this head, not inside it.</p></div>
+  </div>
+</section><section class="doc-pattern" id="set-with-side-panel">
+  <h2>Set with an item side panel</h2>
+  <p class="doc-meta"><span>Made of: <a href="../pages/row-list.html">Row list</a> · <a href="../pages/set-row-states-7.html">Set row states (§7)</a> · <a href="../pages/item-side-panel.html">Item side panel</a> · <a href="../pages/close.html">Close</a></span><span><code>patterns/set-with-side-panel.html</code></span></p>
+  <div class="doc-prose"><p>Stands on 3 screens: <strong>Configuring</strong> <code>project-configuring-item</code>; <strong>Detached row</strong> <code>project-detached-default, project-detached-error, project-detached-loading, project-detached-promote</code>; <strong>Project</strong> <code>project-item</code>.</p></div>
+  <iframe class="doc-frame" title="Set with an item side panel" data-src="../patterns/set-with-side-panel.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>A project&#x27;s set with one item opened beside it: the rows stay where they are, the open one carries the pill, and the panel holds what can be done to that item — Detach, Reset, Promote.</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>Editing the library original is the Item sheet over My library, not this. A list whose rows open nothing beside them is the Row list alone.</p></div>
+  </div>
+</section><section class="doc-pattern" id="configuring-layout">
+  <h2>Configuring layout</h2>
+  <p class="doc-meta"><span>Made of: <a href="../pages/library-panel.html">Library panel</a> · <a href="../pages/scope-switch.html">Scope switch</a> · <a href="../pages/tabs.html">Tabs</a> · <a href="../pages/search-field.html">Search field</a> · <a href="../pages/add-to-set.html">Add to set</a> · <a href="../pages/page-head.html">Page head</a> · <a href="../pages/row-list.html">Row list</a> · <a href="../pages/remove-from-set.html">Remove from set</a></span><span><code>patterns/configuring-layout.html</code></span></p>
+  <div class="doc-prose"><p>Stands on 3 screens: <strong>Configuring</strong> <code>project-configuring-default, project-configuring-empty, project-configuring-error-filtered, project-configuring-error-server, project-configuring-item, project-configuring-loading-add, project-configuring-loading, project-configuring-public</code>; <strong>Detached row</strong> <code>project-detached-default, project-detached-error, project-detached-loading, project-detached-promote</code>; <strong>Project</strong> <code>project-empty</code>.</p></div>
+  <iframe class="doc-frame" title="Configuring layout" data-src="../patterns/configuring-layout.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>The configuring mode: the library panel on the left reads and adds, the set on the right shows what is in it and removes. One fact in two places — membership shown in the panel, owned by the row.</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>Viewing a project is the set alone, with no panel and no ✕: a row being read is not a row being changed (Q21). Keeping and editing items is My library, not the panel.</p></div>
+  </div>
+</section><section class="doc-pattern" id="run-report">
+  <h2>Run report</h2>
+  <p class="doc-meta"><span>Made of: <a href="../pages/run-summary.html">Run summary</a> · <a href="../pages/check-stages.html">Check stages</a> · <a href="../pages/finding-box.html">Finding box</a> · <a href="../pages/file-block.html">File block</a> · <a href="../pages/export-stage.html">Export stage</a> · <a href="../pages/button.html">Button</a></span><span><code>patterns/run-report.html</code></span></p>
+  <div class="doc-prose"><p>Stands on 4 screens: <strong>Run project</strong> <code>run-default, run-error-check, run-error-export, run-error-setup, run-loading-export, run-loading, run-remove, run-success</code>; <strong>Run single item</strong> <code>run-item-default, run-item-loading, run-item-success</code>; <strong>Run shared project</strong> <code>run-shared-default, run-shared-loading, run-shared-success</code>; <strong>Run shared item</strong> <code>run-shared-item-default, run-shared-item-loading, run-shared-item-success</code>.</p></div>
+  <iframe class="doc-frame" title="Run report" data-src="../patterns/run-report.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>The Export mode&#x27;s body, on every Run: the verdict line with its counts, the stages grouped as Findings and Handover, and the Export stage last — the irreversible step read after everything it depends on.</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>A single finding outside Run is a Finding box on its own; a list of facts with no verdict is a Plain list. Never put Export beside the check as a button: it is the last stage (§8).</p></div>
+  </div>
+</section><section class="doc-pattern" id="confirmation">
+  <h2>Confirmation</h2>
+  <p class="doc-meta"><span>Made of: <a href="../pages/dialog.html">Dialog</a> · <a href="../pages/form-actions.html">Form actions</a> · <a href="../pages/button.html">Button</a></span><span><code>patterns/confirmation.html</code></span></p>
+  <div class="doc-prose"><p>Stands on 4 screens: <strong>My library</strong> <code>library-my-revoke</code>; <strong>Project</strong> <code>project-revoke, project-share</code>; <strong>Projects</strong> <code>projects-delete</code>; <strong>Run project</strong> <code>run-remove</code>. Also drawn under Item overlay, Import/export, which are overlays and not counted.</p></div>
+  <iframe class="doc-frame" title="Confirmation" data-src="../patterns/confirmation.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>Before a step that cannot be walked back or that publishes: the veil, the sheet, a head that names the thing, the consequence in the present tense, then Cancel … the act — red only when it removes.</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>An unclean export is confirmed inside the Export stage, not here. A step that can be undone needs no dialog at all.</p></div>
+  </div>
+</section><section class="doc-pattern" id="dialog-with-field">
+  <h2>Dialog with a field</h2>
+  <p class="doc-meta"><span>Made of: <a href="../pages/dialog.html">Dialog</a> · <a href="../pages/text-field.html">Text field</a> · <a href="../pages/form-actions.html">Form actions</a> · <a href="../pages/button.html">Button</a></span><span><code>patterns/dialog-with-field.html</code></span></p>
+  <div class="doc-prose"><p>Stands on 3 screens: <strong>My library</strong> <code>library-my-link</code>; <strong>Detached row</strong> <code>project-detached-promote</code>; <strong>Project</strong> <code>project-link</code>.</p></div>
+  <iframe class="doc-frame" title="Dialog with a field" data-src="../patterns/dialog-with-field.html" loading="lazy"></iframe>
+  <div class="doc-rules">
+    <div class="doc-rule"><p class="kit-label">Take the pattern</p><p>A dialog that asks for one value before it acts, or hands one over: the name of a promoted item, a link to copy. The field sits 16 px under the head, the act after it.</p></div>
+    <div class="doc-rule doc-anti"><p class="kit-label">Take the components</p><p>More than a field or two is the Item sheet. A dialog that only names a consequence is a Confirmation.</p></div>
+  </div>
+</section>
+<section class="doc-sec"><h2>Looked at, and not a pattern</h2>
+  <table class="doc-table"><thead><tr><th>Composition</th><th>Why not</th></tr></thead><tbody><tr><td>Kind tabs over a row list</td><td>My library, Public library — and Item overlay and Import/export, which draw My library under themselves. Two places.</td></tr><tr><td>Receiver&#x27;s content with an aside</td><td>Shared project, Shared item. Two screens.</td></tr><tr><td>A sheet over a place</td><td>Item overlay. One screen.</td></tr><tr><td>Empty or error state with its action</td><td>Seven screens, but it is one component, Empty and error state, not a composition of several.</td></tr><tr><td>Our failure box with its action</td><td>Fourteen screens, but it is one component, the Finding box&#x27;s neutral variant.</td></tr><tr><td>The door</td><td>Sign in, Create account, Reset password — one component, Door form.</td></tr><tr><td>The Filters popover</td><td>My library, Public library, Projects — one component, Filters button and popover.</td></tr></tbody></table>
+</section>
+</main>
+
+<script>
+(function(){
+  function place(){
+    document.querySelectorAll('[data-anatomy]').forEach(function(box){
+      var spec = box.querySelector('.kit-demo'), layer = box.querySelector('.doc-pins'), hl = box.querySelector('.doc-hl');
+      var b = box.getBoundingClientRect(), taken = [];
+      layer.innerHTML = '';
+      box.parentNode.querySelectorAll('.doc-parts li').forEach(function(li, i){
+        var el = spec.querySelector(li.getAttribute('data-sel'));
+        if (!el) return;
+        var r = el.getBoundingClientRect(), x = r.left - b.left, y = r.top - b.top;
+        var pin = document.createElement('span');
+        pin.className = 'doc-pin'; pin.textContent = i + 1; layer.appendChild(pin);
+        var w = pin.offsetWidth, h = pin.offsetHeight;
+        x = Math.max(0, x - w * 0.7); y = Math.max(0, y - h * 0.7);
+        taken.forEach(function(t){ if (Math.abs(t[0] - x) < w && Math.abs(t[1] - y) < h) x = t[0] + w + 2; });
+        taken.push([x, y]);
+        pin.style.left = x + 'px'; pin.style.top = y + 'px';
+        function show(){ hl.style.display = 'block'; hl.style.left = (r.left - b.left) + 'px'; hl.style.top = (r.top - b.top) + 'px';
+                         hl.style.width = r.width + 'px'; hl.style.height = r.height + 'px'; }
+        li.onmouseenter = show; li.onmouseleave = function(){ hl.style.display = 'none'; };
+      });
+    });
+  }
+  window.addEventListener('load', place); window.addEventListener('resize', place);
+  if (document.fonts) document.fonts.ready.then(place);
+  document.addEventListener('ds-theme', place);
+  var t = document.querySelector('.kit-theme');
+  if (t && document.documentElement.getAttribute('data-theme') === 'light') t.textContent = 'Dark theme';
+})();
+</script>
+<script>
+(function(){
+  function theme(){ return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
+  function load(){ document.querySelectorAll('iframe[data-src]').forEach(function(f){ f.src = f.getAttribute('data-src') + '?theme=' + theme(); }); }
+  load(); document.addEventListener('ds-theme', load);
+})();
+</script></body>
+</html>

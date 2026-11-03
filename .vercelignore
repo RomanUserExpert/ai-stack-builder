@@ -80,3 +80,6 @@ design-system/*
 !design-system/docs
 design-system/docs/*
 !design-system/docs/*.html
+!design-system/patterns
+design-system/patterns/*
+!design-system/patterns/*.html

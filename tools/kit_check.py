@@ -19,6 +19,8 @@ with one entry point, index.css. The numbers are kept:
 9. coverage: wireframe pages and flow steps with a twin
 11. the docs (phase 09): a page per component of the kit, each linking design-system/index.css alone, their own
     styles reading only declared variables and no colour primitive
+12. the patterns (phase 09): one file per pattern of build_patterns, each on three screens or more, linking
+    design-system/index.css alone, with no style of its own and no class the components do not define
 10. no geometry written as a count of a primitive (calc(var(--s12) * 3)) outside the skeleton sizes (tokens-check.md, T5)
 """
 import re
@@ -123,7 +125,7 @@ def main():
     docs = SYSTEM / "docs"
     import build_kit as _bk
     names = [c.name for comps in _bk.components().values() for c in comps]
-    want = {re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-") + ".html" for n in names} | {"index.html", "why.html"}
+    want = {re.sub(r"[^a-z0-9]+", "-", n.lower()).strip("-") + ".html" for n in names} | {"index.html", "why.html", "patterns.html"}
     have = {p.name for p in docs.glob("*.html")}
     if want - have or have - want:
         fails.append(f"11 docs/: no page for {sorted(want - have)}; a page for nothing {sorted(have - want)}")
@@ -137,6 +139,29 @@ def main():
         direct = sorted(set(COLOUR_PRIMITIVE.findall(styles)))
         if missing or direct:
             fails.append(f"11 docs/{f.name}: undeclared {missing}, colour primitives {direct}")
+    # 12 — the patterns: found on three screens, made of components, no style of their own
+    import build_patterns as _bp
+    pats = SYSTEM / "patterns"
+    want_p = {p["slug"] + ".html" for p in _bp.PATTERNS}
+    have_p = {p.name for p in pats.glob("*.html")}
+    if want_p != have_p:
+        fails.append(f"12 patterns/: missing {sorted(want_p - have_p)}; not a pattern {sorted(have_p - want_p)}")
+    wp = _bp.pages()
+    for p in _bp.PATTERNS:
+        n = len(_bp.count(p, wp)[0])
+        if n < 3:
+            fails.append(f"12 {p['name']} stands on {n} screens")
+    for f in sorted(pats.glob("*.html")):
+        h = f.read_text(encoding="utf-8")
+        links = re.findall(r'<link rel="stylesheet" href="([^"]+)"', h)
+        if links != ["../index.css"]:
+            fails.append(f"12 patterns/{f.name} links {links}")
+        if re.search(r'\sstyle="', h) or "<style" in h:
+            fails.append(f"12 patterns/{f.name} has a style of its own")
+        extra = sorted({c for m in re.findall(r'class="([^"]*)"', h) for c in m.split()
+                        if c not in classes and c not in ALLOWED and not c.startswith("wf-") and c != "device"})
+        if extra:
+            fails.append(f"12 patterns/{f.name}: classes no component defines {extra}")
     if (UI / "kit.css").exists():
         fails.append("6 07-ui-assembly/ui/kit.css is back: phase 08 retired it")
     # 8 — the showcase's words are the product's (a stage's duration is a value, not a line: microcopy.md leaves it out)
