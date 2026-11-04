@@ -3,347 +3,178 @@
 Working context for Claude Code on this project. Read this before doing anything.
 All documentation, code, comments and UI copy in this repo are written in **English**.
 
+**How to read this file.** It is the product's specification and the rules for working on it, stated **as they
+hold now**. Each decision cites its register entry, `(Q24)`; the reasoning, the alternatives and the date are in
+the register ([`01-research/research-plan.md`](01-research/research-plan.md)), not here. **This file keeps no
+history**: superseded wording is not struck through and left in place — it is replaced, and git keeps the old
+text (the last version that carried the full dated history is commit `9e61f7f`). Section numbers are stable
+and are cited across the repo and by the generators (`CLAUDE.md §18`); **do not renumber them**.
+
 ---
 
 ## 1. Current phase — read this first
 
-**Phase: research was signed off on 2026-09-02 in five stages, and was re-opened on 2026-09-06 with
-two more — personas and jobs to be done. Those two are lesson 02; lesson 03, information
-architecture, closed on 2026-09-20; lesson 04, prototyping and wireframing, closed on 2026-09-27; lesson 05, tone of voice and microcopy,
-closed on 2026-10-05 (§14); lesson 06, concept, closed on 2026-10-11 (§15); lesson 07, UI assembly, closed on 2026-10-28
-(§16); lesson 08, design tokens, closed on 2026-11-03 (§17); lesson 09, design system, closed on 2026-11-03 (§18, Q51);
-and the next lesson is 10, responsive — not opened until the owner says so.**
+**Lessons 01–09 are closed. The next is 10, responsive, and it is not opened until the owner says so** — every
+lesson opens on the owner's word. If a request jumps ahead — to responsive or motion — confirm before acting.
+Until lesson 10 opens, the system grows only by §18, and **no colour value is written before the owner signs
+it**. Every line of copy is written against §14.
 
-There is still no application code and no design system. ~~no mockups~~ **— the main job is drawn as mockups since
-2026-10-11** (§15), behind a Wireframe / Design switch in the viewer. ~~no information architecture~~
-**— the information architecture exists as of 2026-09-20**: all seven of lesson 03's steps are done,
-the summary is at the end of §8, and the lesson's page is
-[`ia.html`](03-information-architecture/ia.html). ~~What remains of the lesson is its page.~~
+**What exists:** research, personas and jobs, the information architecture, every screen as a wireframe and a
+dressed mockup, every flow as a clickable prototype, the voice and every line of microcopy, the concept, and the
+design system at [`design-system/`](design-system/README.md). **There is no application code.** Do not scaffold
+the app before there is something for it to hold. Product logic in this file is **specification, not a build
+order** — it is written down so design decisions are made with the real mechanics in view.
 
-**Lesson 03 started on 2026-09-15, and the register's sitting was not held first.** That is the
-owner's decision, taken in these words — *we work with what we have* — and it changes standing, not
-evidence. **The sitting was then held the same day** — [`research-plan.md`](01-research/research-plan.md),
-*The sitting — 2026-09-15* — so this paragraph's *stays owed* lasted one afternoon. Two entries
-answered, four deferred, **the blanket *provisional* label dropped with no mark promoted**, and the
-four proposal lists still unapplied **except stage 6's proposal 6, the `license` field** (§5, §11).
-If lesson 03 finds that a section of this file has
-to change, it goes to the register as an entry rather than being edited in place; that is the protocol
-every lesson uses (§12). The cost to hold while working: **an information architecture built now
-rests on three personas, one of whom has never been observed, and on a matrix with thirty `[?]`
-cells.** Where a structural decision would need one of those cells to be a number, say so on the spot
-and leave the decision marked — do not invent the person. Recorded in the register at
-[`01-research/research-plan.md`](01-research/research-plan.md).
+### The order of work — the course's twelve lessons
 
-**2026-09-20 — lesson 03 changed the builder's mechanism, and the protocol above was followed.** Four
-entries were raised and answered the same day (§12, Q14–Q17), and **all four change this file** — §5,
-§6 twice, and §8.
-**The `⌘K` palette is replaced by a library panel inside `Project`** — scope switch above tabs by
-`kind`, `Related` first and default, read-and-add only, drag still not the mechanism — and **the
-Library leaves the assembly path** and becomes the curator's room (§8). **A single item exports on its
-own** (§6). Two smaller ones follow: **an empty project is an empty state whose `Check` and `Export`
-are disabled**, the product's only such exception and written down as one (§6), and **deleting a
-library item is confirmed rather than refused** (§5). **The basis is the owner's judgement plus one
-correction of the record**: the score that killed a library pane in stage 5 — *half the screen is inert
-during the check* — assumed the check lived in the right-hand pane, and it has had its own surface
-since 2026-09-02. **No mark was promoted by any of it.**
-
-**And one working rule set the same evening, after the four entries below were written** (2026-09-20).
-**We are designing the interface, and we are not designing the backend.** Q24 settled that a server
-exists; **what it is and how it behaves is deliberately not decided anywhere in this file**, which is
-what §10 already says about serving shared links. **So every decision here is phrased as what a person
-sees and what a surface may claim**, never as a guarantee about storage — *two entries written before
-this rule were phrased as mechanics and were restated the same evening; they are Q26 and Q27, and what
-they decide is unchanged.*
-
-**And late the same day the largest correction of all: the product is online** (§12, Q24). **A backend
-and accounts**, so a person's library follows them between machines. **§9 loses accounts and sync and
-keeps teams out; §10's *IndexedDB, no backend* is gone; a piece of §2's long-term ambition moves into
-the MVP.** **Q18, answered that morning, is void** — the JSON export stood on there being no server.
-**What survives, and was checked rather than assumed**: the run is still a moment, the catalog is still
-refused, *checked, never works* still holds, and the receiver of a shared link is still anonymous.
-**And `loading` and `error` are now real states on every surface**, which is the first thing lesson 03's
-critique will find.
-
-**Why it was re-opened.** The five stages established what vendors sell, what breaks and what shape
-the key flow takes. None of them established **who the person is** or **what they hire this product
-for**. Stages 6 and 7 do that:
-[`02-personas-jtbd/6-personas/README.md`](02-personas-jtbd/6-personas/README.md) and
-[`02-personas-jtbd/7-jobs-to-be-done/README.md`](02-personas-jtbd/7-jobs-to-be-done/README.md). **The five-stage
-sign-off stands as written** — nothing below is retracted; the two new stages *audit* this file and
-raise register entries rather than editing it.
-
-**Status, 2026-09-09 — both stages are written, audited and reconciled, and the interviews are
-unavailable.** Every step of both plans is done. The four remaining practitioner conversations — the
-event that lifts *provisional*, and the named instrument for five of the six live register entries —
-**cannot be run.** That removes an event; it does not lower a bar, and nothing in either stage is
-promoted because of it. **What is reachable without a person is written down as
-[`re-research.md` round 3](02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview)** — five questions with named instruments,
-three reading behaviour left in public artefacts and **two of them ours to run**, including the
-handover test this file has owed itself since 2026-09-02.
-
-**Round 3 was run on 2026-09-10 and the capture logs exist**, so it may now be cited:
-[`_captures/round3-log.json`](02-personas-jtbd/6-personas/_captures/round3-log.json) and
-[`_captures/qf-handover-test/`](02-personas-jtbd/6-personas/_captures/qf-handover-test/). **Four questions answered, one in
-part.** The one that matters to this file is **Q-F, the handover test**: three receiving agents were
-handed an archive built exactly as §6 describes, and **all three performed the setup**, including
-cloning an external item at its pinned ref — the first evidence of any kind under §6's central bet,
-and it is positive. **The second half of that bet failed**: with the Problems left undisclosed, one
-receiver found them, one **mis-resolved one on a false claim of byte-identity**, and one saw none.
-**Six proposals came out of the round and none is applied here** — they are listed at the end of
-[`re-research.md` round 3](02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview) and go to the register's sitting with the
-other two lists. **One of them is the first proposal any round has made to the *shape* of §5 rather
-than to its reasoning: an item addresses a directory, not a file.**
-
-**A fourth round ran the same day** — [`re-research.md` round 4](02-personas-jtbd/6-personas/re-research.md#round-4-the-matrixs-empty-cells) —
-because round 3 moved no importance in the jobs matrix and said why: its instruments see machines,
-and the matrix's columns are people. It went after the columns in two venues this project had never
-used — the Cursor and OpenAI community forums, where the vendor answers in public — and **moved
-three cells upward**, the first time any round has added to the matrix rather than subtracted from
-it. **Its strongest finding is a negative one**: after four rounds and five venues, **no receiver has
-ever spoken in the first person** — every account of a handover is written by the sender — and the
-two clearest public beginners wrote their own material on day one or asked to shadow a human rather
-than reach for a library. **The *provisional* label does not lift** — its trigger is unchanged.
-
-The documents:
-[`inventory.md`](02-personas-jtbd/6-personas/inventory.md) — a register of the twenty questions about people,
-each with its answer, the data under it and a mark;
-[`re-research.md`](02-personas-jtbd/6-personas/re-research.md) — a source document, four instruments taken to
-the public record, with its capture logs; [`interviews.md` the guide](02-personas-jtbd/6-personas/interviews.md#part-1-the-guide);
-[`interviews.md` interview 1](02-personas-jtbd/6-personas/interviews.md#part-2-interview-1-of-5), **interview 1 of 5**;
-[`re-research.md` round 2](02-personas-jtbd/6-personas/re-research.md#round-2-counting-not-asking) — a second collection run on 2026-09-08
-against the questions the audit raised, and **the first instrument here that counts somebody's
-collection instead of asking about it**; and
-[`personas-and-jobs-critique.md`](02-personas-jtbd/personas-and-jobs-critique.md) — **the audit**, stage 6's
-step 4 and stage 7's step 6 merged, 238 claims classified and **27 of them found invented**, applied
-in full on 2026-09-09.
-**There is a page.** [`02-personas-jtbd/personas.html`](02-personas-jtbd/personas.html) —
-persona cards with the primary marked, the job hierarchy, the matrix as a table, every mark visible —
-generated by `tools/build_personas.py` from the design language `research.html` already uses.
-
-**The two pages are lessons 01 and 02 of the design-engineering course this work is homework for**,
-and they are navigated as such — **though the pages call a lesson a *phase*** (renamed 2026-09-09; the
-word on the page is *Phase 01*, the thing behind it is the course's lesson 01). A sidebar on both
-lists **all twelve of them** — research and benchmark, personas and JTBD, information architecture,
-prototyping, tone of voice, concept, UI assembly, design tokens, design system, responsive, animation,
-handoff — with the current one marked and the ten unbuilt ones marked *soon*. **Phase 01 carries
-research stages 1–5; phase 02 carries stages 6–7.** Each page has the same shape as the course's own
-reference page: a skip link, a meta line saying which phase of twelve and when it was last
-re-verified, a rail titled *in this phase*, an **Overview** of what we saw and what we decided, the
-stage sections, and the evidence. **That list of twelve is the course's, and as of 2026-09-09 it is also ours** — the order of work
-above is that list, not the five build phases this file used to keep beside it. The rule the old
-sentence was protecting still holds and is now trivial: **the strip shows the twelve and nothing
-else.** Our former phases are not a parallel list to be shown anywhere; they are folded into the
-twelve, and where each went is written under the table above.
-
-**The behavioural axes and [`personas.md`](02-personas-jtbd/6-personas/personas.md) landed on 2026-09-08** —
-**three personas, one primary**: *the keeper who runs several agents* (primary), *the receiver*, and
-*the empty-handed*, the last being the persona §8's scope switch and §11's shelf already ship for and
-**nobody had met**. The page and the audit followed. **The four remaining interviews are owed and
-unavailable**, and so is a block of questions for a **receiver** — the guide recruits one and has
-nothing to ask them, which is why every line about the second persona is somebody else's account of
-them. Round 3 approaches that column from the other side, by reading **forks as handovers**.
-
-**Stage 7 ran from 2026-09-08 to 2026-09-09 and is complete.**
-[`02-personas-jtbd/7-jobs-to-be-done/jtbd.md`](02-personas-jtbd/7-jobs-to-be-done/jtbd.md) holds **one main job, four
-related, three emotional and two social**, each with its persona, its source and its mark, plus seven
-hypothesis jobs, **and the matrix**. **Two main-job candidates survived, which by the method's own
-rule means two products** — the second is Q12, the one §6 forbids us to build, and on **2026-09-20 it
-was closed as refused rather than deferred** and written into §9 as a product we are not building. The main job
-is worded as a **transfer** job where §2 words the value as **assembly with validation**; that
-difference is stated in `jtbd.md` §1 and **is not applied here.**
-
-**The matrix names three jobs for the MVP core** — the main job, *move the work without moving the
-secrets* (the largest evidence crowd on a fear), and *fix it once and have the fix reach every copy*
-(which is what §5's live link exists for). **The audit changed how that shortlist is arrived at, and
-not what is on it.** Two matrix cells lost their numbers and four were lowered from 3 to 2, because a
-*3* means *a reason they would change how they work* and in each case the person on record
-demonstrably did not — so the rule the shortlist was announced as *"applied mechanically"* now selects
-**one** buildable job, and the other two are kept on stated grounds: the market is open in both, and
-this file has already spent a mechanism on each. That is a judgement with the matrix as its input, and
-`jtbd.md` §8 says so in those words.
-
-**And it names six specified features that close a job whose every cell is `[?]`**, the sharpest being
-the public shelf and the example project: they sit in the most crowded space in the survey, and their
-persona — never observed when that sentence was written — **has since been observed for the first
-time, with four of five voices refusing, minimising or preferring their own material.** What survived
-is *provenance over volume*. **That list is still a list of hypotheses, not a cut list** — it rests on
-absences in instruments that cannot see presence, four sceptics on Hacker News are not a market, and
-no beginner was asked anything. **Nothing is removed.** The finding bears on **what the shelf holds
-and how it sorts**, which is Q9 in the register and now has its first evidence.
-
-**One thing has been applied and the rest has not, and that is deliberate: the register decides, not
-the stages — and it sat on 2026-09-15, answering Q7, Q8 and Q10 and deferring Q9, Q11 and Q12 without
-touching a single proposal list.** *Until 2026-09-15 this line read "nothing has been applied".* **The owner
-applied stage 6's proposal 6 — the `license` field — on 2026-09-15**, on a legal basis rather than an
-evidential one: it closes no job, and §5 says so in those words. **Nothing else is applied.** There
-are now **two proposal lists and they are one input**. Stage 6's **nine
-proposals** touch §2, §5, §6, §9 and §11 — including a narrowing of §2's *"nothing does this today"*
-and a new safety risk under §11's public shelf — and are collected in
-[`02-personas-jtbd/6-personas/re-research.md` §4](02-personas-jtbd/6-personas/re-research.md). Stage 7's **nine**, the
-reconciliation, are in [`02-personas-jtbd/7-jobs-to-be-done/jtbd.md` §12](02-personas-jtbd/7-jobs-to-be-done/jtbd.md),
-written as *what was found · what is proposed · which register entry it belongs to*, and they name
-§2, §5, §6, §7, §8, §9 and §11. **Read §12 first — it is the shorter list and it names the sections.
-Read both before the next change to this file.** Four things this document leans on are now narrower than they read —
-three of them on re-runnable evidence, and the fourth, §2's *"nothing does this today"*, on what
-competing tools **claim in their own READMEs**, none of which we have run.
-[`01-research/FINAL.md`](01-research/FINAL.md) §6 lists them with what each mark is carrying.
-
-**The evidence rule changed.** Every claim about people now carries one of three marks, defined once
-in [`01-research/research.md`](01-research/research.md), *The three marks*: **`✓`** confirmed by an
-instrument another person can re-run · **`*`** reported by a practitioner in an interview · **`?`**
-unknown. **A `*` never becomes a `✓` by repetition.** And, after every mark in the folder was audited
-on 2026-09-08: **a re-runnable query proves that something was *said*, not that it is *true*** — an
-issue body, a forum comment and a tool's README are people describing their own behaviour, so the
-`✓` on them covers the utterance and not the behaviour under it.
-
-The agreed order of work — **corrected 2026-09-09, and the correction matters.** This list used to
-read *research → design system → mockups → frontend → logic*, five phases of our own invention, and
-**it put the design system second when it is ninth**. The real order is **the course's twelve
-lessons**, because that is what this work is homework for and what both pages already navigate by.
-Five lessons stand between us and the design system, and they are the ones that decide what the
-product *is* before anything decides what it looks like.
+This work is homework for a design-engineering course, and the order of work **is the course's list**. Each
+lesson is one folder (§13) with its own `README.md` and a phase page.
 
 | | Lesson | State |
 |---|---|---|
-| **01** | Research and benchmark | ~~done~~ — stages 1–5, signed off 2026-09-02 · [`research.html`](01-research/research.html) |
-| **02** | Personas and JTBD | ~~done~~ — stages 6–7, written, audited and reconciled 2026-09-09 · [`personas.html`](02-personas-jtbd/personas.html). **The sitting was held on 2026-09-15; four interviews remain unavailable and every mark stands where it was** |
-| **03** | **Information architecture** | ~~done~~ — started 2026-09-15, **closed 2026-09-20**, all seven of the course's steps · [`ia.html`](03-information-architecture/ia.html) · [the plan](03-information-architecture/README.md). ~~Five of the course's seven steps are done; what remains is the IA critique and `ia.html`.~~ The four surfaces in §8 exist as a decision and not as a structure: what lives where, what a screen is made of, what the ~~palette~~ **library panel** reaches, what an item card carries |
-| **04** | **Prototyping and wireframing** | ~~current~~ — **closed 2026-09-27**: 17 screens and 80 wireframe pages, every flow clickable in 37 cases, reviewed screen by screen by the owner (Q29–Q34) and once cold by an independent reviewer ([`_critique.md`](04-wireframes/_critique.md), Q35) · [the viewer](04-wireframes/pages/wireframes.html). Structure before appearance — no colour, no type scale, no components. **Since 2026-09-26 every screen on the map is drawn** — 16 screens, 64 pages, in [`04-wireframes/pages/`](04-wireframes/pages/wireframes.html) — **and the owner's screen-by-screen review is under way**; its decisions are Q29–Q33 in the register and the dated notes in §8. **Since 2026-09-27 every flow is clickable** — the main job in full, every fork of it as a case, 14 of them, and the six other flows lighter, up to five cases each, 23 more — wired by `href` from the wireframes themselves — in [`04-wireframes/prototypes/`](04-wireframes/prototypes/prototypes.md), with its own [conventions](04-wireframes/prototypes/_conventions.md) and a *Flows* group in the viewer |
-| **05** | **Tone of voice and microcopy** | ~~current~~ — **closed 2026-10-05**, all seven of the course's steps: a contract, [`voice.md`](05-tone-of-voice/voice.md) — five principles, a dictionary, a forbidden list, rules by element — and every line of the product in [`microcopy.md`](05-tone-of-voice/microcopy.md), *was / now*. 80 pages rewritten, 22 defects found and fixed, prototypes rebuilt; the main control reads `Export…` (Q36), a shared project reads as shared (Q37). See §14 · [`voice.html`](05-tone-of-voice/voice.html) · [the plan](05-tone-of-voice/README.md) |
-| **06** | **Concept** | ~~current~~ — **closed 2026-10-11**, all seven of the course's stages: four rounds of directions, the working style **Mica · Lime** (§15), [`tokens.css`](06-concept/tokens.css) with every value, [the stand](06-concept/concept.html), the main job drawn as mockups behind a Wireframe / Design switch in [the viewer](04-wireframes/pages/wireframes.html), and a check of 29 problems with evidence · [the phase page](06-concept/style.html) · [`concept.md`](06-concept/concept.md), every decision and the road to it |
-| **07** | **UI assembly** | ~~current~~ — **closed 2026-10-28**: all 83 pages and 241 flow steps dressed from one kit, critique, review and audit each with a disposition per finding, Q39–Q43 answered (§16). The screens built out of the concept — what the old list called *mockups*. **The main job is already drawn** (phase 06, stages 5–6); ~~what remains is every other screen and flow~~ **every screen and flow step is dressed since 2026-10-19** — [the plan](07-ui-assembly/README.md), [the review](07-ui-assembly/ui/review.md) · **the phase page, [`ui.html`](07-ui-assembly/ui.html), since 2026-10-23** |
-| **08** | **Design tokens** | ~~current~~ — **closed 2026-11-03** (Q48) · [the plan](08-design-tokens/README.md). **Steps 1–6 done 2026-10-28**: `tokens.css` on two levels, `components/`, every screen moved with no pixel changed, a light theme by semantic overrides, the check (§17). ~~Where **Q6, the styling engine**, is finally decided, on two built components~~ **Q6 answered 2026-10-29 (Q45): no engine, plain CSS** (§10). **The phase page, [`tokens.html`](08-design-tokens/tokens.html), since 2026-10-29** |
-| **09** | **Design system** | ~~current~~ — **closed 2026-11-03** (Q51) · [the phase page](09-design-system/system.html) · [the plan](09-design-system/README.md). Components, states, the two themes. **This is where the old list's item 3 actually belongs.** D1–D6 answered as recommended (Q48): **the package lives at `design-system/` in the repo's root**, the one named exception to one folder per lesson; the docs replace `kit.html`; disabled keeps its three roles; the four light gaps and the pressed state are proposed by the model and **signed by the owner value by value**; the test screen is the owner's pick from lesson 03's matrix. **Step 1 done 2026-11-03**: [`design-system/`](design-system/README.md) holds `tokens.css` and `components/`, moved byte for byte, behind one `index.css`; every page links it alone; no pixel moved. **Step 2 done 2026-11-03**: [the docs](design-system/docs/index.html) — a page per component (46), the showcase and `why.html`, live on `index.css`. **Step 3 done 2026-11-03**: hover, active, focus-visible and disabled on every control in both themes, pressed and the light gaps signed (Q49). **Step 4 done 2026-11-03**: six [patterns](design-system/docs/patterns.html), each found on three screens or more. **Step 5 done 2026-11-03**: the rule of contribution, §18 — new appears in the system first, on a screen second. **Step 6 done 2026-11-03**: [a new screen](design-system/examples/usage.html) for EJ-3, built from the system alone, and [a second](design-system/examples/copies.html) for RJ-3; eight entries in [`backlog.md`](design-system/backlog.md), one a defect, none drawn. **Step 7 done 2026-11-03**: [the check](09-design-system/system-check.md), 15 rows (S1–S10, I1–I6), every one fixed or disposed, each class a guard (14–17); `kit.html` retired to a redirect (D2); the light disabled ground and the host signed (Q50); [the showcase online](https://ai-stack-builder-research.vercel.app/design-system/docs). **The phase page, [`system.html`](09-design-system/system.html), since 2026-11-03**, linked in every rail and in the viewer |
-| **10** | Responsive | §3 says desktop-first and deliberately late; this is that lesson |
+| **01** | Research and benchmark | Closed 2026-09-02 — stages 1–5 · [`research.html`](01-research/research.html) · start at [`FINAL.md`](01-research/FINAL.md) |
+| **02** | Personas and JTBD | Closed 2026-09-09 — stages 6–7 · [`personas.html`](02-personas-jtbd/personas.html) |
+| **03** | Information architecture | Closed 2026-09-20 · [`ia.html`](03-information-architecture/ia.html) · summary in §8 |
+| **04** | Prototyping and wireframing | Closed 2026-09-27 — every screen and flow · [the viewer](04-wireframes/pages/wireframes.html) · [prototypes](04-wireframes/prototypes/prototypes.md) and their [conventions](04-wireframes/prototypes/_conventions.md) · [critique](04-wireframes/_critique.md) (Q35) |
+| **05** | Tone of voice and microcopy | Closed 2026-10-05 · [`voice.html`](05-tone-of-voice/voice.html) · §14 |
+| **06** | Concept | Closed 2026-10-11 — Mica · Lime · [`style.html`](06-concept/style.html) · §15 |
+| **07** | UI assembly | Closed 2026-10-28 — every screen and flow step dressed · [`ui.html`](07-ui-assembly/ui.html) · §16 |
+| **08** | Design tokens | Closed 2026-11-03 · [`tokens.html`](08-design-tokens/tokens.html) · §17 |
+| **09** | Design system | Closed 2026-11-03 (Q51) · [`system.html`](09-design-system/system.html) · [the showcase online](https://ai-stack-builder-research.vercel.app/design-system/docs) · §18 |
+| **10** | Responsive | **Next, not opened.** §3 says desktop-first and deliberately late; this is that lesson |
 | **11** | Animation and micro-interactions | The validation pass is a designed moment (§6), and it gets designed here |
-| **12** | Handoff and documentation | And for us, the thing being handed off is a product whose whole subject is handover |
+| **12** | Handoff and documentation | The thing being handed off is a product whose whole subject is handover |
 
-**Where the old five went.** *Design system* splits across 08 and 09; *mockups* is 07, and 04 comes
-before it; *static frontend implementation* is how 07 and 09 are built, since §10 says design happens
-in code; *logic* — state, storage, validation, export — is the last thing and sits after 12, because
-nothing in the twelve requires it and §6 is specification rather than a build order.
+*Logic* — state, storage, validation, export — comes after 12: nothing in the twelve requires it. *Static
+frontend implementation* is how 07 and 09 are built, because design happens in code (§10).
 
-**The blanket `provisional` label was dropped on 2026-09-15 and nothing was promoted with it** —
-the register's sitting removed the word on rule 1, *the mark is per claim, not per document*, because
-one word over-warned about P1 (20 `✓` against 5 `[?]`) and under-warned about P3 (2 `✓` against 6
-`[?]`). **Every mark below is unchanged and the four owed interviews are still owed and unavailable.**
-The paragraph that follows is what the label was carrying, and it is still true:
+**The phase pages.** The pages call a lesson a *phase* (*Phase 01* is the course's lesson 01). Each has the same
+shape as the course's reference page: a skip link, a meta line saying which phase of twelve and when it was last
+re-verified, a rail titled *in this phase*, an **Overview** of what we saw and what we decided, the stage
+sections, and the evidence. A sidebar lists **all twelve** lessons, the current one marked and the unbuilt ones
+marked *soon* — **the strip shows the twelve and nothing else.** Their look is not the product's; it is
+[`DESIGN-artifacts.md`](DESIGN-artifacts.md) (§13).
 
-~~**Both new stages ship marked `provisional`.**~~ We have one interview, no analytics and no users, and
-stage 3 recorded that a tracker sees breakage, not friction. **All of the adoption story is hypothesis
-marked `[?]`, and the third persona is mostly `[?]`** — the first two turned out to be mostly one
-person's recollection plus utterance-level `✓`, which the audit counted rather than estimated. The
-label lifts on the event Q5 already names — five practitioner conversations — for which stage 6 built
-the instrument and ran the first. **As of 2026-09-09 the remaining four cannot be run, so the label
-does not lift.** ~~Whether anything else may ever lift it is a decision for the register's next
-sitting.~~ **Decided 2026-09-15: the blanket label is dropped rather than lifted**, on rule 1 — *the
-mark is per claim, not per document* — and **no mark is promoted by dropping it.** The four
-conversations are still owed and still unavailable; what changes is that the warning is now carried
-per claim, where it was always finer, instead of by one word over a whole document.
+### Evidence — the rule every claim about people follows
 
-**All five of the original research stages are done.** Landscape, flows and pain; then **benchmark** — 15
-product-and-flow cells scored against five categories lifted from stages 1–3
-([`01-research/4-benchmark/benchmark.md`](01-research/4-benchmark/benchmark.md)); then **patterns** — five shapes for the key flow
-compared on that rubric, with the chosen one written into §8 below and the four rejected kept in
-[`01-research/5-patterns/patterns.md`](01-research/5-patterns/patterns.md).
+Every claim about people carries one of three marks, defined in [`01-research/research.md`](01-research/research.md),
+*The three marks*: **`✓`** confirmed by an instrument another person can re-run · **`*`** reported by a
+practitioner in an interview · **`?`** unknown.
 
-**The six open questions were closed in one sitting on 2026-09-02** — four answered, two deferred
-with a stated reason. Everything they changed is in this file; the reasoning, and what was read
-before each decision, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md). Two of the
-answers widened the MVP and are marked as such below: a **curated public library ships with the
-product** (§8, §11), and **`SETUP.md` is written for the agent that opens the archive** (§6).
+- **A `*` never becomes a `✓` by repetition.**
+- **A re-runnable query proves that something was *said*, not that it is *true*.** An issue body, a forum comment
+  and a README are people describing their own behaviour; the `✓` covers the utterance, not the behaviour.
+- **The mark is per claim, not per document.** No document carries a blanket label.
+- **We have one interview, no analytics and no users.** Four practitioner conversations are owed and cannot be
+  run; nothing is promoted because of that. The adoption story is hypothesis marked `[?]`.
+- **Where a structural decision would need a `[?]` cell of the jobs matrix to be a number, say so on the spot and
+  leave the decision marked — do not invent the person.** The matrix has about thirty `[?]` cells.
+- **The receiver (P2) has never spoken in the first person**: after four rounds and five venues, every account
+  of a handover is written by the sender. That is why §8's shared surfaces carry the most conservative rule in
+  the product.
 
-**For a single consolidated read of the whole phase**, see [`research.md`](01-research/research.md) — competitors,
-flows, benchmark, patterns and conclusions in five sections, every fact linked to its source or
-capture, and every unestablished claim marked as such. **It is a digest and never a source of
-truth**: this file is the spec, [`01-research/FINAL.md`](01-research/FINAL.md) is the close, and the
-register in [`01-research/research-plan.md`](01-research/research-plan.md) is the only list of open
-questions. Do not answer a question from the digest that these three answer differently.
+### What the research established, in brief
 
-**The research folder is organised by stage**, and two files govern it:
-[`01-research/FINAL.md`](01-research/FINAL.md) is the closing document — what the phase produced, the
-decisions taken, how the six questions were settled, and the documents that are read from more than
-one stage. [`01-research/research-plan.md`](01-research/research-plan.md) is the spine and holds the
-register — **empty at the 2026-09-02 sign-off and holding six live entries since, Q7 to Q12**.
-**Start at `FINAL.md`.**
+- **Three personas, one primary** ([`personas.md`](02-personas-jtbd/6-personas/personas.md)): *the keeper who
+  runs several agents* — **the collector**, primary (Q7, §3) — *the receiver*, and *the empty-handed*, for whom
+  §8's scope switch and §11's shelf ship. The empty-handed has been observed once: four of five voices refused,
+  minimised or preferred their own material; what survived is *provenance over volume*.
+- **Jobs** ([`jtbd.md`](02-personas-jtbd/7-jobs-to-be-done/jtbd.md)): one main job, four related, three emotional,
+  two social, seven hypothesis jobs, and the matrix. **The main job is *assemble a set that holds together*
+  (Q8), so §2 stands as written**; the *transfer* wording the evidence produced is recorded in `jtbd.md` §1 and
+  not adopted. A second main-job candidate — observability of what ran — is a different product and is refused
+  (Q12, §9).
+- **The MVP core is three jobs**: the main job; *move the work without moving the secrets*; *fix it once and have
+  the fix reach every copy* (§5's live link). Only the first is selected by the matrix mechanically; the other
+  two are kept on stated grounds — the market is open in both, and this file already spends a mechanism on each.
+  `jtbd.md` §8 says so. *(A `3` in the matrix means a reason they would change how they work; where the person on
+  record demonstrably did not, the cell was lowered.)*
+- **Six specified features close a job whose every cell is `[?]`** — sharpest, the public shelf and the example
+  project. **That is a list of hypotheses, not a cut list. Nothing is removed** — it rests on absences in
+  instruments that cannot see presence, four sceptics on Hacker News are not a market, and no beginner was asked
+  anything. It bears on what the shelf holds and how it sorts (Q9).
+- **The handover test** ([round 3](02-personas-jtbd/6-personas/re-research.md#round-3-five-questions-that-need-no-interview),
+  Q-F, [captures](02-personas-jtbd/6-personas/_captures/qf-handover-test/)): three receiving agents handed an
+  archive built as §6 describes **all performed the setup**, including cloning an external item at its pinned
+  ref. With the Problems left undisclosed, one found them, one mis-resolved one on a false claim of
+  byte-identity, and one saw none.
+- **Four claims in this file are narrower than they read**, including §2's *"nothing does this today"*, which
+  rests on what competing tools claim in their own READMEs. [`FINAL.md`](01-research/FINAL.md) §6 lists them.
 
-Do not skip ahead. ~~**The current lesson is 09, design system**~~ **Lesson 09 closed on 2026-11-03 (Q51); the next is
-10, responsive, and it is not opened yet** — it opens on the owner's word, as every lesson has. Until then the system
-grows only by §18: new appears in [`design-system/`](design-system/README.md) first, on a screen second, and **no colour
-value is written before the owner signs it**. If a request jumps past it — to responsive or motion —
-confirm before acting.
-**Every line of copy from now on is written against §14, *Voice*.**
-Product logic described in this file is **specification, not a build order** — it is
-written down so design decisions are made with the real mechanics in view.
+**Lesson 02's sources:** [`inventory.md`](02-personas-jtbd/6-personas/inventory.md) — the twenty questions about
+people, each with its answer, data and mark; [`interviews.md`](02-personas-jtbd/6-personas/interviews.md) — the
+guide and interview 1 of 5 (the guide recruits a receiver and has no question block for one);
+[`re-research.md`](02-personas-jtbd/6-personas/re-research.md) — rounds 1–4 taken to the public record, with
+[`_captures/`](02-personas-jtbd/6-personas/_captures/round3-log.json); and the audit,
+[`personas-and-jobs-critique.md`](02-personas-jtbd/personas-and-jobs-critique.md) — 238 claims classified, 27
+found invented, applied in full. The page, `personas.html`, is generated by `tools/build_personas.py`.
 
-**One piece of the research phase is handed forward as work rather than as a decision:** the curated
-public library has to be **built** — real items from checked sources, each with its origin and a
-pinned `ref`, composed so the example project genuinely produces one Problem and one Note. It does
-not block lesson 03, and it is not a demo asset. **It is wanted by 03 and needed by 04**: an
-information architecture argued against an empty library is argued against nothing. See §11.
+**Proposal lists not applied.** Stage 6's nine
+([`re-research.md` §4](02-personas-jtbd/6-personas/re-research.md)), stage 7's nine
+([`jtbd.md` §12](02-personas-jtbd/7-jobs-to-be-done/jtbd.md) — the shorter list, and it names the sections),
+round 3's six and round 4's two are one input to the register. **Only stage 6's proposal 6, the `license` field,
+is applied** (§5). One of round 3's — *an item addresses a directory, not a file* — has since been taken in the
+interface (Q31, §5). **Read `jtbd.md` §12 and `re-research.md` §4 before the next change to this file.**
+
+**Where things are.** [`FINAL.md`](01-research/FINAL.md) closes the research — start there.
+[`research.md`](01-research/research.md) is a digest of it and **never a source of truth**; do not answer a
+question from the digest that this file, `FINAL.md` or the register answers differently. The register,
+[`research-plan.md`](01-research/research-plan.md), is the only list of open questions (§12).
+
+**Work handed forward:** the curated public library has to be **built** — real items from checked sources,
+composed so the example project produces at least one Problem and one Note. It is not a demo asset (§11).
 
 ---
 
 ## 2. What the product is
 
-A workspace where an AI practitioner keeps their own AI building blocks — skills, agents,
-system prompts, MCP servers, scripts, mini-apps — and assembles them into projects.
-A project is a curated set of those blocks that exports as a ready-to-use archive.
+A workspace where an AI practitioner keeps their own AI building blocks — skills, agents, system prompts, MCP
+servers, scripts, mini-apps — and assembles them into projects. A project is a curated set of those blocks that
+exports as a ready-to-use archive.
 
-The long-term ambition is **"GitHub / Confluence for AI people"**: store your work
-independently of any one machine, keep it as a portfolio, make it public or private,
-reuse and recombine it across projects. **One piece of that sentence is now in the MVP rather than in
-the ambition — *public or private*, as a link rather than as a catalog (§5, §9).**
+The long-term ambition is **"GitHub / Confluence for AI people"**: store your work independently of any one
+machine, keep it as a portfolio, make it public or private, reuse and recombine it across projects.
 
-**One more piece of that sentence moved into the MVP on 2026-09-20** (Q24): *store your work
-independently of any one machine* is what a backend is for, and the product is online. **What stays in
-the ambition is the catalog and the team.**
-
-The MVP ambition is narrower: a personal, single-user library plus a builder — **and, since
-2026-09-15, one way out of it.** *This line read "personal, local, single-user" until Q13 was
-answered.* A project or an item can be **shared by link** (§5, *Sharing*), which is the one place the
-MVP reaches somebody who is not the owner. **The library is still one person's and there is still no
-catalog** — the ambition above stays an ambition, and what moved into the MVP is the handover, not the
-marketplace.
+**The MVP** is a personal, single-user library plus a builder, **online** — a backend and accounts, so a person's
+library follows them between machines (Q24) — **and one way out of it**: a project or an item can be **shared by
+link** (§5, *Sharing*), the one place the MVP reaches somebody who is not the owner. From the ambition, *store
+independently of any machine* and *public or private — as a link* are in the MVP; **the catalog and the team
+stay in the ambition** (§9).
 
 ### The core value is assembly with validation, not storage
 
-Git already stores files. What nothing does today is tell you that a skill needs a
-particular MCP server, that two skills write to the same config file, that two items
-register the same command name, or that an env variable is missing. Right now you find
-out at runtime.
+Git already stores files. What nothing does today is tell you that a skill needs a particular MCP server, that
+two skills write to the same config file, that two items register the same command name, or that an env variable
+is missing. Right now you find out at runtime.
 
 ### The "wow" moment
 
-The user has said it is the **export**: a working archive in thirty seconds, with the
-system having checked that the set actually holds together. Design decisions should
-serve that moment. Two supporting moments matter: the **validation pass** (an animated,
-legible check that runs once the set is complete) and **duplicating a project** to
-re-tune it for a new context.
+The user has said it is the **export**: a working archive in thirty seconds, with the system having checked that
+the set actually holds together. Design decisions should serve that moment. Two supporting moments matter: the
+**validation pass** (an animated, legible check that runs once the set is complete) and **duplicating a
+project** to re-tune it for a new context.
 
 ---
 
 ## 3. Audience and platform
 
-- Design engineers and AI engineers, 25+, who use AI heavily in daily work and have
-  accumulated a lot of material they want to keep and reuse.
-- **The primary persona is the collector** — decided 2026-09-15, answering Q7. Of the two candidates
-  the research put up — the practitioner whose pain is *sighted*, an archive that lands and does not
-  run, and the keeper of an accumulated corpus — **the corpus wins design conflicts.** The handover
-  mechanisms in §6 stay exactly as they are: they stop being *the point* and remain *the mechanism*.
-  **The cost is recorded rather than hidden**: this is the thinner half of the evidence, and
-  [`01-research/research-plan.md`](01-research/research-plan.md), *The sitting — 2026-09-15*, says so.
-- Visually literate. They live in tools like Linear, Vercel, Raycast, Figma. The bar for
-  craft is high; generic dashboard aesthetics will read as cheap.
-- **Desktop-first.** Responsive/adaptive comes later, deliberately.
-- **Dark theme from day one.** Light theme is not assumed to be free — treat it as a
-  design decision, not a color inversion.
+- Design engineers and AI engineers, 25+, who use AI heavily in daily work and have accumulated a lot of material
+  they want to keep and reuse.
+- **The primary persona is the collector** (Q7). Of the two candidates — the practitioner whose pain is an archive
+  that lands and does not run, and the keeper of an accumulated corpus — **the corpus wins design conflicts.**
+  The handover mechanisms in §6 stay as they are: not *the point*, but *the mechanism*. **The cost is recorded**:
+  this is the thinner half of the evidence.
+- Visually literate. They live in tools like Linear, Vercel, Raycast, Figma. The bar for craft is high; generic
+  dashboard aesthetics will read as cheap.
+- **Desktop-first.** Responsive/adaptive comes later, deliberately (lesson 10).
+- **Dark theme from day one.** Light theme is not assumed to be free — treat it as a design decision, not a
+  color inversion. Whether light ships is open (Q44, §17).
 
 ---
 
 ## 4. Vocabulary
 
-Use these words consistently in code, design files and UI copy.
+Use these words consistently in code, design files and UI copy. The full on-screen dictionary is §14's.
 
 | Term | Meaning |
 |---|---|
@@ -370,14 +201,14 @@ Item
   tags: []
   visibility    private | public        // public = reachable by anyone holding its link (§5, Sharing)
   shareRef                              // the unguessable part of that link. Absent unless shared
-  source        inline | external
+  source        inline | external       // superseded in the interface by Q32 — see "Not yet in the model"
   content                               // if inline
   repoUrl, path, ref                    // if external: repo, file, and a pinned commit/tag/version
   license                               // if external: SPDX id. Absent = no licence stated, which is not permission
   requires: [itemId]
   conflicts: [itemId]
   defersTo: [string]                    // external authorities this item yields to, declared by hand. Q10
-  needsEnv: [string]
+  needsEnv: [string]                    // names only, never values
   targetPath                            // where it lands on export
 
 Project
@@ -398,6 +229,22 @@ ProjectItem                             // an item's membership in one project
   overrides                             // populated only when detached
 ```
 
+### Not yet in the model — the interface is ahead on purpose (Q31, Q32)
+
+The wireframes already draw two things this model does not express. **The model is not amended until they are
+decided**; the register says exactly what would change.
+
+- **An item can be a folder** (Q31). A dropped file fills `content`; a dropped folder needs an item to address a
+  directory, not a file. Open: what an item's content is when it is a tree of files, where it lands (a directory
+  under the target), and how the edit sheet and the detached row's diff show more than one file.
+- **An item has no source switch** (Q32). It is made of **three optional parts, in any mix, at least one**:
+  **Content** (written or pasted), **Files** (a file or a folder), **Repository** (cloned at a pinned `ref`, never
+  vendored). Library rows read what an item is made of; the filter is *Made of*, not *Source*. What would change:
+  `source` goes; content, a file list and `repoUrl · path · ref · license` become three optional parts;
+  **`license` belongs to the repo part**; and `targetPath` — one destination — is open, because a mixed item may
+  land in more than one place. Nothing in §6 depends on the switch: a mixed item writes its own parts as files and
+  its repo as instructions in `SETUP.md`.
+
 ### The six kinds
 
 - `skill` — a capability definition for an agent
@@ -405,475 +252,312 @@ ProjectItem                             // an item's membership in one project
 - `prompt` — a system prompt or prompt template
 - `mcp` — an MCP server
 - `script` — a small script that runs as part of the setup
-- `app` — a mini-app: an external tool or repo used *in the pipeline* rather than by the
-  model (text-to-speech, translator, converter). Usually external, but a user may hold a
-  local copy.
+- `app` — a mini-app: an external tool or repo used *in the pipeline* rather than by the model (text-to-speech,
+  translator, converter). Usually external, but a user may hold a local copy.
 
-`script` and `app` are deliberately separate: a script is a file that ships inside the
-archive, an app is a program the project depends on.
+`script` and `app` are deliberately separate: a script is a file that ships inside the archive, an app is a
+program the project depends on.
 
 ### Item linkage — the important one
 
-An item lives in the library **once**. Adding it to a project creates a **live link** by
-default: editing the item in the library updates every project that links to it. A user
-can **detach** an item inside one project and edit it locally without touching the
-library or any other project.
+An item lives in the library **once**. Adding it to a project creates a **live link** by default: editing the
+item in the library updates every project that links to it. A user can **detach** an item inside one project and
+edit it locally without touching the library or any other project.
 
 Consequences the design must handle:
 
 - an item card needs a "linked" vs "detached" state
-- a detached item needs a visible relationship to its library original
-  ("modified from library version"), with a way back
-- editing a linked item needs to communicate blast radius: *"used in 3 projects"* — **and, since
-  2026-09-15, the same edit voids the verdict of every checked project whose resolved set contains
-  that item** (§6). *Used in 3 projects* and *this edit un-checks 3 projects* are the same fact said
-  at two altitudes, and the second is the one with a consequence in it
+- a detached item needs a visible relationship to its library original ("modified from library version"), with a
+  way back
+- editing a linked item communicates blast radius at three altitudes: *used in 3 projects* · **this edit
+  un-checks those of them that were checked** (§6 — it voids the verdict of every checked project whose resolved
+  set contains the item) · **and one of them is shared**, because sharing is live and every edit is also a
+  publication (§5, *Sharing*)
 
-**A detached item is edited inside the project** (decided 2026-09-02). This is what makes detaching a
-feature rather than a toggle: if every edit still had to happen in the Library, *detached* would be a
-synonym for *unlinked*, `overrides` would never fill, and state 6 in §7 would be decoration. The edit
-happens on the project's row and writes to `overrides`, never to the library item.
+**A detached item is edited inside the project.** This is what makes detaching a feature rather than a toggle: if
+every edit still had to happen in the Library, *detached* would be a synonym for *unlinked*, `overrides` would
+never fill, and state 6 in §7 would be decoration. The edit happens on the project's row and writes to
+`overrides`, never to the library item.
 
-**The way back is promotion, and it creates a new item** (decided 2026-09-02). A detached item can be
-promoted into the Library **as a new item**, with the project's row re-linking to it. It is not
-merged into the original: updating the original would change every other project that links to it —
-blast radius spent on an action taken inside one project, which is the thing this section exists to
-warn about. *Push my changes to the original* is a different action with a different confirmation and
-is **not built in the MVP**. Flow 05 found there is no prior art for a return path — Figma erases the
-origin at detach — so this one is invented rather than copied; see
-`01-research/2-flows/05-linked-vs-detached/NOTES.md`.
+**The way back is promotion, and it creates a new item.** A detached item can be promoted into the Library **as a
+new item**, with the project's row re-linking to it. It is not merged into the original: that would spend blast
+radius on an action taken inside one project. *Push my changes to the original* is a different action with a
+different confirmation and is **not built in the MVP**. There is no prior art for a return path — Figma erases the
+origin at detach — see `01-research/2-flows/05-linked-vs-detached/NOTES.md`.
 
-**The product never shows a verdict state it is not sure of** (decided 2026-09-20, answering Q26;
-*restated the same evening from a sentence about operations into one about what the screen claims*). §5
-puts the blast radius before the edit — *used in 3 projects · saving un-checks all three* — and the
-product is online, so **the save can fail after that sentence has been read.** When the result is
-unknown, **the screen says the edit did not land**, and those three projects are shown **neither as
-checked nor as un-checked on the strength of it.** *Whatever makes that true underneath is not decided
-here.*
+**The product never shows a verdict state it is not sure of** (Q26). The product is online, so a save can fail
+after the blast-radius sentence has been read. When the result is unknown, **the screen says the edit did not
+land**, and the affected projects are shown **neither as checked nor as un-checked on the strength of it.** It is
+§6's *a stale verdict is not shown* one step earlier. *How that is made true underneath is not decided here*
+(§10).
 
-**It is the same discipline §6 already applies one step later.** *A stale verdict is not shown, and the
-date still is.* **A half-applied edit would produce, in three other places at once, exactly the claim
-that rule exists to suppress** — and *how many of my projects are currently checked* is a fact this
-product states on a screen, so it is the product's to get right.
-
-**Deleting an item is confirmed, never refused** (decided 2026-09-20, answering Q17 — *this section had
-no delete at all*). A live link means a project's row depends on an item the project does not own, so
-removing the item from the Library reaches every project holding it, **and a `requires` edge from
-another item may be left pointing at nothing**, which §6 then reports as an unresolvable requirement in
-a set nobody touched. So the product names the consequence in the present tense and lets the person
-act:
+**Deleting an item is confirmed, never refused** (Q17). A live link means a project's row depends on an item the
+project does not own, and **a `requires` edge from another item may be left pointing at nothing**, which §6 then
+reports as an unresolvable requirement in a set nobody touched. So the product names the consequence in the
+present tense and lets the person act:
 
 > **`db-migrate` is used in 3 projects. Deleting it may stop them working.** · **Delete** · **Cancel**
 
-The count **expands to name the three**, as it does on the Library row (§5, usage facts), because a
-person deciding this needs to know *which*.
+The count **expands to name the three**, as on the Library row, and the dangling-`requires` half is stated too,
+because a project count does not cover it. Same discipline as an unclean export (§6) and as material coming in
+(§11): **name the cost before the irreversible step. Nothing blocks.**
 
-Same discipline as an unclean export (§6) and as material coming in (§11): **name the cost before the
-irreversible step.** *Nothing blocks.* The count is the one the Library row already computes, and the
-dangling-`requires` half is stated too, because a project count does not cover it.
+**Open (Q17):** a **detached** row holds its own content in `overrides`. When the library original is deleted,
+**does that row survive as a local copy or go with it?** Not decided; do not invent it.
 
-**One thing is open and is not invented here.** A **detached** row holds its own content in
-`overrides`. When the library original is deleted, **does that row survive as a local copy or go with
-it?** Both are arguable, and nothing in this section answers it. Recorded in the register under Q17 and
-left to lesson 03's step 5.
+**What an item card claims, and what it never claims.** Trust in a *set* comes from the validation pass. The only
+per-item evidence we show is derived from the library itself — *used in 3 projects*, *2 items require this*,
+*last exported 12 days ago*. These are usage facts, not quality judgements. We ship **no score, no rating, no
+eval result and no badge**: the market has converged on measured trust (Tessl scores every skill, Smithery every
+server), and we have no way to run an item, so any number we invented would be decoration.
 
-**What an item card claims, and what it never claims** (decided 2026-09-01). Trust in a *set* comes
-from the validation pass. The only per-item evidence we show is derived from the library itself —
-*used in 3 projects*, *2 items require this*, *last exported 12 days ago*.
-
-**And here is their ceiling, written beside them on purpose** (added 2026-09-20, Q22). **These facts
-answer *is it used*. They do not answer *is it any good*, and they must never be read as though they
-did.** The job underneath them — *stop suspecting that half of what I keep is dead weight* — is
-**importance 3 for the primary persona**, one of the highest in the base, and **this product touches it
-and cannot close it**: an item can sit in three projects and be useless in all three, and the counter
-will still read three. **We cannot tell the difference, because we run nothing.** Lesson 03's
-traceability matrix marks both of these ticks partial for exactly this reason. **So the facts are
-shipped, the ceiling is stated, and nothing is built on top of them that would imply more** — the
-neighbouring refusal of scores and badges is the same discipline and exists for the same reason.
-
-Those are usage facts, not
-quality judgements, and they need no network. We ship **no score, no rating, no eval result and no
-badge**: the market has converged on measured trust (Tessl scores every skill, Smithery every server),
-and we have no way to run an item, so any number we invented would be decoration.
+**Their ceiling is stated beside them** (Q22). **The usage facts answer *is it used*, never *is it any good*, and
+must never be read as though they did.** The job underneath — *stop suspecting that half of what I keep is dead
+weight* — is importance 3 for the primary persona, and this product touches it and cannot close it: an item can
+sit in three projects and be useless in all three. **We run nothing, so we cannot tell.** Nothing is built on top
+of the facts that would imply more.
 
 ### Public items
 
 Some items are not the user's own. The **public library** (§8, §11) ships with the application and is
-**read-only**: an item there can be added to a project or copied into `My library`, but never edited
-in place and never published to. Public items are ordinary `Item`s in every other respect — the shape
-above already carries what they need, `repoUrl`, a pinned `ref` and a `license`. Two things follow
-for design: each public item **shows its origin**, because it is someone else's work, and the pinned
-`ref` is what keeps the shelf honest — it says *this is the version we checked*, not *this is
-current*. *This sentence used to read "a shelf with no server behind it", which stopped being the
-reason on 2026-09-20 (Q24) and was never the whole of it:* **a pin is a claim about what was examined,
-and a server would not let us examine anything we have not examined.**
+**read-only**: an item there can be added to a project or copied into `My library`, but never edited in place and
+never published to. Public items are ordinary `Item`s otherwise — they carry `repoUrl`, a pinned `ref` and a
+`license`. Each public item **shows its origin**, because it is someone else's work, and the pinned `ref` keeps
+the shelf honest — it says *this is the version we checked*, not *this is current*. **A pin is a claim about what
+was examined**; a server would not let us examine anything we have not.
 
-**Every external item carries its licence, and a missing licence is not permission** (decided
-2026-09-15). `license` holds an SPDX identifier — `MIT`, `Apache-2.0` — and where a source states
-none, the field is **absent and shown as absent**: *no licence stated*, never a blank row. It rides
-beside `repoUrl`, `path` and `ref` because it is the same kind of fact — where this came from, and on
-what terms.
+**Every external item carries its licence, and a missing licence is not permission.** `license` holds an SPDX
+identifier — `MIT`, `Apache-2.0` — and where a source states none, the field is **absent and shown as absent**:
+*no licence stated*, never a blank row. It sits beside `repoUrl`, `path` and `ref` because it is the same kind of
+fact — where this came from, and on what terms.
 
-**Its basis is stated plainly, because it is not the basis everything else on the card has.** No user
-has asked for this and it closes no job; the licence is the one thing on an item card that is there
-for a reason other than somebody's stated need. The reason is that we carry other people's work
-inside an archive the user then hands to somebody else, and **absence of a licence is absence of
-permission rather than a default grant**. Raised as proposal 6 of stage 6
-(`02-personas-jtbd/6-personas/re-research.md` §4) and applied by the owner ahead of the register's sitting.
-
-**It is not a trust signal and must not be drawn as one.** A licence says what you may do with an
-item, never whether the item is any good. The refusal of scores, ratings, eval results and badges
-above is unaffected — and a licence rendered as a badge would quietly reintroduce the thing that
-refusal exists to prevent.
+- **Its basis is legal, not evidential, and is stated as such.** No user asked for it and it closes no job. We
+  carry other people's work inside an archive the user hands to somebody else, and **absence of a licence is
+  absence of permission**. Stage 6's proposal 6, applied by the owner.
+- **It is not a trust signal and must not be drawn as one.** A licence says what you may do with an item, never
+  whether it is good. A licence rendered as a badge would reintroduce what the refusal of badges prevents.
 
 ### Sharing — a link to a project or to an item
 
-**Decided 2026-09-15, answering Q13.** A project **and** an item can each be shared by link. The
-decision was taken as a product decision: *if it matters to the person, it is in the MVP, and how it
-is built comes afterwards.* It is the only route by which **the receiver ever sees a surface of ours**
-rather than a file.
+A project **and** an item can each be shared by link (Q13). It was taken as a product decision: *if it matters to
+the person, it is in the MVP, and how it is built comes afterwards.* It is the only route by which **the receiver
+ever sees a surface of ours** rather than a file.
 
-**What a link is, and what it is not.** It is an **unlisted address**: whoever holds it can open the
-thing, and nothing is listed, searched, browsed, ranked or moderated. **This is not the public catalog
-§9 refuses** — see that section for the boundary, which is narrowed rather than reversed.
+**A link is an unlisted address**: whoever holds it can open the thing, and nothing is listed, searched, browsed,
+ranked or moderated. **It is not the public catalog §9 refuses.**
 
-**The four properties, each decided rather than assumed:**
+**Four properties:**
 
-- **Both objects.** A project carries a set; an item carries one block. Both are things people hand
-  over, so both can be shared.
-- **Live, not a snapshot.** What the holder of the link sees is the thing **as it is now** — which is
-  §5's live link pointed outward, and it is consistent with the rest of this section. **The
-  consequence is that sharing is a standing decision rather than a single act:** every later edit is
-  also a publication, and §5's blast radius therefore has a third altitude — *used in 3 projects* ·
-  *this edit un-checks 3 projects* · **and one of them is shared.**
-- **Anyone holding the link.** No accounts, no named viewers, no sign-in **for the viewer** — and
-  **that is the half that matters, which 2026-09-20 made worth separating** (Q24). The product now has
-  a backend and the owner signs in; **the receiver does not, and nothing about a link changes.** ~~§9's
-  refusal of accounts stands untouched~~ — §9's accounts bullet fell, and **this did not fall with it**:
-  the viewer is anonymous, the owner is still the only user of their own workspace, and *how the link is
-  served* has simply stopped being undecided. **The link
-  is therefore the credential, so it must not be guessable**, which is what `shareRef` is for.
-- **Revocable, and honest about what revoking cannot do.** Stopping the share kills the address.
-  It does **not** reach anything anybody already copied or downloaded, and the product must say so at
-  the moment of revoking rather than implying a recall.
+- **Both objects.** A project carries a set; an item carries one block. Both are things people hand over.
+- **Live, not a snapshot.** The holder sees the thing **as it is now** — §5's live link pointed outward. **So
+  sharing is a standing decision, not a single act:** every later edit is also a publication, which is the third
+  altitude of the blast radius above.
+- **Anyone holding the link.** No named viewers, no sign-in **for the viewer**. The owner signs in (Q24); the
+  receiver does not, and never does by opening a link (§9). **The link is the credential, so it must not be
+  guessable** — that is `shareRef`.
+- **Revocable, and honest about what revoking cannot do.** Stopping the share kills the address. It does **not**
+  reach anything anybody already copied or downloaded, and the product says so at the moment of revoking rather
+  than implying a recall.
 
-**The archive and the link say different things, and both are true.** The archive is a **snapshot** —
-what the set was when it was built. The link is **live**. So a receiver who took the archive last week
-holds something the page may no longer match, and **the page states when the project last changed**.
-This is the same honesty the pinned `ref` buys on the shelf: *this is the version we checked*, never
-*this is current*.
+**The archive and the link say different things, and both are true.** The archive is a **snapshot**; the link is
+**live**. A receiver holding last week's archive holds something the page may no longer match, so **the page
+states when the project last changed** — the same honesty the pinned `ref` buys on the shelf.
 
-**A shared item that is not the user's own carries its origin.** If it came from the public shelf, the
-shared page shows `repoUrl`, the pinned `ref` and the **licence** (§5, *Public items*) — sharing
-somebody else's work onward is the case those fields were added for.
+**A shared item that is not the user's own carries its origin**: `repoUrl`, the pinned `ref` and the **licence**.
+
+**On screen** (Q37, Q42, Q43): a shared project or item **reads as shared** wherever it appears — a `Shared` tag.
+Its `Share…` opens **the link dialog** — `Copy link`, `Close`, and `Stop sharing…`, which opens the revoke
+confirmation. `Create link` lands on the same dialog, so the link is first seen there. The drawings use a
+reserved domain, `aistack.example`, because the product's own is not decided.
 
 ### Relations
 
-`requires` and `conflicts` are filled in **manually** when adding or editing an item.
-Parsing metadata automatically is out of scope.
+`requires` and `conflicts` are filled in **manually** when adding or editing an item. Parsing metadata
+automatically is out of scope (§9).
 
 ### Deference — the rule that is not ours
 
-**Decided 2026-09-16, building Q10's answer.** The register answered it on 2026-09-15 — *where the
-user's own rule and an external requirement disagree, the external one wins, and the product must say
-so rather than resolve it silently* — and left the mechanism unbuilt. This is the mechanism.
+Q10: **where the user's own rule and an external requirement disagree, the external one wins, and the product
+says so rather than resolving it silently.** It comes from one practitioner, from memory (`*`): *"My `CLAUDE.md`
+says one thing, the client's linter says another, and there's no precedence anywhere."*
 
-**It comes from one sentence.** *"My `CLAUDE.md` says one thing, the client's linter says another, and
-**there's no precedence anywhere**; it's resolved by whichever I remember at the time, which is a bad
-way to resolve anything."* One practitioner, from memory — `*`, and it has not been asked of anybody
-else.
+**`defersTo` holds the names of things this item yields to**, in the user's own words: *the client's ESLint
+config*, *the repo's commit convention*, *the team's Terraform standard*. It is declared by hand, like `requires`
+and `conflicts`, because §9 parses nothing and the other machine is never ours.
 
-**`defersTo` holds the names of things this item yields to**, in the user's own words: *the client's
-ESLint config*, *the repo's commit convention*, *the team's Terraform standard*. It is declared by
-hand, exactly like `requires` and `conflicts`, and for the same reason: **§9 parses nothing, and the
-other machine is never ours.**
+**What it records is precedence, and nothing else.** It is not a description of the external rule and must never
+be drawn as one — we do not know what that rule says, whether it is in force, or whether it disagrees with
+anything here. **It records one fact: when this item and that authority disagree, that authority wins.** The name
+encodes the answer, so the field cannot quietly drift into meaning something else — do not rename it.
 
-**What it says is precedence, and that is the whole content of the answer.** The field is not a
-description of the external rule and must never be drawn as one — we do not know what that rule says,
-whether it is still in force, or whether it actually disagrees with anything here. **It records one
-fact: when this item and that authority disagree, that authority wins.** The name encodes the answer
-so the field cannot quietly drift into meaning something else.
-
-**We cannot detect a mismatch and must not imply that we have.** There is no moment where the product
-compares an item against a linter it has never seen. The user says *this one answers to something
-outside*, and the product **carries that sentence to everybody who later has to act on the item** —
-which is §6's Note, the row it sits on, the shared page, and `SETUP.md`.
+**We cannot detect a mismatch and must not imply that we have.** The user says *this one answers to something
+outside*, and the product **carries that sentence to everybody who later acts on the item**: §6's Note, the
+item's row, the shared page, and `SETUP.md`.
 
 ---
 
 ## 6. Product logic (specification)
 
-**Dependency resolution.** Depth-first walk from the selected items along `requires`.
-Everything found is added and marked auto-added. An auto-added item cannot be removed
-while the item that pulled it in is still in the project.
+**Dependency resolution.** Depth-first walk from the selected items along `requires`. Everything found is added
+and marked auto-added. **An auto-added item cannot be removed while the item that pulled it in is still in the
+project** — the product's only refusal, and a rule about the coherence of a set, not about anybody's content.
 
-**Cycles are information, not errors** (decided 2026-09-01). The walk still tracks three node
-states (untouched / in progress / done), because it has to terminate. But a project is a **set**,
-not an execution order — we never ask what runs first — so if A requires B and B requires A, both
-are added and the set is complete and correct. A cycle is a hazard for our traversal, not a defect
-in the user's work. Report it as a fact — *"these three always travel together"* — never as a
-failure. An earlier draft said "show the chain", which was right, next to a heading that implied
-something was wrong.
+**Cycles are information, not errors.** The walk tracks three node states (untouched / in progress / done)
+because it has to terminate. But a project is a **set**, not an execution order — if A requires B and B requires
+A, both are added and the set is complete and correct. Report it as a fact — *"these three always travel
+together"* — never as a failure.
 
-**Conflicts and collisions.** Run the resolved set against `conflicts`. Also check for **duplicate
-command names** and for items writing to the **same target path**. Every one of these is a
-*Problem* in the sense below — `conflicts` stays a flat `[itemId]` list with no hard/soft flag,
-because nothing here blocks and the distinction therefore has no work to do. An earlier draft said
-a hard conflict blocks and a soft one warns, which the data model had no way to express.
+**Conflicts and collisions.** Run the resolved set against `conflicts`. Also check for **duplicate command
+names** and for items writing to the **same target path**. Each is a *Problem*. `conflicts` stays a flat
+`[itemId]` list with no hard/soft flag: nothing blocks, so the distinction would have no work to do.
 
-**Env variables.** Collect `needsEnv` across the set; missing ones are surfaced before
-export and written to `.env.example`.
+**Env variables.** Collect `needsEnv` across the set; missing ones are surfaced before export and written to
+`.env.example`.
 
-**Deference.** Collect `defersTo` across the set. **Each item that declares one raises a Note on its
-own row** (§8), in the plain form: *`code-style` defers to the client's ESLint config. Where they
-disagree, that wins.* **Nothing is compared and nothing is detected** — the product is repeating a
-sentence the user wrote, to the people who come after them (§5, *Deference*).
+**Deference.** Collect `defersTo` across the set. **Each item that declares one raises a Note on its own row**
+(§8): *`code-style` defers to the client's ESLint config. Where they disagree, that wins.* Nothing is compared or
+detected. **This Note is cleared only by removing the declaration or the item**, because it reports a standing
+property of the set, not a defect — so a set with three deferring items carries three Notes at every check. That
+is intended, and it means **the note count is not a to-do list**; no surface may read it as one.
 
-**This Note behaves unlike the other two, and it is worth saying so rather than discovering it.** A
-missing env key is cleared by supplying it; an unpinned `ref` by pinning it. **A deference is cleared
-only by removing the declaration or the item**, because it reports a standing property of the set
-rather than a defect in it. So a set with three deferring items carries three Notes at every check,
-for as long as it exists. **That is intended** — it is the *"there's no precedence anywhere"* the
-answer exists to fix, and a fact that stops being said is a fact that stops working — but it means the
-note count is not a to-do list, and §8's surfaces must not read it as one.
-
-**Validation pass.** When the set is complete the user triggers a check that runs
-visibly — an animated sweep across dependencies, collisions and missing keys. This is a
-designed moment, not a spinner. Structurally it is a stack of stages, each carrying its own
-verdict and its own duration, each expandable — the model is Vercel's deployment page, written up
-in `01-research/2-flows/04-validation-check-results/NOTES-vercel.md`.
+**Validation pass.** When the set is complete the user triggers a check that runs visibly — an animated sweep
+across dependencies, collisions and missing keys. A designed moment, not a spinner (lesson 11). Structurally it
+is a stack of stages, each with its own verdict and duration, each expandable — the model is Vercel's deployment
+page, `01-research/2-flows/04-validation-check-results/NOTES-vercel.md`.
 
 ### Three severities, and nothing blocks
 
-Decided 2026-09-01. Every finding is one of:
+Every finding is one of:
 
-- **Problem** — the archive will be wrong. A duplicate command name, a target-path collision, a
-  declared conflict, an unresolvable requirement.
-- **Note** — the archive is correct but incomplete. Missing env keys, an external item with no
-  pinned `ref`, **an item that defers to something outside the set** (§5, `defersTo`).
-- **Skipped** — the check had nothing to check. It gets its own neutral glyph: not a green tick it
-  did not earn, and not a red one it does not deserve.
+- **Problem** — the archive will be wrong. A duplicate command name, a target-path collision, a declared conflict,
+  an unresolvable requirement.
+- **Note** — the archive is correct but incomplete. Missing env keys, an external item with no pinned `ref`, an
+  item that defers to something outside the set.
+- **Skipped** — the check had nothing to check. Its own neutral glyph: not a green tick it did not earn, not a red
+  one it does not deserve.
 
-**A Note is a property of one item; a Problem is a property of `requires`** (stated 2026-09-20 with
-Q15; *corrected the same day, and the correction is the point*). Every Note can stand alone — a missing
-env name, an unpinned `ref`, a deference. **The rule for Problems is about the field, not about the
-count.**
+**A Note is a property of one item; a Problem is a property of `requires`** (Q15). **Count the edges, not the
+members.**
 
-- **An item with an empty `requires` cannot produce a Problem at all.** The other three need two items
-  — a duplicate command name, a shared target path, a declared conflict — and nothing collides with
-  itself.
-- **Any `requires` edge makes it a set question, and there are two ways it goes wrong.** Resolved, the
-  walk builds a set and that set collides like any other. **Dangling — the far end deleted (§5, Q17) —
-  and the edge is itself an unresolvable requirement**, which is a Problem raised by an item whose
-  resolved set is only itself.
+- **An item with an empty `requires` cannot produce a Problem**: the other three Problems need two items, and
+  nothing collides with itself.
+- **Any `requires` edge makes it a set question.** Resolved, the walk builds a set that collides like any other.
+  **Dangling** — the far end deleted (Q17) — **the edge is itself an unresolvable requirement**, a Problem raised
+  by an item whose resolved set is only itself.
 
-**The wording this replaced said *a bare item, one whose resolved set is itself, cannot produce a
-Problem*, and it was wrong in exactly the case Q17 created on the same day.** A dangling edge adds
-nothing to the set and still fails the check. **Count the edges, not the members.**
+**Export is never disabled.** Almost nothing makes an archive impossible to produce — a missing env key still
+zips, a duplicate command still zips, it is simply wrong inside. Blocking is a choice, and we do not make it: it
+is the user's own library; a permanently disabled primary action is a dead end, and on primary surfaces an action
+that cannot act is not shown; and the promise is *the system checked*, not *the system forbade*.
 
-**Export is never disabled.** Almost nothing makes an archive impossible to produce — a missing env
-key still zips, a duplicate command still zips, it is simply wrong inside. Blocking is therefore
-almost always a choice, and we do not make it, for three reasons. It is the user's own library on
-their own machine. A permanently disabled export button is a dead end, and on **primary surfaces**
-the research is consistent that an action which cannot act is not shown — a greyed-out primary
-action is that same mistake on the most important control in the product. And the promise is
-*the system checked*, not *the system forbade*.
+Figma's export dialog greys `Export` beside `0 of 0 selected` and gets away with it on three conditions: the
+blocker is one named action away, it is a property of this second rather than of the document, and re-doing it
+costs nothing (`01-research/4-benchmark/NOTES-figma-export.md`). **A set with Problems fails two of the three** —
+the fix may be four items away and it is a property of the project.
 
-Figma's export dialog does exactly what we are refusing — `0 of 0 selected` beside a greyed `Export`
-— and the benchmark records why it gets away with it: the blocker is one named action away, it is a
-property of this second's selection rather than of the document, and re-exporting costs nothing. Our
-Problems are properties of the project, the fix may be four items away, and the archive is the whole
-point of the product. See `01-research/4-benchmark/NOTES-figma-export.md`.
+**There is exactly one exception, written down as an exception so it cannot spread** (Q16). **On a project with
+nothing in it, the one control that enters `Run` is inert** — one control, because Export is Run's final stage,
+not a button beside it. The rule above is about **findings**; an empty project has no findings, it has no
+content. It passes both tests:
 
-**And there is exactly one exception, added 2026-09-20 with Q16, written down as an exception so it
-cannot spread.** **On a project with nothing in it, the control that enters `Run` is inert.** It is
-**one** control, not two: `Export` is Run's final stage and not a button beside the check (§8), so an
-unreachable Run makes it unreachable too and there is nothing else to disable. *An earlier wording here
-said "Check and Export are disabled", which named a control the Project screen does not have.*
+- **Figma's three conditions all hold**: put something in it is one named action, it is a property of this
+  second, and re-doing it costs nothing. **Two failures out of three is the line**; any future exception has to
+  clear it.
+- **§9's *not shown* rule yields for the reason its own documented exception uses** — context menus grey rather
+  than hide, because **stability of the surface beats brevity**. This is the screen's single primary verb;
+  showing it inert teaches what a Project is for, hiding it leaves an empty room. The person pressing it on an
+  empty project is asking what the product does.
 
-**The rule above is untouched**, because it is a rule about **findings**: a set with Problems still
-exports, and an empty project has no findings — **it has no content**, so there is nothing to be wrong.
+**The main control reads `Export`** (Q36, Q38). It opens the mode titled `Export`; the archive is made at its last
+stage, after the findings and the handover. **The check keeps its own words**: *Checking*, *Checked*,
+`Check again`. On an empty project the inert control is a greyed `Export`. *If `Export` ever became a separate
+control on the Project screen, that would reopen §8*, which puts Export inside Run on purpose.
 
-**The first test is the three conditions this file used to excuse Figma, and all three hold here**: the
-blocker is one named action away — put something in it — it is a property of this second rather than of
-the project, and re-doing it costs nothing. **For a set with Problems, two of the three fail** — the
-blocker may be four items away and it is a property of the project, while re-checking is free either
-way — *and an earlier wording here claimed all three failed, which overstated a test this file had just
-borrowed.* **Two failures out of three is the line**, and any future exception has to clear it.
-
-**The second test is §9's, and it is the one actually in tension**, because §9 says an action that
-cannot act is **not shown** — Linear, Figma and GitHub all hide it until it has something to do. **Here
-it is greyed, and the reason is the one §9's own documented exception already uses.** Context menus grey
-rather than hide *because a stable item order is worth more than a short list*: **stability of the
-surface beats brevity.** The same holds, harder, for a screen's single primary verb. §9's precedents are
-secondary and contextual actions; **this is the whole reason the screen exists**, and somebody who has
-never seen it cannot learn what a Project is for from a screen offering nothing to do. **Showing it
-inert teaches; hiding it leaves an empty room.** *The person pressing it on an empty project is not
-making a mistake — they are asking what the product does, which is the only free question anybody asks.*
-
-**One thing the owner deferred rather than decided** (2026-09-20). *The main action should be Export,
-and checks and runs are sub-processes* — held to be a naming question and sent to **lesson 05, tone of
-voice and microcopy**, with the control called `Run` until then. **If it turns out to be more than
-naming — if `Export` becomes a control on the Project screen — it reopens §8**, because §8 puts Export
-inside Run on purpose.
-
-**Decided 2026-10-05, Q36: the main control reads `Export…`.** The owner chose the label in lesson 05. **Since Q38
-(2026-10-11) it reads `Export`, without the ellipsis** — everything below that says `Export…` means `Export`.
-It is the same control, opening the same mode, and only the word changed: the mode is titled
-`Export`, and the archive is still made at its last stage, after the findings and the handover. The
-`…` says the act is not immediate. **The check keeps its own words**: *Checking*, *Checked*,
-`Check again`. On an empty project, Q16's one inert control is now a greyed `Export…`, and the rule
-it is an exception to is unchanged.
-
-**Instead, an unclean export is confirmed.** Pressing Export on a set with Problems opens a
-confirmation that names the consequence in the present tense, in GitHub's mergebox register:
+**An unclean export is confirmed.** Pressing Export on a set with Problems opens a confirmation that names the
+consequence in the present tense, in GitHub's mergebox register:
 
 > Two items write to `.mcp.json`. The archive will contain only one of them — `db-tools`.
 
-This is `terraform apply`: never refuse, always make the cost legible before the irreversible step.
-A grade — Port's `Basic → Low → Good → Great` — was considered and rejected: a ladder is for
-comparing many entities against one standard, and we check one set against itself, where there is
-no *better*, only *coherent* or *not*.
+This is `terraform apply`: never refuse, always make the cost legible before the irreversible step. A grade —
+Port's `Basic → Low → Good → Great` — is rejected: a ladder compares many entities against one standard, and we
+check one set against itself, where there is only *coherent* or *not*.
 
-### Sharing is disclosed, and it refuses nothing — the exception was overruled
+### Sharing is disclosed, and it refuses nothing
 
-**Decided 2026-09-15 as the one place the product refuses; overruled by the owner on 2026-09-16.
-*Nothing blocks* is universal again, and the product refuses nothing anywhere.**
-> **Read *anywhere* as *on the way out*** (clarified 2026-09-20). This sentence is about **content
-> leaving or entering**: no export is refused, no share is refused, nothing coming into the library is
-> refused. **It is not a claim that no action in the product is ever refused** — §6's dependency walk
-> still refuses to remove an auto-added row while its puller is present, which is a rule about the
-> **coherence of a set** and not about anybody's content. **Two different things**, and §8 calls the
-> second *the product's only refusal*, which is true of the kind it is.
+**Nothing blocks on the way out or on the way in**: no export is refused, no share is refused, nothing coming into
+the library is refused. (This is about content; the auto-added refusal above is about the coherence of a set.)
 
-~~**A credential found in item content is a Problem, and it stops the share.** Private-key blocks,
-provider-shaped tokens, bearer tokens, `.env`-shaped assignments with values. This is the only refusal
-in the product, and it is justified by irreversibility rather than by tidiness.~~ **Struck.**
+**There is no credential scan and no block on sharing.** A block would stand on detection we cannot do reliably —
+it would stop the file that was fine and wave through the one that was not, and a product that refuses is
+understood to have looked. GitHub's push protection, the best-resourced detector in the industry, lets the person
+through on a stated reason. And content leaves by **two** exits, the archive and the link, so guarding only the
+share would leave the older exit open. **The reminder lives where material comes in** (§11): the only moment the
+person is looking at the file itself, the cheapest to fix, and it covers every later use.
 
-**Irreversibility was never the weak part of that argument — detection was.** *It is not realistic to
-check all of it*, in the owner's words. This section already said so about the tangled case — **we
-cannot detect these and must not pretend to** — and then claimed the opposite one paragraph above, for
-a class of string that is only marginally easier to see. **A block standing on a scan we do not trust
-stops the file that was fine and waves through the one that was not**, and it spends the user's trust
-to do it: a product that refuses is understood to have looked, and we would not have looked properly.
+**The moment of sharing is a disclosure moment.** Before the link exists, the product names in the present tense
+what becomes visible: which items, that their **content** is visible, which env key **names** appear, which
+external repos are referenced. The model is Notion's *"anyone with the link can view this page's content and see
+contributor names"* — naming the second-order consequence the reader would not have thought of. *The content of
+these items is visible* is the plain form of *whatever is inside them goes with them*; after the link exists it
+is no longer recallable.
 
-**The nearest real system ends where we now end.** GitHub scans pushes for secrets and stops them —
-**and lets the person through on a stated reason.** The best-resourced detector in this industry treats
-its own finding as a warning, because the false positive is the common case and the author is the only
-one who can tell.
+**The tangled case is named, not detected.** *The private and the reusable are tangled in the same files* — a
+client's API shape in an example, a rule naming a client, **an env key whose own name names a customer**. We
+cannot detect these and must not pretend to; they are stated as a Note at the moment of sharing.
 
-**And the guard was in the wrong place as well as on the wrong footing.** Content leaves this product
-by **two** exits, and the archive has been one of them since long before a link existed. Checking the
-share would have guarded the newer exit and left the older one open. **So the warning moves to where
-the material comes *in*** (§11): the only moment the person is looking at the file itself, the cheapest
-moment to fix it, and the one that covers every later use at once.
-
-**Everything the refusal was reaching for is disclosed instead, and that part is unchanged.** Above all
-the thing a practitioner actually described: *the private and the reusable are tangled in the same
-files* — a client's internal API shape in an example, a rule naming a client, **and an env key whose own
-name names a customer**. We cannot detect these and must not pretend to; they are stated as a Note at
-the moment of sharing.
-
-**The moment of sharing is a disclosure moment, in the register this file already uses.** Before the
-link exists, the product names in the present tense what becomes visible: which items, that their
-**content** is visible, which env key **names** appear, which external repos are referenced. The model
-is Notion's *"anyone with the link can view this page's content and see contributor names"* — naming
-the second-order consequence the reader would not have thought of — and it is the trust trigger the
-research recorded for the receiving side.
-
-**That sentence is what carries the keys now.** *The content of these items is visible* is the plain
-form of *whatever is inside them goes with them*. The reminder was given when the material came in
-(§11); this is the last moment it is still true, because after the link exists it is no longer
-recallable (§5, *Revocable*).
-
-**What the product never has.** `needsEnv` holds **names and never values** (§5), so a shared surface
-**structurally cannot leak an env value** — there is none to leak. That is worth stating because it is
-the strongest guarantee here and it costs nothing: it is a property of the model rather than a promise
-about our care.
+**What the product never has.** `needsEnv` holds **names and never values**, so a shared surface **structurally
+cannot leak an env value**. A property of the model, not a promise about our care.
 
 ### The receiver checks it too, and it is the same check
 
-**Decided 2026-09-15.** Whoever opens a shared link can **run the check themselves**, on the set in
-front of them.
+Whoever opens a shared link can **run the check themselves**, on the set in front of them. Every input — the walk
+along `requires`, `conflicts`, command names, target paths, `needsEnv` names — is data the page already carries,
+and the check reveals nothing the page was not already showing.
 
-**There was never an obstacle, and the question is worth recording because we nearly invented one.**
-The check is a walk along `requires`, a comparison of `conflicts`, duplicate command names, target
-paths, and the collection of `needsEnv` **names**. Every input is data the shared page already
-carries. It touches nothing on anybody's machine, **needs nothing the page does not already hold**, and
-reveals nothing the page was not already showing — §6's disclosure at the moment of sharing states that item **content** is visible, so
-the check exposes nothing further.
+- **Why it is not computed quietly for them:** the validation pass is a designed moment, and the person who most
+  needs it wrote none of this. And sharing is live: the owner checked on Monday, edited on Tuesday, the visitor
+  arrives on Wednesday — **the only verdict worth anything is the one taken now, by the person looking at it.**
+- **Before they press anything, the page states when the owner last checked and whether the set has changed
+  since.** Facts, not a verdict standing in for one.
+- **The ceiling and the word are identical: checked, never works.** A receiver's check answers *does this set
+  cohere*, not *will this run on my machine* — whether a key exists there is a fact about a machine we never
+  touch. It matters more here, because this reader has no other reassurance.
+- **Nothing is stored for a visitor.** The verdict lives on a project, and a visitor owns none.
 
-**Why it is better than the page computing quietly for them.** The validation pass is specified as a
-**designed moment rather than a spinner** (§2, §6), and the person who most needs that moment is the
-one who wrote none of this. It is also the only honest answer to the situation §5's *live* sharing
-creates: the owner checked on Monday, edited on Tuesday, and the visitor arrives on Wednesday — so
-**the only verdict worth anything is the one taken now, by the person looking at it.**
-
-**What the page states before they press anything**, because a receiver who digs is the exception
-rather than the rule: **when the owner last checked, and whether the set has changed since.** Facts,
-in §6's register, not a verdict standing in for one.
-
-**The ceiling is identical and the word does not change.** A receiver's check answers *does this set
-cohere*, exactly as the owner's does. It does **not** answer *will this run on my machine*: `needsEnv`
-holds names, and whether a key exists over there is a fact about a machine we never touch. **Checked,
-never works** — the same refusal, and it matters more here, because this reader has no other source of
-reassurance.
-
-**Nothing is stored for a visitor.** §6's verdict lives on the **project**, and a visitor owns no
-project — so their run is a moment with nothing left behind at all, which is the same rule one step
-further.
-
-**And the shape of what follows is the product's own spine.** Open the link · read the set · check it ·
-read what the receiving machine still needs · take the archive. **That is Library-to-archive performed
-by somebody who owns nothing**, and it was not designed as an answer to cold start — it is recorded as
-an observation, not as a claim about anybody's adoption.
+The receiver's path — open the link · read the set · check it · read what the receiving machine still needs · take
+the archive — is Library-to-archive performed by somebody who owns nothing. Recorded as an observation, not as a
+claim about adoption.
 
 ### The run is a moment; the project carries the verdict
 
-Decided 2026-09-15, answering the question lesson 03's entity inventory raised: §6 and §8 give the
-check a whole surface and §5 had no object for it.
+**No run is stored.** Run is a surface, not a record — opening it starts a check, closing it ends one. No run id,
+no run list, no history of checks, **nothing to link to afterwards**. It is §9's refusal of a second mechanism
+for *what was true earlier*. **A backend does not change this** (Q24): the reason was never that we had nowhere
+to put runs.
 
-**A backend does not change this, and it is worth saying so** (2026-09-20, Q24). A server makes storing
-runs trivial, which is exactly why the refusal has to be re-read rather than assumed: **its reason was
-never that we had nowhere to put them.** It is §9's refusal of a second mechanism for *what was true
-earlier*. **The argument was a product argument, and it survives the thing that would have made it easy
-to break.**
+**What survives is three facts on the project**: **when** it was last checked, **what that check found** as
+counts — `2 problems · 1 note · 1 skipped` — and **which agent target it ran against**. Not the findings: to see
+them again you check again, which costs nothing. The counts are what you can act on and what invites the click
+(`01-research/4-benchmark/NOTES-vscode.md`), and the click is a fresh check.
 
-**No run is stored.** Run is a surface, not a record — opening it starts a check, and closing it ends
-one. There is no run id, no run list, no history of checks, and **nothing to link to afterwards**.
-This is §9's refusal of versioning applied to the same question: a second mechanism for *what was
-true earlier* is not built.
+**The word is *checked*, never *works*.** Nothing was run: no archive opened, no server started, no agent read a
+`SETUP.md`. *Works*, *valid*, *passing* and a bare green tick all promise the receiving machine, and that promise
+belongs to nobody in this product.
 
-**What survives is three facts on the project**: **when** it was last checked, **what that check
-found** — as counts, `2 problems · 1 note · 1 skipped` — and **which agent target it ran against**.
-Not the findings themselves: to see them again you check again, which costs nothing because we run
-nothing on anyone's machine. The counts are there because a count is the thing you can act on and the
-thing that invites the click (`01-research/4-benchmark/NOTES-vscode.md`, the best consequence disclosure
-in the benchmark), and the click is a fresh check.
+**The verdict is void the moment the set changes, and the product says what voided it.** It is void when: an item
+is added or removed · **any item in the resolved set** is edited in the library, including one pulled in by
+`requires` · a `requires` or `conflicts` edge changes · `needsEnv`, a `targetPath` or a `defersTo` changes · a
+detached item's `overrides` change · **the agent target changes**, because a path collision is a collision under
+a target.
 
-**The word is *checked*, never *works*.** We have not run anything: the archive was not opened, no
-server was started, no agent read a `SETUP.md`. The verdict says **this set was examined and cohered
-at that moment**, which is the only claim §6 can support. *Works*, *valid*, *passing* and a bare green
-tick all promise the receiving machine, and that promise belongs to nobody in this product.
+**Void means the verdict is not shown, and the date still is**: *checked 3 days ago, out of date since `db-tools`
+was edited* — naming **what** invalidated it. Showing a stale verdict greyed out is the unearned tick this section
+refuses.
 
-**The verdict is void the moment the set changes, and the product says what voided it.** It is void
-when an item is added to or removed from the project · when **any item in the resolved set** is edited
-in the library, including one the user never touched because `requires` pulled it in · when a
-`requires` or `conflicts` edge changes, because that changes the set itself · when `needsEnv`, a
-`targetPath` or a `defersTo` changes, each being an input to a finding · when a detached item's
-`overrides` change · and **when the agent target
-changes**, because a path collision is a collision *under a target* and two items may share a
-destination in one target and not in another.
+**Accepted cost:** the handover disclosure is read **during** a run; re-reading it means checking again.
 
-**Void means the verdict is not shown, and the date still is.** A stale verdict is a claim that is no
-longer true, and showing it greyed out is the unearned tick this section exists to refuse. What the
-project keeps is the honest half — *checked 3 days ago, out of date since `db-tools` was edited* —
-which names **what** invalidated it rather than only that something did. That is the same discipline
-§6 asks of every finding: the thing that knows the rule writes the sentence.
-
-**One consequence to accept rather than fix.** §6's handover disclosure is read **during** a run,
-because there is no run to re-open. Re-reading it means checking again. That is cheap by construction
-and it is the price of not keeping runs.
+**Open (Q16):** `0 problems · 0 notes` reads the same on an empty set and a perfect one — whether counts are a
+wide enough channel to carry a verdict is not settled.
 
 ### Export
 
@@ -881,92 +565,58 @@ More than a zip of files:
 
 - inline items are placed by `targetPath`, per kind
 - external items become instructions in `SETUP.md` — repo link, clone command **at the pinned `ref`**, placement
-- all MCP servers merge into a single config. A key collision is checked separately, and **two
-  items declaring the same server key at different `ref`s is a collision too** — one of them will
-  not be in the exported config, so say which and say both refs
+- all MCP servers merge into a single config. A key collision is checked separately, and **two items declaring
+  the same server key at different `ref`s is a collision too** — one of them will not be in the exported config,
+  so say which and say both refs
 - missing env variables are collected into `.env.example`
+- external repos are **never vendored into the archive** — they are always instructions
 
-**`SETUP.md` is written for the agent that opens the project, not for a human reader** (decided
-2026-09-02). This is the answer to the open question about how much weight the document carries, and
-it changes what the document is rather than only how long it is:
+**`SETUP.md` is written for the agent that opens the project, not for a human reader** (Q2):
 
-> `SETUP.md` states, **per item in the resolved set**, what that item requires — its dependencies,
-> the MCP servers it needs, the env keys it expects, the external repos to clone **at their pinned
-> `ref`**, **what it defers to** (§5), and where everything lands for the chosen agent target. On
-> project init the agent reads it and performs the setup.
+> `SETUP.md` states, **per item in the resolved set**, what that item requires — its dependencies, the MCP servers
+> it needs, the env keys it expects, the external repos to clone **at their pinned `ref`**, **what it defers to**
+> (§5), and where everything lands for the chosen agent target. On project init the agent reads it and performs
+> the setup.
 
-**Of the four places a deference is stated, this is the sharpest one** (added 2026-09-16 with Q10's
-mechanism). The Note tells the owner, the row tells whoever opens the project, the shared page tells
-the receiver — **and `SETUP.md` tells the thing standing on the machine where that other rule actually
-lives.** It is the only reader in a position to *act* on the sentence rather than note it, and acting
-on it is exactly what the answer asks for: the external one wins.
+- **Why:** the loudest pain in the ecosystem is *the archive lands on a machine and does not run* — 182 reactions
+  for *MCP Servers Don't Work with NVM*, over a tracker topped by PATH, node version managers and platform paths
+  (`01-research/3-pain/user-pain.md`); and the benchmark found **B4 — produce an artefact and hand it over — the
+  weakest flow in the industry**. Writing for an agent aims at that pain without a platform matrix and without a
+  new artefact. It is also why the target selector sits where it does: the target chooses the reader.
+- **Of the four places a deference is stated, `SETUP.md` is the sharpest**: it is read on the machine where the
+  other rule lives, by the only reader in a position to act on it.
+- **What this is not.** We run nothing on anyone else's machine, and there is **no verify script in the MVP**.
+  Emitting one later must be a new stage in the run, not a rewrite of the export; design it so.
 
-The reasoning is in `01-research/FINAL.md` §3, Q2, and it rests on two things. The loudest pain in the
-ecosystem is *the archive lands on a machine and does not run* — 182 reactions for
-*MCP Servers Don't Work with NVM*, over a top-of-tracker made of PATH, node version managers and
-platform paths (`01-research/3-pain/user-pain.md`). And the benchmark found **B4 — produce an artefact
-and hand it over — is the weakest flow in the industry**, nobody above 4, with every cell scoring
-what a product says about its own state and none about the machine its artefact lands on.
+**A disclosure that could not be produced says so** (Q28). The `SETUP.md` preview, `.env.example`, the archive's
+file tree and the share disclosure are **generated, not stored**, and online they can fail. A disclosure that
+quietly renders short is an unearned tick delivered by omission, so **the surface names what it could not
+produce**, in the present tense. It matters most for the `SETUP.md` preview, which is the whole of RJ-1 — *know
+what the other side will still need, before I send it*.
 
-Writing for an agent aims at that pain **without a platform matrix and without a new artefact**. It
-also explains why the agent target selector sits where it does: the target does not only choose
-paths, it chooses the reader.
+**The handover is disclosed before Export, not after.** Run's last stages state what the archive contains and
+what the receiving machine must still do — `SETUP.md` preview, pinned `ref`s, target-correct paths,
+`.env.example` — read **before** the irreversible step.
 
-**What this is not.** We run nothing on anyone else's machine, and there is **no verify script in the
-MVP** — we write instructions precise enough to be executed by something that can. Emitting a verify
-script later must be a new stage in the run, not a rewrite of the export; design it so.
-
-**A disclosure that could not be produced says so** (decided 2026-09-20, Q28). The `SETUP.md` preview,
-`.env.example` and the file tree of the future archive are **generated, not stored**, and online they
-can fail. **A generated disclosure that quietly renders short is an unearned tick delivered by
-omission** — the reader has no way to know that what they are looking at is incomplete because something
-broke rather than because there was nothing to say. **So the surface names what it could not produce**,
-in the present tense, in this section's own register. **It applies to all four generated disclosures**,
-including the share disclosure, and it matters most for the `SETUP.md` preview, because **that preview
-is the whole of RJ-1** — *know what the other side will still need, before I send it* — and a short page
-is the job silently not happening.
-
-**The handover is disclosed before Export, not after.** Run's last stages state what the archive
-contains and what the receiving machine must still do — `SETUP.md` preview, pinned `ref`s,
-target-correct paths, `.env.example` — read **before** the irreversible step, which is the
-consequence-disclosure standard the rest of this file holds itself to.
-
-**Agent target.** The user picks the target before exporting, and naming and paths in the
-generated docs adapt:
+**Agent target.** The user picks the target before exporting, and naming and paths adapt:
 
 - `Claude Code` — `.claude/skills/`, `.claude/agents/`, `CLAUDE.md`, `.mcp.json`
 - `Cursor` — `.cursor/rules`, MDC format, its own MCP config
 - `Codex` — `AGENTS.md` conventions
 - `Universal` — neutral structure plus `SETUP.md`; the agent adapts it later
 
-External repos are **never vendored into the archive** — they are always instructions.
-
 ### A single item exports on its own
 
-**Decided 2026-09-20, answering Q15.** An item can be exported from the Library **without a project
-being built around it**. The reasoning it came with is right about the important half: **the project
-is what gets checked**, because every Problem needs a set (see *Three severities*).
+An item can be exported from the Library **without a project built around it** (Q15). The project is still what
+gets checked, because every Problem needs a set — but an item is not unconditionally self-contained:
 
-**But an item is not unconditionally self-contained, and four of its fields say so.** `requires`,
-`needsEnv`, `defersTo` and `targetPath` all survive the item leaving every project — and the last
-means **an agent target is still chosen**, because without one there is nowhere to put the file. An
-**external** item is still not a file: it leaves as an instruction to clone at its pinned `ref`, the
-same as it does inside a project.
-
-**The walk still runs.** An item that requires another **exports as a set of N items, named as one** —
-never as a bare file that will not work on arrival, which is the pain the whole product exists
-against. Nothing new is built: **it enters `Run`**, the same mode, from a Library row, as a third
-entry beside `Project` and `Shared project`. The target selector, the `SETUP.md` preview,
-`.env.example` and Export-as-the-final-stage are all already there, and for a bare item **most stages
-are `Skipped`**, which is what that glyph exists for.
-
-**Nothing is stored.** §6 puts the verdict on the **project**, and there is no project here — the same
-rule that already governs a visitor's run on a shared page.
-
-**It is not a new concept, only a new direction.** §8 already gives the shared item page *a way to take
-it — the archive, or a copy into their own library*. A single-item archive is in the specification
-already; what this adds is that the **owner** can produce one, from their own Library, with no link and
-no project.
+- `requires`, `needsEnv`, `defersTo` and `targetPath` survive the item leaving every project, so **an agent
+  target is still chosen**. An **external** item still leaves as an instruction to clone at its pinned `ref`.
+- **The walk still runs.** An item that requires another **exports as a set of N items, named as one** — never as
+  a bare file that will not work on arrival.
+- **It enters `Run`**, the same mode, from a Library row — the third entry beside `Project` and `Shared project`.
+  For a bare item most stages are `Skipped`, each on its own row (Q40).
+- **Nothing is stored**: there is no project to carry a verdict.
 
 ---
 
@@ -981,1010 +631,618 @@ This is the heart of the UI. A card must read unambiguously in each state:
 5. selected but missing an env variable
 6. **detached — locally modified inside this project**
 
-State 6 is new relative to the original brief and is the easiest to forget. Figma proves how: it
-models overrides precisely enough to offer `Reset fill` by name, and then draws a modified instance
-identically to a clean one everywhere except a context menu. The diff is already computed, so the
-card carries it — and names the fields that differ, not just the fact that some do. Revert needs two
-granularities, the whole item and a single field, with Reset kept next to Detach as the two halves
-of one axis. See `01-research/2-flows/05-linked-vs-detached/NOTES.md`.
+State 6 is the easiest to forget. Figma proves how: it models overrides precisely enough to offer `Reset fill` by
+name, then draws a modified instance identically to a clean one everywhere except a context menu. The diff is
+already computed, so the card carries it — **and names the fields that differ**, not just the fact that some do.
+Revert has two granularities, the whole item and a single field, with Reset next to Detach as the two halves of
+one axis (`01-research/2-flows/05-linked-vs-detached/NOTES.md`).
 
-**All three live in the configuring mode** (settled 2026-09-20, Q21). They change the content of the
-set, and §8's rule for the `✕` covers them without amendment: **a row being read is not a row being
-changed.** *A detached row is not an exception to that rule* — the proposal to let it be edited from
-the viewing mode was put and rejected, because a viewing mode that can change the set is not a viewing
-mode, and the separation leaks on its first day. **The cost is one entry into configuring for a person
-who spotted the difference while reading**, and it is named rather than absorbed.
+**State 6 carries three commands, one axis:** **Edit** here, in the project — the only place a detached item is
+editable; **Reset**, whole-item or single-field; **Promote**, which lifts the copy into the Library as a new item
+and re-links this row (§5).
 
-**State 6 carries three commands, and they are one axis, not three features** (2026-09-02): **Edit**
-here, in the project, which is the only place a detached item is editable and the reason the state
-exists at all; **Reset**, whole-item or single-field, which walks the change back; and **Promote**,
-which lifts the modified copy into the Library as a new item and re-links this row to it. See §5.
+**All three live in the configuring mode** (Q21): they change the set, and **a row being read is not a row being
+changed.** A detached row is not an exception — a viewing mode that can change the set is not a viewing mode. The
+cost — one entry into configuring for a person who spotted the difference while reading — is accepted.
 
-**A former state, "blocked because of a conflict", is gone** (2026-09-01). Nothing blocks — see
-section 6 — so no item is ever unselectable. A conflicting item reads as state 4, and the Problem
-is carried by the project, not by the card. **Both items of a declared conflict read as state 4** (Q41, 2026-10-19): the `Conflict` mark stands on
-the item that declares it and on the one it names; the Problem itself annotates the declaring row (§8).
+**No state is "blocked".** Nothing blocks (§6), so no item is ever unselectable. A conflicting item reads as
+state 4, and the Problem is carried by the project, not by the card. **Both items of a declared conflict read as
+state 4** (Q41): the `Conflict` mark stands on the item that declares it and on the one it names; the Problem
+annotates the declaring row (§8).
 
 ---
 
 ## 8. Screens
 
-Chosen 2026-09-01 at the end of the research phase. Five shapes for the key flow — **assemble a set
-→ check it → export** — were compared on the benchmark's five categories; the reasoning, the four
-rejected variants and what each donated are in [`01-research/5-patterns/patterns.md`](01-research/5-patterns/patterns.md).
+The key flow is **assemble a set → check it → export**: **list-and-panel assembly** (Q14) and **a run-centric
+check that ends in the export.** The five shapes compared, the four rejected and what each donated are in
+[`01-research/5-patterns/patterns.md`](01-research/5-patterns/patterns.md); the benchmark's rubric grades craft,
+not weight ([`benchmark.md`](01-research/4-benchmark/benchmark.md)).
 
-The result is a hybrid, stated as a choice: ~~**command-first assembly**~~ — **list-and-panel assembly
-since 2026-09-20, Q14; what stage 5 called command-first is what the register calls *P2 with a pane***
-— **and a run-centric check that
-ends in the export.** Three surfaces in the flow, plus Projects.
+- **Library** — the full collection: filters by kind and tag, search, the add/edit overlay, the per-item usage
+  facts of §5, delete (confirmed), copy from the shelf, share an item, JSON in and out. **It is the curator's
+  room** — the primary persona's own ground — **and it is not part of the builder flow**: *during building a
+  project we will not open the library, there is no need* (owner). Drag is not the mechanism anywhere; it does not
+  survive 300 items.
 
-**Confirmed 2026-09-02, when the open-question register was closed.** This section was provisional
-because Q1, Q2 and Q4 land inside this flow and Q2 might have added a surface no variant had. It did
-not: Q2 lands as two more stages inside Run, which is already a stage list; Q1 as a scope switch
-inside Library, which is already a browse screen; Q4 as commands on a project row, exactly where
-stage 5 predicted. **Three surfaces plus Projects, and the seam is still Check.** The finalisation
-section of [`01-research/4-benchmark/benchmark.md`](01-research/4-benchmark/benchmark.md) still governs how
-to read the scores behind it: the rubric grades craft, not weight.
+  **Two scopes, two addresses of one place**: **`My library`** and **`Public library`** — visually identical, the
+  same rows, search and filters. `My library` holds the user's own items and **starts empty on first run**,
+  honestly. `Public library` is a curated set that ships with the application, **read-only**: add from it into a
+  project or copy into your library, never edit in place, never publish to it (§5, §11).
+- **Project** — the set as a **list**, not a canvas and not a node graph: no hand-drawn edges, no execution order.
+  Every row carries its own state, including *detached* with the differing fields named (§7), and **a finding
+  annotates the row that owns it**. Relations come from the items and are surfaced here, not authored here.
 
-- **Library** — the full collection. Filters by kind and tag, search, add/edit form, and the
-  per-item usage facts of §5. It is where you keep things, and **it is not part of the builder
-  flow**. ~~(This is the change: an earlier draft put a filtered library sidebar inside the builder and
-  made drag the mechanism. Drag does not survive 300 items, and a pane that cannot act during a check
-  is the mistake §6 and §9 already refuse elsewhere.)~~
+  **Two modes.** **Viewing** is the set as it stands. **Configuring** is where it is changed — entered by one named
+  action, and **the set is not editable by accident**: *adding and removing items is a thing you go into rather
+  than a thing that is always available* (owner). What a project is in repose is a thing you send; changing it is
+  an act you enter. **The mode is a draft** (Q33): its head reads *Cancel · Export · **Save***, so adds, removes
+  and a detached row's edits are kept on `Save` and dropped on `Cancel`. `Promote` is the one immediate act inside
+  it, because it creates a library item. **`Run` stays reachable from both modes** — the fix-and-recheck loop is
+  the busiest path in the product (derived, not decided by the owner).
 
-  **That sentence stays true and its reason changed on 2026-09-20** (Q14). There **is** a library
-  panel inside the builder now — see `Project` below — and **drag is still not the mechanism**, which
-  was always the real objection. What the two surfaces do is **divide, not duplicate**: the panel
-  answers *what goes in this set*, and **the Library answers *what do I own*** — read, curate, edit,
-  add, delete, usage facts, copy from the shelf, share an item, JSON in and out. **Assembly does not
-  send you here**, in the owner's words: *during building a project we will not open the library,
-  there is no need.* The Library is the **curator's room**, which is the primary persona's own ground
-  (§3, Q7).
+  **The library panel** is the configuring mode's own surface and the only corpus surface the builder has — a full
+  left sidebar (Q33).
+  - **Two levels of filter, of different kinds**: a **scope switch** above — `My library` · `Public library`,
+    because that changes whose work it is and what you may do with it — and **tabs** below: `Related · All · the
+    six kinds`.
+  - **`Related` is first and the default**: items that require, or are required by, what is in the set. It answers
+    *what belongs here*, where a typological index answers only *what exists*. **The panel opens on `All` when the
+    set is empty.**
+  - Search filters within the current scope and tab, and **a zero result still carries the row that creates**, so
+    the first item and the thousandth arrive through the same control.
+  - **The panel reads and adds. It never edits** — two renderings that can both change things drift within a
+    month. **The one exception is to *where*, not *what***: the row that creates opens **the same add/edit overlay,
+    summoned over the Project**, because creating is a corpus act and the person needing it is mid-assembly. That
+    is the overlay's third door (after the Library row and the Library's *add*); the overlay is already the
+    product's busiest disclosure surface — keys reminder, blast radius, `defersTo` — and that is thin ice.
+  - **Membership is shown in the panel and owned by the row.** A row already in the set reads as checked in the
+    panel. **Removal is an `✕` on the project row, in the configuring mode only, and it unchecks the panel.**
+  - **An auto-added row nests under the item that pulled it in**, as a sub-row with no remove of its own — the
+    nesting carries §6's refusal: *remove what dragged it in*. The panel inherits that refusal, never softens it.
 
-  **It has two scopes, and one switch between them** (decided 2026-09-02): **`My library`** and
-  **`Public library`**. Visually identical — same rows, same search, same filters — because they are
-  the same object seen in two places. `My library` holds the user's own items and **starts empty on
-  first run**, honestly. `Public library` holds a curated set that ships with the application,
-  **read-only**: add from it into a project, or copy it into your library, but never edit it in place
-  and never publish to it. This is how the product has material from the first second without putting
-  someone else's work in a space labelled *mine* — see §11 for what ships and §5 for how public items
-  behave.
-- **Project** — the set as a **list**, not a canvas and not a node graph. Every row carries its own
-  state, including *detached* with the differing fields named (§7), and a finding annotates the row
-  that owns it. **A detached row is also where that item is edited, reset and promoted** (§5, §7) —
-  **in the configuring mode, like every other change to the set** (Q21) —
-  the project is the only place a local override exists, so it is the only place it can be worked on.
-  Still *not* a node canvas: no hand-drawn edges, no execution order. The set is a set; relations
-  come from the items and are surfaced here, not authored here.
+  **A click on a row opens the item in a side panel beside the set** (Q33). That panel is where **`Detach`** lives,
+  with the detached row's differing fields, `Reset` per field and whole, and `Promote`.
 
-  ~~`⌘K` adds items by name; the palette is the only way the library reaches this screen, and it
-  opens cold on **related** items.~~ **Superseded 2026-09-20, Q14: the library reaches this screen as a
-  panel, and the palette is gone.**
+  **A new project opens in the configuring mode, the panel already open, its body only text** (Q16, Q34). The
+  control into `Run` is inert until the set has something in it (§6).
+- **Run** — a mode titled `Export`, entered by the **`Export`** control from a Project, by the same control on a
+  **shared project**, and **from a Library row exporting a single item** (§6). It takes the whole surface: a stack
+  of stages, each with its own verdict, duration and expansion, in the shape of a Vercel deployment page. The file
+  tree of the future archive, the env variable list and the agent target selector live here, and **Export is the
+  final stage**. Export is always live (§6); an unclean set is confirmed in the row below the finding that caused
+  it.
+  - **A Problem's item can be removed from Run itself** (Q34): *Remove eslint-autofix* opens **a confirmation that
+    names the scope** — this project only; it stays in My library and in every other project — and on *Remove*
+    **the check runs again by itself.** It is saved at once, not held as a draft.
+  - **The last stages before Export are the handover**: what the archive contains and what the receiving machine
+    must still do — the `SETUP.md` the agent will read, the pinned `ref`s, the target-correct paths,
+    `.env.example` — stages like any other, read **before** the irreversible step.
+- **Shared project** and **shared item** — **the receiving side's only surfaces** (Q13). Read-only, opened by
+  anyone holding the link, built for somebody who wrote none of it: what the set contains, what each item needs,
+  what the receiving machine must still have, **what any of it defers to**, the origin and licence of anything not
+  the sharer's own, **the same Check the owner has** (§6), and **a way to take it** — the archive, or a copy into
+  their own library — because a link that cannot be acted on is a brochure. **Run is a mode of this surface too**;
+  the receiver's Run keeps two bars, the shared header over the Run bar (Q39). It is the read-only public item's
+  shape pointed at one person's work.
 
-  **The Project screen has two modes, and the panel lives in the second** (decided 2026-09-20, amending
-  Q14 during the owner's review of the flows). **Viewing** is the set as it stands. **Configuring** is
-  where it is changed — the panel is present, rows can be removed, and it is entered by one named
-  action and left the same way. **The set is not editable by accident**, and *adding and removing items
-  is a thing you go into rather than a thing that is always available*, which is the owner's own
-  wording. It follows the same logic as Export being the screen's point and the check a sub-process:
-  **what a project is in repose is a thing you send; changing it is an act you enter.**
-
-  **`Run` stays reachable from both.** The fix-and-recheck loop is the busiest path in the product —
-  find a Problem, act on the row, check again — and charging it a mode exit every cycle would be a tax
-  on the flow §6 is built around. *That is derived rather than decided by the owner; it is the one part
-  of this amendment nobody asked for.*
-
-  **The library panel** is the configuring mode's own surface, and the only corpus surface the builder
-  has. It carries
-  **two levels of filter and they are not the same kind of thing**: a **scope switch** above —
-  `My library` · `Public library`, because that changes *whose work it is and what you may do with
-  it* — and **tabs by `kind`** below, because that is only a typology. **The first tab is `Related`
-  and it is the default**: the items that require, or are required by, what is already in the set.
-  That tab **is** the mitigation the palette used to carry, and it is load-bearing for the same reason
-  — a typological index answers *what exists*, and `Related` answers *what belongs here*. Search
-  filters within the current scope and tab, and **a zero result still carries the row that creates**,
-  so the first item and the thousandth arrive through the same control.
-
-  **The panel reads and adds. It never edits.** Editing is the Library's add/edit overlay and stays
-  there — the panel would otherwise be a second library, and two renderings that can both change things
-  drift within a month.
-
-  **The one exception is the row that creates, and it is an exception to *where*, not to *what*.** A
-  zero result offers to author the missing item, and that opens **the same add/edit overlay, summoned
-  over the Project.** Nothing is edited in the panel; what the panel does is **summon the authoring
-  surface**, because **creating is a corpus act and assembling is not**, and the person needing it is
-  mid-assembly. **This is the overlay's third door** — after the Library row and the Library's *add* —
-  and the overlay is already the product's busiest disclosure surface, carrying the keys warning, the
-  blast radius and `defersTo` (§5, §11). **Lesson 03 recorded that as thin ice before this door
-  existed**; it is now one door thinner, and composing it is lesson 05's first job on this surface.
-
-  **Membership is shown in the panel and owned by the row.** A row already in the set reads as checked.
-  **Removal is an `✕` on the project row, and it unchecks the panel** — one fact in two places, with
-  the action living where the membership does. **Both live in the configuring mode**: the `✕` is not on
-  a row you are only reading. **An auto-added row refuses**, exactly as §6 says: it
-  cannot be unchecked from either side while the item that pulled it in is still in the project, and
-  what it says is *remove what dragged it in*. That is the product's only refusal and the panel
-  inherits it rather than softening it.
-
-  **Drawn in lesson 04, and four things the drawing settled** (owner, 2026-09-26; register Q33).
-  **The panel is a full left sidebar**, with `Related · All · the six kinds` — and it opens on `All` when
-  the set is empty. **An auto-added row nests under the item that pulled it in**, as a sub-row with no
-  remove of its own: the nesting now carries the refusal the sentence above describes, instead of a
-  line of text. **A click on a row opens the item in a side panel beside the set**, and **that panel is
-  where `Detach` lives** — the action §5 and §7 describe and no screen had offered — together with the
-  detached row's differing fields, `Reset` per field and whole, and `Promote`. **And the mode is a
-  draft**: its head reads *Cancel · Export · **Save*** (*Check* until Q36), so adds, removes and a detached row's edits are
-  kept on `Save` and dropped on `Cancel`. *Leaving the mode is still one named action — now one of two,
-  keep or discard.* `Promote` is the one immediate act inside it, because it creates a library item.
-
-  **A project with nothing in it is an empty state** (2026-09-20, Q16). The body carries **one**
-  action — **it enters the configuring mode**, which is where the first item comes from — and **the
-  control that enters `Run` is inert** —
-  one control, because `Export` is Run's final stage and not a button here, so an unreachable Run takes
-  it with it. See §6 for why that is an exception to a rule this file otherwise holds to, the two tests
-  it has to pass, and the naming question the owner deferred to lesson 05.
-
-  **Amended 2026-09-27, Q34: the new project opens in the configuring mode, the panel already open,
-  and the body keeps only its text.** The one action was a click that did nothing but open what the
-  person had come for, so it is gone; the control into `Run` stays inert, which is all Q16 ever needed.
-- **Run** — entered by **`Export`** from a Project (*`Export…`* Q36–Q38) (*Check* until Q36, 2026-10-05; the mode is titled `Export`), by the same control on a **shared project**, and,
-  since 2026-09-20, **from a Library row exporting a single item** (§6, Q15). It takes the whole
-  surface: a stack of stages, each with its
-  own verdict, duration and expansion, in the shape of a Vercel deployment page. The file tree of the
-  future archive, the env variable list and the agent target selector live here, and **Export is the
-  final stage** rather than a button beside the check. Export is always live (§6); an unclean set is
-  confirmed in the row below the finding that caused it.
-
-  **A Problem's item can be removed from Run itself** (owner, 2026-09-27, Q34). *Remove eslint-autofix*
-  on the finding opens **a confirmation that names the scope** — this project only; it stays in My
-  library and in every other project — and on *Remove* **the check runs again by itself.** It is saved
-  at once, not held as a configuring draft: the fix-and-recheck loop is the busiest path in the product,
-  and this takes it from four steps to two.
-
-  **The last stages before Export are the handover** (added 2026-09-02): what the archive contains,
-  and what the receiving machine must still do — the `SETUP.md` the agent will read, the pinned
-  `ref`s, the target-correct paths, `.env.example`. They are stages like any other, with verdicts and
-  expansion, and they are read **before** the irreversible step. See §6.
-- **Shared project** and **shared item** — **the receiving side's only surfaces** (added 2026-09-15,
-  Q13). Read-only, opened by anyone holding the link, and built for somebody who did not write any of
-  it: what the set contains, what each item needs, what the receiving machine must still have, **what
-  any of it defers to** (§5), the origin and licence of anything that is not the sharer's own — **the same Check the owner has** (§6),
-  because the only verdict worth anything to them is one taken on what they are looking at — and
-  **a way to take it**, the archive or a copy into their own library, because a link that cannot be
-  acted on is a brochure. **Run is therefore a mode of this surface too**, entered the same way and
-  ending the same way. It is the same shape as the read-only public item (§5), pointed at one
-  person's work rather than at the shelf.
-
-  **And one rule for whoever designs them** (added 2026-09-20, Q20). Lesson 03's traceability matrix
-  found **the shared project carrying seven jobs — more than `Projects`, more than the library panel**
-  — while **P2 has never spoken in the first person**: after four rounds and five venues, every account
-  of a handover in the evidence base was written by the sender. **So these two surfaces are the largest
-  exposure in the product, and they get the most conservative treatment anywhere in it: invent nothing
-  here that is not derived from what P1 needs.** Where a choice has no answer in P1's evidence, make
-  the one that shows more and promises less, and mark it — **do not design for a person nobody has
-  met.**
-- **Projects** — saved projects and duplication, plus **the example project that ships on first
-  run** (§11), labelled as an example and deletable. **A shared project reads as shared here**, and
-  everywhere else it appears, because sharing is live and every later edit is also a publication (§5). **Each row carries its check verdict and when**
-  (§6, added 2026-09-15): the counts from the last check, the date, and — where the set has changed
-  since — *what* changed instead of a verdict that is no longer true. Never *works*: **checked**. **Not visibility** — §9 keeps that control out
-  of the MVP interface entirely, and this line used to say otherwise. Corrected 2026-09-02.
-  **Drawn as cards, not rows** (owner, 2026-09-26), so a project is never mistaken for an item — and
-  **found by search plus one `Filters` button** (Q30): last check, the target it was checked for,
-  sharing, and the order.
+  **The most conservative rule in the product applies here** (Q20). The shared project carries **seven jobs** in
+  the coverage matrix — more than `Projects`, more than the library panel — while P2 has never spoken in the
+  first person. **Invent nothing here that is not derived from what P1 needs.** Where a choice has no answer in
+  P1's evidence, make the one that **shows more and promises less**, and mark it — **do not design for a person
+  nobody has met.**
+- **Projects** — saved projects and duplication, plus **the example project that ships on first run** (§11),
+  labelled as an example. **Delete example is an ordinary, active button**, confirmed — the only way to the empty
+  Projects (Q34). **Drawn as cards, not rows**, so a project is never mistaken for an item; found by **search plus
+  one `Filters` button** — last check, the target it was checked for, sharing, the order (Q30). **Each card
+  carries its check verdict and when**: the counts, the date, and — where the set has changed since — *what*
+  changed instead of a verdict that is no longer true. Never *works*: **checked**. **A shared project reads as
+  shared** here and everywhere it appears (Q37). **No visibility switch on this screen**: a project becomes
+  public only by being shared (§5, *Sharing*).
 
 ### The information architecture, in one place
 
-**Added 2026-09-20, and the reason for it is that it did not exist in one place.** Lesson 03 produced
-its answers through **fifteen register entries between 15 and 20 September**, and this file absorbed
-them as dated amendments scattered across §1, §5, §6, §8, §9, §10 and §12. **This is the summary a
-person needs before reading any of them.** The work itself is
-[`03-information-architecture/sitemap.md`](03-information-architecture/sitemap.md) and
-[`flows.md`](03-information-architecture/flows.md); **this is a digest and never a source of truth**,
-exactly as `research.md` is for the research.
+The work is [`03-information-architecture/sitemap.md`](03-information-architecture/sitemap.md) and
+[`flows.md`](03-information-architecture/flows.md); **this is a digest and never a source of truth.**
 
-**The top-level map — seven screens, grouped by the person's own situations.**
+**The top-level map — grouped by the person's own situations.**
 
 ```
-0 · the door           Sign in — no job raises it; the owner passes through, the receiver never does
+0 · the door           Sign in · Create account · Reset password — the owner passes through, the receiver never does
 1 · what I keep        Library — My library · Public library   ( + the Item add/edit overlay )
-                       Library import / export as JSON — no job raises it either
-2 · what I assemble    Projects → Project   ( + the configuring mode, the library panel, a detached row )
-3 · what leaves        Run — a mode, entered by Check, ending in Export
+                       Library import / export as JSON
+2 · what I assemble    Projects → Project   ( + the configuring mode, the library panel, the item side panel )
+3 · what leaves        Run — a mode titled Export, entered by Export
 4 · what somebody
     else opens         Shared project · Shared item
 ```
 
-**Six places, and that is the whole navigable surface**: `Library` with one address per scope,
-`Projects`, `Project`, `Shared project`, `Shared item`, `Sign in`. **Everything else is a mode, an
-overlay, a region, a state or content** — including `Run`, which takes the whole screen and is still
-not a place, because nothing is stored and no address returns you to it.
+**Six places, and that is the whole navigable surface**: `Library` (one address per scope), `Projects`,
+`Project`, `Shared project`, `Shared item`, `Sign in` (Q25 — it passes all three addressability tests).
+**Everything else is a mode, an overlay, a region, a state or content** — including `Run`, which takes the whole
+screen and is still not a place: nothing is stored and no address returns you to it.
 
-**The main flow, in one line.** `Projects` → a `Project` → **configure** it, adding from the library
-panel until the set is complete → **`Export`**, which enters `Run` (*Check* until Q36) → read the findings, fix what is
-fixable from its row, confirm the rest → read the handover → **Export**. **Nothing blocks anywhere
-along it**, and the one thing it cannot promise is the end: the archive is correct, and whether the env
-values exist on the receiving machine is a fact about a machine we never touch. **Checked, never
-works.**
+**Global navigation: three entries — `My library` · `Public library` · `Projects`** (Q29). The shelf is one click
+away, still one screen, read-only. `Run` has no entry: an entry pointing at a mode would promise a place nobody
+can be sent to.
 
-~~**Global navigation: two entries — `Library` and `Projects`.**~~ **Global navigation: three entries —
-`My library` · `Public library` · `Projects`** (changed 2026-09-26, Q29). The Library's two scopes were
-already two addresses of one place, so **the place count stays six**; what changed is that the shelf is
-one click away rather than behind a switch, **and it is still one screen, read-only.** `Run` still has
-no entry: an entry pointing at a mode would promise a place nobody can be sent to.
+**The main flow:** `Projects` → a `Project` → **configure** it from the library panel until the set is complete →
+**`Export`**, which enters `Run` → read the findings, fix what is fixable from its row, confirm the rest → read the
+handover → **Export**. **Nothing blocks anywhere along it**, and it cannot promise the end: whether the env values
+exist on the receiving machine is a fact about a machine we never touch. **Checked, never works.**
 
-**Depth to the archive: three taps**, for somebody already signed in — `Projects` → `Project` →
-`Export` (the control) → `Export` (the final stage). **Four** when the set does not exist yet, because a new project's empty state has
-one action and it enters the configuring mode; **four** when arriving through the Library, which the
-panel made optional rather than merely paid for; **two for the receiver**, who owns nothing and has the
-shortest path in the product. **Every path costs one more from a cold, signed-out start.**
+**Depth to the archive, signed in:** three taps — `Projects` → `Project` → `Export` (the control) → `Export` (the
+final stage). Four when the set does not exist yet, four through the Library, **two for the receiver**. Every path
+costs one more from a cold, signed-out start.
 
-**And the one number that is not a compliment.** `Shared project` carries **seven jobs** in the
-coverage matrix — more than `Projects`, more than the library panel — while **P2 has never spoken in
-the first person** in four rounds of research across five venues. That is why §8's shared surfaces
-carry the most conservative rule in the product.
-
-**The known cost of this choice — rewritten 2026-09-20, because the panel paid most of it.**
-~~With no library pane in the builder, you cannot see what you are not using.~~ That was the cost, and
-the three things that carried it were the palette opening on related items, the Library one keystroke
-away, and per-item usage facts. **Where each one went, because none of them may quietly disappear:**
-
-- **Opening on *related* — kept, and re-homed.** It is the panel's first and default tab. It was the
-  strongest of the three and it is the one thing the panel could most easily have lost by becoming a
-  plain alphabetical index of everything.
-- **The Library one keystroke away — changed in meaning.** It no longer pays for assembly, because
-  assembly does not go there (Q14). It still pays for the corpus acts: *the first screen is where you
-  were*, and the Library remembers its place.
-- **Per-item usage facts — unchanged and still load-bearing.** *Used in 3 projects*, *2 items require
-  this* do work no pane does: the panel shows what you own, and only the facts show what it costs to
-  touch it.
-
-**And the cost that replaced it, stated as plainly as the old one.** An item now **renders twice** —
-as a panel row and as a set row — and the panel structurally cannot show *detached*, *auto-added by
-X* or *conflicting*, because those are properties of membership and not of the item. **The set row is
-the only place an item's state is true.** The second cost is **width**: the project row is the widest
-thing in the product, and the room it needs for `item · rule · observed value` is now shared with a
-panel. That one is measurable rather than arguable and belongs to lesson 05 — write the longest real
-row and see whether it survives.
+**What the panel costs.** An item **renders twice** — as a panel row and as a set row — and the panel cannot show
+*detached*, *auto-added by X* or *conflicting*, which are properties of membership. **The set row is the only
+place an item's state is true.** The project row — the widest thing in the product, `item · rule · observed
+value` — now shares its width with the panel; that is measurable: write the longest real row and see whether it
+survives. **What the old builder relied on, and where it is now:** *opening on related* is the panel's default
+tab; the Library is still one step away and remembers its place, for the corpus acts; the per-item usage facts
+still show what it costs to touch an item, which no pane does.
 
 ---
 
 ## 9. Deliberately out of scope for the MVP
 
-Kept in the architecture's line of sight, not built:
+Kept in the architecture's line of sight, not built. **Do not build these. Do not design a screen that only makes
+sense once they exist.**
 
-- **Versioning of your own items.** No history, no diffs, no rollback, and **no `version` field on
-  the item** — decided 2026-09-01. An item lives in the library once and projects link to it live,
-  so `detached` plus `overrides` already does the job a version number would: it is how a project
-  says *I do not want the current one*. A second, parallel mechanism for the same thing is not
-  built. **External references are a different matter and are pinned** — see `ref` in section 5.
-  If real versioning is ever wanted, both the field and the history are additive.
-- **Composition — a project inside a project.** **Deferred, not refused** (2026-09-02). Items only
-  in the MVP. Two reasons: none of the five pattern variants needed composition in order to work, and
-  a search for `reuse blocks assistant` returned **0 results** in a 6,677-issue tracker belonging to a
-  product that shipped a hub for exactly this. But it stays interesting, and the reason to hold it
-  back is also the reason to be careful with it later — **composition risks unbounded recursion**. A
-  project containing a project containing a project is a resolution problem we would have to bound,
-  and the three-state walk in §6 exists for cycles among *items*, not among sets. **Revisit post-MVP,
-  and decide the depth rule before the feature**, not after.
-- **A public catalog — narrowed 2026-09-15, and the narrowing is the point.** **Sharing a link to a
-  project or an item is now in the MVP** (§5, *Sharing*; Q13): an unlisted address, anyone who holds
-  it can open it, nothing is listed. **What stays out is the catalog** — discovery, search, ranking,
-  a place where other people's work is *found* rather than *given to you*, and the moderation that
-  any of it would require. **And the request will not arrive wearing this word** (noted 2026-09-20,
-  Q23): stage 7 lists the same job twice, as **`SJ-2` — *have something I would put my name to*** and
-  as **`H-J6` — *my work counts as something I can show*.** They are one job in two wordings and
-  `jtbd.md` says not to count it twice. **The first is easy to refuse and the second is not**, so a
-  proposal for a profile, a listing or a place where work is *visible* is this refusal being tested in
-  functional clothing, and should be recognised as such before it is weighed. **Its importance is 1 —
-  the lowest in the base, and established by absence**: looked for deliberately in two instruments,
-  **0 of 1,762** Hacker News comments and a `portfolio in:title` search returning two unrelated issues.
-  **A link is a handover; a catalog is a marketplace**, and only the first is
-  a thing the evidence puts anybody in need of.
-  ~~`visibility` stays in the model, and there is no server to
-  publish to — so **the control is not shown in the MVP interface at all** (decided 2026-09-01).~~
-  **Superseded.** That reasoning rested on there being nothing for the control to act on, which is no
-  longer true, and partly on an implementation fact that may not decide product scope at all.
-  **`visibility` is now a control the user can touch**, and the rule it was justified by is satisfied
-  rather than broken: *an action that cannot act is not shown* — this one can.
-  **Note the asymmetry, added 2026-09-02: consuming a curated public library is in the MVP (§8, §11);
-  publishing to one is not.** ~~A read-only shelf that ships with the application needs no server,
-  no accounts and no moderation.~~ **Half of that was an argument from absence, and the absence ended
-  on 2026-09-20** (Q24): there is a server and there are accounts. **The shelf is still read-only and
-  publishing to it is still out, and both now stand on what they always should have**: we **curate** it,
-  which is why an item whose licence we cannot state does not go on it; and §9 refuses the catalog **on
-  the evidence**, which it has done since 2026-09-15. Nothing about it makes `visibility` a control the user can touch.
-  A switch that cannot act does not belong on a primary surface: Linear, Figma and GitHub all hide
-  an action there until it has something to do. Do not ship a dead toggle on the most load-bearing
-  word in the model. (The rule has one documented exception and it does not apply here — **context
-  menus grey rather than hide**, because a stable item order is worth more than a short list. See
-  finding 7 in `01-research/4-benchmark/benchmark.md`.)
-- **Observability of what actually ran — refused, and it is a different product** (settled
-  2026-09-20, closing Q12). *When I depend on something I cannot see working, I want to watch what it
-  actually did* is **importance 3 for the primary persona** and the **second main-job candidate that
-  survived** stage 7's method — which by that method's own rule means two products, and this is the
-  other one. **No surface in this product touches it**, which lesson 03's traceability matrix states as
-  a row of twelve blanks under a 3. **It is refused rather than deferred**, because the answer cannot
-  change without something this product does not have and will not get: we **run nothing on anybody's
-  machine**, so any screen answering it would promise a runtime we do not own — the unearned tick §6
-  spends a section refusing. **The nearest honest thing is already shipped and must not be grown into
-  a claim**: *last exported 12 days ago* reports **what this product did**, never what an agent did
-  with the archive afterwards.
-- **An account surface beyond a way in** (settled 2026-09-20, Q25). Accounts are in the MVP, and **a
-  profile, a settings screen and a session list are not**: no job in the matrix raises any of them, and
-  §9's own rule plus lesson 03's trap 3 say the same thing — **do not invent a place for a person nobody
-  has met.**
-
-  **And the receiver never meets it.** §5's link keeps the viewer **anonymous** (Q13), and an owner's
-  account does not give them one — **the archive branch of a shared page stays free of any door**, which
-  is what makes it the branch that must always work. **The only way somebody who arrived by link meets a
-  sign-in is by choosing *copy into my library***, and at that moment they are no longer a visitor.
-
-  What is built is **a way in**, and **a rule for a session that ends mid-work**: you return
-  to **where you were**, nothing is re-run, and nothing saved is lost. You return to **the place**, not
-  into the act — configuring and `Run` are modes, and *you were halfway through assembling a set* is not
-  a thing this product can restore, so it does not pretend to. *The shape is §Navigation's own: a reload
-  during a check returns to the Project and does not silently start a new one, because a re-run is a
-  choice nobody made — EJ-1.*
-- ~~**Accounts, sync, teams.** Single user, one workspace.~~ **Two of the three moved into the MVP on
-  2026-09-20** (Q24): the product is online, so there is **a sign-in and a library reachable from any
-  machine.** **Teams stay out**, and the line between them is kept on purpose — **a server needs
-  identity, and identity is not a team.** §4 still says a workspace is **one per user and not a team
-  concept**, and no job in the matrix raises a second person inside one workspace. **Still single
-  user, still one workspace; it now follows them between machines.**
+- **Versioning of your own items.** No history, no diffs, no rollback, **no `version` field on the item**. An item
+  lives in the library once and projects link to it live, so `detached` plus `overrides` already does a version
+  number's job — it is how a project says *I do not want the current one*. A second mechanism for the same thing
+  is not built. **External references are pinned** — `ref`, §5. Real versioning, if ever wanted, is additive.
+- **Composition — a project inside a project. Deferred, not refused** (Q3). None of the five pattern variants
+  needed it, and `reuse blocks assistant` returned **0 results** in a 6,677-issue tracker of a product that
+  shipped a hub for exactly this. **Composition risks unbounded recursion**: the three-state walk in §6 is for
+  cycles among items, not among sets. **Decide the depth rule before the feature.**
+- **A public catalog.** **A share link is in the MVP; a catalog is not** — discovery, search, ranking, a place
+  where other people's work is *found* rather than *given to you*, and the moderation it requires. **A link is a
+  handover; a catalog is a marketplace.**
+  - **The request will not arrive wearing this word** (Q23). Stage 7 lists the same job twice: **`SJ-2` — *have
+    something I would put my name to*** and **`H-J6` — *my work counts as something I can show*** (one job, do not
+    count it twice). A proposal for a profile, a listing or a place where work is *visible* is this refusal tested
+    in functional clothing — recognise it before weighing it. **Its importance is 1, the lowest in the base,
+    established by absence**: 0 of 1,762 Hacker News comments, and a `portfolio in:title` search returning two
+    unrelated issues.
+  - **`visibility` is a control the user can touch** — the share — because it can act. An action that cannot act
+    is not shown on a primary surface (Linear, Figma and GitHub all hide it until it has something to do). The one
+    documented exception: **context menus grey rather than hide**, because a stable item order is worth more than
+    a short list (finding 7, `01-research/4-benchmark/benchmark.md`).
+  - **Consuming the curated public library is in the MVP; publishing to it is not.** It is read-only because **we
+    curate it** — which is why an item whose licence we cannot state does not go on it — and the catalog is refused
+    **on the evidence**.
+- **Observability of what actually ran — refused, a different product** (Q12). *When I depend on something I
+  cannot see working, I want to watch what it actually did* is importance 3 for the primary persona and the second
+  main-job candidate of stage 7. **No surface touches it** — a row of twelve blanks under a 3 in the traceability
+  matrix. It is refused, not deferred: we **run nothing on anybody's machine**, so any screen answering it would
+  promise a runtime we do not own. **The nearest honest thing is already shipped and must not grow into a claim**:
+  *last exported 12 days ago* reports what this product did, never what an agent did with the archive.
+- **An account surface beyond a way in** (Q25). Accounts are in the MVP; **a profile, a settings screen and a
+  session list are not** — no job raises any of them. **The door is built to the minimum**: Sign in, Create
+  account, Reset password (Q35).
+  - **The receiver never meets it.** The viewer stays anonymous, and **the archive branch of a shared page stays
+    free of any door** — it is the branch that must always work. The only way somebody who arrived by link meets a
+    sign-in is by choosing *copy into my library*, and then they are no longer a visitor. **A dead shared link
+    keeps no action** — the receiver is kept off the door (Q35).
+  - **A session that ends mid-work**: you return to **where you were**, nothing is re-run, nothing saved is lost.
+    You return to **the place**, not into the act — configuring and `Run` are modes, and *halfway through
+    assembling* is not something this product can restore, so it does not pretend to. A reload during a check
+    returns to the Project and does not silently start a new check: a re-run is a choice nobody made (EJ-1).
+- **Teams.** The product is online with accounts and sync (Q24), and **identity is not a team**. Still single user,
+  still one workspace (§4); it follows them between machines. No job raises a second person inside one workspace.
 - **Automatic metadata parsing** from item content.
-
-Do not build these. Do not design a screen that only makes sense once they exist.
 
 ---
 
 ## 10. Tech stack and conventions
 
-- **Next.js + React + TypeScript.** Chosen over Vite specifically so that a public catalog and
-  **shareable project pages** would not require a migration. **As of 2026-09-15 the second half of
-  that sentence is no longer "later": shared links are in the MVP** (§5, *Sharing*; Q13), and the
-  choice made in advance turns out to have been the right one. **How they are served is deliberately
-  not decided here** — the product decides what it is, the implementation follows, and nothing in §5,
-  §6, §8 or §9 depends on which way it goes. **Since 2026-09-20 that sentence
-  governs the whole file, not just links**: there is a backend (Q24) and **nothing in this specification
-  describes it.** Every rule here is about **what a person sees and what a surface may claim.** *If a
-  line in this file can only be satisfied by a particular storage design, it is written wrongly.* The catalog is still refused (§9).
-- **No UI kits.** No MUI, no shadcn, no Chakra. The design system is custom and is part of
-  the product's value.
-- **No Figma upstream.** Design happens in code and in whatever mockups we produce here.
-- **Storage: a backend, and the library is reachable from any machine** (decided 2026-09-20, Q24).
-  ~~IndexedDB, once we get to logic. No backend.~~ **Which backend is deliberately not decided here**,
-  in the same words this file already uses about serving shared links: **the product decides what it
-  is, and the implementation follows.** IndexedDB may survive as a local cache; that is an
-  implementation question and not a product one.
-- **Archive: built in the browser (JSZip) — now a choice rather than a constraint** (2026-09-20).
-  Nothing in §6 depends on where the zip is assembled, and nothing is decided here.
-- **Library portability:** export/import of the whole library as JSON. **It ships, and its warrant is
-  that the user can leave with their work** (Q18, re-answered 2026-09-20 after the first answer died
-  the same day).
-
-  **A person is never left in front of a library they cannot account for** (decided 2026-09-20, Q27;
-*restated the same evening from a sentence about transactions into one about what the person sees*).
-**Either the import finished, or the library reads as it did before it started.** *How that is arranged
-is not decided here.*
-
-**The reason is §11 and it is about the one subject where being wrong cannot be walked back.** Material
-coming in is met with *check that these files carry no keys* — **a reminder addressed to a set of files
-the person is expected to know.** After a half-finished import **they cannot enumerate what arrived**,
-so the reminder has been given about something nobody can inspect. **A warning about an unknown set is
-not a warning.** *The alternative — show the partial import and report exactly what landed — is honest,
-and it needs a report surface nobody has designed.*
-
-**Its basis is stated plainly, because it is not an evidential one.** No job raises it, in a matrix
-  that checked all seventeen. **It is kept because the product now holds other people's corpora on a
-  server it does not let them out of otherwise** — §11 tells the user to pour everything in, and a
-  hosted product that says *bring it all* and offers no way out is the lock-in people mean when they
-  say the word. **This is the same class of decision as the `license` field** (§5): something that
-  closes no evidenced job, taken on a non-evidential basis, and **labelled as such rather than dressed
-  up as a finding.**
-
-  *Its first warrant lasted one day and is worth keeping visible: it was justified by §10's own
-  storage — IndexedDB with no backend, one browser profile holding the only copy — and Q24 made that
-  false by the evening. The mechanism survived; the reason for it did not.*
-  *The reasoning below is kept, struck, because it is a good argument that stopped being true — which
-  is worth more on the page than a deleted one.*
-  ~~Three separate instruments in lesson 03 called it an orphan because **no job in the matrix raises
-  it** — and that is the wrong test for it. **Storage is IndexedDB and there is no backend**, so the
-  only copy of everything a person has accumulated lives in **one browser profile**, which clears.
-  *This is a property of the architecture above, not somebody's stated need*, and a product that offers
-  no way out of that profile is one bad afternoon from losing a corpus it spent §11 telling the user to
-  build. The 2026-09-15 half of its old justification is gone and is not missed: informal sharing is
-  what a share link does now (§5, Q13). What remains is durability.~~
-  ~~this covers both backup and informal sharing before any server exists.~~
-- **Styling: no engine — plain CSS, written by hand** (owner, 2026-10-29, Q45). ~~Deferred to lesson 08,
-  decided on two built components; Tailwind, CSS Modules and vanilla-extract all still live.~~ The product is
-  styled by the two things lesson 08 built: `design-system/tokens.css` (custom properties on two levels,
-  themes as `[data-theme]` overrides) and `design-system/components/` (one CSS file per component). **No
-  Tailwind, no CSS Modules, no vanilla-extract, no CSS-in-JS.** The basis is the course's purpose, not a
-  comparison: the work is homework, and the point is to understand how tokens, components and themes work.
-  Q6's criterion — **tokens and two real themes first-class, no utility classes in components** — is met
-  without an engine and enforced by `tools/kit_check.py`. How the CSS is loaded in the app is left to the build.
+- **Next.js + React + TypeScript**, chosen over Vite so that **shareable pages** (in the MVP, §5) and any later
+  public page need no migration.
+- **We design the interface, not the backend.** A backend exists (Q24); **what it is and how it behaves is
+  deliberately not decided anywhere in this file**, nor how shared links are served. Every rule here is about
+  **what a person sees and what a surface may claim**. *If a line in this file can only be satisfied by a
+  particular storage design, it is written wrongly.*
+- **Because the product is online, `loading` and `error` are real states on every surface**, and each is drawn
+  (§15, *a screen is drawn whole*). Our failures read as ours (§14, principle 3).
+- **No UI kits.** No MUI, no shadcn, no Chakra. The design system is custom and part of the product's value.
+- **No Figma upstream.** Design happens in code and in the mockups we produce here.
+- **Storage: a backend, and the library is reachable from any machine** (Q24). Which backend is not decided.
+  IndexedDB may survive as a local cache; that is an implementation question, not a product one.
+- **Archive: built in the browser (JSZip)** — a choice, not a constraint; nothing in §6 depends on where the zip
+  is assembled.
+- **Library portability: export/import of the whole library as JSON** (Q18). **Its warrant is that the user can
+  leave with their work**: the product holds people's corpora on a server, §11 tells them to pour everything in,
+  and a hosted product that says *bring it all* and offers no way out is lock-in. **Its basis is not evidential**
+  — no job in the matrix raises it — and is labelled as such, the same class of decision as the `license` field.
+  - **A person is never left in front of a library they cannot account for** (Q27): **either the import finished,
+    or the library reads as it did before it started.** After a half-finished import the person cannot enumerate
+    what arrived, so §11's keys reminder would have been given about a set nobody can inspect. *The alternative —
+    show the partial import and report exactly what landed — is honest, and needs a report surface nobody has
+    designed.* How it is arranged is not decided here.
+- **Styling: no engine — plain CSS, written by hand** (Q45). The product is styled by
+  `design-system/tokens.css` (custom properties on two levels, themes as `[data-theme]` overrides) and
+  `design-system/components/` (one CSS file per component), behind one `design-system/index.css`. **No Tailwind,
+  no CSS Modules, no vanilla-extract, no CSS-in-JS.** The basis is the course's purpose — understanding how tokens,
+  components and themes work. Q6's criterion — tokens and two real themes first-class, no utility classes in
+  components — is met and enforced by `tools/kit_check.py`. How the CSS is loaded in the app is left to the build.
 
 ---
 
 ## 11. How items get into the library
 
-Two ways, and the second is new as of 2026-09-02.
+**Manually, by the user**, from their own material. `My library` starts empty on first run and fills up this way.
+An empty library kills the product, because there is nothing to validate — that is cold start, answered below.
 
-**Manually, by the user**, from their own local material. `My library` starts empty on first run and
-fills up this way. This was the known cold-start problem: an empty library kills the product, because
-there is nothing to validate.
-
-**And material coming in this way carries a warning about keys** (decided 2026-09-16, and it is what
-replaced §6's credential refusal). When the user brings their own files in — one item, or the whole
-library as JSON (§10) — the product says before it accepts them: **check that these files carry no
-keys.** **There are two reasons now** (the second added 2026-09-20, Q24). The material **leaves the
-person's machine the moment it is accepted**, onto a server we run — *that is new, and it strengthens
-the reminder rather than replacing anything.* And, as before: what comes in this way **goes out in every archive
-built from it**, and, if the thing is ever shared, **onto an address anyone can open** — and neither
+**Material coming in carries a warning about keys.** When the user brings their own files in — one item, or the
+whole library as JSON (§10) — the product says before accepting them: **check that these files carry no keys.**
+Two reasons: the material **leaves the person's machine the moment it is accepted**, onto a server we run; and it
+**goes out in every archive built from it** and, if shared, **onto an address anyone can open** — and neither
 exit is checked.
 
-**It is a reminder, and it says so.** *We do not read your files looking for secrets.* It must never be
-worded as though something had been scanned and come back clean; that is the unearned tick §6 exists to
-refuse, on the one subject where being wrong cannot be walked back. For the same reason it is **not one
-of §6's three severities** — nothing was checked, so there is no finding.
+- **It is a reminder, and it says so**: *We do not read your files looking for secrets.* It must never be worded
+  as though something had been scanned and come back clean, and it is **not one of §6's three severities** —
+  nothing was checked, so there is no finding.
+- **It does not block.** Name the consequence before the step, then let the person act. **The person who wrote
+  these files is the only one who can tell a key from an example.**
 
-**And it does not block.** Same discipline as an unclean export: name the consequence in the present
-tense before the step, then let the person act. **The person who wrote these files is the only one who
-can tell a key from an example**, which is the whole reason the check is theirs and not ours.
+**And from the public library, which ships with the application.** A curated, **read-only** set of real items —
+skills, agents, prompts, MCP servers — taken from sources we have checked, reachable from the first second (§8).
+The user adds from it into a project, or copies an item into `My library` and owns the copy from then on. This is
+what solves cold start, and `My library` stays honestly the user's.
 
-**And from the public library, which ships with the application.** A curated, **read-only** set of
-real items — skills, agents, prompts, MCP servers — taken from sources we have checked, reachable
-from the first second behind the scope switch in §8. The user adds from it into a project, or copies
-an item into `My library` and owns the copy from then on. This is what solves cold start: the product
-has material immediately, and `My library` stays honestly the user's.
+**A shelf guarantees material, not a first check that says anything.** Three unrelated items give six green ticks
+and teach nothing. So **one example project ships too**, in Projects, built entirely from public items and
+composed so it contains **at least one Problem and at least one Note** — a real target-path collision, a genuinely
+missing env key. Labelled as an example, deletable, in Projects rather than in the library, because that is where
+being an example is honest.
 
-**A public shelf guarantees material; it does not guarantee the first check says anything.** A user
-who picks three unrelated items gets six green ticks, which teaches nothing about what the product is
-for. So **one example project ships too**, in Projects, built entirely from public items and composed
-so that it contains **at least one Problem and at least one Note** — a real target-path collision, a
-genuinely missing env key. It is labelled as an example and it is deletable. It sits in Projects
-rather than in the library, because that is where being an example is honest.
-
-**What has to be built, and to what standard.** This is real work, not a demo asset:
+**What has to be built, and to what standard.** Real work, not a demo asset:
 
 - **Real content from checked sources.** Placeholder lorem makes the whole product look pointless.
-- **Meaningful relations** — real `requires` edges, at least one genuine `conflicts` pair, several
-  items with `needsEnv`, at least two items that write to the same target path.
-- **Provenance on every item.** These are other people's work: `repoUrl`, a pinned `ref` **and the
-  licence**, shown, not just stored (§5). **An item whose licence we cannot state does not go on the
-  shelf**, because the shelf is ours to curate — that is a build standard, not something to leave the
-  user to discover.
-- **Enough of it to browse rather than to read** — the switch has to feel like a library, not a list.
-  The **~30 realistic items** figure that used to live here as a mockup requirement is the right
-  order of magnitude for this too, and the same set serves both jobs.
+- **Meaningful relations** — real `requires` edges, at least one genuine `conflicts` pair, several items with
+  `needsEnv`, at least two items that write to the same target path.
+- **Provenance on every item**: `repoUrl`, a pinned `ref` **and the licence**, shown, not just stored. **An item
+  whose licence we cannot state does not go on the shelf.**
+- **Enough of it to browse rather than to read — about 30 realistic items**; the same set serves the mockups.
 
-**How far to design it, and it is deliberately not as far as the content goes** (settled 2026-09-20,
-Q19). **Build the ~30 items in full** — the content is what makes an information architecture
-arguable. **Design the browsing surface only as far as the example project needs**, and no further.
+**How far to design it** (Q19): **build the ~30 items in full** — the content is what makes the architecture
+arguable — and **design the browsing surface only as far as the example project needs**. The shelf has two ticks
+in the traceability matrix and only one from an evidenced job (RJ-3, *copy it into mine to make it fixable*); the
+rest is H-J4, `[?]` in all three persona columns. **A surface that keeps getting heavier without getting better
+founded is where design effort goes to be wasted.** Sorting, ranking, recommending and curating are downstream of
+**Q9 — what the shelf holds and how it sorts** — and none is designed before it. The only evidence so far points
+to *provenance over volume*.
 
-**The reason is a number.** Lesson 03's traceability matrix gives the shelf **two ticks, and only one
-comes from a job anybody has evidenced** — RJ-3 reaches it through a single branch, *copy it into mine
-to make it fixable*. Everything else it carries is **H-J4, whose importance is `[?]` in all three
-persona columns.** Meanwhile lesson 03 made the shelf more load-bearing **three times** — the scope
-switch in §8, the panel carrying it into assembly, cold start answered inside the builder — **and it
-gained no evidence at all while that happened.** **A surface that keeps getting heavier without getting
-better founded is where design effort goes to be wasted**, and **Q9 — what it holds and how it sorts —
-is still unanswered.** Sorting, ranking, recommending and curating are all downstream of Q9; none of
-them is designed before it.
-
-**Out of the library and to another person: a link, and that is in the MVP** (§5, *Sharing*, decided
-2026-09-15). **Out of the library and into a catalog — listed, searched, ranked, moderated — is still
-refused**; see §9 for the boundary. *This paragraph used to put both on the far side of "later".*
+**Out of the library to another person: a link, in the MVP** (§5). **Into a catalog: refused** (§9).
 
 ---
 
 ## 12. Open questions
 
-**The open ones live in one place, and it is not here.**
-[`01-research/research-plan.md`](01-research/research-plan.md) ends with a register — every open question
-with an ID, who raised it, **what would answer it**, and what it blocks. Section 3 of
-[`01-research/FINAL.md`](01-research/FINAL.md) holds the other half: what was read before each decision and
-what the alternatives were. Questions are added to the register as work turns them up and answered
-together in a sitting, once the picture is whole, rather than one at a time on partial evidence. Do
-not keep a second list in this file; two lists drift, and this document has already been bitten by
-that twice. **The protocol outlived the research phase** — every lesson after it uses the same register.
+**The open ones live in one place, and it is not here.** [`01-research/research-plan.md`](01-research/research-plan.md)
+ends with a register — every question with an ID, who raised it, **what would answer it**, and what it blocks.
+Section 3 of [`01-research/FINAL.md`](01-research/FINAL.md) holds what was read before each early decision. **Do
+not keep a second list of questions in this file** — two lists drift.
 
-**Added 2026-09-26, by lesson 04's wireframes — five entries, all raised and answered by the owner on
-the screens.** **Q29** — `Public library` becomes a third global entry (§8). **Q30** — Projects gets
-search and one `Filters` button. **Q31** and **Q32** — **an item can be added as a folder, and it has no
-source switch: it is made of content, files and a pinned repo in any mix.** **These two are ahead of §5
-on purpose**: `source`, `content`, `targetPath` and where `license` lives still describe one file, and
-the register says exactly what would change. **Q33** — configuring is drawn as a sidebar, a side panel
-that carries `Detach`, nested auto-added rows, and a draft kept by `Save` (§8).
+**The protocol, used by every lesson.** Questions are added to the register as work turns them up and answered in
+a sitting, once the picture is whole, rather than one at a time on partial evidence. **If a lesson finds that a
+section of this file has to change, it goes to the register as an entry first**, and the answer is then written
+here. The model proposes; the owner decides.
 
-**Added 2026-09-27, by lesson 04's clickable prototypes — one entry, three decisions.** **Q34** — an
-item behind a Problem is **removed from Run** after a confirmation, and the check **re-runs by itself**;
-a **new project opens with the panel already open**, its body text only; and **Delete example is an
-ordinary, active button**, confirmed, because it is the only way to the empty Projects (§8).
+**The absence rule.** Any argument of the form *we cannot, because there is no X* is only as durable as the
+absence of X. **When an absence ends, every refusal that leaned on it is re-argued or dropped, in writing.**
+(When the product went online, three refusals were re-argued and survived on other grounds — the run being a
+moment, the catalog, *checked, never works* — and one, the first answer to Q18, was void.)
 
-**And Q35, the same day — an independent critique of the wireframes and prototypes, 23 defects, fixed on
-the owner's *fix all*.** **Create account and Reset password join the door** at the minimum; **the dead
-shared link keeps no action** — `flows.md`'s `Stuck` over *no dead end*, because Q25 keeps the receiver
-off the door; **every page the prototypes drew first is kept into the wireframes**; Delete item is drawn;
-`db-migrate` requires `seed-data`, one direction everywhere. *The choices were proposed with the fix, not
-picked by the owner, and the register says so.*
+**Open now — pointers only; the register holds each in full:**
 
-**And Q42, the same day, from lesson 07's review.** **A shared item reads as shared**, as Q37 decided for a project: its row
-reads `Stop sharing…`, which opens the confirmation drawn as `library-my-revoke.html`.
+| ID | What is open | Where it bears |
+|---|---|---|
+| Q5 | Loss or reassembly cost — which drives adoption. Deferred, accepted risk; ask five practitioners before the first feature that pays off under only one answer. The instrument is unavailable | Positioning, not the build |
+| Q9 | What the public shelf holds and how it sorts | §11 |
+| Q11 | If half of what makes a setup work was never written down, what is the ceiling on validating the written part | The promise at handover |
+| Q16 (half) | Whether counts are a wide enough channel for a verdict | §6 |
+| Q17 (half) | Whether a detached row survives its original's deletion | §5 |
+| Q31, Q32 | The model for folder and mixed items | §5 |
+| Q44 | Whether light ships in the product | §17 |
+| Q51 | The phase pages' orange link at about 3.5:1; lesson 07's page linking the retired `ui/kit.css` | Phase pages, not the product |
+| — | The product's own domain (the drawings use `aistack.example`) | §5 |
 
-**Added 2026-11-03 — Q51. Lesson 09 is closed** (owner, *закрываем*): all seven steps, the check fixed, the phase page built. Two findings outside the lesson are left open for the owner: the phase pages' orange links at about 3.5:1, and lesson 07's page linking the retired `ui/kit.css`.
+### Decision index
 
-**Added 2026-11-03 — Q50. The check's two answers** (owner): `--disabled` in light is `#ECEDE6`; the showcase stays on Vercel (D7), not GitHub Pages (§17).
+Where each answered entry is written in this file. **The register is the source**; this is a map.
 
-**Added 2026-11-03 — Q49. States signed** (owner): pressed, one recipe per ground; the four light gaps filled; 83 contrast
-pairs per theme pass. Open: a disabled field reads white in light (§17).
-
-**Added 2026-11-03 — Q48. Lesson 08 is closed and lesson 09 is open**, with D1–D6 of its plan answered as
-recommended (owner): the system's package at `design-system/` in the root; the docs replace `kit.html`; disabled keeps
-its roles; the light gaps and the pressed state signed value by value; the test screen picked from lesson 03's matrix.
-**Q44 stays open** (§17).
-
-**Added 2026-10-29, by lesson 08 — Q47.** **Primitive names follow Tailwind v4 and Primer** (owner): `--color-neutral-*` for
-Mica's greys, and `--space-*`, `--radius-*`, `--font-*`, `--typescale-*`, `--size-*`, `--duration-*` for the rest (§17).
-
-**Added 2026-10-29, by lesson 08 — Q46.** **Primitives are named by a 50-step grade, one scale per theme** (owner):
-`--…-50 … --…-700` for dark, `--…-light-50 …` for light-only values (names since Q47). Replaces D4's OKLab number (§17).
-
-**Added 2026-10-29, by lesson 08 — Q45.** **No styling engine** (owner): plain CSS by hand, `tokens.css` plus `components/`;
-Q6 is closed (§10).
-
-**Added 2026-10-28, by lesson 08 — Q44.** The owner's decisions on the tokens: A (splits), B (signed single-use colours stay
-roles), C (hover recipes kept), D3 (one generator), D4 (hue + OKLab step, renamed to a 50-step grade per theme by Q46); the light glass and shadow; Deep Lime for a checked
-control in light. **Open:** whether light ships in the product (§17). ~~the light values of `--sheet-edge` and Remove Red~~ — signed, Q49.
-
-**Added 2026-10-23 — Q43, the owner's choice of three.** **The link of a shared project or item can be had again.** A shared
-thing keeps its `Shared` tag and its button reads **`Share…`** again; on a shared thing it opens **the link** — `Copy link`,
-`Close`, and **`Stop sharing…` inside the dialog**, which opens the Q37/Q42 confirmation. `Create link` lands on the same
-dialog, so the link is first seen there. Drawn as `project-link.html` and `library-my-link.html`, on a reserved domain,
-`aistack.example`, because the product's own is not decided. *Q37 and Q42 are re-drawn, not undone: the tag still says it is
-shared.*
-
-**Added 2026-10-19, by lesson 07's critique — Q39, Q40, Q41, raised and answered the same day by the owner.** **Q39** —
-the receiver's Run keeps two bars, the shared header over the Run bar; **Q40** — a single item's Run keeps every Skipped
-stage on its own row; **Q41** — **both items of a declared conflict read as state 4** (§7), while the Problem still
-annotates the declaring row (§8). The critique itself is [`07-ui-assembly/ui/critique.md`](07-ui-assembly/ui/critique.md).
-
-**Added 2026-10-11, by lesson 06 — Q38.** **`Export` loses its ellipsis everywhere** (owner): the control, the
-configuring head, a shared project, a shared item, a Library row. Changed on every wireframe page by
-`tools/rewrite_copy.py stage7`, in the prototypes, in `microcopy.md` and `voice.md` together (§14).
-
-**Added 2026-10-05, by lesson 05 — Q36.** **The Project screen's main control reads `Export…`**: the
-owner's choice of label for the control that enters `Run`, closing the naming question Q16 deferred.
-The mode is titled `Export` and the check inside keeps its own words. Nothing new is drawn (§6, §8).
-
-**And Q37, the same day, from lesson 05's step-7 check.** **A shared project reads as shared**: the
-title carries `Shared` and the head's `Share…` reads `Stop sharing…`, which opens the dialog lesson 04
-drew (§8). Whether the owner can copy the link again is not decided.
-
-**Live as of 2026-09-20: Q9 and Q11 — deferred at the sitting — plus Q16 and Q17, each raised and
-answered on 2026-09-20 with one named question left open. Q12 left the list the same day: it is
-**closed as refused**, not deferred — see §9. Three more were raised and answered by the traceability
-matrix: **Q18**, the JSON route keeps its place on the architecture rather than on a job (§10);
-**Q19**, the shelf is built in full and designed only as far as the example needs (§11); and **Q20**,
-the shared surfaces get the product's most conservative treatment because their persona has never
-spoken (§8). **And four more were answered the same evening, three of them found by writing down what can go wrong
-on each flow.** **Q25** — the sign-in is built to the minimum the decision forces, and **it costs a
-place: there are six, not five**, because it passes all three of the addressability tests; §9.
-**Q26** — **the product never shows a verdict state it is not sure of**; §5. **Q27** — **a person is
-never left in front of a library they cannot account for**; §10. *Both were first written as guarantees
-about storage and restated the same evening, when the owner set the working rule that we are designing
-the interface and not the backend; neither changed what it decides.* **Q28** — **a generated disclosure that could not be produced says so**, which
-covers the `SETUP.md` preview, `.env.example`, the archive tree and the share disclosure; §6.
-*Superseded below:* ~~**And one is live and unanswered: Q25**~~ — Q24 put the product online, and **sign-in, session and
-account exist in no screen tree, no entity inventory and no coverage matrix.** They are orphans by the
-test that condemned the JSON export and they arrived four hours after it ran. **Nothing is designed for
-them here**, because inventing a surface on the evening of the decision that created it is the reflex
-lesson 03 exists to refuse. **Three more followed the same day and none of them builds anything**: **Q21**, the
-detached row's `Edit`, `Reset` and `Promote` live in the configuring mode (§7, §8); **Q22**, the usage
-facts carry their own ceiling — they answer *is it used*, never *is it any good* (§5); and **Q23**,
-`SJ-2` stays in the backlog with the caution that it will be re-proposed as `H-J6`, in functional
-wording (§9).** *This line read "none are live" between
-2026-09-15 and 2026-09-20.* **Lesson 03 raised four entries on 2026-09-20 and the owner answered all
-four the same day**, on the precedent of the `license` field and `defersTo`: **Q14 — a library panel
-inside `Project` replaces the `⌘K` palette**, with the Library leaving the assembly path (§8);
-**Q15 — a single item exports on its own**, the walk still running (§6); **Q16 — an empty project is an
-empty state with `Check` and `Export` disabled**, the product's one named exception (§6), leaving open
-whether **counts are a wide enough channel for a verdict**, since `0 problems · 0 notes` reads the same
-on an empty set and a perfect one; and **Q17 — deleting a library item is confirmed, never refused**
-(§5), leaving open **what happens to a detached row whose original is deleted**. The reasoning is in
-[`01-research/research-plan.md`](01-research/research-plan.md), the four dated sections at the end.
-
-**None were live between 2026-09-15 and 2026-09-20 — the sitting had been held.** **Q7 — the primary persona — is the
-collector**, which resolves `personas.md`'s merge toward its collecting half; **Q8 — the main job — is
-*assemble a set that holds together*, so §2 stands as written** and the *transfer* wording the
-evidence produced is recorded in `jtbd.md` §1 and not adopted; **Q10 — an external requirement beats
-the user's own rule, and the product must say when it disagrees** — answered in its disclosure half,
-with detection named as unsolved, because §9 parses nothing and we never see the other machine.
-~~**Q9, Q11 and Q12 are deferred with stated reasons.**~~ **Q9 and Q11 are deferred; Q12 was closed as
-*refused* on 2026-09-20** and moved into §9 — see the traceability matrix.** The dispositions and the reasoning are in
-[`01-research/research-plan.md`](01-research/research-plan.md), *The sitting — 2026-09-15*. ~~**Q10's answer
-is not yet built into §5 or §6** — it needs a declared field and a Note, and **it is the one
-disposition still owing a mechanism.**~~ **Built on 2026-09-16: `defersTo` on `Item` (§5,
-*Deference*), a Note on the item's own row (§6), and the sentence carried onward to the shared page
-(§8) and to `SETUP.md` (§6). No disposition from the sitting is owing a mechanism now.**
-
-**And one rule, written down on 2026-09-20 because it caught two things in one day** (Q24). **Any
-argument in this file of the form *we cannot, because there is no X* is only as durable as the absence
-of X.** On that day **`no backend` ended** and **`the check lives in the right-hand pane` turned out
-never to have been true of the chosen shape** — and each had a refusal resting on it. **The rule: when
-an absence ends, every refusal that leaned on it is re-argued or dropped, in writing.** Three were
-re-argued and survived on other grounds — the run being a moment, the catalog, and *checked, never
-works*. **One did not and is void: Q18.**
-
-**And one question was raised and answered after the sitting, the same day. Q13 — is sharing a link in
-the MVP — is answered yes**: a link to **a project and to an item**, **live**, openable by **anyone
-holding it**, with one disclosure moment around secrets — **and, since 2026-09-16, no refusal: the
-credential block was overruled by the owner and replaced by a warning where the material comes in**
-(§6, §11). It is written into §5 (*Sharing*), §6 (the share disclosure), §8 (two read-only surfaces)
-and §9 (the catalog refusal, narrowed rather than reversed). **It was raised because an argument in lesson 03 was found to rest on
-implementation rather than on the product**, which is recorded in the register with the evidence
-against the decision in full.
-
-**What the paragraph below described, until that day:** All six of the original ones were closed in one sitting on 2026-09-02 —
-four answered, two deferred with a stated reason. **Q7, Q8 and Q9 were raised on 2026-09-06 by the
-planning of stages 6 and 7** — who the primary persona is, what the main job is, and which specified
-features close no evidenced job. **Q10, Q11 and Q12 were raised on 2026-09-07 by the first
-practitioner interview** — precedence between a user's own rule and an external requirement such as a
-client's linter; the roughly half of a working setup that was never written down; and whether the
-wanted thing is **observability of what ran** rather than validation that a set coheres. All three
-stand on one person. They are not answered now: the protocol batches them into one
-sitting once both stages are in. ~~**Both stages are now in (2026-09-09) and the sitting is still
-owed**~~ — **held 2026-09-15, see above** — with
-**four proposal lists** as its input (stage 6's nine, stage 7's nine, round 3's six, and round 4's two
-movements) and **Q9 the only entry that gained evidence**, which says what the public shelf should
-hold rather than whether it ships. Q5 was **re-pointed rather than re-opened** — its instrument is now
-named. Their dispositions are below; the reasoning, and what was read before
-each, is in section 3 of [`01-research/FINAL.md`](01-research/FINAL.md).
-
-**Closed, and recorded here because the answers are part of the spec.**
-
-- ~~Competitors and references to position against~~ — surveyed. 15 companies, 12 flows, ~70 captures,
-  two issue trackers and the source of the nearest dead competitor, in [`research/`](01-research/), one
-  folder per stage. Start at [`01-research/FINAL.md`](01-research/FINAL.md).
-- ~~Visual direction and tone~~ — still not chosen, but no longer a question *here*: it is the first
-  task of **lesson 06, concept** — tone of voice is its own lesson, 05 — with its reference material already gathered in
-  `01-research/2-flows/10-dark-design-language/`.
-- ~~Does `visibility` appear in the MVP interface~~ — no. Section 9.
-- ~~Does anything read `version`~~ — the field is gone; external references are pinned instead.
-  Sections 5 and 9.
-- ~~What per-item trust signal do we ship~~ — usage facts from the library, never a score. Section 5.
-- ~~Does the validation pass block, or grade?~~ — neither. Three severities, and export is never
-  disabled; an unclean set is confirmed rather than refused. Section 6.
-
-**Closed on 2026-09-02, in the sitting that signed the research phase off.**
-
-- ~~Cold start: demo problem or product decision? (Q1)~~ — a product decision. A **read-only public
-  library ships with the application** behind a scope switch beside `My library`, plus one example
-  project carrying a real Problem and a real Note. Sections 8 and 11.
-- ~~How much weight does `SETUP.md` carry? (Q2)~~ — more than one line, and the recipient changed:
-  it is **written for the agent that opens the project**, which reads it and performs the setup. No
-  verify script in the MVP. Section 6.
-- ~~Can a project contain another project? (Q3)~~ — not in the MVP. **Deferred rather than refused**,
-  because of recursion; decide the depth rule before ever building it. Section 9.
-- ~~Can a detached item be promoted back into the library? (Q4)~~ — yes, **as a new item**, with the
-  row re-linking to it. And it drags a feature in with it: **a detached item is edited inside the
-  project**, without which detach is only unlink. Sections 5, 7 and 8.
-- ~~Loss or reassembly cost — which drives adoption? (Q5)~~ — **deferred, accepted risk.** No
-  instrument here can answer it. The trigger is written down: ask five practitioners before the first
-  feature that only pays off under one answer. Blocks positioning, not the build. **The instrument
-  became unavailable on 2026-09-09** — the disposition stands, and
-  [`01-research/research-plan.md`](01-research/research-plan.md) records what can be reached without it.
-- ~~Styling engine (Q6)~~ — ~~**deferred to lesson 08, design tokens**, decided on two built components.~~
-  **Answered 2026-10-29, Q45: no engine — plain CSS, by hand**, the files lesson 08 built. The criterion
-  (tokens and two real themes first-class, no utility classes in components) is met without one. Section 10.
+| ID | Decision | § |
+|---|---|---|
+| Q1 | Cold start is a product decision: a read-only public library and an example project ship | 8, 11 |
+| Q2 | `SETUP.md` is written for the agent that opens the archive; no verify script | 6 |
+| Q3 | No project inside a project in the MVP — deferred, depth rule first | 9 |
+| Q4 | A detached item is edited in the project and promoted as a new item | 5, 7 |
+| Q6 | Styling engine — answered by Q45 | 10 |
+| Q7 | The primary persona is the collector | 3 |
+| Q8 | The main job is *assemble a set that holds together*; §2 stands | 1, 2 |
+| Q10 | An external requirement beats the user's own rule, and the product says so — `defersTo` | 5, 6 |
+| Q12 | Observability of what ran — refused, a different product | 9 |
+| Q13 | Sharing a project or an item by link is in the MVP | 5, 6, 8, 9 |
+| Q14 | A library panel inside Project; the Library leaves the assembly path | 8 |
+| Q15 | A single item exports on its own, the walk still running; Notes are per item, Problems per `requires` | 6 |
+| Q16 | An empty project: the one control into Run is inert — the only exception | 6, 8 |
+| Q17 | Deleting an item is confirmed, never refused | 5 |
+| Q18 | Library JSON export/import ships; its warrant is that the user can leave | 10 |
+| Q19 | The shelf is built in full and designed only as far as the example needs | 11 |
+| Q20 | The shared surfaces get the most conservative treatment | 8 |
+| Q21 | Edit, Reset and Promote of a detached row live in the configuring mode | 7 |
+| Q22 | Usage facts carry their ceiling: *is it used*, never *is it any good* | 5 |
+| Q23 | `SJ-2` stays out; it will return as `H-J6` | 9 |
+| Q24 | The product is online: a backend and accounts; teams stay out | 2, 9, 10 |
+| Q25 | Sign-in built to the minimum; six places; no account surface | 8, 9 |
+| Q26 | The product never shows a verdict state it is not sure of | 5 |
+| Q27 | A person is never left in front of a library they cannot account for | 10 |
+| Q28 | A generated disclosure that could not be produced says so | 6 |
+| Q29 | `Public library` is a third global entry | 8 |
+| Q30 | Projects: cards, search and one `Filters` button | 8 |
+| Q31, Q32 | Folder items and no source switch — in the interface only | 5 |
+| Q33 | Configuring: left sidebar panel, item side panel with `Detach`, nested auto-added rows, a draft kept by `Save` | 8 |
+| Q34 | Remove a Problem's item from Run, re-check by itself; a new project opens configuring; Delete example is active | 8 |
+| Q35 | Independent critique of lesson 04, 23 defects fixed: the door gains Create account and Reset password; a dead shared link keeps no action; **every page the prototypes drew first is kept into the wireframes**; Delete item is drawn; `db-migrate` requires `seed-data`, one direction everywhere. The choices were proposed with the fix, not picked by the owner | 8, 9 |
+| Q36, Q38 | The main control reads `Export`, no ellipsis | 6, 14 |
+| Q37, Q42 | A shared project and a shared item read as shared | 5, 8 |
+| Q39 | The receiver's Run keeps two bars | 8 |
+| Q40 | A single item's Run keeps every Skipped stage on its own row | 6 |
+| Q41 | Both items of a declared conflict read as state 4 | 7 |
+| Q43 | The link of a shared thing can be had again, in one link dialog | 5 |
+| Q44 | Token decisions of lesson 08 (splits, roles, recipes, one generator) | 17 |
+| Q45 | No styling engine, plain CSS | 10 |
+| Q46, Q47 | Primitive names: 50-step grades, one scale per theme; Tailwind v4 / Primer namespaces | 17 |
+| Q48 | Lesson 09 opened; the package at `design-system/`; docs replace `kit.html` | 13, 17 |
+| Q49, Q50 | States signed; light disabled ground `#ECEDE6`; the showcase on Vercel | 17 |
+| Q51 | Lesson 09 closed | 1 |
 
 ---
 
 ## 13. Working agreements
 
 - Docs, code and UI copy in English. Conversation with the user may be in Russian.
-- Research stages 1–5 are signed off (2026-09-02). **Stages 6 and 7 — personas and jobs to be done —
-  were added on 2026-09-06 and are lesson 02.** **Lesson 03, information architecture, ran from 2026-09-15
-  to 2026-09-20 and is closed; lesson 04, prototyping and wireframing, ran from 2026-09-26 to 2026-09-27
-  and is closed; lesson 05, tone of voice and microcopy, ran from 2026-10-01 to 2026-10-05 and is
-  closed; lesson 06, concept, ran from 2026-10-05 to 2026-10-11 and is closed; lesson 07, UI assembly, ran from 2026-10-11 to
-  2026-10-28 and is closed; lesson 08, design tokens, ran from 2026-10-28 to 2026-11-03 and is closed; lesson 09,
-  design system, ran on 2026-11-03 and is closed; lesson 10, responsive, is next and not yet opened.**
-  Every value comes from `design-system/tokens.css` (since lesson 08, moved there in lesson 09; `06-concept/tokens.css` is the same source,
-  written flat for the stand), never from a page (§15, §17), and do not
-  scaffold the app before there is something for it to hold.
-- **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** (from
-  2026-09-20). It is **gitignored** and it holds the day-by-day: what was tried, what was wrong for a
-  day, which regressions were caught, and the order things happened in. **It is closed on the day the
-  lesson is, not deleted** — lesson 03's is
-  [`03-information-architecture/PROGRESS-03.local.md`](03-information-architecture/PROGRESS-03.local.md).
-  **Nothing in one is a source of truth**, and nothing durable may live only there: decisions go to the
-  register, and what they change goes here.
-  *The reason is lesson 03. It renumbered its own plan mid-flight, voided one of its own answers within
-  hours of writing it, and caught three regressions it had introduced that morning. None of that belongs
-  in a specification and all of it was worth being able to read back.*
-- **The repo is one folder per lesson, numbered as the course numbers them** (reorganised 2026-10-01):
-  `01-research/` · `02-personas-jtbd/` · `03-information-architecture/` · `04-wireframes/` ·
-  `05-tone-of-voice/` · `06-concept/` · `07-ui-assembly/` · `08-design-tokens/` · `09-design-system/`, each indexed by its own `README.md`.
-  **One named exception (Q48): `design-system/` at the root is the system's package, not a lesson's record** — lessons
-  10–12 grow it and the app consumes it, so no lesson number goes into its paths. It was created on 2026-11-03, lesson 09, step 1. **The register stays in
-  `01-research/research-plan.md`** — it was born there and every lesson writes to it. Generators —
-  the lesson pages and the prototypes — live in `tools/`; **nothing that builds something lives only in
-  a scratchpad.** The deploy is `vercel.json` plus `.vercelignore`, a whitelist: a new page is not
-  served until it is listed there, and a moved page needs a redirect from its old address.
-- **The phase pages have their own look, and it is not the product's**: [`DESIGN-artifacts.md`](DESIGN-artifacts.md)
-  (2026-10-11) records the paper ground, the orange accent and the page anatomy every phase page
-  shares. **It is deliberately not named `DESIGN.md`**, so no tool reads it as the product's design.
-- This file is the single source of truth for the product. The original brief has been
-  folded into it and deleted; there is no other spec to reconcile against.
+- **Lessons open and close on the owner's word**, one at a time, in the course's order (§1).
+- **Every value comes from `design-system/tokens.css`**, never from a page (§15, §17). `06-concept/tokens.css` is
+  the same source, written flat for the stand.
+- **Do not scaffold the app before there is something for it to hold.**
+- **The repo is one folder per lesson, numbered as the course numbers them**: `01-research/` · `02-personas-jtbd/`
+  · `03-information-architecture/` · `04-wireframes/` · `05-tone-of-voice/` · `06-concept/` · `07-ui-assembly/` ·
+  `08-design-tokens/` · `09-design-system/`, each indexed by its own `README.md`.
+  - **One named exception (Q48): `design-system/` at the root** is the system's package, not a lesson's record —
+    lessons 10–12 grow it and the app consumes it, so no lesson number goes into its paths.
+  - **The register stays in `01-research/research-plan.md`** — every lesson writes to it.
+  - **Generators** — the lesson pages, the prototypes, the mockups, the system — **live in `tools/`**; nothing
+    that builds something lives only in a scratchpad.
+  - **The deploy is `vercel.json` plus `.vercelignore`, a whitelist**: a new page is not served until it is listed
+    there, and a moved page needs a redirect from its old address.
+- **Every lesson keeps one scratch file, `PROGRESS-NN.local.md`, in its own folder** — gitignored, the
+  day-by-day: what was tried, what was wrong for a day, which regressions were caught. **It is closed on the day
+  the lesson is, not deleted. Nothing in one is a source of truth**, and nothing durable may live only there:
+  decisions go to the register, and what they change goes here.
+- **The phase pages have their own look, not the product's**: [`DESIGN-artifacts.md`](DESIGN-artifacts.md) — the
+  paper ground, the orange accent, the page anatomy. **It is deliberately not named `DESIGN.md`**, so no tool
+  reads it as the product's design. The product's is [`DESIGN.md`](DESIGN.md).
+- **This file is the single source of truth for the product.** The original brief was folded into it and deleted;
+  there is no other spec to reconcile against. Write it in the present tense; history goes to the register and to
+  git, not here.
 
 ---
 
 ## 14. Voice
 
-**Added 2026-10-05, when lesson 05 closed.** The product speaks by one contract,
-[`05-tone-of-voice/voice.md`](05-tone-of-voice/voice.md), and every line it says is in one table,
-[`05-tone-of-voice/microcopy.md`](05-tone-of-voice/microcopy.md). **Any new line on any screen is
-written against the first and recorded in the second**, and the second is the source of truth: *a
-line on a screen and not in the table, or the reverse, is a defect.* `voice.md` extends §4 and does
-not compete with it.
+The product speaks by one contract, [`05-tone-of-voice/voice.md`](05-tone-of-voice/voice.md), and every line it
+says is in one table, [`05-tone-of-voice/microcopy.md`](05-tone-of-voice/microcopy.md). **Any new line on any
+screen is written against the first and recorded in the second**, and the second is the source of truth: *a line
+on a screen and not in the table, or the reverse, is a defect.* `voice.md` extends §4 and does not compete with
+it.
 
 **The five principles, each a rule rather than an adjective:**
 
-1. **Say what was examined, never what it means.** It is an inspector's report, not a seller's badge.
-   This is *checked, never works* (§6), extended to every verdict line.
-2. **Name the consequence, in the reader's terms, before the step.** No *Are you sure?*, no blocking
-   words. Nothing blocks (§6).
-3. **Say what we did and what we did not, and own our own failures.** Our failures read *Our server
-   didn't answer*, and the keys reminder says it is a reminder (§11).
-4. **Counts and names, not adjectives.** No score, rating or badge (§5). The count you can act on,
-   never only *none*.
-5. **Write for whoever acts next.** The owner, the receiver and the agent reading `SETUP.md` are three
-   readers. *The receiving machine* for the owner and *your machine* for the receiver is a variant
-   kept on purpose.
+1. **Say what was examined, never what it means.** An inspector's report, not a seller's badge — *checked, never
+   works* (§6) extended to every verdict line.
+2. **Name the consequence, in the reader's terms, before the step.** No *Are you sure?*, no blocking words.
+3. **Say what we did and what we did not, and own our own failures.** Our failures read *Our server didn't
+   answer*; the keys reminder says it is a reminder (§11).
+4. **Counts and names, not adjectives.** No score, rating or badge (§5). The count you can act on, never only
+   *none*.
+5. **Write for whoever acts next.** The owner, the receiver and the agent reading `SETUP.md` are three readers.
+   *The receiving machine* for the owner and *your machine* for the receiver is a variant kept on purpose.
 
-**The words that are fixed.** The person is *you*. Buttons are imperative. The product says *we* only
-about its own acts. *my* appears only inside the name **`My library`**, never a bare *library*, and
-the other place is **`Public library`**, never *the shelf*. A project is a **project**, not *a set*;
-*Stack* stays informal and off the screen. A required item is **auto-added**, a project's own copy
-is **detached** from **the original**, and the archive is **exported** (`Export` opens the mode, Q36 and Q38;
-*Exported — x.zip*). The full list, with *not* and *why* for each entry, is `voice.md`'s
-*Dictionary*. The *Forbidden* list holds clichés, cheer, motivational and selling copy,
+**The words that are fixed.** The person is *you*. Buttons are imperative. The product says *we* only about its
+own acts. *my* appears only inside the name **`My library`**, never a bare *library*; the other place is
+**`Public library`**, never *the shelf*. A project is a **project**, not *a set*; *Stack* stays off the screen. A
+required item is **auto-added**, a project's own copy is **detached** from **the original**, and the archive is
+**exported** (`Export` opens the mode; *Exported — x.zip*). The full list, with *not* and *why* for each entry,
+is `voice.md`'s *Dictionary*. The *Forbidden* list holds clichés, cheer, motivational and selling copy,
 *successfully*, exclamation marks, emoji in system messages, *Are you sure?* and internal ids.
 
-**The lesson's page is [`voice.html`](05-tone-of-voice/voice.html)**, built by `tools/build_voice.py` from `voice.md` and `microcopy.md`, like phases 01–03.
-
-**How it was applied.** All 80 wireframe pages were rewritten **text only** in lesson 05: 315 of
-1,472 table rows changed. Four markup fixes were approved in step 7: a stray link removed, error-code
-lines added, and the *Shared* state drawn (Q37). The 239 prototype pages were rebuilt from them.
-**The tools are in `tools/`**: `extract_copy.py` reads every line off the pages,
-`build_microcopy.py` builds the table, and `rewrite_copy.py` applies a rewrite with exact
-occurrence counts. When copy changes, change the page and the table together, and rebuild the
-prototypes.
+**When copy changes, change the page and the table together, and rebuild the prototypes.** The tools are in
+`tools/`: `extract_copy.py` reads every line off the pages, `build_microcopy.py` builds the table,
+`rewrite_copy.py` applies a rewrite with exact occurrence counts (Q38 was applied this way, by its `stage7`).
+The lesson's page, [`voice.html`](05-tone-of-voice/voice.html), is built by `tools/build_voice.py`.
 
 ---
 
 ## 15. Concept
 
-**Added 2026-10-11, when lesson 06’s seven stages were done.** The product looks one way, **Mica · Lime**, and it is
-written down in three places that must agree: [`06-concept/concept.md`](06-concept/concept.md) holds **every decision
-and its reason** (the *Working style* table, and the four rounds of directions that led to it), [`06-concept/tokens.css`](06-concept/tokens.css)
-holds **every value**, and [`06-concept/concept.html`](06-concept/concept.html) is **the stand** that shows them.
-**`tokens.css` is generated** by `tools/concept_tokens.py`; **no page holds a value of its own** —
-`python tools/concept_ui.py --check` and the mockup build refuse a literal colour, px size or font name.
+The product looks one way, **Mica · Lime**, written down in three places that must agree:
+[`06-concept/concept.md`](06-concept/concept.md) holds **every decision and its reason**,
+[`design-system/tokens.css`](design-system/tokens.css) holds **every value** (`06-concept/tokens.css` is the same
+values, flat, for [the stand](06-concept/concept.html)), and the stand shows them. Both `tokens.css` files are
+generated by `tools/concept_tokens.py`; **no page holds a value of its own** — `python tools/concept_ui.py --check`
+and the mockup build refuse a literal colour, px size or font name.
 
 **The style in one paragraph.** A neutral **Mica** ground with a faint lime tint, quiet layers, hairlines before
 shadows. **Lime `#C6EF5A`** is the only colour that invites an action — the primary button, the current place, the
-active row’s pill — and **never a verdict**. Findings are tinted **tags**: Problem `#FF8F98`, Note `#F2C661`; **Checked is
-a quiet dot, there is no success colour** (§6, D1-B). Red `--danger` only removes; amber `--warning` only goes ahead
-despite a Problem. Glass (acrylic) **only around a mode or a dialog**, text always on an opaque sheet. **Geist** and
-**Geist Mono**, **Lucide** icons, a 4 px spacing scale, radii 6 · 10 · 14 · 18, density between Default and
-Comfortable. Every item in its own **cut-out**; no rings round rows.
+active row's pill — and **never a verdict**. Findings are tinted **tags**: Problem `#FF8F98`, Note `#F2C661`;
+**Checked is a quiet dot, there is no success colour** (§6). Red `--danger` only removes; amber `--warning` only
+goes ahead despite a Problem. Glass (acrylic) **only around a mode or a dialog**, text always on an opaque sheet.
+**Geist** and **Geist Mono**, **Lucide** icons, a 4 px spacing scale, radii 6 · 10 · 14 · 18, density between
+Default and Comfortable. Every item in its own **cut-out**; no rings round rows.
 
-**The rules that came out of it, and hold from now on:**
-- **Colour is a claim.** A new colour needs an attribute or the owner’s word in `concept.md`, and its contrast in
-  `06-concept/contrast.md`, which `tools/contrast.py` measures on `tokens.css` as written. AA for text, 3:1 for a control’s
-  edge or a state mark. **120 pairs, 60 per theme, all pass** (88 until phase 07's review added the pairs the kit draws).
+**The rules:**
+
+- **Colour is a claim.** A new colour needs an attribute or the owner's word in `concept.md`, and its contrast in
+  `06-concept/contrast.md`, measured by `tools/contrast.py` on `tokens.css` as written: AA for text, 3:1 for a control's edge or a state
+  mark. Every pair passes in both themes.
 - **One element, one set of values**, by class, never by where it sits.
 - **A screen is drawn whole**: every state, or none.
-- **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with the same
-  markup and words; the viewer, *Wireframes and mockups*, switches between them. ~~Only the main job is drawn so far.~~ **Since 2026-10-19 all 83 pages (80, plus `library-my-revoke` from Q42 and the two link dialogs from Q43) and all 241 flow steps are
-  dressed** ~~from one stylesheet, `07-ui-assembly/ui/kit.css`~~ — since lesson 08 from `design-system/tokens.css` and
-  `components/` (§17) — guarded by `tools/kit_check.py`. The rule for where a change goes is §16 and the *оставляем* rule below.
-- **Copy still changes in one place** (§14): `Export` lost its ellipsis by `tools/rewrite_copy.py stage7`, on the pages,
-  the prototypes, `microcopy.md` and `voice.md` together (Q38).
-- **"Оставляем" on a visual change means the system, not the screen** (owner, 2026-10-19, lesson 07; re-routed
-  2026-10-28, lesson 08, when `kit.css` split in two; **re-routed into `design-system/` on 2026-11-03, lesson 09, step
-  5**). When the owner says *оставляем* (*we keep it*) about a visual edit, it is §18 said in one word, and it goes
-  where §18's table sends it, by what changed:
-  - **a value** goes into its token, at its level, in
-    [`design-system/tokens.css`](design-system/tokens.css), through `tools/concept_tokens.py`, signed in
-    `concept.md`. A raw value goes in **PRIMITIVE**. What a colour is for goes in **SEMANTIC**, with a value in every
-    theme. It never goes into a component, and a component never reads a colour primitive;
-  - **a change to a component** goes into its file in `design-system/components/` (through `MOCK_CSS` or `KIT_CSS` and
-    `tools/build_components.py`, signed in [`DESIGN.md`](DESIGN.md)) **and its docs page together**: its specimen and
-    states in `tools/build_kit.py`, its words in `tools/docs_content.py`. A component changed and its page not is a
-    desync;
-  - **a new composition** goes into `design-system/patterns/`, through `tools/build_patterns.py`, once it stands on
-    three screens; on fewer it stays a composition of components on its screens;
-  - **markup** goes into the component's specimen and onto **every screen where the component stands**, through the
-    wireframe page and the generators.
+- **The wireframes stay.** Mockups are generated twins (`tools/build_mockups.py` → `04-wireframes/mockups/`) with
+  the same markup and words; the viewer switches between Wireframe and Design (§16).
+- **Copy still changes in one place** (§14).
+- **"Оставляем" on a visual change means the system, not the screen.** When the owner says *оставляем* (*we keep
+  it*) about a visual edit, it is §18 in one word: the change goes where §18's table sends it — a value to its
+  token, a component to `components/` and its docs page together, a new composition to `patterns/`, markup to the
+  component's specimen and every screen where it stands. **A fix on one screen is a desync**, and so is a theme
+  fixed in a component.
 
-  **A fix on one screen is a desync**, and so is a theme fixed in a component. Everything is generated by
-  `tools/build_mockups.py`, so the change goes into the generators, never by hand into a generated file.
-
-**Left on purpose:** ~~light is one slice on the stand~~ light works on every screen as a stress test since lesson 08
-(§17), and the full theme with its unsigned gaps is lesson 09; responsive is lesson 10; motion (the validation pass as a
-designed moment) is lesson 11.
+**Left on purpose:** whether light ships (Q44, §17); responsive (lesson 10); motion — the validation pass as a
+designed moment (lesson 11).
 
 ---
 
 ## 16. UI assembly
 
-**Added 2026-10-19, lesson 07 (Сборка UI); the lesson closed on 2026-10-28.** Every screen of the product is dressed in Mica · Lime as a **generated
-twin of its wireframe**: all 83 pages in [`04-wireframes/mockups/`](04-wireframes/mockups/), and all 241 steps of the 37
-clickable cases in `mockups/flows/`. The wireframes stay as they are, and the viewer's **Wireframe / Design** switch moves
-between the two. The plan, the pipeline and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
+Every screen of the product is dressed in Mica · Lime as a **generated twin of its wireframe**: every page in
+[`04-wireframes/mockups/`](04-wireframes/mockups/) and every step of the clickable cases in `mockups/flows/`. The
+wireframes stay as they are, and the viewer's **Wireframe / Design** switch moves between the two. The pipeline
+and the guards are in [`07-ui-assembly/README.md`](07-ui-assembly/README.md).
 
-**One way in, so nothing drifts:**
-- **A value** goes into `tools/concept_tokens.py` → [`design-system/tokens.css`](design-system/tokens.css), at its
-  level, signed in `concept.md` (§17). *Until lesson 08: `06-concept/tokens.css`, which is still written, flat, for the stand.*
-- **How a component looks** goes into `tools/build_kit.py` (KIT_CSS) or `tools/build_mockups.py` (MOCK_CSS)
-  → `tools/build_components.py` → [`design-system/components/`](design-system/components/), shown on
-  [the docs](design-system/docs/components.html) and signed in [`DESIGN.md`](DESIGN.md). *Until lesson 08: one flat
-  `kit.css`; until lesson 09, step 7, shown on `kit.html`, which is now a redirect to the docs (D2).*
-- **What a component's docs page says** — its anatomy, when to use it, its rule and anti-rule — goes into
-  `tools/docs_content.py`; `tools/build_docs.py` writes [`design-system/docs/`](design-system/docs/index.html) from it
-  and from the kit's own specimens (since lesson 09, step 2).
-- **A composition** that stands on three screens or more goes into `tools/build_patterns.py` as a pattern — a
-  signature, the page it is cut from, its components — and lands in `design-system/patterns/` (since lesson 09, step 4).
-  A composition on fewer than three screens is not a pattern; the build refuses it.
-- **Structure** goes into the wireframe page, then everything is rebuilt.
-- **A word** goes into `microcopy.md` and the page together (§14).
-- **A tone the structure cannot carry** goes into `build_mockups.transform`. That covers danger, warning, the one
-  primary, state classes, the shell, mono for machine text, the state tile, and hidden section headings.
-- **A mockup is never edited by hand**, because the next build overwrites it. The *оставляем* rule in §15 is this
-  table's second row.
-- **Since lesson 09 the order is fixed too**: the system first, the screen second. §18 holds the rule and where each
-  new thing enters.
+**One way in for each kind of change, so nothing drifts:**
 
-**The guards** are `tools/kit_check.py`. They run at the end of every build and fail it on any of these (re-pointed in
-lesson 08 from `kit.css` to the two files that replaced it, §17):
-- a literal value in a component;
-- a `style=` or `<style>` on a screen;
-- a class no component defines;
+- **A value** → `tools/concept_tokens.py` → [`design-system/tokens.css`](design-system/tokens.css), at its level,
+  signed in `concept.md` (§17).
+- **How a component looks** → `KIT_CSS` in `tools/build_kit.py` or `MOCK_CSS` in `tools/build_mockups.py` →
+  `tools/build_components.py` → [`design-system/components/`](design-system/components/), shown on
+  [the docs](design-system/docs/components.html), signed in [`DESIGN.md`](DESIGN.md).
+- **What a component's docs page says** — anatomy, when to use, rule, anti-rule → `tools/docs_content.py`;
+  `tools/build_docs.py` writes [`design-system/docs/`](design-system/docs/index.html) from it and from the kit's
+  specimens. (`kit.html` is retired to a redirect to the docs.)
+- **A composition on three screens or more** → `tools/build_patterns.py` → `design-system/patterns/`. Fewer than
+  three is not a pattern; the build refuses it.
+- **Structure** → the wireframe page, then rebuild everything.
+- **A word** → `microcopy.md` and the page together (§14).
+- **A tone the structure cannot carry** → `build_mockups.transform`: danger, warning, the one primary, state
+  classes, the shell, mono for machine text, the state tile, hidden section headings.
+- **A mockup is never edited by hand** — the next build overwrites it.
+- **The order is fixed: the system first, the screen second** (§18).
+
+**The guards** are `tools/kit_check.py`, run at the end of every build; a failure names its guard and points to
+§18. They refuse:
+
+- a literal value in a component; geometry written as a count of a primitive;
+- a `style=` or `<style>` on a screen; a class no component defines;
 - a variable `tokens.css` does not declare, including in the shell's and the docs' own styles;
-- a colour primitive read by a component (lesson 08);
-- a page linking anything but `design-system/index.css` (since lesson 09; two files in lesson 08), `kit.css` coming back,
-  or `tokens.css` and `components/` back in `08-design-tokens/`;
+- a colour primitive read by a component;
+- a page linking anything but `design-system/index.css`; `kit.css` coming back; `tokens.css` or `components/` back
+  in `08-design-tokens/`;
 - two primaries on one screen;
-- a word in a docs specimen that is not in `microcopy.md` (on `kit.html` until it retired);
-- geometry written as a count of a primitive (lesson 08);
-- a component of the kit with no docs page, or a docs page linking anything but `design-system/index.css` or reading a
-  colour primitive (lesson 09, guard 11);
-- a pattern on fewer than three screens, or with a style or a class of its own (lesson 09, guard 12);
-- an example screen with a style or a class of its own, or not labelled *Example* (lesson 09, guard 13);
-- a bare `.callout` that is not a Problem: a tone is a class, never a guess from the words (guard 14);
-- a class in `components/` that no docs page shows, a token with no row on `docs/tokens.html` (guards 15, 16);
-- in a browser, a component that looks different on its docs page and on a screen, or a link in a meta line told by
-  colour alone (guard 17). The instrument behind 15–17 is `tools/system_check.py`, and the table it produced is
-  [`09-design-system/system-check.md`](09-design-system/system-check.md).
+- a word in a docs specimen that is not in `microcopy.md`;
+- a component with no docs page; a docs page linking anything but `index.css` or reading a colour primitive;
+- a pattern on fewer than three screens, or with a style or class of its own;
+- an example screen with a style or class of its own, or not labelled *Example*;
+- a bare `.callout` that is not a Problem — a tone is a class, never a guess from the words;
+- a class in `components/` that no docs page shows; a token with no row on `docs/tokens.html`;
+- in a browser, a component that looks different on its docs page and on a screen, or a meta-line link told by
+  colour alone (instrument: `tools/system_check.py`; record: [`09-design-system/system-check.md`](09-design-system/system-check.md)).
 
-**Three checks are re-runnable, beyond the build:**
-- `tools/kit_pixel_test.py`: goldens before a change, the same pages after;
-- `tools/audit07.py`: markup consistency per component, contrast measured in the browser on every text run, images and
-  icons, words against `microcopy.md`;
-- `tools/contrast.py`: 120 pairs, 60 per theme, all pass.
+**Re-runnable checks beyond the build:** `tools/kit_pixel_test.py` (goldens before a change, the same pages
+after); `tools/audit07.py` (markup consistency per component, contrast measured in the browser on every text run,
+images and icons, words against `microcopy.md`); `tools/contrast.py`.
 
-**What the phase decided, in brief:**
-- **One primary per screen**, settled by the build. Ranked from first to last: an open dialog's primary, a failure
-  box's, the Item sheet's, an empty or error state's, the page head's, the item panel's, the Export stage's.
+**Rules the assembly settled:**
+
+- **One primary per screen**, settled by the build, ranked: an open dialog's primary, a failure box's, the Item
+  sheet's, an empty or error state's, the page head's, the item panel's, the Export stage's.
 - **Our failure is neutral**, not Problem rose. So are the keys reminder and the blast radius.
 - **A disabled control takes focus and points at its reason.**
 - **Machine text is mono.**
 - **Every state is a class**, never a guess from content.
 
-**The record:**
-- [`ui/inventory.md`](07-ui-assembly/ui/inventory.md): 41 components, plus the one-offs that need a class;
-- [`ui/critique.md`](07-ui-assembly/ui/critique.md): 55 findings;
-- [`ui/review.md`](07-ui-assembly/ui/review.md): 76 findings;
-- [`ui/audit.md`](07-ui-assembly/ui/audit.md): the final check against the kit, DESIGN.md and microcopy.md.
-
-Each finding has a disposition. Q39–Q41 were answered by the owner.
-
-~~**Open:** whether a shared *item* reads *Stop sharing…*.~~ **Answered, Q42: it does** — and since Q43 (2026-10-23) `Stop
-sharing…` sits inside the link dialog that `Share…` opens, beside `Copy link`. **Left on purpose:** the light
-theme (lesson 09), responsive (lesson 10), motion (lesson 11).
+**The record** ([`07-ui-assembly/ui/`](07-ui-assembly/ui/)): [`inventory.md`](07-ui-assembly/ui/inventory.md),
+[`critique.md`](07-ui-assembly/ui/critique.md), [`review.md`](07-ui-assembly/ui/review.md),
+[`audit.md`](07-ui-assembly/ui/audit.md) — each finding with a disposition.
 
 ---
 
 ## 17. Tokens
 
-**Added 2026-10-28, lesson 08 (Design tokens).** The flat kit of lesson 07 was split in two **without a pixel
-moving**. `07-ui-assembly/ui/kit.css` is gone; git keeps it, last in `d6d419a`. Every screen, the showcase and the
-shell now link one file, **`design-system/index.css`** (since lesson 09, step 1, Q48; two files until then), which
-imports two things:
-- **[`design-system/tokens.css`](design-system/tokens.css)** holds the values, on two levels.
-- **[`design-system/components/`](design-system/components/)** holds one file per component (27), and
-  `index.css` imports them in the kit's order.
-
-The record of the lesson is in [`08-design-tokens/`](08-design-tokens/README.md):
-- [the audit](08-design-tokens/tokens-audit.md): every variable, where it is read, and the role in each place;
-- [the check](08-design-tokens/tokens-check.md): the defect table and the `/impeccable audit` findings, each with a
-  disposition.
+Every screen, the docs and the shell link one file, **`design-system/index.css`**, which imports
+[`design-system/tokens.css`](design-system/tokens.css) (the values, on two levels) and then
+[`design-system/components/index.css`](design-system/components/) (one file per component, in the kit's order).
+The record of how this was built is [`08-design-tokens/`](08-design-tokens/README.md):
+[the audit](08-design-tokens/tokens-audit.md) — every variable, where it is read, its role in each place — and
+[the check](08-design-tokens/tokens-check.md), each finding with a disposition. The flat kit it replaced,
+`07-ui-assembly/ui/kit.css`, is gone; git keeps it, last in `d6d419a`.
 
 **The two levels:**
-- **PRIMITIVE** says what a value is: colour, type, space, radius, size, motion, icons, with no roles.
-  - **Names take the namespaces of Tailwind v4 and Primer** (owner, 2026-10-29, Q47): `--color-*`, `--font-sans`,
-    `--font-mono`, `--font-weight-*`, `--typescale-*`, `--tracking-*`, `--space-*` (`--space-1` is 4 px, `--space-0-5`
-    2 px), `--radius-xs … --radius-full`, `--border-width-thin/thick`, `--size-*`, `--width-*`, `--measure*`,
-    `--offset-*`, `--inset-*`, `--z-*`, `--icon-*`, `--ease-out`, `--duration-*`.
-  - A colour is `--color-<hue>-<grade>`: **neutral** (Mica's greys — Mica is the style, not a hue), lime, rose, amber,
-    red. The grade is 50, 100, 150 … from the lightest of that hue, in OKLab order. `--color-neutral-600` is the dark
-    ground.
-  - **One scale per theme** (Q46): a value only light reads is `--color-neutral-light-50 …`. The tight layers do not
-    fit one 50–950 grid — 26 values against 19 steps. An alpha is `--color-neutral-a45`, `--color-black-a35`.
-  - `06-concept/tokens.css`, the stand's flat file, keeps phase 06's names; `RENAME08` in `tools/concept_tokens.py`
-    maps them, and `check08` reads the new file back through it, so every value is still checked against phase 07.
-    ~~The step was OKLab lightness × 1000, `--mica-776`~~ (D4, until Q46).
-- **SEMANTIC** says what a colour is for: `--ground`, `--action`, `--focus`, `--problem`.
-  - Every role is a `var()` to a primitive, and its comment names the uses in the audit it grew from.
-  - The washes, hovers and shadows are recipes over a role, so they follow it into any theme.
-  - **Two roles are two tokens even when their value is the same today**, which is the owner's approval A. So are
-    `--selected` and `--current`, and `--focus` and `--mark`. In light, `--mark` and `--action` already part.
 
-**The rules that hold from now on:**
+- **PRIMITIVE says what a value is** — colour, type, space, radius, size, motion, icons, with no roles.
+  - **Names follow Tailwind v4 and Primer** (Q47): `--color-*`, `--font-sans`, `--font-mono`, `--font-weight-*`,
+    `--typescale-*`, `--tracking-*`, `--space-*` (`--space-1` is 4 px, `--space-0-5` 2 px),
+    `--radius-xs … --radius-full`, `--border-width-thin/thick`, `--size-*`, `--width-*`, `--measure*`,
+    `--offset-*`, `--inset-*`, `--z-*`, `--icon-*`, `--ease-out`, `--duration-*`.
+  - **A colour is `--color-<hue>-<grade>`** (Q46): neutral (Mica's greys — Mica is the style, not a hue), lime,
+    rose, amber, red. The grade is 50, 100, 150 … from the lightest of that hue, in OKLab order.
+    `--color-neutral-600` is the dark ground. **One scale per theme**: a value only light reads is
+    `--color-neutral-light-50 …`. An alpha is `--color-neutral-a45`, `--color-black-a35`.
+  - `06-concept/tokens.css`, the stand's flat file, keeps phase 06's names; `RENAME08` in
+    `tools/concept_tokens.py` maps them, and `check08` reads the new file back through it.
+- **SEMANTIC says what a colour is for** — `--ground`, `--action`, `--focus`, `--problem`.
+  - Every role is a `var()` to a primitive, and its comment names the uses it grew from.
+  - Washes, hovers and shadows are recipes over a role, so they follow it into any theme.
+  - **Two roles are two tokens even when their value is the same today** (Q44): `--selected` and `--current`,
+    `--focus` and `--mark`. In light, `--mark` and `--action` already part.
+
+**The rules:**
+
 - **A component reads colour only through a role, and geometry straight from a primitive.** Geometry has no
   semantic level.
-- **No geometry is written as a count of a primitive** (`--space-12 * 3`). It gets a name, as `--offset-modal` did. The 34
-  skeleton sizes are kept on purpose: they are content, measured in the scale's unit.
+- **No geometry is written as a count of a primitive** (`--space-12 * 3`); it gets a name, as `--offset-modal`
+  did. The skeleton sizes are kept on purpose: they are content, measured in the scale's unit.
 - **A theme overrides semantic roles and nothing else.** `:root` is dark, the product (§3).
-  `[data-theme="light"]` is the stress test of this lesson. It is phase 06's signed slice, role by role, plus four
-  values with their reasons:
-  - the light glass and the lighter sheet shadow, on the owner's word;
-  - Deep Lime with a white tick for a checked control, because lime on white is 1.32:1.
-- ~~**Four roles still have no light value of their own**~~ **Signed 2026-11-03 (Q49)**: `--sheet-edge` is the light
-  hairline, and the Remove Red family keeps its dark values. No role is without a light value.
-- **States** (lesson 09, Q49): pressed is one recipe per ground (`--*-active`, in the recipes block, so in both themes);
-  focus is `--focus`/`--shadow-focus`, 3:1 on every ground in both themes; disabled is the three roles, never an
-  opacity, and in light its ground is `#ECEDE6`, recessed under the ground (Q50). **No state moves or resizes anything.** `[data-theme="dark"]` repeats the dark roles so a dark subtree can
-  stand inside a light page.
+  `[data-theme="light"]` is phase 06's signed slice, role by role, plus values signed with their reasons: the
+  light glass and lighter sheet shadow; Deep Lime with a white tick for a checked control, because lime on white
+  is 1.32:1; `--sheet-edge` as the light hairline; the Remove Red family keeping its dark values (Q49). **Every
+  role has a light value.** `[data-theme="dark"]` repeats the dark roles so a dark subtree can stand inside a
+  light page.
+- **States** (Q49): pressed is one recipe per ground (`--*-active`, in the recipes block, so in both themes);
+  focus is `--focus` / `--shadow-focus`, 3:1 on every ground in both themes; disabled is its three roles, never an
+  opacity, and in light its ground is `#ECEDE6`, recessed under the ground (Q50). **No state moves or resizes
+  anything.**
 - **Whether light ships in the product is the owner's call** (Q44). Until then its switch lives in the viewer's
-  toolbar (*Dark · Light*, beside *Wireframe · Design*) and on the docs. It is not in the product's top bar.
+  toolbar (*Dark · Light*, beside *Wireframe · Design*) and on the docs — not in the product's top bar.
+- **The showcase is served from Vercel** (Q50), not GitHub Pages.
 
 **One generator per level, and each refuses what this section forbids:**
-- `tools/concept_tokens.py` writes both `tokens.css` files: phase 06's flat one for the stand, unchanged to the byte,
-  and this one. **It proves the refactor**:
-  - every role resolves to the value phase 07 used for it;
-  - no hex appears that was not in phase 06's file;
-  - every named geometry equals the `calc()` it replaced;
-  - the light block holds no primitive and no hex.
 
-  It writes **the contrast of 62 pairs into each theme block**. All 62 pass in each.
-- `tools/build_components.py` writes `components/`:
-  - every rule goes to its component's file, in order;
-  - every phase-07 colour becomes the role its selector names;
-  - it checks in a browser, on every page, that no reordering between files lets one rule override another.
-- `tools/kit_check.py`, at the end of every build, carries ten guards. **New in this lesson**:
-  - 5: no colour primitive in a component;
-  - 6: one link (two in lesson 08), `design-system/index.css` imports `tokens.css` then `components/index.css`,
-    which imports every file, and neither `kit.css` nor the old home in `08-design-tokens/` returns;
-  - 10: no geometry written as a count.
+- `tools/concept_tokens.py` writes both `tokens.css` files and proves them: every role resolves to the value it
+  had before; no hex appears that was not in phase 06's file; every named geometry equals the `calc()` it
+  replaced; the light block holds no primitive and no hex; every role has a value in every theme. It writes the
+  contrast of every pair into each theme block, and all pass.
+- `tools/build_components.py` writes `components/`: every rule to its component's file, in order; every colour as
+  the role its selector names; and a browser check on every page that no reordering between files lets one rule
+  override another.
+- `tools/kit_check.py` runs the guards (§16).
 
 ---
 
 ## 18. Contributing to the system
 
-**Added 2026-11-03, lesson 09, step 5.** Read this before adding anything a screen will show. **It is written here so
-the next person or session reads the rule from the repo, not from a chat.** The same rule is in
-[`DESIGN.md`](DESIGN.md), *Contributing to the system*, and every guard that refuses a change points back here.
+Read this before adding anything a screen will show. The same rule is in [`DESIGN.md`](DESIGN.md), *Contributing
+to the system*, and every guard that refuses a change points back here.
 
 **The rule is one: new appears in [`design-system/`](design-system/README.md) first, and on a screen second, never
 the other way round.** A screen takes only what the system already has: its components' classes, its patterns, its
-tokens. When a screen needs something the system lacks, **the work stops on the screen and moves to the system**. The
-screen is drawn after, from what the system now holds. A thing first grown on a screen and then collected into the
-system is the order this section forbids, even when the result looks the same: by then two screens disagree.
+tokens. When a screen needs something the system lacks, **the work stops on the screen and moves to the system**,
+and the screen is drawn after, from what the system now holds. A thing grown on a screen first and collected into
+the system later is the order this section forbids, even when the result looks the same: by then two screens
+disagree.
 
 **Where each new thing enters:**
 
@@ -1996,26 +1254,28 @@ system is the order this section forbids, even when the result looks the same: b
 | **a screen** | `04-wireframes/pages/`, then rebuilt into its dressed twin | `tools/build_mockups.py` | only classes, patterns and tokens the system already has; its words in `microcopy.md` (§14) | guards 2, 3, 6, 7, 8 |
 
 **Never, anywhere:** a `style=` or a `<style>` on a screen (guard 2); a class of a screen's own (guard 3); a value
-written inside a component (guard 1); a component reading a colour primitive (guard 5); a role with a value in one theme
-only; a state that moves a thing or changes its size; **a generated file edited by hand**. Every file in
+written inside a component (guard 1); a component reading a colour primitive (guard 5); a role with a value in one
+theme only; a state that moves a thing or changes its size; **a generated file edited by hand** — every file in
 `design-system/` and every dressed screen is generated, and the next build overwrites the edit.
 
-**What the system lacks is written down, not drawn.** `design-system/examples/` holds screens built from the system
-alone to find exactly this (lesson 09, step 6). If a screen needs something the system does not have and it
-cannot enter now — a value nobody has signed, a component nobody has decided — it goes to
+**What the system lacks is written down, not drawn.** `design-system/examples/` holds screens built from the
+system alone to find exactly this — [`usage.html`](design-system/examples/usage.html) for EJ-3 and
+[`copies.html`](design-system/examples/copies.html) for RJ-3. If a screen needs something the system does not have and it cannot enter now —
+a value nobody has signed, a component nobody has decided — it goes to
 [`design-system/backlog.md`](design-system/backlog.md), and the screen does without it or waits.
 
 **The order of one change:**
-1. **Look first.** The showcase, [`design-system/docs/`](design-system/docs/index.html), and
+
+1. **Look first**: the showcase, [`design-system/docs/`](design-system/docs/index.html), and
    [the patterns](design-system/docs/patterns.html). If it is there, use it as it is.
 2. **If it is not, add it to the system**, by the table above.
-3. **Build:** `python -X utf8 tools/build_mockups.py`. That one command rebuilds the tokens, the components, the
-   entry point, the docs, the patterns and every screen, then runs the guards. A failure names its guard and this
+3. **Build:** `python -X utf8 tools/build_mockups.py`. One command rebuilds the tokens, the components, the entry
+   point, the docs, the patterns and every screen, then runs the guards. A failure names its guard and this
    section.
 4. **Only then the screen.**
 5. **Sign:** a value in `concept.md`, a look in `DESIGN.md`, a product decision in the register (§12). **The model
-   proposes and the owner signs.** No colour value is written before its signature (§15, Q48), and that covers a
-   light value and a pressed value too.
+   proposes and the owner signs.** No colour value is written before its signature — a light value and a pressed
+   value included.
 
 **The *оставляем* rule (§15) is this section in one word**: a value goes to its token; a component goes to
 `components/` and its docs page together; a new composition goes to `patterns/`.
